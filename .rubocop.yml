@@ -2,8 +2,7 @@ AllCops:
   Excludes:
     - bin/**
     - config/**
-    - db/schema.rb
-    - db/seeds.rb
+    - db/**
 
 StringLiterals:
   EnforcedStyle: double_quotes
