@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  scope "/:locale" do
+    devise_for :users
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  end
+
+  get "/:locale" => "dashboards#index"
+
+  root to: "dashboards#index"
 end
