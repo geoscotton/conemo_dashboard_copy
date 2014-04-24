@@ -1,8 +1,15 @@
+# Study Participant
 class Participant < ActiveRecord::Base
-  belongs_to :nurse, class_name: 'User', foreign_key: :nurse_id
-  validates :first_name, 
-            :last_name, 
-            :study_identifier, 
+  belongs_to :nurse, class_name: "User", foreign_key: :nurse_id
+  has_one :first_contact,
+          :first_appointment,
+          :second_contact,
+          :smartphone
+  has_many :reminder_messages
+
+  validates :first_name,
+            :last_name,
+            :study_identifier,
             :family_health_unit_name,
             :family_record_number,
             :phone,
@@ -11,11 +18,11 @@ class Participant < ActiveRecord::Base
             presence: true
 
   enum status: [:pending, :active, :ineligible]
-  
+
   def status_enum
     ["pending", "active", "ineligible"]
   end
-  
+
   enum gender: [:male, :female]
 
   def gender_enum

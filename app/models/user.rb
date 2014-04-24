@@ -1,4 +1,4 @@
-# An authenticatable person who uses the site.
+# An authenticatable person who uses the site, is a Nurse or Researcher
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -6,10 +6,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :participants, foreign_key: :nurse_id
+  has_many :reminder_messages, foreign_key: :nurse_id
 
   validates :phone, presence: true
 
-  ROLES = %w[admin nurse]
+  ROLES = ["admin", "nurse"]
 
   def role_enum
     ["admin", "nurse"]
