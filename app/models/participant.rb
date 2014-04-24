@@ -1,10 +1,10 @@
 # Study Participant
 class Participant < ActiveRecord::Base
   belongs_to :nurse, class_name: "User", foreign_key: :nurse_id
-  has_one :first_contact,
-          :first_appointment,
-          :second_contact,
-          :smartphone
+  has_one :first_contact
+  has_one :first_appointment
+  has_one :second_contact
+  has_one :smartphone
   has_many :reminder_messages
 
   validates :first_name,
