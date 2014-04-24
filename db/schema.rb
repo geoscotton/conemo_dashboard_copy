@@ -11,10 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424163917) do
+ActiveRecord::Schema.define(version: 20140424185639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "participants", force: true do |t|
+    t.integer  "nurse_id_id"
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
+    t.string   "study_identifier",                    null: false
+    t.string   "family_health_unit_name",             null: false
+    t.string   "family_record_number",                null: false
+    t.string   "phone",                               null: false
+    t.string   "secondary_phone"
+    t.string   "email"
+    t.text     "address"
+    t.date     "date_of_birth"
+    t.integer  "gender"
+    t.integer  "key_chronic_disorder",                null: false
+    t.date     "enrollment_date",                     null: false
+    t.integer  "status",                  default: 0
+    t.string   "emergency_contact_name"
+    t.string   "emergency_contact_phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "participants", ["nurse_id_id"], name: "index_participants_on_nurse_id_id", using: :btree
+
+  create_table "smartphones", force: true do |t|
+    t.string   "number",                                  null: false
+    t.boolean  "is_app_compatible",       default: false
+    t.integer  "participant_id",                          null: false
+    t.boolean  "is_owned_by_participant", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "smartphones", ["participant_id"], name: "index_smartphones_on_participant_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
