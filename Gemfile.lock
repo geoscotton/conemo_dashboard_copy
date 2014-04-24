@@ -181,6 +181,8 @@ GEM
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
     spring (1.1.2)
+    spring-commands-rspec (1.0.2)
+      spring (>= 0.9.1)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -241,6 +243,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0.0.beta)
   sass-rails
   spring
+  spring-commands-rspec
   turbolinks
   uglifier
   whenever
