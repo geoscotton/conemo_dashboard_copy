@@ -1,4 +1,6 @@
 pt-BR:
+  conemo:
+    welcome: "Bem-vindo!"
   date:
     abbr_day_names:
     - Dom

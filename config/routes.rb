@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   end
 
-  get "/:locale" => "dashboards#index"
+  get "/:locale" => "dashboards#index", as: :dashboard
 
   root to: "dashboards#index"
 end
