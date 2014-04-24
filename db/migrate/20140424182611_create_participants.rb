@@ -1,7 +1,7 @@
 class CreateParticipants < ActiveRecord::Migration
   def change
     create_table :participants do |t|
-      t.references :nurse_id, index: true
+      t.references :nurse, index: true
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.string :study_identifier, null: false

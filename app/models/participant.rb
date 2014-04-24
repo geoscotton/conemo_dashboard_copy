@@ -1,5 +1,5 @@
 class Participant < ActiveRecord::Base
-  belongs_to :nurse, class_name: 'User'
+  belongs_to :nurse, class_name: 'User', foreign_key: :nurse_id
   validates :first_name, 
             :last_name, 
             :study_identifier, 
