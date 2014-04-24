@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   validates :phone, presence: true
 
   ROLES = %w[admin nurse]
+
+  def role_enum
+    ["admin", "nurse"]
+  end
 end

@@ -4,6 +4,7 @@ class FirstAppointment < ActiveRecord::Base
   validates :participant_id,
             :appointment_at,
             :appointment_location,
-            :session_length, null: false
-      t.datetime :next_contact, null: false
+            :session_length,
+            :next_contact,
+            presence: true
 end

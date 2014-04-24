@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140424202819) do
   add_index "first_contacts", ["participant_id"], name: "index_first_contacts_on_participant_id", using: :btree
 
   create_table "participants", force: true do |t|
-    t.integer  "nurse_id_id"
+    t.integer  "nurse_id"
     t.string   "first_name",                          null: false
     t.string   "last_name",                           null: false
     t.string   "study_identifier",                    null: false
@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20140424202819) do
     t.datetime "updated_at"
   end
 
-  add_index "participants", ["nurse_id_id"], name: "index_participants_on_nurse_id_id", using: :btree
+  add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree
 
   create_table "second_contacts", force: true do |t|
     t.integer  "participant_id",                null: false
