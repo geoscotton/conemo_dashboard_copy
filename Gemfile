@@ -30,8 +30,11 @@ group :development do
   gem "capistrano-bundler", "~> 1.1.2"
   gem "debugger"
   gem "spring"
+  gem "spring-commands-rspec"
 end
 
 group :test do
   gem "capybara"
 end
+
+gem "bit_core", "~> 1.0"
