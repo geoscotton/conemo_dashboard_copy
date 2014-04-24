@@ -1,5 +1,5 @@
 class FirstAppointment < ActiveRecord::Base
-  belongs_to :participant
+  belongs_to :participant, dependent: :destroy
 
   validates :participant_id,
             :appointment_at,
