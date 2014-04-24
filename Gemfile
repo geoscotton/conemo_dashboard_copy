@@ -35,3 +35,5 @@ end
 group :test do
   gem "capybara"
 end
+
+gem "bit_core", "~> 1.0"
