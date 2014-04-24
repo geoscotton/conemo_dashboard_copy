@@ -11,10 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424185639) do
+ActiveRecord::Schema.define(version: 20140424194431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "first_appointments", force: true do |t|
+    t.integer  "participant_id",       null: false
+    t.datetime "appointment_at",       null: false
+    t.string   "appointment_location", null: false
+    t.integer  "session_length",       null: false
+    t.datetime "next_contact",         null: false
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "first_appointments", ["participant_id"], name: "index_first_appointments_on_participant_id", using: :btree
+
+  create_table "first_contacts", force: true do |t|
+    t.integer  "participant_id",             null: false
+    t.datetime "contact_at",                 null: false
+    t.datetime "first_appointment_at",       null: false
+    t.string   "first_appointment_location", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "first_contacts", ["participant_id"], name: "index_first_contacts_on_participant_id", using: :btree
 
   create_table "participants", force: true do |t|
     t.integer  "nurse_id_id"
