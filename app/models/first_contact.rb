@@ -1,3 +1,4 @@
+# Initial phone contact information for Participant
 class FirstContact < ActiveRecord::Base
   belongs_to :participant, dependent: :destroy
 

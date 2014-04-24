@@ -4,5 +4,28 @@ AllCops:
     - config/**
     - db/**
 
+Documentation:
+  Exclude:
+    - spec/**
+
+DotPosition:
+  Enabled: false
+
+FinalNewline:
+  Enabled: false
+
+HandleExceptions:
+  Enabled: false
+
+IfUnlessModifier:
+  Enabled: false
+
+LineLength:
+  Exclude:
+    - spec/**
+
 StringLiterals:
   EnforcedStyle: double_quotes
+
+WordArray:
+  Enabled: false

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424202819) do
+ActiveRecord::Schema.define(version: 20140424211702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,19 @@ ActiveRecord::Schema.define(version: 20140424202819) do
 
   add_index "first_contacts", ["participant_id"], name: "index_first_contacts_on_participant_id", using: :btree
 
+  create_table "nurse_participant_evaluations", force: true do |t|
+    t.integer  "first_appointment_id"
+    t.integer  "second_contact_id"
+    t.integer  "smartphone_comfort",             null: false
+    t.integer  "participant_session_engagement", null: false
+    t.integer  "app_usage_prediction",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "nurse_participant_evaluations", ["first_appointment_id"], name: "index_nurse_participant_evaluations_on_first_appointment_id", using: :btree
+  add_index "nurse_participant_evaluations", ["second_contact_id"], name: "index_nurse_participant_evaluations_on_second_contact_id", using: :btree
+
   create_table "participants", force: true do |t|
     t.integer  "nurse_id"
     t.string   "first_name",                          null: false
@@ -113,6 +126,17 @@ ActiveRecord::Schema.define(version: 20140424202819) do
   end
 
   add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree
+
+  create_table "reminder_messages", force: true do |t|
+    t.integer  "nurse_id",       null: false
+    t.integer  "participant_id", null: false
+    t.text     "message",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "reminder_messages", ["nurse_id"], name: "index_reminder_messages_on_nurse_id", using: :btree
+  add_index "reminder_messages", ["participant_id"], name: "index_reminder_messages_on_participant_id", using: :btree
 
   create_table "second_contacts", force: true do |t|
     t.integer  "participant_id",                null: false
