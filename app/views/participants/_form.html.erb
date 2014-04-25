@@ -1,0 +1,88 @@
+<%= form_for @participant, html: { role: "form", class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <%= f.label :first_name, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :study_identifier, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :study_identifier, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :family_health_unit_name, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :family_health_unit_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :family_record_number, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :family_record_number, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :phone, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :secondary_phone, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :secondary_phone, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :date_of_birth, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.date_select :date_of_birth, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_area :address, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :enrollment_date, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.date_select :enrollment_date, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :gender, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.radio_button :gender, 'male'%> male
+      <%= f.radio_button :gender, 'female'%> female
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :key_chronic_disorder, class: "col-md-2 control-label" %>
+    <div class="col-md-6">
+      <%= f.radio_button :key_chronic_disorder, 'diabetes'%> diabetes
+      <%= f.radio_button :key_chronic_disorder, 'hypertension'%> hypertension
+    </div>
+  </div>
+  <%= f.hidden_field :status, value: 'pending' %>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-6">
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
