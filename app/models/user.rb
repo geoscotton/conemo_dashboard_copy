@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :participants, foreign_key: :nurse_id, dependent: :nullify
   has_many :reminder_messages, foreign_key: :nurse_id, dependent: :destroy
 
-  validates :phone, presence: true
+  validates :email, :phone, :first_name, :last_name, presence: true
 
   ROLES = ["admin", "nurse"]
 
