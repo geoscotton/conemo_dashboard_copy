@@ -18,18 +18,19 @@ class Participant < ActiveRecord::Base
             presence: true
 
   enum status: [:pending, :active, :ineligible]
+  enum gender: [:male, :female]
+  enum key_chronic_disorder: [:diabetes, :hypertension]
+
+  scope :pending, -> { where(status: 'pending') }
+  scope :active, -> { where(status: 'active') }
 
   def status_enum
     ["pending", "active", "ineligible"]
   end
 
-  enum gender: [:male, :female]
-
   def gender_enum
     ["male", "female"]
   end
-
-  enum key_chronic_disorder: [:diabetes, :hypertension]
 
   def key_chronic_disorder_enum
     ["diabetes", "hypertension"]
