@@ -1,5 +1,17 @@
-# Editing, Updating, and Deleting all participants.
+# Creating, Editing, Updating, and Deleting all participants.
 class ParticipantsController < ApplicationController
+  def new
+  end
+
+  def create
+  end
+
   def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 end

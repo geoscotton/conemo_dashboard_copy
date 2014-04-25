@@ -1,7 +1,10 @@
 module Pending
-  # Editing, Updating, and Deleting all participants.
+  # Managing pending participants.
   class ParticipantsController < ApplicationController
     def index
+    end
+
+    def show
     end
   end
 end
