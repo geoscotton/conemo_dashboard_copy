@@ -12,7 +12,7 @@
         <th>Enrollment Date</th>
         <th>Activate</th>
       </tr>
-      <% pending_participants.each do |participant| %>
+      <% @participants.each do |participant| %>
         <tr>
           <td><%= link_to "edit", edit_participant_path(participant) %></td>
           <td><%= participant.last_name %>, <%= participant.first_name %></td>

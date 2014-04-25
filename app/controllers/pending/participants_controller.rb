@@ -2,16 +2,11 @@ module Pending
   # Managing pending participants.
   class ParticipantsController < ApplicationController
     def index
+      @participants = Participant.pending
     end
 
     def show
+      @participant = Participant.where(id: params[:id])
     end
-
-    private
-
-    def pending_participants
-      Participant.pending
-    end
-    helper_method :pending_participants
   end
 end
