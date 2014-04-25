@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     namespace 'active' do
       resources :participants, only: [:index, :show]
     end
+
+    resources :lessons
   end
 
   get "/:locale" => "dashboards#index", as: :dashboard

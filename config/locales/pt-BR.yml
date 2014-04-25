@@ -1,6 +1,10 @@
 pt-BR:
   conemo:
     welcome: "Bem-vindo!"
+    views:
+      users:
+        sign_in:
+          sign_in: "Faça login"
   date:
     abbr_day_names:
     - Dom
