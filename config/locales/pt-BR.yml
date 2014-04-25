@@ -1,10 +1,48 @@
 pt-BR:
   conemo:
-    welcome: "Bem-vindo!"
     views:
+      dashboards:
+        index:
+          heading: "Bem-vindo!"
+          instructions: "Por favor, faça a sua seleção"
+          enrollment_button: "Matricular participantes pendentes"
+          manage_button: "Gerenciar Participantes Ativos"
       users:
         sign_in:
           sign_in: "Faça login"
+      participants:
+        new:
+          heading: "Matricular novo participante"
+        edit:
+          heading: "Editar Participante"
+        form:
+          first_name: "Primeiro nome"
+          last_name: "Sobrenome"
+          study_identifier: "Identificador estudo"
+          family_health_unit_name: "Nome da unidade de saúde da família"
+          family_record_number: "Número recorde Família"
+          phone: "Telefone"
+          secondary_phone: "Telefone Secundário"
+          email: "Email"
+          date_of_birth: "Data de nascimento"
+          address: "Endereço"
+          enrollment_date: "Data de inscrição"
+          gender: "Sexo"
+          key_chronic_disorder: "Distúrbio crônico chave"
+      pending:
+        participants:
+          index:
+            heading: "Participantes Pendentes"
+            add_new_participant: "Adicionar Novo Participante"
+            edit_info: "Editar Informações"
+            name: "Nome"
+            study_identifier: "Identificador estudo"
+            enrollment_date: "Data de Inscrição"
+            activate: "Ativar"
+            disqualify: "Desqualificar"
+    models:
+      participant:
+        enrollment_date_is_sane_error: "deve ser recente ou próxima"      
   date:
     abbr_day_names:
     - Dom
