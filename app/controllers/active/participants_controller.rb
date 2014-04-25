@@ -1,7 +1,10 @@
 module Active
-  # Editing, Updating, and Deleting all participants.
+  # Managing Active Participants
   class ParticipantsController < ApplicationController
     def index
+    end
+
+    def show
     end
   end
 end
