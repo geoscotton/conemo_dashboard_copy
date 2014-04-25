@@ -22,3 +22,6 @@
 en:
   conemo:
     welcome: "Welcome!"
+    models:
+      participant:
+        enrollment_date_is_sane_error: "must be recent or upcoming"

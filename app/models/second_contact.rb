@@ -1,9 +1,9 @@
 # Information gathered by phone after First Appointment
 class SecondContact < ActiveRecord::Base
-  belongs_to :participant, dependent: :destroy
-  has_one :nurse_participant_evaluation
+  belongs_to :participant
+  has_one :nurse_participant_evaluation, dependent: :destroy
 
-  validates :participant_id,
+  validates :participant,
             :contact_at,
             :session_length,
             presence: true
