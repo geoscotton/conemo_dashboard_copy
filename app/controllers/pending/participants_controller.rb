@@ -1,5 +1,7 @@
-# Editing, Updating, and Deleting all participants.
-class Pending::ParticipantsController < ApplicationController
-  def index
+module Pending
+  # Editing, Updating, and Deleting all participants.
+  class ParticipantsController < ApplicationController
+    def index
+    end
   end
 end
