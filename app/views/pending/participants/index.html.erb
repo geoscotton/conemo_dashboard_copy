@@ -1,1 +1,23 @@
-<h1>Hi</h1>
+<div class="row">
+  <div class="col-md-12">
+  <h1>Pending Participants</h1>
+    <table class="table">
+      <tr>
+        <th> </th>
+        <th>Name</th>
+        <th>Study Identifier</th>
+        <th>Enrollment Date</th>
+        <th>Activate</th>
+      </tr>
+      <% pending_participants.each do |participant| %>
+        <tr>
+          <td><%= link_to "edit", edit_participant_path(participant) %></td>
+          <td><%= participant.last_name %>, <%= participant.first_name %></td>
+          <td><%= participant.study_identifier %></td>
+          <td><%= participant.enrollment_date %></td>
+          <td><%= link_to "ACTIVATE", "#" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -20,7 +20,7 @@ class Participant < ActiveRecord::Base
             :key_chronic_disorder,
             :enrollment_date,
             presence: true
-  
+
   validates :status, inclusion: { in: STATUS }
   validates :key_chronic_disorder, inclusion: { in: KEY_CHRONIC_DISORDER }
   validates :gender, inclusion: { in: GENDER }

@@ -6,5 +6,12 @@ module Pending
 
     def show
     end
+
+    private
+
+    def pending_participants
+      Participant.pending
+    end
+    helper_method :pending_participants
   end
 end
