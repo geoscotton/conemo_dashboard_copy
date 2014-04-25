@@ -21,8 +21,8 @@ class Participant < ActiveRecord::Base
   enum gender: [:male, :female]
   enum key_chronic_disorder: [:diabetes, :hypertension]
 
-  scope :pending, -> { where(status: 'pending') }
-  scope :active, -> { where(status: 'active') }
+  scope :pending, -> { where(status: "pending") }
+  scope :active, -> { where(status: "active") }
 
   def status_enum
     ["pending", "active", "ineligible"]
