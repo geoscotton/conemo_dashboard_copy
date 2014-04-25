@@ -7,7 +7,8 @@ class ParticipantsController < ApplicationController
   def create
     @participant = Participant.new(participant_params)
     if @participant.save
-      redirect_to pending_participants_path, notice: "Successfully created participant"
+      redirect_to pending_participants_path,
+                  notice: "Successfully created participant"
     else
       flash[:alert] = @participant.errors.full_messages.join(", ")
       render :new
@@ -21,7 +22,8 @@ class ParticipantsController < ApplicationController
   def update
     @participant = Participant.where(id: params[:id])
     if @participant.update(participant_params)
-      redirect_to active_participants_path, notice: "Successfully updated participant"
+      redirect_to active_participants_path,
+                  notice: "Successfully updated participant"
     else
       flash[:alert] = @participant.errors.full_messages.join(", ")
       render :edit
