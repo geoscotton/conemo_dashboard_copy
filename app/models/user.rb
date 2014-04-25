@@ -1,5 +1,7 @@
 # An authenticatable person who uses the site, is a Nurse or Researcher
 class User < ActiveRecord::Base
+  ROLES = { admin: "admin", nurse: "nurse" }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,10 +11,13 @@ class User < ActiveRecord::Base
   has_many :reminder_messages, foreign_key: :nurse_id, dependent: :destroy
 
   validates :email, :phone, :first_name, :last_name, presence: true
+  validates :role, inclusion: { in: ROLES.values }
 
-  ROLES = ["admin", "nurse"]
+  def admin?
+    role == ROLES[:admin]
+  end
 
-  def role_enum
-    ["admin", "nurse"]
+  def nurse?
+    role == ROLES[:nurse]
   end
 end
