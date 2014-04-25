@@ -4,10 +4,10 @@ Rails.application.routes.draw do
 
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-    resources :participants, only: [:edit, :update, :destroy]
+    resources :participants, except: [:index, :show]
     
     namespace 'pending' do
-      resources  :participants, except: [:edit, :update, :destroy]
+      resources  :participants, only: [:index, :show]
     end
     
     namespace 'active' do
