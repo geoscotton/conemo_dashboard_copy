@@ -11,6 +11,6 @@ describe "participant enrollment" do
   end
 
   it "should show a list of pending participants" do
-    expect(page).to have_text(participant(:participant1).study_identifier)
+    expect(page).to have_text(participants(:participant1).study_identifier)
   end
 end

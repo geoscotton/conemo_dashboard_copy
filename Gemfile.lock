@@ -64,6 +64,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     columnize (0.8.9)
+    database_cleaner (1.2.0)
     debugger (1.6.6)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
@@ -232,6 +233,8 @@ DEPENDENCIES
   capistrano-rails (~> 1.1)
   capistrano-rvm (~> 0.1)
   capybara
+  coffee-script
+  database_cleaner
   debugger
   devise
   exception_notification (~> 4.1.0.rc1)
