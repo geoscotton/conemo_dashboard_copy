@@ -16,13 +16,13 @@ class ParticipantsController < ApplicationController
   end
 
   def edit
-    @participant = Participant.where(id: params[:id])
+    @participant = Participant.where(id: params[:id]).first
   end
 
   def update
-    @participant = Participant.where(id: params[:id])
+    @participant = Participant.where(id: params[:id]).first
     if @participant.update(participant_params)
-      redirect_to active_participants_path,
+      redirect_to pending_participants_path,
                   notice: "Successfully updated participant"
     else
       flash[:alert] = @participant.errors.full_messages.join(", ")
@@ -31,7 +31,7 @@ class ParticipantsController < ApplicationController
   end
 
   def destroy
-    @participant = Participant.where(id: params[:id])
+    @participant = Participant.where(id: params[:id]).first
     if @participant.destroy
       flash[:success] = "Participant deleted."
     else

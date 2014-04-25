@@ -6,7 +6,7 @@ module Active
     end
 
     def show
-      @participant = Participant.where(id: params[:id])
+      @participant = Participant.where(id: params[:id]).first
     end
   end
 end
