@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424213855) do
+ActiveRecord::Schema.define(version: 20140425143844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,20 +105,20 @@ ActiveRecord::Schema.define(version: 20140424213855) do
 
   create_table "participants", force: true do |t|
     t.integer  "nurse_id"
-    t.string   "first_name",                          null: false
-    t.string   "last_name",                           null: false
-    t.string   "study_identifier",                    null: false
-    t.string   "family_health_unit_name",             null: false
-    t.string   "family_record_number",                null: false
-    t.string   "phone",                               null: false
+    t.string   "first_name",                                  null: false
+    t.string   "last_name",                                   null: false
+    t.string   "study_identifier",                            null: false
+    t.string   "family_health_unit_name",                     null: false
+    t.string   "family_record_number",                        null: false
+    t.string   "phone",                                       null: false
     t.string   "secondary_phone"
     t.string   "email"
     t.text     "address"
     t.date     "date_of_birth"
-    t.integer  "gender"
-    t.integer  "key_chronic_disorder",                null: false
-    t.date     "enrollment_date",                     null: false
-    t.integer  "status",                  default: 0
+    t.string   "gender"
+    t.string   "key_chronic_disorder",                        null: false
+    t.date     "enrollment_date",                             null: false
+    t.string   "status",                  default: "pending"
     t.string   "emergency_contact_name"
     t.string   "emergency_contact_phone"
     t.datetime "created_at"

@@ -7,6 +7,10 @@ class Participant < ActiveRecord::Base
   has_one :smartphone, dependent: :destroy
   has_many :reminder_messages, dependent: :destroy
 
+  STATUS = ["pending", "active", "ineligible"]
+  GENDER = ["male", "female"]
+  KEY_CHRONIC_DISORDER =  ["diabetes", "hypertension"]
+
   validates :first_name,
             :last_name,
             :study_identifier,
@@ -16,26 +20,15 @@ class Participant < ActiveRecord::Base
             :key_chronic_disorder,
             :enrollment_date,
             presence: true
-  validate :enrollment_date_is_sane
+  
+  validates :status, inclusion: { in: STATUS }
+  validates :key_chronic_disorder, inclusion: { in: KEY_CHRONIC_DISORDER }
+  validates :gender, inclusion: { in: GENDER }
 
-  enum status: [:pending, :active, :ineligible]
-  enum gender: [:male, :female]
-  enum key_chronic_disorder: [:diabetes, :hypertension]
+  validate :enrollment_date_is_sane
 
   scope :pending, -> { where(status: "pending") }
   scope :active, -> { where(status: "active") }
-
-  def status_enum
-    ["pending", "active", "ineligible"]
-  end
-
-  def gender_enum
-    ["male", "female"]
-  end
-
-  def key_chronic_disorder_enum
-    ["diabetes", "hypertension"]
-  end
 
   private
 
