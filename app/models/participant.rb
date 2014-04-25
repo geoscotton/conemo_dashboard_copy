@@ -1,11 +1,11 @@
 # Study Participant
 class Participant < ActiveRecord::Base
   belongs_to :nurse, class_name: "User", foreign_key: :nurse_id
-  has_one :first_contact
-  has_one :first_appointment
-  has_one :second_contact
-  has_one :smartphone
-  has_many :reminder_messages
+  has_one :first_contact, dependent: :destroy
+  has_one :first_appointment, dependent: :destroy
+  has_one :second_contact, dependent: :destroy
+  has_one :smartphone, dependent: :destroy
+  has_many :reminder_messages, dependent: :destroy
 
   validates :first_name,
             :last_name,
@@ -16,6 +16,7 @@ class Participant < ActiveRecord::Base
             :key_chronic_disorder,
             :enrollment_date,
             presence: true
+  validate :enrollment_date_is_sane
 
   enum status: [:pending, :active, :ineligible]
   enum gender: [:male, :female]
@@ -34,5 +35,16 @@ class Participant < ActiveRecord::Base
 
   def key_chronic_disorder_enum
     ["diabetes", "hypertension"]
+  end
+
+  private
+
+  def enrollment_date_is_sane
+    unless enrollment_date.nil? || enrollment_date > Date.today - 5.years
+      errors.add(
+        :enrollment_date,
+        I18n.t("conemo.models.participant.enrollment_date_is_sane_error")
+      )
+    end
   end
 end

@@ -1,8 +1,8 @@
 # Initial phone contact information for Participant
 class FirstContact < ActiveRecord::Base
-  belongs_to :participant, dependent: :destroy
+  belongs_to :participant
 
-  validates :participant_id,
+  validates :participant,
             :contact_at,
             :first_appointment_at,
             :first_appointment_location,

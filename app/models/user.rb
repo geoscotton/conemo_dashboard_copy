@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :participants, foreign_key: :nurse_id, dependent: :destroy
+  has_many :participants, foreign_key: :nurse_id, dependent: :nullify
   has_many :reminder_messages, foreign_key: :nurse_id, dependent: :destroy
 
   validates :phone, presence: true

@@ -1,9 +1,9 @@
 # In-Person Participant Appointment record for Participant
 class FirstAppointment < ActiveRecord::Base
-  belongs_to :participant, dependent: :destroy
-  has_one :nurse_participant_evaluation
+  belongs_to :participant
+  has_one :nurse_participant_evaluation, dependent: :destroy
 
-  validates :participant_id,
+  validates :participant,
             :appointment_at,
             :appointment_location,
             :session_length,
