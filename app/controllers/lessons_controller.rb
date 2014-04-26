@@ -20,6 +20,14 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new({ locale: params[:locale] }.merge(lesson_params))
     authorize! :create, @lesson
+
+    if @lesson.save
+      redirect_to lessons_url,
+                  notice: I18n.t("conemo.controllers.lessons.saved")
+    else
+      flash.now[:error] = I18n.t("conemo.controllers.lessons.not_saved")
+      render :new
+    end
   end
 
   def edit
