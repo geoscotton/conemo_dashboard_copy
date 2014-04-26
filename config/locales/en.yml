@@ -1,6 +1,3 @@
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   conemo:
     views:
@@ -10,6 +7,9 @@ en:
           instructions: "Please make your selection"
           enrollment_button: "Enroll Pending Participants"
           manage_button: "Manage Active Participants"
+      lessons:
+        index:
+          add_lesson: "Add Lesson"
       users:
         sign_in:
           sign_in: "Sign in"
@@ -43,6 +43,9 @@ en:
             enrollment_date: "Enrollment Date"
             activate: "Activate"
             disqualitfy: "Disqualify"
+    controllers:
+      lessons:
+        saved: "Lesson saved"
     models:
       participant:
         enrollment_date_is_sane_error: "must be recent or upcoming"      
