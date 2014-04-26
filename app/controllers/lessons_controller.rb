@@ -1,7 +1,5 @@
 # Manages Lessons.
 class LessonsController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     authorize! :index, Lesson
     @lessons = Lesson.all
