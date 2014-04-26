@@ -7,6 +7,7 @@ en:
           instructions: "Please make your selection"
           enrollment_button: "Enroll Pending Participants"
           manage_button: "Manage Active Participants"
+          sign_out: "Sign out"
       lessons:
         index:
           add_lesson: "Add Lesson"

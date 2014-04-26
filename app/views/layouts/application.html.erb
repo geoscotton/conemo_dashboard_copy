@@ -19,6 +19,9 @@
           <li><%= link_to "English", dashboard_path(locale: "en") %></li>
           <li><%= link_to "Español", dashboard_path(locale: "es-PE") %></li>
           <li><%= link_to "Português", dashboard_path(locale: "pt-BR") %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to t("conemo.views.dashboards.index.sign_out"), destroy_user_session_path, method: :delete %></li>
+          <% end %>
         </ul>
       </div>
     </div>
