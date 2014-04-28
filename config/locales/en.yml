@@ -32,7 +32,11 @@ en:
           address: "Address"
           enrollment_date: "Enrollment date"
           gender: "Gender"
+          male: "male"
+          female: "female"
           key_chronic_disorder: "Key chronic disorder"
+          diabetes: "diabetes"
+          hypertension: "hypertension"
       pending:
         participants:
           index:

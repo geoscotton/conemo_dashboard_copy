@@ -28,7 +28,11 @@ pt-BR:
           address: "Endereço"
           enrollment_date: "Data de inscrição"
           gender: "Sexo"
+          male: "homem"
+          female: "fêmea"
           key_chronic_disorder: "Distúrbio crônico chave"
+          diabetes: "diabetes"
+          hypertension: "hipertensão"
       pending:
         participants:
           index:
