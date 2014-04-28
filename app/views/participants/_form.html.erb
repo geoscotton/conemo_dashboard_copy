@@ -69,10 +69,10 @@
     <%= f.label :gender, t("conemo.views.participants.form.gender") + " *", class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <label class="radio-inline">
-        <%= f.radio_button :gender, 'male'%> male
+        <%= f.radio_button :gender, 'male'%> <%=t("conemo.views.participants.form.male") %>
       </label>
       <label class="radio-inline">
-        <%= f.radio_button :gender, 'female'%> female
+        <%= f.radio_button :gender, 'female'%> <%=t("conemo.views.participants.form.female") %>
       </label>
     </div>
   </div>
@@ -80,10 +80,10 @@
     <%= f.label :key_chronic_disorder, t("conemo.views.participants.form.key_chronic_disorder") + " *", class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <label class="radio-inline">
-        <%= f.radio_button :key_chronic_disorder, 'diabetes'%> diabetes
+        <%= f.radio_button :key_chronic_disorder, 'diabetes'%> <%=t("conemo.views.participants.form.diabetes") %>
       </label>
       <label class="radio-inline">
-        <%= f.radio_button :key_chronic_disorder, 'hypertension'%> hypertension
+        <%= f.radio_button :key_chronic_disorder, 'hypertension'%> <%=t("conemo.views.participants.form.hypertension") %>
       </label>
     </div>
   </div>
