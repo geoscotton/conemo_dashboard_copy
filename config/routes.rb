@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
     resources :participants, except: [:index, :show]
     
-    namespace 'pending' do
+    namespace "pending" do
       resources  :participants, only: [:index, :show]
+      get "activate/:id" => "participants#activate", as: :activate
     end
     
     namespace 'active' do
