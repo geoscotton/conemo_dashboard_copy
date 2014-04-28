@@ -12,6 +12,7 @@ gem "rails_admin"
 gem "cancan"
 gem "font-awesome-sass"
 gem "coffee-script"
+gem "jbuilder"
 
 group :staging, :production do
   # email exceptions

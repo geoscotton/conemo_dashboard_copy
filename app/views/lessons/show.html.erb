@@ -1,0 +1,5 @@
+<%= link_to t("conemo.views.lessons.show.add_slide"), new_lesson_slide_path(@lesson) %>
+
+<table>
+  <%= render @lesson.slides %>
+</table>

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       resources :participants, only: [:index, :show]
     end
 
-    resources :lessons
+    resources :lessons do
+      resources :slides
+    end
   end
 
   get "/:locale" => "dashboards#index", as: :dashboard
