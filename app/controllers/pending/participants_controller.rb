@@ -8,5 +8,10 @@ module Pending
     def show
       @participant = Participant.where(id: params[:id]).first
     end
+
+    def activate
+      @participant = Participant.where(id: params[:id]).first
+      @nurses = User.where(role: "nurse")
+    end
   end
 end

@@ -1,6 +1,10 @@
 en:
   conemo:
     views:
+      shared:
+        save_button: "Save"
+        cancel_button: "Cancel"
+        nurse: "Nurse"
       dashboards:
         index:
           heading: "Welcome!"
@@ -50,6 +54,8 @@ en:
             disqualify: "Disqualify"
             disqualify_alert: "Are you sure you want to mark this person as ineligible?"
             activate_alert: "Are you sure you want to activate this person?"
+          activate:
+            heading_1: "Assign nurse to activate participant"
     controllers:
       lessons:
         saved: "Lesson saved"

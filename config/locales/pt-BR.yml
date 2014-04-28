@@ -1,6 +1,10 @@
 pt-BR:
   conemo:
     views:
+      shared:
+        save_button: "Guardar"
+        cancel_button: "Cancelar"
+        nurse: "Enfermeira"
       dashboards:
         index:
           heading: "Bem-vindo!"
@@ -46,6 +50,8 @@ pt-BR:
             disqualify: "Desqualificar"
             disqualify_alert: "Você tem certeza que quer marcar essa pessoa como inelegível?"
             activate_alert: "Você tem certeza que deseja ativar esta pessoa?"
+          activate:
+            heading_1: "Atribuir enfermeira para ativar participante"
     models:
       participant:
         enrollment_date_is_sane_error: "deve ser recente ou próxima"      
