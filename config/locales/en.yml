@@ -61,6 +61,7 @@ en:
         saved: "Lesson saved"
       slides:
         saved: "Slide saved"
+        not_saved: "Slide not saved"
     models:
       participant:
         enrollment_date_is_sane_error: "must be recent or upcoming"      

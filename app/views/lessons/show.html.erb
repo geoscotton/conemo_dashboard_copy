@@ -1,5 +1,9 @@
+<%= render "breadcrumbs", breadcrumbs: [], active: @lesson.title %>
+
+<h2><%= @lesson.title %></h2>
+
 <%= link_to t("conemo.views.lessons.show.add_slide"), new_lesson_slide_path(@lesson) %>
 
-<table>
+<table class="table">
   <%= render @lesson.slides %>
 </table>
