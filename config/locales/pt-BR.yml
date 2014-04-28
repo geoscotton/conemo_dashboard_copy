@@ -37,6 +37,14 @@ pt-BR:
           key_chronic_disorder: "Distúrbio crônico chave"
           diabetes: "diabetes"
           hypertension: "hipertensão"
+      active:
+        participants:
+          index:
+            heading: "Gerenciar Participantes Ativos"
+            edit_info: "Editar Informações"
+            name: "Nome"
+            study_identifier: "Identificador estudo"
+            enrollment_date: "Data de Inscrição"
       pending:
         participants:
           index:

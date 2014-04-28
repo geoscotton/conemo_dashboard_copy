@@ -2,7 +2,7 @@ module Active
   # Managing Active Participants
   class ParticipantsController < ApplicationController
     def index
-      @participants = Participant.pending
+      @participants = Participant.active
     end
 
     def show

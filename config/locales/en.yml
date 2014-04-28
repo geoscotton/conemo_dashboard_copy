@@ -41,6 +41,15 @@ en:
           key_chronic_disorder: "Key chronic disorder"
           diabetes: "diabetes"
           hypertension: "hypertension"
+      active:
+        participants:
+          index:
+            heading: "Manage Active Participants"
+            edit_info: "Edit Information"
+            nurse: "Nurse"
+            name: "Name"
+            study_identifier: "Study Identifier"
+            enrollment_date: "Enrollment Date"
       pending:
         participants:
           index:
