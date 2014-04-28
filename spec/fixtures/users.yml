@@ -6,7 +6,6 @@ nurse1:
   role: nurse
   phone: "555-555-5555"
 
-
 admin1:
   first_name: Hobo
   last_name: Jones
