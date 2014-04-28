@@ -51,6 +51,10 @@ en:
             name: "Name"
             study_identifier: "Study Identifier"
             enrollment_date: "Enrollment Date"
+            first_contact: "First Contact"
+            first_appointment: "First Appointment"
+            second_contact: "Second Contact"
+            status: "Status"
       pending:
         participants:
           index:
