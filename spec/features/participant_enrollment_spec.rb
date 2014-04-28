@@ -9,9 +9,11 @@ describe "participant enrollment" do
     sign_in_user users(:admin1)
   end
 
+  let(:participant) { participants(:participant1) }
+
   it "should show a list of pending participants" do
     visit "/en/pending/participants"
-    expect(page).to have_text(participants(:participant1).study_identifier)
+    expect(page).to have_text(participant.study_identifier)
   end
 
   it "should enroll a new participant" do
@@ -35,5 +37,21 @@ describe "participant enrollment" do
     choose "participant_key_chronic_disorder_diabetes"
     click_on("Save")
     expect(page).to have_text "Successfully created participant"
+  end
+
+  it "should update an ineligible participant and remove them from the index" do
+    visit "/en/pending/participants"
+    expect(page).to have_text participant.study_identifier
+    click_on "activate_#{participant.id}"
+    expect(page).to have_text "Successfully updated participant"
+    expect(page).to_not have_text participant.study_identifier
+  end
+
+  it "should activate and eligibel participant and remove them from the index" do
+    visit "/en/pending/participants"
+    expect(page).to have_text(participant.study_identifier)
+    click_on("disqualify_#{participant.id}")
+    expect(page).to have_text "Successfully updated participant"
+    expect(page).to_not have_text participant.study_identifier
   end
 end

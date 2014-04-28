@@ -9,6 +9,7 @@ participant1:
   key_chronic_disorder: hypertension
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
+  gender: male
 
 participant2:
   first_name: Jane
