@@ -47,7 +47,7 @@ describe "participant enrollment" do
     expect(page).to_not have_text participant.study_identifier
   end
 
-  it "should activate and eligibel participant and remove them from the index" do
+  it "should activate an eligible participant and remove them from the index" do
     visit "/en/pending/participants"
     expect(page).to have_text(participant.study_identifier)
     click_on("disqualify_#{participant.id}")
