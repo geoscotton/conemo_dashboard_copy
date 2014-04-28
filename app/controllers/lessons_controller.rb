@@ -23,7 +23,7 @@ class LessonsController < ApplicationController
       redirect_to lessons_url,
                   notice: I18n.t("conemo.controllers.lessons.saved")
     else
-      flash.now[:error] = I18n.t("conemo.controllers.lessons.not_saved")
+      flash.now[:alert] = I18n.t("conemo.controllers.lessons.not_saved")
       render :new
     end
   end
