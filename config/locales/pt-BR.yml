@@ -44,6 +44,8 @@ pt-BR:
             enrollment_date: "Data de Inscrição"
             activate: "Ativar"
             disqualify: "Desqualificar"
+            disqualify_alert: "Você tem certeza que quer marcar essa pessoa como inelegível?"
+            activate_alert: "Você tem certeza que deseja ativar esta pessoa?"
     models:
       participant:
         enrollment_date_is_sane_error: "deve ser recente ou próxima"      

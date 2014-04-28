@@ -19,8 +19,8 @@
           <td><%= participant.last_name %>, <%= participant.first_name %></td>
           <td><%= participant.study_identifier %></td>
           <td><%= participant.enrollment_date %></td>
-          <td><%= link_to '', "#", class: "fa fa-thumbs-up fa-2x" %></td> 
-          <td><%= link_to '', "#", class: "fa fa-thumbs-down fa-2x" %></td>
+          <td><%= link_to '', participant_path(id: participant.id, participant: { status: 'active'}), method: :put, class: "fa fa-thumbs-up fa-2x", :"data-confirm" => "#{ t 'conemo.views.pending.participants.index.activate_alert' }" %></td> 
+          <td><%= link_to '', participant_path(id: participant.id, participant: { status: 'ineligible'}), method: :put, class: "fa fa-thumbs-down fa-2x", :"data-confirm" => "#{ t 'conemo.views.pending.participants.index.disqualify_alert' }" %></td>
         </tr>
       <% end %>
     </table>
