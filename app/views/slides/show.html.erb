@@ -1,0 +1,5 @@
+<%= render "lessons/breadcrumbs", breadcrumbs: [[@lesson.title, lesson_path(@lesson)]], active: @slide.title %>
+
+<h2><%= @slide.title %></h2>
+
+<%= render_html_body @slide %>

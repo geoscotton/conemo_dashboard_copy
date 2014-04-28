@@ -1,5 +1,7 @@
+<%= render "breadcrumbs", is_root: true %>
+
 <%= link_to t("conemo.views.lessons.index.add_lesson"), new_lesson_path %>
 
-<table>
+<table class="table">
   <%= render @lessons %>
 </table>

@@ -5,9 +5,14 @@ class Lesson < ActiveRecord::Base
              foreign_key: :bit_core_slideshow_id
   has_many :slides, through: :slideshow
 
-  validates :title, :day_in_treatment, :locale, :guid, presence: true
+  validates :title,
+            :day_in_treatment,
+            :locale,
+            :guid,
+            :slideshow,
+            presence: true
 
-  before_validation :generate_guid
+  before_validation :generate_guid, :create_slideshow, on: :create
 
   def find_slide(slide_id)
     slideshow.slides.find(slide_id)
@@ -21,5 +26,9 @@ class Lesson < ActiveRecord::Base
 
   def generate_guid
     self.guid = SecureRandom.uuid
+  end
+
+  def create_slideshow
+    self.slideshow = BitCore::Slideshow.create(title: title)
   end
 end

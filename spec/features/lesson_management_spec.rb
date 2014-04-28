@@ -26,6 +26,9 @@ describe "lesson management" do
     click_on "Create Slide"
 
     expect(page).to have_text("Slide saved")
-    expect(page).to have_text("Slide 1")
+
+    click_on "Slide 1"
+
+    expect(page).to have_text("I'm a slide dawg")
   end
 end

@@ -3,5 +3,8 @@
   <%= f.text_field :title %>
   <%= f.label :body %>
   <%= f.text_area :body %>
+  <%= f.label :position %>
+  <%= f.number_field :position %>
   <%= f.submit %>
+  <%= link_to "Cancel", lesson_path(@lesson) %>
 <% end %>

@@ -1,1 +1,4 @@
-<tr><td><%= slide.title %></td></tr>
+<tr>
+  <td><%= slide.position %></td>
+  <td><%= link_to slide.title, lesson_slide_path(@lesson, slide) %></td>
+</tr>
