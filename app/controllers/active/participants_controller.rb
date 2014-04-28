@@ -1,6 +1,6 @@
 module Active
   # Managing Active Participants
-  class ParticipantsController < ApplicationController    
+  class ParticipantsController < ApplicationController
     def index
       @participants = Participant.active
     end
