@@ -7,12 +7,27 @@ class FirstContactsController < ApplicationController
   end
 
   def create
+    @first_contact = participant.build_first_contact(participant_params)
+    if @first_contact.save
+      redirect_to active_participants_path,
+                  notice: "Successfully created first contact"
+    else
+      flash[:alert] = @first_contact.errors.full_messages.join(", ")
+      render :new
+    end
   end
 
   private
 
+  def participant_params
+    params.require(:first_contact).permit(
+      :participant_id, :contact_at, :first_appointment_at,
+      :first_appointment_location
+    )
+  end
+
   def participant
-    participant = Participant.find(params[:participant_id])
+    Participant.find(params[:participant_id])
   end
   helper_method :participant
 
