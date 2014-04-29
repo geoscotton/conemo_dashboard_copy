@@ -11,7 +11,7 @@ participant1:
   nurse: nurse1
   gender: male
 
-participant2:
+active_participant:
   first_name: Jane
   last_name: Doe
   email: participant2@example.com

@@ -18,7 +18,7 @@ pt-BR:
         new:
           heading: "Entrada Primeira Informações para contato"
         form:
-          contact_at: "contactado pelo"
+          contact_at: "Contactado pelo"
           first_appointment_at: "Agende primeira consulta"
           first_appointment_location: "Primeiro local do compromisso"
       participants:
