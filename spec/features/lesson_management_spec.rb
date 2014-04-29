@@ -18,6 +18,23 @@ describe "lesson management" do
     expect(page).to have_text("Lesson 1")
   end
 
+  it "should allow an admin to update a lesson" do
+    click_on "edit-lesson-#{ lessons(:day1).id }"
+    fill_in "Title", with: "Edited lesson"
+    fill_in "Day in treatment", with: 8
+    click_on "Update Lesson"
+
+    expect(page).to have_text("Lesson saved")
+    expect(page).to have_text("Edited lesson")
+  end
+
+  it "should allow an admin to destroy a lesson" do
+    click_on "destroy-lesson-#{ lessons(:day1).id }"
+
+    expect(page).to have_text("Lesson deleted")
+    expect(page).not_to have_text(lessons(:day1).title)
+  end
+
   it "should allow an admin to create a lesson slide with HTML content" do
     click_on lessons(:day1).title
     click_on "Add Slide"

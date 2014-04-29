@@ -1,1 +1,10 @@
-<tr><td><%= link_to lesson.title, lesson_path(lesson) %></td></tr>
+<tr>
+  <td><%= link_to lesson.title, lesson_path(lesson) %></td>
+  <td><%= link_to icon("pencil"), edit_lesson_path(lesson), id: "edit-lesson-#{ lesson.id }" %></td>
+  <td><%= link_to icon("trash-o"),
+                  lesson_path(lesson),
+                  id: "destroy-lesson-#{ lesson.id }",
+                  method: "delete",
+                  :"data-confirm" => "Are you sure you want to delete #{ lesson.title }?"
+      %></td>
+</tr>
