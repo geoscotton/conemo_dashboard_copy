@@ -4,11 +4,13 @@ class FirstAppointmentsController < ApplicationController
 
   def new
     @first_appointment = participant.build_first_appointment
-    @nurse_participant_evaluation = @first_appointment.build_nurse_participant_evaluation
+    @nurse_participant_evaluation = @first_appointment
+                                      .build_nurse_participant_evaluation
   end
 
   def create
-    @first_appointment = participant.build_first_appointment(first_appointment_params)
+    @first_appointment = participant
+                          .build_first_appointment(first_appointment_params)
     if @first_appointment.save
       redirect_to active_participants_path,
                   notice: "Successfully created first appointment"
