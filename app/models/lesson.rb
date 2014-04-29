@@ -13,6 +13,7 @@ class Lesson < ActiveRecord::Base
             presence: true
 
   before_validation :generate_guid, :create_slideshow, on: :create
+  after_destroy :destroy_slideshow
 
   def find_slide(slide_id)
     slideshow.slides.find(slide_id)
@@ -30,5 +31,9 @@ class Lesson < ActiveRecord::Base
 
   def create_slideshow
     self.slideshow = BitCore::Slideshow.create(title: title)
+  end
+
+  def destroy_slideshow
+    slideshow.destroy
   end
 end

@@ -73,6 +73,7 @@ en:
     controllers:
       lessons:
         saved: "Lesson saved"
+        destroyed: "Lesson deleted"
       slides:
         saved: "Slide saved"
         not_saved: "Slide not saved"

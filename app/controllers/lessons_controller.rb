@@ -6,8 +6,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.find(params[:id])
-    authorize! :show, @lesson
+    authorize! :show, find_lesson
   end
 
   def new
@@ -23,29 +22,53 @@ class LessonsController < ApplicationController
       redirect_to lessons_url,
                   notice: I18n.t("conemo.controllers.lessons.saved")
     else
-      flash.now[:alert] = I18n.t("conemo.controllers.lessons.not_saved")
+      flash.now[:alert] = I18n.t("conemo.controllers.lessons.not_saved") +
+        ": " + validation_errors
       render :new
     end
   end
 
   def edit
-    @lesson = Lesson.find(params[:id])
-    authorize! :edit, @lesson
+    authorize! :edit, find_lesson
   end
 
   def update
-    @lesson = Lesson.find(params[:id])
-    authorize! :update, @lesson
+    authorize! :update, find_lesson
+
+    if @lesson.update(lesson_params)
+      redirect_to lessons_url,
+                  notice: I18n.t("conemo.controllers.lessons.saved")
+    else
+      flash.now[:alert] = I18n.t("conemo.controllers.lessons.not_saved") +
+        ": " + validation_errors
+      render :new
+    end
   end
 
   def destroy
-    @lesson = Lesson.find(params[:id])
-    authorize! :destroy, @lesson
+    authorize! :destroy, find_lesson
+
+    if @lesson.destroy
+      redirect_to lessons_url,
+                  notice: I18n.t("conemo.controllers.lessons.destroyed")
+    else
+      redirect_to lessons_url,
+                  alert: I18n.t("conemo.controllers.lessons.not_destroyed") +
+                         ": " + validation_errors
+    end
   end
 
   private
 
+  def find_lesson
+    @lesson = Lesson.find(params[:id])
+  end
+
   def lesson_params
     params.require(:lesson).permit(:title, :day_in_treatment)
+  end
+
+  def validation_errors
+    @lesson.errors.full_messages.join(", ")
   end
 end
