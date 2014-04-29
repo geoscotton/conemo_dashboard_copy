@@ -2,9 +2,9 @@
 module ParticipantsHelper
   def render_first_contact(participant)
     if participant.first_contact
-      "#{participant.first_contact.contacted_at}"
+      "#{participant.first_contact.contact_at}"
     else
-      link_to "", "#", class: "fa fa-plus-circle fa-2x"
+      link_to "", new_participant_first_contact_path(participant), class: "fa fa-plus-circle fa-2x"
     end
   end
 end

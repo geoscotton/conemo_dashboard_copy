@@ -14,6 +14,13 @@ pt-BR:
       users:
         sign_in:
           sign_in: "Faça login"
+      first_contacts:
+        new:
+          heading: "Entrada Primeira Informações para contato"
+        form:
+          contact_at: "contactado pelo"
+          first_appointment_at: "Agende primeira consulta"
+          first_appointment_location: "Primeiro local do compromisso"
       participants:
         new:
           heading: "Matricular novo participante"

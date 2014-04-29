@@ -16,6 +16,13 @@ en:
       lessons:
         index:
           add_lesson: "Add Lesson"
+      first_contacts:
+        new:
+          heading: "Input First Contact Information"
+        form:
+          contact_at: "Contacted at"
+          first_appointment_at: "Schedule First Appointment"
+          first_appointment_location: "First appointment location"
       users:
         sign_in:
           sign_in: "Sign in"
