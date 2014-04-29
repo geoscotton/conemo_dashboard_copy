@@ -29,6 +29,30 @@ pt-BR:
           appointment_location: "Localização nomeação"
           next_contact: "Próxima data de contato / hora"
           session_length: "Duração da sessão (minutos)"
+        nurse_participant_evaluation:
+          form:
+            smartphone_comfort: "Como foi o paciente confortável usando o smartphone?"
+            participant_session_engagement: "Como foi envolvido o paciente durante a sessão de?"
+            app_usage_prediction: "Como, provavelmente, o paciente usar o aplicativo?"
+            notes: "Notas"
+            smartphone_comfort_options:
+              o5: "5 - pode ligar o telefone celular, acesso e usar o aplicativo por ela / ele mesmo após a primeira demonstração"
+              o4: "4 - pode ligar o celular e acessar o aplicativo, mas precisa de ajuda para usar o aplicativo"
+              o3: "3 - pode ligar o telefone celular, mas precisa de ajuda para acessar e usar o aplicativo"
+              o2: "2 - difícil de ligar o telefone celular, acesso e usar o aplicativo, mas pode fazê-lo depois de uma segunda demonstração"
+              o1: "1 - difícil de ligar o telefone celular, acesso e utilização do aplicativo, mesmo após uma segunda demonstração"
+            participant_session_engagement_options:
+              o5: "5 - atenção às explicações e app-manifestação de NA, interagindo com NA e fazer perguntas, quando necessário"
+              o4: "4 - atenção às explicações e app-manifestação de NA, interagindo com NA, mas não fez perguntas"
+              o3: "3 - atenção às explicações e app-manifestação de NA, mas não interagir com NA nem fazer perguntas"
+              o2: "2 - atenção às explicações e app-demonstração por NA o tempo todo, mas interagiu com NA e pediu algumas perguntas"
+              o1: "1 - atenção às explicações e app-manifestação de NA, mas não interagir com NA nem fazer perguntas"
+            app_usage_prediction_options:
+              o5: "5"
+              o4: "4"
+              o3: "3"
+              o2: "2"
+              o1: "1"
       participants:
         new:
           heading: "Matricular novo participante"

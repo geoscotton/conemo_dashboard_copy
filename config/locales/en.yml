@@ -31,6 +31,30 @@ en:
           appointment_location: "Location of appointment"
           next_contact: "Next contact date/time"
           session_length: "Session length (minutes)"
+        nurse_participant_evaluation:
+          form:
+            smartphone_comfort: "How comfortable was the patient using the smartphone?"
+            participant_session_engagement: "How engaged was the patient during the session?"
+            app_usage_prediction: "How likely will the patient use the app?"
+            notes: "Notes"
+            smartphone_comfort_options:
+              o5: "5 - can turn on the cell phone, access and use the app by her/himself after the first demonstration"
+              o4: "4 - can turn on the cell phone and access the app, but needs help to use the app"
+              o3: "3 - can turn on the cell phone, but needs help to access and use the app"
+              o2: "2 - difficult to turn on the cell phone, access and use the app, but can do it after a second demonstration"
+              o1: "1 - difficult to turn on the cell phone, access and use the app, even after a second demonstration"
+            participant_session_engagement_options:
+              o5: "5 - paid attention to explanations and app-demonstration by NA, interacting with NA and asking questions when necessary"
+              o4: "4 - paid attention to explanations and app-demonstration by NA, interacting with NA, but didn’t ask questions"
+              o3: "3 - paid attention to explanations and app-demonstration by NA, but didn’t interact with NA neither ask questions"
+              o2: "2 - paid attention to explanations and app-demonstration by NA all the time, but interacted with NA and asked few questions"
+              o1: "1 - paid attention to explanations and app-demonstration by NA, but didn’t interact with NA neither ask questions"
+            app_usage_prediction_options:
+              o5: "5"
+              o4: "4"
+              o3: "3"
+              o2: "2"
+              o1: "1"
       users:
         sign_in:
           sign_in: "Sign in"
