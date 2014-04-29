@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
     mount RailsAdmin::Engine => "/admin", as: "rails_admin"
 
-    resources :participants, except: [:index, :show]
-    
+    resources :participants, except: [:index, :show] do
+      resource :first_contact
+      resource :first_appointment
+      resource :second_contact
+    end
+
     namespace "pending" do
       resources  :participants, only: :index
       get "activate/:id" => "participants#activate", as: :activate
