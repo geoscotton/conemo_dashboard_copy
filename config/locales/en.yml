@@ -23,6 +23,14 @@ en:
           contact_at: "Contacted at"
           first_appointment_at: "Schedule First Appointment"
           first_appointment_location: "First appointment location"
+      first_appointments:
+        new:
+          heading: "Input First Appointment Information"
+        form:
+          appointment_at: "Appointment date/time"
+          appointment_location: "Location of appointment"
+          next_contact: "Next contact date/time"
+          session_length: "Session length (minutes)"
       users:
         sign_in:
           sign_in: "Sign in"
@@ -53,7 +61,7 @@ en:
         participants:
           index:
             heading: "Manage Active Participants"
-            edit_info: "Edit Information"
+            edit_info: "Edit"
             nurse: "Nurse"
             name: "Name"
             study_identifier: "Study Identifier"

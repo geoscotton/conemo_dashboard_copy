@@ -21,6 +21,14 @@ pt-BR:
           contact_at: "Contactado pelo"
           first_appointment_at: "Agende primeira consulta"
           first_appointment_location: "Primeiro local do compromisso"
+      first_appointments:
+        new:
+          heading: "Entrada primeiras informações Nomeação"
+        form:
+          appointment_at: "Nomeação data / hora"
+          appointment_location: "Localização nomeação"
+          next_contact: "Próxima data de contato / hora"
+          session_length: "Duração da sessão (minutos)"
       participants:
         new:
           heading: "Matricular novo participante"
@@ -48,10 +56,14 @@ pt-BR:
         participants:
           index:
             heading: "Gerenciar Participantes Ativos"
-            edit_info: "Editar Informações"
+            edit_info: "Editar"
             name: "Nome"
             study_identifier: "Identificador estudo"
             enrollment_date: "Data de Inscrição"
+            first_contact: "Primeiro Contato"
+            first_appointment: "Primeira Nomeação"
+            second_contact: "Segundo Contato"
+            status: "Condição"
       pending:
         participants:
           index:
