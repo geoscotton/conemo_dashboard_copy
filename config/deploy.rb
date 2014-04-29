@@ -7,7 +7,7 @@ set :rvm_type, :system
 set :rvm_ruby_version, '2.1.1'
 
 # Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 if fetch(:stage) == :staging
   set :deploy_to, "/var/www/apps/#{ fetch(:application) }"
