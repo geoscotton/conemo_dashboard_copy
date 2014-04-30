@@ -23,8 +23,8 @@
           <td><%= participant.enrollment_date.to_s(:long) %></td>
           <td><%= render_first_contact(participant) %></td>
           <td><%= render_first_appointment(participant) %></td>
-          <td>""</td>
-          <td><%= fa_icon "icon-ok" %></td>
+          <td><%= render_second_contact(participant) %></td>
+          <td><%= fa_icon "icon-eye" %></td>
         </tr>
       <% end %>
     </table>

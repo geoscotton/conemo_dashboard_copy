@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430180404) do
+ActiveRecord::Schema.define(version: 20140430201617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 20140430180404) do
 
   create_table "second_contacts", force: true do |t|
     t.integer  "participant_id",                null: false
-    t.date     "contact_at",                    null: false
+    t.datetime "contact_at",                    null: false
     t.boolean  "video_access",   default: true
     t.integer  "session_length",                null: false
     t.text     "notes"
