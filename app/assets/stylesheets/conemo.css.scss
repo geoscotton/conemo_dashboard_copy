@@ -7,13 +7,13 @@ body {
 div.dashboard {
   width: 100%
 }
-a.navigation {
-  margin-left: auto;
-  width: 31%;
-}
 
+// center homepage button group and fix width
 div.dashboard.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
   margin-left: 3%;
+}
+a.navigation {
+  width: 31%;
 }
 
 // style date selects to match Bootstrap

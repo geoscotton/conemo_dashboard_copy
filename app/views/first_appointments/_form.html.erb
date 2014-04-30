@@ -1,31 +1,31 @@
 <%= form_for [participant, @first_appointment], html: { role: "form", class: "form-horizontal" } do |f| %>
   <div class="form-group">
-    <%= f.label :appointment_at, t("conemo.views.first_appointments.form.appointment_at") + " *", class: "col-md-4 control-label" %>
+    <%= f.label :appointment_at, class: "col-md-4 control-label" %>
     <div class="col-md-6">
       <%= f.datetime_select :appointment_at, class: "form-control", required: true %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :appointment_location, t("conemo.views.first_appointments.form.appointment_location") + " *", class: "col-md-4 control-label" %>
+    <%= f.label :appointment_location, class: "col-md-4 control-label" %>
     <div class="col-md-6">
       <%= f.text_field :appointment_location, class: "form-control", required: true %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :next_contact, t("conemo.views.first_appointments.form.next_contact") + " *", class: "col-md-4 control-label" %>
+    <%= f.label :next_contact, class: "col-md-4 control-label" %>
     <div class="col-md-6">
       <%= f.datetime_select :next_contact, class: "form-control", required: true %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :session_length, t("conemo.views.first_appointments.form.session_length") + " *", class: "col-md-4 control-label" %>
+    <%= f.label :session_length, class: "col-md-4 control-label" %>
     <div class="col-md-6">
       <%= f.number_field :session_length, class: "form-control", required: true %>
     </div>
   </div>
   <%= render 'nurse_participant_evaluations/form', { nurse_participant_evaluation: @nurse_participant_evaluation, f: f } %>
   <div class="form-group">
-    <%= f.label :notes, t("conemo.views.first_appointments.form.notes"), class: "col-md-4 control-label" %>
+    <%= f.label :notes, class: "col-md-4 control-label" %>
     <div class="col-md-6">
       <%= f.text_area :notes, class: "form-control" %>
     </div>
