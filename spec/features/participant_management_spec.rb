@@ -17,7 +17,7 @@ describe "participant management" do
     expect(page).to have_text(participant.study_identifier)
   end
 
-  it "creates a first contact for a participant and shows the contact_at date on the index" do
+  it "creates a first contact for a participant and shows the contact_at date on the index and first appointment link" do
     visit "/en/active/participants"
     click_on "first_contact_#{participant.id}"
     expect(page).to have_text "Input First Contact Information"
@@ -25,5 +25,6 @@ describe "participant management" do
     click_on "Save"
     expect(page).to have_text "Successfully created first contact"
     expect(page).to have_text participant.first_contact.contact_at.to_s(:long)
+    expect(page).to have_text participant.first_contact.first_appointment_at.to_s(:long)
   end
 end
