@@ -12,7 +12,7 @@ class FirstAppointmentsController < ApplicationController
     @first_appointment = participant
                           .build_first_appointment(first_appointment_params)
     if @first_appointment.save
-      redirect_to active_participants_path,
+      redirect_to new_participant_smartphone_path,
                   notice: "Successfully created first appointment"
     else
       flash[:alert] = @first_appointment.errors.full_messages.join(", ")

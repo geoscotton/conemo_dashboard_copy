@@ -7,7 +7,7 @@ class FirstContactsController < ApplicationController
   end
 
   def create
-    @first_contact = participant.build_first_contact(participant_params)
+    @first_contact = participant.build_first_contact(first_contact_params)
     if @first_contact.save
       redirect_to active_participants_path,
                   notice: "Successfully created first contact"
@@ -19,7 +19,7 @@ class FirstContactsController < ApplicationController
 
   private
 
-  def participant_params
+  def first_contact_params
     params.require(:first_contact).permit(
       :participant_id, :contact_at, :first_appointment_at,
       :first_appointment_location

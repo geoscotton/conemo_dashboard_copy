@@ -20,7 +20,7 @@
           <td><%= participant.nurse.last_name %></td>
           <td><%= participant.last_name %>, <%= participant.first_name %></td>
           <td><%= participant.study_identifier %></td>
-          <td><%= participant.enrollment_date %></td>
+          <td><%= participant.enrollment_date.to_s(:long) %></td>
           <td><%= render_first_contact(participant) %></td>
           <td><%= render_first_appointment(participant) %></td>
           <td>""</td>
