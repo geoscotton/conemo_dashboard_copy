@@ -138,3 +138,8 @@ en:
         is_app_compatible: "Is the smartphone is compatible with the app"
         is_owned_by_participant: "Does the study smartphone belong to the participant?"
         is_smartphone_owner: "Is the participant a smartphone owner?"
+      second_contact:
+        contact_at: "Date of phone call"
+        session_length: "Length of phone call (minutes)"
+        video_access: "Was the patient able to see videos?"
+        notes: "Notes"

@@ -22,4 +22,17 @@ module ParticipantsHelper
       ""
     end
   end
+
+  def render_second_contact(participant)
+    if participant.second_contact
+      "#{participant.second_contact.contact_at.to_s(:long)}"
+    elsif participant.first_appointment
+      link_to " #{participant.first_appointment.next_contact.to_s(:long)}",
+              new_participant_second_contact_path(participant),
+              class: "fa fa-plus-circle",
+              id: "second_contact_#{participant.id}"
+    else
+      ""
+    end
+  end
 end

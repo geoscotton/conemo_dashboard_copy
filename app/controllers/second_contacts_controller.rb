@@ -4,6 +4,8 @@ class SecondContactsController < ApplicationController
 
   def new
     @second_contact = participant.build_second_contact
+    @nurse_participant_evaluation = @second_contact
+                                      .build_nurse_participant_evaluation
   end
 
   def create
@@ -21,8 +23,14 @@ class SecondContactsController < ApplicationController
 
   def second_contact_params
     params.require(:second_contact).permit(
-      :participant_id, :contact_at, :second_appointment_at,
-      :second_appointment_location
+      :participant_id, :contact_at, :video_access,
+      :notes, :session_length,
+      nurse_participant_evaluation_attributes: [
+        :first_appointment_id,
+        :smartphone_comfort,
+        :participant_session_engagement,
+        :app_usage_prediction
+      ]
     )
   end
 
