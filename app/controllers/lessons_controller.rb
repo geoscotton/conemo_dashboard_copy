@@ -2,7 +2,7 @@
 class LessonsController < ApplicationController
   def index
     authorize! :index, Lesson
-    @lessons = Lesson.all
+    @lessons = locale_lessons
   end
 
   def show
@@ -10,12 +10,12 @@ class LessonsController < ApplicationController
   end
 
   def new
-    @lesson = Lesson.new
+    @lesson = Lesson.new(locale: I18n.locale)
     authorize! :new, @lesson
   end
 
   def create
-    @lesson = Lesson.new({ locale: params[:locale] }.merge(lesson_params))
+    @lesson = Lesson.new({ locale: I18n.locale }.merge(lesson_params))
     authorize! :create, @lesson
 
     if @lesson.save
@@ -60,8 +60,12 @@ class LessonsController < ApplicationController
 
   private
 
+  def locale_lessons
+    Lesson.where(locale: I18n.locale)
+  end
+
   def find_lesson
-    @lesson = Lesson.find(params[:id])
+    @lesson = locale_lessons.find(params[:id])
   end
 
   def lesson_params

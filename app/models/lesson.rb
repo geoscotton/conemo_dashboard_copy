@@ -20,7 +20,15 @@ class Lesson < ActiveRecord::Base
   end
 
   def build_slide(params = {})
-    slideshow.slides.build(params)
+    slideshow.slides.build({ position: last_position + 1 }.merge(params))
+  end
+
+  def destroy_slide(slide)
+    if slide.destroy
+      slides.order(:position).each_with_index do |s, i|
+        s.update(position: i + 1)
+      end
+    end
   end
 
   private
@@ -35,5 +43,9 @@ class Lesson < ActiveRecord::Base
 
   def destroy_slideshow
     slideshow.destroy
+  end
+
+  def last_position
+    slides.order(:position).select(:position).last.try(:position) || 0
   end
 end

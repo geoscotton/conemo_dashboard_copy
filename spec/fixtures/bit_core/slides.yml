@@ -1,0 +1,5 @@
+day1_slide1:
+  slideshow: day1
+  title: Slide 1
+  body: "<h3>¡some html!</h3>"
+  position: 1
