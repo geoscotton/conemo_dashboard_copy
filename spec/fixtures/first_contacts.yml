@@ -1,0 +1,5 @@
+first_contact1:
+  participant: active_participant
+  contact_at: <%= Date.yesterday %>
+  first_appointment_at: <%= Date.tomorrow %>
+  first_appointment_location: "Far away from here"
