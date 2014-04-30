@@ -1,0 +1,50 @@
+<%= form_for [participant, @smartphone], html: { role: "form", class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <%= f.label :number, class: "col-md-5 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :number, class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_app_compatible, class: "col-md-5 control-label" %>
+    <div class="col-md-6">
+      <label class="radio-inline">
+        <%= f.radio_button :is_app_compatible, 'true', required: true %> <%=t("conemo.views.shared.true_radio") %>
+      </label>
+
+      <label class="radio-inline">
+        <%= f.radio_button :is_app_compatible, 'false', required: true %> <%=t("conemo.views.shared.false_radio") %>
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_owned_by_participant, class: "col-md-5 control-label" %>
+    <div class="col-md-6">
+      <label class="radio-inline">
+        <%= f.radio_button :is_owned_by_participant, 'true', required: true %> <%=t("conemo.views.shared.true_radio") %>
+      </label>
+
+      <label class="radio-inline">
+        <%= f.radio_button :is_owned_by_participant, 'false', required: true %> <%=t("conemo.views.shared.false_radio") %>
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_smartphone_owner, class: "col-md-5 control-label" %>
+    <div class="col-md-6">
+      <label class="radio-inline">
+        <%= f.radio_button :is_smartphone_owner, 'true', required: true %> <%=t("conemo.views.shared.true_radio") %>
+      </label>
+
+      <label class="radio-inline">
+        <%= f.radio_button :is_smartphone_owner, 'false', required: true %> <%=t("conemo.views.shared.false_radio") %>
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-5 col-md-6">
+      <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+      <%= link_to t("conemo.views.shared.cancel_button"), active_participants_path, class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>

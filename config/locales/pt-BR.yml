@@ -5,12 +5,17 @@ pt-BR:
         save_button: "Salvar"
         cancel_button: "Cancelar"
         nurse: "Técnico de Enfermagem"
+        true_radio: "Verdadeiro"
+        false_radio: "Falso"
       dashboards:
         index:
           heading: "Bem-vindo!"
           instructions: "Por favor, selecione um item"
           enrollment_button: "Cadastrar participantes pendentes"
           manage_button: "Gerenciar Participantes Ativos"
+      smartphones:
+        new:
+          heading: "Entrada Smartphone Informações"   
       users:
         sign_in:
           sign_in: "Login"
@@ -29,27 +34,27 @@ pt-BR:
               o2: "2 - o paciente tem dificuldade para ligar o telefone celular, acessar e usar o aplicativo, mas pode fazê-lo depois de uma segunda demonstração"
               o1: "1 - o paciente tem dificuldade para ligar o telefone celular, acessar e usar o aplicativo, mesmo após uma segunda demonstração"
             participant_session_engagement_options:
-              o5: "5 - atenção às explicações e app-manifestação de NA, interagindo com NA e fazer perguntas, quando necessário"
-              o4: "4 - atenção às explicações e app-manifestação de NA, interagindo com NA, mas não fez perguntas"
-              o3: "3 - atenção às explicações e app-manifestação de NA, mas não interagir com NA nem fazer perguntas"
-              o2: "2 - atenção às explicações e app-demonstração por NA o tempo todo, mas interagiu com NA e pediu algumas perguntas"
-              o1: "1 - atenção às explicações e app-manifestação de NA, mas não interagir com NA nem fazer perguntas"
+              o5: "5 - o paciente prestou atenção às explicações e demonstração do aplicativo, interagindo e fazendo perguntas quando necessário"
+              o4: "4 - o paciente prestou atenção e interagiu durante as explicações e demonstração do aplicativo, porém não fez perguntas"
+              o3: "3 - o paciente prestou atenção às explicações e demonstração do aplicativo, porém não interagiu e não fez perguntas"
+              o2: "2 - o paciente prestou pouca atenção às explicações e demonstração do aplicativo, interagindo pouco e não fazendo perguntas"
+              o1: "1 - o paciente não prestou atenção  às explicações e demonstração do aplicativo"
             app_usage_prediction_options:
-              o5: "5"
-              o4: "4"
-              o3: "3"
-              o2: "2"
-              o1: "1"
+              o5: "5 - sim, o paciente mostrou-se muito interessado e motivado em usar o aplicativo"
+              o4: "4 - sim, o paciente mostrou-se interessado em usar o aplicativo"
+              o3: "3 - sim, apesar do paciente mostrar-se interessado mas pouco motivado em usar o aplicativo"
+              o2: "2 - talvez, pois o paciente mostrou-se pouco interessado e pouco motivado em usar o aplicativo" 
+              o1: "1 - não, o paciente não demonstrou interesse e nem motivação em usar o aplicativo"
       participants:
         new:
-          heading: "Matricular novo participante"
+          heading: "Cadastrar  novo participante"
         edit:
           heading: "Editar Participante"
         form:
-          male: "homem"
-          female: "fêmea"
-          diabetes: "diabetes"
-          hypertension: "hipertensão"
+          male: "Masculino"
+          female: "Feminino"
+          diabetes: "Diabetes"
+          hypertension: "Hipertensão"
       active:
         participants:
           index:
@@ -61,7 +66,7 @@ pt-BR:
             first_contact: "Primeiro Contato"
             first_appointment: "Primeira Nomeação"
             second_contact: "Segundo Contato"
-            status: "Condição"
+            status: "Status"
       pending:
         participants:
           index:
@@ -72,14 +77,14 @@ pt-BR:
             study_identifier: "Identificador estudo"
             enrollment_date: "Data de Inscrição"
             activate: "Ativar"
-            disqualify: "Desqualificar"
+            disqualify: "Excluir participante"
             disqualify_alert: "Você tem certeza que quer marcar essa pessoa como inelegível?"
             activate_alert: "Você tem certeza que deseja ativar esta pessoa?"
           activate:
-            heading_1: "Atribuir enfermeira para ativar participante"
+            heading_1: "Designar enfermeira para ativar participante"
     models:
       participant:
-        enrollment_date_is_sane_error: "deve ser recente ou próxima"      
+        enrollment_date_is_sane_error: "deve ser recente ou próxima"   
   date:
     abbr_day_names:
     - Dom
@@ -218,19 +223,19 @@ pt-BR:
       update: Atualizar %{model}
     label:
       participant:
-        first_name: "Primeiro nome"
+        first_name: "Nome"
         last_name: "Sobrenome"
         study_identifier: "Identificador estudo"
-        family_health_unit_name: "Nome da unidade de saúde da família"
-        family_record_number: "Número recorde Família"
-        phone: "Telefone"
-        secondary_phone: "Telefone Secundário"
-        email: "Email"
+        family_health_unit_name: "Unidade de Saúde da Família"
+        family_record_number: "Prontuário da Família"
+        phone: "Telefone 1"
+        secondary_phone: "Telefone 2"
+        email: "E-mail"
         date_of_birth: "Data de nascimento"
         address: "Endereço"
-        enrollment_date: "Data de inscrição"
+        enrollment_date: "Data de inclusão no estudo"
         gender: "Sexo"
-        key_chronic_disorder: "Distúrbio crônico chave"
+        key_chronic_disorder: "Principal Doença Crônica"
       lesson:
         title: "Título"
         day_in_treatment: "Dia de tratamento"
@@ -248,6 +253,11 @@ pt-BR:
         smartphone_comfort: "Na sua opinião, quão confortável o paciente se sentiu usando o smartphone?"
         participant_session_engagement: "Você acha que o paciente esteve envolvido/engajado em usar o smartphone?"
         app_usage_prediction: "Você acha ser provável que o paciente use o smartphone e este aplicativo?"
+      smartphone:
+        number: "Número do Smartphone"
+        is_app_compatible: "O sistema do smartphone do participante é compatível com o aplicativo?"
+        is_owned_by_participant: "O smartphone usado no estudo pertence ao participante?"
+        is_smartphone_owner: "O participante tem seu próprio smartphone?"
   number:
     currency:
       format:

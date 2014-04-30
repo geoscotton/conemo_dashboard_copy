@@ -5,6 +5,8 @@ en:
         save_button: "Save"
         cancel_button: "Cancel"
         nurse: "Nurse"
+        true_radio: "True"
+        false_radio: "False"
       dashboards:
         index:
           heading: "Welcome!"
@@ -42,6 +44,9 @@ en:
               o3: "3"
               o2: "2"
               o1: "1"
+      smartphones:
+        new:
+          heading: "Input Smartphone Information"
       users:
         sign_in:
           sign_in: "Sign in"
@@ -128,3 +133,8 @@ en:
         smartphone_comfort: "How comfortable was the patient using the smartphone?"
         participant_session_engagement: "How engaged was the patient during the session?"
         app_usage_prediction: "How likely will the patient use the app?"
+      smartphone:
+        number: "SMS Phone # of Smartphone"
+        is_app_compatible: "Is the smartphone is compatible with the app"
+        is_owned_by_participant: "Does the study smartphone belong to the participant?"
+        is_smartphone_owner: "Is the participant a smartphone owner?"
