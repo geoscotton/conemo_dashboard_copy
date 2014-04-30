@@ -19,24 +19,11 @@ en:
       first_contacts:
         new:
           heading: "Input First Contact Information"
-        form:
-          contact_at: "Contacted at"
-          first_appointment_at: "Schedule First Appointment"
-          first_appointment_location: "First appointment location"
       first_appointments:
         new:
           heading: "Input First Appointment Information"
-        form:
-          appointment_at: "Appointment date/time"
-          appointment_location: "Location of appointment"
-          next_contact: "Next contact date/time"
-          session_length: "Session length (minutes)"
         nurse_participant_evaluation:
           form:
-            smartphone_comfort: "How comfortable was the patient using the smartphone?"
-            participant_session_engagement: "How engaged was the patient during the session?"
-            app_usage_prediction: "How likely will the patient use the app?"
-            notes: "Notes"
             smartphone_comfort_options:
               o5: "5 - can turn on the cell phone, access and use the app by her/himself after the first demonstration"
               o4: "4 - can turn on the cell phone and access the app, but needs help to use the app"
@@ -127,3 +114,17 @@ en:
       lesson:
         title: "Title"
         day_in_treatment: "Day in treatment"
+      first_contact:
+        contacted_at: "Date of contact"
+        first_appointment_at: "Schedule first appointment"
+        first_appointment_location: "First appointment location"
+      first_appointment:
+        appointment_at: "Appointment date/time"
+        appointment_location: "Location of appointment"
+        next_contact: "Next contact date/time"
+        session_length: "Session length (minutes)"
+        notes: "Notes"
+      nurse_participant_evaluation:
+        smartphone_comfort: "How comfortable was the patient using the smartphone?"
+        participant_session_engagement: "How engaged was the patient during the session?"
+        app_usage_prediction: "How likely will the patient use the app?"
