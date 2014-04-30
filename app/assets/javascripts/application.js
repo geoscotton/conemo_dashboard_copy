@@ -11,6 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.core
+//= require jquery.ui.widget
+//= require jquery.ui.mouse
+//= require jquery.ui.draggable
+//= require jquery.ui.sortable
 //= require jquery_ujs
 //= require turbolinks
 //= require ckeditor/ckeditor
