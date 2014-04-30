@@ -24,6 +24,6 @@ describe "participant management" do
     fill_in "First appointment location", with: "location string for first appointment"
     click_on "Save"
     expect(page).to have_text "Successfully created first contact"
-    expect(page).to have_text participant.first_contact.contact_at
+    expect(page).to have_text participant.first_contact.contact_at.to_s(:long)
   end
 end
