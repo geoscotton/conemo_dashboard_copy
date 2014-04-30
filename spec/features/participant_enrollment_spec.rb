@@ -19,9 +19,9 @@ describe "participant enrollment" do
 
   it "should enroll a new participant" do
     visit "/en/participants/new"
-    
+
     expect(page).to have_text "Enroll New Participant"
-    
+
     fill_in "First name", with: "Joe"
     fill_in "Last name", with: "Blow"
     fill_in("Study Identifier", with: "s14")
@@ -39,33 +39,33 @@ describe "participant enrollment" do
     choose "participant_gender_male"
     choose "participant_key_chronic_disorder_diabetes"
     click_on "Save"
-    
+
     expect(page).to have_text "Successfully created participant"
   end
 
   it "should update an ineligible participant and remove them from the index" do
     visit "/en/pending/participants"
-    
+
     expect(page).to have_text participant.study_identifier
-    
+
     click_on "disqualify_#{participant.id}"
-    
+
     expect(page).to have_text "Successfully updated participant"
     expect(page).to_not have_text participant.study_identifier
   end
 
   it "should activate an eligible participant and assign them to a nurse" do
     visit "/en/pending/participants"
-    
+
     expect(page).to have_text participant.study_identifier
-    
+
     click_on "activate_#{participant.id}"
-    
+
     expect(page).to have_text "Assign nurse to activate participant #{participant.first_name} #{participant.last_name}"
-    
+
     select nurse.last_name, from: "participant_nurse_id"
     click_on "Save"
-    
+
     expect(page).to have_text "Successfully updated participant"
     expect(page).to_not have_text participant.study_identifier
   end
