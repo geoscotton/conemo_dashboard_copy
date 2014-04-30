@@ -1,92 +1,107 @@
 <%= form_for @participant, html: { role: "form", class: "form-horizontal" } do |f| %>
   <div class="form-group">
-    <%= f.label :first_name, t("conemo.views.participants.form.first_name"), class: "col-md-3 control-label" %>
+    <%= f.label :first_name, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.text_field :first_name, class: "form-control", required: true %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :last_name, t("conemo.views.participants.form.last_name"), class: "col-md-3 control-label" %>
+    <%= f.label :last_name, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.text_field :last_name, class: "form-control", required: true %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :study_identifier, t("conemo.views.participants.form.study_identifier"), class: "col-md-3 control-label" %>
+    <%= f.label :study_identifier, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.text_field :study_identifier, class: "form-control", required: true %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :family_health_unit_name, t("conemo.views.participants.form.family_health_unit_name"), class: "col-md-3 control-label" %>
+    <%= f.label :family_health_unit_name, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.text_field :family_health_unit_name, class: "form-control", required: true %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :family_record_number, t("conemo.views.participants.form.family_record_number"), class: "col-md-3 control-label" %>
+    <%= f.label :family_record_number, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.text_field :family_record_number, class: "form-control", required: true %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :phone, t("conemo.views.participants.form.phone"), class: "col-md-3 control-label" %>
+    <%= f.label :phone, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.text_field :phone, class: "form-control", required: true %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :secondary_phone, t("conemo.views.participants.form.secondary_phone"), class: "col-md-3 control-label" %>
+    <%= f.label :secondary_phone, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.text_field :secondary_phone, class: "form-control" %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :email, t("conemo.views.participants.form.email"), class: "col-md-3 control-label" %>
+    <%= f.label :email, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.text_field :email, class: "form-control" %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :date_of_birth, t("conemo.views.participants.form.date_of_birth"), class: "col-md-3 control-label" %>
+    <%= f.label :date_of_birth, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.date_select :date_of_birth, { start_year: Date.today.year-100 }, { class: "form-control date-select", required: true } %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :address, t("conemo.views.participants.form.address"), class: "col-md-3 control-label" %>
+    <%= f.label :address, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.text_area :address, class: "form-control" %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :enrollment_date, t("conemo.views.participants.form.enrollment_date"), class: "col-md-3 control-label" %>
+    <%= f.label :enrollment_date, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= f.date_select :enrollment_date, {}, { class: "form-control date-select", required: true } %>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :gender, t("conemo.views.participants.form.gender"), class: "col-md-3 control-label" %>
+    <%= f.label :gender, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <label class="radio-inline">
         <%= f.radio_button :gender, 'male', required: true %> <%=t("conemo.views.participants.form.male") %>
       </label>
+
       <label class="radio-inline">
         <%= f.radio_button :gender, 'female', required: true %> <%=t("conemo.views.participants.form.female") %>
       </label>
     </div>
   </div>
+
   <div class="form-group">
-    <%= f.label :key_chronic_disorder, t("conemo.views.participants.form.key_chronic_disorder"), class: "col-md-3 control-label" %>
+    <%= f.label :key_chronic_disorder, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <label class="radio-inline">
         <%= f.radio_button :key_chronic_disorder, 'diabetes', required: true %> <%=t("conemo.views.participants.form.diabetes") %>
       </label>
+
       <label class="radio-inline">
         <%= f.radio_button :key_chronic_disorder, 'hypertension', required: true %> <%=t("conemo.views.participants.form.hypertension") %>
       </label>
     </div>
   </div>
+
   <div class="form-group">
     <div class="col-md-offset-3 col-md-6">
       <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>

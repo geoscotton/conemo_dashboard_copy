@@ -1,9 +1,4 @@
 en:
-  activerecord:
-    attributes:
-      lesson:
-        title: "Title"
-        day_in_treatment: "Day in treatment"
   conemo:
     views:
       shared:
@@ -69,21 +64,8 @@ en:
         edit:
           heading: "Edit Participant"
         form:
-          first_name: "First name"
-          last_name: "Last name"
-          study_identifier: "Study Identifier"
-          family_health_unit_name: "Family health unit name"
-          family_record_number: "Family record number"
-          phone: "Phone"
-          secondary_phone: "Secondary Phone"
-          email: "Email"
-          date_of_birth: "Date of birth"
-          address: "Address"
-          enrollment_date: "Enrollment date"
-          gender: "Gender"
           male: "male"
           female: "female"
-          key_chronic_disorder: "Key chronic disorder"
           diabetes: "diabetes"
           hypertension: "hypertension"
       active:
@@ -126,3 +108,22 @@ en:
     models:
       participant:
         enrollment_date_is_sane_error: "must be recent or upcoming"      
+  helpers:
+    label:
+      participant:
+        first_name: "First name"
+        last_name: "Last name"
+        study_identifier: "Study Identifier"
+        family_health_unit_name: "Family health unit name"
+        family_record_number: "Family record number"
+        phone: "Phone"
+        secondary_phone: "Secondary Phone"
+        email: "Email"
+        date_of_birth: "Date of birth"
+        address: "Address"
+        enrollment_date: "Enrollment date"
+        gender: "Gender"
+        key_chronic_disorder: "Key chronic disorder"
+      lesson:
+        title: "Title"
+        day_in_treatment: "Day in treatment"
