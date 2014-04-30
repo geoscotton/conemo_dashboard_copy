@@ -58,6 +58,17 @@ class LessonsController < ApplicationController
     end
   end
 
+  def slide_order
+    authorize! :update, find_lesson
+
+    if @lesson.update_slide_order(slide_order_params)
+      flash.now[:notice] = I18n.t("conemo.controllers.lessons.saved")
+      render :slide_order_success
+    else
+      render :slide_order_failure
+    end
+  end
+
   private
 
   def locale_lessons
@@ -74,5 +85,9 @@ class LessonsController < ApplicationController
 
   def validation_errors
     @lesson.errors.full_messages.join(", ")
+  end
+
+  def slide_order_params
+    params.require(:slide)
   end
 end

@@ -31,6 +31,17 @@ class Lesson < ActiveRecord::Base
     end
   end
 
+  def update_slide_order(ids)
+    self.class.transaction do
+      self.class.connection.execute(
+        "SET CONSTRAINTS bit_core_slide_position DEFERRED"
+      )
+      ids.each_with_index do |id, index|
+        slides.find(id).update_attribute(:position, index + 1)
+      end
+    end
+  end
+
   private
 
   def generate_guid

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :lessons do
       resources :slides
     end
+    post "lessons/:id/slide_order" => "lessons#slide_order", as: :lesson_slide_order
   end
 
   get "/:locale" => "dashboards#index", as: :dashboard

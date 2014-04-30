@@ -4,6 +4,8 @@
 
 <%= link_to t("conemo.views.lessons.show.add_slide"), new_lesson_slide_path(@lesson) %>
 
-<table class="table">
-  <%= render @lesson.slides %>
+<table class="table" id="sortable">
+  <tbody data-update-path="<%= lesson_slide_order_path(id: @lesson.id) %>">
+    <%= render @lesson.slides %>
+  </tbody>
 </table>

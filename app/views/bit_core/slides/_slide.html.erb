@@ -1,4 +1,5 @@
-<tr>
+<tr class="draggable" id="slide_<%= slide.id %>">
+  <td class="handle"><%= icon("arrows-v fa-lg") %></td>
   <td><%= slide.position %></td>
   <td><%= link_to slide.title, lesson_slide_path(@lesson, slide) %></td>
   <td><%= link_to icon("pencil fa-lg"), edit_lesson_slide_path(@lesson, slide), id: "edit-slide-#{ slide.id }" %></td>
