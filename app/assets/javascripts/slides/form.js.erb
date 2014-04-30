@@ -1,0 +1,24 @@
+(function() {
+  var editor;
+
+  function renderEditor() {
+    if (editor || $("#slide_body").length === 0) return;
+
+    CKEDITOR.lang.languages = { en: 1, es: 1, "pt-br": 1 };
+    var langCode = $("#slide_body").data("langCode");
+    editor = CKEDITOR.replace("slide_body", {
+      language: { en: "en", "pt-BR": "pt-br", "es-PE": "es" }[langCode]
+    });
+  }
+
+  function destroyEditor() {
+    if (editor) {
+      editor.destroy();
+      editor = null;
+    }
+  }
+
+  $(document).ready(renderEditor);
+  $(document).on("page:change", renderEditor);
+  $(document).on("page:before-change", destroyEditor);
+})();
