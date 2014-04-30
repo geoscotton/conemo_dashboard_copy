@@ -5,7 +5,7 @@ describe LessonsController do
   let(:lesson) { double("lesson") }
 
   shared_context "lesson is found" do
-    before { allow(Lesson).to receive(:find) { lesson } }
+    before { allow(Lesson).to receive_message_chain("where.find") { lesson } }
   end
 
   describe "GET index" do

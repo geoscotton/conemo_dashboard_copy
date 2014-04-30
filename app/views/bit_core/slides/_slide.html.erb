@@ -1,4 +1,11 @@
 <tr>
   <td><%= slide.position %></td>
   <td><%= link_to slide.title, lesson_slide_path(@lesson, slide) %></td>
+  <td><%= link_to icon("pencil fa-lg"), edit_lesson_slide_path(@lesson, slide), id: "edit-slide-#{ slide.id }" %></td>
+  <td><%= link_to icon("trash-o fa-lg text-danger"),
+                  lesson_slide_path(@lesson, slide),
+                  id: "destroy-slide-#{ slide.id }",
+                  method: "delete",
+                  :"data-confirm" => "Are you sure you want to delete #{ slide.title }?"
+      %></td>
 </tr>

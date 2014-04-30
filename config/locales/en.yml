@@ -1,4 +1,9 @@
 en:
+  activerecord:
+    attributes:
+      lesson:
+        title: "Title"
+        day_in_treatment: "Day in treatment"
   conemo:
     views:
       shared:
@@ -116,6 +121,8 @@ en:
       slides:
         saved: "Slide saved"
         not_saved: "Slide not saved"
+        destroyed: "Slide deleted"
+        not_destroyed: "Slide not deleted"
     models:
       participant:
         enrollment_date_is_sane_error: "must be recent or upcoming"      

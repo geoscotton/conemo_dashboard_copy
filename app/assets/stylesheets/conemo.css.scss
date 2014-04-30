@@ -15,3 +15,9 @@ a.navigation {
 div.dashboard.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
   margin-left: 3%;
 }
+
+// style date selects to match Bootstrap
+select.form-control.date-select {
+  width: 33%;
+  float: left;
+}
