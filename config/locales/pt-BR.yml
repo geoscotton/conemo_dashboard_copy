@@ -59,21 +59,8 @@ pt-BR:
         edit:
           heading: "Editar Participante"
         form:
-          first_name: "Primeiro nome"
-          last_name: "Sobrenome"
-          study_identifier: "Identificador estudo"
-          family_health_unit_name: "Nome da unidade de saúde da família"
-          family_record_number: "Número recorde Família"
-          phone: "Telefone"
-          secondary_phone: "Telefone Secundário"
-          email: "Email"
-          date_of_birth: "Data de nascimento"
-          address: "Endereço"
-          enrollment_date: "Data de inscrição"
-          gender: "Sexo"
           male: "homem"
           female: "fêmea"
-          key_chronic_disorder: "Distúrbio crônico chave"
           diabetes: "diabetes"
           hypertension: "hipertensão"
       active:
@@ -242,6 +229,21 @@ pt-BR:
       create: Criar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
+    label:
+      participant:
+        first_name: "Primeiro nome"
+        last_name: "Sobrenome"
+        study_identifier: "Identificador estudo"
+        family_health_unit_name: "Nome da unidade de saúde da família"
+        family_record_number: "Número recorde Família"
+        phone: "Telefone"
+        secondary_phone: "Telefone Secundário"
+        email: "Email"
+        date_of_birth: "Data de nascimento"
+        address: "Endereço"
+        enrollment_date: "Data de inscrição"
+        gender: "Sexo"
+        key_chronic_disorder: "Distúrbio crônico chave"
   number:
     currency:
       format:
