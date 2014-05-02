@@ -1,0 +1,11 @@
+<h1><%=t "conemo.views.active.participants.show.heading" %> <%= @participant.first_name %> <%= @participant.last_name %></h1>
+
+<div class="row well">
+  <div class="col-md-6">
+    <%= render 'contact_info', participant: @participant %>
+  </div>
+  <div class="col-md-6">
+    <%= render 'smartphone', smartphone: @participant.smartphone %>
+    <%= render 'first_contact', first_contact: @participant.first_contact%>
+  </div>
+</div>

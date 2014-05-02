@@ -4,21 +4,22 @@
     <br>
     <table class="table table-striped table-bordered table-condensed">
       <tr>
-        <th><%=t "conemo.views.active.participants.index.edit_info" %></th>
         <th><%=t "conemo.views.shared.nurse" %></th>
         <th><%=t "conemo.views.active.participants.index.name" %></th>
         <th><%=t "conemo.views.active.participants.index.study_identifier" %></th>
         <th><%=t "conemo.views.active.participants.index.enrollment_date" %></th>
         <th><%=t "conemo.views.active.participants.index.first_contact" %></th>
-        <th><%=t "conemo.views.active.participants.index.first_appointment" %></th>
+        <th>
+          <%=t "conemo.views.active.participants.index.first_appointment" %> / 
+          <%=t "conemo.views.active.participants.index.location" %>
+        </th>
         <th><%=t "conemo.views.active.participants.index.second_contact" %></th>
         <th><%=t "conemo.views.active.participants.index.status" %></th>
       </tr>
       <% @participants.each do |participant| %>
         <tr>
-          <td><%= link_to '', edit_participant_path(participant), class: "fa fa-edit fa-2x" %></td>
           <td><%= participant.nurse.last_name %></td>
-          <td><%= participant.last_name %>, <%= participant.first_name %></td>
+          <td><%= link_to "#{participant.last_name}, #{participant.first_name}", active_participant_path(participant) %></td>
           <td><%= participant.study_identifier %></td>
           <td><%= participant.enrollment_date.to_s(:long) %></td>
           <td><%= render_first_contact(participant) %></td>

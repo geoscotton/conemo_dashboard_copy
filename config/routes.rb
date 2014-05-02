@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
     
     namespace "active" do
-      resources :participants, only: :index
+      resources :participants, only: [:index, :show]
     end
 
     resources :lessons do

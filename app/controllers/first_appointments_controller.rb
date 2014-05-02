@@ -20,6 +20,21 @@ class FirstAppointmentsController < ApplicationController
     end
   end
 
+  def edit
+    @first_appointment = participant.first_appointment
+  end
+
+  def update
+    @first_appointment = participant.first_appointment
+    if @first_appointment.update(first_appointment_params)
+      redirect_to active_participant_path(participant),
+                  notice: "Successfully updated first_appointment"
+    else
+      flash[:alert] = @first_appointment.errors.full_messages.join(", ")
+      render :edit
+    end
+  end
+
   private
 
   def first_appointment_params
