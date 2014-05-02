@@ -17,6 +17,21 @@ class SmartphonesController < ApplicationController
     end
   end
 
+  def edit
+    @smartphone = participant.smartphone
+  end
+
+  def update
+    @smartphone = participant.smartphone
+    if @smartphone.update(smartphone_params)
+      redirect_to active_participants_path,
+                  notice: "Successfully updated smartphone"
+    else
+      flash[:alert] = @smartphone.errors.full_messages.join(", ")
+      render :edit
+    end
+  end
+
   private
 
   def smartphone_params

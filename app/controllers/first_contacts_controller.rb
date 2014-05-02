@@ -17,6 +17,21 @@ class FirstContactsController < ApplicationController
     end
   end
 
+  def edit
+    @first_contact = participant.first_contact
+  end
+
+  def update
+    @first_contact = participant.first_contact
+    if @first_contact.update(first_contact_params)
+      redirect_to active_participant_path(participant),
+                  notice: "Successfully updated first_contact"
+    else
+      flash[:alert] = @first_contact.errors.full_messages.join(", ")
+      render :edit
+    end
+  end
+
   private
 
   def first_contact_params

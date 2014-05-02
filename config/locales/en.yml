@@ -71,8 +71,14 @@ en:
             enrollment_date: "Enrollment Date"
             first_contact: "First Contact"
             first_appointment: "First Appointment"
+            location: "Location"
             second_contact: "Second Contact"
             status: "Status"
+          show:
+            heading: "Profile for"
+            contact_heading: "Contact Information"
+            smartphone_heading: "Smartphone Information"
+            first_contact_heading: "First Contact Information"
       pending:
         participants:
           index:
@@ -123,6 +129,8 @@ en:
         contacted_at: "Date of contact"
         first_appointment_at: "Schedule first appointment"
         first_appointment_location: "First appointment location"
+        alternative_contact_name: "Alternative contact name"
+        alternative_contact_phone: "Alternative contact phone"
       first_appointment:
         appointment_at: "Appointment date/time"
         appointment_location: "Location of appointment"
@@ -135,7 +143,7 @@ en:
         app_usage_prediction: "How likely will the patient use the app?"
       smartphone:
         number: "SMS Phone # of Smartphone"
-        is_app_compatible: "Is the smartphone is compatible with the app"
+        is_app_compatible: "Is the smartphone compatible with the app?"
         is_owned_by_participant: "Does the study smartphone belong to the participant?"
         is_smartphone_owner: "Is the participant a smartphone owner?"
       second_contact:

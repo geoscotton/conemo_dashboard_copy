@@ -68,8 +68,11 @@ pt-BR:
             enrollment_date: "Data de Inscrição"
             first_contact: "Primeiro Contato"
             first_appointment: "Primeira Nomeação"
+            location: "Localização"
             second_contact: "Segundo Contato"
             status: "Status"
+          show:
+            heading: "Perfil de"
       pending:
         participants:
           index:

@@ -19,6 +19,21 @@ class SecondContactsController < ApplicationController
     end
   end
 
+  def edit
+    @second_contact = participant.second_contact
+  end
+
+  def update
+    @second_contact = participant.second_contact
+    if @second_contact.update(second_contact_params)
+      redirect_to active_participant_path(participant),
+                  notice: "Successfully updated second_contact"
+    else
+      flash[:alert] = @second_contact.errors.full_messages.join(", ")
+      render :edit
+    end
+  end
+
   private
 
   def second_contact_params
