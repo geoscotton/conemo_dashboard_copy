@@ -14,7 +14,8 @@ module ParticipantsHelper
     if participant.first_appointment
       "#{participant.first_appointment.appointment_at.to_s(:long)}"
     elsif participant.first_contact
-      link_to " #{participant.first_contact.first_appointment_at.to_s(:long)}",
+      link_to " #{participant.first_contact.first_appointment_at.to_s(:long)}
+       / #{participant.first_appointment.appointment_location}",
               new_participant_first_appointment_path(participant),
               class: "fa fa-plus-circle",
               id: "first_appointment_#{participant.id}"

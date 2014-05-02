@@ -38,3 +38,35 @@ div.profile div.notes {
   padding: 10px;
   border-radius: 5px;
 }
+
+a.navbar-brand {
+  color: white !important;
+  background-color: salmon;
+}
+a.navbar-brand:hover {
+  color: #999 !important;
+}
+.navbar-default .navbar-nav > li > a.info {
+  color: white;
+  background-color: #5bc0de;
+}
+.navbar-default .navbar-nav > li > a.info:hover {
+  color: #999;
+  background-color: white;
+}
+.navbar-default .navbar-nav > li > a.primary {
+  color: white;
+  background-color: #428bca;
+}
+.navbar-default .navbar-nav > li > a.primary:hover {
+  color: #999;
+  background-color: white;
+}
+.navbar-default .navbar-nav > li > a.success {
+  color: white;
+  background-color: #5cb85c;
+}
+.navbar-default .navbar-nav > li > a.success:hover {
+  color: #999;
+  background-color: white;
+}

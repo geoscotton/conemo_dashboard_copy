@@ -79,6 +79,9 @@ en:
             contact_heading: "Contact Information"
             smartphone_heading: "Smartphone Information"
             first_contact_heading: "First Contact Information"
+            first_appointment_heading: "First Appointment Information"
+            second_contact_heading: "Second Contact Information"
+
       pending:
         participants:
           index:

@@ -15,6 +15,19 @@
       </div>
 
       <div class="navbar-collapse collapse">
+        <% if !current_page?("/#{params[:locale]}") %>
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to t('conemo.views.dashboards.index.enrollment_button'), pending_participants_path, class: "info" %>
+            </li>
+            <li>
+              <%= link_to t('conemo.views.dashboards.index.manage_button'), active_participants_path, class: "primary" %>
+            </li>
+            <li>
+              <%= link_to t('conemo.views.dashboards.index.lessons_button'), lessons_path, class: "success" %>
+            </li>
+          </ul>
+        <% end %>
         <ul class="nav navbar-nav navbar-right">
           <li class="<%= I18n.locale == :en ? "active" : "" %>"><%= link_to "English", dashboard_path(locale: "en") %></li>
           <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %>"><%= link_to "Español", dashboard_path(locale: "es-PE") %></li>
