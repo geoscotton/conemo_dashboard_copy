@@ -1,11 +1,17 @@
 <h1><%=t "conemo.views.active.participants.show.heading" %> <%= @participant.first_name %> <%= @participant.last_name %></h1>
-
-<div class="row well">
-  <div class="col-md-6">
-    <%= render 'contact_info', participant: @participant %>
-  </div>
-  <div class="col-md-6">
-    <%= render 'smartphone', smartphone: @participant.smartphone %>
-    <%= render 'first_contact', first_contact: @participant.first_contact%>
+<div class="profile">
+  <div class="row well">
+    <div class="col-md-4">
+      <%= render 'contact_info', participant: @participant %>
+    </div>
+    <div class="col-md-4">
+      <%= render 'smartphone', smartphone: @participant.smartphone if @participant.smartphone%>
+      <%= render 'notes', participant: @participant if @participant.first_appointment %>
+    </div>
+    <div class="col-md-4">
+      <%= render 'first_contact', first_contact: @participant.first_contact if @participant.first_contact%>
+      <%= render 'first_appointment', first_appointment: @participant.first_appointment if @participant.first_appointment%>
+      <%= render 'second_contact', second_contact: @participant.second_contact if @participant.second_contact%>
+    </div>
   </div>
 </div>

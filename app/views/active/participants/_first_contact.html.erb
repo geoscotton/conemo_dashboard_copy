@@ -1,3 +1,7 @@
 <h2><%=t "conemo.views.active.participants.show.first_contact_heading" %> <%= link_to '', edit_participant_first_contact_path(first_contact.participant), class: "fa fa-edit" %></h2>
 <p><strong><%=t "helpers.label.first_contact.contact_at" %>:</strong>
-  <%= first_contact.contact_at %>
+  <%= first_contact.contact_at.to_s(:long) %>
+<p><strong><%=t "helpers.label.first_contact.alternative_contact_name" %>:</strong>
+  <%= first_contact.alternative_contact_name %>
+<p><strong><%=t "helpers.label.first_contact.alternative_contact_phone" %>:</strong>
+  <%= first_contact.alternative_contact_phone %>

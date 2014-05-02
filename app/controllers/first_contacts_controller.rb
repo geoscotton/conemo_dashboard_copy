@@ -37,7 +37,8 @@ class FirstContactsController < ApplicationController
   def first_contact_params
     params.require(:first_contact).permit(
       :participant_id, :contact_at, :first_appointment_at,
-      :first_appointment_location
+      :first_appointment_location, :alternative_contact_name,
+      :alternative_contact_phone
     )
   end
 

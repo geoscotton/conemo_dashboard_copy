@@ -21,3 +21,20 @@ select.form-control.date-select {
   width: 33%;
   float: left;
 }
+
+// profile page styles
+
+div.profile p {
+  font-size: 12px;
+  line-height: 1em;
+  margin-left: 5px;
+  color: #444;
+}
+div.profile h2 {
+  font-size: 20px;
+}
+div.profile div.notes {
+  border: 3px solid darkgrey;
+  padding: 10px;
+  border-radius: 5px;
+}
