@@ -1,4 +1,4 @@
-<%= form_for [participant, @second_contact], html: { role: "form", class: "form-horizontal" } do |f| %>
+<%= form_for @second_contact, url: participant_second_contact_path(participant), method: @second_contact.valid? ? :patch : :post, html: { role: "form", class: "form-horizontal" } do |f| %>
   <div class="form-group">
     <%= f.label :contact_at, class: "col-md-4 control-label" %>
     <div class="col-md-6">
@@ -23,7 +23,7 @@
       </label>
     </div>
   </div>
-  <%= render 'nurse_participant_evaluations/form', { nurse_participant_evaluation: @nurse_participant_evaluation, f: f } %>
+  <%= render 'nurse_participant_evaluations/form', { nurse_participant_evaluation: @nurse_participant_evaluation, f: f } unless @second_contact.nurse_participant_evaluation.valid? %>
   <div class="form-group">
     <%= f.label :notes, class: "col-md-4 control-label" %>
     <div class="col-md-6">

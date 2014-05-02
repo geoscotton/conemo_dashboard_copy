@@ -1,4 +1,4 @@
-<%= form_for [participant, @first_appointment], html: { role: "form", class: "form-horizontal" } do |f| %>
+<%= form_for @first_appointment, url: participant_first_appointment_path(participant), method: @first_appointment.valid? ? :patch : :post, html: { role: "form", class: "form-horizontal" } do |f| %>
   <div class="form-group">
     <%= f.label :appointment_at, class: "col-md-4 control-label" %>
     <div class="col-md-6">
@@ -23,7 +23,7 @@
       <%= f.number_field :session_length, class: "form-control", required: true %>
     </div>
   </div>
-  <%= render 'nurse_participant_evaluations/form', { nurse_participant_evaluation: @nurse_participant_evaluation, f: f } %>
+  <%= render 'nurse_participant_evaluations/form', { nurse_participant_evaluation: @nurse_participant_evaluation, f: f } unless @first_appointment.nurse_participant_evaluation.valid? %>
   <div class="form-group">
     <%= f.label :notes, class: "col-md-4 control-label" %>
     <div class="col-md-6">

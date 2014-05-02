@@ -30,6 +30,17 @@ class Participant < ActiveRecord::Base
   scope :pending, -> { where(status: "pending") }
   scope :active, -> { where(status: "active") }
 
+  def notes
+    notes = []
+    if first_appointment
+      notes << first_appointment.notes
+    end
+    if second_contact
+      notes << second_contact.notes
+    end
+    notes
+  end
+
   private
 
   def enrollment_date_is_sane

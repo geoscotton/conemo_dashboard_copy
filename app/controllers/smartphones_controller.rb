@@ -24,7 +24,7 @@ class SmartphonesController < ApplicationController
   def update
     @smartphone = participant.smartphone
     if @smartphone.update(smartphone_params)
-      redirect_to active_participants_path,
+      redirect_to active_participant_path(participant),
                   notice: "Successfully updated smartphone"
     else
       flash[:alert] = @smartphone.errors.full_messages.join(", ")
