@@ -251,6 +251,8 @@ pt-BR:
         contact_at: "Contactado por"
         first_appointment_at: "Primeiro encontro agendado para"
         first_appointment_location: "Local do primeiro encontro"
+        alternative_contact_name: "Alternative contact name"
+        alternative_contact_phone: "Alternative contact phone"
       first_appointment:
         appointment_at: "Data/hora do encontro"
         appointment_location: "Local do encontro"
