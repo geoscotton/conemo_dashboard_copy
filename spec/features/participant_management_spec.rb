@@ -50,7 +50,7 @@ describe "participant management" do
     it "creates a first appointment form" do
       visit "/en/active/participants"
 
-      click_on "first_appointment_#{participant.id}"
+      click_on "appointment_#{participant.id}"
 
       expect(page).to have_text "Input First Appointment"
     end
@@ -58,7 +58,7 @@ describe "participant management" do
     it "takes the user to the smartphone form after successful first appointment input" do
       visit "/en/active/participants"
 
-      click_on "first_appointment_#{participant.id}"
+      click_on "appointment_#{participant.id}"
 
       select "2014", from: "first_appointment_appointment_at_1i"
       select "August", from: "first_appointment_appointment_at_2i"
