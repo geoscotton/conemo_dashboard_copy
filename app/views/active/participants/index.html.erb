@@ -18,7 +18,7 @@
       </tr>
       <% @participants.each do |participant| %>
         <tr>
-          <td><%= participant.nurse.last_name %></td>
+          <td><%= link_to participant.nurse.last_name, pending_activate_path(participant), id: "activate_#{participant.id}" %></td>
           <td><%= link_to "#{participant.last_name}, #{participant.first_name}", active_participant_path(participant) %></td>
           <td><%= participant.study_identifier %></td>
           <td><%= participant.enrollment_date.to_s(:long) %></td>

@@ -24,7 +24,7 @@ module Pending
       context "for authenticated requests" do
         context "when the participant is found" do
           before do
-            allow(Participant).to receive_message_chain("pending.find")
+            allow(Participant).to receive_message_chain("find")
               .and_return([double("participant")])
             sign_in_user double("user")
             get :activate, id: 1

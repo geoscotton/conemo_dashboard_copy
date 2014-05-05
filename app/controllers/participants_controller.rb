@@ -22,8 +22,7 @@ class ParticipantsController < ApplicationController
   def update
     @participant = Participant.where(id: params[:id]).first
     if @participant.update(participant_params)
-      redirect_to pending_participants_path,
-                  notice: "Successfully updated participant"
+      after_update_path(@participant)
     else
       flash[:alert] = @participant.errors.full_messages.join(", ")
       render :edit
@@ -50,5 +49,15 @@ class ParticipantsController < ApplicationController
       :enrollment_date, :key_chronic_disorder, :gender, :status,
       :nurse_id
     )
+  end
+
+  def after_update_path(participant)
+    if participant.status == "active"
+      redirect_to active_participants_path,
+                  notice: "Successfully updated participant"
+    else
+      redirect_to pending_participants_path,
+                  notice: "Successfully updated participant"
+    end
   end
 end

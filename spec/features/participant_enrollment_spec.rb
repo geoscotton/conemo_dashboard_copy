@@ -67,6 +67,6 @@ describe "participant enrollment" do
     click_on "Save"
 
     expect(page).to have_text "Successfully updated participant"
-    expect(page).to_not have_text participant.study_identifier
+    expect(page).to have_text participant.study_identifier
   end
 end

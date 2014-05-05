@@ -8,7 +8,7 @@ module Pending
     end
 
     def activate
-      @participant = Participant.pending.find(params[:id])
+      @participant = Participant.find(params[:id])
       @nurses = User.where(role: "nurse")
     end
 
