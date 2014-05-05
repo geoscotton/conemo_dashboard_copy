@@ -8,6 +8,7 @@ en:
         true_radio: "True"
         false_radio: "False"
         pending: "Pending"
+        ineligible: "Ineligible"
       dashboards:
         index:
           heading: "Welcome!"
