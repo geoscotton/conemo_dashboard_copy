@@ -6,10 +6,10 @@
     <br>
     <ul class="nav nav-tabs" id="participant-table">
       <li class="active">
-        <a href="#pending" data-toggle="tab">Pending</a>
+        <a href="#pending" data-toggle="tab"><%=t "conemo.views.shared.pending" %></a>
       </li>
       <li>
-        <a href="#ineligible" data-toggle="tab">Ineligible</a>
+        <a href="#ineligible" data-toggle="tab"><%=t "conemo.views.shared.ineligible" %></a>
       </li>
     </ul>
     <div class="tab-content">
@@ -28,7 +28,7 @@
               <td><%= link_to '', edit_participant_path(participant), class: "fa fa-edit fa-2x" %></td>
               <td><%= participant.last_name %>, <%= participant.first_name %></td>
               <td><%= participant.study_identifier %></td>
-              <td><%= participant.enrollment_date %></td>
+              <td><%= l participant.enrollment_date, format: :long %></td>
               <td><%= link_to '', pending_activate_path(participant), class: "fa fa-thumbs-up fa-2x", id: "activate_#{participant.id}" %></td> 
               <td><%= link_to '', participant_path(id: participant.id, participant: { status: 'ineligible'}), method: :put, class: "fa fa-thumbs-down fa-2x", id: "disqualify_#{participant.id}", :"data-confirm" => "#{ t 'conemo.views.pending.participants.index.disqualify_alert' }" %></td>
             </tr>
@@ -49,7 +49,7 @@
               <td><%= link_to '', edit_participant_path(participant), class: "fa fa-edit fa-2x" %></td>
               <td><%= participant.last_name %>, <%= participant.first_name %></td>
               <td><%= participant.study_identifier %></td>
-              <td><%= participant.enrollment_date %></td>
+              <td><%= l participant.enrollment_date, format: :long %></td>
               <td><%= link_to '', pending_activate_path(participant), class: "fa fa-thumbs-up fa-2x", id: "activate_#{participant.id}" %></td> 
             </tr>
           <% end %>
