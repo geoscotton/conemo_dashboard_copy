@@ -27,6 +27,7 @@ class Participant < ActiveRecord::Base
 
   validate :enrollment_date_is_sane
 
+  scope :ineligible, -> { where(status: "ineligible") }
   scope :pending, -> { where(status: "pending") }
   scope :active, -> { where(status: "active") }
 

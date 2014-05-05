@@ -17,6 +17,7 @@
 //= require jquery.ui.draggable
 //= require jquery.ui.sortable
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require ckeditor/ckeditor
 //= require_tree .
