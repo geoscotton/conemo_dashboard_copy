@@ -4,7 +4,8 @@ module Pending
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     def index
-      @participants = Participant.pending
+      @pending_participants = Participant.pending
+      @ineligible_participants = Participant.ineligible
     end
 
     def activate

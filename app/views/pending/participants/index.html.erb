@@ -4,25 +4,70 @@
     <%= link_to " #{t 'conemo.views.pending.participants.index.add_new_participant'}", new_participant_path, class: "pull-right btn btn-primary fa fa-plus btn-lg" %>
     </h1>
     <br>
-    <table class="table table-striped table-bordered table-condensed">
-      <tr>
-        <th><%=t "conemo.views.pending.participants.index.edit_info" %></th>
-        <th><%=t "conemo.views.pending.participants.index.name" %></th>
-        <th><%=t "conemo.views.pending.participants.index.study_identifier" %></th>
-        <th><%=t "conemo.views.pending.participants.index.enrollment_date" %></th>
-        <th><%=t "conemo.views.pending.participants.index.activate" %></th>
-        <th><%=t "conemo.views.pending.participants.index.disqualify" %></th>
-      </tr>
-      <% @participants.each do |participant| %>
-        <tr>
-          <td><%= link_to '', edit_participant_path(participant), class: "fa fa-edit fa-2x" %></td>
-          <td><%= participant.last_name %>, <%= participant.first_name %></td>
-          <td><%= participant.study_identifier %></td>
-          <td><%= participant.enrollment_date %></td>
-          <td><%= link_to '', pending_activate_path(participant), class: "fa fa-thumbs-up fa-2x", id: "activate_#{participant.id}" %></td> 
-          <td><%= link_to '', participant_path(id: participant.id, participant: { status: 'ineligible'}), method: :put, class: "fa fa-thumbs-down fa-2x", id: "disqualify_#{participant.id}", :"data-confirm" => "#{ t 'conemo.views.pending.participants.index.disqualify_alert' }" %></td>
-        </tr>
-      <% end %>
-    </table>
+    <ul class="nav nav-tabs" id="participant-table">
+      <li class="active">
+        <a href="#pending" data-toggle="tab">Pending</a>
+      </li>
+      <li>
+        <a href="#ineligible" data-toggle="tab">Ineligible</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="pending">
+        <table class="table table-striped table-bordered table-condensed">
+          <tr>
+            <th><%=t "conemo.views.pending.participants.index.edit_info" %></th>
+            <th><%=t "conemo.views.pending.participants.index.name" %></th>
+            <th><%=t "conemo.views.pending.participants.index.study_identifier" %></th>
+            <th><%=t "conemo.views.pending.participants.index.enrollment_date" %></th>
+            <th><%=t "conemo.views.pending.participants.index.activate" %></th>
+            <th><%=t "conemo.views.pending.participants.index.disqualify" %></th>
+          </tr>
+          <% @pending_participants.each do |participant| %>
+            <tr>
+              <td><%= link_to '', edit_participant_path(participant), class: "fa fa-edit fa-2x" %></td>
+              <td><%= participant.last_name %>, <%= participant.first_name %></td>
+              <td><%= participant.study_identifier %></td>
+              <td><%= participant.enrollment_date %></td>
+              <td><%= link_to '', pending_activate_path(participant), class: "fa fa-thumbs-up fa-2x", id: "activate_#{participant.id}" %></td> 
+              <td><%= link_to '', participant_path(id: participant.id, participant: { status: 'ineligible'}), method: :put, class: "fa fa-thumbs-down fa-2x", id: "disqualify_#{participant.id}", :"data-confirm" => "#{ t 'conemo.views.pending.participants.index.disqualify_alert' }" %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+      <div class="tab-pane" id="ineligible">
+        <table class="table table-striped table-bordered table-condensed">
+          <tr>
+            <th><%=t "conemo.views.pending.participants.index.edit_info" %></th>
+            <th><%=t "conemo.views.pending.participants.index.name" %></th>
+            <th><%=t "conemo.views.pending.participants.index.study_identifier" %></th>
+            <th><%=t "conemo.views.pending.participants.index.enrollment_date" %></th>
+            <th><%=t "conemo.views.pending.participants.index.activate" %></th>
+          </tr>
+          <% @ineligible_participants.each do |participant| %>
+            <tr>
+              <td><%= link_to '', edit_participant_path(participant), class: "fa fa-edit fa-2x" %></td>
+              <td><%= participant.last_name %>, <%= participant.first_name %></td>
+              <td><%= participant.study_identifier %></td>
+              <td><%= participant.enrollment_date %></td>
+              <td><%= link_to '', pending_activate_path(participant), class: "fa fa-thumbs-up fa-2x", id: "activate_#{participant.id}" %></td> 
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
+<script>
+  
+  function tabify () {
+    $('#participant-table a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    });
+  }
+  
+  $(document).ready(tabify);
+  $(document).on("page:change", tabify);
+  
+</script>

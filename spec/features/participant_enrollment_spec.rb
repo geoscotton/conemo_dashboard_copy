@@ -43,7 +43,7 @@ describe "participant enrollment" do
     expect(page).to have_text "Successfully created participant"
   end
 
-  it "should update an ineligible participant and remove them from the index" do
+  it "should update an ineligible participant and remove them from the pending index" do
     visit "/en/pending/participants"
 
     expect(page).to have_text participant.study_identifier
@@ -51,7 +51,10 @@ describe "participant enrollment" do
     click_on "disqualify_#{participant.id}"
 
     expect(page).to have_text "Successfully updated participant"
-    expect(page).to_not have_text participant.study_identifier
+    pending_node = page.find("#pending")
+    expect(pending_node).to_not have_text participant.study_identifier
+    ineligible_node = page.find("#ineligible")
+    expect(ineligible_node).to have_text participant.study_identifier
   end
 
   it "should activate an eligible participant and assign them to a nurse" do
