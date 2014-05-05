@@ -7,6 +7,16 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :authenticate_user!
 
+  layout :layout_by_resource
+
+  def layout_by_resource
+    if devise_controller? && resource_name == :user && action_name == 'new'
+      "dashboard"
+    else
+      "application"
+    end
+  end
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
