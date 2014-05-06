@@ -14,6 +14,7 @@ gem "cancan"
 gem "font-awesome-sass"
 gem "coffee-script"
 gem "jbuilder"
+gem "ckeditor"
 
 group :staging, :production do
   # email exceptions
