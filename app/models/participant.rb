@@ -44,7 +44,7 @@ class Participant < ActiveRecord::Base
   end
 
   def seven_day_access
-    app_logins.where('occurred_at > ?', Date.today - 7.days)
+    app_logins.where("occurred_at > ?", Date.today - 7.days)
   end
 
   private
