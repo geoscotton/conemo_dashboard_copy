@@ -49,6 +49,16 @@ class Participant < ActiveRecord::Base
     app_logins.where("occurred_at > ?", Date.today - 7.days)
   end
 
+  def study_day
+    (Date.today - start_date).to_i
+  end
+
+  def current_lesson
+  end
+
+  def previous_lesson
+  end
+
   private
 
   def enrollment_date_is_sane

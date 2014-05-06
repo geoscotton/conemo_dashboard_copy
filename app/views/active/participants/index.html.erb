@@ -25,7 +25,9 @@
           <td><%= first_contact(participant) %></td>
           <td><%= first_appointment(participant) %></td>
           <td><%= second_contact(participant) %></td>
-          <td><%= link_to "", active_report_path(participant), class: "fa fa-eye" %></td>
+          <td class="text-center">
+            <%= study_status(participant) %>
+          </td>
         </tr>
       <% end %>
     </table>

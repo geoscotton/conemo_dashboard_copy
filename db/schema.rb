@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506194017) do
+ActiveRecord::Schema.define(version: 20140506231251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20140506194017) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "lesson_id"
+    t.integer  "day_in_treatment_accessed"
   end
 
   add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
@@ -157,6 +158,7 @@ ActiveRecord::Schema.define(version: 20140506194017) do
     t.string   "emergency_contact_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "start_date"
   end
 
   add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree
