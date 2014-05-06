@@ -1,10 +1,10 @@
 # config valid only for Capistrano 3.1
-lock '3.2.1'
+lock "3.2.1"
 
-set :application, 'conemo_dashboard'
+set :application, "conemo_dashboard"
 set :repo_url, "git@github.com:cbitstech/#{ fetch(:application) }.git"
 set :rvm_type, :system
-set :rvm_ruby_version, '2.1.1'
+set :rvm_ruby_version, "2.1.1"
 
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -34,7 +34,7 @@ set :keep_releases, 5
 
 namespace :deploy_prepare do
 
-  desc 'Configure virtual host'
+  desc "Configure virtual host"
   task :create_vhost do
     on roles(:web), in: :sequence, wait: 5 do
       staging_vhost_config = <<-EOF
@@ -110,7 +110,7 @@ NameVirtualHost *:443
     end
   end
 
-  desc 'Configure Postgres'
+  desc "Configure Postgres"
   task :configure_pg do
     on roles(:web), in: :sequence, wait: 5 do
       execute :bundle, "config", "build.pg", "--with-pg-config=/usr/pgsql-9.3/bin/pg_config"
@@ -121,18 +121,18 @@ end
 
 namespace :deploy do
 
-  desc 'Change deploy dir owner to apache'
+  desc "Change deploy dir owner to apache"
   task :set_owner do
     on roles(:web), in: :sequence, wait: 5 do
       execute :sudo, :chgrp, "-R", "apache", fetch(:deploy_to)
     end
   end
 
-  desc 'Restart application'
+  desc "Restart application"
   task :restart do
     on roles(:web), in: :sequence, wait: 5 do
-      execute :mkdir, '-p', release_path.join('tmp')
-      execute :touch, release_path.join('tmp/restart.txt')
+      execute :mkdir, "-p", release_path.join("tmp")
+      execute :touch, release_path.join("tmp/restart.txt")
     end
   end
 
@@ -142,12 +142,22 @@ namespace :deploy do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
-      #   execute :rake, 'cache:clear'
+      #   execute :rake, "cache:clear"
       # end
     end
   end
 
 end
+
+desc "copy ckeditor nondigest assets"
+task :copy_nondigest_assets do
+  on roles(:web), in: :sequence, wait: 5 do
+    within release_path do
+      execute :rake, "ckeditor:create_nondigest_assets"
+    end
+  end
+end
+after "deploy:assets:precompile", "copy_nondigest_assets"
 
 before "deploy:started", "deploy_prepare:create_vhost"
 after "deploy_prepare:create_vhost", "deploy_prepare:configure_pg"
