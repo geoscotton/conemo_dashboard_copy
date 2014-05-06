@@ -6,6 +6,7 @@ class Participant < ActiveRecord::Base
   has_one :second_contact, dependent: :destroy
   has_one :smartphone, dependent: :destroy
   has_many :reminder_messages, dependent: :destroy
+  has_many :app_logins, dependent: :destroy
 
   STATUS = ["pending", "active", "ineligible"]
   GENDER = ["male", "female"]
