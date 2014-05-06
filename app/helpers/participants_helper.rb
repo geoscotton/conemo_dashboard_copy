@@ -35,4 +35,12 @@ module ParticipantsHelper
       ""
     end
   end
+
+  def study_status(participant)
+    if participant.content_access_events.any?
+      link_to "#{fa_icon 'circle 2x'}".html_safe, active_report_path(participant)
+    else
+      fa_icon "circle 2x disabled"
+    end
+  end
 end
