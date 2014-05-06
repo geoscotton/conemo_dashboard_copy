@@ -1,0 +1,5 @@
+response1:
+  content_access_event: access_event1
+  question: "How old are you?"
+  name: "age_question"
+  answer: "I am as old as the hills!"

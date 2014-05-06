@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506150628) do
+ActiveRecord::Schema.define(version: 20140506194017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20140506150628) do
   end
 
   add_index "bit_core_tools", ["position"], name: "bit_core_tool_position", unique: true, using: :btree
+
+  create_table "content_access_events", force: true do |t|
+    t.integer  "participant_id"
+    t.datetime "accessed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lesson_id"
+  end
+
+  add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
+  add_index "content_access_events", ["participant_id"], name: "index_content_access_events_on_participant_id", using: :btree
 
   create_table "first_appointments", force: true do |t|
     t.integer  "participant_id",       null: false
@@ -160,6 +171,17 @@ ActiveRecord::Schema.define(version: 20140506150628) do
 
   add_index "reminder_messages", ["nurse_id"], name: "index_reminder_messages_on_nurse_id", using: :btree
   add_index "reminder_messages", ["participant_id"], name: "index_reminder_messages_on_participant_id", using: :btree
+
+  create_table "responses", force: true do |t|
+    t.integer  "content_access_event_id"
+    t.string   "question"
+    t.string   "name"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "responses", ["content_access_event_id"], name: "index_responses_on_content_access_event_id", using: :btree
 
   create_table "second_contacts", force: true do |t|
     t.integer  "participant_id",                null: false

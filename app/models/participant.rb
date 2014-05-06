@@ -7,6 +7,8 @@ class Participant < ActiveRecord::Base
   has_one :smartphone, dependent: :destroy
   has_many :reminder_messages, dependent: :destroy
   has_many :app_logins, dependent: :destroy
+  has_many :content_access_events, dependent: :destroy
+  has_many :lessons, through: :content_access_events
 
   STATUS = ["pending", "active", "ineligible"]
   GENDER = ["male", "female"]
