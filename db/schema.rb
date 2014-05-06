@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140502152701) do
+ActiveRecord::Schema.define(version: 20140506150628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "app_logins", force: true do |t|
+    t.datetime "occurred_at"
+    t.integer  "participant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "app_logins", ["participant_id"], name: "index_app_logins_on_participant_id", using: :btree
 
   create_table "bit_core_content_modules", force: true do |t|
     t.string   "title",                        null: false
