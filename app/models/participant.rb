@@ -43,6 +43,10 @@ class Participant < ActiveRecord::Base
     notes
   end
 
+  def seven_day_access
+    app_logins.where('occurred_at > ?', Date.today - 7.days)
+  end
+
   private
 
   def enrollment_date_is_sane

@@ -8,5 +8,9 @@ module Active
     def show
       @participant = Participant.find(params[:id])
     end
+
+    def report
+      @participant = Participant.find(params[:id])
+    end
   end
 end
