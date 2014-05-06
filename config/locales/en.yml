@@ -83,7 +83,10 @@ en:
             first_contact_heading: "First Contact Information"
             first_appointment_heading: "First Appointment Information"
             second_contact_heading: "Second Contact Information"
-
+          report:
+            overall_status: "Overall Status"
+            content_accessed: "Content accessed"
+            access_count: "7 day access count"
       pending:
         participants:
           index:

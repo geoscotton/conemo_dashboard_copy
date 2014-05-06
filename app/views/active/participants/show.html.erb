@@ -8,12 +8,12 @@
     </div>
     <div class="col-md-4">
       <%= render 'smartphone', smartphone: @participant.smartphone if @participant.smartphone%>
-      <%= render 'notes', participant: @participant if @participant.first_appointment %>
-    </div>
-    <div class="col-md-4">
       <%= render 'first_contact', first_contact: @participant.first_contact if @participant.first_contact%>
       <%= render 'first_appointment', first_appointment: @participant.first_appointment if @participant.first_appointment%>
       <%= render 'second_contact', second_contact: @participant.second_contact if @participant.second_contact%>
+    </div>
+    <div class="col-md-4">
+      <%= render 'notes', participant: @participant if @participant.first_appointment %>
     </div>
   </div>
 </div>

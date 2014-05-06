@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>
+      <%= link_to "", active_participants_path, class: "fa fa-chevron-left" %>
+      <%= "#{@participant.first_name} #{@participant.last_name}" %>
+    </h1>
+  </div>
+  <div class="col-md-6">
+    <h1 class="pull-right">
+      <i class="fa fa-circle status"></i>
+      <small> <%=t 'conemo.views.active.participants.report.overall_status' %></small>
+    </h1>
+  </div>
+</div>
+<br>
+<div class="row well">
+  <div class="col-md-2">
+    <div>
+      <h5 class="text-center"><%=t 'conemo.views.active.participants.report.access_count' %></h5>
+      <div class="access-count">
+        <%= @participant.seven_day_access.count %>
+      </div>
+    </div>
+    <table class="table table-bordered table-hover">
+      <tr style="background-color:gray;">
+        <th class="text-center" style="color:white;">Log-ins</th>
+      </tr>
+      <% @participant.app_logins.each do |login| %>
+        <tr>
+          <td><%=l login.occurred_at, format: :long %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-md-10">
+    <ul class="nav nav-tabs" id="participant-table">
+      <li class="active">
+        <a data-toggle="tab"><%=t 'conemo.views.active.participants.report.content_accessed' %></a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="pending">
+        <table class="table table-striped table-bordered">
+          <th></th>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

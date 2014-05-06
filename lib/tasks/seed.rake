@@ -17,7 +17,7 @@ namespace :seed do
   task with_fixtures: :environment do
     path = File.join(File.dirname(__FILE__), '..', '..', 'spec', 'fixtures')
     ActiveRecord::FixtureSet.create_fixtures path, [
-      :users, :participants
+      :users, :participants, :first_contacts, :app_logins
     ]
   end
 end

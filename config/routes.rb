@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     
     namespace "active" do
       resources :participants, only: [:index, :show]
+      get "report/:id" => "participants#report", as: :report
     end
 
     resources :lessons do
