@@ -269,10 +269,10 @@ pt-BR:
         is_owned_by_participant: "O smartphone usado no estudo pertence ao participante?"
         is_smartphone_owner: "O participante tem seu próprio smartphone?"
       second_contact:
-        contact_at: "Date of phone call"
-        session_length: "Length of phone call (minutes)"
-        video_access: "Was the patient able to see videos?"
-        notes: "Notes"
+        contact_at: “Data da ligação”
+        session_length: “Duração da ligação (min)”
+        video_access: “O paciente conseguiu ver os videos?”
+        notes: “Anotações”
   number:
     currency:
       format:
