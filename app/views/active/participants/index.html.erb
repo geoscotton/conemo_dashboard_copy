@@ -33,3 +33,14 @@
     </table>
   </div>
 </div>
+<script>
+
+  function disabled () {
+    $('.disabled').click(function (e) {
+      e.preventDefault()
+    });
+  }
+  
+  $(document).ready(disabled);
+  $(document).on("page:change", disabled);
+</script

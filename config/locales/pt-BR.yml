@@ -75,6 +75,10 @@ pt-BR:
             status: "Status"
           show:
             heading: "Perfil de"
+          report:
+            overall_status: "Overall Status"
+            content_accessed: "Content accessed"
+            access_count: "7 day access count"
       pending:
         participants:
           index:
