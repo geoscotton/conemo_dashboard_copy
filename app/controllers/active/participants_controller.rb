@@ -11,7 +11,7 @@ module Active
 
     def report
       @participant = Participant.find(params[:id])
-      @lessons = Lesson.order("day_in_treatment DESC")
+      @lessons = Lesson.order("day_in_treatment ASC")
     end
   end
 end

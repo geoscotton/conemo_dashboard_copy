@@ -36,11 +36,26 @@ module ParticipantsHelper
     end
   end
 
+  def render_status_link(participant)
+    link_to "#{fa_icon 'circle 2x'}".html_safe,
+            active_report_path(participant),
+            class: study_status(participant)
+  end
+
+  def render_large_status(participant)
+    "<i class='fa fa-circle #{study_status(participant)}'></i>".html_safe
+  end
+
   def study_status(participant)
-    if participant.content_access_events.any?
-      link_to "#{fa_icon 'circle 2x'}".html_safe, active_report_path(participant)
+    case participant.current_study_status
+    when "stable"
+      "green"
+    when "warning"
+      "yellow"
+    when "danger"
+      "red"
     else
-      fa_icon "circle 2x disabled"
+      "disabled"
     end
   end
 end
