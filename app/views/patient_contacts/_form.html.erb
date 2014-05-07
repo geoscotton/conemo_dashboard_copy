@@ -1,0 +1,28 @@
+<%= form_for [participant, @patient_contact], html: { role: "form", class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <%= f.label :contact_at, class: "col-md-4 control-label" %>
+    <div class="col-md-6">
+      <%= f.datetime_select :contact_at, class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :contact_reason, class: "col-md-4 control-label" %>
+    <div class="col-md-6">
+      <%= f.select :contact_reason, options_for_select(["Help request", "Non-adherence"], "Help request"),
+        {}, {class: "form-control", required: true} %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :note, class: "col-md-4 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_area :note, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-6">
+      <%= f.hidden_field :participant_id, value: participant.id %>
+      <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+      <%= link_to t("conemo.views.shared.cancel_button"), active_report_path(participant), class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>

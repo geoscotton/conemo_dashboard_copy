@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resource :first_appointment
       resource :second_contact
       resource :smartphone
+      resources :patient_contacts, only: [:new, :create, :destroy]
     end
 
     namespace "pending" do

@@ -13,7 +13,7 @@
   </div>
 </div>
 <br>
-<div class="row well">
+<div class="row report">
   <div class="col-md-2">
     <div>
       <div class="access-count">
@@ -22,8 +22,8 @@
       </div>
     </div>
     <table class="table table-bordered">
-      <tr style="background-color:gray;">
-        <th class="text-center" style="color:white;">Log-ins</th>
+      <tr class="table-head">
+        <th class="text-center">Log-ins</th>
       </tr>
       <% @participant.app_logins.each do |login| %>
         <tr>
@@ -32,29 +32,62 @@
       <% end %>
     </table>
   </div>
-  <div class="col-md-10">
-    <ul class="nav nav-tabs" id="participant-table">
-      <li class="active">
-        <a data-toggle="tab"><%=t 'conemo.views.active.participants.report.content_accessed' %></a>
-      </li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane active" id="pending">
-        <table class="table table-bordered">
+  <div class="col-md-7">
+    <table class="table">
+      <tr class="table-head">
+        <th>Release Day</th>
+        <th>Lesson</th>
+        <th>Patient Response</th>
+      </tr>
+      <% @lessons.each do |lesson| %>
+        <tr class="<%= @participant.lesson_status(lesson) %>">
+          <td><%=l @participant.start_date + lesson.day_in_treatment.days, format: :long %></td>
+          <td><%= lesson.title %></td>
+          <td><%= lesson.content_access_events.find_by(participant_id: @participant.id).answer rescue '' %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-md-3">
+    <table class="table">
+      <tr class="table-head">
+        <th class="text-center">Notes <%= link_to "add #{fa_icon 'plus-circle'}".html_safe, new_participant_patient_contact_path(@participant), class: "pull-right", style: "color:white;" %></th>
+      </tr>
+      <% if @participant.patient_contacts.any? %>
+        <% @participant.patient_contacts.order(contact_at: :desc).each do |contact| %>
           <tr>
-            <th>Release Day</th>
-            <th>Lesson</th>
-            <th>Patient Response</th>
+            <td>
+              <dl>
+                <dt><%= contact.contact_reason %> <%= link_to "#{fa_icon 'times-circle'}".html_safe, participant_patient_contact_path(id: contact.id, participant_id: @participant.id), method: :delete, class: 'pull-right delete-note' %></dt>
+                <dd><%= contact.note %></dd>
+                <dd><em><%=l contact.contact_at, format: :long %></em></dd>
+              </dl>
+            </td>
           </tr>
-          <% @lessons.each do |lesson| %>
-            <tr class="<%= @participant.lesson_status(lesson) %>">
-              <td><%=l @participant.start_date + lesson.day_in_treatment.days, format: :long %></td>
-              <td><%= lesson.title %></td>
-              <td><%= lesson.content_access_events.find_by(participant_id: @participant.id).answer rescue '' %></td>
-            </tr>
-          <% end %>
-        </table>
-      </div>
-    </div>
+        <% end %>
+      <% end %>
+      <% if @participant.first_appointment %>
+        <tr>
+          <td>
+            <dl>
+              <dt>First Appointment</dt>
+              <dd><%= @participant.first_appointment.notes %></dd>
+              <dd><em><%=l @participant.first_appointment.appointment_at, format: :long %></em></dd>
+            </dl>
+          </td>
+        </tr>
+      <% end %>
+      <% if @participant.second_contact %>
+        <tr>
+          <td>
+            <dl>
+              <dt>Second Contact</dt>
+              <dd><%= @participant.second_contact.notes %></dd>
+              <dd><em><%=l @participant.second_contact.contact_at, format: :long %></em></dd>
+            </dl>
+          </td>
+        </tr>
+      <% end %>
+    </table>
   </div>
 </div>

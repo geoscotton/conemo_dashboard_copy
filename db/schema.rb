@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506231251) do
+ActiveRecord::Schema.define(version: 20140507230042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,6 +162,17 @@ ActiveRecord::Schema.define(version: 20140506231251) do
   end
 
   add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree
+
+  create_table "patient_contacts", force: true do |t|
+    t.string   "contact_reason"
+    t.text     "note"
+    t.datetime "contact_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "participant_id"
+  end
+
+  add_index "patient_contacts", ["participant_id"], name: "index_patient_contacts_on_participant_id", using: :btree
 
   create_table "reminder_messages", force: true do |t|
     t.integer  "nurse_id",       null: false
