@@ -4,3 +4,24 @@ day1:
   title: Day 1
   guid: day1
   slideshow: day1
+
+day2:
+  locale: en
+  day_in_treatment: 2
+  title: Day 2
+  guid: day2
+  slideshow: day2
+
+day4:
+  locale: en
+  day_in_treatment: 4
+  title: Day 4
+  guid: day4
+  slideshow: day4
+
+day6:
+  locale: en
+  day_in_treatment: 6
+  title: Day 6
+  guid: day6
+  slideshow: day6
