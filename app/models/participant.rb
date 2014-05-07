@@ -11,6 +11,7 @@ class Participant < ActiveRecord::Base
   has_many :app_logins, dependent: :destroy
   has_many :content_access_events, dependent: :destroy
   has_many :lessons, through: :content_access_events
+  has_many :patient_contacts, dependent: :destroy
 
   STATUS = ["pending", "active", "ineligible"]
   GENDER = ["male", "female"]
@@ -35,17 +36,6 @@ class Participant < ActiveRecord::Base
   scope :ineligible, -> { where(status: "ineligible") }
   scope :pending, -> { where(status: "pending") }
   scope :active, -> { where(status: "active") }
-
-  def notes
-    notes = []
-    if first_appointment
-      notes << first_appointment.notes
-    end
-    if second_contact
-      notes << second_contact.notes
-    end
-    notes
-  end
 
   def seven_day_access
     app_logins.where("occurred_at > ?", Date.today - 7.days)
