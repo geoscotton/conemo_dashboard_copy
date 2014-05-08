@@ -7,7 +7,7 @@ describe Participant do
     let(:participant_day_5) { participants(:active_participant_day_5) }
     let(:previous_lesson) { lessons(:day2) }
     let(:current_lesson) { lessons(:day4) }
-  
+
     describe "#current_lesson" do
       it "should return the current lesson" do
         result = participant_day_5.current_lesson
@@ -24,15 +24,15 @@ describe Participant do
 
     before :each do
       @content_access_event_for_previous_lesson = ContentAccessEvent.create(participant_id: participant_day_5.id,
-                                                         day_in_treatment_accessed: previous_lesson.day_in_treatment,
-                                                         lesson_id: previous_lesson.id
-                                                        )
-                                                    
+                                                                            day_in_treatment_accessed: previous_lesson.day_in_treatment,
+                                                                            lesson_id: previous_lesson.id
+                                                                           )
+
       @content_access_event_for_current_lesson = ContentAccessEvent.create(participant_id: participant_day_5.id,
-                                                         day_in_treatment_accessed: current_lesson.day_in_treatment,
-                                                         lesson_id: current_lesson.id
-                                                        )
-    end                          
+                                                                           day_in_treatment_accessed: current_lesson.day_in_treatment,
+                                                                           lesson_id: current_lesson.id
+                                                                          )
+    end
 
     describe "#previous_lesson_complete?" do
       context "the previous lesson was complete" do
@@ -58,7 +58,7 @@ describe Participant do
           expect(result).to eq true
         end
       end
-      
+
       context "the current lesson is incomplete" do
         it "should return false" do
           @content_access_event_for_current_lesson.destroy
@@ -75,7 +75,7 @@ describe Participant do
           expect(result).to eq "stable"
         end
       end
-      
+
       context "previous lesson has not been accessed" do
         it "should return 'warning'" do
           @content_access_event_for_previous_lesson.destroy
