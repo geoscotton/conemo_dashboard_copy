@@ -23,3 +23,17 @@ active_participant:
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
+
+active_participant_day_5:
+  first_name: Jane
+  last_name: Doe
+  email: participant2@example.com
+  study_identifier: s2
+  family_health_unit_name: HealthUnit1
+  family_record_number: <%= SecureRandom.uuid %>
+  phone: "555-455-5555"
+  key_chronic_disorder: diabetes
+  enrollment_date: <%= Date.yesterday %>
+  nurse: nurse1
+  status: active
+  start_date: <%= Date.today - 5.days %>
