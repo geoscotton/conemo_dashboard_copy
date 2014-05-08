@@ -25,3 +25,10 @@ day5:
   title: Day 5
   guid: day5
   slideshow: day5
+
+day6:
+  locale: en
+  day_in_treatment: 6
+  title: Day 6
+  guid: day6
+  slideshow: day6
