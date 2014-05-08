@@ -1,22 +1,13 @@
-# Handles Participant lesson status logic
+# Handles Participant overall and individual lesson status logic
 module Status
   extend ActiveSupport::Concern
 
+  # Lesson Status
   def lesson_status(lesson)
     if lesson_released?(lesson)
       access_status(lesson)
     else
       "un-released"
-    end
-  end
-
-  def current_study_status
-    if current_lesson && previous_lesson
-      two_lessons_passed
-    elsif current_lesson
-      one_lesson_passed
-    else
-      nil
     end
   end
 
@@ -26,11 +17,6 @@ module Status
     else
       false
     end
-  end
-
-  def next_lesson(lesson)
-    Lesson.where("day_in_treatment > ?", lesson.day_in_treatment)
-          .order(day_in_treatment: :asc).first
   end
 
   def access_status(lesson)
@@ -46,8 +32,12 @@ module Status
     end
   end
 
-  private
+  def next_lesson(lesson)
+    Lesson.where("day_in_treatment > ?", lesson.day_in_treatment)
+          .order(day_in_treatment: :asc).first
+  end
 
+  # Overall Status
   def current_lesson
     Lesson.where("day_in_treatment <= ?", study_day)
           .order(day_in_treatment: :desc).second
@@ -87,6 +77,16 @@ module Status
       "stable"
     else
       "warning"
+    end
+  end
+
+  def current_study_status
+    if current_lesson && previous_lesson
+      two_lessons_passed
+    elsif current_lesson
+      one_lesson_passed
+    else
+      nil
     end
   end
 end
