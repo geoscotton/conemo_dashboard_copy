@@ -21,7 +21,11 @@ module Status
   end
 
   def lesson_released?(lesson)
-    lesson.day_in_treatment <= study_day
+    if lesson
+      lesson.day_in_treatment <= study_day
+    else
+      false
+    end
   end
 
   def next_lesson(lesson)
