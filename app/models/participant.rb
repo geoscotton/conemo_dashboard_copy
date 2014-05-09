@@ -19,7 +19,6 @@ class Participant < ActiveRecord::Base
 
   validates :first_name,
             :last_name,
-            :study_identifier,
             :family_health_unit_name,
             :family_record_number,
             :phone,
@@ -27,6 +26,7 @@ class Participant < ActiveRecord::Base
             :enrollment_date,
             presence: true
 
+  validates :study_identifier, uniqueness: true, presence: true
   validates :status, inclusion: { in: STATUS }
   validates :key_chronic_disorder, inclusion: { in: KEY_CHRONIC_DISORDER }
   validates :gender, inclusion: { in: GENDER }
