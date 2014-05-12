@@ -12,11 +12,26 @@ class FirstAppointment < ActiveRecord::Base
             :next_contact,
             presence: true
 
-  def schedule_message_24_hours(locale)
-    ReminderMessage.create!(participant_id: participant.id, nurse_id: participant.nurse.id, locale: locale, notify_at: next_contact - 1.day, type: "second-contact-24")
+  def schedule_message(locale)
+    schedule_24_hour(locale)
+    schedule_1_hour(locale)
   end
 
-  def schedule_message_1_hour(locale)
-    ReminderMessage.create!(participant_id: participant.id, nurse_id: participant.nurse.id, locale: locale, notify_at: next_contact - 1.hour, type: "second-contact-1")
+  def schedule_24_hour(locale)
+    ReminderMessage.create!(participant_id: participant.id,
+                            nurse_id: participant.nurse.id,
+                            locale: locale,
+                            notify_at: next_contact - 1.day,
+                            message_type: "second-contact-24"
+                            )
+  end
+
+  def schedule_1_hour(locale)
+    ReminderMessage.create!(participant_id: participant.id,
+                            nurse_id: participant.nurse.id,
+                            locale: locale,
+                            notify_at: next_contact - 1.hour,
+                            message_type: "second-contact-1"
+                            )
   end
 end

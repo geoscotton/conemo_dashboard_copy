@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512225347) do
+ActiveRecord::Schema.define(version: 20140512232559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 20140512225347) do
     t.string   "status",         default: "pending"
     t.datetime "notify_at"
     t.string   "locale"
-    t.string   "type"
+    t.string   "message_type"
   end
 
   add_index "reminder_messages", ["nurse_id"], name: "index_reminder_messages_on_nurse_id", using: :btree
