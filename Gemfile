@@ -15,12 +15,13 @@ gem "font-awesome-sass"
 gem "coffee-script"
 gem "jbuilder"
 gem "ckeditor"
+gem "twilio-ruby"
 
 group :staging, :production do
   # email exceptions
   gem "exception_notification", "~> 4.1.0.rc1"
   # scheduling tasks
-  gem "whenever"
+  gem "whenever", require: false
 end
 
 group :development, :test do
