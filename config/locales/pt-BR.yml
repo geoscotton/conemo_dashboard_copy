@@ -15,6 +15,8 @@ pt-BR:
           instructions: "Por favor, selecione um item"
           enrollment_button: "Cadastrar participantes pendentes"
           manage_button: "Gerenciar Participantes Ativos"
+          lessons_button: "Gerenciar lições"
+          sign_out: "Terminar sessão"
       smartphones:
         new:
           heading: "Entrada Smartphone Informações"
@@ -75,9 +77,14 @@ pt-BR:
             status: "Status"
           show:
             heading: "Perfil de"
+            contact_heading: "Informações de Contato"
+            smartphone_heading: "Informações de Smartphone"
+            first_contact_heading: "Informações de Primeiro Contato"
+            first_appointment_heading: "Informações de Primeira Nomeação"
+            second_contact_heading: "Informações de Segundo Contato"
           report:
-            overall_status: "Overall Status"
-            content_accessed: "Content accessed"
+            overall_status: "Status geral"
+            content_accessed: "Acesso ao conteúdo"
             access_count: "7 day access count"
       pending:
         participants:
@@ -255,8 +262,8 @@ pt-BR:
         contact_at: "Contactado por"
         first_appointment_at: "Primeiro encontro agendado para"
         first_appointment_location: "Local do primeiro encontro"
-        alternative_contact_name: "Alternative contact name"
-        alternative_contact_phone: "Alternative contact phone"
+        alternative_contact_name: "Contato alternativo"
+        alternative_contact_phone: "Telefone de contato alternativo"
       first_appointment:
         appointment_at: "Data/hora do encontro"
         appointment_location: "Local do encontro"
