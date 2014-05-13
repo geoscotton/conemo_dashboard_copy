@@ -9,7 +9,7 @@ class FirstContactsController < ApplicationController
   def create
     @first_contact = participant.build_first_contact(first_contact_params)
     if @first_contact.save
-      @first_contact.schedule_message(params[:locale])
+      @first_contact.schedule_message(participant, @first_contact.class.model_name.human)
       redirect_to active_participants_path,
                   notice: "Successfully created first contact"
     else

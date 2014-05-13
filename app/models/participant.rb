@@ -24,6 +24,7 @@ class Participant < ActiveRecord::Base
             :phone,
             :key_chronic_disorder,
             :enrollment_date,
+            :locale,
             presence: true
 
   validates :study_identifier, uniqueness: true, presence: true

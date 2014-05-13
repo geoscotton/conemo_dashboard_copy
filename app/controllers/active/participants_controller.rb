@@ -2,7 +2,7 @@ module Active
   # Managing Active Participants
   class ParticipantsController < ApplicationController
     def index
-      @participants = Participant.active
+      @participants = Participant.active.where(locale: params[:locale])
     end
 
     def show
