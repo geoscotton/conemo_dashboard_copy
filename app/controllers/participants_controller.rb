@@ -6,6 +6,7 @@ class ParticipantsController < ApplicationController
 
   def create
     @participant = Participant.new(participant_params)
+    @participant.locale = params[:locale]
     if @participant.save
       redirect_to pending_participants_path,
                   notice: "Successfully created participant"
@@ -47,7 +48,7 @@ class ParticipantsController < ApplicationController
       :email, :phone, :secondary_phone, :family_health_unit_name,
       :family_record_number, :date_of_birth, :address,
       :enrollment_date, :key_chronic_disorder, :gender, :status,
-      :nurse_id
+      :locale, :nurse_id
     )
   end
 

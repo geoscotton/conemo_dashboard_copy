@@ -10,6 +10,7 @@ participant1:
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   gender: male
+  locale: "en"
 
 active_participant:
   first_name: Jane
@@ -23,6 +24,7 @@ active_participant:
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
+  locale: "en"
 
 active_participant_day_5:
   first_name: Jane
@@ -37,3 +39,4 @@ active_participant_day_5:
   nurse: nurse1
   status: active
   start_date: <%= Date.today - 5.days %>
+  locale: "en"

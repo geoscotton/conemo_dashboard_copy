@@ -12,7 +12,7 @@ class FirstAppointmentsController < ApplicationController
     @first_appointment = participant
                           .build_first_appointment(first_appointment_params)
     if @first_appointment.save
-      @first_appointment.schedule_message(params[:locale])
+      @first_appointment.schedule_message(participant, @first_appointment.class.model_name.human)
       redirect_to new_participant_smartphone_path,
                   notice: "Successfully created first appointment"
     else

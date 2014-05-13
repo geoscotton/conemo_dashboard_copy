@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512232559) do
+ActiveRecord::Schema.define(version: 20140513204959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20140512232559) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "start_date"
+    t.string   "locale"
   end
 
   add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree
@@ -175,14 +176,14 @@ ActiveRecord::Schema.define(version: 20140512232559) do
   add_index "patient_contacts", ["participant_id"], name: "index_patient_contacts_on_participant_id", using: :btree
 
   create_table "reminder_messages", force: true do |t|
-    t.integer  "nurse_id",                           null: false
-    t.integer  "participant_id",                     null: false
+    t.integer  "nurse_id",                             null: false
+    t.integer  "participant_id",                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",         default: "pending"
-    t.datetime "notify_at"
-    t.string   "locale"
+    t.string   "status",           default: "pending"
+    t.string   "notify_at"
     t.string   "message_type"
+    t.string   "appointment_type"
   end
 
   add_index "reminder_messages", ["nurse_id"], name: "index_reminder_messages_on_nurse_id", using: :btree
