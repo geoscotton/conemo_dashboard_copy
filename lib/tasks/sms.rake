@@ -29,7 +29,7 @@ namespace :sms do
           sent_to = "#{reminder_message.nurse.last_name}, #{reminder_message.nurse.first_name}"
         end
      
-        @message = @account.messages.create({ from: "+13125488213", to: "+#{phone_number}", body: reminder_message.message })
+        @message = @account.sms.messages.create({ from: "+13125488213", to: "+#{phone_number}", body: reminder_message.message })
         logger.info "sent_to: #{sent_to}, phone:#{phone_number}, message: #{@message.body}, time: #{Time.now}"
 
         reminder_message.update_attribute(:status, "sent")
