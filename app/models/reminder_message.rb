@@ -14,21 +14,21 @@ class ReminderMessage < ActiveRecord::Base
       participant: {
         contact: {
           hour_1: "Portuguese 1 hour participant reminder for first appointment",
-          hour_24: "Você terá seu primeiro encontro sobre o CONEMO com o técnico(a) de enfermagem AMANHÃ. Por favor, entre em contato com ele(a) caso você precise reagendar o encontro."
+          hour_24: "Portuguese 24 hour participant reminder for first appointment"
         },
         appointment: {
           hour_1: "Portuguese 1 hour participant reminder for second conctact",
-          hour_24: "Você terá seu primeiro encontro sobre o CONEMO com o técnico(a) de enfermagem AMANHÃ. Por favor, entre em contato com ele(a) caso você precise reagendar o encontro."
+          hour_24: "Portuguese 24 hour participant reminder for first appointment"
         }
       },
       nurse: {
         contact: {
           hour_1: "Portuguese 1 hour nurse reminder for first appointment",
-          hour_24: "Você terá seu primeiro encontro sobre o CONEMO com o técnico(a) de enfermagem AMANHÃ. Por favor, entre em contato com ele(a) caso você precise reagendar o encontro."
+          hour_24: "Portuguese 24 hour participant reminder for first appointment"
         },
         appointment: {
           hour_1: "Portuguese 1 hour nurse reminder for second conctact",
-          hour_24: "Você terá seu primeiro encontro sobre o CONEMO com o técnico(a) de enfermagem AMANHÃ. Por favor, entre em contato com ele(a) caso você precise reagendar o encontro."
+          hour_24: "Portuguese 24 hour participant reminder for first appointment"
         }
       }
     },
