@@ -17,20 +17,18 @@ namespace :sms do
     reminder_messages.each do |reminder_message|
 
       if reminder_message.notification_time <= Time.now 
-        case reminder_message.message_type
-        when "participant"
+        if reminder_message.message_type == "participant"
           phone_number = reminder_message.participant.smartphone.number
           sent_to = reminder_message.participant.study_identifier
         else
           phone_number = reminder_message.nurse.phone
-          sent_to = reminder_message.nurse.last_name
+          sent_to = "#{reminder_message.nurse.last_name}, #{reminder_message.nurse.first_name}"
         end
      
-        @message = @account.sms.messages.create({ from: '+13125488213', to: "+#{phone_number}", body: reminder_message.message })
+        @message = @account.sms.messages.create({ from: "+13125488213", to: "+#{phone_number}", body: reminder_message.message })
         logger.info "sent_to: #{sent_to}, phone:#{phone_number}, message: #{@message.body}, time: #{Time.now}"
 
-        reminder_message.status = "sent"
-        reminder_message.save
+        reminder_message.update_attribute(:status, "sent")
       end
     end
   end
