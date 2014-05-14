@@ -7,7 +7,7 @@ class ReminderMessage < ActiveRecord::Base
             :participant,
             presence: true
 
-  MESSAGE_TYPES = { nurse: 'nurse', participant: 'participant' }
+  MESSAGE_TYPES = { nurse: "nurse", participant: "participant" }
 
   MESSAGES = {
     pt_BR: {
@@ -95,7 +95,9 @@ class ReminderMessage < ActiveRecord::Base
   end
 
   def message
-    string_locale = participant.locale.gsub '-', '_'
-    MESSAGES[string_locale.to_sym][message_type.to_sym][appointment_type.split(" ").last.to_sym]["hour_#{notify_at}".to_sym]
+    string_locale = participant.locale.gsub("-", "_").to_sym
+    appointment = appointment_type.split(" ").last.to_sym
+    hour = "hour_#{notify_at}".to_sym
+    MESSAGES[string_locale][message_type.to_sym][appointment][hour]
   end
 end
