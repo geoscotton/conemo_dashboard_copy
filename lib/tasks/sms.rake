@@ -18,7 +18,11 @@ namespace :sms do
 
       if reminder_message.notification_time <= Time.now 
         if reminder_message.message_type == "participant"
-          phone_number = reminder_message.participant.smartphone.number
+          if reminder_message.participant.smartphone
+            phone_number = reminder_message.participant.smartphone.number
+          else
+            phone_number = reminder_message.participant.phone
+          end
           sent_to = reminder_message.participant.study_identifier
         else
           phone_number = reminder_message.nurse.phone

@@ -1,0 +1,110 @@
+pt_first_participant_24:
+  participant: portuguese_active_participant
+  nurse: nurse1
+  notify_at: "24"
+  message_type: participant
+  appointment_type: First contact
+# pt_first_nurse_24:
+#   participant: portuguese_active_participant
+#   nurse: nurse1
+#   notify_at: "24"
+#   message_type: nurse
+#   appointment_type: First contact
+
+# pt_first_participant_1:
+#   participant: portuguese_active_participant
+#   nurse: nurse1
+#   notify_at: "1"
+#   message_type: participant
+#   appointment_type: First contact
+
+# pt_first_nurse_1:
+#   participant: portuguese_active_participant
+#   nurse: nurse1
+#   notify_at: "1"
+#   message_type: First contact
+#   appointment_type: nurse
+
+# en_first_participant_24:
+#   participant: english_active_participant
+#   nurse: nurse1
+#   notify_at: "24"
+#   message_type: First contact
+#   appointment_type: participant
+
+# en_first_nurse_24:
+#   participant: english_active_participant
+#   nurse: nurse1
+#   notify_at: "24"
+#   message_type: First contact
+#   appointment_type: nurse
+
+# en_first_participant_1:
+#   participant: english_active_participant
+#   nurse: nurse1
+#   notify_at: "1"
+#   message_type: First contact
+#   appointment_type: participant
+
+# en_first_nurse_1:
+#   participant: english_active_participant
+#   nurse: nurse1
+#   notify_at: "1"
+#   message_type: First contact
+#   appointment_type: nurse
+
+# pt_second_participant_24:
+#   participant: portuguese_active_participant
+#   nurse: nurse1
+#   notify_at: "24"
+#   message_type: First appointment
+#   appointment_type: participant
+
+# pt_second_nurse_24:
+#   participant: portuguese_active_participant
+#   nurse: nurse1
+#   notify_at: "24"
+#   message_type: First appointment
+#   appointment_type: nurse
+
+# pt_second_participant_1:
+#   participant: portuguese_active_participant
+#   nurse: nurse1
+#   notify_at: "1"
+#   message_type: First appointment
+#   appointment_type: participant
+
+# pt_second_nurse_1:
+#   participant: portuguese_active_participant
+#   nurse: nurse1
+#   notify_at: "1"
+#   message_type: First appointment
+#   appointment_type: nurse
+
+# en_second_participant_24:
+#   participant: english_active_participant
+#   nurse: nurse1
+#   notify_at: "24"
+#   message_type: First appointment
+#   appointment_type: participant
+
+# en_second_nurse_24:
+#   participant: english_active_participant
+#   nurse: nurse1
+#   notify_at: "24"
+#   message_type: First appointment
+#   appointment_type: nurse
+
+# en_second_participant_1:
+#   participant: english_active_participant
+#   nurse: nurse1
+#   notify_at: "1"
+#   message_type: First appointment
+#   appointment_type: participant
+
+# en_second_nurse_1:
+#   participant: english_active_participant
+#   nurse: nurse1
+#   notify_at: "1"
+#   message_type: First appointment
+#   appointment_type: nurse
