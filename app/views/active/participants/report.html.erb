@@ -31,6 +31,16 @@
         </tr>
       <% end %>
     </table>
+    <table class="table table-bordered">
+      <tr class="table-head">
+        <th class="text-center">Log-ins</th>
+      </tr>
+      <% @participant.help_messages.each do |help_message| %>
+        <tr>
+          <td><%= help_message.message %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
   <div class="col-md-7">
     <table class="table">
