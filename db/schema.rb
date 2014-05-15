@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515184349) do
+ActiveRecord::Schema.define(version: 20140515193223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20140515184349) do
     t.string   "staff_message_guid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "sent_at"
   end
 
   add_index "help_messages", ["participant_id"], name: "index_help_messages_on_participant_id", using: :btree
