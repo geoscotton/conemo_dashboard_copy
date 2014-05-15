@@ -37,9 +37,14 @@ module ParticipantsHelper
   end
 
   def render_status_link(participant)
+    if participant.help_messages.exists?(read: false)
+      blink = "blink-me"
+    else
+      blink = ""
+    end
     link_to "#{fa_icon 'circle 2x'}".html_safe,
             active_report_path(participant),
-            class: study_status(participant)
+            class: "#{study_status(participant)} #{blink}"
   end
 
   def render_large_status(participant)
