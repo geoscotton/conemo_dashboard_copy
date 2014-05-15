@@ -23,21 +23,24 @@
     </div>
     <table class="table table-bordered">
       <tr class="table-head">
-        <th class="text-center">Log-ins</th>
+        <th class="text-center">Messages</th>
       </tr>
-      <% @participant.app_logins.each do |login| %>
+      <% @participant.help_messages.each do |help_message| %>
         <tr>
-          <td><%=l login.occurred_at, format: :long %></td>
+          <td class="<%= help_message.read ? '' : 'warning' %>">
+            <%= help_message.message %><br>
+            <small><%=l help_message.created_at, format: :long %></small>
+          </td>
         </tr>
       <% end %>
     </table>
     <table class="table table-bordered">
       <tr class="table-head">
-        <th class="text-center">Messages</th>
+        <th class="text-center">Log-ins</th>
       </tr>
-      <% @participant.help_messages.each do |help_message| %>
+      <% @participant.app_logins.each do |login| %>
         <tr>
-          <td><%= help_message.message %></td>
+          <td><%=l login.occurred_at, format: :long %></td>
         </tr>
       <% end %>
     </table>
