@@ -65,7 +65,7 @@ prw:
   encoding: utf-8
   pool: 5
   username: conemo
-  password: "h,7P*z!fkPfL}E%"
+  password: 's{$tKpM;8~~.Z"g'
   host: db2.cbits.northwestern.edu
   port: "5432"
   database: 9475ea58d2ff472c64adbdaaaf2b3a3c
