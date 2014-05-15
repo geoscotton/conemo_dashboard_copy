@@ -14,10 +14,14 @@ module ParticipantsHelper
     if participant.first_appointment
       "#{l participant.first_appointment.appointment_at, format: :long}"
     elsif participant.first_contact
-      link_to " #{l participant.first_contact.first_appointment_at, format: :long}
-       / #{participant.first_contact.first_appointment_location}",
-              new_participant_first_appointment_path(participant),
-              class: "fa fa-plus-circle", id: "appointment_#{participant.id}"
+      if participant.first_contact.first_appointment_at > DateTime.current
+        link_to " #{l participant.first_contact.first_appointment_at, format: :long}
+         / #{participant.first_contact.first_appointment_location}",
+                new_participant_first_appointment_path(participant),
+                class: "fa fa-plus-circle", id: "appointment_#{participant.id}"
+      else
+        link_to " missed appointment", edit_participant_first_contact_path(participant_id: participant.id, id: participant.first_contact.id), class: "fa fa-edit"
+      end
     else
       ""
     end
