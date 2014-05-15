@@ -4,6 +4,7 @@ class ContentAccessEvent < ActiveRecord::Base
   belongs_to :participant
   has_one :response
   delegate :answer, to: :response
+  accepts_nested_attributes_for :response
 
   def late?
     day_in_treatment_accessed > lesson.day_in_treatment

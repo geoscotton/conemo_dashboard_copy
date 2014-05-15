@@ -3,7 +3,7 @@ namespace :prw_import do
   task sync: :environment do
 
     LessonDatum.all.each do |datum|
-
+      puts datum.GUID
       if !datum.content_access_event_exists?
 
         participant = Participant.where(study_identifier: datum.FEATURE_VALUE_DT_user_id).first
