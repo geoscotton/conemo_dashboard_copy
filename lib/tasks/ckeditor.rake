@@ -7,6 +7,7 @@ namespace :ckeditor do
                     'public/assets/ckeditor/lang/*.js',
                     'public/assets/ckeditor/skins/moono/*.css',
                     'public/assets/ckeditor/config-*.js',
+                    'public/assets/ckeditor/plugins/forms/dialogs/*.js',
                     'public/assets/ckeditor/styles-*.js']
       next unless file =~ fingerprint
       nondigest = file.sub fingerprint, '.' # contents-0d8ffa186a00f5063461bc0ba0d96087.css => contents.css
