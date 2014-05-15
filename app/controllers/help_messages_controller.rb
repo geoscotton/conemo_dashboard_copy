@@ -6,7 +6,7 @@ class HelpMessagesController < ApplicationController
     @help_message = HelpMessage.where(id: params[:id]).first
     if @help_message.update(help_message_params)
       redirect_to active_report_path(participant),
-                  notice: "Successfully updated help_message"
+                  notice: "Successfully updated help message"
     else
       flash[:alert] = @help_message.errors.full_messages.join(", ")
       redirect_to active_report_path(participant)

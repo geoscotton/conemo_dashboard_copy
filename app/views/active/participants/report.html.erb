@@ -28,7 +28,7 @@
       <% @participant.help_messages.each do |help_message| %>
         <tr>
           <td class="<%= help_message.read ? '' : 'warning' %>">
-          <%= link_to "#{fa_icon 'eye'}".html_safe, participant_help_message_path(id: help_message.id, participant_id: @participant.id, read: true), method: :put %>
+          <%= link_to "#{fa_icon 'eye'}".html_safe, participant_help_message_path(id: help_message.id, participant_id: @participant.id, help_message: {read: true}), method: :put %>
             <%= help_message.message %><br>
             <small><%=l help_message.sent_at, format: :long %></small>
           </td>
