@@ -12,6 +12,7 @@ class Participant < ActiveRecord::Base
   has_many :content_access_events, dependent: :destroy
   has_many :lessons, through: :content_access_events
   has_many :patient_contacts, dependent: :destroy
+  has_many :help_messages, dependent: :destroy
 
   STATUS = ["pending", "active", "ineligible"]
   GENDER = ["male", "female"]

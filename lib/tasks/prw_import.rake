@@ -28,5 +28,23 @@ namespace :prw_import do
         end
       end
     end
+
+    StaffMessage.all.each do |message|
+      if !message.help_message_exists?
+        participant = Participant.where(study_identifier: message.FEATURE_VALUE_DT_user_id)
+                        .first
+        if participant
+
+          help_message = HelpMessage.new(participant: participant,
+                                         read: false,
+                                         message: message.FEATURE_VALUE_DT_message,
+                                         staff_message_guid: message.GUID
+                                        )
+          if help_message.save
+            puts "help_message created for #{participant.study_identifier}"
+          end
+        end
+      end
+    end
   end
 end
