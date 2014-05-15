@@ -22,7 +22,7 @@ namespace :prw_import do
               response = content_access_event.build_response(name: key, answer: value)
               response.save
               puts response.name
-              puts response.anser
+              puts response.answer
             end
           end
         end
