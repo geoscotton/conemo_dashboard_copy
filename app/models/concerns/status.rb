@@ -40,11 +40,13 @@ module Status
   # Overall Status
   def current_lesson
     Lesson.where("day_in_treatment <= ?", study_day)
+          .where(locale: locale)
           .order(day_in_treatment: :desc).second
   end
 
   def previous_lesson
     Lesson.where("day_in_treatment <= ?", study_day)
+          .where(locale: locale)
           .order(day_in_treatment: :desc).offset(2).first
   end
 
