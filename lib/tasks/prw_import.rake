@@ -38,7 +38,8 @@ namespace :prw_import do
           help_message = HelpMessage.new(participant: participant,
                                          read: false,
                                          message: message.FEATURE_VALUE_DT_message,
-                                         staff_message_guid: message.GUID
+                                         staff_message_guid: message.GUID,
+                                         sent_at: message.eventDateTime
                                         )
           if help_message.save
             puts "help_message created for #{participant.study_identifier}"
