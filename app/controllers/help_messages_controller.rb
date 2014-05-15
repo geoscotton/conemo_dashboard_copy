@@ -1,0 +1,32 @@
+# Handles Help Message updates for active participant
+class HelpMessagesController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
+  def update
+    @help_message = HelpMessage.where(id: params[:id]).first
+    if @help_message.update(help_message_params)
+      redirect_to redirect_to active_report_path(participant),
+                  notice: "Successfully updated help_message"
+    else
+      flash[:alert] = @help_message.errors.full_messages.join(", ")
+      render :edit
+    end
+  end
+
+  private
+
+  def help_message_params
+    params.require(:help_message).permit(
+      :participant_id, :read
+    )
+  end
+
+  def participant
+    Participant.find(params[:participant_id])
+  end
+  helper_method :participant
+
+  def record_not_found
+    redirect_to active_participants_url, alert: "Participant not found"
+  end
+end
