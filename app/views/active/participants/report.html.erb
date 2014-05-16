@@ -39,9 +39,9 @@
       <tr class="table-head">
         <th class="text-center">Log-ins</th>
       </tr>
-      <% @participant.app_logins.each do |login| %>
+      <% @participant.logins.each do |login| %>
         <tr>
-          <td><%=l login.occurred_at, format: :long %></td>
+          <td><%=l login.logged_in_at, format: :long %></td>
         </tr>
       <% end %>
     </table>

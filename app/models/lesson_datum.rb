@@ -1,3 +1,4 @@
+# backed by PRW; imports into content access events
 class LessonDatum < ActiveRecord::Base
   establish_connection :prw
 

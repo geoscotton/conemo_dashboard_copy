@@ -8,11 +8,11 @@ class Participant < ActiveRecord::Base
   has_one :second_contact, dependent: :destroy
   has_one :smartphone, dependent: :destroy
   has_many :reminder_messages, dependent: :destroy
-  has_many :app_logins, dependent: :destroy
   has_many :content_access_events, dependent: :destroy
   has_many :lessons, through: :content_access_events
   has_many :patient_contacts, dependent: :destroy
   has_many :help_messages, dependent: :destroy
+  has_many :logins, dependent: :destroy
 
   STATUS = ["pending", "active", "ineligible"]
   GENDER = ["male", "female"]
@@ -40,7 +40,7 @@ class Participant < ActiveRecord::Base
   scope :active, -> { where(status: "active") }
 
   def seven_day_access
-    app_logins.where("occurred_at > ?", Date.today - 7.days)
+    logins.where("logged_in_at > ?", Date.today - 7.days)
   end
 
   def study_day
