@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516181818) do
+ActiveRecord::Schema.define(version: 20140516191848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 20140516181818) do
     t.datetime "logged_in_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "app_login_guid"
   end
 
   add_index "logins", ["participant_id"], name: "index_logins_on_participant_id", using: :btree
