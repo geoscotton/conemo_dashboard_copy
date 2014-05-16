@@ -27,8 +27,38 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
-    ## With an audit adapter, you can add:
-    # history_index
-    # history_show
+    config.included_models = [User]
+
+    config.model User do
+    
+    object_label_method :last_name
+
+    list do
+      field :role
+      field :first_name
+      field :last_name
+      field :phone
+    end
+
+    edit do
+      field :role, :enum do
+        enum do
+          # simple array
+          ['nurse', 'admin']
+        end
+      end
+      field :first_name
+      field :last_name
+      field :phone
+      field :password
+      field :password_confirmation
+    end
+  end
+  
+  def email
+    return "#{self.last_name}"
+  end
+
+
   end
 end
