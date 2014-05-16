@@ -2,6 +2,7 @@ namespace :prw_import do
   desc "gets conemo prw data"
   task sync: :environment do
 
+    puts "begin prw_import at #{Time.now}"
     ImportPrwData.set_start_dates
     ImportPrwData.import_logins
     ImportPrwData.import_content_access_events
@@ -33,7 +34,6 @@ class ImportPrwData
       participants.each do |participant|
         AppLogin.all.each do |app_login|
           participant.logins.create(logged_in_at: app_login.login, app_login_guid: app_login.GUID) unless Login.exists?(app_login_guid: app_login.GUID)
-          puts "login created for #{participant.study_identifier}"
         end
       end
     end
