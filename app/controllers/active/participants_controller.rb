@@ -2,7 +2,7 @@ module Active
   # Managing Active Participants
   class ParticipantsController < ApplicationController
     def index
-      @participants = Participant.active.where(locale: params[:locale])
+      @participants = Participant.active.where(locale_param)
     end
 
     def show
@@ -11,7 +11,13 @@ module Active
 
     def report
       @participant = Participant.find(params[:id])
-      @lessons = Lesson.where(locale: params[:locale]).order("day_in_treatment ASC")
+      @lessons = Lesson.where(locale_param).order(day_in_treatment: :asc)
+    end
+
+    private
+
+    def locale_param
+      params.permit :locale
     end
   end
 end

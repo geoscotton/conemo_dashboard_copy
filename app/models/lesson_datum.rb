@@ -1,3 +1,4 @@
+# Form data captured during app use.
 class LessonDatum < ActiveRecord::Base
   establish_connection :prw
 
