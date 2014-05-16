@@ -17,8 +17,8 @@ class ImportPrwData
 
     participants.each do |participant|
       StartDate.all.each do |date|
-        if date.participant_identifier == participant.study_identifier
-          participant.start_date = date.start_date
+        if date.participant_identifier == participant.study_identifier && participant.start_date != date.start_date
+          participant.start_date = date.start_date 
           if participant.save
             puts "start date #{date.start_date} set for #{participant.study_identifier}"
           end
