@@ -31,10 +31,14 @@ module ParticipantsHelper
     if participant.second_contact
       "#{l participant.second_contact.contact_at, format: :long}"
     elsif participant.first_appointment
-      link_to " #{l participant.first_appointment.next_contact, format: :long}",
-              new_participant_second_contact_path(participant),
-              class: "fa fa-plus-circle",
-              id: "second_contact_#{participant.id}"
+      if participant.first_appointment.next_contact > DateTime.current
+        link_to " #{l participant.first_appointment.next_contact, format: :long}",
+                new_participant_second_contact_path(participant),
+                class: "fa fa-plus-circle",
+                id: "second_contact_#{participant.id}"
+      else
+        link_to " missed appointment", edit_participant_first_appointment_path(participant_id: participant.id, id: participant.first_appointment.id), class: "fa fa-edit"
+      end
     else
       ""
     end

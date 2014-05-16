@@ -52,6 +52,7 @@
         <th>Release Day</th>
         <th>Lesson</th>
         <th>Patient Response</th>
+        <th>Access Count</th>
       </tr>
       <% @lessons.each do |lesson| %>
         <tr class="<%= @participant.lesson_status(lesson) %>">
@@ -60,6 +61,7 @@
           <td>
             <%= lesson.content_access_events.find_by(participant_id: @participant.id).name rescue '' %>
             <%= lesson.content_access_events.find_by(participant_id: @participant.id).answer rescue '' %></td>
+          <td><%= lesson.content_access_events.where(participant_id: @participant.id).count rescue '' %></td>
         </tr>
       <% end %>
     </table>
