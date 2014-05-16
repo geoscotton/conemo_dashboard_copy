@@ -27,12 +27,11 @@ class ImportPrwData
     end
   end
 
-  end
   def self.import_logins
     if AppLogin.all.any?
       participants.each do |participant|
         AppLogin.all.each do |app_login|
-          participant.logins.create(logged_in_at: app_login.login)
+          participant.logins.create(logged_in_at: app_login.login, app_login_guid: app_login.GUID) unless Login.exists?(app_login_guid: app_login.GUID)
           puts "login for #{participant.study_identifier} at #{app_login.login}" 
         end
 
