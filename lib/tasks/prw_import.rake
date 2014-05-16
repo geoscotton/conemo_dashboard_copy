@@ -2,6 +2,30 @@ namespace :prw_import do
   desc "gets conemo prw data"
   task sync: :environment do
 
+    ImportPrwData.import_logins
+    ImportPrwData.import_content_access_events
+    ImportPrwData.import_help_messages
+
+  end
+end
+
+class ImportPrwData
+  def self.import_logins
+    if AppLogin.all.any?
+      participants = Participant.active.where(start_date: nil)
+
+      participants.each do |participant|
+
+        AppLogin.all.each do |app_login|
+          participant.logins.create(logged_in_at: app_login.login)
+          puts "login for #{participant.study_identifier} at #{app_login.login}" 
+        end
+
+      end
+    end
+  end
+
+  def self.import_content_access_events
     LessonDatum.all.each do |datum|
       if !datum.content_access_event_exists?
 
@@ -28,7 +52,9 @@ namespace :prw_import do
         end
       end
     end
+  end
 
+  def self.import_help_messages
     StaffMessage.all.each do |message|
       if !message.help_message_exists?
         participant = Participant.where(study_identifier: message.FEATURE_VALUE_DT_user_id)

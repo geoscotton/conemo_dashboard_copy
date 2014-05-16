@@ -1,3 +1,4 @@
+# backed by prw; imports into help messages
 class StaffMessage < ActiveRecord::Base
   establish_connection :prw
 
