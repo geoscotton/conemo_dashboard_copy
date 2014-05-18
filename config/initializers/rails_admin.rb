@@ -31,7 +31,7 @@ RailsAdmin.config do |config|
 
     config.model User do
     
-    object_label_method :last_name
+    object_label_method :email
 
     list do
       field :role
@@ -47,6 +47,7 @@ RailsAdmin.config do |config|
           ['nurse', 'admin']
         end
       end
+      field :email
       field :first_name
       field :last_name
       field :phone
@@ -56,7 +57,7 @@ RailsAdmin.config do |config|
   end
   
   def email
-    return "#{self.last_name}"
+    return "#{self.email}"
   end
 
 
