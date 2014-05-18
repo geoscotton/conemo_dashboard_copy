@@ -2,7 +2,7 @@
 class LessonsController < ApplicationController
   def index
     authorize! :index, Lesson
-    @lessons = locale_lessons
+    @lessons = locale_lessons.order('day_in_treatment ASC')
   end
 
   def show
