@@ -17,6 +17,8 @@ class ImportPrwData
     participants = Participant.active
 
     participants.each do |participant|
+      puts participant.study_identifier
+
       StartDate.all.each do |date|
         if date.participant_identifier == participant.study_identifier
           if !participant.start_date
@@ -28,6 +30,7 @@ class ImportPrwData
             participant.save
             puts "start date updated for #{participant.study_identifier}"
           else
+            puts "do nothing"
             return nil
           end
         end
@@ -39,6 +42,8 @@ class ImportPrwData
     if AppLogin.all.any?
       participants = Participant.active
       participants.each do |participant|
+        puts participant.study_identifier
+        
         AppLogin.all.each do |app_login|
           participant.logins.create(logged_in_at: app_login.login, app_login_guid: app_login.GUID) unless Login.exists?(app_login_guid: app_login.GUID)
         end
