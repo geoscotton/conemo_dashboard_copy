@@ -22,11 +22,11 @@ class ImportPrwData
       StartDate.all.each do |date|
         if date.participant_identifier == participant.study_identifier
           if !participant.start_date
-            participant.start_date = date.start_date
+            participant.start_date = date.start_date.to_date
             participant.save
             puts "start date created for #{participant.study_identifier}" 
-          elsif participant.start_date < date.start_date
-            participant.start_date = date.start_date
+          elsif participant.start_date < date.start_date.to_date
+            participant.start_date = date.start_date.to_date
             participant.save
             puts "start date updated for #{participant.study_identifier}"
           else
@@ -43,7 +43,7 @@ class ImportPrwData
       participants = Participant.active
       participants.each do |participant|
         puts participant.study_identifier
-        
+
         AppLogin.all.each do |app_login|
           participant.logins.create(logged_in_at: app_login.login, app_login_guid: app_login.GUID) unless Login.exists?(app_login_guid: app_login.GUID)
         end
