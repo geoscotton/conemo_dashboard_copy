@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       resources :help_messages, only: [:update]
     end
 
+    get "/participants/:participant_id/first_contacts/missed_appointment" => "first_contacts#missed_appointment", as: :missed_appointment
+    get "/participants/:participant_id/first_appointments/missed_second_contact" => "first_appointments#missed_second_contact", as: :missed_second_contact
+
     namespace "pending" do
       resources  :participants, only: :index
       get "activate/:id" => "participants#activate", as: :activate
