@@ -17,13 +17,13 @@
   <div class="col-md-2">
     <div>
       <div class="access-count">
-        <h5 class="text-center"><%=t 'conemo.views.active.participants.report.access_count' %></h5>
+        <h5 class="text-center"><%=t 'conemo.views.active.participants.report.seven_day_access_count' %></h5>
         <span><%= @participant.seven_day_access.count %></span>
       </div>
     </div>
     <table class="table table-bordered">
       <tr class="table-head">
-        <th class="text-center">Messages</th>
+        <th class="text-center"><%=t 'conemo.views.active.participants.report.messages' %></th>
       </tr>
       <% @participant.help_messages.each do |help_message| %>
         <tr>
@@ -37,7 +37,7 @@
     </table>
     <table class="table table-bordered">
       <tr class="table-head">
-        <th class="text-center">Log-ins</th>
+        <th class="text-center">Logins</th>
       </tr>
       <% @participant.logins.each do |login| %>
         <tr>

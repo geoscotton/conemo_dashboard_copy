@@ -86,7 +86,12 @@ en:
           report:
             overall_status: "Overall Status"
             content_accessed: "Content accessed"
-            access_count: "7 day access count"
+            seven_day_access_count: "7 day access count"
+            messages: "Messages"
+            release_day: "Release day"
+            lesson: "Lesson"
+            patient_response: "Patient response"
+            access_count: "Lesson access count"
       pending:
         participants:
           index:
