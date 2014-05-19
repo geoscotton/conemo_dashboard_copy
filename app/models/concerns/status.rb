@@ -13,7 +13,7 @@ module Status
 
   def lesson_released?(lesson)
     if lesson
-      lesson.day_in_treatment <= study_day rescue false
+      lesson.day_in_treatment <= study_day
     else
       false
     end
@@ -88,7 +88,7 @@ module Status
     elsif current_lesson
       one_lesson_passed
     else
-      "disabled"
+      "stable"
     end
   end
 end
