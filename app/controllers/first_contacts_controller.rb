@@ -23,10 +23,14 @@ class FirstContactsController < ApplicationController
     @first_contact = participant.first_contact
   end
 
+  def missed_appointment
+    @first_contact = participant.first_contact
+  end
+
   def update
     @first_contact = participant.first_contact
     if @first_contact.update(first_contact_params)
-      redirect_to active_participant_path(participant),
+      redirect_to active_participants_path,
                   notice: "Successfully updated first_contact"
     else
       flash[:alert] = @first_contact.errors.full_messages.join(", ")

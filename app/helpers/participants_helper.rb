@@ -20,7 +20,7 @@ module ParticipantsHelper
                 new_participant_first_appointment_path(participant),
                 class: "fa fa-plus-circle", id: "appointment_#{participant.id}"
       else
-        link_to " #{t 'conemo.views.active.participants.index.missed_appointment'}", edit_participant_first_contact_path(participant_id: participant.id, id: participant.first_contact.id), class: "fa fa-edit"
+        link_to " #{t 'conemo.views.active.participants.index.missed_appointment'}", missed_appointment_path(participant_id: participant.id, id: participant.first_contact.id), class: "fa fa-edit"
       end
     else
       ""
@@ -37,7 +37,7 @@ module ParticipantsHelper
                 class: "fa fa-plus-circle",
                 id: "second_contact_#{participant.id}"
       else
-        link_to " #{t 'conemo.views.active.participants.index.missed_appointment'}", edit_participant_first_appointment_path(participant_id: participant.id, id: participant.first_appointment.id), class: "fa fa-edit"
+        link_to " #{t 'conemo.views.active.participants.index.missed_appointment'}", missed_second_contact_path(participant_id: participant.id, id: participant.first_appointment.id), class: "fa fa-edit"
       end
     else
       ""

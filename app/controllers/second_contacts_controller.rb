@@ -26,7 +26,7 @@ class SecondContactsController < ApplicationController
   def update
     @second_contact = participant.second_contact
     if @second_contact.update(second_contact_params)
-      redirect_to active_participant_path(participant),
+      redirect_to active_participants_path,
                   notice: "Successfully updated second_contact"
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
