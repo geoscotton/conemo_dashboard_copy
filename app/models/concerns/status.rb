@@ -13,7 +13,7 @@ module Status
 
   def lesson_released?(lesson)
     if lesson
-      lesson.day_in_treatment <= study_day
+      lesson.day_in_treatment < study_day rescue false
     else
       false
     end
@@ -33,7 +33,7 @@ module Status
   end
 
   def next_lesson(lesson)
-    Lesson.where("day_in_treatment >= ?", lesson.day_in_treatment)
+    Lesson.where("day_in_treatment > ?", lesson.day_in_treatment)
           .order(day_in_treatment: :asc).first
   end
 
@@ -88,7 +88,7 @@ module Status
     elsif current_lesson
       one_lesson_passed
     else
-      "stable"
+      "disabled"
     end
   end
 end

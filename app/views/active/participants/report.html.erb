@@ -49,10 +49,10 @@
   <div class="col-md-7">
     <table class="table">
       <tr class="table-head">
-        <th>Release Day</th>
-        <th>Lesson</th>
-        <th>Patient Response</th>
-        <th>Access Count</th>
+        <th><%=t "conemo.views.active.participants.report.release_day" %></th>
+        <th><%=t "conemo.views.active.participants.report.lesson" %></th>
+        <th><%=t "conemo.views.active.participants.report.patient_response" %></th>
+        <th><%=t "conemo.views.active.participants.report.access_count" %></th>
       </tr>
       <% @lessons.each do |lesson| %>
         <tr class="<%= @participant.lesson_status(lesson) %>">
@@ -69,7 +69,7 @@
   <div class="col-md-3">
     <table class="table">
       <tr class="table-head">
-        <th class="text-center">Notes <%= link_to "add #{fa_icon 'plus-circle'}".html_safe, new_participant_patient_contact_path(@participant), class: "pull-right", style: "color:white;" %></th>
+        <th class="text-center"><%=t 'conemo.views.active.participants.report.notes' %><%= link_to "#{fa_icon 'plus-circle'}".html_safe, new_participant_patient_contact_path(@participant), class: "pull-right", style: "color:white;" %></th>
       </tr>
       <% if @participant.patient_contacts.any? %>
         <% @participant.patient_contacts.order(contact_at: :desc).each do |contact| %>
@@ -88,7 +88,7 @@
         <tr>
           <td>
             <dl>
-              <dt>First Appointment</dt>
+              <dt><%=t 'conemo.views.active.participants.index.first_appointment' %></dt>
               <dd><%= @participant.first_appointment.notes %></dd>
               <dd><em><%=l @participant.first_appointment.appointment_at, format: :long %></em></dd>
             </dl>
@@ -99,7 +99,7 @@
         <tr>
           <td>
             <dl>
-              <dt>Second Contact</dt>
+              <dt><%=t 'conemo.views.active.participants.index.second_contact' %></dt>
               <dd><%= @participant.second_contact.notes %></dd>
               <dd><em><%=l @participant.second_contact.contact_at, format: :long %></em></dd>
             </dl>

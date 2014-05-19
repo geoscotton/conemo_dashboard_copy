@@ -9,6 +9,9 @@ en:
         false_radio: "False"
         pending: "Pending"
         ineligible: "Ineligible"
+        create: "create"
+        update: "update"
+        edit: "edit"
       dashboards:
         index:
           heading: "Welcome!"
@@ -76,6 +79,7 @@ en:
             location: "Location"
             second_contact: "Second Contact"
             status: "Status"
+            missed_appointment: "appointment missed"
           show:
             heading: "Profile for"
             contact_heading: "Contact Information"
@@ -92,6 +96,7 @@ en:
             lesson: "Lesson"
             patient_response: "Patient response"
             access_count: "Lesson access count"
+            notes: "Notes"
       pending:
         participants:
           index:
