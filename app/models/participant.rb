@@ -35,6 +35,8 @@ class Participant < ActiveRecord::Base
 
   validate :enrollment_date_is_sane
 
+  before_validation :saniztize_number
+
   scope :ineligible, -> { where(status: "ineligible") }
   scope :pending, -> { where(status: "pending") }
   scope :active, -> { where(status: "active") }
@@ -50,6 +52,10 @@ class Participant < ActiveRecord::Base
   end
 
   private
+
+  def sanitize_number
+    phone = phone.gsub(/[^0-9]/, "")
+  end
 
   def enrollment_date_is_sane
     unless enrollment_date.nil? || enrollment_date > Date.today - 5.years
