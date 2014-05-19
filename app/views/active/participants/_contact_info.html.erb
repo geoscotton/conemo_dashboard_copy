@@ -24,13 +24,13 @@
     <%= participant.email %>
   </p>
   <p><strong><%=t "helpers.label.participant.date_of_birth" %>:</strong>
-    <%= participant.date_of_birth %>
+    <%=l participant.date_of_birth, format: :long %>
   </p>
   <p><strong><%=t "helpers.label.participant.address" %>:</strong>
     <%= participant.address %>
   </p>
   <p><strong><%=t "helpers.label.participant.enrollment_date" %>:</strong>
-    <%= participant.enrollment_date %>
+    <%=l participant.enrollment_date, format: :long %>
   </p>
   <p><strong><%=t "helpers.label.participant.gender" %>:</strong>
     <%= participant.gender %>

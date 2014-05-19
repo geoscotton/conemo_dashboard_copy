@@ -4,7 +4,7 @@ module ParticipantsHelper
     if participant.first_contact
       "#{l participant.first_contact.contact_at, format: :long}"
     else
-      link_to " create", new_participant_first_contact_path(participant),
+      link_to " #{t 'conemo.views.shared.create'}", new_participant_first_contact_path(participant),
               class: "fa fa-plus-circle",
               id: "first_contact_#{participant.id}"
     end
@@ -20,7 +20,7 @@ module ParticipantsHelper
                 new_participant_first_appointment_path(participant),
                 class: "fa fa-plus-circle", id: "appointment_#{participant.id}"
       else
-        link_to " missed appointment", edit_participant_first_contact_path(participant_id: participant.id, id: participant.first_contact.id), class: "fa fa-edit"
+        link_to " #{t 'conemo.views.active.participants.index.missed_appointment'}", edit_participant_first_contact_path(participant_id: participant.id, id: participant.first_contact.id), class: "fa fa-edit"
       end
     else
       ""
@@ -37,7 +37,7 @@ module ParticipantsHelper
                 class: "fa fa-plus-circle",
                 id: "second_contact_#{participant.id}"
       else
-        link_to " missed appointment", edit_participant_first_appointment_path(participant_id: participant.id, id: participant.first_appointment.id), class: "fa fa-edit"
+        link_to " #{t 'conemo.views.active.participants.index.missed_appointment'}", edit_participant_first_appointment_path(participant_id: participant.id, id: participant.first_appointment.id), class: "fa fa-edit"
       end
     else
       ""

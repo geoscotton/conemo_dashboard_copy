@@ -9,13 +9,16 @@ pt-BR:
         false_radio: "Falso"
         pending: "Pendente"
         ineligible: "Inelegível"
+        create: "criar"
+        update: "atualizar"
+        edit: "editar"
       dashboards:
         index:
           heading: "Bem-vindo!"
           instructions: "Por favor, selecione um item"
           enrollment_button: "Cadastrar participantes pendentes"
           manage_button: "Gerenciar Participantes Ativos"
-          lessons_button: "Gerenciar lições"
+          lessons_button: "Gerenciar sessões"
           sign_out: "Terminar sessão"
       smartphones:
         new:
@@ -68,29 +71,31 @@ pt-BR:
             heading: "Gerenciar Participantes Ativos"
             edit_info: "Editar"
             name: "Nome"
-            study_identifier: "Identificador estudo"
-            enrollment_date: "Data de Inscrição"
+            study_identifier: "Identificação do participante"
+            enrollment_date: "Data de inclusão"
             first_contact: "Primeiro Contato"
-            first_appointment: "Primeira Nomeação"
-            location: "Localização"
+            first_appointment: "Primeiro encontro"
+            location: "Local"
             second_contact: "Segundo Contato"
             status: "Status"
+            missed_appointment: "encontro não realizado"
           show:
             heading: "Perfil de"
             contact_heading: "Informações de Contato"
             smartphone_heading: "Informações de Smartphone"
             first_contact_heading: "Informações de Primeiro Contato"
-            first_appointment_heading: "Informações de Primeira Nomeação"
+            first_appointment_heading: "Informações de Primeiro encontro"
             second_contact_heading: "Informações de Segundo Contato"
           report:
             overall_status: "Status geral"
             content_accessed: "Acesso ao conteúdo"
             seven_day_access_count: "Acesso na última semana"
-            messages: "Notícia"
-            release_day: "Release day"
-            lesson: "Lesson"
-            patient_response: "Patient response"
-            access_count: "Lesson access count"
+            messages: "Solicitações de ajuda"
+            release_day: "Sessão enviada em"
+            lesson: "Sessão"
+            patient_response: "Resposta do participante"
+            access_count: "Número de acessos"
+            notes: "Anotações"
       pending:
         participants:
           index:
@@ -98,8 +103,8 @@ pt-BR:
             add_new_participant: "Adicionar Novo Participante"
             edit_info: "Editar Informações"
             name: "Nome"
-            study_identifier: "Identificador estudo"
-            enrollment_date: "Data de Inscrição"
+            study_identifier: "Identificação do participante"
+            enrollment_date: "Data de inclusão"
             activate: "Ativar"
             disqualify: "Excluir participante"
             disqualify_alert: "Você tem certeza que quer marcar essa pessoa como inelegível?"
@@ -249,7 +254,7 @@ pt-BR:
       participant:
         first_name: "Nome"
         last_name: "Sobrenome"
-        study_identifier: "Identificador estudo"
+        study_identifier: "Identificação do participante"
         family_health_unit_name: "Unidade de Saúde da Família"
         family_record_number: "Prontuário da Família"
         phone: "Telefone 1"
@@ -264,7 +269,7 @@ pt-BR:
         title: "Título"
         day_in_treatment: "Dia de tratamento"
       first_contact:
-        contact_at: "Contactado por"
+        contact_at: "Contactado em"
         first_appointment_at: "Primeiro encontro agendado para"
         first_appointment_location: "Local do primeiro encontro"
         alternative_contact_name: "Contato alternativo"
@@ -285,10 +290,14 @@ pt-BR:
         is_owned_by_participant: "O smartphone usado no estudo pertence ao participante?"
         is_smartphone_owner: "O participante tem seu próprio smartphone?"
       second_contact:
-        contact_at: “Data da ligação”
-        session_length: “Duração da ligação (min)”
-        video_access: “O paciente conseguiu ver os videos?”
-        notes: “Anotações”
+        contact_at: "Data da ligação"
+        session_length: "Duração da ligação (min)"
+        video_access: "O paciente conseguiu ver os videos?"
+        notes: "Anotações"
+      patient_contact:
+        contact_at: "Contato em"
+        contact_reason: "Motivo do contato"
+        note: "Anotações"
   number:
     currency:
       format:
