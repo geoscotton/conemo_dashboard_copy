@@ -44,9 +44,13 @@ class ImportPrwData
       participants.each do |participant|
 
         AppLogin.all.each do |app_login|
-          puts "app_login_guid: #{app_login.guid} login exists?: #{Login.exists?(app_login_guid: app_login.guid)}"
           if !participant.logins.exists?(app_login_guid: app_login.guid)
-            participant.logins.new(logged_in_at: app_login.login, app_login_guid: app_login.guid)
+            
+            login = participant.logins.new(logged_in_at: app_login.login, app_login_guid: app_login.guid)
+            
+            if login.save
+              puts "login at #{login.logged_in_at} created for #{participant.study_identifier}"
+            end 
           end
         end
       end
