@@ -33,7 +33,7 @@ module Status
   end
 
   def next_lesson(lesson)
-    Lesson.where("day_in_treatment > ?", lesson.day_in_treatment)
+    Lesson.where("day_in_treatment >= ?", lesson.day_in_treatment)
           .order(day_in_treatment: :asc).first
   end
 
@@ -88,7 +88,7 @@ module Status
     elsif current_lesson
       one_lesson_passed
     else
-      nil
+      "stable"
     end
   end
 end
