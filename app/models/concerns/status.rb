@@ -88,7 +88,7 @@ module Status
     elsif current_lesson
       one_lesson_passed
     else
-      "stable"
+      "disabled"
     end
   end
 end
