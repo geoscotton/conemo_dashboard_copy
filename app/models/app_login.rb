@@ -4,6 +4,7 @@ class AppLogin < ActiveRecord::Base
   self.table_name = "app_login"
   alias_attribute :participant_identifier, :FEATURE_VALUE_DT_user_id
   alias_attribute :login, :eventDateTime
+  alias_attribute :guid, :GUID
 
    # def zonedEventDateTime
    #   date_and_time = "%m-%d-%Y %H:%M:%S %Z"
