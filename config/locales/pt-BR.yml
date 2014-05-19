@@ -85,7 +85,7 @@ pt-BR:
           report:
             overall_status: "Status geral"
             content_accessed: "Acesso ao conteúdo"
-            access_count: "7 day access count"
+            access_count: "Acesso na última semana"
       pending:
         participants:
           index:
