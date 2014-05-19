@@ -27,7 +27,7 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
-    config.included_models = [User]
+    config.included_models = [User, Participant]
 
     config.model User do
     
