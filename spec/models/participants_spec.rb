@@ -3,6 +3,9 @@ require "spec_helper"
 describe Participant do
   fixtures :participants, :lessons
 
+  describe "#sanitize_number" do
+  end
+
   describe "Overall Study Status" do
     let(:participant_day_5) { participants(:active_participant_day_5) }
     let(:previous_lesson) { lessons(:day2) }
