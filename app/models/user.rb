@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   before_validation :sanitize_number
 
   def sanitize_number
-    phone.gsub(/[^0-9]/, "")
+    self.phone = self.phone.gsub(/[^0-9]/, "")
   end
 
   def admin?

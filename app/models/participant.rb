@@ -54,7 +54,7 @@ class Participant < ActiveRecord::Base
   private
 
   def sanitize_number
-    phone.gsub(/[^0-9]/, "")
+    self.phone = self.phone.gsub(/[^0-9]/, "")
   end
 
   def enrollment_date_is_sane
