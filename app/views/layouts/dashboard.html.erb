@@ -29,6 +29,7 @@
   </div> <!-- navbar -->
 
   <div class="container">
+  <div><%= link_to "Admin", rails_admin_path(locale: params[:locale]), class: "btn btn-primary" if current_user.admin? %></div>
     <div id="flash-container">
       <%= render "partials/flash_alerts" %>
     </div>
