@@ -41,15 +41,7 @@
   }
 
   setInterval(blinker, 1000);
-
-  function disabled () {
-    $('.disabled').click(function (e) {
-      e.preventDefault()
-    });
-  }
   
-  $(document).ready(disabled);
-  $(document).on("page:change", disabled);
   $(document).ready(blinker);
   $(document).on("page:change", blinker);
 </script
