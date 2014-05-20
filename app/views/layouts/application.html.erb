@@ -11,20 +11,20 @@
   <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
-        <%= link_to "CONEMO", "/", class: "navbar-brand" %>
+        <%= link_to "CONEMO", "/#{params[:locale]}", class: "navbar-brand" %>
       </div>
 
-      <div class="navbar-collapse collapse">
+      <div class="navbar-collapse">
         <% if !current_page?("/#{params[:locale]}") %>
           <ul class="nav navbar-nav">
             <li>
-              <%= link_to t('conemo.views.dashboards.index.enrollment_button'), pending_participants_path, class: "info" %>
+              <%= link_to t('conemo.views.dashboards.index.enrollment_button'), pending_participants_path, class: "info" unless !current_user.admin? %>
             </li>
             <li>
               <%= link_to t('conemo.views.dashboards.index.manage_button'), active_participants_path, class: "primary" %>
             </li>
             <li>
-              <%= link_to t('conemo.views.dashboards.index.lessons_button'), lessons_path, class: "success" %>
+              <%= link_to t('conemo.views.dashboards.index.lessons_button'), lessons_path, class: "success" unless !current_user.admin?  %>
             </li>
           </ul>
         <% end %>
@@ -39,8 +39,9 @@
       </div>
     </div>
   </div> <!-- navbar -->
-
   <div class="container">
+  <div><%= link_to "Admin", rails_admin_path(locale: params[:locale]), class: "btn btn-primary" if current_user.admin? %></div>
+
     <div id="flash-container">
       <%= render "partials/flash_alerts" %>
     </div>
