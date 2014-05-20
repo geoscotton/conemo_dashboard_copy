@@ -1,0 +1,6 @@
+smartphone1:
+  number: "12244200655"                               
+  is_app_compatible: true
+  participant: participant1
+  is_owned_by_participant: false
+  is_smartphone_owner: false

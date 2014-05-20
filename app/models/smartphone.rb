@@ -5,4 +5,10 @@ class Smartphone < ActiveRecord::Base
 
   validates :number,
             presence: true
+
+  before_save :sanitize_number
+
+  def sanitize_number
+    self.number = self.number.gsub(/[^0-9]/, "")
+  end
 end
