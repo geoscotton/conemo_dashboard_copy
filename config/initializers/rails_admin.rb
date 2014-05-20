@@ -43,7 +43,6 @@ RailsAdmin.config do |config|
     edit do
       field :role, :enum do
         enum do
-          # simple array
           ['nurse', 'admin']
         end
       end
@@ -51,6 +50,11 @@ RailsAdmin.config do |config|
       field :first_name
       field :last_name
       field :phone
+      field :locale, :enum do
+        enum do
+          ['en', 'pt-BR', 'es-PE']
+        end
+      end
       field :password
       field :password_confirmation
     end

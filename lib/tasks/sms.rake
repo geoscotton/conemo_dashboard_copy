@@ -4,6 +4,21 @@ require 'twilio-ruby'
 namespace :sms do
   desc "sends pending messages that are due"
   task message: :environment do
+
+    def prefix(object)
+      if object.locale
+        if locale == "en"
+          "+"
+        elsif locale == "pt-BR"
+          "+55"
+        elsif local == "es-PE"
+          "+51"
+        else
+          "+"
+        end
+      end
+    end
+          
     logger = Logger.new('text.log')
     logger.info "Begin Rake #{Time.now}"
     @account_sid = 'AC41d2ef1525028bfd926a9ed9981dfc34'

@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
            inverse_of: :nurse
   has_many :reminder_messages, foreign_key: :nurse_id, dependent: :destroy
 
-  validates :email, :phone, :first_name, :last_name, presence: true
+  validates :email, :phone, :first_name, :last_name, :locale, presence: true
   validates :role, inclusion: { in: ROLES.values }
 
   def admin?
