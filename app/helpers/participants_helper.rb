@@ -67,6 +67,8 @@ module ParticipantsHelper
       "yellow"
     when "danger"
       "red"
+    when "none"
+      "none"
     else
       "disabled"
     end

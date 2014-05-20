@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "participant management" do
   fixtures(
-    :users, :participants
+    :users, :participants, :smartphones
   )
 
   before(:each) do

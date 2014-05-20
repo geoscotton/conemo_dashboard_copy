@@ -83,12 +83,16 @@ module Status
   end
 
   def current_study_status
-    if current_lesson && previous_lesson
-      two_lessons_passed
-    elsif current_lesson
-      one_lesson_passed
+    if start_date
+      if current_lesson && previous_lesson
+        two_lessons_passed
+      elsif current_lesson
+        one_lesson_passed
+      else
+        "disabled"
+      end
     else
-      "disabled"
+      "none"
     end
   end
 end
