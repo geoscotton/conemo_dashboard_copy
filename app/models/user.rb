@@ -15,7 +15,6 @@ class User < ActiveRecord::Base
 
   validates :email, :phone, :first_name, :last_name, :locale, presence: true
   validates :role, inclusion: { in: ROLES.values }
-  validates_format_of :phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/
   before_validation :sanitize_number
 
   def sanitize_number
