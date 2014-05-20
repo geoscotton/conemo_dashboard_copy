@@ -35,7 +35,8 @@ class Participant < ActiveRecord::Base
 
   validate :enrollment_date_is_sane
 
-  before_validation :saniztize_number
+  before_validation :sanitize_number
+  validates_format_of :phone, with: /\A(\d{10}|\(?\d{3}\)?[-. ]\d{3}[-.]\d{4})\z/
 
   scope :ineligible, -> { where(status: "ineligible") }
   scope :pending, -> { where(status: "pending") }
@@ -54,7 +55,7 @@ class Participant < ActiveRecord::Base
   private
 
   def sanitize_number
-    phone = phone.gsub(/[^0-9]/, "")
+    phone.gsub(/[^0-9]/, "")
   end
 
   def enrollment_date_is_sane
