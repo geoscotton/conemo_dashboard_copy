@@ -3,13 +3,15 @@ nurse1:
   last_name: Ratchet
   email: nurse1@example.com
   encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
-  role: nurse
+  role: "nurse"
   phone: "555-555-5555"
+  locale: "en"
 
 admin1:
   first_name: Hobo
   last_name: Jones
   email: admin2@example.com
   encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
-  role: admin
-  phone: "555-555-5555"
+  role: "admin"
+  phone: "15555555555"
+  locale: "en"

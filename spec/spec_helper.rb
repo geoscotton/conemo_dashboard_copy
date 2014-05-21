@@ -45,6 +45,5 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  config.include DefaultLocale
   config.include AuthenticationHelpers, type: :feature
 end
