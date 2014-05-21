@@ -5,20 +5,6 @@ namespace :sms do
   desc "sends pending messages that are due"
   task message: :environment do
 
-    def prefix(object)
-      if object.locale
-        if locale == "en"
-          "+"
-        elsif locale == "pt-BR"
-          "+55"
-        elsif local == "es-PE"
-          "+51"
-        else
-          "+"
-        end
-      end
-    end
-          
     logger = Logger.new('text.log')
     logger.info "Begin Rake #{Time.now}"
     @account_sid = 'AC41d2ef1525028bfd926a9ed9981dfc34'
@@ -33,6 +19,7 @@ namespace :sms do
 
       if reminder_message.notification_time <= Time.now 
         if reminder_message.message_type == "participant"
+          country_code = reminder_message.participant.prefix
           if reminder_message.participant.smartphone
             phone_number = reminder_message.participant.smartphone.number
           else
@@ -40,11 +27,12 @@ namespace :sms do
           end
           sent_to = reminder_message.participant.study_identifier
         else
+          country_code = reminder_message.nurse.prefix
           phone_number = reminder_message.nurse.phone
           sent_to = "#{reminder_message.nurse.last_name}, #{reminder_message.nurse.first_name}"
         end
      
-        @message = @account.sms.messages.create({ from: "+13125488213", to: "+#{phone_number}", body: reminder_message.message })
+        @message = @account.sms.messages.create({ from: "+13125488213", to: "#{country_code}#{phone_number}", body: reminder_message.message })
         logger.info "sent_to: #{sent_to}, phone:#{phone_number}, message: #{@message.body}, time: #{Time.now}"
 
         reminder_message.update_attribute(:status, "sent")

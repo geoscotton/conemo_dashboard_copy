@@ -2,6 +2,20 @@
 module Status
   extend ActiveSupport::Concern
 
+  def prefix
+    if locale
+      if locale == "en"
+        "+"
+      elsif locale == "pt-BR"
+        "+55"
+      elsif local == "es-PE"
+        "+51"
+      else
+        "+"
+      end
+    end
+  end
+          
   # Lesson Status
   def lesson_status(lesson)
     if lesson_released?(lesson)

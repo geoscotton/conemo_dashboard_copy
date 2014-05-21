@@ -1,5 +1,7 @@
 # An authenticatable person who uses the site, is a Nurse or Researcher
 class User < ActiveRecord::Base
+  include Status
+  
   ROLES = { admin: "admin", nurse: "nurse" }
 
   # Include default devise modules. Others available are:
