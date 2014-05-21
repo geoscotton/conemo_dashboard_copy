@@ -10,7 +10,7 @@ describe "participant management" do
   end
 
   let(:participant) { participants(:active_participant) }
-  let(:nurse) { users(:nurse1) }
+  let(:admin) { users(:admin1) }
 
   it "should show a list of active participants" do
     visit "/en/active/participants"
