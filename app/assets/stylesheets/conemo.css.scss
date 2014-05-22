@@ -10,13 +10,12 @@ body {
 div.dashboard {
   width: 100%
 }
-
-// center homepage button group and fix width
-div.dashboard.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
-  margin-left: 3%;
+div.dashboard div{
+  margin-bottom: 7px;
 }
+
 a.navigation {
-  width: 31%;
+  width: 100%;
 }
 
 // style date selects to match Bootstrap
@@ -95,8 +94,14 @@ a.navbar-brand {
   color: white !important;
   background-color: salmon;
 }
+a.admin {
+  background-color: darkorange;
+  margin-right: 15px;
+  border-right: 1px solid gray;
+}
 a.navbar-brand:hover {
   color: #999 !important;
+
 }
 .navbar-default .navbar-nav > li > a.info {
   color: white;
