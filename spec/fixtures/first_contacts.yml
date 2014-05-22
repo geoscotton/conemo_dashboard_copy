@@ -1,7 +1,7 @@
 first_contact1:
   participant: active_participant
-  contact_at: <%= Date.yesterday %>
-  first_appointment_at: <%= Date.tomorrow %>
+  contact_at: <%= Date.today %>
+  first_appointment_at: <%= DateTime.current + 2.day %>
   first_appointment_location: "Far away from here"
 
 portuguese_first_contact:
