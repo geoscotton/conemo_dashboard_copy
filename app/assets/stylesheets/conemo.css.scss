@@ -1,7 +1,6 @@
 // accommodate fixed navbar
 body {
   padding-top: 70px;
-  background-color: whitesmoke;
 }
 
 .jumbotron {
@@ -35,27 +34,27 @@ i.status {
   color: green;
 }
 .green {
-  color: green;
+  color: green !important;
 }
 .yellow {
-  color: yellow;
+  color: yellow !important;
 }
 .red {
-  color: red;
+  color: red !important;
 }
 .disabled {
-  color: lightgray;
+  color: lightgray !important;
 }
 
 .none {
   display: none;
 }
 div.access-count {
-  border: 3px solid gray;
-  height: 115px;
+  border: 3px solid #4e5d6c;
+  height: 125px;
   text-align: center;
   margin-bottom: 15px;
-  background: gray;
+  background: #4e5d6c;
 }
 div.access-count h5 {
   color: white;
@@ -68,7 +67,7 @@ div.access-count span {
 }
 
 div.report tr.table-head {
-  background-color:gray;
+  background-color:#4e5d6c;
   color: white;
 }
 
