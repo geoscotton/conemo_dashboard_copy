@@ -38,7 +38,7 @@ active_participant_day_5:
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
-  start_date: <%= Date.today - 5.days %>
+  start_date: <%= Date.today - 4.days %>
   locale: "en"
 
 portuguese_active_participant:

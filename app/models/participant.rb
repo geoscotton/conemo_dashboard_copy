@@ -47,7 +47,7 @@ class Participant < ActiveRecord::Base
 
   def study_day
     if start_date
-      (Date.today - start_date).to_i
+      ((Date.today - start_date).to_i) + 1
     end
   end
 
