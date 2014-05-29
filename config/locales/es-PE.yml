@@ -1,6 +1,174 @@
 es-PE:
   conemo:
-    welcome: "¡Bienvenido!"
+    views:
+      shared:
+        save_button: "guardar"
+        cancel_button: "cancelar"
+        nurse: "Enferma"
+        true_radio: "True"
+        false_radio: "False"
+        pending: "Pendiente"
+        ineligible: "Ineligible"
+        create: "crear"
+        update: "actualizar"
+        edit: "editar"
+      dashboards:
+        index:
+          heading: "¡Bienvenido!"
+          instructions: "Por favor, elija una opción"
+          enrollment_button: "Ingresar participantes reclutados"
+          manage_button: "Manejo de participantes activos"
+          lessons_button: "Manage Lessons"
+          sign_in: "Ingresar"
+          sign_out: "Sign out"
+      lessons:
+        index:
+          add_lesson: "Add Lesson"
+      first_contacts:
+        new:
+          heading: "Incluir información del primer contacto"
+      first_appointments:
+        new:
+          heading: "Input First Appointment Information"
+        nurse_participant_evaluation:
+          form:
+            smartphone_comfort_options:
+              o5: "5 - can turn on the cell phone, access and use the app by her/himself after the first demonstration"
+              o4: "4 - can turn on the cell phone and access the app, but needs help to use the app"
+              o3: "3 - can turn on the cell phone, but needs help to access and use the app"
+              o2: "2 - difficult to turn on the cell phone, access and use the app, but can do it after a second demonstration"
+              o1: "1 - difficult to turn on the cell phone, access and use the app, even after a second demonstration"
+            participant_session_engagement_options:
+              o5: "5 - paid attention to explanations and app-demonstration by NA, interacting with NA and asking questions when necessary"
+              o4: "4 - paid attention to explanations and app-demonstration by NA, interacting with NA, but didn’t ask questions"
+              o3: "3 - paid attention to explanations and app-demonstration by NA, but didn’t interact with NA neither ask questions"
+              o2: "2 - paid attention to explanations and app-demonstration by NA all the time, but interacted with NA and asked few questions"
+              o1: "1 - paid attention to explanations and app-demonstration by NA, but didn’t interact with NA neither ask questions"
+            app_usage_prediction_options:
+              o5: "5"
+              o4: "4"
+              o3: "3"
+              o2: "2"
+              o1: "1"
+      smartphones:
+        new:
+          heading: "Input Smartphone Information"
+      users:
+        sign_in:
+          sign_in: "Sign in"
+      participants:
+        new:
+          heading: "Enroll New Participant"
+        edit:
+          heading: "Edit Participant"
+        form:
+          male: "male"
+          female: "female"
+          diabetes: "diabetes"
+          hypertension: "hypertension"
+      active:
+        participants:
+          index:
+            heading: "Manejo de participantes activos"
+            edit_info: "Edit"
+            nurse: "Enferma"
+            name: "Nombre"
+            study_identifier: "Identificador del participante"
+            enrollment_date: "Fecha de inclusión en el estudio"
+            first_contact: "Primer contacto"
+            first_appointment: "Primera cita"
+            second_contact: "Segundo contacto"
+            status: "Estado"
+            missed_appointment: "appointment missed"
+          show:
+            heading: "Perfil de"
+            contact_heading: "Contact Information"
+            smartphone_heading: "Smartphone Information"
+            first_contact_heading: "First Contact Information"
+            first_appointment_heading: "First Appointment Information"
+            second_contact_heading: "Second Contact Information"
+          report:
+            overall_status: "Overall Status"
+            content_accessed: "Content accessed"
+            seven_day_access_count: "7 day access count"
+            messages: "Messages"
+            release_day: "Release day"
+            lesson: "Lesson"
+            patient_response: "Patient response"
+            access_count: "Lesson access count"
+            notes: "Notas"
+      pending:
+        participants:
+          index:
+            heading: "Participantes pendientes"
+            add_new_participant: "Añadir nuevo participante"
+            edit_info: "Editar información"
+            name: "Nombre"
+            study_identifier: "Study Identifier"
+            enrollment_date: "Enrollment Date"
+            activate: "Activate"
+            disqualify: "Disqualify"
+            disqualify_alert: "Are you sure you want to mark this person as ineligible?"
+            activate_alert: "Are you sure you want to activate this person?"
+          activate:
+            heading_1: "Assign nurse to activate participant"
+    controllers:
+      lessons:
+        saved: "Lesson saved"
+        destroyed: "Lesson deleted"
+      slides:
+        saved: "Slide saved"
+        not_saved: "Slide not saved"
+        destroyed: "Slide deleted"
+        not_destroyed: "Slide not deleted"
+    models:
+      participant:
+        enrollment_date_is_sane_error: "must be recent or upcoming"      
+  helpers:
+    label:
+      participant:
+        first_name: "Nombres"
+        last_name: "Apellidos"
+        study_identifier: "Study Identifier"
+        family_health_unit_name: "Family health unit name"
+        family_record_number: "Family record number"
+        phone: "Phone"
+        secondary_phone: "Secondary Phone"
+        email: "Email"
+        date_of_birth: "Date of birth"
+        address: "Address"
+        enrollment_date: "Enrollment date"
+        gender: "Gender"
+        key_chronic_disorder: "Key chronic disorder"
+      lesson:
+        title: "Title"
+        day_in_treatment: "Day in treatment"
+      first_contact:
+        contacted_at: "Hora de contactado"
+        first_appointment_at: "Primera cita programada para"
+        first_appointment_location: "Lugar de primera cita"
+        alternative_contact_name: "Alternative contact name"
+        alternative_contact_phone: "Alternative contact phone"
+      first_appointment:
+        appointment_at: "Appointment date/time"
+        appointment_location: "Location of appointment"
+        next_contact: "Fecha/hora para el siguiente contacto"
+        session_length: "Duración de la sesión (minutos)"
+        notes: "Notas"
+      nurse_participant_evaluation:
+        smartphone_comfort: "How comfortable was the patient using the smartphone?"
+        participant_session_engagement: "How engaged was the patient during the session?"
+        app_usage_prediction: "How likely will the patient use the app?"
+      smartphone:
+        number: "SMS Phone # of Smartphone"
+        is_app_compatible: "Is the smartphone compatible with the app?"
+        is_owned_by_participant: "Does the study smartphone belong to the participant?"
+        is_smartphone_owner: "Is the participant a smartphone owner?"
+      second_contact:
+        contact_at: "Date of phone call"
+        session_length: "Length of phone call (minutes)"
+        video_access: "Was the patient able to see videos?"
+        notes: "Notas"
   date:
     abbr_day_names:
     - dom
