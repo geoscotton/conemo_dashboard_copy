@@ -29,7 +29,7 @@ es-PE:
           heading: "Incluir información del primer contacto"
       first_appointments:
         new:
-          heading: "Input First Appointment Information"
+          heading: "Incluir información del primer cita"
         nurse_participant_evaluation:
           form:
             smartphone_comfort_options:
@@ -52,25 +52,25 @@ es-PE:
               o1: "1"
       smartphones:
         new:
-          heading: "Input Smartphone Information"
+          heading: "Incluir información de smartphone"
       users:
         sign_in:
-          sign_in: "Sign in"
+          sign_in: "Ingresar"
       participants:
         new:
-          heading: "Enroll New Participant"
+          heading: "Incluir nuevo participante"
         edit:
-          heading: "Edit Participant"
+          heading: "Editar información del participante"
         form:
-          male: "male"
-          female: "female"
-          diabetes: "diabetes"
-          hypertension: "hypertension"
+          male: "Masculino"
+          female: "Feminino"
+          diabetes: "Diabetes"
+          hypertension: "Hipertensión"
       active:
         participants:
           index:
             heading: "Manejo de participantes activos"
-            edit_info: "Edit"
+            edit_info: "Editar"
             nurse: "Enferma"
             name: "Nombre"
             study_identifier: "Identificador del participante"
@@ -79,21 +79,21 @@ es-PE:
             first_appointment: "Primera cita"
             second_contact: "Segundo contacto"
             status: "Estado"
-            missed_appointment: "appointment missed"
+            missed_appointment: "cita perdida"
           show:
             heading: "Perfil de"
-            contact_heading: "Contact Information"
-            smartphone_heading: "Smartphone Information"
-            first_contact_heading: "First Contact Information"
-            first_appointment_heading: "First Appointment Information"
-            second_contact_heading: "Second Contact Information"
+            contact_heading: "Información de contacto"
+            smartphone_heading: "Información del teléfono inteligente (smartphone)"
+            first_contact_heading: "Información del primer contacto"
+            first_appointment_heading: "Información de la primera cita"
+            second_contact_heading: "Información del segundo contacto"
           report:
-            overall_status: "Overall Status"
-            content_accessed: "Content accessed"
-            seven_day_access_count: "7 day access count"
-            messages: "Messages"
+            overall_status: "Estado general"
+            content_accessed: "Acceso a sesión"
+            seven_day_access_count: "Número de acceso en 7 días"
+            messages: "Mensajes"
             release_day: "Release day"
-            lesson: "Lesson"
+            lesson: "Lección"
             patient_response: "Patient response"
             access_count: "Lesson access count"
             notes: "Notas"
@@ -104,14 +104,14 @@ es-PE:
             add_new_participant: "Añadir nuevo participante"
             edit_info: "Editar información"
             name: "Nombre"
-            study_identifier: "Study Identifier"
-            enrollment_date: "Enrollment Date"
-            activate: "Activate"
-            disqualify: "Disqualify"
-            disqualify_alert: "Are you sure you want to mark this person as ineligible?"
-            activate_alert: "Are you sure you want to activate this person?"
+            study_identifier: "Identificador del participante"
+            enrollment_date: "Fecha de inclusión en el estudio"
+            activate: "activar participante"
+            disqualify: "desactivar participante"
+            disqualify_alert: "¿Está seguro que quiere desactivar este participante?"
+            activate_alert: "¿Está seguro que quiere activar este participante?"
           activate:
-            heading_1: "Assign nurse to activate participant"
+            heading_1: "Asignar enfermero para activar participante"
     controllers:
       lessons:
         saved: "Lesson saved"
@@ -130,16 +130,16 @@ es-PE:
         first_name: "Nombres"
         last_name: "Apellidos"
         study_identifier: "Study Identifier"
-        family_health_unit_name: "Family health unit name"
-        family_record_number: "Family record number"
-        phone: "Phone"
-        secondary_phone: "Secondary Phone"
-        email: "Email"
-        date_of_birth: "Date of birth"
-        address: "Address"
-        enrollment_date: "Enrollment date"
-        gender: "Gender"
-        key_chronic_disorder: "Key chronic disorder"
+        family_health_unit_name: "Centro de salud"
+        family_record_number: "Número de historia clínica"
+        phone: "Número de teléfono 1"
+        secondary_phone: "Número de teléfono 2"
+        email: "Correo electrónico"
+        date_of_birth: "Fecha de nacimiento"
+        address: "Dirección"
+        enrollment_date: "Fecha de inclusión en el estudio"
+        gender: "Sexo"
+        key_chronic_disorder: "Enfermedad crónica clave"
       lesson:
         title: "Title"
         day_in_treatment: "Day in treatment"
@@ -147,11 +147,11 @@ es-PE:
         contacted_at: "Hora de contactado"
         first_appointment_at: "Primera cita programada para"
         first_appointment_location: "Lugar de primera cita"
-        alternative_contact_name: "Alternative contact name"
-        alternative_contact_phone: "Alternative contact phone"
+        alternative_contact_name: "Contacto de emergencia"
+        alternative_contact_phone: "Teléfono de contacto de emergencia"
       first_appointment:
-        appointment_at: "Appointment date/time"
-        appointment_location: "Location of appointment"
+        appointment_at: "Programada para"
+        appointment_location: "Lugar de primera cita"
         next_contact: "Fecha/hora para el siguiente contacto"
         session_length: "Duración de la sesión (minutos)"
         notes: "Notas"
@@ -160,13 +160,13 @@ es-PE:
         participant_session_engagement: "How engaged was the patient during the session?"
         app_usage_prediction: "How likely will the patient use the app?"
       smartphone:
-        number: "SMS Phone # of Smartphone"
-        is_app_compatible: "Is the smartphone compatible with the app?"
-        is_owned_by_participant: "Does the study smartphone belong to the participant?"
-        is_smartphone_owner: "Is the participant a smartphone owner?"
+        number: "Número del celular inteligente (smartphone)"
+        is_app_compatible: "¿El sistema del celular inteligente (smartphone) es compartible con el aplicativo?"
+        is_owned_by_participant: "¿El teléfono inteligente es del participante?"
+        is_smartphone_owner: "Paciente tiene su propio teléfono inteligente (smartphone)"
       second_contact:
-        contact_at: "Date of phone call"
-        session_length: "Length of phone call (minutes)"
+        contact_at: "Fecha de llamada"
+        session_length: "Duración de llamada (min)"
         video_access: "Was the patient able to see videos?"
         notes: "Notas"
   date:
