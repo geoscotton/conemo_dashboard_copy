@@ -169,6 +169,10 @@ es-PE:
         session_length: "Duración de llamada (min)"
         video_access: "Was the patient able to see videos?"
         notes: "Notas"
+      patient_contact:
+        contact_at: "Fecha de llamada"
+        contact_reason: "Razones por la solicitud de contacto"
+        note: "Notas"
   date:
     abbr_day_names:
     - dom
