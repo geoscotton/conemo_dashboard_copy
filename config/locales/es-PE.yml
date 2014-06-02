@@ -26,10 +26,10 @@ es-PE:
           add_lesson: "Add Lesson"
       first_contacts:
         new:
-          heading: "Incluir información del primer contacto"
+          heading: "Incluir información del Llamada confirmando cita"
       first_appointments:
         new:
-          heading: "Incluir información del primer cita"
+          heading: "Incluir información del Cita de inicio"
         nurse_participant_evaluation:
           form:
             smartphone_comfort_options:
@@ -75,28 +75,30 @@ es-PE:
             name: "Nombre"
             study_identifier: "Identificador del participante"
             enrollment_date: "Fecha de inclusión en el estudio"
-            first_contact: "Primer contacto"
-            first_appointment: "Primera cita"
-            second_contact: "Segundo contacto"
+            first_contact: "Llamada confirmando cita"
+            first_appointment: "Cita de inicio"
+            second_contact: "Llamada de seguimiento sem. 1"
             status: "Estado"
             missed_appointment: "cita perdida"
           show:
             heading: "Perfil de"
             contact_heading: "Información de contacto"
-            smartphone_heading: "Información del teléfono inteligente (smartphone)"
-            first_contact_heading: "Información del primer contacto"
-            first_appointment_heading: "Información de la primera cita"
-            second_contact_heading: "Información del segundo contacto"
+            smartphone_heading: "Smartphone"
+            first_contact_heading: "Llamada confirmando cita"
+            first_appointment_heading: "Cita de inicio"
+            second_contact_heading: "Llamada de seguimiento sem. 1"
           report:
             overall_status: "Estado general"
             content_accessed: "Acceso a sesión"
-            seven_day_access_count: "Número de acceso en 7 días"
+            seven_day_access_count: "Número de ingresos en 7 días"
             messages: "Mensajes"
             release_day: "Release day"
-            lesson: "Lección"
-            patient_response: "Patient response"
-            access_count: "Lesson access count"
+            lesson: "Sesión"
+            patient_response: "Respuesta del paciente"
+            access_count: "Número de acceso a sesiones"
+            logins: "Entradas"
             notes: "Notas"
+            create_note: "Escribir nota"
       pending:
         participants:
           index:
@@ -145,14 +147,14 @@ es-PE:
         day_in_treatment: "Day in treatment"
       first_contact:
         contacted_at: "Hora de contactado"
-        first_appointment_at: "Primera cita programada para"
-        first_appointment_location: "Lugar de primera cita"
+        first_appointment_at: "Cita de inicio programada para"
+        first_appointment_location: "Lugar de Cita de inicio"
         alternative_contact_name: "Contacto de emergencia"
         alternative_contact_phone: "Teléfono de contacto de emergencia"
       first_appointment:
         appointment_at: "Programada para"
-        appointment_location: "Lugar de primera cita"
-        next_contact: "Fecha/hora para el siguiente contacto"
+        appointment_location: "Lugar de Cita de inicio"
+        next_contact: "Fecha/hora para el Llamada de seguimiento sem. 1"
         session_length: "Duración de la sesión (minutos)"
         notes: "Notas"
       nurse_participant_evaluation:
@@ -166,11 +168,11 @@ es-PE:
         is_smartphone_owner: "Paciente tiene su propio teléfono inteligente (smartphone)"
       second_contact:
         contact_at: "Fecha de llamada"
-        session_length: "Duración de llamada (min)"
+        session_length: "Duración de la llamada (min)"
         video_access: "Was the patient able to see videos?"
         notes: "Notas"
       patient_contact:
-        contact_at: "Fecha de llamada"
+        contact_at: "Fecha de la llamada"
         contact_reason: "Razones por la solicitud de contacto"
         note: "Notas"
   date:
