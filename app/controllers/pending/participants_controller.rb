@@ -14,7 +14,7 @@ module Pending
 
     def activate
       @participant = Participant.find(params[:id])
-      @nurses = User.where(role: "nurse")
+      @nurses = User.where(role: "nurse", locale: params[:locale])
     end
 
     private

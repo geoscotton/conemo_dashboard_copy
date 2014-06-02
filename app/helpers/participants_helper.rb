@@ -2,26 +2,43 @@
 module ParticipantsHelper
   def first_contact(participant)
     if participant.first_contact
-      "#{l participant.first_contact.contact_at, format: :long}"
+      fa_icon "check-circle 2x", style: "color: green"
     else
       link_to " #{t 'conemo.views.shared.create'}", new_participant_first_contact_path(participant),
-              class: "fa fa-plus-circle",
+              class: "fa fa-plus-circle table-link",
               id: "first_contact_#{participant.id}"
     end
   end
 
   def first_appointment(participant)
     if participant.first_appointment
-      "#{l participant.first_appointment.appointment_at, format: :long}"
+      fa_icon "check-circle 2x", style: "color: green"
     elsif participant.first_contact
-      if participant.first_contact.first_appointment_at > DateTime.current
-        link_to " #{l participant.first_contact.first_appointment_at, format: :long}
-         / #{participant.first_contact.first_appointment_location}",
-                new_participant_first_appointment_path(participant),
-                class: "fa fa-plus-circle", id: "appointment_#{participant.id}"
-      else
-        link_to " #{t 'conemo.views.active.participants.index.missed_appointment'}", missed_appointment_path(participant_id: participant.id, id: participant.first_contact.id), class: "fa fa-edit"
-      end
+      " #{l participant.first_contact.first_appointment_at, format: :short} / #{participant.first_contact.first_appointment_location}"
+    else
+      ""
+    end
+  end
+
+  def first_appointment_link(participant)
+    if participant.first_appointment
+      ""
+    elsif participant.first_contact
+      link_to " #{t 'conemo.views.shared.create'}",
+              new_participant_first_appointment_path(participant),
+              class: "fa fa-plus-circle table-link", id: "appointment_#{participant.id}"
+    else
+      ""
+    end
+  end
+
+  def reschedule_first_appointment(participant)
+    if participant.first_appointment
+      ""
+    elsif participant.first_contact
+      link_to " reschedule",
+            missed_appointment_path(participant_id: participant.id, id: participant.first_contact.id),
+            class: "fa fa-edit reschedule-link"
     else
       ""
     end
@@ -29,16 +46,33 @@ module ParticipantsHelper
 
   def second_contact(participant)
     if participant.second_contact
-      "#{l participant.second_contact.contact_at, format: :long}"
+      fa_icon "check-circle 2x", style: "color: green"
     elsif participant.first_appointment
-      if participant.first_appointment.next_contact > DateTime.current
-        link_to " #{l participant.first_appointment.next_contact, format: :long}",
-                new_participant_second_contact_path(participant),
-                class: "fa fa-plus-circle",
-                id: "second_contact_#{participant.id}"
-      else
-        link_to " #{t 'conemo.views.active.participants.index.missed_appointment'}", missed_second_contact_path(participant_id: participant.id, id: participant.first_appointment.id), class: "fa fa-edit"
-      end
+      " #{l participant.first_appointment.next_contact, format: :long}"
+    else
+      ""
+    end
+  end
+
+  def second_contact_link(participant)
+    if participant.second_contact
+      ""
+    elsif participant.first_appointment
+      link_to " #{t 'conemo.views.shared.create'}",
+              new_participant_second_contact_path(participant),
+              class: "fa fa-plus-circle table-link", id: "second_contact_#{participant.id}"
+    else
+      ""
+    end
+  end
+
+  def reschedule_second_contact(participant)
+    if participant.second_contact
+      ""
+    elsif participant.first_appointment
+      link_to " reschedule",
+            missed_second_contact_path(participant_id: participant.id, id: participant.first_appointment.id),
+            class: "fa fa-edit reschedule-link"
     else
       ""
     end

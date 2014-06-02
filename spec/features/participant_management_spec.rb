@@ -31,7 +31,7 @@ describe "participant management" do
       click_on "Save"
 
       expect(page).to have_text "Successfully created first contact"
-      expect(page).to have_text participant.first_contact.contact_at.to_s(:long)
+      expect(page).to have_text participant.first_contact.contact_at.to_s(:short)
     end
   end
 
@@ -44,7 +44,7 @@ describe "participant management" do
     it "renders a first appointment link for a participant" do
       visit "/en/active/participants"
 
-      expect(page).to have_text participant.first_contact.first_appointment_at.to_s(:long)
+      expect(page).to have_text participant.first_contact.first_appointment_at.to_s(:short)
     end
 
     it "creates a first appointment form" do

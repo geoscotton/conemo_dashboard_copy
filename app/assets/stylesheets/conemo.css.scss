@@ -18,6 +18,17 @@ a.navigation {
   width: 100%;
 }
 
+a.table-link {
+  padding: 4px;
+  text-decoration: none;
+  color: skyblue;
+}
+a.reschedule-link {
+  padding: 4px;
+  text-decoration: none;
+  color: salmon;
+}
+
 // style date selects to match Bootstrap
 select.form-control.date-select {
   width: 33%;
