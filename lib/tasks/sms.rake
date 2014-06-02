@@ -33,11 +33,11 @@ namespace :sms do
         
         begin
           @message = @account.sms.messages.create({ from: "+13125488213", to: "#{country_code}#{phone_number}", body: reminder_message.message })
-          puts "sent_to: #{sent_to}, phone:#{phone_number}, message: #{@message.body}, time: #{Time.now}"
+          puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body}, time: #{Time.now}"
 
           reminder_message.update_attribute(:status, "sent")
         rescue
-          puts "error sending sms to #{sent_to}"
+          puts "error sending sms to #{sent_to}: #{country_code}#{phone_number}"
         end
       end
     end
