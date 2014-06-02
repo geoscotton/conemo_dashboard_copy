@@ -21,7 +21,6 @@ class Participant < ActiveRecord::Base
   validates :first_name,
             :last_name,
             :family_health_unit_name,
-            :family_record_number,
             :phone,
             :key_chronic_disorder,
             :enrollment_date,
