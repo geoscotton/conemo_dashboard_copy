@@ -48,7 +48,8 @@ class ParticipantsController < ApplicationController
       :email, :phone, :secondary_phone, :family_health_unit_name,
       :family_record_number, :date_of_birth, :address,
       :enrollment_date, :key_chronic_disorder, :gender, :status,
-      :locale, :nurse_id
+      :locale, :emergency_contact_name, :emergency_contact_phone,
+      :nurse_id
     )
   end
 
