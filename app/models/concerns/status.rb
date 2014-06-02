@@ -8,7 +8,7 @@ module Status
         "+"
       elsif locale == "pt-BR"
         "+55"
-      elsif local == "es-PE"
+      elsif locale == "es-PE"
         "+51"
       else
         "+"
