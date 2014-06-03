@@ -11,13 +11,13 @@ describe ReminderMessage do
       describe "#schedule_24_hour" do
         it "schedules a 24 appointment" do
           first_contact.schedule_24_hour("participant",
-                                         first_contact.class.model_name.human,
+                                         "contact",
                                          portuguese_participant
                                         )
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "24",
                                        message_type: "participant",
-                                       appointment_type: first_contact.class.model_name.human
+                                       appointment_type: "contact"
                                        )).to exist
         end
       end
@@ -25,13 +25,13 @@ describe ReminderMessage do
       describe "#schedule_1_hour" do
         it "schedules a 1 hour appointment" do
           first_contact.schedule_1_hour("participant",
-                                        first_contact.class.model_name.human,
+                                        "contact",
                                         portuguese_participant
                                         )
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "1",
                                        message_type: "participant",
-                                       appointment_type: first_contact.class.model_name.human
+                                       appointment_type: "contact"
                                        )).to exist
         end
       end
@@ -46,13 +46,13 @@ describe ReminderMessage do
 
         it "returns a datetime 24 hours before the first appointment" do
           first_contact.schedule_24_hour("participant",
-                                         first_contact.class.model_name.human,
+                                         "contact",
                                          portuguese_participant
                                         )
           message = ReminderMessage.where(participant: portuguese_participant,
                                           notify_at: "24",
                                           message_type: "participant",
-                                          appointment_type: first_contact.class.model_name.human
+                                          appointment_type: "contact"
                                          ).first
           expect(message.notification_time).to eq(first_contact.first_appointment_at - 1.day)
         end

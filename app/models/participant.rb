@@ -6,6 +6,7 @@ class Participant < ActiveRecord::Base
   has_one :first_contact, dependent: :destroy
   has_one :first_appointment, dependent: :destroy
   has_one :second_contact, dependent: :destroy
+  has_one :final_appointment, dependent: :destroy
   has_one :smartphone, dependent: :destroy
   has_many :reminder_messages, dependent: :destroy
   has_many :content_access_events, dependent: :destroy

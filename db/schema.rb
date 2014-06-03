@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602221129) do
+ActiveRecord::Schema.define(version: 20140603214615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(version: 20140602221129) do
 
   add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
   add_index "content_access_events", ["participant_id"], name: "index_content_access_events_on_participant_id", using: :btree
+
+  create_table "final_appointments", force: true do |t|
+    t.datetime "appointment_at"
+    t.string   "appointment_location"
+    t.boolean  "phone_returned",       null: false
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "participant_id"
+  end
 
   create_table "first_appointments", force: true do |t|
     t.integer  "participant_id",       null: false
@@ -191,9 +201,15 @@ ActiveRecord::Schema.define(version: 20140602221129) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "participant_id"
+    t.integer  "first_contact_id"
+    t.integer  "first_appointment_id"
+    t.integer  "second_contact_id"
   end
 
+  add_index "patient_contacts", ["first_appointment_id"], name: "index_patient_contacts_on_first_appointment_id", using: :btree
+  add_index "patient_contacts", ["first_contact_id"], name: "index_patient_contacts_on_first_contact_id", using: :btree
   add_index "patient_contacts", ["participant_id"], name: "index_patient_contacts_on_participant_id", using: :btree
+  add_index "patient_contacts", ["second_contact_id"], name: "index_patient_contacts_on_second_contact_id", using: :btree
 
   create_table "reminder_messages", force: true do |t|
     t.integer  "nurse_id",                             null: false
@@ -221,13 +237,15 @@ ActiveRecord::Schema.define(version: 20140602221129) do
   add_index "responses", ["content_access_event_id"], name: "index_responses_on_content_access_event_id", using: :btree
 
   create_table "second_contacts", force: true do |t|
-    t.integer  "participant_id",                null: false
-    t.datetime "contact_at",                    null: false
-    t.boolean  "video_access",   default: true
-    t.integer  "session_length",                null: false
+    t.integer  "participant_id",                            null: false
+    t.datetime "contact_at",                                null: false
+    t.boolean  "video_access",               default: true
+    t.integer  "session_length",                            null: false
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "final_appointment_at"
+    t.string   "final_appointment_location"
   end
 
   add_index "second_contacts", ["participant_id"], name: "index_second_contacts_on_participant_id", using: :btree

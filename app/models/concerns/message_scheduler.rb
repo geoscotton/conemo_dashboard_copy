@@ -1,4 +1,4 @@
-# Schedules reminder messages for First Appointmet and Second Contact
+# Schedules reminder messages for First Appointment, Second Contact, and Final appointment
 module MessageScheduler
   extend ActiveSupport::Concern
 
