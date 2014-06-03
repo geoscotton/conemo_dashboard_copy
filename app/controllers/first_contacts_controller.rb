@@ -10,7 +10,7 @@ class FirstContactsController < ApplicationController
     @first_contact = participant.build_first_contact(first_contact_params)
     if @first_contact.save
       @first_contact.schedule_message(participant,
-                                      @first_contact.class.model_name.human)
+                                      "contact")
       redirect_to active_participants_path,
                   notice: "Successfully created first contact"
     else
@@ -25,6 +25,7 @@ class FirstContactsController < ApplicationController
 
   def missed_appointment
     @first_contact = participant.first_contact
+    @patient_contact = @first_contact.patient_contacts.build
   end
 
   def update
@@ -44,7 +45,10 @@ class FirstContactsController < ApplicationController
     params.require(:first_contact).permit(
       :participant_id, :contact_at, :first_appointment_at,
       :first_appointment_location, :alternative_contact_name,
-      :alternative_contact_phone
+      :alternative_contact_phone, patient_contacts_attributes: [
+        :first_contact_id, :contact_reason, :participant_id,
+        :note, :contact_at
+      ]
     )
   end
 

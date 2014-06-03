@@ -14,7 +14,7 @@ class FirstAppointmentsController < ApplicationController
     if @first_appointment.save
       @first_appointment.schedule_message(
         participant,
-        @first_appointment.class.model_name.human
+        "appointment"
       )
       redirect_to new_participant_smartphone_path,
                   notice: "Successfully created first appointment"
@@ -30,6 +30,7 @@ class FirstAppointmentsController < ApplicationController
 
   def missed_second_contact
     @first_appointment = participant.first_appointment
+    @patient_contact = @first_appointment.patient_contacts.build
   end
 
   def update
@@ -49,6 +50,10 @@ class FirstAppointmentsController < ApplicationController
     params.require(:first_appointment).permit(
       :participant_id, :appointment_at, :appointment_location,
       :next_contact, :session_length, :notes,
+      patient_contacts_attributes: [
+        :first_contact_id, :contact_reason, :participant_id,
+        :note, :contact_at
+      ],
       nurse_participant_evaluation_attributes: [
         :first_appointment_id,
         :smartphone_comfort,

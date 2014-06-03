@@ -10,6 +10,7 @@
         </div>
       </div>
       <div class="form-group">
+      <%= render 'shared/patient_contact_form', { patient_contact: @patient_contact, f: f, participant: participant } %>
       <div class="col-md-offset-4 col-md-6">
         <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
         <%= link_to t("conemo.views.shared.cancel_button"), active_participants_path, class: "btn btn-default" %>

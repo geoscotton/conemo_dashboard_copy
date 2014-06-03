@@ -114,6 +114,16 @@ a.navbar-brand:hover {
   color: #999 !important;
 
 }
+
+// Active Participant Index
+table.active-index td {
+  text-align: center;
+  min-width: 80px;
+}
+table.active-index th {
+  text-align: center;
+}
+
 .navbar-default .navbar-nav > li > a.info {
   color: white;
   background-color: #5bc0de;

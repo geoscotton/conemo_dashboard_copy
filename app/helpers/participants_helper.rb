@@ -78,6 +78,40 @@ module ParticipantsHelper
     end
   end
 
+  def final_appointment(participant)
+    if participant.final_appointment
+      fa_icon "check-circle 2x", style: "color: green;"
+    elsif participant.second_contact
+      " #{l participant.second_contact.final_appointment_at, format: :long}" rescue ''
+    else
+      ""
+    end
+  end
+
+  def final_appointment_link(participant)
+    if participant.final_appointment
+      ""
+    elsif participant.second_contact
+      link_to " #{t 'conemo.views.shared.create'}",
+              new_participant_final_appointment_path(participant),
+              class: "fa fa-plus-circle table-link", id: "final_appointment_#{participant.id}"
+    else
+      ""
+    end
+  end
+
+  def reschedule_final_appointment(participant)
+    if participant.final_appointment
+      ""
+    elsif participant.second_contact
+      link_to " reschedule",
+            missed_final_appointment_path(participant_id: participant.id, id: participant.second_contact.id),
+            class: "fa fa-edit reschedule-link"
+    else
+      ""
+    end
+  end
+
   def render_status_link(participant)
     if participant.help_messages.exists?(read: false)
       blink = "blink-me"

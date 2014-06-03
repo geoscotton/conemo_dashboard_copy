@@ -3,7 +3,7 @@ pt_first_participant_24:
   nurse: nurse1
   notify_at: "24"
   message_type: participant
-  appointment_type: First contact
+  appointment_type: "contact"
 # pt_first_nurse_24:
 #   participant: portuguese_active_participant
 #   nurse: nurse1
