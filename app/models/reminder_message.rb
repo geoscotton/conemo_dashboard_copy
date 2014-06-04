@@ -125,7 +125,6 @@ class ReminderMessage < ActiveRecord::Base
   end
 
   def message
-    debugger
     string_locale = participant.locale.gsub("-", "_").to_sym
     hour = "hour_#{notify_at}".to_sym
     appointment = appointment_type.to_sym
