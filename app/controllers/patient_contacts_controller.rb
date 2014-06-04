@@ -9,8 +9,12 @@ class PatientContactsController < ApplicationController
   def create
     @patient_contact = PatientContact.new(patient_contact_params)
     if @patient_contact.save
-      redirect_to active_report_path(participant),
-                  notice: "Successfully created patient contact"
+      if @patient_contact.participant.start_date
+        redirect_to active_report_path(participant),
+                    notice: "Successfully created patient contact"
+      else
+        redirect_to active_participants_path
+      end
     else
       flash[:alert] = @patient_contact.errors.full_messages.join(", ")
       render :new

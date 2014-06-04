@@ -37,7 +37,7 @@ describe "participant enrollment" do
     select "August", from: "participant_enrollment_date_2i"
     select "1", from: "participant_enrollment_date_3i"
     choose "participant_gender_male"
-    choose "participant_key_chronic_disorder_diabetes"
+    check "diabetes"
     click_on "Save"
 
     expect(page).to have_text "Successfully created participant"
