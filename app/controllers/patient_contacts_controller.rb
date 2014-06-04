@@ -28,7 +28,11 @@ class PatientContactsController < ApplicationController
     else
       flash[:error] = "There were errors."
     end
-    redirect_to active_report_path(participant)
+    if @patient_contact.participant.start_date
+      redirect_to active_report_path(participant)
+    else
+      redirect_to active_participants_path
+    end
   end
 
   private
