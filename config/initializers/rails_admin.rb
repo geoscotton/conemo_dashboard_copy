@@ -27,7 +27,7 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
-    config.included_models = [User, Participant]
+    config.included_models = [User, Participant, ReminderMessage]
 
     config.model User do
     
