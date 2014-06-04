@@ -5,8 +5,8 @@ es-PE:
         save_button: "guardar"
         cancel_button: "cancelar"
         nurse: "Enferma"
-        true_radio: "True"
-        false_radio: "False"
+        true_radio: "Verdadero"
+        false_radio: "Falso"
         pending: "Pendiente"
         ineligible: "Ineligible"
         create: "crear"
@@ -18,9 +18,9 @@ es-PE:
           instructions: "Por favor, elija una opción"
           enrollment_button: "Ingresar participantes reclutados"
           manage_button: "Manejo de participantes activos"
-          lessons_button: "Manage Lessons"
+          lessons_button: "Administrar sesiones"
           sign_in: "Ingresar"
-          sign_out: "Sign out"
+          sign_out: "Salir"
       lessons:
         index:
           add_lesson: "Add Lesson"
@@ -73,7 +73,7 @@ es-PE:
             edit_info: "Editar"
             nurse: "Enferma"
             name: "Nombre"
-            study_identifier: "Identificador del participante"
+            study_identifier: "Código del participante"
             enrollment_date: "Fecha de inclusión en el estudio"
             first_contact: "Llamada confirmando cita"
             first_appointment: "Cita de inicio"
@@ -125,13 +125,13 @@ es-PE:
         not_destroyed: "Slide not deleted"
     models:
       participant:
-        enrollment_date_is_sane_error: "must be recent or upcoming"      
+        enrollment_date_is_sane_error: "Fecha de inclusión invalida"      
   helpers:
     label:
       participant:
         first_name: "Nombres"
         last_name: "Apellidos"
-        study_identifier: "Study Identifier"
+        study_identifier: "Código del participante"
         family_health_unit_name: "Centro de salud"
         family_record_number: "Número de historia clínica"
         phone: "Número de teléfono 1"
