@@ -7,7 +7,10 @@ class ReminderMessage < ActiveRecord::Base
             :participant,
             presence: true
 
+  APPOINTMENT_TYPES = ["contact", "appointment", "final"]
   MESSAGE_TYPES = { nurse: "nurse", participant: "participant" }
+
+  validates :appointment_type, inclusion: { in: APPOINTMENT_TYPES }
 
   MESSAGES = {
     pt_BR: {
