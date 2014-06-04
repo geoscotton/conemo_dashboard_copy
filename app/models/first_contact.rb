@@ -11,6 +11,5 @@ class FirstContact < ActiveRecord::Base
   validates :participant,
             :contact_at,
             :first_appointment_at,
-            :first_appointment_location,
             presence: true
 end
