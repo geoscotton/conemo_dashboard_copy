@@ -47,9 +47,9 @@ class ParticipantsController < ApplicationController
       :first_name, :last_name, :study_identifier,
       :email, :phone, :secondary_phone, :family_health_unit_name,
       :family_record_number, :date_of_birth, :address,
-      :enrollment_date, :key_chronic_disorder, :gender, :status,
+      :enrollment_date, :gender, :status,
       :locale, :emergency_contact_name, :emergency_contact_phone,
-      :nurse_id
+      :nurse_id, :key_chronic_disorder => []
     )
   end
 

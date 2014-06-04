@@ -99,13 +99,9 @@
   <div class="form-group">
     <%= f.label :key_chronic_disorder, class: "col-md-3 control-label" %>
     <div class="col-md-6">
-      <label class="radio-inline">
-        <%= f.radio_button :key_chronic_disorder, 'diabetes', required: true %> <%=t("conemo.views.participants.form.diabetes") %>
-      </label>
-
-      <label class="radio-inline">
-        <%= f.radio_button :key_chronic_disorder, 'hypertension', required: true %> <%=t("conemo.views.participants.form.hypertension") %>
-      </label>
+        <% Participant::KEY_CHRONIC_DISORDER.each do |disorder| %>
+          <label class="checkbox-inline" for="<%=disorder%>"><%=t("conemo.views.participants.form.#{disorder}") %><input value="<%=disorder%>" id="<%=disorder%>" name="participant[key_chronic_disorder][]" type="checkbox" <%= @participant.key_chronic_disorder.include?(disorder) ? "checked" : ""%>></label>
+        <% end %>   
     </div>
   </div>
 
