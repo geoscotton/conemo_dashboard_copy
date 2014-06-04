@@ -6,7 +6,7 @@ participant1:
   family_health_unit_name: HealthUnit1
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-555-5555"
-  key_chronic_disorder: hypertension
+  key_chronic_disorder: ["hypertension"]
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   gender: male
@@ -20,7 +20,7 @@ active_participant:
   family_health_unit_name: HealthUnit1
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-455-5555"
-  key_chronic_disorder: diabetes
+  key_chronic_disorder: ["diabetes"]
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
@@ -34,7 +34,7 @@ active_participant_day_5:
   family_health_unit_name: HealthUnit1
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-455-5555"
-  key_chronic_disorder: diabetes
+  key_chronic_disorder: ["diabetes"]
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
@@ -49,7 +49,7 @@ portuguese_active_participant:
   family_health_unit_name: HealthUnit1
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-455-5555"
-  key_chronic_disorder: diabetes
+  key_chronic_disorder: ["diabetes"]
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
@@ -64,7 +64,7 @@ english_active_participant:
   family_health_unit_name: HealthUnit1
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-455-5555"
-  key_chronic_disorder: diabetes
+  key_chronic_disorder: ["diabetes"]
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active

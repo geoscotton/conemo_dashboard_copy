@@ -22,7 +22,7 @@
     <div class="col-md-offset-4 col-md-6">
       <%= f.hidden_field :participant_id, value: participant.id %>
       <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-      <%= link_to t("conemo.views.shared.cancel_button"), active_report_path(participant), class: "btn btn-default" %>
+      <%= link_to t("conemo.views.shared.cancel_button"), participant.start_date ? active_report_path(participant) : active_participants_path, class: "btn btn-default" %>
     </div>
   </div>
 <% end %>

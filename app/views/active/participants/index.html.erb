@@ -15,6 +15,7 @@
         <th><%=t "conemo.views.active.participants.index.second_contact" %></th>
         <th><%=t "conemo.views.active.participants.index.final_appointment" %></th>
         <th><%=t "conemo.views.active.participants.index.status" %></th>
+        <th><%=t 'conemo.views.active.participants.report.notes' %></th>
       </tr>
       <% @participants.each do |participant| %>
         <tr>
@@ -34,14 +35,14 @@
             </div>
           </td>
           <td>
-            <%= second_contact(participant).html_safe %>
+            <%= second_contact(participant).html_safe %><br>
             <div class="btn-group">
               <%= second_contact_link(participant) %>
               <%= reschedule_second_contact(participant) %>
             </div>
           </td>
           <td>
-            <%= final_appointment(participant).html_safe %>
+            <%= final_appointment(participant).html_safe %><br>
             <div class="btn-group">
               <%= final_appointment_link(participant) %>
               <%= reschedule_final_appointment(participant) %>
@@ -49,6 +50,9 @@
           </td>
           <td class="text-center">
             <%= render_status_link(participant) %>
+          </td>
+          <td>
+            <%= link_to "#{fa_icon 'pencil-square 2x'}".html_safe, new_participant_patient_contact_path(participant), style: "color:white;" %>
           </td>
         </tr>
       <% end %>
