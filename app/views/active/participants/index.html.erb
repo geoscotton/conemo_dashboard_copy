@@ -9,8 +9,7 @@
         <th><%=t "conemo.views.active.participants.index.study_identifier" %></th>
         <th><%=t "conemo.views.active.participants.index.first_contact" %></th>
         <th>
-          <%=t "conemo.views.active.participants.index.first_appointment" %> / 
-          <%=t "conemo.views.active.participants.index.location" %>
+          <%=t "conemo.views.active.participants.index.first_appointment" %>
         </th>
         <th><%=t "conemo.views.active.participants.index.second_contact" %></th>
         <th><%=t "conemo.views.active.participants.index.final_appointment" %></th>
@@ -19,10 +18,12 @@
       </tr>
       <% @participants.each do |participant| %>
         <tr>
-          <% if current_user.admin? %>
+          <% if current_user.admin? && participant.nurse %>
             <td><%= link_to participant.nurse.last_name, pending_activate_path(participant), id: "activate_#{participant.id}" %></td>
-          <% else %>
+          <% elsif participant.nurse %>
             <td><%= participant.nurse.last_name %></td>
+          <% else %>
+            <td><%= link_to "#{t "conemo.views.shared.nurse"}", pending_activate_path(participant), id: "activate_#{participant.id}" %></td>
           <% end %>
           <td><%= link_to "#{fa_icon 'edit'} #{participant.last_name}, #{participant.first_name}".html_safe, active_participant_path(participant)%></td>
           <td><%= participant.study_identifier %></td>
