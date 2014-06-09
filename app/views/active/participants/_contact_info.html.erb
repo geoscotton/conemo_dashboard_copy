@@ -38,6 +38,8 @@
   <p><strong><%=t "helpers.label.participant.gender" %>:</strong>
     <%= participant.gender %>
   </p>
-  <p><strong><%=t "helpers.label.participant.key_chronic_disorder" %>:</strong>
-    <%= participant.key_chronic_disorder %>
+  <p><strong><%=t "helpers.label.participant.key_chronic_disorder" %>: </strong>
+    <% participant.key_chronic_disorder.each do |disorder| %>
+      <%= disorder %> &nbsp;
+    <% end %>
   </p>
