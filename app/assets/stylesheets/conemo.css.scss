@@ -124,6 +124,15 @@ table.active-index th {
   text-align: center;
 }
 
+div.legend {
+  text-align: right;
+  background-color: #4e5d6c;
+  padding: 15px;
+  position: absolute;
+  top: -55px;
+  right: 0px;
+}
+
 .navbar-default .navbar-nav > li > a.info {
   color: white;
   background-color: #5bc0de;
