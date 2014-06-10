@@ -141,12 +141,19 @@ div.legend {
   text-align: right;
   background-color: #4e5d6c;
   padding: 15px;
-  width: 350px;
+  width: 290px;
   float:right;
   margin-bottom: 10px;
+  font-size: 90%
 }
+
+div.legend small{
+  padding-right: 5px;
+}
+
 div.lesson-legend {
   text-align: right;
+  font-size: 90%
 }
 h1.table-title {
   position: relative;

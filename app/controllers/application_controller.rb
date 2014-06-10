@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :authenticate_user!
+  before_filter :authorize_locale
   before_filter :set_timezone
 
   layout :layout_by_resource
@@ -24,6 +25,14 @@ class ApplicationController < ActionController::Base
 
   def default_url_options(options = {})
     { locale: I18n.locale }
+  end
+
+  def authorize_locale
+    if current_user 
+      if current_user.nurse? && current_user.locale != params[:locale]
+        redirect_to root_path(locale: current_user.locale)
+      end
+    end
   end
 
   def set_timezone
