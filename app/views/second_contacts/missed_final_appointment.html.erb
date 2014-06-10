@@ -7,6 +7,7 @@
         <%= f.label :final_appointment_at, class: "col-md-3 control-label" %>
         <div class="col-md-6">
           <%= f.datetime_select :final_appointment_at, class: "form-control", required: true %>
+          <br><small><%= Time.zone %></small>
         </div>
       </div>
       <div class="form-group">
