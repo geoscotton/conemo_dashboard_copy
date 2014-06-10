@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :authenticate_user!
+  before_filter :set_timezone
 
   layout :layout_by_resource
 
@@ -23,5 +24,9 @@ class ApplicationController < ActionController::Base
 
   def default_url_options(options = {})
     { locale: I18n.locale }
+  end
+
+  def set_timezone
+    Time.zone = cookies["time_zone"]
   end
 end
