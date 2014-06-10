@@ -79,7 +79,11 @@ es-PE:
             first_appointment: "Cita de inicio"
             second_contact: "Llamada de seguimiento sem. 1"
             status: "Estado"
-            missed_appointment: "cita perdida"
+            legend:
+              green: up to date with past two lessons
+              yellow: missed on of last two lessons
+              red: missed both of past two lessons
+              gray: active but first lesson has not passed
           show:
             heading: "Perfil de"
             contact_heading: "Información de contacto"
@@ -99,6 +103,11 @@ es-PE:
             logins: "Entradas"
             notes: "Notas"
             create_note: "Escribir nota"
+            legend:
+              green: accessed on time
+              yellow: accessed late
+              red: missed lesson
+              blue: current lesson
       pending:
         participants:
           index:

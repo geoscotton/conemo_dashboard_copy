@@ -5,7 +5,10 @@
       <%= "#{@participant.first_name} #{@participant.last_name}" %>
     </h1>
   </div>
-  <div class="col-md-6 col-sm-6 col-xs-6">
+  <div class="col-md-3 col-sm-3 col-xs-3 lesson-legend">
+    <%= render 'lesson_legend' %>
+  </div>
+  <div class="col-md-3 col-sm-3 col-xs-3">
     <h1 class="pull-right">
       <%= render_large_status(@participant) %>
       <small> <%=t 'conemo.views.active.participants.report.overall_status' %></small>

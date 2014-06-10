@@ -78,8 +78,13 @@ en:
             first_appointment: "First Appointment"
             location: "Location"
             second_contact: "Second Contact"
+            final_appointment: "Final Appointment"
             status: "Status"
-            missed_appointment: "appointment missed"
+            legend:
+              green: up to date with past two lessons
+              yellow: missed on of last two lessons
+              red: missed both of past two lessons
+              gray: active but first lesson has not passed
           show:
             heading: "Profile for"
             contact_heading: "Contact Information"
@@ -97,6 +102,11 @@ en:
             patient_response: "Patient response"
             access_count: "Lesson access count"
             notes: "Notes"
+            legend:
+              green: accessed on time
+              yellow: accessed late
+              red: missed lesson
+              blue: current lesson
       pending:
         participants:
           index:

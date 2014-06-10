@@ -78,7 +78,11 @@ pt-BR:
             location: "Local"
             second_contact: "Segundo Contato"
             status: "Status"
-            missed_appointment: "encontro não realizado"
+            legend:
+              green: paciente em dia com todas sessões
+              yellow: paciente perdeu uma das duas últimas sessões
+              red: paciente perdeu as duas últimas sessões
+              gray: "paciente ativo, mas não finalizou primeira sessão"
           show:
             heading: "Perfil de"
             contact_heading: "Informações de Contato"
@@ -96,6 +100,11 @@ pt-BR:
             patient_response: "Resposta do participante"
             access_count: "Número de acessos"
             notes: "Anotações"
+            legend:
+              green: acessado no tempo certo
+              yellow: acessado com atraso
+              red: sessão perdida
+              blue: sessão atual
       pending:
         participants:
           index:

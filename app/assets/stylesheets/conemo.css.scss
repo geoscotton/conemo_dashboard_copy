@@ -55,10 +55,23 @@ i.status {
 .disabled {
   color: lightgray !important;
 }
-
 .none {
   display: none;
 }
+
+i.success {
+  color: green;
+}
+i.info {
+  color: #5bc0de;
+}
+i.danger {
+  color: red;
+}
+i.warning {
+  color: yellow;
+}
+
 div.access-count {
   border: 3px solid #4e5d6c;
   height: 125px;
@@ -128,9 +141,12 @@ div.legend {
   text-align: right;
   background-color: #4e5d6c;
   padding: 15px;
-  width: 150px;
+  width: 350px;
   float:right;
   margin-bottom: 10px;
+}
+div.lesson-legend {
+  text-align: right;
 }
 h1.table-title {
   position: relative;
