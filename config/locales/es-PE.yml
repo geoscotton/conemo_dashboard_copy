@@ -4,7 +4,7 @@ es-PE:
       shared:
         save_button: "guardar"
         cancel_button: "cancelar"
-        nurse: "Enferma"
+        nurse: "Enfermera"
         true_radio: "Verdadero"
         false_radio: "Falso"
         pending: "Pendiente"
@@ -50,6 +50,14 @@ es-PE:
               o3: "3"
               o2: "2"
               o1: "1"
+      patient_contacts:
+        new:
+          heading: Escribir una nota
+        options:
+          technical_difficulties: Technical Difficulties
+          non_adherence: Non-adherence
+          positive_reinforcement: Positive Reinforcement
+          other: Other
       smartphones:
         new:
           heading: "Incluir información de smartphone"
@@ -181,8 +189,8 @@ es-PE:
         video_access: "Was the patient able to see videos?"
         notes: "Notas"
       patient_contact:
-        contact_at: "Fecha de la llamada"
-        contact_reason: "Razones por la solicitud de contacto"
+        contact_at: "Fecha"
+        contact_reason: "Razones"
         note: "Notas"
   date:
     abbr_day_names:
