@@ -55,6 +55,14 @@ pt-BR:
               o3: "3 - sim, apesar do paciente mostrar-se interessado mas pouco motivado em usar o aplicativo"
               o2: "2 - talvez, pois o paciente mostrou-se pouco interessado e pouco motivado em usar o aplicativo" 
               o1: "1 - não, o paciente não demonstrou interesse e nem motivação em usar o aplicativo"
+      patient_contacts:
+        new:
+          heading: Create Note
+        options:
+          technical_difficulties: Dificuldades técnicas
+          non_adherence: Não adesão
+          positive_reinforcement: Reforço positivo
+          other: Other
       participants:
         new:
           heading: "Cadastrar  novo participante"
@@ -304,8 +312,8 @@ pt-BR:
         video_access: "O paciente conseguiu ver os videos?"
         notes: "Anotações"
       patient_contact:
-        contact_at: "Contato em"
-        contact_reason: "Motivo do contato"
+        contact_at: "Data"
+        contact_reason: "Motivo"
         note: "Anotações"
   number:
     currency:
