@@ -312,7 +312,7 @@ pt-BR:
         video_access: "O paciente conseguiu ver os videos?"
         notes: "Anotações"
       patient_contact:
-        contact_at: "Data"
+        contact_at: "Tempo de observação"
         contact_reason: "Motivo"
         note: "Anotações"
   number:
