@@ -3,9 +3,10 @@ require "spec_helper"
 module Active
   describe ParticipantsController do
     describe "GET index" do
+      let(:user) { double("user", admin?: true, nurse?: false) }
       context "for authenticated requests" do
         before do
-          sign_in_user double("user")
+          sign_in_user user
           get :index
         end
 
