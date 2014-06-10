@@ -2,10 +2,11 @@ require "spec_helper"
 
 module Pending
   describe ParticipantsController do
+    let(:user) { double("user", admin?: true, nurse?: false) }
     describe "GET index" do
       context "for authenticated requests" do
         before do
-          sign_in_user double("user")
+          sign_in_user user
           get :index
         end
 
@@ -26,7 +27,7 @@ module Pending
           before do
             allow(Participant).to receive_message_chain("find")
               .and_return([double("participant")])
-            sign_in_user double("user")
+            sign_in_user user
             get :activate, id: 1
           end
 
@@ -39,7 +40,7 @@ module Pending
           before do
             allow(Participant).to receive_message_chain("pending.find")
               .and_raise(ActiveRecord::RecordNotFound)
-            sign_in_user double("user")
+            sign_in_user user
             get :activate, id: 1
           end
 
