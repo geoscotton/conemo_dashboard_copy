@@ -8,7 +8,7 @@ module Status
         "+"
       elsif locale == "pt-BR"
         "+55"
-      elsif locale == "es-PE"
+      elsif local == "es-PE"
         "+51"
       else
         "+"
@@ -27,7 +27,7 @@ module Status
 
   def lesson_released?(lesson)
     if lesson
-      lesson.day_in_treatment < study_day rescue false
+      lesson.day_in_treatment <= study_day
     else
       false
     end
@@ -35,11 +35,12 @@ module Status
 
   def access_status(lesson)
     access = content_access_events.where(lesson_id: lesson.id).first
-    if !access && lesson_released?(next_lesson(lesson))
-      "danger"
-    elsif !access
+
+    if lesson.guid == current_lesson.guid
       "info"
-    elsif access.late?
+    elsif !access && lesson_released?(next_lesson(lesson))
+      "danger"
+    elsif access && access.late?
       "warning"
     else
       "success"
@@ -48,6 +49,7 @@ module Status
 
   def next_lesson(lesson)
     Lesson.where("day_in_treatment > ?", lesson.day_in_treatment)
+          .where(locale: locale)
           .order(day_in_treatment: :asc).first
   end
 
@@ -55,33 +57,39 @@ module Status
   def current_lesson
     Lesson.where("day_in_treatment <= ?", study_day)
           .where(locale: locale)
+          .order(day_in_treatment: :desc).first
+  end
+
+  def one_lesson_ago
+    Lesson.where("day_in_treatment <= ?", study_day)
+          .where(locale: locale)
           .order(day_in_treatment: :desc).second
   end
 
-  def previous_lesson
+  def two_lessons_ago
     Lesson.where("day_in_treatment <= ?", study_day)
           .where(locale: locale)
           .order(day_in_treatment: :desc).offset(2).first
   end
 
-  def current_lesson_complete?
-    if current_lesson
-      current_lesson.content_access_events.where(participant_id: id).any?
+  def two_lessons_ago_complete?
+    if two_lessons_ago
+      two_lessons_ago.content_access_events.where(participant_id: id).any?
     end
   end
 
-  def previous_lesson_complete?
-    if previous_lesson
-      previous_lesson.content_access_events.where(participant_id: id).any?
+  def one_lesson_ago_complete?
+    if one_lesson_ago
+      one_lesson_ago.content_access_events.where(participant_id: id).any?
     end
   end
 
   def two_lessons_passed
-    if  !current_lesson_complete? &&
-        !previous_lesson_complete?
+    if  !one_lesson_ago_complete? &&
+        !two_lessons_ago_complete?
       "danger"
-    elsif !current_lesson_complete? ||
-          !previous_lesson_complete?
+    elsif !one_lesson_ago_complete? ||
+          !two_lessons_ago_complete?
       "warning"
     else
       "stable"
@@ -89,7 +97,7 @@ module Status
   end
 
   def one_lesson_passed
-    if current_lesson_complete?
+    if one_lesson_ago_complete?
       "stable"
     else
       "warning"
@@ -98,9 +106,9 @@ module Status
 
   def current_study_status
     if start_date
-      if current_lesson && previous_lesson
+      if one_lesson_ago && two_lessons_ago
         two_lessons_passed
-      elsif current_lesson
+      elsif one_lesson_ago
         one_lesson_passed
       else
         "disabled"

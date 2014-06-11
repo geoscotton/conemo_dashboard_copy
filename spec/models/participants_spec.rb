@@ -8,64 +8,65 @@ describe Participant do
 
   describe "Overall Study Status" do
     let(:participant_day_5) { participants(:active_participant_day_5) }
-    let(:previous_lesson) { lessons(:day2) }
-    let(:current_lesson) { lessons(:day4) }
+    let(:two_lessons_ago) { lessons(:day2) }
+    let(:one_lesson_ago) { lessons(:day4) }
+    let(:current_lesson) { lessons(:day5) }
 
-    describe "#current_lesson" do
-      it "should return the current lesson" do
-        result = participant_day_5.current_lesson
-        expect(result).to eq current_lesson
+    describe "#one_lesson_ago" do
+      it "should return the previous lesson" do
+        result = participant_day_5.one_lesson_ago
+        expect(result).to eq one_lesson_ago
       end
     end
 
-    describe "#previous_lesson" do
+    describe "#two_lessons_ago" do
       it "should return the previous lesson" do
-        result = participant_day_5.previous_lesson
-        expect(result).to eq previous_lesson
+        result = participant_day_5.two_lessons_ago
+        expect(result).to eq two_lessons_ago
       end
     end
 
     before :each do
-      @content_access_event_for_previous_lesson = ContentAccessEvent.create(participant_id: participant_day_5.id,
-                                                                            day_in_treatment_accessed: previous_lesson.day_in_treatment,
-                                                                            lesson_id: previous_lesson.id
+      @content_access_event_for_two_lessons_ago = ContentAccessEvent.create(participant_id: participant_day_5.id,
+                                                                            day_in_treatment_accessed: two_lessons_ago.day_in_treatment,
+                                                                            lesson_id: two_lessons_ago.id
                                                                            )
 
-      @content_access_event_for_current_lesson = ContentAccessEvent.create(participant_id: participant_day_5.id,
-                                                                           day_in_treatment_accessed: current_lesson.day_in_treatment,
-                                                                           lesson_id: current_lesson.id
+      @content_access_event_for_one_lesson_ago = ContentAccessEvent.create(participant_id: participant_day_5.id,
+                                                                           day_in_treatment_accessed: one_lesson_ago.day_in_treatment,
+                                                                           lesson_id: one_lesson_ago.id
                                                                           )
     end
 
-    describe "#previous_lesson_complete?" do
+    describe "#two_lessons_ago_complete?" do
       context "the previous lesson was complete" do
         it "should return true" do
-          result = participant_day_5.previous_lesson_complete?
+          result = participant_day_5.two_lessons_ago_complete?
           expect(result).to eq true
         end
       end
 
       context "the previous lesson is incomplete" do
         it "should return false" do
-          @content_access_event_for_previous_lesson.destroy
-          result = participant_day_5.previous_lesson_complete?
+          @content_access_event_for_two_lessons_ago.destroy
+          result = participant_day_5.two_lessons_ago_complete?
           expect(result).to eq false
         end
       end
     end
 
-    describe "#current_lesson_complete?" do
+    describe "#one_lesson_ago_complete?" do
       context "the current lesson is complete" do
         it "should return true" do
-          result = participant_day_5.current_lesson_complete?
+          result = participant_day_5.one_lesson_ago_complete?
           expect(result).to eq true
         end
       end
 
       context "the current lesson is incomplete" do
         it "should return false" do
-          @content_access_event_for_current_lesson.destroy
-          result = participant_day_5.current_lesson_complete?
+          @content_access_event_for_one_lesson_ago.destroy
+          result = participant_day_5.one_lesson_ago_complete?
           expect(result).to eq false
         end
       end
@@ -81,7 +82,7 @@ describe Participant do
 
       context "previous lesson has not been accessed" do
         it "should return 'warning'" do
-          @content_access_event_for_previous_lesson.destroy
+          @content_access_event_for_two_lessons_ago.destroy
           result = participant_day_5.current_study_status
           expect(result).to eq "warning"
         end
@@ -89,8 +90,8 @@ describe Participant do
 
       context "previous and current lesson have not been accessed" do
         it "should return 'danger'" do
-          @content_access_event_for_current_lesson.destroy
-          @content_access_event_for_previous_lesson.destroy
+          @content_access_event_for_one_lesson_ago.destroy
+          @content_access_event_for_two_lessons_ago.destroy
           result = participant_day_5.current_study_status
           expect(result).to eq "danger"
         end
