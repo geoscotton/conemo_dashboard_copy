@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604162226) do
+ActiveRecord::Schema.define(version: 20140611193957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,7 +181,6 @@ ActiveRecord::Schema.define(version: 20140604162226) do
     t.text     "address"
     t.date     "date_of_birth"
     t.string   "gender"
-    t.string   "key_chronic_disorder",                        null: false
     t.date     "enrollment_date",                             null: false
     t.string   "status",                  default: "pending"
     t.string   "emergency_contact_name"
@@ -190,6 +189,8 @@ ActiveRecord::Schema.define(version: 20140604162226) do
     t.datetime "updated_at"
     t.date     "start_date"
     t.string   "locale"
+    t.boolean  "diabetes",                default: false
+    t.boolean  "hypertension",            default: false
   end
 
   add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree
