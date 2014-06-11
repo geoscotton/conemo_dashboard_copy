@@ -15,17 +15,13 @@ class Participant < ActiveRecord::Base
   has_many :help_messages, dependent: :destroy
   has_many :logins, dependent: :destroy
 
-  serialize :key_chronic_disorder, Array
-
   STATUS = ["pending", "active", "ineligible"]
   GENDER = ["male", "female"]
-  KEY_CHRONIC_DISORDER =  ["diabetes", "hypertension"]
 
   validates :first_name,
             :last_name,
             :family_health_unit_name,
             :phone,
-            :key_chronic_disorder,
             :enrollment_date,
             :locale,
             presence: true

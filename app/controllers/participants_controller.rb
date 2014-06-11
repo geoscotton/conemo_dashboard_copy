@@ -49,7 +49,7 @@ class ParticipantsController < ApplicationController
       :family_record_number, :date_of_birth, :address,
       :enrollment_date, :gender, :status,
       :locale, :emergency_contact_name, :emergency_contact_phone,
-      :nurse_id, :key_chronic_disorder => []
+      :nurse_id, :diabetes, :hypertension
     )
   end
 

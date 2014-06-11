@@ -31,39 +31,58 @@ RailsAdmin.config do |config|
 
     config.model User do
     
-    object_label_method :email
+      object_label_method :email
 
-    list do
-      field :role
-      field :first_name
-      field :last_name
-      field :phone
-    end
+      list do
+        field :role
+        field :first_name
+        field :last_name
+        field :phone
+      end
 
-    edit do
-      field :role, :enum do
-        enum do
-          ['nurse', 'admin']
+      edit do
+        field :role, :enum do
+          enum do
+            ['nurse', 'admin']
+          end
         end
-      end
-      field :email
-      field :first_name
-      field :last_name
-      field :phone
-      field :locale, :enum do
-        enum do
-          ['en', 'pt-BR', 'es-PE']
+        field :email
+        field :first_name
+        field :last_name
+        field :phone
+        field :locale, :enum do
+          enum do
+            ['en', 'pt-BR', 'es-PE']
+          end
         end
+        field :password
+        field :password_confirmation
       end
-      field :password
-      field :password_confirmation
     end
-  end
   
-  def email
-    return "#{self.email}"
-  end
+    def email
+      return "#{self.email}"
+    end
 
+    config.model Participant do
+      
+      list do
+        field :nurse
+        field :first_name
+        field :last_name
+        field :phone
+        field :study_identifier
+        field :locale
+      end
 
+      edit do
+        field :first_name
+        field :last_name
+        field :phone
+        field :study_identifier
+        field :locale
+        field :start_date
+      end
+    end
   end
 end
