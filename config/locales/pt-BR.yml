@@ -85,6 +85,7 @@ pt-BR:
             first_appointment: "Primeiro encontro"
             location: "Local"
             second_contact: "Segundo Contato"
+            final_appointment: "Cita cerrando el loestudio"
             status: "Status"
             legend:
               green: paciente em dia com todas sessões
