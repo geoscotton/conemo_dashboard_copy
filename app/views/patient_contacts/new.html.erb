@@ -1,4 +1,4 @@
-<h1><%=t "conemo.views.patient_contacts.new.heading" %> for <%=participant.first_name%> <%=participant.last_name%></h1>
+<h1><%=t "conemo.views.patient_contacts.new.heading" %> <%=participant.first_name%> <%=participant.last_name%></h1>
 
 <div class="row well">
   <div class="col-md-8">
@@ -14,7 +14,7 @@
           <tr>
             <td>
               <dl>
-                <dt><%= contact.contact_reason %> <%= link_to "#{fa_icon 'times-circle'}".html_safe, participant_patient_contact_path(id: contact.id, participant_id: participant.id), method: :delete, :"data-confirm" => "#{ t 'conemo.views.pending.participants.index.disqualify_alert' }", class: 'pull-right delete-note' %></dt>
+                <dt><%= contact.contact_reason %> <%= link_to "#{fa_icon 'times-circle'}".html_safe, participant_patient_contact_path(id: contact.id, participant_id: participant.id), method: :delete, :"data-confirm" => "#{ t 'conemo.views.active.participants.report.delete' }", class: 'pull-right delete-note' %></dt>
                 <dd><%= contact.note %></dd>
                 <dd><em><%=l contact.contact_at, format: :long %></em></dd>
               </dl>

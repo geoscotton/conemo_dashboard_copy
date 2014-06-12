@@ -36,7 +36,7 @@ module ParticipantsHelper
     if participant.first_appointment
       ""
     elsif participant.first_contact
-      link_to " reschedule",
+      link_to " #{t 'conemo.views.shared.reschedule'}",
             missed_appointment_path(participant_id: participant.id, id: participant.first_contact.id),
             class: "fa fa-edit reschedule-link"
     else
@@ -70,7 +70,7 @@ module ParticipantsHelper
     if participant.second_contact
       ""
     elsif participant.first_appointment
-      link_to " reschedule",
+      link_to " #{t 'conemo.views.shared.reschedule'}",
             missed_second_contact_path(participant_id: participant.id, id: participant.first_appointment.id),
             class: "fa fa-edit reschedule-link"
     else
@@ -104,7 +104,7 @@ module ParticipantsHelper
     if participant.final_appointment
       ""
     elsif participant.second_contact
-      link_to " reschedule",
+      link_to " #{t 'conemo.views.shared.reschedule'}",
             missed_final_appointment_path(participant_id: participant.id, id: participant.second_contact.id),
             class: "fa fa-edit reschedule-link"
     else

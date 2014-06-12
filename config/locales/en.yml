@@ -12,6 +12,7 @@ en:
         create: "create"
         update: "update"
         edit: "edit"
+        reschedule: "reschedule"
       dashboards:
         index:
           heading: "Welcome!"
@@ -51,7 +52,7 @@ en:
               o1: "1"
       patient_contacts:
         new:
-          heading: Create Note
+          heading: Create Note for
         options:
           technical_difficulties: Technical Difficulties
           non_adherence: Non-adherence
@@ -101,6 +102,7 @@ en:
             first_appointment_heading: "First Appointment Information"
             second_contact_heading: "Second Contact Information"
           report:
+            delete: "Are you sure you want to delete this note?"
             overall_status: "Overall Status"
             content_accessed: "Content accessed"
             seven_day_access_count: "7 day access count"
@@ -183,6 +185,8 @@ en:
         is_owned_by_participant: "Does the study smartphone belong to the participant?"
         is_smartphone_owner: "Is the participant a smartphone owner?"
       second_contact:
+        final_appointment_at: "Final appointment date and time"
+        final_appointment_location: "Final appointemnt location"
         contact_at: "Date of phone call"
         session_length: "Length of phone call (minutes)"
         video_access: "Was the patient able to see videos?"
@@ -191,3 +195,8 @@ en:
         contact_at: time of note
         contact_reason: reason
         note: notes
+      final_appointment:
+        appointment_at: "Date and time"
+        appointment_location: "Location"
+        phone_returned: "Was the phone returned?"
+        notes: "Notes"

@@ -12,6 +12,7 @@ es-PE:
         create: "crear"
         update: "actualizar"
         edit: "editar"
+        reschedule: "reprogramar"
       dashboards:
         index:
           heading: "¡Bienvenido!"
@@ -52,7 +53,7 @@ es-PE:
               o1: "1"
       patient_contacts:
         new:
-          heading: Escribir una nota
+          heading: Escribir una nota de
         options:
           technical_difficulties: Technical Difficulties
           non_adherence: Non-adherence
@@ -101,6 +102,7 @@ es-PE:
             first_appointment_heading: "Cita de inicio"
             second_contact_heading: "Llamada de seguimiento sem. 1"
           report:
+            delete: "Are you sure you want to delete this note?"
             overall_status: "Estado general"
             content_accessed: "Acceso a sesión"
             seven_day_access_count: "Número de ingresos en 7 días"
@@ -185,6 +187,8 @@ es-PE:
         is_owned_by_participant: "¿El teléfono inteligente es del participante?"
         is_smartphone_owner: "Paciente tiene su propio teléfono inteligente (smartphone)"
       second_contact:
+        final_appointment_at: "Final appointment date and time"
+        final_appointment_location: "Final appointment location"
         contact_at: "Fecha de llamada"
         session_length: "Duración de la llamada (min)"
         video_access: "Was the patient able to see videos?"
@@ -193,6 +197,11 @@ es-PE:
         contact_at: "Tiempo de nota"
         contact_reason: "Razones"
         note: "Notas"
+      final_appointment:
+        appointment_at: "Date and time"
+        appointment_location: "Location"
+        phone_returned: "Was the phone returned?"
+        notes: "Notes"
   date:
     abbr_day_names:
     - dom
