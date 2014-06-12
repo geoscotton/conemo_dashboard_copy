@@ -24,6 +24,7 @@
         <span><%= @participant.seven_day_access.count %></span>
       </div>
     </div>
+    <div class="accordion">
     <table class="table table-bordered">
       <tr class="table-head">
         <th class="text-center"><%=t 'conemo.views.active.participants.report.messages' %></th>
@@ -38,6 +39,7 @@
         </tr>
       <% end %>
     </table>
+    </div>
     <table class="table table-bordered">
       <tr class="table-head">
         <th class="text-center"><%=t "conemo.views.active.participants.report.logins" %></th>

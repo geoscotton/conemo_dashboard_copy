@@ -12,6 +12,7 @@ pt-BR:
         create: "criar"
         update: "atualizar"
         edit: "editar"
+        reschedule: "remarcar"
       dashboards:
         index:
           heading: "Bem-vindo!"
@@ -57,7 +58,7 @@ pt-BR:
               o1: "1 - não, o paciente não demonstrou interesse e nem motivação em usar o aplicativo"
       patient_contacts:
         new:
-          heading: Create Note
+          heading: Escrever nota para
         options:
           technical_difficulties: Dificuldades técnicas
           non_adherence: Não adesão
@@ -100,6 +101,7 @@ pt-BR:
             first_appointment_heading: "Informações de Primeiro encontro"
             second_contact_heading: "Informações de Segundo Contato"
           report:
+            delete: "Are you sure you want to delete this note?"
             overall_status: "Status geral"
             content_accessed: "Acesso ao conteúdo"
             seven_day_access_count: "Acesso na última semana"
@@ -308,6 +310,8 @@ pt-BR:
         is_owned_by_participant: "O smartphone usado no estudo pertence ao participante?"
         is_smartphone_owner: "O participante tem seu próprio smartphone?"
       second_contact:
+        final_appointment_at: "Final appointment date and time"
+        final_appointment_location: "Final appointemnt location"
         contact_at: "Data da ligação"
         session_length: "Duração da ligação (min)"
         video_access: "O paciente conseguiu ver os videos?"
@@ -316,6 +320,11 @@ pt-BR:
         contact_at: "Tempo de observação"
         contact_reason: "Motivo"
         note: "Anotações"
+      final_appointment:
+        appointment_at: "Date and time"
+        appointment_location: "Location"
+        phone_returned: "Was the phone returned?"
+        notes: "Notes"
   number:
     currency:
       format:
