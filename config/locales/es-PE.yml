@@ -13,6 +13,7 @@ es-PE:
         update: "actualizar"
         edit: "editar"
         reschedule: "reprogramar"
+        app_download: "Descarga la Aplicación"
       dashboards:
         index:
           heading: "¡Bienvenido!"
@@ -102,7 +103,7 @@ es-PE:
             first_appointment_heading: "Cita de inicio"
             second_contact_heading: "Llamada de seguimiento sem. 1"
           report:
-            delete: "Are you sure you want to delete this note?"
+            delete: "¿Está seguro que quiere eliminar esa nota?"
             overall_status: "Estado general"
             content_accessed: "Acceso a sesión"
             seven_day_access_count: "Número de ingresos en 7 días"
@@ -111,7 +112,7 @@ es-PE:
             lesson: "Sesión"
             patient_response: "Respuesta del paciente"
             access_count: "Número de acceso a sesiones"
-            logins: "Entradas"
+            logins: "Ingresos"
             notes: "Notas"
             create_note: "Escribir nota"
             legend:
@@ -154,14 +155,17 @@ es-PE:
         study_identifier: "Código del participante"
         family_health_unit_name: "Centro de salud"
         family_record_number: "Número de historia clínica"
-        phone: "Número de teléfono 1"
-        secondary_phone: "Número de teléfono 2"
+        phone: "Número de teléfono"
+        emergency_contact_name: "Contacto de emergencia"
+        emergency_contact_phone: "Teléfono de contacto de emergencia"
         email: "Correo electrónico"
         date_of_birth: "Fecha de nacimiento"
         address: "Dirección"
         enrollment_date: "Fecha de inclusión en el estudio"
         gender: "Sexo"
         key_chronic_disorder: "Enfermedad crónica principal"
+        diabetes: "Diabetes"
+        hypertension: "Hipertensión"
       lesson:
         title: "Title"
         day_in_treatment: "Day in treatment"

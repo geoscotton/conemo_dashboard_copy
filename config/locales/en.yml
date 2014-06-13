@@ -13,6 +13,7 @@ en:
         update: "update"
         edit: "edit"
         reschedule: "reschedule"
+        app_download: "App Download"
       dashboards:
         index:
           heading: "Welcome!"
