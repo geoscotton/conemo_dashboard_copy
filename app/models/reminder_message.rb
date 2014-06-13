@@ -105,11 +105,12 @@ class ReminderMessage < ActiveRecord::Base
     }
   }
 
+  # returns datetime object for the reminder message
   def notification_time
     if appointment_type == "contact"
       if notify_at == "1"
         participant.first_contact.first_appointment_at - 1.hour
-      else
+      else # => '24'
         participant.first_contact.first_appointment_at - 1.day
       end
     elsif appointment_type == "appointment"
@@ -118,7 +119,7 @@ class ReminderMessage < ActiveRecord::Base
       else
         participant.first_appointment.next_contact - 1.day
       end
-    else
+    else # => 'final'
       if notify_at == "1"
         participant.second_contact.final_appointment_at - 1.hour
       else
@@ -127,6 +128,7 @@ class ReminderMessage < ActiveRecord::Base
     end
   end
 
+  # message is constructed by traversing MESSAGES hash
   def message
     string_locale = participant.locale.gsub("-", "_").to_sym
     hour = "hour_#{notify_at}".to_sym

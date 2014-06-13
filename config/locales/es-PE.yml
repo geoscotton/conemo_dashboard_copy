@@ -55,9 +55,9 @@ es-PE:
         new:
           heading: Escribir una nota de
         options:
-          technical_difficulties: Technical Difficulties
-          non_adherence: Non-adherence
-          positive_reinforcement: Positive Reinforcement
+          technical_difficulties: Dificultades técnicas
+          non_adherence: No-adherencia
+          positive_reinforcement: refuerzo positivo
           other: Other
       smartphones:
         new:
@@ -90,10 +90,10 @@ es-PE:
             final_appointment: "Cita cerrando el loestudio"
             status: "Estado"
             legend:
-              green: up to date with past two lessons
-              yellow: missed on of last two lessons
-              red: missed both of past two lessons
-              gray: active but first lesson has not passed
+              green: Paciente está al día con todas sus sesiones
+              yellow: Paciente no realizó una de las dos últimas sesiones
+              red: Paciente no realizó las dos últimas sesiones
+              gray: "Paciente es activo, pero no finalizó la primera sesión"
           show:
             heading: "Perfil de"
             contact_heading: "Información de contacto"
@@ -115,10 +115,10 @@ es-PE:
             notes: "Notas"
             create_note: "Escribir nota"
             legend:
-              green: accessed on time
-              yellow: accessed late
-              red: missed lesson
-              blue: current lesson
+              green: Accedido a tiempo
+              yellow: Accedido con retraso
+              red: Sesión perdida
+              blue: Sesión actual
       pending:
         participants:
           index:
@@ -166,7 +166,7 @@ es-PE:
         title: "Title"
         day_in_treatment: "Day in treatment"
       first_contact:
-        contacted_at: "Hora de contactado"
+        contacted_at: "Fecha y hora de contacto"
         first_appointment_at: "Cita de inicio programada para"
         first_appointment_location: "Lugar de Cita de inicio"
         alternative_contact_name: "Contacto de emergencia"
@@ -198,10 +198,10 @@ es-PE:
         contact_reason: "Razones"
         note: "Notas"
       final_appointment:
-        appointment_at: "Date and time"
-        appointment_location: "Location"
-        phone_returned: "Was the phone returned?"
-        notes: "Notes"
+        appointment_at: "Cita de finalización"
+        appointment_location: "Lugar de cita de finalización"
+        phone_returned: "¿El smartphone ha sido devuelto?"
+        notes: "Notas"
   date:
     abbr_day_names:
     - dom
