@@ -91,7 +91,7 @@ en:
             status: "Status"
             legend:
               green: up to date with past two lessons
-              yellow: missed on of last two lessons
+              yellow: missed one of last two lessons
               red: missed both of past two lessons
               gray: active but first lesson has not passed
           show:
