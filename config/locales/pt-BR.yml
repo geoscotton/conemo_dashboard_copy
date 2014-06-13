@@ -4,7 +4,7 @@ pt-BR:
       shared:
         save_button: "Salvar"
         cancel_button: "Cancelar"
-        nurse: "Técnico de Enfermagem"
+        nurse: "Aux. de Enfermagem"
         true_radio: "Verdadeiro"
         false_radio: "Falso"
         pending: "Pendente"
@@ -13,6 +13,7 @@ pt-BR:
         update: "atualizar"
         edit: "editar"
         reschedule: "remarcar"
+        app_download: "Baixar Aplicativo"
       dashboards:
         index:
           heading: "Bem-vindo!"
@@ -26,13 +27,13 @@ pt-BR:
           heading: "Entrada Smartphone Informações"
       second_contacts:
         new:
-          heading: "Incluir informações do segundo contato"    
+          heading: "1º Contato de seguimento"    
       users:
         sign_in:
           sign_in: "Login"
       first_contacts:
         new:
-          heading: "Incluir informações do primeiro contato"
+          heading: "Incluir informações do contato de confirmação"
       first_appointments:
         new:
           heading: "Incluir informações do primeiro encontro"
@@ -66,7 +67,7 @@ pt-BR:
           other: Other
       participants:
         new:
-          heading: "Cadastrar  novo participante"
+          heading: "Cadastrar novo participante"
         edit:
           heading: "Editar Participante"
         form:
@@ -82,11 +83,11 @@ pt-BR:
             name: "Nome"
             study_identifier: "Identificação do participante"
             enrollment_date: "Data de inclusão"
-            first_contact: "Primeiro Contato"
+            first_contact: "Contato de confirmação"
             first_appointment: "Primeiro encontro"
             location: "Local"
-            second_contact: "Segundo Contato"
-            final_appointment: "Cita cerrando el loestudio"
+            second_contact: "1º Contato de seguimento"
+            final_appointment: "Encontro Final"
             status: "Status"
             legend:
               green: paciente em dia com todas sessões
@@ -126,8 +127,8 @@ pt-BR:
             study_identifier: "Identificação do participante"
             enrollment_date: "Data de inclusão"
             activate: "Ativar"
-            disqualify: "Excluir participante"
-            disqualify_alert: "Você tem certeza que quer marcar essa pessoa como inelegível?"
+            disqualify: "Desativar participante"
+            disqualify_alert: "Você tem certeza que quer desativar essa pessoa?"
             activate_alert: "Você tem certeza que deseja ativar esta pessoa?"
           activate:
             heading_1: "Designar enfermeira para ativar participante"
@@ -275,28 +276,31 @@ pt-BR:
         first_name: "Nome"
         last_name: "Sobrenome"
         study_identifier: "Identificação do participante"
-        family_health_unit_name: "Unidade de Saúde da Família"
+        family_health_unit_name: "UBS"
         family_record_number: "Prontuário da Família"
         phone: "Telefone 1"
-        secondary_phone: "Telefone 2"
+        emergency_contact_name: "Contato de emergência"
+        emergency_contact_phone: "Telefone de emergência"
         email: "E-mail"
         date_of_birth: "Data de nascimento"
         address: "Endereço"
         enrollment_date: "Data de inclusão no estudo"
         gender: "Sexo"
-        key_chronic_disorder: "Principal Doença Crônica"
+        key_chronic_disorder: "Doença Crônica"
+        diabetes: Diabetes
+        hypertension: Hipertensão
       lesson:
         title: "Título"
         day_in_treatment: "Dia de tratamento"
       first_contact:
-        contact_at: "Contactado em"
-        first_appointment_at: "Primeiro encontro agendado para"
+        contact_at: "Contactado por"
+        first_appointment_at: "Primeiro encontro em"
         first_appointment_location: "Local do primeiro encontro"
         alternative_contact_name: "Contato alternativo"
         alternative_contact_phone: "Telefone de contato alternativo"
       first_appointment:
-        appointment_at: "Data/hora do encontro"
-        appointment_location: "Local do encontro"
+        appointment_at: "Data/hora"
+        appointment_location: "Local"
         next_contact: "Data/hora próximo contato"
         session_length: "Duração da sessão (minutos)"
         notes: "Anotações/Impressões"
