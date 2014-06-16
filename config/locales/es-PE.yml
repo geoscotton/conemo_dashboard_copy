@@ -66,6 +66,10 @@ es-PE:
       users:
         sign_in:
           sign_in: "Ingresar"
+          email:
+          password:
+          remember_me:
+          forgot_your_password:
       participants:
         new:
           heading: "Añadir nuevo participante"

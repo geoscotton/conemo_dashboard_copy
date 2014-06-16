@@ -65,6 +65,10 @@ en:
       users:
         sign_in:
           sign_in: "Sign in"
+          email:
+          password:
+          remember_me:
+          forgot_your_password:
       participants:
         new:
           heading: "Enroll New Participant"
