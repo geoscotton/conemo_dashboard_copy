@@ -121,9 +121,9 @@ class ReminderMessage < ActiveRecord::Base
       end
     else # => 'final'
       if notify_at == "1"
-        participant.second_contact.final_appointment_at - 1.hour
+        participant.third_contact.final_appointment_at - 1.hour
       else
-        participant.second_contact.final_appointment_at - 1.day
+        participant.third_contact.final_appointment_at - 1.day
       end
     end
   end

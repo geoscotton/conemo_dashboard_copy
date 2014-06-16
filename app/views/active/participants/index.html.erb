@@ -18,6 +18,7 @@
           <%=t "conemo.views.active.participants.index.first_appointment" %>
         </th>
         <th><%=t "conemo.views.active.participants.index.second_contact" %></th>
+        <th><%=t "conemo.views.active.participants.index.third_contact" %></th>
         <th><%=t "conemo.views.active.participants.index.final_appointment" %></th>
         <th><%=t 'conemo.views.active.participants.report.notes' %></th>
         <th><%=t "conemo.views.active.participants.index.status" %></th>
@@ -46,6 +47,12 @@
             <div class="btn-group">
               <%= second_contact_link(participant) %>
               <%= reschedule_second_contact(participant) %>
+            </div>
+          </td>
+          <td>
+            <%= third_contact(participant).html_safe %><br>
+            <div class="btn-group">
+              <%= third_contact_link(participant) %>
             </div>
           </td>
           <td>

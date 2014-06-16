@@ -92,6 +92,7 @@ en:
             first_appointment: "First Appointment"
             location: "Location"
             second_contact: "Second Contact"
+            second_contact: "Third Contact"
             final_appointment: "Final Appointment"
             status: "Status"
             legend:
@@ -190,11 +191,15 @@ en:
         is_owned_by_participant: "Does the study smartphone belong to the participant?"
         is_smartphone_owner: "Is the participant a smartphone owner?"
       second_contact:
-        final_appointment_at: "Final appointment date and time"
-        final_appointment_location: "Final appointemnt location"
         contact_at: "Date of phone call"
         session_length: "Length of phone call (minutes)"
         video_access: "Was the patient able to see videos?"
+        notes: "Notes"
+      third_contact:
+        final_appointment_at: "Final appointment date and time"
+        final_appointment_location: "Final appointemnt location"
+        contacted_at: "Date of phone call"
+        session_length: "Length of phone call (minutes)"
         notes: "Notes"
       patient_contact:
         contact_at: time of note

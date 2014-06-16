@@ -14,7 +14,5 @@ class SecondContact < ActiveRecord::Base
   validates :participant,
             :contact_at,
             :session_length,
-            :final_appointment_at,
-            :final_appointment_location,
             presence: true
 end

@@ -91,6 +91,7 @@ pt-BR:
             first_appointment: "Primeiro encontro"
             location: "Local"
             second_contact: "1º Contato de seguimento"
+            third_contact: "4º Contato de seguimento"
             final_appointment: "Encontro Final"
             status: "Status"
             legend:
@@ -102,9 +103,10 @@ pt-BR:
             heading: "Perfil de"
             contact_heading: "Informações de Contato"
             smartphone_heading: "Informações de Smartphone"
-            first_contact_heading: "Informações de Primeiro Contato"
+            first_contact_heading: "Informações de Contato de confirmação"
             first_appointment_heading: "Informações de Primeiro encontro"
-            second_contact_heading: "Informações de Segundo Contato"
+            second_contact_heading: "Informações de 1º Contato de seguimento"
+            third_contact_heading: "Informações de 4º Contato de seguimento"
           report:
             delete: "Are you sure you want to delete this note?"
             overall_status: "Status geral"
@@ -318,11 +320,15 @@ pt-BR:
         is_owned_by_participant: "O smartphone usado no estudo pertence ao participante?"
         is_smartphone_owner: "O participante tem seu próprio smartphone?"
       second_contact:
-        final_appointment_at: "Final appointment date and time"
-        final_appointment_location: "Final appointemnt location"
         contact_at: "Data da ligação"
         session_length: "Duração da ligação (min)"
         video_access: "O paciente conseguiu ver os videos?"
+        notes: "Anotações"
+      third_contact:
+        final_appointment_at: "Encontro Final em"
+        final_appointment_location: "Local do Encontro Final"
+        contacted_at: "Data da ligação"
+        session_length: "Duração da ligação (min)"
         notes: "Anotações"
       patient_contact:
         contact_at: "Tempo de observação"
