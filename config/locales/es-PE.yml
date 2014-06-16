@@ -176,7 +176,7 @@ es-PE:
         title: "Title"
         day_in_treatment: "Day in treatment"
       first_contact:
-        contacted_at: "Fecha y hora de contacto"
+        contact_at: "Fecha y hora de contacto"
         first_appointment_at: "Cita de inicio programada para"
         first_appointment_location: "Lugar de Cita de inicio"
         alternative_contact_name: "Contacto de emergencia"
