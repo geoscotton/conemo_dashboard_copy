@@ -31,6 +31,10 @@ pt-BR:
       users:
         sign_in:
           sign_in: "Login"
+          email:
+          password:
+          remember_me:
+          forgot_your_password:
       first_contacts:
         new:
           heading: "Incluir informações do contato de confirmação"
