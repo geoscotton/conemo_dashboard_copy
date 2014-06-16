@@ -11,12 +11,7 @@ class SecondContactsController < ApplicationController
   def create
     @second_contact = participant.build_second_contact(second_contact_params)
     if @second_contact.save
-      @second_contact.schedule_message(
-        participant,
-        "final"
-      )
-      redirect_to active_participants_path,
-                  notice: "Successfully created second contact"
+      redirect_to active_participants_path
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
       render :new
@@ -30,17 +25,11 @@ class SecondContactsController < ApplicationController
   def update
     @second_contact = participant.second_contact
     if @second_contact.update(second_contact_params)
-      redirect_to active_participants_path,
-                  notice: "Successfully updated second_contact"
+      redirect_to active_participants_path
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
       render :edit
     end
-  end
-
-  def missed_final_appointment
-    @second_contact = participant.second_contact
-    @patient_contact = @second_contact.patient_contacts.build
   end
 
   private
@@ -49,8 +38,6 @@ class SecondContactsController < ApplicationController
     params.require(:second_contact).permit(
       :participant_id, :contact_at, :video_access,
       :notes, :session_length,
-      :final_appointment_at,
-      :final_appointment_location,
       patient_contacts_attributes: [
         :first_contact_id, :contact_reason, :participant_id,
         :note, :contact_at

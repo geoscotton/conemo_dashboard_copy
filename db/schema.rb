@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611193957) do
+ActiveRecord::Schema.define(version: 20140616210251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -238,15 +238,13 @@ ActiveRecord::Schema.define(version: 20140611193957) do
   add_index "responses", ["content_access_event_id"], name: "index_responses_on_content_access_event_id", using: :btree
 
   create_table "second_contacts", force: true do |t|
-    t.integer  "participant_id",                            null: false
-    t.datetime "contact_at",                                null: false
-    t.boolean  "video_access",               default: true
-    t.integer  "session_length",                            null: false
+    t.integer  "participant_id",                null: false
+    t.datetime "contact_at",                    null: false
+    t.boolean  "video_access",   default: true
+    t.integer  "session_length",                null: false
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "final_appointment_at"
-    t.string   "final_appointment_location"
   end
 
   add_index "second_contacts", ["participant_id"], name: "index_second_contacts_on_participant_id", using: :btree
@@ -262,6 +260,19 @@ ActiveRecord::Schema.define(version: 20140611193957) do
   end
 
   add_index "smartphones", ["participant_id"], name: "index_smartphones_on_participant_id", using: :btree
+
+  create_table "third_contacts", force: true do |t|
+    t.datetime "final_appointment_at"
+    t.string   "final_appointment_location"
+    t.datetime "contacted_at"
+    t.integer  "session_length"
+    t.integer  "participant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "notes"
+  end
+
+  add_index "third_contacts", ["participant_id"], name: "index_third_contacts_on_participant_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

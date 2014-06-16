@@ -1,0 +1,40 @@
+<%= form_for @third_contact, url: participant_third_contact_path(participant), method: @third_contact.valid? ? :patch : :post, html: { role: "form", class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <%= f.label :contacted_at, class: "col-md-4 control-label" %>
+    <div class="col-md-6">
+      <%= f.datetime_select :contacted_at, class: "form-control", required: true %>
+      <br><small><%= Time.zone %></small>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :session_length, class: "col-md-4 control-label" %>
+    <div class="col-md-6">
+      <%= f.number_field :session_length, class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :final_appointment_at, class: "col-md-4 control-label" %>
+    <div class="col-md-6">
+      <%= f.datetime_select :final_appointment_at, class: "form-control", required: true %>
+      <br><small><%= Time.zone %></small>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :final_appointment_location, class: "col-md-4 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_field :final_appointment_location, class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :notes, class: "col-md-4 control-label" %>
+    <div class="col-md-6">
+      <%= f.text_area :notes, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-6">
+      <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+      <%= link_to t("conemo.views.shared.cancel_button"), active_participants_path, class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>
