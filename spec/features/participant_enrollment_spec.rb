@@ -24,11 +24,11 @@ describe "participant enrollment" do
 
     fill_in "First name", with: "Joe"
     fill_in "Last name", with: "Blow"
-    fill_in("Study Identifier", with: "s14")
+    fill_in "Study Identifier", with: "s14"
     fill_in "Family health unit name", with: "Healthy!"
     fill_in "Family record number", with: "12345"
     fill_in "participant_phone", with: "224-444-5555"
-    fill_in("Email", with: "joe")
+    fill_in "Email", with: "joe"
     select "2011", from: "participant_date_of_birth_1i"
     select "March", from: "participant_date_of_birth_2i"
     select "1", from: "participant_date_of_birth_3i"
@@ -40,7 +40,7 @@ describe "participant enrollment" do
     check "diabetes"
     click_on "Save"
 
-    expect(page).to have_text "Successfully created participant"
+    expect(page).to have_text "s14"
   end
 
   it "should update an ineligible participant and remove them from the pending index" do
@@ -50,7 +50,6 @@ describe "participant enrollment" do
 
     click_on "disqualify_#{participant.id}"
 
-    expect(page).to have_text "Successfully updated participant"
     pending_node = page.find("#pending")
     expect(pending_node).to_not have_text participant.study_identifier
     ineligible_node = page.find("#ineligible")
@@ -69,7 +68,6 @@ describe "participant enrollment" do
     select nurse.last_name, from: "participant_nurse_id"
     click_on "Save"
 
-    expect(page).to have_text "Successfully updated participant"
     expect(page).to have_text participant.study_identifier
   end
 end

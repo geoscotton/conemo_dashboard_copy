@@ -1,5 +1,7 @@
 # Manages Lessons.
 class LessonsController < ApplicationController
+  layout "lesson_editor"
+  
   def index
     authorize! :index, Lesson
     @lessons = locale_lessons.order('day_in_treatment ASC')

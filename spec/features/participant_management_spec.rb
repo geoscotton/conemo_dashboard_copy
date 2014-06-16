@@ -30,7 +30,6 @@ describe "participant management" do
       fill_in "First appointment location", with: "location string for first appointment"
       click_on "Save"
 
-      expect(page).to have_text "Successfully created first contact"
       expect(page).to have_text participant.first_contact.contact_at.to_s(:short)
     end
   end
@@ -77,7 +76,6 @@ describe "participant management" do
       select "5", from: "first_appointment_nurse_participant_evaluation_attributes_app_usage_prediction"
       click_on "Save"
 
-      expect(page).to have_text "Successfully created first appointment"
       expect(page).to have_text "Input Smartphone"
     end
   end

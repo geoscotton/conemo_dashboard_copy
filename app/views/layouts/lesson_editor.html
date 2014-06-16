@@ -43,6 +43,11 @@
     </div>
   </div> <!-- navbar -->
   <div class="container">
+
+    <div id="flash-container">
+      <%= render "partials/flash_alerts" %>
+    </div>
+
     <%= yield %>
   </div>
 </body>
