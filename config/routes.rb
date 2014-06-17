@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  namespace "lesson_api", constraints: { format: 'json' }  do
+    get "lessons" => "lesson_api#lessons"
+  end
+
   scope "/(:locale)" do
     devise_for :users
 
