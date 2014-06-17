@@ -2,8 +2,8 @@ es-PE:
   conemo:
     views:
       shared:
-        save_button: "guardar"
-        cancel_button: "cancelar"
+        save_button: "Guardar"
+        cancel_button: "Cancelar"
         nurse: "Enfermera"
         true_radio: "Verdadero"
         false_radio: "Falso"
@@ -19,7 +19,7 @@ es-PE:
           heading: "¡Bienvenido!"
           instructions: "Por favor, elija una opción"
           enrollment_button: "Ingresar participantes reclutados"
-          manage_button: "Manejo de participantes activos"
+          manage_button: "Administrar participantes activos"
           lessons_button: "Administrar sesiones"
           sign_in: "Ingresar"
           sign_out: "Salir"
@@ -77,7 +77,7 @@ es-PE:
           heading: "Editar información del participante"
         form:
           male: "Masculino"
-          female: "Feminino"
+          female: "Femenino"
           diabetes: "Diabetes"
           hypertension: "Hipertensión"
       active:
@@ -93,7 +93,7 @@ es-PE:
             first_appointment: "Cita de inicio"
             second_contact: "Llamada de seguimiento sem. 1"
             third_contact: "Llamada de seguimiento sem. 4"
-            final_appointment: "Cita cerrando el loestudio"
+            final_appointment: "Cita cerrando el estudio"
             status: "Estado"
             legend:
               green: Paciente está al día con todas sus sesiones
@@ -133,10 +133,10 @@ es-PE:
             add_new_participant: "Añadir nuevo participante"
             edit_info: "Editar información"
             name: "Nombre"
-            study_identifier: "Identificador del participante"
+            study_identifier: "Código del participante"
             enrollment_date: "Fecha de inclusión en el estudio"
-            activate: "activar participante"
-            disqualify: "desactivar participante"
+            activate: "Activar Participante"
+            disqualify: "Desactivar Participante"
             disqualify_alert: "¿Está seguro que quiere desactivar este participante?"
             activate_alert: "¿Está seguro que quiere activar este participante?"
           activate:
