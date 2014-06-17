@@ -1,37 +1,42 @@
-<h2><%= t "conemo.views.users.sign_in.sign_in" %></h2>
-
-<%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal", role: "form" } do |f| %>
-  <div class="form-group">
-    <%= f.label :email, class: "col-md-3 col-sm-3 control-label" %>
-    <div class="col-sm-9 col-md-9">
-      <%= f.email_field :email, autofocus: true, class: "form-control" %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-sm-offset-3 col-sm-10">
+      <h2><%= t "conemo.views.users.sign_in.sign_in" %></h2>
     </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password, class: "col-md-3 control-label" %>
-    <div class="col-sm-9 col-md-9">
-      <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-    </div>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="form-group">
-      <div class="col-sm-offset-3 col-sm-9 col-md-offset-3 col-md-9">
-        <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+    <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal", role: "form" } do |f| %>
+      <div class="form-group">
+        <%= f.label :email, class: "col-md-3 col-sm-3 control-label" %>
+        <div class="col-sm-9 col-md-9">
+          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        </div>
       </div>
-    </div>
-  <% end -%>
 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit "Sign in", class: "btn btn-primary" %>
-    </div>
-  </div>
+      <div class="form-group">
+        <%= f.label :password, class: "col-md-3 control-label" %>
+        <div class="col-sm-9 col-md-9">
+          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+        </div>
+      </div>
 
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= render "users/shared/links" %>
-    </div>
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9 col-md-offset-3 col-md-9">
+            <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+          </div>
+        </div>
+      <% end -%>
+
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-10">
+          <%= f.submit "Sign in", class: "btn btn-primary" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-10">
+          <%= render "users/shared/links" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
