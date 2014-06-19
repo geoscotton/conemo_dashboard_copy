@@ -31,6 +31,8 @@ class FirstContactsController < ApplicationController
   def update
     @first_contact = participant.first_contact
     if @first_contact.update(first_contact_params)
+      @first_contact.schedule_message(participant,
+                                      "contact")
       redirect_to active_participants_path,
                   notice: "Successfully updated first_contact"
     else

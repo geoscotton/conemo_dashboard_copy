@@ -36,6 +36,8 @@ class FirstAppointmentsController < ApplicationController
   def update
     @first_appointment = participant.first_appointment
     if @first_appointment.update(first_appointment_params)
+      @first_appointment.schedule_message(participant,
+                                      "contact")
       redirect_to active_participants_path,
                   notice: "Successfully updated first_appointment"
     else
@@ -51,7 +53,7 @@ class FirstAppointmentsController < ApplicationController
       :participant_id, :appointment_at, :appointment_location,
       :next_contact, :session_length, :notes,
       patient_contacts_attributes: [
-        :first_contact_id, :contact_reason, :participant_id,
+        :first_appointment_id, :contact_reason, :participant_id,
         :note, :contact_at
       ],
       nurse_participant_evaluation_attributes: [

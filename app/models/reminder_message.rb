@@ -111,19 +111,19 @@ class ReminderMessage < ActiveRecord::Base
       if notify_at == "1"
         participant.first_contact.first_appointment_at - 1.hour
       else # => '24'
-        participant.first_contact.first_appointment_at - 1.day
+        participant.first_contact.first_appointment_at - 1.days
       end
     elsif appointment_type == "appointment"
       if notify_at == "1"
         participant.first_appointment.next_contact - 1.hour
       else
-        participant.first_appointment.next_contact - 1.day
+        participant.first_appointment.next_contact - 1.days
       end
     else # => 'final'
       if notify_at == "1"
         participant.third_contact.final_appointment_at - 1.hour
       else
-        participant.third_contact.final_appointment_at - 1.day
+        participant.third_contact.final_appointment_at - 1.days
       end
     end
   end

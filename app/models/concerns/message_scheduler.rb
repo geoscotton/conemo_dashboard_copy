@@ -10,20 +10,32 @@ module MessageScheduler
   end
 
   def schedule_24_hour(message_type, model_name_string, person)
-    ReminderMessage.create!(participant: person,
+    message = ReminderMessage.find_or_initialize_by(participant: person,
                             nurse: person.nurse,
                             notify_at: "24",
                             message_type: message_type,
                             appointment_type: model_name_string
                             )
+
+    if message.status == "sent"
+      message.status = "pending"
+    end
+    
+    message.save
   end
 
   def schedule_1_hour(message_type, model_name_string, person)
-    ReminderMessage.create!(participant: person,
+    message = ReminderMessage.find_or_initialize_by(participant: person,
                             nurse: person.nurse,
                             notify_at: "1",
                             message_type: message_type,
                             appointment_type: model_name_string
                             )
+
+    if message.status == "sent"
+      message.status = "pending"
+    end
+    
+    message.save
   end
 end
