@@ -127,7 +127,7 @@ module ParticipantsHelper
       ""
     elsif participant.third_contact
       link_to " #{t 'conemo.views.shared.reschedule'}",
-            missed_final_appointment_path(participant_id: participant.id, id: participant.second_contact.id),
+            missed_final_appointment_path(participant_id: participant.id, id: participant.third_contact.id),
             class: "fa fa-edit reschedule-link"
     else
       ""

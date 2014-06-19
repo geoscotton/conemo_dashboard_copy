@@ -39,7 +39,7 @@ class SecondContactsController < ApplicationController
       :participant_id, :contact_at, :video_access,
       :notes, :session_length,
       patient_contacts_attributes: [
-        :first_contact_id, :contact_reason, :participant_id,
+        :second_contact_id, :contact_reason, :participant_id,
         :note, :contact_at
       ],
       nurse_participant_evaluation_attributes: [

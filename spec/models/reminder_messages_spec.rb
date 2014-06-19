@@ -1,5 +1,5 @@
 require "spec_helper"
-
+require 'ruby-debug'
 describe ReminderMessage do
   fixtures :participants, :users, :reminder_messages, :first_contacts
 
@@ -33,6 +33,33 @@ describe ReminderMessage do
                                        message_type: "participant",
                                        appointment_type: "contact"
                                        )).to exist
+        end
+      end
+    end
+    describe "Rescheduling a first appointment" do
+      context "before notification sent" do
+        let(:participant) { participants(:active_participant) }
+        let(:first_contact) { first_contacts(:first_contact) }
+        it "updates notification time of upcoming reminder messages for first appointment" do
+          
+          first_contact.schedule_message(participant, "contact")
+          first_appointment_one_hour = ReminderMessage.where(participant: participant,
+                                       notify_at: "1",
+                                       message_type: "participant",
+                                       appointment_type: "contact"
+                                       ).first
+          
+          old_one_hour_time = first_appointment_one_hour.notification_time
+          
+          first_contact.update(first_appointment_at: DateTime.current + 3.days)
+          
+          new_one_hour_time = ReminderMessage.where(participant: participant,
+                                       notify_at: "1",
+                                       message_type: "participant",
+                                       appointment_type: "contact"
+                                       ).first
+                                        .notification_time
+          expect(old_one_hour_time).to_not eq(new_one_hour_time)
         end
       end
     end

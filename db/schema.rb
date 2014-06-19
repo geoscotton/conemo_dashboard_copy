@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140616210251) do
+ActiveRecord::Schema.define(version: 20140619220524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -205,12 +205,14 @@ ActiveRecord::Schema.define(version: 20140616210251) do
     t.integer  "first_contact_id"
     t.integer  "first_appointment_id"
     t.integer  "second_contact_id"
+    t.integer  "third_contact_id"
   end
 
   add_index "patient_contacts", ["first_appointment_id"], name: "index_patient_contacts_on_first_appointment_id", using: :btree
   add_index "patient_contacts", ["first_contact_id"], name: "index_patient_contacts_on_first_contact_id", using: :btree
   add_index "patient_contacts", ["participant_id"], name: "index_patient_contacts_on_participant_id", using: :btree
   add_index "patient_contacts", ["second_contact_id"], name: "index_patient_contacts_on_second_contact_id", using: :btree
+  add_index "patient_contacts", ["third_contact_id"], name: "index_patient_contacts_on_third_contact_id", using: :btree
 
   create_table "reminder_messages", force: true do |t|
     t.integer  "nurse_id",                             null: false

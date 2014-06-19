@@ -1,4 +1,4 @@
-first_contact1:
+first_contact:
   participant: active_participant
   contact_at: <%= Date.today %>
   first_appointment_at: <%= DateTime.current + 2.day %>

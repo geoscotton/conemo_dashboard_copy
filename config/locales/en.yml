@@ -92,7 +92,7 @@ en:
             first_appointment: "First Appointment"
             location: "Location"
             second_contact: "Second Contact"
-            second_contact: "Third Contact"
+            third_contact: "Third Contact"
             final_appointment: "Final Appointment"
             status: "Status"
             legend:
