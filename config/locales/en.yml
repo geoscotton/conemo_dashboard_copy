@@ -55,9 +55,9 @@ en:
         new:
           heading: Create Note for
         options:
-          technical_difficulties: Technical Difficulties
+          programmed_follow_up_call: Programmed follow-up call
           non_adherence: Non-adherence
-          positive_reinforcement: Positive Reinforcement
+          patient_requested_call: Requested phone call by patient
           other: Other
       smartphones:
         new:

@@ -9,9 +9,9 @@
     <%= builder.label :contact_reason, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= builder.select :contact_reason, options_for_select([
-                                                        "#{t 'conemo.views.patient_contacts.options.technical_difficulties'}", 
+                                                        "#{t 'conemo.views.patient_contacts.options.programmed_follow_up_call'}", 
                                                         "#{t 'conemo.views.patient_contacts.options.non_adherence'}",
-                                                        "#{t 'conemo.views.patient_contacts.options.positive_reinforcement'}",
+                                                        "#{t 'conemo.views.patient_contacts.options.patient_requested_call'}",
                                                         "#{t 'conemo.views.patient_contacts.options.other'}"
                                                         ], "#{t 'conemo.views.patient_contacts.options.other'}"),
         {}, {class: "form-control"} %>

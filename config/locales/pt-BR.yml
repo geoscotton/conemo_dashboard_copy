@@ -65,10 +65,10 @@ pt-BR:
         new:
           heading: Escrever nota para
         options:
-          technical_difficulties: Dificuldades técnicas
-          non_adherence: Não adesão
-          positive_reinforcement: Reforço positivo
-          other: Other
+          programmed_follow_up_call: Llamada de seguimiento programada
+          non_adherence: No-adherencia a la intervención
+          patient_requested_call: Llamada solicitada por el paciente
+          other: Otro
       participants:
         new:
           heading: "Cadastrar novo participante"

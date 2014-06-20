@@ -56,10 +56,10 @@ es-PE:
         new:
           heading: Escribir una nota de
         options:
-          technical_difficulties: Dificultades técnicas
-          non_adherence: No-adherencia
-          positive_reinforcement: refuerzo positivo
-          other: Other
+          programmed_follow_up_call: Llamada de seguimiento programada
+          non_adherence: No-adherencia a la intervención
+          patient_requested_call: Llamada solicitada por el paciente
+          other: Otro
       smartphones:
         new:
           heading: "Incluir información de smartphone"
