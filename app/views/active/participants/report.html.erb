@@ -56,14 +56,14 @@
     </table>
   </div>
   <div class="col-md-7 col-sm-7 col-xs-7">
-    <table class="table accordion-toggle" data-toggle="collapse" data-target="#lesson-table">
+    <table class="table">
       <thead>
         <th><%=t "conemo.views.active.participants.report.release_day" %></th>
         <th><%=t "conemo.views.active.participants.report.lesson" %></th>
         <th><%=t "conemo.views.active.participants.report.patient_response" %></th>
         <th><%=t "conemo.views.active.participants.report.access_count" %></th>
       </thead>
-      <tbody class="accordion-body collapse" id="lessons-table">
+      <tbody>
         <% @lessons.each do |lesson| %>
           <tr class="<%= @participant.lesson_status(lesson) %>">
             <td><%=l @participant.start_date + lesson.day_in_treatment.days, format: :long %></td>
