@@ -8,7 +8,7 @@ class FinalAppointmentsController < ApplicationController
 
   def create
     @final_appointment = participant
-                          .build_final_appointment(final_appointment_params)
+    .build_final_appointment(final_appointment_params)
     if @final_appointment.save
       redirect_to active_participants_path,
                   notice: "Successfully created first appointment"
@@ -37,14 +37,15 @@ class FinalAppointmentsController < ApplicationController
 
   def final_appointment_params
     params.require(:final_appointment).permit(
-      :participant_id, :appointment_at,
-      :appointment_location, :phone_returned, :notes
-      )
+        :participant_id, :appointment_at,
+        :appointment_location, :phone_returned, :notes
+    )
   end
 
   def participant
     Participant.find(params[:participant_id])
   end
+
   helper_method :participant
 
   def record_not_found

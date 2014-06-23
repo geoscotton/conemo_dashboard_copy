@@ -1,13 +1,13 @@
-<h2><%=t "conemo.views.active.participants.show.smartphone_heading" %> <%= link_to '', edit_participant_smartphone_path(smartphone.participant), class: "fa fa-edit" %></h2>
-<p><strong><%=t "helpers.label.smartphone.number" %>:</strong>
+<h2><%= t "conemo.views.active.participants.show.smartphone_heading" %> <%= link_to '', edit_participant_smartphone_path(smartphone.participant), class: "fa fa-edit" %></h2>
+<p><strong><%= t "helpers.label.smartphone.number" %>:</strong>
   <%= smartphone.number %>
 </p>
-<p><strong><%=t "helpers.label.smartphone.is_app_compatible" %></strong>
+<p><strong><%= t "helpers.label.smartphone.is_app_compatible" %></strong>
   <%= smartphone.is_app_compatible %>
 </p>
-<p><strong><%=t "helpers.label.smartphone.is_owned_by_participant" %></strong>
+<p><strong><%= t "helpers.label.smartphone.is_owned_by_participant" %></strong>
   <%= smartphone.is_owned_by_participant %>
 </p>
-<p><strong><%=t "helpers.label.smartphone.is_smartphone_owner" %></strong>
+<p><strong><%= t "helpers.label.smartphone.is_smartphone_owner" %></strong>
   <%= smartphone.is_smartphone_owner %>
 </p>

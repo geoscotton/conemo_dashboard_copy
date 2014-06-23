@@ -1,41 +1,41 @@
 <%= f.fields_for :nurse_participant_evaluation, nurse_participant_evaluation do |builder| %>
-  <div class="form-group">
-    <%= builder.label :smartphone_comfort, class: "col-md-4 control-label" %>
-    <div class="col-md-6">
-      <%= builder.select :smartphone_comfort, options_for_select([
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o5")}",5],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o4")}",4],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o3")}",3],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o2")}",2],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o1")}",1]
-        ], selected: 5),
-        {}, {class: "form-control", required: true} %>
+    <div class="form-group">
+      <%= builder.label :smartphone_comfort, class: "col-md-4 control-label" %>
+      <div class="col-md-6">
+        <%= builder.select :smartphone_comfort, options_for_select([
+                                                                           ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o5")}", 5],
+                                                                           ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o4")}", 4],
+                                                                           ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o3")}", 3],
+                                                                           ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o2")}", 2],
+                                                                           ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.smartphone_comfort_options.o1")}", 1]
+                                                                   ], selected: 5),
+                           {}, {class: "form-control", required: true} %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= builder.label :participant_session_engagement, class: "col-md-4 control-label" %>
-    <div class="col-md-6">
-      <%= builder.select :participant_session_engagement, options_for_select([
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o5")}",5],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o4")}",4],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o3")}",3],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o2")}",2],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o1")}",1]
-        ], selected: 5),
-        {}, {class: "form-control", required: true} %>
+    <div class="form-group">
+      <%= builder.label :participant_session_engagement, class: "col-md-4 control-label" %>
+      <div class="col-md-6">
+        <%= builder.select :participant_session_engagement, options_for_select([
+                                                                                       ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o5")}", 5],
+                                                                                       ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o4")}", 4],
+                                                                                       ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o3")}", 3],
+                                                                                       ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o2")}", 2],
+                                                                                       ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.participant_session_engagement_options.o1")}", 1]
+                                                                               ], selected: 5),
+                           {}, {class: "form-control", required: true} %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= builder.label :app_usage_prediction, class: "col-md-4 control-label" %>
-    <div class="col-md-6">
-      <%= builder.select :app_usage_prediction, options_for_select([
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o5")}",5],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o4")}",4],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o3")}",3],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o2")}",2],
-          ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o1")}",1]
-        ], selected: 5),
-        {}, {class: "form-control", required: true} %>
+    <div class="form-group">
+      <%= builder.label :app_usage_prediction, class: "col-md-4 control-label" %>
+      <div class="col-md-6">
+        <%= builder.select :app_usage_prediction, options_for_select([
+                                                                             ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o5")}", 5],
+                                                                             ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o4")}", 4],
+                                                                             ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o3")}", 3],
+                                                                             ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o2")}", 2],
+                                                                             ["#{t("conemo.views.first_appointments.nurse_participant_evaluation.form.app_usage_prediction_options.o1")}", 1]
+                                                                     ], selected: 5),
+                           {}, {class: "form-control", required: true} %>
+      </div>
     </div>
-  </div>
 <% end %>

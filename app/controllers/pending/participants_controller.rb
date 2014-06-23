@@ -5,11 +5,11 @@ module Pending
 
     def index
       @pending_participants = Participant
-                                .pending
-                                .where(locale: params[:locale])
+      .pending
+      .where(locale: params[:locale])
       @ineligible_participants = Participant
-                                  .ineligible
-                                  .where(locale: params[:locale])
+      .ineligible
+      .where(locale: params[:locale])
     end
 
     def activate

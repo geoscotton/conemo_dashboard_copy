@@ -22,7 +22,7 @@ class Lesson < ActiveRecord::Base
   end
 
   def build_slide(params = {})
-    slideshow.slides.build({ position: last_position + 1 }.merge(params))
+    slideshow.slides.build({position: last_position + 1}.merge(params))
   end
 
   def destroy_slide(slide)
@@ -36,7 +36,7 @@ class Lesson < ActiveRecord::Base
   def update_slide_order(ids)
     self.class.transaction do
       self.class.connection.execute(
-        "SET CONSTRAINTS bit_core_slide_position DEFERRED"
+          "SET CONSTRAINTS bit_core_slide_position DEFERRED"
       )
       ids.each_with_index do |id, index|
         slides.find(id).update_attribute(:position, index + 1)

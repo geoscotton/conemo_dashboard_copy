@@ -20,7 +20,7 @@ class SlidesController < ApplicationController
                   notice: I18n.t("conemo.controllers.slides.saved")
     else
       flash.now[:alert] = I18n.t("conemo.controllers.slides.not_saved") +
-        ": " + @slide.errors.full_messages.join(", ")
+          ": " + @slide.errors.full_messages.join(", ")
       render :new
     end
   end
@@ -37,7 +37,7 @@ class SlidesController < ApplicationController
                   notice: I18n.t("conemo.controllers.slides.saved")
     else
       flash.now[:alert] = I18n.t("conemo.controllers.slides.not_saved") +
-        ": " + @slide.errors.full_messages.join(", ")
+          ": " + @slide.errors.full_messages.join(", ")
       render :edit
     end
   end
@@ -51,7 +51,7 @@ class SlidesController < ApplicationController
     else
       redirect_to lesson_url(@lesson),
                   alert: I18n.t("conemo.controllers.slides.not_destroyed") +
-                         ": " + @slide.errors.full_messages.join(", ")
+                      ": " + @slide.errors.full_messages.join(", ")
     end
   end
 

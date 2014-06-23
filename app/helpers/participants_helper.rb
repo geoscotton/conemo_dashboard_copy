@@ -37,8 +37,8 @@ module ParticipantsHelper
       ""
     elsif participant.first_contact
       link_to " #{t 'conemo.views.shared.reschedule'}",
-            missed_appointment_path(participant_id: participant.id, id: participant.first_contact.id),
-            class: "fa fa-edit reschedule-link"
+              missed_appointment_path(participant_id: participant.id, id: participant.first_contact.id),
+              class: "fa fa-edit reschedule-link"
     else
       ""
     end
@@ -71,8 +71,8 @@ module ParticipantsHelper
       ""
     elsif participant.first_appointment
       link_to " #{t 'conemo.views.shared.reschedule'}",
-            missed_second_contact_path(participant_id: participant.id, id: participant.first_appointment.id),
-            class: "fa fa-edit reschedule-link"
+              missed_second_contact_path(participant_id: participant.id, id: participant.first_appointment.id),
+              class: "fa fa-edit reschedule-link"
     else
       ""
     end
@@ -127,8 +127,8 @@ module ParticipantsHelper
       ""
     elsif participant.third_contact
       link_to " #{t 'conemo.views.shared.reschedule'}",
-            missed_final_appointment_path(participant_id: participant.id, id: participant.third_contact.id),
-            class: "fa fa-edit reschedule-link"
+              missed_final_appointment_path(participant_id: participant.id, id: participant.third_contact.id),
+              class: "fa fa-edit reschedule-link"
     else
       ""
     end
@@ -151,16 +151,16 @@ module ParticipantsHelper
 
   def study_status(participant)
     case participant.current_study_status
-    when "stable"
-      "green"
-    when "warning"
-      "yellow"
-    when "danger"
-      "red"
-    when "none"
-      "none"
-    else
-      "disabled"
+      when "stable"
+        "green"
+      when "warning"
+        "yellow"
+      when "danger"
+        "red"
+      when "none"
+        "none"
+      else
+        "disabled"
     end
   end
 end

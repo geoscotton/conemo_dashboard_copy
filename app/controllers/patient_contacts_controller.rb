@@ -39,14 +39,15 @@ class PatientContactsController < ApplicationController
 
   def patient_contact_params
     params.require(:patient_contact).permit(
-      :participant_id, :contact_at, :contact_reason,
-      :note
+        :participant_id, :contact_at, :contact_reason,
+        :note
     )
   end
 
   def participant
     Participant.find(params[:participant_id])
   end
+
   helper_method :participant
 
   def record_not_found

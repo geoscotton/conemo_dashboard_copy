@@ -24,11 +24,11 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options(options = {})
-    { locale: I18n.locale }
+    {locale: I18n.locale}
   end
 
   def authorize_locale
-    if current_user 
+    if current_user
       if current_user.nurse? && current_user.locale != params[:locale]
         redirect_to root_path(locale: current_user.locale)
       end

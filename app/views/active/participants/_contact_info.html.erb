@@ -1,42 +1,43 @@
-<h2><%=t "conemo.views.active.participants.show.contact_heading" %> <%= link_to '', edit_participant_path(participant), class: "fa fa-edit" %></h2>
-  <p><strong><%=t "helpers.label.participant.first_name" %>:</strong>
-    <%= participant.first_name %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.last_name" %>:</strong>
-    <%= participant.last_name %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.study_identifier" %>:</strong>
-    <%= participant.study_identifier %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.family_health_unit_name" %>:</strong>
-    <%= participant.family_health_unit_name %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.family_record_number" %>:</strong>
-    <%= participant.family_record_number %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.phone" %>:</strong>
-    <%= participant.phone %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.emergency_contact_name" %>:</strong>
-    <%= participant.emergency_contact_name %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.emergency_contact_phone" %>:</strong>
-    <%= participant.emergency_contact_phone %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.email" %>:</strong>
-    <%= participant.email %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.date_of_birth" %>:</strong>
-    <%=l participant.date_of_birth, format: :long %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.address" %>:</strong>
-    <%= participant.address %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.enrollment_date" %>:</strong>
-    <%=l participant.enrollment_date, format: :long %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.gender" %>:</strong>
-    <%= participant.gender %>
-  </p>
-  <p><strong><%=t "helpers.label.participant.key_chronic_disorder" %>:</strong> <%= participant.diabetes ? "#{t 'conemo.views.participants.form.diabetes'}" : "" %> <%= participant.hypertension ? "#{t 'conemo.views.participants.form.hypertension'}" : "" %>
-  </p>
+<h2><%= t "conemo.views.active.participants.show.contact_heading" %> <%= link_to '', edit_participant_path(participant), class: "fa fa-edit" %></h2>
+<p><strong><%= t "helpers.label.participant.first_name" %>:</strong>
+  <%= participant.first_name %>
+</p>
+<p><strong><%= t "helpers.label.participant.last_name" %>:</strong>
+  <%= participant.last_name %>
+</p>
+<p><strong><%= t "helpers.label.participant.study_identifier" %>:</strong>
+  <%= participant.study_identifier %>
+</p>
+<p><strong><%= t "helpers.label.participant.family_health_unit_name" %>:</strong>
+  <%= participant.family_health_unit_name %>
+</p>
+<p><strong><%= t "helpers.label.participant.family_record_number" %>:</strong>
+  <%= participant.family_record_number %>
+</p>
+<p><strong><%= t "helpers.label.participant.phone" %>:</strong>
+  <%= participant.phone %>
+</p>
+<p><strong><%= t "helpers.label.participant.emergency_contact_name" %>:</strong>
+  <%= participant.emergency_contact_name %>
+</p>
+<p><strong><%= t "helpers.label.participant.emergency_contact_phone" %>:</strong>
+  <%= participant.emergency_contact_phone %>
+</p>
+<p><strong><%= t "helpers.label.participant.email" %>:</strong>
+  <%= participant.email %>
+</p>
+<p><strong><%= t "helpers.label.participant.date_of_birth" %>:</strong>
+  <%= l participant.date_of_birth, format: :long %>
+</p>
+<p><strong><%= t "helpers.label.participant.address" %>:</strong>
+  <%= participant.address %>
+</p>
+<p><strong><%= t "helpers.label.participant.enrollment_date" %>:</strong>
+  <%= l participant.enrollment_date, format: :long %>
+</p>
+<p><strong><%= t "helpers.label.participant.gender" %>:</strong>
+  <%= participant.gender %>
+</p>
+<p><strong><%= t "helpers.label.participant.key_chronic_disorder" %>
+  :</strong> <%= participant.diabetes ? "#{t 'conemo.views.participants.form.diabetes'}" : "" %> <%= participant.hypertension ? "#{t 'conemo.views.participants.form.hypertension'}" : "" %>
+</p>

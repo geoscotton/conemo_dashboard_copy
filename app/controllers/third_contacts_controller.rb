@@ -41,20 +41,21 @@ class ThirdContactsController < ApplicationController
 
   def third_contact_params
     params.require(:third_contact).permit(
-      :participant_id, :contacted_at,
-      :notes, :session_length, 
-      :final_appointment_at,
-      :final_appointment_location,
-      patient_contacts_attributes: [
-        :third_contact_id, :contact_reason, :participant_id,
-        :note, :contact_at
-      ]
+        :participant_id, :contacted_at,
+        :notes, :session_length,
+        :final_appointment_at,
+        :final_appointment_location,
+        patient_contacts_attributes: [
+            :third_contact_id, :contact_reason, :participant_id,
+            :note, :contact_at
+        ]
     )
   end
 
   def participant
     Participant.find(params[:participant_id])
   end
+
   helper_method :participant
 
   def record_not_found

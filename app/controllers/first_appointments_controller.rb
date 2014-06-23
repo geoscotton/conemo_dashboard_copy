@@ -5,16 +5,16 @@ class FirstAppointmentsController < ApplicationController
   def new
     @first_appointment = participant.build_first_appointment
     @nurse_participant_evaluation = @first_appointment
-                                      .build_nurse_participant_evaluation
+    .build_nurse_participant_evaluation
   end
 
   def create
     @first_appointment = participant
-                          .build_first_appointment(first_appointment_params)
+    .build_first_appointment(first_appointment_params)
     if @first_appointment.save
       @first_appointment.schedule_message(
-        participant,
-        "appointment"
+          participant,
+          "appointment"
       )
       redirect_to new_participant_smartphone_path,
                   notice: "Successfully created first appointment"
@@ -37,7 +37,7 @@ class FirstAppointmentsController < ApplicationController
     @first_appointment = participant.first_appointment
     if @first_appointment.update(first_appointment_params)
       @first_appointment.schedule_message(participant,
-                                      "contact")
+                                          "contact")
       redirect_to active_participants_path,
                   notice: "Successfully updated first_appointment"
     else
@@ -50,24 +50,25 @@ class FirstAppointmentsController < ApplicationController
 
   def first_appointment_params
     params.require(:first_appointment).permit(
-      :participant_id, :appointment_at, :appointment_location,
-      :next_contact, :session_length, :notes,
-      patient_contacts_attributes: [
-        :first_appointment_id, :contact_reason, :participant_id,
-        :note, :contact_at
-      ],
-      nurse_participant_evaluation_attributes: [
-        :first_appointment_id,
-        :smartphone_comfort,
-        :participant_session_engagement,
-        :app_usage_prediction
-      ]
+        :participant_id, :appointment_at, :appointment_location,
+        :next_contact, :session_length, :notes,
+        patient_contacts_attributes: [
+            :first_appointment_id, :contact_reason, :participant_id,
+            :note, :contact_at
+        ],
+        nurse_participant_evaluation_attributes: [
+            :first_appointment_id,
+            :smartphone_comfort,
+            :participant_session_engagement,
+            :app_usage_prediction
+        ]
     )
   end
 
   def participant
     Participant.find(params[:participant_id])
   end
+
   helper_method :participant
 
   def record_not_found

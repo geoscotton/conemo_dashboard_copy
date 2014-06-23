@@ -1,7 +1,7 @@
-<h2><%=t "conemo.views.active.participants.show.second_contact_heading" %> <%= link_to '', edit_participant_second_contact_path(second_contact.participant), class: "fa fa-edit" %></h2>
-<p><strong><%=t "helpers.label.second_contact.contact_at" %>:</strong>
+<h2><%= t "conemo.views.active.participants.show.second_contact_heading" %> <%= link_to '', edit_participant_second_contact_path(second_contact.participant), class: "fa fa-edit" %></h2>
+<p><strong><%= t "helpers.label.second_contact.contact_at" %>:</strong>
   <%= second_contact.contact_at.to_s(:long) %>
-<p><strong><%=t "helpers.label.second_contact.session_length" %>:</strong>
+<p><strong><%= t "helpers.label.second_contact.session_length" %>:</strong>
   <%= second_contact.session_length %>
-<p><strong><%=t "helpers.label.second_contact.video_access" %>:</strong>
-  <%= second_contact.video_access %>
+<p><strong><%= t "helpers.label.second_contact.video_access" %>:</strong>
+<%= second_contact.video_access %>

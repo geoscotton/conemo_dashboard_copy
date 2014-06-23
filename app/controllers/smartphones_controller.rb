@@ -36,14 +36,15 @@ class SmartphonesController < ApplicationController
 
   def smartphone_params
     params.require(:smartphone).permit(
-      :participant_id, :number, :is_app_compatible,
-      :is_owned_by_participant, :is_smartphone_owner
+        :participant_id, :number, :is_app_compatible,
+        :is_owned_by_participant, :is_smartphone_owner
     )
   end
 
   def participant
     Participant.find(params[:participant_id])
   end
+
   helper_method :participant
 
   def record_not_found
