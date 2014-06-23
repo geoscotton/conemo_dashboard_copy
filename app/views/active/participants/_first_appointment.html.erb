@@ -1,7 +1,7 @@
-<h2><%=t "conemo.views.active.participants.show.first_appointment_heading" %> <%= link_to '', edit_participant_first_appointment_path(first_appointment.participant), class: "fa fa-edit" %></h2>
-<p><strong><%=t "helpers.label.first_appointment.appointment_at" %>:</strong>
+<h2><%= t "conemo.views.active.participants.show.first_appointment_heading" %> <%= link_to '', edit_participant_first_appointment_path(first_appointment.participant), class: "fa fa-edit" %></h2>
+<p><strong><%= t "helpers.label.first_appointment.appointment_at" %>:</strong>
   <%= first_appointment.appointment_at.to_s(:long) %>
-<p><strong><%=t "helpers.label.first_appointment.appointment_location" %>:</strong>
+<p><strong><%= t "helpers.label.first_appointment.appointment_location" %>:</strong>
   <%= first_appointment.appointment_location %>
-<p><strong><%=t "helpers.label.first_appointment.session_length" %>:</strong>
-  <%= first_appointment.session_length %>
+<p><strong><%= t "helpers.label.first_appointment.session_length" %>:</strong>
+<%= first_appointment.session_length %>

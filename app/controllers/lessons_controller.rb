@@ -1,7 +1,7 @@
 # Manages Lessons.
 class LessonsController < ApplicationController
   layout "lesson_editor"
-  
+
   def index
     authorize! :index, Lesson
     @lessons = locale_lessons.order('day_in_treatment ASC')
@@ -17,7 +17,7 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new({ locale: I18n.locale }.merge(lesson_params))
+    @lesson = Lesson.new({locale: I18n.locale}.merge(lesson_params))
     authorize! :create, @lesson
 
     if @lesson.save
@@ -25,7 +25,7 @@ class LessonsController < ApplicationController
                   notice: I18n.t("conemo.controllers.lessons.saved")
     else
       flash.now[:alert] = I18n.t("conemo.controllers.lessons.not_saved") +
-        ": " + validation_errors
+          ": " + validation_errors
       render :new
     end
   end
@@ -42,7 +42,7 @@ class LessonsController < ApplicationController
                   notice: I18n.t("conemo.controllers.lessons.saved")
     else
       flash.now[:alert] = I18n.t("conemo.controllers.lessons.not_saved") +
-        ": " + validation_errors
+          ": " + validation_errors
       render :new
     end
   end
@@ -56,7 +56,7 @@ class LessonsController < ApplicationController
     else
       redirect_to lessons_url,
                   alert: I18n.t("conemo.controllers.lessons.not_destroyed") +
-                         ": " + validation_errors
+                      ": " + validation_errors
     end
   end
 

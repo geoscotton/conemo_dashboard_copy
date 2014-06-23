@@ -5,7 +5,7 @@ class SecondContactsController < ApplicationController
   def new
     @second_contact = participant.build_second_contact
     @nurse_participant_evaluation = @second_contact
-                                      .build_nurse_participant_evaluation
+    .build_nurse_participant_evaluation
   end
 
   def create
@@ -36,24 +36,25 @@ class SecondContactsController < ApplicationController
 
   def second_contact_params
     params.require(:second_contact).permit(
-      :participant_id, :contact_at, :video_access,
-      :notes, :session_length,
-      patient_contacts_attributes: [
-        :second_contact_id, :contact_reason, :participant_id,
-        :note, :contact_at
-      ],
-      nurse_participant_evaluation_attributes: [
-        :first_appointment_id,
-        :smartphone_comfort,
-        :participant_session_engagement,
-        :app_usage_prediction
-      ]
+        :participant_id, :contact_at, :video_access,
+        :notes, :session_length,
+        patient_contacts_attributes: [
+            :second_contact_id, :contact_reason, :participant_id,
+            :note, :contact_at
+        ],
+        nurse_participant_evaluation_attributes: [
+            :first_appointment_id,
+            :smartphone_comfort,
+            :participant_session_engagement,
+            :app_usage_prediction
+        ]
     )
   end
 
   def participant
     Participant.find(params[:participant_id])
   end
+
   helper_method :participant
 
   def record_not_found

@@ -2,7 +2,8 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="pull-left table-title"><%=t "conemo.views.active.participants.index.heading" %></h1>
+        <h1 class="pull-left table-title"><%= t "conemo.views.active.participants.index.heading" %></h1>
+
         <div class="legend">
           <%= render "legend" %>
         </div>
@@ -10,76 +11,80 @@
     </div>
     <table class="table table-striped table-bordered active-index">
       <tr>
-        <th><%=t "conemo.views.shared.nurse" %></th>
-        <th><%=t "conemo.views.active.participants.index.name" %></th>
-        <th><%=t "conemo.views.active.participants.index.study_identifier" %></th>
-        <th><%=t "conemo.views.active.participants.index.first_contact" %></th>
-        <th><%=t "conemo.views.active.participants.index.first_appointment" %></th>
-        <th><%=t "conemo.views.active.participants.index.second_contact" %></th>
-        <th><%=t "conemo.views.active.participants.index.third_contact" %></th>
-        <th><%=t "conemo.views.active.participants.index.final_appointment" %></th>
-        <th><%=t 'conemo.views.active.participants.report.notes' %></th>
-        <th><%=t "conemo.views.active.participants.index.status" %></th>
+        <th><%= t "conemo.views.shared.nurse" %></th>
+        <th><%= t "conemo.views.active.participants.index.name" %></th>
+        <th><%= t "conemo.views.active.participants.index.study_identifier" %></th>
+        <th><%= t "conemo.views.active.participants.index.first_contact" %></th>
+        <th><%= t "conemo.views.active.participants.index.first_appointment" %></th>
+        <th><%= t "conemo.views.active.participants.index.second_contact" %></th>
+        <th><%= t "conemo.views.active.participants.index.third_contact" %></th>
+        <th><%= t "conemo.views.active.participants.index.final_appointment" %></th>
+        <th><%= t 'conemo.views.active.participants.report.notes' %></th>
+        <th><%= t "conemo.views.active.participants.index.status" %></th>
       </tr>
       <% @participants.each do |participant| %>
-        <tr>
-          <% if current_user.admin? && participant.nurse %>
-            <td><%= link_to participant.nurse.last_name, pending_activate_path(participant), id: "activate_#{participant.id}" %></td>
-          <% elsif participant.nurse %>
-            <td><%= participant.nurse.last_name %></td>
-          <% else %>
-            <td><%= link_to "#{t "conemo.views.shared.nurse"}", pending_activate_path(participant), id: "activate_#{participant.id}" %></td>
-          <% end %>
-          <td><%= link_to "#{fa_icon 'edit'} #{participant.last_name}, #{participant.first_name}".html_safe, active_participant_path(participant)%></td>
-          <td><%= participant.study_identifier %></td>
-          <td><%= first_contact(participant).html_safe %></td>
-          <td>
-            <%= first_appointment(participant).html_safe %><br>
-            <div class="btn-group">
-              <%= first_appointment_link(participant) %>
-              <%= reschedule_first_appointment(participant) %>
-            </div>
-          </td>
-          <td>
-            <%= second_contact(participant).html_safe %><br>
-            <div class="btn-group">
-              <%= second_contact_link(participant) %>
-              <%= reschedule_second_contact(participant) %>
-            </div>
-          </td>
-          <td>
-            <%= third_contact(participant).html_safe %><br>
-            <div class="btn-group">
-              <%= third_contact_link(participant) %>
-            </div>
-          </td>
-          <td>
-            <%= final_appointment(participant).html_safe %><br>
-            <div class="btn-group">
-              <%= final_appointment_link(participant) %>
-              <%= reschedule_final_appointment(participant) %>
-            </div>
-          </td>
-          <td>
-            <%= link_to "#{fa_icon 'pencil-square 2x'}".html_safe, new_participant_patient_contact_path(participant), style: "color:white;" %>
-          </td>
-          <td class="text-center">
-            <%= render_status_link(participant) %>
-          </td>
-        </tr>
+          <tr>
+            <% if current_user.admin? && participant.nurse %>
+                <td><%= link_to participant.nurse.last_name, pending_activate_path(participant), id: "activate_#{participant.id}" %></td>
+            <% elsif participant.nurse %>
+                <td><%= participant.nurse.last_name %></td>
+            <% else %>
+                <td><%= link_to "#{t "conemo.views.shared.nurse"}", pending_activate_path(participant), id: "activate_#{participant.id}" %></td>
+            <% end %>
+            <td><%= link_to "#{fa_icon 'edit'} #{participant.last_name}, #{participant.first_name}".html_safe, active_participant_path(participant) %></td>
+            <td><%= participant.study_identifier %></td>
+            <td><%= first_contact(participant).html_safe %></td>
+            <td>
+              <%= first_appointment(participant).html_safe %>
+              <br>
+              <div class="btn-group">
+                <%= first_appointment_link(participant) %>
+                <%= reschedule_first_appointment(participant) %>
+              </div>
+            </td>
+            <td>
+              <%= second_contact(participant).html_safe %>
+              <br>
+              <div class="btn-group">
+                <%= second_contact_link(participant) %>
+                <%= reschedule_second_contact(participant) %>
+              </div>
+            </td>
+            <td>
+              <%= third_contact(participant).html_safe %>
+              <br>
+              <div class="btn-group">
+                <%= third_contact_link(participant) %>
+              </div>
+            </td>
+            <td>
+              <%= final_appointment(participant).html_safe %>
+              <br>
+              <div class="btn-group">
+                <%= final_appointment_link(participant) %>
+                <%= reschedule_final_appointment(participant) %>
+              </div>
+            </td>
+            <td>
+              <%= link_to "#{fa_icon 'pencil-square 2x'}".html_safe, new_participant_patient_contact_path(participant), style: "color:white;" %>
+            </td>
+            <td class="text-center">
+              <%= render_status_link(participant) %>
+            </td>
+          </tr>
       <% end %>
     </table>
   </div>
 </div>
 <script>
 
-  function blinker() {
-    $('.blink-me').fadeOut(1500);
-    $('.blink-me').fadeIn(1500);
-  }
+    function blinker() {
+        $('.blink-me').fadeOut(1500);
+        $('.blink-me').fadeIn(1500);
+    }
 
-  setInterval(blinker, 1000);
-  
-  $(document).ready(blinker);
-  $(document).on("page:change", blinker);
+    setInterval(blinker, 1000);
+
+    $(document).ready(blinker);
+    $(document).on("page:change", blinker);
 </script

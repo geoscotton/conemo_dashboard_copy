@@ -15,7 +15,7 @@ module Status
       end
     end
   end
-          
+
   # Lesson Status
   def lesson_status(lesson)
     if lesson_released?(lesson)
@@ -49,27 +49,27 @@ module Status
 
   def next_lesson(lesson)
     Lesson.where("day_in_treatment > ?", lesson.day_in_treatment)
-          .where(locale: locale)
-          .order(day_in_treatment: :asc).first
+    .where(locale: locale)
+    .order(day_in_treatment: :asc).first
   end
 
   # Overall Status
   def current_lesson
     Lesson.where("day_in_treatment <= ?", study_day)
-          .where(locale: locale)
-          .order(day_in_treatment: :desc).first
+    .where(locale: locale)
+    .order(day_in_treatment: :desc).first
   end
 
   def one_lesson_ago
     Lesson.where("day_in_treatment <= ?", study_day)
-          .where(locale: locale)
-          .order(day_in_treatment: :desc).second
+    .where(locale: locale)
+    .order(day_in_treatment: :desc).second
   end
 
   def two_lessons_ago
     Lesson.where("day_in_treatment <= ?", study_day)
-          .where(locale: locale)
-          .order(day_in_treatment: :desc).offset(2).first
+    .where(locale: locale)
+    .order(day_in_treatment: :desc).offset(2).first
   end
 
   def two_lessons_ago_complete?
@@ -89,7 +89,7 @@ module Status
         !two_lessons_ago_complete?
       "danger"
     elsif !one_lesson_ago_complete? ||
-          !two_lessons_ago_complete?
+        !two_lessons_ago_complete?
       "warning"
     else
       "stable"

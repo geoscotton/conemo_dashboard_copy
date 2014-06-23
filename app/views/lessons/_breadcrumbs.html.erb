@@ -1,9 +1,9 @@
 <ol class="breadcrumb">
   <% unless (is_root ||= false) %>
-    <li><%= link_to "Lessons", lessons_path %></li>
+      <li><%= link_to "Lessons", lessons_path %></li>
   <% end %>
   <% (breadcrumbs ||= []).each do |b| %>
-    <li><%= link_to b[0], b[1] %></li>
+      <li><%= link_to b[0], b[1] %></li>
   <% end %>
   <% active = is_root ? "Lessons" : active %>
   <li class="active"><%= active %></li>

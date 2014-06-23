@@ -10,7 +10,8 @@ body {
 div.dashboard {
   width: 100%
 }
-div.dashboard div{
+
+div.dashboard div {
   margin-bottom: 7px;
 }
 
@@ -23,6 +24,7 @@ a.table-link {
   text-decoration: none;
   color: skyblue;
 }
+
 a.reschedule-link {
   padding: 4px;
   text-decoration: none;
@@ -43,18 +45,23 @@ i.status {
   margin-right: 10px;
   color: green;
 }
+
 .green {
   color: green !important;
 }
+
 .yellow {
   color: yellow !important;
 }
+
 .red {
   color: red !important;
 }
+
 .disabled {
   color: lightgray !important;
 }
+
 .none {
   display: none;
 }
@@ -62,12 +69,15 @@ i.status {
 i.success {
   color: green;
 }
+
 i.info {
   color: #5bc0de;
 }
+
 i.danger {
   color: red;
 }
+
 i.warning {
   color: yellow;
 }
@@ -79,9 +89,11 @@ div.access-count {
   margin-bottom: 15px;
   background: #4e5d6c;
 }
+
 div.access-count h5 {
   color: white;
 }
+
 div.access-count span {
   font-size: 62px;
   color: white;
@@ -89,8 +101,8 @@ div.access-count span {
   top: -20px;
 }
 
-div.report thead{
-  background-color:#4e5d6c;
+div.report thead {
+  background-color: #4e5d6c;
   color: white;
 }
 
@@ -105,9 +117,11 @@ div.profile p {
   margin-left: 5px;
   color: whitesmoke;
 }
+
 div.profile h2 {
   font-size: 20px;
 }
+
 div.profile div.notes {
   border: 3px solid darkgrey;
   padding: 10px;
@@ -118,11 +132,13 @@ a.navbar-brand {
   color: white !important;
   background-color: salmon;
 }
+
 a.admin {
   background-color: darkorange;
   margin-right: 14px;
   border-right: 1px solid gray;
 }
+
 a.navbar-brand:hover {
   color: #999 !important;
 
@@ -133,6 +149,7 @@ table.active-index td {
   text-align: center;
   min-width: 80px;
 }
+
 table.active-index th {
   text-align: center;
 }
@@ -142,12 +159,12 @@ div.legend {
   background-color: #4e5d6c;
   padding: 15px;
   width: 297px;
-  float:right;
+  float: right;
   margin-bottom: 10px;
   font-size: 90%
 }
 
-div.legend small{
+div.legend small {
   padding-right: 5px;
 }
 
@@ -159,6 +176,7 @@ div.lesson-legend {
 div.lesson-legend i {
   padding-left: 5px;
 }
+
 h1.table-title {
   position: relative;
   bottom: -35px;
@@ -168,22 +186,27 @@ h1.table-title {
   color: white;
   background-color: #5bc0de;
 }
+
 .navbar-default .navbar-nav > li > a.info:hover {
   color: #999;
   background-color: white;
 }
+
 .navbar-default .navbar-nav > li > a.primary {
   color: white;
   background-color: #428bca;
 }
+
 .navbar-default .navbar-nav > li > a.primary:hover {
   color: #999;
   background-color: white;
 }
+
 .navbar-default .navbar-nav > li > a.success {
   color: white;
   background-color: #5cb85c;
 }
+
 .navbar-default .navbar-nav > li > a.success:hover {
   color: #999;
   background-color: white;

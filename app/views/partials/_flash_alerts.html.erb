@@ -1,6 +1,6 @@
 <% if flash[:alert] || flash[:notice] %>
-  <div class="alert alert-<%= flash[:alert] ? "warning" : "info" %> alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <%= flash[:alert] || flash[:notice] %>
-  </div>
+    <div class="alert alert-<%= flash[:alert] ? "warning" : "info" %> alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= flash[:alert] || flash[:notice] %>
+    </div>
 <% end %>

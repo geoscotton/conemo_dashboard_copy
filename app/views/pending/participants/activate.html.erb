@@ -1,21 +1,21 @@
 <div class="row">
   <div class="col-md-12 well text-center">
-    <h1><%=t "conemo.views.pending.participants.activate.heading_1" %> <%= @participant.first_name %> <%= @participant.last_name %></h1>
+    <h1><%= t "conemo.views.pending.participants.activate.heading_1" %> <%= @participant.first_name %> <%= @participant.last_name %></h1>
     <br>
-    <%= form_for @participant, html: { role: "form", class: "form-horizontal" } do |f| %>
-      <div class="form-group">
-        <%= f.label :nurse_id, t("conemo.views.shared.nurse"), class: "col-md-3 control-label" %>
-        <div class="col-md-6">
-          <%= f.collection_select(:nurse_id, @nurses, :id, :last_name, {}, {class: 'form-control' })%>
+    <%= form_for @participant, html: {role: "form", class: "form-horizontal"} do |f| %>
+        <div class="form-group">
+          <%= f.label :nurse_id, t("conemo.views.shared.nurse"), class: "col-md-3 control-label" %>
+          <div class="col-md-6">
+            <%= f.collection_select(:nurse_id, @nurses, :id, :last_name, {}, {class: 'form-control'}) %>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-md-offset-3 col-md-6">
-          <%= f.hidden_field :status, value: "active" %>
-          <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-          <%= link_to t("conemo.views.shared.cancel_button"), @participant.status == "active" ? active_participants_path : pending_participants_path, class: "btn btn-default" %>
+        <div class="form-group">
+          <div class="col-md-offset-3 col-md-6">
+            <%= f.hidden_field :status, value: "active" %>
+            <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+            <%= link_to t("conemo.views.shared.cancel_button"), @participant.status == "active" ? active_participants_path : pending_participants_path, class: "btn btn-default" %>
+          </div>
         </div>
-      </div>
     <% end %>
   </div>
 </div>

@@ -1,5 +1,4 @@
 require "spec_helper"
-require 'ruby-debug'
 describe ReminderMessage do
   fixtures :participants, :users, :reminder_messages, :first_contacts
 

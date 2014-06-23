@@ -44,12 +44,12 @@ class ParticipantsController < ApplicationController
 
   def participant_params
     params.require(:participant).permit(
-      :first_name, :last_name, :study_identifier,
-      :email, :phone, :secondary_phone, :family_health_unit_name,
-      :family_record_number, :date_of_birth, :address,
-      :enrollment_date, :gender, :status,
-      :locale, :emergency_contact_name, :emergency_contact_phone,
-      :nurse_id, :diabetes, :hypertension
+        :first_name, :last_name, :study_identifier,
+        :email, :phone, :secondary_phone, :family_health_unit_name,
+        :family_record_number, :date_of_birth, :address,
+        :enrollment_date, :gender, :status,
+        :locale, :emergency_contact_name, :emergency_contact_phone,
+        :nurse_id, :diabetes, :hypertension
     )
   end
 

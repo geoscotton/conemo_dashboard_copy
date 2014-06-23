@@ -45,18 +45,19 @@ class FirstContactsController < ApplicationController
 
   def first_contact_params
     params.require(:first_contact).permit(
-      :participant_id, :contact_at, :first_appointment_at,
-      :first_appointment_location, :alternative_contact_name,
-      :alternative_contact_phone, patient_contacts_attributes: [
+        :participant_id, :contact_at, :first_appointment_at,
+        :first_appointment_location, :alternative_contact_name,
+        :alternative_contact_phone, patient_contacts_attributes: [
         :first_contact_id, :contact_reason, :participant_id,
         :note, :contact_at
-      ]
+    ]
     )
   end
 
   def participant
     Participant.find(params[:participant_id])
   end
+
   helper_method :participant
 
   def record_not_found

@@ -2,48 +2,49 @@
 <html>
 <head>
   <title>ConemoDashboard</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
-  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <%= link_to "ADMIN", rails_admin_path(locale: params[:locale]), class: "btn btn-primary pull-left navbar-brand admin" if current_user.admin? %>
-        <%= link_to "CONEMO", "/#{params[:locale]}", class: "navbar-brand" %>
-      </div>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to "ADMIN", rails_admin_path(locale: params[:locale]), class: "btn btn-primary pull-left navbar-brand admin" if current_user.admin? %>
+      <%= link_to "CONEMO", "/#{params[:locale]}", class: "navbar-brand" %>
+    </div>
 
-      <div class="navbar-collapse">
-        <% if !current_page?("/#{params[:locale]}") %>
+    <div class="navbar-collapse">
+      <% if !current_page?("/#{params[:locale]}") %>
           <ul class="nav navbar-nav">
             <li>
               <%= link_to t('conemo.views.dashboards.index.manage_button'), active_participants_path, class: "primary" %>
             </li>
             <% if user_signed_in? %>
-              <li>
-                <%= link_to t('conemo.views.dashboards.index.enrollment_button'), pending_participants_path, class: "info" unless !current_user.admin? %>
-              </li>
-              <li>
-                <%= link_to t('conemo.views.dashboards.index.lessons_button'), lessons_path, class: "success" unless !current_user.admin?  %>
-              </li>
+                <li>
+                  <%= link_to t('conemo.views.dashboards.index.enrollment_button'), pending_participants_path, class: "info" unless !current_user.admin? %>
+                </li>
+                <li>
+                  <%= link_to t('conemo.views.dashboards.index.lessons_button'), lessons_path, class: "success" unless !current_user.admin? %>
+                </li>
             <% end %>
           </ul>
-        <% end %>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="<%= I18n.locale == :en ? "active" : "" %>"><%= link_to "English", dashboard_path(locale: "en") %></li>
-          <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %>"><%= link_to "Español", dashboard_path(locale: "es-PE") %></li>
-          <li class="<%= I18n.locale == :"pt-BR" ? "active" : "" %>"><%= link_to "Português", dashboard_path(locale: "pt-BR") %></li>
-          <% if user_signed_in? %>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="<%= I18n.locale == :en ? "active" : "" %>"><%= link_to "English", dashboard_path(locale: "en") %></li>
+        <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %>"><%= link_to "Español", dashboard_path(locale: "es-PE") %></li>
+        <li class="<%= I18n.locale == :"pt-BR" ? "active" : "" %>"><%= link_to "Português", dashboard_path(locale: "pt-BR") %></li>
+        <% if user_signed_in? %>
             <li><%= link_to t("conemo.views.dashboards.index.sign_out"), destroy_user_session_path, method: :delete %></li>
-          <% end %>
-        </ul>
-      </div>
+        <% end %>
+      </ul>
     </div>
-  </div> <!-- navbar -->
-  <div class="container">
-    <%= yield %>
   </div>
+</div>
+<!-- navbar -->
+<div class="container">
+  <%= yield %>
+</div>
 </body>
 </html>

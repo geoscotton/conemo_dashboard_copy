@@ -10,7 +10,7 @@
   </div>
   <div class="col-md-3 col-sm-3 col-xs-3">
     <h1 class="pull-right">
-      <small> <%=t 'conemo.views.active.participants.report.overall_status' %></small>
+      <small> <%= t 'conemo.views.active.participants.report.overall_status' %></small>
       <%= render_large_status(@participant) %>
     </h1>
   </div>
@@ -20,104 +20,105 @@
   <div class="col-md-2 col-sm-2 col-xs-2">
     <div>
       <div class="access-count">
-        <h5 class="text-center"><%=t 'conemo.views.active.participants.report.seven_day_access_count' %></h5>
+        <h5 class="text-center"><%= t 'conemo.views.active.participants.report.seven_day_access_count' %></h5>
         <span><%= @participant.seven_day_access.count %></span>
       </div>
     </div>
     <div class="accordion">
-    <table class="table table-bordered accordion-toggle" data-toggle="collapse" data-target="#messages-table">
-      <thead>
-        <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%=t 'conemo.views.active.participants.report.messages' %></th>
-      </thead>
-      <tbody class="accordion-body collapse" id="messages-table">
+      <table class="table table-bordered accordion-toggle" data-toggle="collapse" data-target="#messages-table">
+        <thead>
+        <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t 'conemo.views.active.participants.report.messages' %></th>
+        </thead>
+        <tbody class="accordion-body collapse" id="messages-table">
         <% @participant.help_messages.each do |help_message| %>
-          <tr>
-            <td class="<%= help_message.read ? '' : 'warning' %>">
-            <%= link_to "#{fa_icon 'eye'}".html_safe, participant_help_message_path(id: help_message.id, participant_id: @participant.id, help_message: {read: true}), method: :put unless help_message.read %>
-              <%= help_message.message %><br>
-              <small><%=l help_message.sent_at, format: :long %></small>
-            </td>
-          </tr>
+            <tr>
+              <td class="<%= help_message.read ? '' : 'warning' %>">
+                <%= link_to "#{fa_icon 'eye'}".html_safe, participant_help_message_path(id: help_message.id, participant_id: @participant.id, help_message: {read: true}), method: :put unless help_message.read %>
+                <%= help_message.message %>
+                <br>
+                <small><%= l help_message.sent_at, format: :long %></small>
+              </td>
+            </tr>
         <% end %>
-      </tbody>
-    </table>
+        </tbody>
+      </table>
     </div>
     <table class="table table-bordered accordion-toggle" data-toggle="collapse" data-target="#logins-table">
       <thead>
-        <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%=t "conemo.views.active.participants.report.logins" %></th>
+      <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t "conemo.views.active.participants.report.logins" %></th>
       </thead>
       <tbody class="accordion-body collapse" id="logins-table">
-        <% @participant.logins.each do |login| %>
+      <% @participant.logins.each do |login| %>
           <tr>
-            <td><%=l login.logged_in_at, format: :long %></td>
+            <td><%= l login.logged_in_at, format: :long %></td>
           </tr>
-        <% end %>
+      <% end %>
       </tbody>
     </table>
   </div>
   <div class="col-md-7 col-sm-7 col-xs-7">
     <table class="table table-bordered">
       <thead>
-        <th><%=t "conemo.views.active.participants.report.release_day" %></th>
-        <th><%=t "conemo.views.active.participants.report.lesson" %></th>
-        <th><%=t "conemo.views.active.participants.report.patient_response" %></th>
-        <th><%=t "conemo.views.active.participants.report.access_count" %></th>
+      <th><%= t "conemo.views.active.participants.report.release_day" %></th>
+      <th><%= t "conemo.views.active.participants.report.lesson" %></th>
+      <th><%= t "conemo.views.active.participants.report.patient_response" %></th>
+      <th><%= t "conemo.views.active.participants.report.access_count" %></th>
       </thead>
       <tbody>
-        <% @lessons.each do |lesson| %>
+      <% @lessons.each do |lesson| %>
           <tr class="<%= @participant.lesson_status(lesson) %>">
-            <td><%=l @participant.start_date + lesson.day_in_treatment.days, format: :long %></td>
+            <td><%= l @participant.start_date + lesson.day_in_treatment.days, format: :long %></td>
             <td><%= lesson.title %></td>
             <td>
               <%= "#{lesson.content_access_events.find_by(participant_id: @participant.id).name.gsub(/[_]/, ' ')}: " rescue '' %>
               <%= lesson.content_access_events.find_by(participant_id: @participant.id).answer rescue '' %></td>
             <td><%= lesson.content_access_events.where(participant_id: @participant.id).count rescue '' %></td>
           </tr>
-        <% end %>
+      <% end %>
       </tbody>
     </table>
   </div>
   <div class="col-md-3 col-sm-3 col-xs-3">
     <table class="table accordion-toggle" data-toggle="collapse" data-target="#notes-table">
       <thead>
-        <th class="text-center"><%=t 'conemo.views.active.participants.report.notes' %><%= link_to "#{fa_icon 'plus-circle'}".html_safe, new_participant_patient_contact_path(@participant), class: "pull-right", style: "color:white;" %></th>
+      <th class="text-center"><%= t 'conemo.views.active.participants.report.notes' %><%= link_to "#{fa_icon 'plus-circle'}".html_safe, new_participant_patient_contact_path(@participant), class: "pull-right", style: "color:white;" %></th>
       </thead>
       <tbody class="accordion-body" id="notes-table">
-        <% if @participant.patient_contacts.any? %>
+      <% if @participant.patient_contacts.any? %>
           <% @participant.patient_contacts.order(contact_at: :desc).each do |contact| %>
-            <tr>
-              <td>
-                <dl>
-                  <dt><%= contact.contact_reason %> <%= link_to "#{fa_icon 'times-circle'}".html_safe, participant_patient_contact_path(id: contact.id, participant_id: @participant.id), method: :delete, :"data-confirm" => "#{ t 'conemo.views.active.participants.report.delete' }", class: 'pull-right delete-note' %></dt>
-                  <dd><%= contact.note %></dd>
-                  <dd><em><%=l contact.contact_at, format: :long %></em></dd>
-                </dl>
-              </td>
-            </tr>
+              <tr>
+                <td>
+                  <dl>
+                    <dt><%= contact.contact_reason %> <%= link_to "#{fa_icon 'times-circle'}".html_safe, participant_patient_contact_path(id: contact.id, participant_id: @participant.id), method: :delete, :"data-confirm" => "#{ t 'conemo.views.active.participants.report.delete' }", class: 'pull-right delete-note' %></dt>
+                    <dd><%= contact.note %></dd>
+                    <dd><em><%= l contact.contact_at, format: :long %></em></dd>
+                  </dl>
+                </td>
+              </tr>
           <% end %>
-        <% end %>
-        <% if @participant.first_appointment %>
+      <% end %>
+      <% if @participant.first_appointment %>
           <tr>
             <td>
               <dl>
-                <dt><%=t 'conemo.views.active.participants.index.first_appointment' %></dt>
+                <dt><%= t 'conemo.views.active.participants.index.first_appointment' %></dt>
                 <dd><%= @participant.first_appointment.notes %></dd>
-                <dd><em><%=l @participant.first_appointment.appointment_at, format: :long %></em></dd>
+                <dd><em><%= l @participant.first_appointment.appointment_at, format: :long %></em></dd>
               </dl>
             </td>
           </tr>
-        <% end %>
-        <% if @participant.second_contact %>
+      <% end %>
+      <% if @participant.second_contact %>
           <tr>
             <td>
               <dl>
-                <dt><%=t 'conemo.views.active.participants.index.second_contact' %></dt>
+                <dt><%= t 'conemo.views.active.participants.index.second_contact' %></dt>
                 <dd><%= @participant.second_contact.notes %></dd>
-                <dd><em><%=l @participant.second_contact.contact_at, format: :long %></em></dd>
+                <dd><em><%= l @participant.second_contact.contact_at, format: :long %></em></dd>
               </dl>
             </td>
           </tr>
-        <% end %>
+      <% end %>
       </tbody>
     </table>
   </div>

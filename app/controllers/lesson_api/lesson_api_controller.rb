@@ -4,8 +4,8 @@ module LessonApi
 
     def lessons
       @lessons = locale_lessons('pt-BR').order('day_in_treatment ASC') +
-                 locale_lessons('es-PE').order('day_in_treatment ASC') +
-                 locale_lessons('en').order('day_in_treatment ASC')
+          locale_lessons('es-PE').order('day_in_treatment ASC') +
+          locale_lessons('en').order('day_in_treatment ASC')
 
       render "lessons/index"
     end
