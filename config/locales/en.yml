@@ -34,23 +34,18 @@ en:
         nurse_participant_evaluation:
           form:
             smartphone_comfort_options:
-              o5: "5 - can turn on the cell phone, access and use the app by her/himself after the first demonstration"
-              o4: "4 - can turn on the cell phone and access the app, but needs help to use the app"
-              o3: "3 - can turn on the cell phone, but needs help to access and use the app"
-              o2: "2 - difficult to turn on the cell phone, access and use the app, but can do it after a second demonstration"
-              o1: "1 - difficult to turn on the cell phone, access and use the app, even after a second demonstration"
+              o4: "4 – Patient can turn on the cell phone, access and use the app by her/himself after the first demonstration"
+              o3: "3 – After FIRST demonstration patient needs help with at least one of those actions: turn on the cell phone, access the app, use the app, but CAN do it after SECOND demonstration"
+              o2: "2 – After SECOND demonstration patient needs help with at least one of those actions: turn on the cell phone, access the app, use the app, but CAN do it after THIRD demonstration."
+              o1: "1 – Continues to have difficulties after THIRD demonstration with at least one of the following tasks: turn on the cell phone, access, or use the app"
             participant_session_engagement_options:
-              o5: "5 - paid attention to explanations and app-demonstration by NA, interacting with NA and asking questions when necessary"
-              o4: "4 - paid attention to explanations and app-demonstration by NA, interacting with NA, but didn’t ask questions"
-              o3: "3 - paid attention to explanations and app-demonstration by NA, but didn’t interact with NA neither ask questions"
-              o2: "2 - paid attention to explanations and app-demonstration by NA all the time, but interacted with NA and asked few questions"
-              o1: "1 - paid attention to explanations and app-demonstration by NA, but didn’t interact with NA neither ask questions"
+              o3: "3 – Very engaged"
+              o2: "2 – More or less engaged"
+              o1: "1 – Not engaged"
             app_usage_prediction_options:
-              o5: "5"
-              o4: "4"
-              o3: "3"
-              o2: "2"
-              o1: "1"
+              o3: "3 – high chance"
+              o2: "2 – 50/50 chance"
+              o1: "1 – low chance"
       patient_contacts:
         new:
           heading: Create Note for
@@ -182,9 +177,9 @@ en:
         session_length: "Session length (minutes)"
         notes: "Notes"
       nurse_participant_evaluation:
-        smartphone_comfort: "How comfortable was the patient using the smartphone?"
-        participant_session_engagement: "How engaged was the patient during the session?"
-        app_usage_prediction: "How likely will the patient use the app?"
+        smartphone_comfort: "Based on the training session you had with the patient, how comfortable was the patient using the smartphone?"
+        participant_session_engagement: "How engaged was the patient in the session (consider aspects such as paying attention, making comments, asking questions, etc.)?"
+        app_usage_prediction: "What are the chances that this person will use the app?"
       smartphone:
         number: "SMS Phone # of Smartphone"
         is_app_compatible: "Is the smartphone compatible with the app?"
