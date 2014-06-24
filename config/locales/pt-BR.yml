@@ -140,7 +140,76 @@ pt-BR:
             heading_1: "Designar enfermeira para ativar participante"
     models:
       participant:
-        enrollment_date_is_sane_error: "deve ser recente ou próxima"   
+        enrollment_date_is_sane_error: "deve ser recente ou próxima"
+    select:
+      prompt: Por favor selecione
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  helpers:
+    label:
+      participant:
+        first_name: "Nome"
+        last_name: "Sobrenome"
+        study_identifier: "Identificação do participante"
+        family_health_unit_name: "UBS"
+        family_record_number: "Prontuário da Família"
+        phone: "Telefone 1"
+        emergency_contact_name: "Contato de emergência"
+        emergency_contact_phone: "Telefone de emergência"
+        email: "E-mail"
+        date_of_birth: "Data de nascimento"
+        address: "Endereço"
+        enrollment_date: "Data de inclusão no estudo"
+        gender: "Sexo"
+        key_chronic_disorder: "Doença Crônica"
+        diabetes: Diabetes
+        hypertension: Hipertensão
+      lesson:
+        title: "Título"
+        day_in_treatment: "Dia de tratamento"
+      first_contact:
+        contact_at: "Contactado por"
+        first_appointment_at: "Primeiro encontro em"
+        first_appointment_location: "Local do primeiro encontro"
+        alternative_contact_name: "Contato alternativo"
+        alternative_contact_phone: "Telefone de contato alternativo"
+      first_appointment:
+        appointment_at: "Data/hora"
+        appointment_location: "Local"
+        next_contact: "Data/hora próximo contato"
+        session_length: "Duração da sessão (minutos)"
+        notes: "Anotações/Impressões"
+      nurse_participant_evaluation:
+        smartphone_comfort: "Na sua opinião, quão confortável o paciente se sentiu usando o smartphone?"
+        participant_session_engagement: "Você acha que o paciente esteve envolvido/engajado em usar o smartphone?"
+        app_usage_prediction: "Você acha ser provável que o paciente use o smartphone e este aplicativo?"
+      smartphone:
+        number: "Número do Smartphone"
+        is_app_compatible: "O sistema do smartphone do participante é compatível com o aplicativo?"
+        is_owned_by_participant: "O smartphone usado no estudo pertence ao participante?"
+        is_smartphone_owner: "O participante tem seu próprio smartphone?"
+      second_contact:
+        contact_at: "Data da ligação"
+        session_length: "Duração da ligação (min)"
+        video_access: "O paciente conseguiu ver os videos?"
+        notes: "Anotações"
+      third_contact:
+        final_appointment_at: "Encontro Final em"
+        final_appointment_location: "Local do Encontro Final"
+        contacted_at: "Data da ligação"
+        session_length: "Duração da ligação (min)"
+        notes: "Anotações"
+      patient_contact:
+        contact_at: "Tempo de observação"
+        contact_reason: "Motivo"
+        note: "Anotações"
+      final_appointment:
+        appointment_at: "Date and time"
+        appointment_location: "Location"
+        phone_returned: "Was the phone returned?"
+        notes: "Notes"
   date:
     abbr_day_names:
     - Dom
@@ -270,75 +339,6 @@ pt-BR:
       header:
         one: ! 'Não foi possível gravar %{model}: 1 erro'
         other: ! 'Não foi possível gravar %{model}: %{count} erros.'
-  helpers:
-    select:
-      prompt: Por favor selecione
-    submit:
-      create: Criar %{model}
-      submit: Salvar %{model}
-      update: Atualizar %{model}
-    label:
-      participant:
-        first_name: "Nome"
-        last_name: "Sobrenome"
-        study_identifier: "Identificação do participante"
-        family_health_unit_name: "UBS"
-        family_record_number: "Prontuário da Família"
-        phone: "Telefone 1"
-        emergency_contact_name: "Contato de emergência"
-        emergency_contact_phone: "Telefone de emergência"
-        email: "E-mail"
-        date_of_birth: "Data de nascimento"
-        address: "Endereço"
-        enrollment_date: "Data de inclusão no estudo"
-        gender: "Sexo"
-        key_chronic_disorder: "Doença Crônica"
-        diabetes: Diabetes
-        hypertension: Hipertensão
-      lesson:
-        title: "Título"
-        day_in_treatment: "Dia de tratamento"
-      first_contact:
-        contact_at: "Contactado por"
-        first_appointment_at: "Primeiro encontro em"
-        first_appointment_location: "Local do primeiro encontro"
-        alternative_contact_name: "Contato alternativo"
-        alternative_contact_phone: "Telefone de contato alternativo"
-      first_appointment:
-        appointment_at: "Data/hora"
-        appointment_location: "Local"
-        next_contact: "Data/hora próximo contato"
-        session_length: "Duração da sessão (minutos)"
-        notes: "Anotações/Impressões"
-      nurse_participant_evaluation:
-        smartphone_comfort: "Na sua opinião, quão confortável o paciente se sentiu usando o smartphone?"
-        participant_session_engagement: "Você acha que o paciente esteve envolvido/engajado em usar o smartphone?"
-        app_usage_prediction: "Você acha ser provável que o paciente use o smartphone e este aplicativo?"
-      smartphone:
-        number: "Número do Smartphone"
-        is_app_compatible: "O sistema do smartphone do participante é compatível com o aplicativo?"
-        is_owned_by_participant: "O smartphone usado no estudo pertence ao participante?"
-        is_smartphone_owner: "O participante tem seu próprio smartphone?"
-      second_contact:
-        contact_at: "Data da ligação"
-        session_length: "Duração da ligação (min)"
-        video_access: "O paciente conseguiu ver os videos?"
-        notes: "Anotações"
-      third_contact:
-        final_appointment_at: "Encontro Final em"
-        final_appointment_location: "Local do Encontro Final"
-        contacted_at: "Data da ligação"
-        session_length: "Duração da ligação (min)"
-        notes: "Anotações"
-      patient_contact:
-        contact_at: "Tempo de observação"
-        contact_reason: "Motivo"
-        note: "Anotações"
-      final_appointment:
-        appointment_at: "Date and time"
-        appointment_location: "Location"
-        phone_returned: "Was the phone returned?"
-        notes: "Notes"
   number:
     currency:
       format:
