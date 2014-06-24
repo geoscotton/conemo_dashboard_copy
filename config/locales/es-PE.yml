@@ -5,8 +5,8 @@ es-PE:
         save_button: "Guardar"
         cancel_button: "Cancelar"
         nurse: "Enfermera"
-        true_radio: "Verdadero"
-        false_radio: "Falso"
+        true_radio: "Si"
+        false_radio: "No"
         pending: "Pendiente"
         ineligible: "Ineligible"
         create: "crear"
@@ -31,7 +31,7 @@ es-PE:
           heading: "Incluir información del Llamada confirmando cita"
       first_appointments:
         new:
-          heading: "Incluir información del Cita de inicio"
+          heading: "Incluir información del cita de inicio"
         nurse_participant_evaluation:
           form:
             smartphone_comfort_options:
@@ -173,12 +173,12 @@ es-PE:
       first_contact:
         contact_at: "Fecha y hora de contacto"
         first_appointment_at: "Cita de inicio programada para"
-        first_appointment_location: "Lugar de Cita de inicio"
+        first_appointment_location: "Lugar de cita de inicio"
         alternative_contact_name: "Contacto de emergencia"
         alternative_contact_phone: "Teléfono de contacto de emergencia"
       first_appointment:
         appointment_at: "Programada para"
-        appointment_location: "Lugar de Cita de inicio"
+        appointment_location: "Lugar de cita de inicio"
         next_contact: "Fecha/hora para el Llamada de seguimiento sem. 1"
         session_length: "Duración de la sesión (minutos)"
         notes: "Notas"
@@ -208,7 +208,7 @@ es-PE:
         note: "Notas"
       final_appointment:
         appointment_at: "Programada para"
-        appointment_location: "Lugar de Cita de finalización"
+        appointment_location: "Lugar de cita de finalización"
         phone_returned: "¿El smartphone ha sido devuelto?"
         notes: "Notas"
   date:
