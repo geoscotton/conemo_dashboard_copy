@@ -16,6 +16,7 @@ gem "coffee-script"
 gem "jbuilder"
 gem "ckeditor"
 gem "twilio-ruby"
+gem "normalize-rails"
 
 group :staging, :production do
   # email exceptions

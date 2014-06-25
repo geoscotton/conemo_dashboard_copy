@@ -1,7 +1,7 @@
 <%= form_for [participant, @patient_contact], html: {role: "form", class: "form-horizontal"} do |f| %>
     <div class="form-group">
       <%= f.label :contact_at, class: "col-md-4 control-label" %>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <%= f.datetime_select :contact_at, class: "form-control", required: true %>
         <br>
         <small><%= Time.zone %></small>
@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
       <%= f.label :contact_reason, class: "col-md-4 control-label" %>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <%= f.select :contact_reason, options_for_select([
                                                                  "#{t 'conemo.views.patient_contacts.options.programmed_follow_up_call'}",
                                                                  "#{t 'conemo.views.patient_contacts.options.non_adherence'}",
@@ -21,12 +21,12 @@
     </div>
     <div class="form-group">
       <%= f.label :note, class: "col-md-4 control-label" %>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <%= f.text_area :note, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <div class="col-md-offset-4 col-md-6">
+      <div class="col-md-offset-4 col-md-7">
         <%= f.hidden_field :participant_id, value: participant.id %>
         <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
         <%= link_to t("conemo.views.shared.cancel_button"), participant.start_date ? active_report_path(participant) : active_participants_path, class: "btn btn-default" %>

@@ -3,6 +3,11 @@ body {
   padding-top: 70px;
 }
 
+// Forces inout font color to remain black on zoom
+body select {
+  color: black !important
+}
+
 .jumbotron {
   background-color: transparent;
 }
@@ -158,7 +163,7 @@ div.legend {
   text-align: right;
   background-color: #4e5d6c;
   padding: 15px;
-  width: 297px;
+  width: 300px;
   float: right;
   margin-bottom: 10px;
   font-size: 90%
