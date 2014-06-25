@@ -18,6 +18,8 @@ class ImportPrwData
 
     participants.each do |participant|
       StartDate.all.each do |date|
+        puts "local db study_id: #{participant.study_identifier}"
+        puts "prw user_id study_id: #{date.participant_identifier}"
         if date.participant_identifier == participant.study_identifier
           if !participant.start_date
             participant.start_date = date.start_date.to_date
@@ -28,7 +30,7 @@ class ImportPrwData
             participant.save
             puts "start date updated for #{participant.study_identifier}"
           else
-            return nil
+            puts "start date neither updated nor created for #{participant.study_identifier}"
           end
         end
       end
