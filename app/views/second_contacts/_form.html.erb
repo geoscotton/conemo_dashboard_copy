@@ -1,7 +1,7 @@
 <%= form_for @second_contact, url: participant_second_contact_path(participant), method: @second_contact.valid? ? :patch : :post, html: {role: "form", class: "form-horizontal"} do |f| %>
     <div class="form-group">
       <%= f.label :contact_at, class: "col-md-4 control-label" %>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <%= f.datetime_select :contact_at, class: "form-control", required: true %>
         <br>
         <small><%= Time.zone %></small>
@@ -9,13 +9,13 @@
     </div>
     <div class="form-group">
       <%= f.label :session_length, class: "col-md-4 control-label" %>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <%= f.number_field :session_length, class: "form-control", required: true %>
       </div>
     </div>
     <div class="form-group">
       <%= f.label :video_access, class: "col-md-4 control-label" %>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <label class="radio-inline">
           <%= f.radio_button :video_access, 'true', required: true %> <%= t("conemo.views.shared.true_radio") %>
         </label>
@@ -28,12 +28,12 @@
     <%= render 'nurse_participant_evaluations/form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} unless @second_contact.nurse_participant_evaluation.valid? %>
     <div class="form-group">
       <%= f.label :notes, class: "col-md-4 control-label" %>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <%= f.text_area :notes, class: "form-control" %>
       </div>
     </div>
     <div class="form-group">
-      <div class="col-md-offset-4 col-md-6">
+      <div class="col-md-offset-4 col-md-7">
         <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
         <%= link_to t("conemo.views.shared.cancel_button"), active_participants_path, class: "btn btn-default" %>
       </div>
