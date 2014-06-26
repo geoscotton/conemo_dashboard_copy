@@ -2,7 +2,7 @@ namespace :prw_import do
   desc "gets conemo prw data"
   task sync: :environment do
 
-    puts "begin prw_import at #{Time.now}"
+    puts "******** Begin prw_import at #{Time.now} **********"
     ImportPrwData.set_start_dates
     ImportPrwData.import_logins
     ImportPrwData.import_content_access_events
@@ -80,8 +80,6 @@ class ImportPrwData
             datum.parse_responses.each do |key, value|
               response = content_access_event.build_response(name: key, answer: value)
               response.save
-              puts response.name
-              puts response.answer
             end
           end
         end
