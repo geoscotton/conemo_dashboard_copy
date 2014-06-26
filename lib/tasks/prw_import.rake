@@ -14,7 +14,7 @@ end
 class ImportPrwData
 
   def self.set_start_dates
-    "begin start_date import at #{Time.now}"
+    puts "begin start_date import at #{Time.now}"
     participants = Participant.active
 
     participants.each do |participant|
@@ -37,7 +37,7 @@ class ImportPrwData
   end
 
   def self.import_logins
-    "begin logins import at #{Time.now}"
+    puts "begin logins import at #{Time.now}"
     if AppLogin.all.any?
       participants = Participant.active
       participants.each do |participant|
@@ -60,7 +60,7 @@ class ImportPrwData
   end
 
   def self.import_content_access_events
-    "begin lesson data import at #{Time.now}"
+    puts "begin lesson data import at #{Time.now}"
     LessonDatum.all.each do |datum|
       if !datum.content_access_event_exists?
 
@@ -90,7 +90,7 @@ class ImportPrwData
   end
 
   def self.import_help_messages
-    "begin help messages import at #{Time.now}"
+    puts "begin help messages import at #{Time.now}"
     StaffMessage.all.each do |message|
       if !message.help_message_exists?
         participant = Participant.where(study_identifier: message.FEATURE_VALUE_DT_user_id)
