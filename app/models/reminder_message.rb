@@ -84,8 +84,8 @@ class ReminderMessage < ActiveRecord::Base
                   hour_24: "Tu enfermera o enfermero te llamará en las próximas 24 horas."
               },
               final: {
-                  hour_1: "Spanish 1 hour participant reminder for final appointment",
-                  hour_24: "Spanish 24 hour participant reminder for final appointment"
+                  hour_1: "¡Tu cita final dentro del programa CONEMO empieza en una hora!",
+                  hour_24: "Mañana tienes una cita con una enfermera del CEDHI para finalizar el programa CONEMO. Si necesitas cambiarla, por favor, llama a uno de los números entregados."
               }
           },
           nurse: {
@@ -98,8 +98,8 @@ class ReminderMessage < ActiveRecord::Base
                   hour_24: "Recuerda llamar a tu paciente en las próximas 24 horas"
               },
               final: {
-                  hour_1: "Spanish 1 hour nurse reminder for final appointment",
-                  hour_24: "Spanish 24 hour nurse reminder for final appointment"
+                  hour_1: "¡Tu cita final con uno de los pacientes del programa CONEMO empieza en una hora!",
+                  hour_24: "Mañana tienes la cita final con un paciente del programa CONEMO. Si necesitas cambiarla, por favor, llama al paciente y regístralo en la web."
               }
           }
       }

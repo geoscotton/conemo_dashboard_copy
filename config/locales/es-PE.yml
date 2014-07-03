@@ -28,7 +28,7 @@ es-PE:
           add_lesson: "Add Lesson"
       first_contacts:
         new:
-          heading: "Incluir información del Llamada confirmando cita"
+          heading: "Incluir información del llamada confirmando cita"
       first_appointments:
         new:
           heading: "Incluir información del cita de inicio"
@@ -52,7 +52,7 @@ es-PE:
           heading: Escribir una nota de
         options:
           programmed_follow_up_call: Llamada de seguimiento programada
-          non_adherence: No-adherencia a la intervención
+          non_adherence: Llamada por no-adherencia
           patient_requested_call: Llamada solicitada por el paciente
           other: Otro
       smartphones:
@@ -88,13 +88,13 @@ es-PE:
             first_appointment: "Cita de inicio"
             second_contact: "Llamada de seguimiento sem. 1"
             third_contact: "Llamada de seguimiento sem. 4"
-            final_appointment: "Cita cerrando el estudio"
+            final_appointment: "Cita final"
             status: "Estado"
             legend:
               green: Paciente está al día con todas sus sesiones
               yellow: Paciente no realizó una de las dos últimas sesiones
               red: Paciente no realizó las dos últimas sesiones
-              gray: "Paciente es activo, pero no finalizó la primera sesión"
+              gray: Paciente todavía no realizó la primera sesión
           show:
             heading: "Perfil de"
             contact_heading: "Información de contacto"
@@ -197,8 +197,8 @@ es-PE:
         video_access: "Was the patient able to see videos?"
         notes: "Notas"
       third_contact:
-        final_appointment_at: "Final appointment date and time"
-        final_appointment_location: "Final appointment location"
+        final_appointment_at: "Cita final para"
+        final_appointment_location: "Lugar de cita final"
         contacted_at: "Fecha de llamada"
         session_length: "Duración de la llamada (min)"
         notes: "Notas"

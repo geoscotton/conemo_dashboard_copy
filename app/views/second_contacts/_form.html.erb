@@ -14,19 +14,6 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :video_access, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <label class="radio-inline">
-          <%= f.radio_button :video_access, 'true', required: true %> <%= t("conemo.views.shared.true_radio") %>
-        </label>
-
-        <label class="radio-inline">
-          <%= f.radio_button :video_access, 'false', required: true %> <%= t("conemo.views.shared.false_radio") %>
-        </label>
-      </div>
-    </div>
-    <%= render 'nurse_participant_evaluations/form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} unless @second_contact.nurse_participant_evaluation.valid? %>
-    <div class="form-group">
       <%= f.label :notes, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.text_area :notes, class: "form-control" %>
