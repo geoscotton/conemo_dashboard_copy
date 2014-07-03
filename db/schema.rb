@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619220524) do
+ActiveRecord::Schema.define(version: 20140703203810) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -240,13 +240,25 @@ ActiveRecord::Schema.define(version: 20140619220524) do
   add_index "responses", ["content_access_event_id"], name: "index_responses_on_content_access_event_id", using: :btree
 
   create_table "second_contacts", force: true do |t|
-    t.integer  "participant_id",                null: false
-    t.datetime "contact_at",                    null: false
-    t.boolean  "video_access",   default: true
-    t.integer  "session_length",                null: false
+    t.integer  "participant_id", null: false
+    t.datetime "contact_at",     null: false
+    t.integer  "session_length", null: false
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "q1"
+    t.boolean  "q2"
+    t.text     "q2_notes"
+    t.boolean  "q3"
+    t.text     "q3_notes"
+    t.boolean  "q4"
+    t.text     "q4_notes"
+    t.boolean  "q5"
+    t.text     "q5_notes"
+    t.boolean  "q6"
+    t.text     "q6_notes"
+    t.boolean  "q7"
+    t.text     "q7_notes"
   end
 
   add_index "second_contacts", ["participant_id"], name: "index_second_contacts_on_participant_id", using: :btree
