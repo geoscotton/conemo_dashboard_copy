@@ -20,6 +20,7 @@ class SecondContactsController < ApplicationController
 
   def edit
     @second_contact = participant.second_contact
+    @nurse_participant_evaluation = @second_contact.nurse_participant_evaluation
   end
 
   def update
@@ -38,15 +39,17 @@ class SecondContactsController < ApplicationController
     params.require(:second_contact).permit(
         :participant_id, :contact_at, :video_access,
         :notes, :session_length,
+        :q1, :q2, :q2_notes, :q3, :q3_notes, :q4, :q4_notes, 
+        :q5, :q5_notes, :q6, :q6_notes, :q7, :q7_notes,
         patient_contacts_attributes: [
             :second_contact_id, :contact_reason, :participant_id,
             :note, :contact_at
         ],
         nurse_participant_evaluation_attributes: [
             :first_appointment_id,
-            :smartphone_comfort,
-            :participant_session_engagement,
-            :app_usage_prediction
+            :q1,
+            :q2,
+            :q3
         ]
     )
   end

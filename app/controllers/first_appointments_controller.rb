@@ -4,8 +4,6 @@ class FirstAppointmentsController < ApplicationController
 
   def new
     @first_appointment = participant.build_first_appointment
-    @nurse_participant_evaluation = @first_appointment
-    .build_nurse_participant_evaluation
   end
 
   def create
@@ -55,12 +53,6 @@ class FirstAppointmentsController < ApplicationController
         patient_contacts_attributes: [
             :first_appointment_id, :contact_reason, :participant_id,
             :note, :contact_at
-        ],
-        nurse_participant_evaluation_attributes: [
-            :first_appointment_id,
-            :smartphone_comfort,
-            :participant_session_engagement,
-            :app_usage_prediction
         ]
     )
   end

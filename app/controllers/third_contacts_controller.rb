@@ -48,6 +48,12 @@ class ThirdContactsController < ApplicationController
         patient_contacts_attributes: [
             :third_contact_id, :contact_reason, :participant_id,
             :note, :contact_at
+        ],
+        nurse_participant_evaluation_attributes: [
+            :first_appointment_id,
+            :smartphone_comfort,
+            :participant_session_engagement,
+            :app_usage_prediction
         ]
     )
   end

@@ -31,21 +31,35 @@ en:
       first_appointments:
         new:
           heading: "Input First Appointment Information"
-        nurse_participant_evaluation:
-          form:
-            smartphone_comfort_options:
-              o4: "4 – Patient can turn on the cell phone, access and use the app by her/himself after the first demonstration"
-              o3: "3 – After FIRST demonstration patient needs help with at least one of those actions: turn on the cell phone, access the app, use the app, but CAN do it after SECOND demonstration"
-              o2: "2 – After SECOND demonstration patient needs help with at least one of those actions: turn on the cell phone, access the app, use the app, but CAN do it after THIRD demonstration."
-              o1: "1 – Continues to have difficulties after THIRD demonstration with at least one of the following tasks: turn on the cell phone, access, or use the app"
-            participant_session_engagement_options:
-              o3: "3 – Very engaged"
-              o2: "2 – More or less engaged"
-              o1: "1 – Not engaged"
-            app_usage_prediction_options:
-              o3: "3 – high chance"
-              o2: "2 – 50/50 chance"
-              o1: "1 – low chance"
+        form:
+          smartphone_comfort_options:
+            o4: "4 – Patient can turn on the cell phone, access and use the app by her/himself after the first demonstration"
+            o3: "3 – After FIRST demonstration patient needs help with at least one of those actions: turn on the cell phone, access the app, use the app, but CAN do it after SECOND demonstration"
+            o2: "2 – After SECOND demonstration patient needs help with at least one of those actions: turn on the cell phone, access the app, use the app, but CAN do it after THIRD demonstration."
+            o1: "1 – Continues to have difficulties after THIRD demonstration with at least one of the following tasks: turn on the cell phone, access, or use the app"
+          participant_session_engagement_options:
+            o3: "3 – Very engaged"
+            o2: "2 – More or less engaged"
+            o1: "1 – Not engaged"
+          app_usage_prediction_options:
+            o3: "3 – high chance"
+            o2: "2 – 50/50 chance"
+            o1: "1 – low chance"
+      nurse_participant_evaluations:
+        form:
+          q1:
+            o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
+            o3: "3 – Después de la PRIMERA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la SEGUNDA demostración"
+            o2: "2 – Después de la SEGUNDA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la TERCERA demostración"
+            o1: "1 – Después de la TERCERA demostración el paciente aún tuvo dificultades en al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo."
+          q2:
+            o3: "3 – Muy interesado"
+            o2: "2 – Más o menos interesado"
+            o1: "1 – Muy poco interesado"
+          q3:
+            o3: "3 –Muy probable"
+            o2: "2 – 50/50 (Más o menos probable)"
+            o1: "1 –Poco probable"
       patient_contacts:
         new:
           heading: Create Note for
@@ -54,6 +68,9 @@ en:
           non_adherence: Non-adherence
           patient_requested_call: Requested phone call by patient
           other: Other
+      second_contacts:
+        new:
+          heading: "Input Second Contact Information"
       smartphones:
         new:
           heading: "Input Smartphone Information"
@@ -175,11 +192,14 @@ en:
         appointment_location: "Location of appointment"
         next_contact: "Next contact date/time"
         session_length: "Session length (minutes)"
-        notes: "Notes"
-      nurse_participant_evaluation:
         smartphone_comfort: "Based on the training session you had with the patient, how comfortable was the patient using the smartphone?"
         participant_session_engagement: "How engaged was the patient in the session (consider aspects such as paying attention, making comments, asking questions, etc.)?"
         app_usage_prediction: "What are the chances that this person will use the app?"
+        notes: "Notes"
+      nurse_participant_evaluation:
+        q1: 
+        q2:
+        q3:
       smartphone:
         number: "SMS Phone # of Smartphone"
         is_app_compatible: "Is the smartphone compatible with the app?"
@@ -188,7 +208,19 @@ en:
       second_contact:
         contact_at: "Date of phone call"
         session_length: "Length of phone call (minutes)"
-        video_access: "Was the patient able to see videos?"
+        q1: "How is it going with CONEMO? (Always ask to specify, asking “why?”, “how so?” etc.)"
+        q2: "Did you have any difficulties using the cell phone?"
+        q2_notes: "If yes, specify"
+        q3: "Did you have any difficulties with the CONEMO app?"
+        q3_notes: "If yes, specify"
+        q4: "In the first session that we asked you to open, there was also a video installed. Were you able to see that video?"
+        q4_notes: "If no: What was the difficulty?"
+        q5: "Could you hear the video?"
+        q5_notes: "If no: What was the difficulty?"
+        q6: "During the first session you were also asked to select a goal to have a healthier life. Were you able to select one?"
+        q6_notes: "If no: What was the difficulty?"
+        q7: "In the second session, you were asked to think about activities that you used to enjoy, but no longer do and to select a few. Were you able to choose one or more of those activities?"
+        q7_notes: "If no: What was the difficulty?"
         notes: "Notes"
       third_contact:
         final_appointment_at: "Final appointment date and time"

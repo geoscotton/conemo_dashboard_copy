@@ -32,21 +32,35 @@ es-PE:
       first_appointments:
         new:
           heading: "Incluir información del cita de inicio"
-        nurse_participant_evaluation:
-          form:
-            smartphone_comfort_options:
-              o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
-              o3: "3 – Después de la PRIMERA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la SEGUNDA demostración"
-              o2: "2 – Después de la SEGUNDA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la TERCERA demostración"
-              o1: "1 – Después de la TERCERA demostración el paciente aún tuvo dificultades en al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo."
-            participant_session_engagement_options:
-              o3: "3 – Muy interesado"
-              o2: "2 – Más o menos interesado"
-              o1: "1 – Muy poco interesado"
-            app_usage_prediction_options:
-              o3: "3 –Muy probable"
-              o2: "2 – 50/50 (Más o menos probable)"
-              o1: "1 –Poco probable"
+        form:
+          smartphone_comfort_options:
+            o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
+            o3: "3 – Después de la PRIMERA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la SEGUNDA demostración"
+            o2: "2 – Después de la SEGUNDA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la TERCERA demostración"
+            o1: "1 – Después de la TERCERA demostración el paciente aún tuvo dificultades en al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo."
+          participant_session_engagement_options:
+            o3: "3 – Muy interesado"
+            o2: "2 – Más o menos interesado"
+            o1: "1 – Muy poco interesado"
+          app_usage_prediction_options:
+            o3: "3 –Muy probable"
+            o2: "2 – 50/50 (Más o menos probable)"
+            o1: "1 –Poco probable"
+      nurse_participant_evaluations:
+        form:
+          q1:
+            o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
+            o3: "3 – Después de la PRIMERA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la SEGUNDA demostración"
+            o2: "2 – Después de la SEGUNDA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la TERCERA demostración"
+            o1: "1 – Después de la TERCERA demostración el paciente aún tuvo dificultades en al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo."
+          q2:
+            o3: "3 – Muy interesado"
+            o2: "2 – Más o menos interesado"
+            o1: "1 – Muy poco interesado"
+          q3:
+            o3: "3 –Muy probable"
+            o2: "2 – 50/50 (Más o menos probable)"
+            o1: "1 –Poco probable"
       patient_contacts:
         new:
           heading: Escribir una nota de
@@ -55,6 +69,9 @@ es-PE:
           non_adherence: Llamada por no-adherencia
           patient_requested_call: Llamada solicitada por el paciente
           other: Otro
+      second_contacts:
+        new:
+          heading: "Incluir información de"
       smartphones:
         new:
           heading: "Incluir información de smartphone"
@@ -182,10 +199,13 @@ es-PE:
         next_contact: "Fecha/hora para el Llamada de seguimiento sem. 1"
         session_length: "Duración de la sesión (minutos)"
         notes: "Notas"
-      nurse_participant_evaluation:
         smartphone_comfort: "¿Cuál de las siguientes frases describe mejor al paciente durante la sesión del entrenamiento?"
         participant_session_engagement: "¿Qué tan interesado se mostró el paciente durante la sesión? (Considere aspectos como prestar atención, hacer comentarios, hacer preguntas, etc.)"
         app_usage_prediction: "¿En su opinión, qué tan probable es que el paciente use la aplicación?"
+      nurse_participant_evaluation:
+        q1:
+        q2:
+        q3:
       smartphone:
         number: "Número del celular inteligente (smartphone)"
         is_app_compatible: "¿El sistema del celular inteligente (smartphone) es compartible con el aplicativo?"
@@ -194,8 +214,20 @@ es-PE:
       second_contact:
         contact_at: "Fecha de llamada"
         session_length: "Duración de la llamada (min)"
-        video_access: "Was the patient able to see videos?"
-        notes: "Notas"
+        q1: "¿Cómo le va con CONEMO? (Siempre pide especificaciones, preguntando por ejemplo 'cómo', 'por qué', 'cómo así')"
+        q2: "¿Ha tenido algunas dificultades usando el teléfono / Smartphone?"
+        q2_notes: "Notas"
+        q3: "¿Ha tenido algunas dificultades usando la aplicación?"
+        q3_notes: "Notas"
+        q4: "La primera sesión de CONEMO contenía un video. ¿Ha podido verlo?"
+        q4_notes: "Notas"
+        q5: "¿Se escuchó bien el audio del video?"
+        q5_notes: "Notas"
+        q6: "Durante la primera sesión, la aplicación le pidió además que elija una razón de por qué quiere tener una vida más saludable. ¿Pudo elegir alguna?"
+        q6_notes: "Notas"
+        q7: "Durante la segunda sesión se le pidió que piense sobre actividades que solía hacer, pero que ya no realiza con la misma frecuencia que antes y se le pidió elegir algunas de una lista. ¿Pudo elegir una o varias de estas actividades?"
+        q7_notes: "Notas"
+        notes: "Notas generales"
       third_contact:
         final_appointment_at: "Cita final para"
         final_appointment_location: "Lugar de cita final"
