@@ -20,7 +20,7 @@ class SecondContactsController < ApplicationController
 
   def edit
     @second_contact = participant.second_contact
-    @nurse_participant_evaluation = NurseParticipantEvaluation.where(second_contact_id: @second_contact.id).first_or_initialize
+    @nurse_participant_evaluation = NurseParticipantEvaluation.find_or_initialize_by(second_contact: @second_contact)
   end
 
   def update
