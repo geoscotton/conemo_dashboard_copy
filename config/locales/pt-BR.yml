@@ -27,7 +27,10 @@ pt-BR:
           heading: "Entrada Smartphone Informações"
       second_contacts:
         new:
-          heading: "1º Contato de seguimento"    
+          heading: "1º Contato de seguimento"
+      third_contacts:
+        new:
+          heading: "4º Contato de seguimento"    
       users:
         sign_in:
           sign_in: "Login"
@@ -43,38 +46,32 @@ pt-BR:
           heading: "Incluir informações do primeiro encontro"
         form:
           smartphone_comfort_options:
-            o5: "5 - o paciente é capaz de ligar o telefone celular, acessar e usar o aplicativo sozinho após a primeira demonstração"
-            o4: "4 - o paciente é capaz de ligar o celular e acessar o aplicativo, mas precisa de ajuda para usar o aplicativo"
-            o3: "3 - o paciente é capaz de ligar o telefone celular, mas precisa de ajuda para acessar e usar o aplicativo"
-            o2: "2 - o paciente tem dificuldade para ligar o telefone celular, acessar e usar o aplicativo, mas pode fazê-lo depois de uma segunda demonstração"
-            o1: "1 - o paciente tem dificuldade para ligar o telefone celular, acessar e usar o aplicativo, mesmo após uma segunda demonstração"
+            o4: "4 – O paciente pode ligar o celular, acessar e usar o aplicativo sozinho depois da primeira demonstração"
+            o3: "3 – Após a primeira demonstração, o paciente precisou de ajuda em pelo menos uma das seguintes ações: ligar o celular, acessar o aplicativo ou usar o aplicativo. Porém, foi capaz de fazê-la após uma SEGUNDA demonstração"
+            o2: "2 – Após uma segunda demonstração, o paciente precisou de ajuda em pelo menos uma das seguintes ações: ligar o celular, acessar o aplicativo ou usar o aplicativo. Porém, foi capaz de fazê-la após uma TERCEIRA demonstração"
+            o1: "1 – O paciente mantém dificuldade em ao menos uma das seguintes tarefas (ligar o celular, acessar o aplicativo ou usar o aplicativo) mesmo após a TERCEIRA demonstração"
           participant_session_engagement_options:
-            o5: "5 - o paciente prestou atenção às explicações e demonstração do aplicativo, interagindo e fazendo perguntas quando necessário"
-            o4: "4 - o paciente prestou atenção e interagiu durante as explicações e demonstração do aplicativo, porém não fez perguntas"
-            o3: "3 - o paciente prestou atenção às explicações e demonstração do aplicativo, porém não interagiu e não fez perguntas"
-            o2: "2 - o paciente prestou pouca atenção às explicações e demonstração do aplicativo, interagindo pouco e não fazendo perguntas"
-            o1: "1 - o paciente não prestou atenção  às explicações e demonstração do aplicativo"
+            o3: "3 – Muito engajado"
+            o2: "2 – Pouco engajado"
+            o1: "1 – Nada engajado"
           app_usage_prediction_options:
-            o5: "5 - sim, o paciente mostrou-se muito interessado e motivado em usar o aplicativo"
-            o4: "4 - sim, o paciente mostrou-se interessado em usar o aplicativo"
-            o3: "3 - sim, apesar do paciente mostrar-se interessado mas pouco motivado em usar o aplicativo"
-            o2: "2 - talvez, pois o paciente mostrou-se pouco interessado e pouco motivado em usar o aplicativo" 
-            o1: "1 - não, o paciente não demonstrou interesse e nem motivação em usar o aplicativo"
+            o3: "3 – Grande/alta chance"
+            o2: "2 – Chance intermediária" 
+            o1: "1 – Pouca/nenhuma chance"
       nurse_participant_evaluations:
         form:
           q1:
-            o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
-            o3: "3 – Después de la PRIMERA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la SEGUNDA demostración"
-            o2: "2 – Después de la SEGUNDA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la TERCERA demostración"
-            o1: "1 – Después de la TERCERA demostración el paciente aún tuvo dificultades en al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo."
+            o3: "3 – Parece ter boa habilidade em usar o aplicativo, sem maiores dificuldades"
+            o2: "2 – Parece ter algumas dificuldades, mas ainda assim consegue utilizar o aplicativo adequadamente"
+            o1: "1 – Parece ter muitas dificuldades em usar o aplicativo"
           q2:
-            o3: "3 – Muy interesado"
-            o2: "2 – Más o menos interesado"
-            o1: "1 – Muy poco interesado"
+            o3: "3 – Muito motivado e ansioso/desejoso em usar o aplicativo"
+            o2: "2 – Mais ou menos motivado, ainda indeciso"
+            o1: "1 – Não parece motivado ou interessado"
           q3:
-            o3: "3 –Muy probable"
-            o2: "2 – 50/50 (Más o menos probable)"
-            o1: "1 –Poco probable"
+            o3: "3 – Grande/alta chance"
+            o2: "2 – Chance intermediária"
+            o1: "1 – Pouca/nenhuma chance"
       patient_contacts:
         new:
           heading: Escrever nota para
@@ -194,14 +191,14 @@ pt-BR:
         appointment_location: "Local"
         next_contact: "Data/hora próximo contato"
         session_length: "Duração da sessão (minutos)"
-        smartphone_comfort: "Qual das seguintes alternativas melhor descreve o paciente durante a sessão de treinamento?"
-        participant_session_engagement: "Você acha que o paciente esteve envolvido/engajado em usar o smartphone?"
-        app_usage_prediction: "Você acha ser provável que o paciente use o smartphone e este aplicativo?"
+        smartphone_comfort: "Baseado na sessão de treinamento que você teve com o paciente, quão confortável estava o paciente usando o smartphone?"
+        participant_session_engagement: "Quanto o paciente esteve engajado durante a sessão (considerar aspectos como prestar atenção, fazer comentários e perguntas, etc)?"
+        app_usage_prediction: "Na sua opinião, e baseado na sua experiência, quais seriam as chances deste paciente usar o aplicativo?"
         notes: "Anotações/Impressões"
       nurse_participant_evaluation:
-        q1:
-        q2:
-        q3:
+        q1: "Baseado nas informações obtidas durante a chamada telefônica com o paciente, como você avalia a habilidade dele(a) em usar o aplicativo?"
+        q2: "Baseado na conversa que você teve com o paciente por telefone, como você considera o nível de motivação em realizar as tarefas solicitadas e em participar do CONEMO?"
+        q3: "Na sua opinião, e baseado na sua experiência, quais seriam as chances deste paciente usar o aplicativo?"
       smartphone:
         number: "Número do Smartphone"
         is_app_compatible: "O sistema do smartphone do participante é compatível com o aplicativo?"

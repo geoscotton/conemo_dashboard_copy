@@ -49,14 +49,13 @@ es-PE:
       nurse_participant_evaluations:
         form:
           q1:
-            o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
-            o3: "3 – Después de la PRIMERA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la SEGUNDA demostración"
-            o2: "2 – Después de la SEGUNDA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la TERCERA demostración"
-            o1: "1 – Después de la TERCERA demostración el paciente aún tuvo dificultades en al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo."
+            o3: "3 – Parece tener buenas habilidades para usar el aplicativo sin dificultades"
+            o2: "2 – Parece tener algunas dificultades, pero todavía logra usar el aplicativo adecuadamente"
+            o1: "1 – Parece tener muchas dificultades de usar el aplicativo"
           q2:
-            o3: "3 – Muy interesado"
-            o2: "2 – Más o menos interesado"
-            o1: "1 – Muy poco interesado"
+            o3: "3 – Muy motivado y entusiasta para usar el aplicativo"
+            o2: "2 – Más o menos motivado, indeciso"
+            o1: "1 – No parece motivado o interesado"
           q3:
             o3: "3 –Muy probable"
             o2: "2 – 50/50 (Más o menos probable)"
@@ -71,10 +70,13 @@ es-PE:
           other: Otro
       second_contacts:
         new:
-          heading: "Incluir información de"
+          heading: "Incluir información de llamada de seguimiento sem. 1 para"
       smartphones:
         new:
           heading: "Incluir información de smartphone"
+      third_contacts:
+        new:
+          heading: "Incluir información de llamada de seguimiento sem. 4 para"
       users:
         sign_in:
           sign_in: "Ingresar"
@@ -203,9 +205,9 @@ es-PE:
         participant_session_engagement: "¿Qué tan interesado se mostró el paciente durante la sesión? (Considere aspectos como prestar atención, hacer comentarios, hacer preguntas, etc.)"
         app_usage_prediction: "¿En su opinión, qué tan probable es que el paciente use la aplicación?"
       nurse_participant_evaluation:
-        q1:
-        q2:
-        q3:
+        q1: "Basada en la llamada que ha tenido con el paciente, ¿cómo evaluaría su habilidad para usar el aplicativo?"
+        q2: "Basada en la llamada que ha tenido con el paciente, ¿qué tan motivado parece para realizar las tareas propuestas y participar en CONEMO?"
+        q3: "¿En su opinión, qué tan probable es que el paciente use la aplicación?"
       smartphone:
         number: "Número del celular inteligente (smartphone)"
         is_app_compatible: "¿El sistema del celular inteligente (smartphone) es compartible con el aplicativo?"

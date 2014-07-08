@@ -71,9 +71,9 @@ describe "participant management" do
       select "1", from: "first_appointment_next_contact_3i"
       select "22", from: "first_appointment_next_contact_4i"
       select "20", from: "first_appointment_next_contact_5i"
-      select "3", from: "first_appointment_nurse_participant_evaluation_attributes_smartphone_comfort"
-      select "3", from: "first_appointment_nurse_participant_evaluation_attributes_participant_session_engagement"
-      select "3", from: "first_appointment_nurse_participant_evaluation_attributes_app_usage_prediction"
+      select "3", from: "first_appointment_smartphone_comfort"
+      select "3", from: "first_appointment_participant_session_engagement"
+      select "3", from: "first_appointment_app_usage_prediction"
       click_on "Save"
 
       expect(page).to have_text "Input Smartphone"

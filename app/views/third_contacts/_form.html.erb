@@ -27,6 +27,7 @@
         <%= f.text_field :final_appointment_location, class: "form-control", required: true %>
       </div>
     </div>
+    <%= render 'nurse_participant_evaluations/form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} unless @third_contact.nurse_participant_evaluation.valid? %>
     <div class="form-group">
       <%= f.label :notes, class: "col-md-4 control-label" %>
       <div class="col-md-7">

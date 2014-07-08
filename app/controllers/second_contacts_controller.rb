@@ -46,7 +46,7 @@ class SecondContactsController < ApplicationController
             :note, :contact_at
         ],
         nurse_participant_evaluation_attributes: [
-            :first_appointment_id,
+            :second_contact_id,
             :q1,
             :q2,
             :q3

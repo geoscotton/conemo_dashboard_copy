@@ -115,6 +115,7 @@
         <%= f.text_area :q7_notes, class: "form-control" %>
       </div>
     </div>
+    <%= render 'nurse_participant_evaluations/form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} unless @second_contact.nurse_participant_evaluation.valid? %>
     <div class="form-group">
       <%= f.label :session_length, class: "col-md-4 control-label" %>
       <div class="col-md-7">
@@ -127,7 +128,6 @@
         <%= f.text_area :notes, class: "form-control" %>
       </div>
     </div>
-    <%= render 'nurse_participant_evaluations/form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} unless @second_contact.nurse_participant_evaluation.valid? %>
     <div class="form-group">
       <div class="col-md-offset-4 col-md-7">
         <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>

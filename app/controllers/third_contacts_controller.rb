@@ -4,6 +4,8 @@ class ThirdContactsController < ApplicationController
 
   def new
     @third_contact = participant.build_third_contact
+    @nurse_participant_evaluation = @third_contact
+    .build_nurse_participant_evaluation
   end
 
   def create
@@ -19,6 +21,7 @@ class ThirdContactsController < ApplicationController
 
   def edit
     @third_contact = participant.third_contact
+    @nurse_participant_evaluation = @third_contact.nurse_participant_evaluation
   end
 
   def update
@@ -50,7 +53,7 @@ class ThirdContactsController < ApplicationController
             :note, :contact_at
         ],
         nurse_participant_evaluation_attributes: [
-            :first_appointment_id,
+            :third_contact_id,
             :smartphone_comfort,
             :participant_session_engagement,
             :app_usage_prediction
