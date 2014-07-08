@@ -21,13 +21,13 @@ class ThirdContactsController < ApplicationController
 
   def edit
     @third_contact = participant.third_contact
-    @nurse_participant_evaluation = @third_contact.nurse_participant_evaluation
+    @nurse_participant_evaluation = NurseParticipantEvaluation.where(third_contact_id: @third_contact.id).first_or_initialize
   end
 
   def update
     @third_contact = participant.third_contact
     if @third_contact.update(third_contact_params)
-      third_contact.schedule_message(participant, "final")
+      @third_contact.schedule_message(participant, "final")
       redirect_to active_participants_path
     else
       flash[:alert] = @third_contact.errors.full_messages.join(", ")
