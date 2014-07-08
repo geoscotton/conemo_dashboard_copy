@@ -48,18 +48,17 @@ en:
       nurse_participant_evaluations:
         form:
           q1:
-            o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
-            o3: "3 – Después de la PRIMERA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la SEGUNDA demostración"
-            o2: "2 – Después de la SEGUNDA demostración, el paciente todavía necesitó ayuda con al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo, PERO PUDO hacerlo después de la TERCERA demostración"
-            o1: "1 – Después de la TERCERA demostración el paciente aún tuvo dificultades en al menos una de las siguientes acciones: encender el teléfono, acceder o usar el aplicativo."
+            o3: "3 - Seems to be able to use the application without difficulty"
+            o2: "2 - Seems to have some difficulties, but still manages to use the application properly"
+            o1: "1 - Seems to have great difficulty using the application"
           q2:
-            o3: "3 – Muy interesado"
-            o2: "2 – Más o menos interesado"
-            o1: "1 – Muy poco interesado"
+            o3: "3 – Very interested"
+            o2: "2 – Somewhat interested"
+            o1: "1 – Not interested"
           q3:
-            o3: "3 –Muy probable"
-            o2: "2 – 50/50 (Más o menos probable)"
-            o1: "1 –Poco probable"
+            o3: "3 – Very probable"
+            o2: "2 – 50/50 (more or less probable)"
+            o1: "1 – Not probable"
       patient_contacts:
         new:
           heading: Create Note for
@@ -197,9 +196,9 @@ en:
         app_usage_prediction: "What are the chances that this person will use the app?"
         notes: "Notes"
       nurse_participant_evaluation:
-        q1: 
-        q2:
-        q3:
+        q1: "Based on the call you had with the patient, how would you rate their ability to use the application?"
+        q2: "Based on the call you had with the patient, how motivated is he/she to perform the proposed tasks and participate in CONEMO?"
+        q3: "In your opinion, how likely is the patient to use the application?"
       smartphone:
         number: "SMS Phone # of Smartphone"
         is_app_compatible: "Is the smartphone compatible with the app?"
