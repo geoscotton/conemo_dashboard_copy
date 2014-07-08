@@ -54,9 +54,9 @@ class ThirdContactsController < ApplicationController
         ],
         nurse_participant_evaluation_attributes: [
             :third_contact_id,
-            :smartphone_comfort,
-            :participant_session_engagement,
-            :app_usage_prediction
+            :q1,
+            :q2,
+            :q3
         ]
     )
   end
