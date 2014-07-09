@@ -82,8 +82,7 @@ es-PE:
           sign_in: "Ingresar"
           email: "Email"
           password: "Contraseña"
-          remember_me:
-          forgot_your_password:
+          remember_me: "Recordar contraseña"
       participants:
         new:
           heading: "Añadir nuevo participante"
