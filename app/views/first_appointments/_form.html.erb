@@ -37,7 +37,7 @@
                               "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o2")}",
                               "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o1")}"
                              ]),
-                           {}, {class: "form-control", required: true} %>
+                           {}, {class: "dropdown", required: true, data: {placeholder: @first_appointment.smartphone_comfort} } %>
       </div>
     </div>
     <div class="form-group">
@@ -47,8 +47,8 @@
                                    "#{t("conemo.views.first_appointments.form.participant_session_engagement_options.o3")}",
                                    "#{t("conemo.views.first_appointments.form.participant_session_engagement_options.o2")}",
                                    "#{t("conemo.views.first_appointments.form.participant_session_engagement_options.o1")}"
-                           ]),
-                           {}, {class: "form-control", required: true} %>
+                           ], @first_appointment.participant_session_engagement),
+                           {}, {class: "dropdown", required: true} %>
       </div>
     </div>
     <div class="form-group">
@@ -58,8 +58,8 @@
                              "#{t("conemo.views.first_appointments.form.app_usage_prediction_options.o3")}",
                              "#{t("conemo.views.first_appointments.form.app_usage_prediction_options.o2")}",
                              "#{t("conemo.views.first_appointments.form.app_usage_prediction_options.o1")}"
-                     ]),
-                           {}, {class: "form-control", required: true} %>
+                     ], @first_appointment.app_usage_prediction),
+                           {}, {class: "dropdown", required: true} %>
       </div>
     </div>
     <div class="form-group">

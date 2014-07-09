@@ -12,6 +12,10 @@ body select {
   color: black !important
 }
 
+select option {
+  width: 10px !important;
+}
+
 .jumbotron {
   background-color: transparent;
 }
