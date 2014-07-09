@@ -12,8 +12,12 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   def layout_by_resource
-    if devise_controller? && resource_name == :user && action_name == "new"
-      "dashboard"
+    if devise_controller?
+      if controller_name == 'sessions' && action_name == 'new'
+        "login"
+      else
+        "dashboard"
+      end
     else
       "application"
     end

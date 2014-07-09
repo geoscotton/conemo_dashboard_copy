@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     post "lessons/:id/slide_order" => "lessons#slide_order", as: :lesson_slide_order
   end
 
-  get "/:locale" => "dashboards#index", as: :dashboard
+  get "/" => "dashboards#index", as: :dashboard
 
   root to: "dashboards#index"
 end
