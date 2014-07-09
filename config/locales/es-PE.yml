@@ -80,8 +80,8 @@ es-PE:
       users:
         sign_in:
           sign_in: "Ingresar"
-          email:
-          password:
+          email: "Email"
+          password: "Contraseña"
           remember_me:
           forgot_your_password:
       participants:
