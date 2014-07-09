@@ -18,9 +18,9 @@ pt-BR:
         index:
           heading: "Bem-vindo!"
           instructions: "Por favor, selecione um item"
-          enrollment_button: "Cadastrar participantes pendentes"
-          manage_button: "Gerenciar Participantes Ativos"
-          lessons_button: "Gerenciar sessões"
+          enrollment_button: "Participantes pendentes"
+          manage_button: "Participantes ativos"
+          lessons_button: "Sessões"
           sign_out: "Terminar sessão"
       smartphones:
         new:
