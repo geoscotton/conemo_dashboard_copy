@@ -3,13 +3,13 @@
   <%= smartphone.number %>
 </p>
 <% if params[:locale] != 'es-PE' %>
+  <p><strong><%= t "helpers.label.smartphone.is_smartphone_owner" %></strong>
+    <%= t "conemo.views.shared.#{smartphone.is_smartphone_owner}" %>
+  </p>
   <p><strong><%= t "helpers.label.smartphone.is_app_compatible" %></strong>
-    <%= smartphone.is_app_compatible %>
+    <%= t "conemo.views.shared.#{smartphone.is_app_compatible}" %>
   </p>
   <p><strong><%= t "helpers.label.smartphone.is_owned_by_participant" %></strong>
-    <%= smartphone.is_owned_by_participant %>
-  </p>
-  <p><strong><%= t "helpers.label.smartphone.is_smartphone_owner" %></strong>
-    <%= smartphone.is_smartphone_owner %>
+    <%= t "conemo.views.shared.#{smartphone.is_owned_by_participant}" %>
   </p>
 <% end %>
