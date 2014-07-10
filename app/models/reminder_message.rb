@@ -61,7 +61,8 @@ class ReminderMessage < ActiveRecord::Base
           nurse: {
               contact: {
                   hour_1: "You have your first CONEMO appointment with a patient in 1 hour",
-                  hour_24: "You have your first CONEMO appointment with a patient tomorrow. Please, contact him/her if you need to reschedule."
+                  hour_24: "Você terá seu primeiro encontro sobre o CONEMO com  o técnico(a) de enfermagem EM 1 HORA"
+                  # hour_24: "You have your first CONEMO appointment with a patient tomorrow. Please, contact him/her if you need to reschedule."
               },
               appointment: {
                   hour_1: "Don’t forget to call your patient in the next hour",
