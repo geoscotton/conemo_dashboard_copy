@@ -31,13 +31,13 @@
       <%= f.label :smartphone_comfort, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.select :smartphone_comfort, options_for_select(
-                            [ 
+                            [
                               "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o4")}",
                               "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o3")}",
                               "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o2")}",
                               "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o1")}"
-                             ]),
-                           {}, {class: "dropdown", required: true, data: {placeholder: @first_appointment.smartphone_comfort} } %>
+                             ], @first_appointment.smartphone_comfort),
+                           {}, {class: "dropdown", required: true} %>
       </div>
     </div>
     <div class="form-group">
