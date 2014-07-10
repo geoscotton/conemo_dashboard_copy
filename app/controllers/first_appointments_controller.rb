@@ -50,6 +50,8 @@ class FirstAppointmentsController < ApplicationController
     params.require(:first_appointment).permit(
         :participant_id, :appointment_at, :appointment_location,
         :next_contact, :session_length, :notes,
+        :smartphone_comfort, :participant_session_engagement,
+        :app_usage_prediction,
         patient_contacts_attributes: [
             :first_appointment_id, :contact_reason, :participant_id,
             :note, :contact_at
