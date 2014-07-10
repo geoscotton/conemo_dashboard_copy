@@ -6,42 +6,42 @@
       </div>
     </div>
     <% if params[:locale] != "es-PE" %>
-        <div class="form-group">
-          <%= f.label :is_app_compatible, class: "col-md-5 control-label" %>
-          <div class="col-md-7">
-            <label class="radio-inline">
-              <%= f.radio_button :is_app_compatible, 'true' %> <%= t("conemo.views.shared.true_radio") %>
-            </label>
+      <div class="form-group">
+        <%= f.label :is_smartphone_owner, class: "col-md-5 control-label" %>
+        <div class="col-md-7">
+          <label class="radio-inline">
+            <%= f.radio_button :is_smartphone_owner, 'true' %> <%= t("conemo.views.shared.yes") %>
+          </label>
 
-            <label class="radio-inline">
-              <%= f.radio_button :is_app_compatible, 'false' %> <%= t("conemo.views.shared.false_radio") %>
-            </label>
-          </div>
+          <label class="radio-inline">
+            <%= f.radio_button :is_smartphone_owner, 'false' %> <%= t("conemo.views.shared.no") %>
+          </label>
         </div>
-        <div class="form-group">
-          <%= f.label :is_owned_by_participant, class: "col-md-5 control-label" %>
-          <div class="col-md-7">
-            <label class="radio-inline">
-              <%= f.radio_button :is_owned_by_participant, 'true' %> <%= t("conemo.views.shared.true_radio") %>
-            </label>
+      </div>
+      <div class="form-group">
+        <%= f.label :is_app_compatible, class: "col-md-5 control-label" %>
+        <div class="col-md-7">
+          <label class="radio-inline">
+            <%= f.radio_button :is_app_compatible, 'true' %> <%= t("conemo.views.shared.yes") %>
+          </label>
 
-            <label class="radio-inline">
-              <%= f.radio_button :is_owned_by_participant, 'false' %> <%= t("conemo.views.shared.false_radio") %>
-            </label>
-          </div>
+          <label class="radio-inline">
+            <%= f.radio_button :is_app_compatible, 'false' %> <%= t("conemo.views.shared.no") %>
+          </label>
         </div>
-        <div class="form-group">
-          <%= f.label :is_smartphone_owner, class: "col-md-5 control-label" %>
-          <div class="col-md-7">
-            <label class="radio-inline">
-              <%= f.radio_button :is_smartphone_owner, 'true' %> <%= t("conemo.views.shared.true_radio") %>
-            </label>
+      </div>
+      <div class="form-group">
+        <%= f.label :is_owned_by_participant, class: "col-md-5 control-label" %>
+        <div class="col-md-7">
+          <label class="radio-inline">
+            <%= f.radio_button :is_owned_by_participant, 'true' %> <%= t("conemo.views.shared.yes") %>
+          </label>
 
-            <label class="radio-inline">
-              <%= f.radio_button :is_smartphone_owner, 'false' %> <%= t("conemo.views.shared.false_radio") %>
-            </label>
-          </div>
+          <label class="radio-inline">
+            <%= f.radio_button :is_owned_by_participant, 'false' %> <%= t("conemo.views.shared.no") %>
+          </label>
         </div>
+      </div>
     <% end %>
     <div class="form-group">
       <div class="col-md-offset-5 col-md-7">

@@ -5,8 +5,8 @@ pt-BR:
         save_button: "Salvar"
         cancel_button: "Cancelar"
         nurse: "Aux. de Enfermagem"
-        true_radio: "Sim"
-        false_radio: "Não"
+        "true": "Sim"
+        "false": "Não"
         pending: "Pendente"
         ineligible: "Inelegível"
         create: "criar"
@@ -24,7 +24,7 @@ pt-BR:
           sign_out: "Terminar sessão"
       smartphones:
         new:
-          heading: "Entrada Smartphone Informações"
+          heading: "Incluir informações do smartphone para"
       second_contacts:
         new:
           heading: "1º Contato de seguimento"
