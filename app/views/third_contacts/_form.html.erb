@@ -2,7 +2,7 @@
     <div class="form-group">
       <%= f.label :contacted_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :contacted_at, class: "form-control", required: true %>
+        <%= f.datetime_select :contacted_at, class: "form-control", required: true, default: participant.third_contact ? third_contact.contacted_at : (participant.second_contact.contact_at + 3.weeks) %>
         <br>
         <small><%= Time.zone %></small>
       </div>
