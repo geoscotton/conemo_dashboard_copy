@@ -4,6 +4,12 @@ describe Participant do
   fixtures :participants, :lessons
 
   describe "#sanitize_number" do
+    let(:participant) { participants(:participant1)}
+    it "strips non-numeric characters" do
+      participant.phone = "(444)555-5555"
+      participant.save
+      expect(participant.phone).to eq "4445555555"
+    end
   end
 
   describe "Overall Study Status" do

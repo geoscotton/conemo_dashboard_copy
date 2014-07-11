@@ -1,11 +1,53 @@
 require "spec_helper"
 describe ReminderMessage do
-  fixtures :participants, :users, :reminder_messages, :first_contacts
+  fixtures :participants, :users, :reminder_messages, :first_contacts, :first_appointments
 
   describe "Message Scheduler" do
-    context "First Contact for Portuguese participant" do
+    context "First Contact for Portuguese" do
       let(:portuguese_participant) { participants(:portuguese_active_participant) }
       let(:first_contact) { first_contacts(:portuguese_first_contact) }
+      let(:first_appointment) { first_appointments(:portuguese_first_appointment) }
+
+      describe "#schedule_message" do
+        it "schedules all reminder messages for an upcoming first appointment" do
+          
+          first_contact.schedule_message(portuguese_participant, "contact")
+
+          expect(ReminderMessage.where(participant: portuguese_participant,
+                                       notify_at: "24",
+                                       message_type: "nurse",
+                                       appointment_type: "contact"
+                                       )).to exist
+
+          expect(ReminderMessage.where(participant: portuguese_participant,
+                                       notify_at: "24",
+                                       message_type: "participant",
+                                       appointment_type: "contact"
+                                       )).to exist
+
+          expect(ReminderMessage.where(participant: portuguese_participant,
+                                       notify_at: "1",
+                                       message_type: "nurse",
+                                       appointment_type: "contact"
+                                       )).to exist
+
+          expect(ReminderMessage.where(participant: portuguese_participant,
+                                       notify_at: "1",
+                                       message_type: "participant",
+                                       appointment_type: "contact"
+                                       )).to exist
+        end
+
+        it "does not schedule a 1 hour reminder for participants for phone appointments" do
+          first_appointment.schedule_message(portuguese_participant, "contact")
+
+          expect(ReminderMessage.where(participant: portuguese_participant,
+                                       notify_at: "1",
+                                       message_type: "participant",
+                                       appointment_type: "appointment"
+                                       )).to_not exist
+        end
+      end
 
       describe "#schedule_24_hour" do
         it "schedules a 24 appointment" do

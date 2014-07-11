@@ -6,7 +6,11 @@ module MessageScheduler
     schedule_24_hour("nurse", model_name_string, person)
     schedule_24_hour("participant", model_name_string, person)
     schedule_1_hour("nurse", model_name_string, person)
-    schedule_1_hour("participant", model_name_string, person)
+    
+    if model_name_string == "contact" || model_name_string == "final"
+      schedule_1_hour("participant", model_name_string, person)
+    end
+  
   end
 
   def schedule_24_hour(message_type, model_name_string, person)

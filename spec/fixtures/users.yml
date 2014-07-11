@@ -7,6 +7,15 @@ nurse1:
   phone: "555-555-5555"
   locale: "en"
 
+portuguese_nurse:
+  first_name: Linda
+  last_name: Ratchet
+  email: portuguese_nurse@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  role: "nurse"
+  phone: "555-555-5555"
+  locale: "pt-BR"
+
 admin1:
   first_name: Hobo
   last_name: Jones
