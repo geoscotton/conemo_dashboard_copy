@@ -1,0 +1,6 @@
+portuguese_first_appointment:
+  participant: portuguese_active_participant
+  appointment_at: <%= Date.today %>
+  appointment_location: "Home"
+  session_length: 5       
+  next_contact: <%= DateTime.current + 2.days %>

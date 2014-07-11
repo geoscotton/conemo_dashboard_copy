@@ -51,7 +51,7 @@ portuguese_active_participant:
   phone: "555-455-5555"
   diabetes: true
   enrollment_date: <%= Date.yesterday %>
-  nurse: nurse1
+  nurse: portuguese_nurse
   status: active
   start_date: <%= Date.today - 5.days %>
   locale: "pt-BR"
