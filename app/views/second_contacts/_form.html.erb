@@ -2,7 +2,7 @@
     <div class="form-group">
       <%= f.label :contact_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :contact_at, class: "form-control", required: true %>
+        <%= f.datetime_select :contact_at, class: "form-control", required: true, default: participant.second_contact ? second_contact.contact_at : participant.first_appointment.next_contact  %>
         <br>
         <small><%= Time.zone %></small>
       </div>
