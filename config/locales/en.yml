@@ -206,6 +206,7 @@ en:
       second_contact:
         contact_at: "Date of phone call"
         session_length: "Length of phone call (minutes)"
+        next_contact: "Next contact date/time"
         q1: "How is it going with CONEMO? (Always ask to specify, asking “why?”, “how so?” etc.)"
         q2: "Did you have any difficulties using the cell phone?"
         q2_notes: "If yes, specify"
