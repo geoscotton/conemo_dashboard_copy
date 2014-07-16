@@ -1,5 +1,5 @@
 <h2><%= t "conemo.views.active.participants.show.third_contact_heading" %> <%= link_to '', edit_participant_third_contact_path(third_contact.participant), class: "fa fa-edit" %></h2>
-<p><strong><%= t "helpers.label.third_contact.contacted_at" %>:</strong>
-  <%= third_contact.contacted_at.to_s(:long) %>
+<p><strong><%= t "helpers.label.third_contact.contact_at" %>:</strong>
+  <%= third_contact.contact_at.to_s(:long) %>
 <p><strong><%= t "helpers.label.third_contact.session_length" %>:</strong>
   <%= third_contact.session_length %>

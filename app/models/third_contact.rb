@@ -11,7 +11,7 @@ class ThirdContact < ActiveRecord::Base
   accepts_nested_attributes_for :nurse_participant_evaluation
 
   validates :participant,
-            :contacted_at,
+            :contact_at,
             :session_length,
             :final_appointment_at,
             :final_appointment_location,

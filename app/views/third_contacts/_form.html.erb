@@ -1,8 +1,8 @@
 <%= form_for @third_contact, url: participant_third_contact_path(participant), method: @third_contact.valid? ? :patch : :post, html: {role: "form", class: "form-horizontal"} do |f| %>
     <div class="form-group">
-      <%= f.label :contacted_at, class: "col-md-4 control-label" %>
+      <%= f.label :contact_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :contacted_at, class: "form-control", required: true, default: participant.third_contact ? third_contact.contacted_at : (participant.second_contact.contact_at + 3.weeks) %>
+        <%= f.datetime_select :contact_at, class: "form-control", required: true, default: participant.third_contact ? third_contact.contact_at : (participant.second_contact.next_contact) %>
         <br>
         <small><%= Time.zone %></small>
       </div>
