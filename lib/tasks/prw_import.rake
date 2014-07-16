@@ -29,7 +29,7 @@ class ImportPrwData
             participant.save
             puts "start date updated for #{participant.study_identifier}"
           else
-            puts "start date neither updated nor created for #{participant.study_identifier}"
+            nil 
           end
         end
       end
