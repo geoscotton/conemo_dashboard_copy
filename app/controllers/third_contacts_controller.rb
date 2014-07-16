@@ -44,7 +44,7 @@ class ThirdContactsController < ApplicationController
 
   def third_contact_params
     params.require(:third_contact).permit(
-        :participant_id, :contacted_at,
+        :participant_id, :contact_at,
         :notes, :session_length,
         :final_appointment_at,
         :final_appointment_location,
