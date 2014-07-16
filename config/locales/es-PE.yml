@@ -215,6 +215,7 @@ es-PE:
       second_contact:
         contact_at: "Fecha de llamada"
         session_length: "Duración de la llamada (min)"
+        next_contact: "Fecha/hora para el Llamada de seguimiento sem. 4"
         q1: "¿Cómo le va con CONEMO? (Siempre pide especificaciones, preguntando por ejemplo 'cómo', 'por qué', 'cómo así')"
         q2: "¿Ha tenido algunas dificultades usando el teléfono / Smartphone?"
         q2_notes: "En caso afirmativo, especifique"
