@@ -48,7 +48,7 @@ module ParticipantsHelper
     if participant.second_contact
       fa_icon "check-circle 2x", style: "color: green"
     elsif participant.first_appointment
-      " #{l participant.first_appointment.next_contact, format: :long}"
+      " #{l participant.first_appointment.next_contact, format: :short}"
     else
       ""
     end
@@ -104,7 +104,7 @@ module ParticipantsHelper
     if participant.final_appointment
       fa_icon "check-circle 2x", style: "color: green;"
     elsif participant.third_contact
-      " #{l participant.third_contact.final_appointment_at, format: :long}" rescue ''
+      " #{l participant.third_contact.final_appointment_at, format: :short}" rescue ''
     else
       ""
     end
