@@ -82,7 +82,7 @@ module ParticipantsHelper
     if participant.third_contact
       fa_icon "check-circle 2x", style: "color: green"
     elsif participant.second_contact
-      " #{l participant.second_contact.contact_at + 3.weeks, format: :short}"
+      " #{l participant.second_contact.next_contact, format: :short}"
     else
       ""
     end

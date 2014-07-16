@@ -206,6 +206,7 @@ pt-BR:
         is_smartphone_owner: "O participante tem seu próprio smartphone?"
       second_contact:
         contact_at: "Data da ligação"
+        next_contact: "Data/hora próximo contato"
         session_length: "Duração da chamada (minutos)"
         q1: "Como você está indo com o CONEMO? (sempre tente especificar, perguntando “porque?”, “como é isso?”)"
         q2: "Você está tendo dificuldades em usar o smarphone?"
@@ -222,6 +223,7 @@ pt-BR:
         q7_notes: "Se não, qual foi a dificuldade/problema?"
         notes: "Observações"
       third_contact:
+        contact_at: "Data da ligação"
         final_appointment_at: "Encontro Final em"
         final_appointment_location: "Local do Encontro Final"
         contacted_at: "Data da ligação"
