@@ -76,10 +76,10 @@ pt-BR:
         new:
           heading: Escrever nota para
         options:
-          programmed_follow_up_call: Llamada de seguimiento programada
-          non_adherence: No-adherencia a la intervención
-          patient_requested_call: Llamada solicitada por el paciente
-          other: Otro
+          programmed_follow_up_call: Contato programado - Seguimento
+          non_adherence: Contato por não adesão
+          patient_requested_call: Solicitação de contato pelo paciente
+          other: Outro
       participants:
         new:
           heading: "Cadastrar novo participante"
@@ -123,7 +123,7 @@ pt-BR:
             overall_status: "Status geral"
             content_accessed: "Acesso ao conteúdo"
             seven_day_access_count: "Acesso na última semana"
-            messages: "Solicitações de ajuda"
+            messages: "Solicitação de ajuda"
             release_day: "Sessão enviada em"
             lesson: "Sessão"
             patient_response: "Resposta do participante"
@@ -228,7 +228,7 @@ pt-BR:
         session_length: "Duração da ligação (min)"
         notes: "Anotações"
       patient_contact:
-        contact_at: "Tempo de observação"
+        contact_at: "Data do contato"
         contact_reason: "Motivo"
         note: "Anotações"
       final_appointment:
