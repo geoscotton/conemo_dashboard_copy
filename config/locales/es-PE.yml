@@ -127,7 +127,7 @@ es-PE:
             content_accessed: "Acceso a sesión"
             seven_day_access_count: "Número de ingresos en 7 días"
             messages: "Mensajes"
-            release_day: "Release day"
+            release_day: "Fecha de lanzamiento"
             lesson: "Sesión"
             patient_response: "Respuesta del paciente"
             access_count: "Número de acceso a sesiones"
@@ -236,7 +236,7 @@ es-PE:
         session_length: "Duración de la llamada (min)"
         notes: "Notas"
       patient_contact:
-        contact_at: "Tiempo de nota"
+        contact_at: "Fecha / hora de nota"
         contact_reason: "Razones"
         note: "Notas"
       final_appointment:
