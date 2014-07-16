@@ -37,8 +37,8 @@ namespace :sms do
 
           reminder_message.update_attribute(:status, "sent")
         rescue Twilio::REST::RequestError => err
-          puts "error sending sms to #{sent_to}: #{country_code}#{phone_number}"
-          puts "error #{err}"
+          puts "Error sending sms to #{sent_to}: #{country_code}#{phone_number}"
+          puts "* #{err}"
         end
       end
     end
