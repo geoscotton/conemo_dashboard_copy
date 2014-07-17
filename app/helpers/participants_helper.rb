@@ -100,6 +100,18 @@ module ParticipantsHelper
     end
   end
 
+  def reschedule_third_contact(participant)
+    if participant.third_contact
+      ""
+    elsif participant.second_contact
+      link_to " #{t 'conemo.views.shared.reschedule'}",
+              missed_third_contact_path(participant_id: participant.id, id: participant.second_contact.id),
+              class: "fa fa-edit reschedule-link"
+    else
+      ""
+    end
+  end
+
   def final_appointment(participant)
     if participant.final_appointment
       fa_icon "check-circle 2x", style: "color: green;"
