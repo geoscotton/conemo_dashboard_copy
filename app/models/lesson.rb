@@ -11,6 +11,7 @@ class Lesson < ActiveRecord::Base
             :day_in_treatment,
             :locale,
             :guid,
+            :lesson_type,
             :slideshow,
             presence: true
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716210037) do
+ActiveRecord::Schema.define(version: 20140721203517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,15 @@ ActiveRecord::Schema.define(version: 20140716210037) do
   add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
   add_index "content_access_events", ["participant_id"], name: "index_content_access_events_on_participant_id", using: :btree
 
+  create_table "dialogues", force: true do |t|
+    t.integer  "lesson_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dialogues", ["lesson_id"], name: "index_dialogues_on_lesson_id", using: :btree
+
   create_table "final_appointments", force: true do |t|
     t.datetime "appointment_at"
     t.string   "appointment_location"
@@ -138,13 +147,14 @@ ActiveRecord::Schema.define(version: 20140716210037) do
   add_index "help_messages", ["participant_id"], name: "index_help_messages_on_participant_id", using: :btree
 
   create_table "lessons", force: true do |t|
-    t.string   "title",                                null: false
+    t.string   "title",                                     null: false
     t.integer  "bit_core_slideshow_id"
-    t.integer  "day_in_treatment",      default: 1,    null: false
-    t.string   "locale",                default: "en", null: false
+    t.integer  "day_in_treatment",      default: 1,         null: false
+    t.string   "locale",                default: "en",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "guid",                                 null: false
+    t.string   "guid",                                      null: false
+    t.string   "lesson_type",           default: "default"
   end
 
   add_index "lessons", ["bit_core_slideshow_id"], name: "index_lessons_on_bit_core_slideshow_id", using: :btree
