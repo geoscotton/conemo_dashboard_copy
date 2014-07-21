@@ -2,6 +2,7 @@
   <td><%= link_to lesson.title, lesson_path(lesson) %></td>
   <td><%= lesson.day_in_treatment %></td>
   <td><%= lesson.slides.count %></td>
+  <td><%= lesson.lesson_type %></td>
   <td><%= link_to icon("pencil fa-lg"), edit_lesson_path(lesson), id: "edit-lesson-#{ lesson.id }" %></td>
   <td><%= link_to icon("trash-o fa-lg text-danger"),
                   lesson_path(lesson),
