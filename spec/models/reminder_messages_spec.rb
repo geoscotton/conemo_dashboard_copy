@@ -77,6 +77,7 @@ describe ReminderMessage do
         end
       end
     end
+
     describe "Rescheduling a first appointment" do
       context "before notification sent" do
         let(:participant) { participants(:active_participant) }
@@ -107,6 +108,7 @@ describe ReminderMessage do
   end
 
   describe "Reminder Message" do
+    
     describe "#notification_time" do
       context "24 hour first contact" do
         let(:portuguese_participant) { participants(:portuguese_active_participant) }
@@ -126,6 +128,7 @@ describe ReminderMessage do
         end
       end
     end
+
     describe "#message" do
       context "24 hour first contact for portuguese participant" do
         let(:reminder_message) { reminder_messages(:pt_first_participant_24) }
