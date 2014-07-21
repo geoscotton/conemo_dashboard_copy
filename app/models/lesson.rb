@@ -11,9 +11,11 @@ class Lesson < ActiveRecord::Base
             :day_in_treatment,
             :locale,
             :guid,
-            :lesson_type,
             :slideshow,
             presence: true
+
+  LESSON_TYPES = ["default", "dialogue"]
+  validates :lesson_type, inclusion: {in: LESSON_TYPES}
 
   before_validation :generate_guid, :create_slideshow, on: :create
   after_destroy :destroy_slideshow
