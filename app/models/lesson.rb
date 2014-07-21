@@ -6,7 +6,6 @@ class Lesson < ActiveRecord::Base
   has_many :slides, through: :slideshow
   has_many :content_access_events
   has_many :participants, through: :content_access_events
-  has_many :dialogues
   
   validates :title,
             :day_in_treatment,
