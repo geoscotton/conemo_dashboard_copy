@@ -39,7 +39,7 @@ class ReminderMessage < ActiveRecord::Base
               },
               final: {
                   hour_1: "Você tem paciente para última consulta em uma hora",
-                  hour_24: "“Você tem paciente para última consulta AMANHÃ. Para reagendar, faça contato"
+                  hour_24: "Você tem paciente para última consulta AMANHÃ. Para reagendar, faça contato"
               }
           }
       },
