@@ -16,8 +16,8 @@ class ReminderMessage < ActiveRecord::Base
       pt_BR: {
           participant: {
               contact: {
-                  hour_1: "Você terá seu primeiro encontro sobre o CONEMO com  o técnico(a) de enfermagem EM 1 HORA",
-                  hour_24: "Você terá seu primeiro encontro sobre o CONEMO com o técnico(a) de enfermagem AMANHÃ. Por favor, entre em contato com ele(a) caso você precise reagendar o encontro"
+                  hour_1: "Seu primeiro encontro CONEMO com a enfermagem será em uma hora.",
+                  hour_24: "Seu primeiro encontro CONEMO com a enfermagem é AMANHÃ. Para reagendar, faça contato."
               },
               appointment: {
                   hour_1: "O técnico de enfermagem irá lhe telefonar nas 1 hora",
@@ -30,8 +30,8 @@ class ReminderMessage < ActiveRecord::Base
           },
           nurse: {
               contact: {
-                  hour_1: "Você terá seu primeiro encontro sobre o CONEMO com seu paciente EM 1 HORA.",
-                  hour_24: "Você terá seu primeiro encontro sobre o CONEMO com seu paciente AMANHÃ. Por favor, entre em contato com ele(a) caso você precise reagendar o encontro"
+                  hour_1: "Seu primeiro contato com novo paciente em uma hora.",
+                  hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, faça contato."
               },
               appointment: {
                   hour_1: "Portuguese 1 hour nurse reminder for second conctact",
