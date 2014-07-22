@@ -11,5 +11,15 @@ describe "appointment scheduler" do
 
   let(:participant) { participants(:active_participant) }
 
-  describe "display"
+  describe "first appointment time and place" do
+    let!(:first_contact) { first_contacts(:english_first_contact)}
+
+    context "first contact already created" do
+      it "displays first appointment info on index page" do
+        visit "/en/active/participants"
+        expect(page).to have_text participant.first_contact.first_appointment_at.to_s(:short)
+        expect(page).to have_text participant.first_contact.first_appointment_location
+      end
+    end
+  end
 end
