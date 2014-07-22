@@ -24,8 +24,8 @@ class ReminderMessage < ActiveRecord::Base
                   hour_24: "O(a) técnico(a) de enfermagem irá lhe telefonar nas próximas 24 horas."
               },
               final: {
-                  hour_1: "Portuguese 1 hour participant reminder for final appointment",
-                  hour_24: "Portuguese 24 hour participant reminder for final appointment"
+                  hour_1: "Sua consulta final do CONEMO é em uma hora",
+                  hour_24: "Sua consulta final do CONEMO é AMANHÃ. Para reagendar, faça contato"
               }
           },
           nurse: {
@@ -34,12 +34,12 @@ class ReminderMessage < ActiveRecord::Base
                   hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, faça contato."
               },
               appointment: {
-                  hour_1: "Portuguese 1 hour nurse reminder for second conctact",
+                  hour_1: "Não se esqueça de telefonar para seu paciente nas 1 hora",
                   hour_24: "Não esqueça de telefonar para seu paciente dentro de 24 horas"
               },
               final: {
-                  hour_1: "Portuguese 1 hour nurse reminder for final appointment",
-                  hour_24: "Portuguese 24 hour nurse reminder for final appointment"
+                  hour_1: "Você tem paciente para última consulta em uma hora",
+                  hour_24: "“Você tem paciente para última consulta AMANHÃ. Para reagendar, faça contato"
               }
           }
       },
