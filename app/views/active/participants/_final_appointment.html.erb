@@ -1,0 +1,7 @@
+<h2><%= t "conemo.views.active.participants.show.final_appointment_heading" %> <%= link_to '', edit_participant_final_appointment_path(final_appointment.participant), class: "fa fa-edit" %></h2>
+<p><strong><%= t "helpers.label.final_appointment.appointment_at" %>:</strong>
+  <%= final_appointment.appointment_at.to_s(:long) %>
+<p><strong><%= t "helpers.label.final_appointment.appointment_location" %>:</strong>
+  <%= final_appointment.appointment_location %>
+<p><strong><%= t "helpers.label.final_appointment.phone_returned" %>:</strong>
+  <%= t "conemo.views.shared.#{final_appointment.phone_returned}" %>
