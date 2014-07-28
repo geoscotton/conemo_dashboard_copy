@@ -14,9 +14,6 @@ class Lesson < ActiveRecord::Base
             :slideshow,
             presence: true
 
-  LESSON_TYPES = ["default", "dialogue"]
-  validates :lesson_type, inclusion: {in: LESSON_TYPES}
-
   before_validation :generate_guid, :create_slideshow, on: :create
   after_destroy :destroy_slideshow
 
