@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728163216) do
+ActiveRecord::Schema.define(version: 20140728192818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,14 +152,13 @@ ActiveRecord::Schema.define(version: 20140728163216) do
   add_index "help_messages", ["participant_id"], name: "index_help_messages_on_participant_id", using: :btree
 
   create_table "lessons", force: true do |t|
-    t.string   "title",                                     null: false
+    t.string   "title",                                null: false
     t.integer  "bit_core_slideshow_id"
-    t.integer  "day_in_treatment",      default: 1,         null: false
-    t.string   "locale",                default: "en",      null: false
+    t.integer  "day_in_treatment",      default: 1,    null: false
+    t.string   "locale",                default: "en", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "guid",                                      null: false
-    t.string   "lesson_type",           default: "default"
+    t.string   "guid",                                 null: false
   end
 
   add_index "lessons", ["bit_core_slideshow_id"], name: "index_lessons_on_bit_core_slideshow_id", using: :btree
