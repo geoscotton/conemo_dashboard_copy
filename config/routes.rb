@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  namespace "lesson_api", constraints: { format: 'json' }  do
-    get "lessons" => "lesson_api#lessons"
+  namespace "api", constraints: { format: 'json' }  do
+    get "lessons" => "lessons#index"
+    get "dialogues" => "dialogues#index"
   end
 
   scope "/(:locale)" do
@@ -36,7 +37,7 @@ Rails.application.routes.draw do
     end
 
     resources :dialogues
-    
+
     resources :lessons do
       resources :slides
     end

@@ -1,0 +1,11 @@
+<tr class="draggable">
+  <td><%= link_to dialogue.title, dialogue_path(dialogue) %></td>
+  <td><%= dialogue.day_in_treatment %></td>
+  <td><%= link_to icon("pencil fa-lg"), edit_dialogue_path(dialogue), id: "edit-dialogue-#{ dialogue.id }" %></td>
+  <td><%= link_to icon("trash-o fa-lg text-danger"),
+                  dialogue_path(dialogue),
+                  id: "destroy-dialogue-#{ dialogue.id }",
+                  method: "delete",
+                  :"data-confirm" => "Are you sure you want to delete #{ dialogue.title }?"
+  %></td>
+</tr>
