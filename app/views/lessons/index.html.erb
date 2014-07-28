@@ -1,16 +1,18 @@
-<%= render "breadcrumbs", is_root: true %>
+<div class="tab-pane active" id="lessons">
+  <%= render "breadcrumbs", is_root: true %>
 
-<div class="new-lesson-link">
-  <%= link_to t("conemo.views.lessons.index.add_lesson"), new_lesson_path, class: "btn btn-info" %>
+  <div class="new-lesson-link">
+    <%= link_to t("conemo.views.lessons.index.add_lesson"), new_lesson_path, class: "btn btn-info" %>
+  </div>
+  <br>
+  <table class="table table-hover">
+    <tr>
+      <th>Title</th>
+      <th>Day in treatment</th>
+      <th>Number of slides</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <%= render @lessons %>
+  </table>
 </div>
-<br>
-<table class="table table-hover">
-  <tr>
-    <th>Title</th>
-    <th>Day in treatment</th>
-    <th>Number of slides</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
-  <%= render @lessons %>
-</table>
