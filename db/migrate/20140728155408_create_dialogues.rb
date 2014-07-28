@@ -1,5 +1,7 @@
 class CreateDialogues < ActiveRecord::Migration
   def change
+    drop_table :dialogues
+    
     create_table :dialogues do |t|
       t.string :title
       t.string :guid
