@@ -1,0 +1,1 @@
+json.dialogues @dialogues, partial: "dialogues/dialogues", as: :dialogue
