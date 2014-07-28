@@ -20,8 +20,7 @@ class DialoguesController < ApplicationController
     authorize! :create, @dialogue
 
     if @dialogue.save
-      redirect_to dialogues_url,
-                  notice: I18n.t("conemo.controllers.dialogues.saved")
+      redirect_to dialogues_url               
     else
       flash.now[:alert] = I18n.t("conemo.controllers.dialogues.not_saved") +
           ": " + validation_errors
@@ -37,8 +36,7 @@ class DialoguesController < ApplicationController
     authorize! :update, find_dialogue
 
     if @dialogue.update(dialogue_params)
-      redirect_to dialogues_url,
-                  notice: I18n.t("conemo.controllers.dialogues.saved")
+      redirect_to dialogues_url
     else
       flash.now[:alert] = I18n.t("conemo.controllers.dialogues.not_saved") +
           ": " + validation_errors
@@ -50,8 +48,7 @@ class DialoguesController < ApplicationController
     authorize! :destroy, find_dialogue
 
     if @dialogue.destroy
-      redirect_to dialogues_url,
-                  notice: I18n.t("conemo.controllers.dialogues.destroyed")
+      redirect_to dialogues_url
     else
       redirect_to dialogues_url,
                   alert: I18n.t("conemo.controllers.dialogues.not_destroyed") +
