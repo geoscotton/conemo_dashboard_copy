@@ -2,6 +2,7 @@
 class ContentAccessEvent < ActiveRecord::Base
   belongs_to :lesson
   belongs_to :participant
+  belongs_to :dialogue
   has_one :response
   delegate :answer, to: :response, allow_nil: true
   delegate :name, to: :response, allow_nil: true
