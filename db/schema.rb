@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721203517) do
+ActiveRecord::Schema.define(version: 20140728163216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,19 +83,24 @@ ActiveRecord::Schema.define(version: 20140721203517) do
     t.integer  "lesson_id"
     t.integer  "day_in_treatment_accessed"
     t.string   "lesson_datum_guid"
+    t.integer  "dialogue_id"
   end
 
+  add_index "content_access_events", ["dialogue_id"], name: "index_content_access_events_on_dialogue_id", using: :btree
   add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
   add_index "content_access_events", ["participant_id"], name: "index_content_access_events_on_participant_id", using: :btree
 
   create_table "dialogues", force: true do |t|
-    t.integer  "lesson_id"
     t.string   "title"
+    t.string   "guid"
+    t.string   "day_in_treatment"
+    t.string   "locale"
+    t.text     "message"
+    t.text     "yes_text"
+    t.text     "no_text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "dialogues", ["lesson_id"], name: "index_dialogues_on_lesson_id", using: :btree
 
   create_table "final_appointments", force: true do |t|
     t.datetime "appointment_at"

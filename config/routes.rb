@@ -35,6 +35,8 @@ Rails.application.routes.draw do
       get "report/:id" => "participants#report", as: :report
     end
 
+    resources :dialogues
+    
     resources :lessons do
       resources :slides
     end
