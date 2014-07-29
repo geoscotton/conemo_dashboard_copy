@@ -12,6 +12,7 @@ module Active
     def report
       @participant = Participant.find(params[:id])
       @lessons = Lesson.where(locale_param).order(day_in_treatment: :asc)
+      @dialogues = Dialogue.where(locale_param).order(day_in_treatment: :asc)
     end
 
     private

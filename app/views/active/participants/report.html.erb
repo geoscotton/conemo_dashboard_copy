@@ -57,26 +57,19 @@
     </table>
   </div>
   <div class="col-md-7 col-sm-7 col-xs-7">
-    <table class="table table-bordered">
-      <thead>
-      <th><%= t "conemo.views.active.participants.report.release_day" %></th>
-      <th><%= t "conemo.views.active.participants.report.lesson" %></th>
-      <th><%= t "conemo.views.active.participants.report.patient_response" %></th>
-      <th><%= t "conemo.views.active.participants.report.access_count" %></th>
-      </thead>
-      <tbody>
-      <% @lessons.each_with_index do |lesson, index| %>
-          <tr class="<%= @participant.lesson_status(lesson) %>">
-            <td>(<%= index + 1 %>) <%= l @participant.start_date + lesson.day_in_treatment.days - 1.days, format: :long %></td>
-            <td><%= lesson.title %></td>
-            <td>
-              <%= "#{lesson.content_access_events.find_by(participant_id: @participant.id).name.gsub(/[_]/, ' ')}: " rescue '' %>
-              <%= lesson.content_access_events.find_by(participant_id: @participant.id).answer rescue '' %></td>
-            <td><%= lesson.content_access_events.where(participant_id: @participant.id).count rescue '' %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+
+    <ul class="nav nav-tabs" id="report-table">
+      <li class="active">
+        <a href="#lessons" data-toggle="tab"><%= t "conemo.views.shared.lessons" %></a>
+      </li>
+      <li>
+        <a href="#dialogues" data-toggle="tab"><%= t "conemo.views.shared.dialogues" %></a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <%= render partial: "lessons_table", :locals => {participant: @participant, lessons: @lessons} %>
+      <%= render partial: "dialogues_table", :locals => {participant: @participant, dialogues: @dialogues} %>
+    </div>
   </div>
   <div class="col-md-3 col-sm-3 col-xs-3">
     <table class="table accordion-toggle" data-toggle="collapse" data-target="#notes-table">
@@ -123,3 +116,14 @@
     </table>
   </div>
 </div>
+<script>
+    function tabifyReport() {
+        $('#report-table a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
+    }
+
+    $(document).ready(tabifyReport);
+    $(document).on("page:change", tabifyReport);
+</script>
