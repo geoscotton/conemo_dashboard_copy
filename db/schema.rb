@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728192818) do
+ActiveRecord::Schema.define(version: 20140729193032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20140728192818) do
     t.integer  "day_in_treatment_accessed"
     t.string   "lesson_datum_guid"
     t.integer  "dialogue_id"
+    t.string   "dialogue_datum_guid"
   end
 
   add_index "content_access_events", ["dialogue_id"], name: "index_content_access_events_on_dialogue_id", using: :btree
