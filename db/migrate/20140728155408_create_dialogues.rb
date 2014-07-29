@@ -1,6 +1,8 @@
 class CreateDialogues < ActiveRecord::Migration
   def change
-    drop_table :dialogues
+    if ActiveRecord::Base.connection.table_exists? :dialogues
+      drop_table :dialogues
+    end
     
     create_table :dialogues do |t|
       t.string :title
