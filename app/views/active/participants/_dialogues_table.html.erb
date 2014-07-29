@@ -1,0 +1,21 @@
+<div class="tab-pane" id="dialogues">
+  <table class="table table-bordered">
+    <thead>
+      <th><%= t "conemo.views.active.participants.report.release_day" %></th>
+      <th><%= t "conemo.views.active.participants.report.dialogue" %></th>
+      <th><%= t "conemo.views.active.participants.report.patient_response" %></th>
+    </thead>
+    <tbody>
+      <% dialogues.each_with_index do |dialogue, index| %>
+        <tr>
+          <td>(<%= index + 1 %>) <%= l participant.start_date + dialogue.day_in_treatment.to_i.days - 1.days, format: :long %></td>
+          <td><%= dialogue.title %></td>
+          <td>
+            <%= "#{dialogue.content_access_events.find_by(participant_id: participant.id).name.gsub(/[_]/, ' ')}: " rescue '' %>
+            <%= dialogue.content_access_events.find_by(participant_id: participant.id).answer rescue '' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

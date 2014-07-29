@@ -76,7 +76,7 @@ class ImportPrwData
                                                         lesson_datum_guid: datum.GUID
                                                         )
           if content_access_event.save
-            puts "content_access_event created for #{participant.study_identifier}"
+            puts "Lesson content_access_event created for #{participant.study_identifier}"
             datum.parse_responses.each do |key, value|
               if value.kind_of?(Array)
                 value_string = value.join(", ")
@@ -86,6 +86,30 @@ class ImportPrwData
               response = content_access_event.build_response(name: key, answer: value_string)
               response.save
             end
+          end
+        end
+      end
+    end
+    
+    puts "begin dialogue data import at #{Time.now}"
+    DialogueDatum.all.each do |datum|
+      if !datum.content_access_event_exists?
+
+        participant = Participant.where(study_identifier: datum.FEATURE_VALUE_DT_user_id).first
+        dialogue = Dialogue.where(guid: datum.FEATURE_VALUE_DT_dialogue_guid).first
+
+        if participant && dialogue
+          
+          content_access_event = ContentAccessEvent.new(participant: participant,
+                                                        accessed_at: datum.eventDateTime,
+                                                        dialogue: dialogue,
+                                                        day_in_treatment_accessed: datum.FEATURE_VALUE_DT_days_in_treatment,
+                                                        dialogue_datum_guid: datum.GUID
+                                                        )
+          if content_access_event.save
+            puts "dialogue content_access_event created for #{participant.study_identifier}"
+            response = content_access_event.build_response(name: dialogue.title, answer: datum.FEATURE_VALUE_DT_answer)
+            response.save
           end
         end
       end
