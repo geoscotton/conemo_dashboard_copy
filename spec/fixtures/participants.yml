@@ -56,6 +56,21 @@ portuguese_active_participant:
   start_date: <%= Date.today - 5.days %>
   locale: "pt-BR"
 
+es_active_participant:
+  first_name: Jane
+  last_name: Doe
+  email: participant2@example.com
+  study_identifier: s2
+  family_health_unit_name: HealthUnit1
+  family_record_number: <%= SecureRandom.uuid %>
+  phone: "555-455-5555"
+  diabetes: true
+  enrollment_date: <%= Date.yesterday %>
+  nurse: portuguese_nurse
+  status: active
+  start_date: <%= Date.today - 5.days %>
+  locale: "es-PE"
+
 english_active_participant:
   first_name: Jane
   last_name: Doe
