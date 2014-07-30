@@ -11,30 +11,30 @@ describe ReminderMessage do
       describe "#schedule_message" do
         it "schedules all reminder messages for an upcoming first appointment" do
           
-          first_contact.schedule_message(portuguese_participant, "contact")
+          first_contact.schedule_message(portuguese_participant, "appointment")
 
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "24",
                                        message_type: "nurse",
-                                       appointment_type: "contact"
+                                       appointment_type: "appointment"
                                        )).to exist
 
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "24",
                                        message_type: "participant",
-                                       appointment_type: "contact"
+                                       appointment_type: "appointment"
                                        )).to exist
 
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "1",
                                        message_type: "nurse",
-                                       appointment_type: "contact"
+                                       appointment_type: "appointment"
                                        )).to exist
 
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "1",
                                        message_type: "participant",
-                                       appointment_type: "contact"
+                                       appointment_type: "appointment"
                                        )).to exist
         end
 
@@ -44,7 +44,7 @@ describe ReminderMessage do
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "1",
                                        message_type: "participant",
-                                       appointment_type: "appointment"
+                                       appointment_type: "second_contact"
                                        )).to_not exist
         end
       end
@@ -52,13 +52,13 @@ describe ReminderMessage do
       describe "#schedule_24_hour" do
         it "schedules a 24 appointment" do
           first_contact.schedule_24_hour("participant",
-                                         "contact",
+                                         "appointment",
                                          portuguese_participant
                                         )
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "24",
                                        message_type: "participant",
-                                       appointment_type: "contact"
+                                       appointment_type: "appointment"
                                        )).to exist
         end
       end
@@ -66,13 +66,13 @@ describe ReminderMessage do
       describe "#schedule_1_hour" do
         it "schedules a 1 hour appointment" do
           first_contact.schedule_1_hour("participant",
-                                        "contact",
+                                        "appointment",
                                         portuguese_participant
                                         )
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "1",
                                        message_type: "participant",
-                                       appointment_type: "contact"
+                                       appointment_type: "appointment"
                                        )).to exist
         end
       end
@@ -84,11 +84,11 @@ describe ReminderMessage do
         let(:first_contact) { first_contacts(:first_contact) }
         it "updates notification time of upcoming reminder messages for first appointment" do
           
-          first_contact.schedule_message(participant, "contact")
+          first_contact.schedule_message(participant, "appointment")
           first_appointment_one_hour = ReminderMessage.where(participant: participant,
                                        notify_at: "1",
                                        message_type: "participant",
-                                       appointment_type: "contact"
+                                       appointment_type: "appointment"
                                        ).first
           
           old_one_hour_time = first_appointment_one_hour.notification_time
@@ -98,7 +98,7 @@ describe ReminderMessage do
           new_one_hour_time = ReminderMessage.where(participant: participant,
                                        notify_at: "1",
                                        message_type: "participant",
-                                       appointment_type: "contact"
+                                       appointment_type: "appointment"
                                        ).first
                                         .notification_time
           expect(old_one_hour_time).to_not eq(new_one_hour_time)
@@ -112,17 +112,18 @@ describe ReminderMessage do
     describe "#notification_time" do
       context "24 hour first contact" do
         let(:portuguese_participant) { participants(:portuguese_active_participant) }
+        let(:es_participant) { participants(:es_active_participant) }
         let(:first_contact) { first_contacts(:portuguese_first_contact) }
 
         it "returns a datetime 24 hours before the first appointment" do
           first_contact.schedule_24_hour("participant",
-                                         "contact",
+                                         "appointment",
                                          portuguese_participant
                                         )
           message = ReminderMessage.where(participant: portuguese_participant,
                                           notify_at: "24",
                                           message_type: "participant",
-                                          appointment_type: "contact"
+                                          appointment_type: "appointment"
                                          ).first
           expect(message.notification_time).to eq(first_contact.first_appointment_at - 1.day)
         end
@@ -131,12 +132,19 @@ describe ReminderMessage do
 
     describe "#message" do
       context "24 hour first contact for portuguese participant" do
-        let(:reminder_message) { reminder_messages(:pt_first_participant_24) }
+        let(:pt_reminder_message) { reminder_messages(:pt_first_participant_24) }
+        let(:es_reminder_message) { reminder_messages(:es_second_nurse_24) }
 
-        it "returns the correct message" do
-          message = reminder_message.message
+        it "returns the correct appointment message for participant" do
+          message = pt_reminder_message.message
 
-          expect(message).to eq(ReminderMessage::MESSAGES[:pt_BR][:participant][:contact][:hour_24])
+          expect(message).to eq(ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24])
+        end
+
+        it "returns the correct second_contact message for nurse" do
+          message = es_reminder_message.message
+
+          expect(message).to eq(ReminderMessage::MESSAGES[:es_PE][:nurse][:second_contact][:hour_24])
         end
       end
     end

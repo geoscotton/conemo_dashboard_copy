@@ -7,7 +7,7 @@ class ReminderMessage < ActiveRecord::Base
             :participant,
             presence: true
 
-  APPOINTMENT_TYPES = ["contact", "appointment", "final"]
+  APPOINTMENT_TYPES = ["third_contact", "second_contact", "appointment", "final"]
   MESSAGE_TYPES = {nurse: "nurse", participant: "participant"}
 
   validates :appointment_type, inclusion: {in: APPOINTMENT_TYPES}
@@ -15,11 +15,15 @@ class ReminderMessage < ActiveRecord::Base
   MESSAGES = {
       pt_BR: {
           participant: {
-              contact: {
+              appointment: {
                   hour_1: "Seu primeiro encontro CONEMO com a enfermagem será em uma hora.",
                   hour_24: "Seu primeiro encontro CONEMO com a enfermagem é AMANHÃ. Para reagendar, faça contato."
               },
-              appointment: {
+              second_contact: {
+                  hour_1: "O técnico de enfermagem irá lhe telefonar nas 1 hora",
+                  hour_24: "O(a) técnico(a) de enfermagem irá lhe telefonar nas próximas 24 horas."
+              },
+              third_contact: {
                   hour_1: "O técnico de enfermagem irá lhe telefonar nas 1 hora",
                   hour_24: "O(a) técnico(a) de enfermagem irá lhe telefonar nas próximas 24 horas."
               },
@@ -29,11 +33,15 @@ class ReminderMessage < ActiveRecord::Base
               }
           },
           nurse: {
-              contact: {
+              appointment: {
                   hour_1: "Seu primeiro contato com novo paciente em uma hora.",
                   hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, faça contato."
               },
-              appointment: {
+              second_contact: {
+                  hour_1: "Não se esqueça de telefonar para seu paciente nas 1 hora",
+                  hour_24: "Não esqueça de telefonar para seu paciente dentro de 24 horas"
+              },
+              third_contact: {
                   hour_1: "Não se esqueça de telefonar para seu paciente nas 1 hora",
                   hour_24: "Não esqueça de telefonar para seu paciente dentro de 24 horas"
               },
@@ -45,11 +53,15 @@ class ReminderMessage < ActiveRecord::Base
       },
       en: {
           participant: {
-              contact: {
+              appointment: {
                   hour_1: "You have your first CONEMO appointment with the nurse assistant in 1 hour.",
                   hour_24: "You have your first CONEMO appointment with the nurse assistant tomorrow. Please, let us know if you need to reschedule."
               },
-              appointment: {
+              second_contact: {
+                  hour_1: "Your nurse assistant will call you in 1 hour",
+                  hour_24: "Your nurse assistant will call you in the next 24 hours"
+              },
+              third_contact: {
                   hour_1: "Your nurse assistant will call you in 1 hour",
                   hour_24: "Your nurse assistant will call you in the next 24 hours"
               },
@@ -59,11 +71,15 @@ class ReminderMessage < ActiveRecord::Base
               }
           },
           nurse: {
-              contact: {
+              appointment: {
                   hour_1: "You have your first CONEMO appointment with a patient in 1 hour",
                   hour_24: "You have your first CONEMO appointment with a patient tomorrow. Please, contact him/her if you need to reschedule."
               },
-              appointment: {
+              second_contact: {
+                  hour_1: "Don’t forget to call your patient in the next hour",
+                  hour_24: "Don’t forget to call your patient in the next 24 hours"
+              },
+              third_contact: {
                   hour_1: "Don’t forget to call your patient in the next hour",
                   hour_24: "Don’t forget to call your patient in the next 24 hours"
               },
@@ -75,31 +91,39 @@ class ReminderMessage < ActiveRecord::Base
       },
       es_PE: {
           participant: {
-              contact: {
-                  hour_1: "¡Tu cita en el programa CONEMO empieza en una hora",
-                  hour_24: "Mañana tienes una cita con una enfermera del CEDHI para comenzar con el programa CONEMO. Si necesitas cambiarla, por favor, llama a uno de los números entregados"
-              },
               appointment: {
-                  hour_1: "Tu enfermera o enfermero te llamará en 1 hora.",
-                  hour_24: "Tu enfermera o enfermero te llamará en las próximas 24 horas."
+                  hour_1: "Su cita en el programa CONEMO empieza en una hora",
+                  hour_24: "Acuerdese de su cita manana en el CEDHI para iniciar el programa CONEMO."
+              },
+              second_contact: {
+                  hour_1: "Tu enfermera o enfermero te llamara en 1 hora.",
+                  hour_24: "Su enfermera o enfermero de CONEMO te llamara en las proximas 24 horas."
+              },
+              third_contact: {
+                  hour_1: "Tu enfermera o enfermero te llamara en 1 hora.",
+                  hour_24: "Su enfermera o enfermero de CONEMO te llamara en las proximas 24 horas."
               },
               final: {
-                  hour_1: "¡Tu cita final dentro del programa CONEMO empieza en una hora!",
-                  hour_24: "Mañana tienes una cita con una enfermera del CEDHI para finalizar el programa CONEMO. Si necesitas cambiarla, por favor, llama a uno de los números entregados."
+                  hour_1: "Su cita final dentro del programa CONEMO empieza en una hora",
+                  hour_24: "Acuerdese de su cita manana en el CEDHI para finalizar el programa CONEMO."
               }
           },
           nurse: {
-              contact: {
-                  hour_1: "¡Tu primera cita con uno de los pacientes del programa CONEMO empieza en una hora!",
-                  hour_24: "Mañana tienes la primera cita con un nuevo paciente del programa CONEMO. Si necesitas cambiarla, por favor, llama al paciente y regístralo en la web"
-              },
               appointment: {
+                  hour_1: "Tu cita con un nuevo paciente del programa CONEMO empieza en una hora",
+                  hour_24: "Manana tienes la primera cita con un nuevo paciente del programa CONEMO."
+              },
+              second_contact: {
                   hour_1: "Recuerda llamar a tu paciente en 1 hora",
-                  hour_24: "Recuerda llamar a tu paciente en las próximas 24 horas"
+                  hour_24: "Recuerda llamar a tu paciente en las proximas 24 horas"
+              },
+              third_contact: {
+                  hour_1: "Recuerda llamar a tu paciente en 1 hora",
+                  hour_24: "Recuerda llamar a tu paciente en las proximas 24 horas"
               },
               final: {
-                  hour_1: "¡Tu cita final con uno de los pacientes del programa CONEMO empieza en una hora!",
-                  hour_24: "Mañana tienes la cita final con un paciente del programa CONEMO. Si necesitas cambiarla, por favor, llama al paciente y regístralo en la web."
+                  hour_1: "Tu cita final con un paciente del programa CONEMO empieza en una hora",
+                  hour_24: "Manana tienes la cita final con un paciente del programa CONEMO"
               }
           }
       }
@@ -107,17 +131,23 @@ class ReminderMessage < ActiveRecord::Base
 
   # returns datetime object for the reminder message
   def notification_time
-    if appointment_type == "contact"
+    if appointment_type == "appointment"
       if notify_at == "1"
         participant.first_contact.first_appointment_at - 1.hour
       else # => '24'
         participant.first_contact.first_appointment_at - 1.days
       end
-    elsif appointment_type == "appointment"
+    elsif appointment_type == "second_contact"
       if notify_at == "1"
         participant.first_appointment.next_contact - 1.hour
       else
         participant.first_appointment.next_contact - 1.days
+      end
+    elsif appointment_type == "third_contact"
+      if notify_at == "1"
+        participant.second_contact.next_contact - 1.hour
+      else
+        participant.second_contact.next_contact - 1.days
       end
     else # => 'final'
       if notify_at == "1"
