@@ -222,3 +222,150 @@ h1.table-title {
   color: #999;
   background-color: white;
 }
+
+// User Profile Page
+
+div.status-info > * {
+  margin: 0 20px;
+}
+
+@-webkit-keyframes slide {
+  from {
+    left: 0%;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+.row.status {
+  margin-bottom: 80px;
+}
+.status-wrap {
+  color: #444;
+  margin: 40px auto;
+  max-width: 1200px;
+  position: relative;
+}
+
+ul.status-bar {
+  margin: 0 20px;
+}
+ul.status-bar li {
+  color: #ccc;
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 20px 14px 80px;
+  position: relative;
+}
+ul.status-bar li:before {
+  background: #df691a;
+  border: 2px solid #FFF;
+  border-radius: 50%;
+  color: #fff;
+  left: 20px;
+  height: 20px;
+  position: absolute;
+  width: 20px;
+  z-index: 99999 !important;
+}
+ul.status-bar li.active {
+  color: #8bc53f;
+  font-weight: bold;
+}
+ul.status-bar li.active:before {
+  background: #8bc53f;
+  z-index: 99999;
+}
+ul.status-bar li.visited {
+  color: #57aed1;
+  z-index: 99999;
+}
+ul.status-bar li.visited:before {
+  background: #57aed1;
+  z-index: 99999;
+}
+
+ul.status-bar li:before {
+  content: " ";
+}
+
+
+@media all and (min-width: 800px) {
+  .status-bar li.active:after {
+    -webkit-animation: slide 3s 0;
+    background-size: 35px 35px;
+    background-color: #8bc53f;
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    content: "";
+    height: 15px;
+    width: 100%;
+    left: 50%;
+    position: absolute;
+    top: -50px;
+    z-index: 0;
+  }
+
+  .status-wrap {
+    margin: 80px auto;
+  }
+
+  ul.status-bar {
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    background-color: #4e5d6c;
+    border-radius: 15px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+  }
+  ul.status-bar:before {
+    background-size: 35px 35px;
+    background-color: #57aed1;
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    content: " ";
+    height: 15px;
+    left: 0;
+    position: absolute;
+    width: 10%;
+  }
+  ul.status-bar li {
+    display: inline-block;
+    margin: 50px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 19%;
+  }
+  ul.status-bar li:before {
+    height: 30px;
+    left: 40%;
+    line-height: 30px;
+    position: absolute;
+    top: -55px;
+    width: 30px;
+    z-index: 9999;
+  }
+  ul.status-bar li.visited {
+    background: none;
+  }
+  ul.status-bar li.visited:after {
+    background-size: 35px 35px;
+    background-color: #57aed1;
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    content: "";
+    height: 15px;
+    left: 50%;
+    position: absolute;
+    top: -50px;
+    width: 100%;
+    z-index: 99;
+  }
+}
