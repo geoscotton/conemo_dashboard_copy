@@ -104,7 +104,7 @@ class ImportPrwData
                                                         accessed_at: datum.eventDateTime,
                                                         dialogue: dialogue,
                                                         day_in_treatment_accessed: datum.FEATURE_VALUE_DT_days_in_treatment,
-                                                        dialogue_datum_guid: datum.GUID
+                                                        dialogue_datum_guid: dialogue.guid
                                                         )
           if content_access_event.save
             puts "dialogue content_access_event created for #{participant.study_identifier}"
