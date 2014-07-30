@@ -5,17 +5,47 @@
   <div class="row well">
     <div class="col-md-6">
       <%= render 'contact_info', participant: @participant %>
+    </div>
+    <div class="col-md-6">
       <% if @participant.smartphone %>
         <%= render 'smartphone', smartphone: @participant.smartphone %>
       <% else %>
         <h2><%= t "conemo.views.active.participants.show.smartphone_heading" %> <%= link_to '', new_participant_smartphone_path(@participant), class: "fa fa-edit" %></h2>
       <% end %>
     </div>
-    <div class="col-md-6">
+  </div>
+  <div class="row status">
+    <div class="status-wrap">
+      <ul class="status-bar">
+
+        <li class="<%= @participant.first_contact ? 'visited' : '' %>">
+          <%= t "conemo.views.active.participants.show.first_contact_heading" %> 
+        </li>
+
+        <li class="<%= @participant.first_appointment ? 'visited' : '' %>">First Appointment</li>
+
+        <li class="<%= @participant.second_contact ? 'visited' : '' %>">Second Appointment</li>
+
+        <li class="<%= @participant.third_contact ? 'visited' : '' %>">Third Appointment</li>
+
+        <li class="<%= @participant.final_appointment ? 'visited' : '' %>">Complete</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row status-info">
+    <div class="col-md-2">
       <%= render 'first_contact', first_contact: @participant.first_contact if @participant.first_contact %>
+    </div>
+    <div class="col-md-2">
       <%= render 'first_appointment', first_appointment: @participant.first_appointment if @participant.first_appointment %>
+    </div>
+    <div class="col-md-2">
       <%= render 'second_contact', second_contact: @participant.second_contact if @participant.second_contact %>
+    </div>
+    <div class="col-md-2">
       <%= render 'third_contact', third_contact: @participant.third_contact if @participant.third_contact %>
+    </div>
+    <div class="col-md-2">
       <%= render 'final_appointment', final_appointment: @participant.final_appointment if @participant.final_appointment %>
     </div>
   </div>
