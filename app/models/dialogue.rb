@@ -1,6 +1,7 @@
 class Dialogue < ActiveRecord::Base
   has_many :content_access_events
-
+  has_many :participants, through: :content_access_events
+  
   before_validation :generate_guid
 
   validates :title,
