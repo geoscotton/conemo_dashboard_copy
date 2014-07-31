@@ -9,9 +9,8 @@
       <% dialogues.each_with_index do |dialogue, index| %>
         <tr>
           <td>(<%= dialogue.day_in_treatment %>) <%= l participant.start_date + dialogue.day_in_treatment.to_i.days - 1.days, format: :long %></td>
-          <td><%= dialogue.title %></td>
+          <td><%= dialogue.message %></td>
           <td>
-            <%= "#{dialogue.content_access_events.find_by(participant_id: participant.id).name}: " rescue '' %>
             <%= dialogue.content_access_events.find_by(participant_id: participant.id).answer rescue '' %>
           </td>
         </tr>
