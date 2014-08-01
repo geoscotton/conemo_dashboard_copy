@@ -7,7 +7,7 @@ h1 {
   font-size: 2.1em;
 }
 
-// Forces inout font color to remain black on zoom
+// Forces input font color to remain black on zoom
 body select {
   color: black !important
 }
@@ -41,7 +41,7 @@ a.table-link {
 a.reschedule-link {
   padding: 4px;
   text-decoration: none;
-  color: salmon;
+  color: tomato;
 }
 
 // style date selects to match Bootstrap
@@ -147,7 +147,7 @@ div.profile div.notes {
 
 a.navbar-brand {
   color: white !important;
-  background-color: salmon;
+  background-color: tomato;
 }
 
 a.admin {
