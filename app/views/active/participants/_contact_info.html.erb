@@ -1,4 +1,6 @@
-<h2><%= t "conemo.views.active.participants.show.contact_heading" %> <%= link_to '', edit_participant_path(participant), class: "fa fa-edit" %></h2>
+<div class="title">
+  <h2><%= t "conemo.views.active.participants.show.contact_heading" %> <%= link_to '', edit_participant_path(participant), class: "fa fa-edit" %></h2>
+</div>
   <p><strong><%= t "helpers.label.participant.first_name" %>:</strong>
     <%= participant.first_name %>
   </p>

@@ -1,12 +1,13 @@
 <h1>
   <%= link_to "", active_participants_path, class: "fa fa-chevron-left" %> <%= t "conemo.views.active.participants.show.heading" %> <%= @participant.first_name %> <%= @participant.last_name %>
 </h1>
+
 <div class="profile">
-  <div class="row well">
-    <div class="col-md-6">
+  <div class="row">
+    <div class="col-md-4 contact-info">
       <%= render 'contact_info', participant: @participant %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 contact-info">
       <% if @participant.smartphone %>
         <%= render 'smartphone', smartphone: @participant.smartphone %>
       <% else %>
@@ -14,39 +15,33 @@
       <% end %>
     </div>
   </div>
-  <div class="row status">
-    <div class="status-wrap">
+</div>
+  <div class="row">
+    <div class="status-wrap col-md-12">
       <ul class="status-bar">
+        <li class="<%= @participant.first_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
 
-        <li class="<%= @participant.first_contact ? 'visited' : '' %>">
-          <%= t "conemo.views.active.participants.show.first_contact_heading" %> 
-        </li>
+        <li class="<%= @participant.first_appointment ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
 
-        <li class="<%= @participant.first_appointment ? 'visited' : '' %>">First Appointment</li>
+        <li class="<%= @participant.second_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
 
-        <li class="<%= @participant.second_contact ? 'visited' : '' %>">Second Appointment</li>
+        <li class="<%= @participant.third_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
 
-        <li class="<%= @participant.third_contact ? 'visited' : '' %>">Third Appointment</li>
-
-        <li class="<%= @participant.final_appointment ? 'visited' : '' %>">Complete</li>
+        <li class="<%= @participant.final_appointment ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
+        
       </ul>
     </div>
   </div>
-  <div class="row status-info">
-    <div class="col-md-2">
-      <%= render 'first_contact', first_contact: @participant.first_contact if @participant.first_contact %>
-    </div>
-    <div class="col-md-2">
-      <%= render 'first_appointment', first_appointment: @participant.first_appointment if @participant.first_appointment %>
-    </div>
-    <div class="col-md-2">
-      <%= render 'second_contact', second_contact: @participant.second_contact if @participant.second_contact %>
-    </div>
-    <div class="col-md-2">
-      <%= render 'third_contact', third_contact: @participant.third_contact if @participant.third_contact %>
-    </div>
-    <div class="col-md-2">
-      <%= render 'final_appointment', final_appointment: @participant.final_appointment if @participant.final_appointment %>
-    </div>
-  </div>
+<div class="page-header">
+  
 </div>
+<ul class="timeline">
+  <%= render 'first_contact', first_contact: @participant.first_contact if @participant.first_contact %>
+  <%= render 'first_appointment', first_appointment: @participant.first_appointment if @participant.first_appointment %>
+  <%= render 'second_contact', second_contact: @participant.second_contact if @participant.second_contact %>
+  <%= render 'third_contact', third_contact: @participant.third_contact if @participant.third_contact %>
+  <%= render 'final_appointment', final_appointment: @participant.final_appointment if @participant.final_appointment %>
+</ul>
+<script>
+ $('.popover').popover('show');
+</script>

@@ -7,6 +7,9 @@ h1 {
   font-size: 2.1em;
 }
 
+small.text-muted {
+  color: #999999;
+}
 // Forces input font color to remain black on zoom
 body select {
   color: black !important
@@ -128,6 +131,15 @@ dt a.delete-note {
 }
 
 // profile page styles
+div.contact-info {
+  border: 1px solid white;
+  border-radius: 2px;
+  margin-left: 15px;
+}
+div.contact-info .title{
+  border-bottom: 1px solid white;
+  margin-bottom: 10px;
+}
 div.profile p {
   font-size: 12px;
   line-height: 1em;
@@ -230,7 +242,7 @@ h1.table-title {
 // User Profile Page
 
 div.status-info > * {
-  margin: 0 20px;
+  margin: 0 18px;
 }
 
 @-webkit-keyframes slide {
@@ -251,11 +263,24 @@ div.status-info > * {
   margin: 40px auto;
   max-width: 1200px;
   position: relative;
+  margin-top: 80px;
 }
 
 ul.status-bar {
   margin: 0 20px;
 }
+
+div.status-text {
+}
+
+div.status-text p {
+  display: inline-block;
+  margin: 20px 0 0;
+  padding: 0;
+  text-align: center;
+  width: 19%;
+}
+
 ul.status-bar li {
   color: #ccc;
   display: block;
@@ -277,7 +302,6 @@ ul.status-bar li:before {
 }
 ul.status-bar li.active {
   color: #8bc53f;
-  font-weight: bold;
 }
 ul.status-bar li.active:before {
   background: #8bc53f;
@@ -287,6 +311,7 @@ ul.status-bar li.visited {
   color: #57aed1;
   z-index: 99999;
 }
+
 ul.status-bar li.visited:before {
   background: #57aed1;
   z-index: 99999;
@@ -296,6 +321,12 @@ ul.status-bar li:before {
   content: " ";
 }
 
+.popover-content {
+  color:white;
+}
+div.popover {
+  top: 30px !important;
+}
 
 @media all and (min-width: 800px) {
   .status-bar li.active:after {
@@ -313,10 +344,6 @@ ul.status-bar li:before {
     z-index: 0;
   }
 
-  .status-wrap {
-    margin: 80px auto;
-  }
-
   ul.status-bar {
     -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
     box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
@@ -326,7 +353,7 @@ ul.status-bar li:before {
     margin: 0 auto;
     padding: 0;
     position: absolute;
-    width: 100%;
+    width: 98%;
   }
   ul.status-bar:before {
     background-size: 35px 35px;
@@ -340,6 +367,7 @@ ul.status-bar li:before {
     position: absolute;
     width: 10%;
   }
+
   ul.status-bar li {
     display: inline-block;
     margin: 50px 0 0;
@@ -359,6 +387,9 @@ ul.status-bar li:before {
   ul.status-bar li.visited {
     background: none;
   }
+  ul.status-bar li.visited:before {
+    margin-top: 0px;
+  }
   ul.status-bar li.visited:after {
     background-size: 35px 35px;
     background-color: #57aed1;
@@ -370,6 +401,21 @@ ul.status-bar li:before {
     position: absolute;
     top: -50px;
     width: 100%;
+    z-index: 99;
+    border-radius: 15px;
+
+  }
+  ul.status-bar li.visited:nth-last-child(2):after {
+    background-size: 35px 35px;
+    background-color: #57aed1;
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    content: "";
+    height: 15px;
+    left: 48%;
+    position: absolute;
+    top: -50px;
+    width: 72%;
     z-index: 99;
   }
 }

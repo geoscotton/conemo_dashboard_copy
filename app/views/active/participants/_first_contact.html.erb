@@ -1,3 +1,13 @@
-<h2><%= t "conemo.views.active.participants.show.first_contact_heading" %> <%= link_to '', edit_participant_first_contact_path(first_contact.participant), class: "fa fa-edit" %></h2>
-<p><strong><%= t "helpers.label.first_contact.contact_at" %>:</strong>
-<%= first_contact.contact_at.to_s(:long) %>
+<li>
+  <div class="timeline-badge success"><i class="fa fa-phone-square"></i></div>
+  <div class="timeline-panel">
+    <div class="timeline-heading">
+      <h4 class="timeline-title"><%= t "conemo.views.active.participants.show.first_contact_heading" %></h4>
+      <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= t "helpers.label.first_contact.contact_at" %>: <%= first_contact.contact_at.to_s(:long) %></small></p>
+    </div>
+    <div class="timeline-body">
+    <hr>
+      <p><%= link_to '', edit_participant_first_contact_path(first_contact.participant), class: "fa fa-edit fa-2x" %></p>
+    </div>
+  </div>
+</li>
