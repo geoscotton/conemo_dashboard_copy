@@ -121,6 +121,7 @@ es-PE:
             first_appointment_heading: "Cita de inicio"
             second_contact_heading: "Llamada de seguimiento sem. 1"
             third_contact_heading: "Llamada de seguimiento sem. 4"
+            final_appointment_heading: "Cita final"
           report:
             delete: "¿Está seguro que quiere eliminar esa nota?"
             overall_status: "Estado general"

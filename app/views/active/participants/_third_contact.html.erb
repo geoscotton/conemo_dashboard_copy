@@ -2,13 +2,11 @@
   <div class="timeline-badge success"><i class="fa fa-phone-square"></i></div>
   <div class="timeline-panel">
     <div class="timeline-heading">
-      <h4 class="timeline-title"><%= t "conemo.views.active.participants.show.third_contact_heading" %></h4>
+      <h4 class="timeline-title"><%= link_to '', edit_participant_third_contact_path(third_contact.participant), class: "fa fa-edit fa-lg" %> <%= t "conemo.views.active.participants.show.third_contact_heading" %></h4>
       <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> <%= t "helpers.label.third_contact.contact_at" %>: <%= third_contact.contact_at.to_s(:long) %></small></p>
     </div>
     <div class="timeline-body">
     <p><strong><%= t "helpers.label.third_contact.session_length" %>: </strong><%= third_contact.session_length %>
-    <hr>
-      <p><%= link_to '', edit_participant_third_contact_path(third_contact.participant), class: "fa fa-edit fa-2x" %></p>
     </div>
   </div>
 </li>
