@@ -131,15 +131,24 @@ dt a.delete-note {
 }
 
 // profile page styles
-div.contact-info {
-  border: 1px solid white;
-  border-radius: 2px;
+div#contact-info {
+  border: 1px solid #999;
+  border-radius: 2px 2px 0px 0px;
   margin-left: 15px;
 }
-div.contact-info .title{
-  border-bottom: 1px solid white;
+
+div.title{
+  border-bottom: 1px solid #999;
   margin-bottom: 10px;
 }
+
+div#smartphone-info {
+  border: 1px solid #999;
+  border-top: none;
+  border-radius: 0px 0px 2px 2px;
+  margin-left: 15px;
+}
+
 div.profile p {
   font-size: 12px;
   line-height: 1em;
@@ -256,14 +265,14 @@ div.status-info > * {
 }
 
 .row.status {
-  margin-bottom: 80px;
+  margin-bottom: 90px;
 }
 .status-wrap {
   color: #444;
-  margin: 40px auto;
+  margin: 66px auto;
   max-width: 1200px;
   position: relative;
-  margin-top: 80px;
+  margin-top: 20px;
 }
 
 ul.status-bar {
@@ -309,7 +318,7 @@ ul.status-bar li.active:before {
 }
 ul.status-bar li.visited {
   color: #57aed1;
-  z-index: 99999;
+  z-index: 99;
 }
 
 ul.status-bar li.visited:before {
@@ -326,8 +335,11 @@ ul.status-bar li:before {
 }
 div.popover {
   top: 30px !important;
+  max-width: 200px;
 }
-
+div.popover.bottom {
+  margin-left: 26px;
+}
 @media all and (min-width: 800px) {
   .status-bar li.active:after {
     -webkit-animation: slide 3s 0;
@@ -365,7 +377,7 @@ div.popover {
     height: 15px;
     left: 0;
     position: absolute;
-    width: 10%;
+    width: 12%;
   }
 
   ul.status-bar li {
@@ -377,7 +389,7 @@ div.popover {
   }
   ul.status-bar li:before {
     height: 30px;
-    left: 40%;
+    left: 55%;
     line-height: 30px;
     position: absolute;
     top: -55px;
@@ -397,7 +409,7 @@ div.popover {
     box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
     content: "";
     height: 15px;
-    left: 50%;
+    left: 62%;
     position: absolute;
     top: -50px;
     width: 100%;
@@ -412,7 +424,7 @@ div.popover {
     box-shadow: inset 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
     content: "";
     height: 15px;
-    left: 48%;
+    left: 58%;
     position: absolute;
     top: -50px;
     width: 72%;

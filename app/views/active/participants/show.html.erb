@@ -4,10 +4,10 @@
 
 <div class="profile">
   <div class="row">
-    <div class="col-md-4 contact-info">
+    <div class="col-md-12" id="contact-info">
       <%= render 'contact_info', participant: @participant %>
     </div>
-    <div class="col-md-6 contact-info">
+    <div class="col-md-12" id="smartphone-info">
       <% if @participant.smartphone %>
         <%= render 'smartphone', smartphone: @participant.smartphone %>
       <% else %>
@@ -19,15 +19,15 @@
   <div class="row">
     <div class="status-wrap col-md-12">
       <ul class="status-bar">
-        <li class="<%= @participant.first_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
+        <li class="<%= @participant.first_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t "conemo.views.active.participants.show.first_contact_heading" %>" data-placement="bottom"></li>
 
-        <li class="<%= @participant.first_appointment ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
+        <li class="<%= @participant.first_appointment ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t "conemo.views.active.participants.show.first_appointment_heading" %>" data-placement="bottom"></li>
 
-        <li class="<%= @participant.second_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
+        <li class="<%= @participant.second_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t "conemo.views.active.participants.show.second_contact_heading" %>" data-placement="bottom"></li>
 
-        <li class="<%= @participant.third_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
+        <li class="<%= @participant.third_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t "conemo.views.active.participants.show.third_contact_heading" %>" data-placement="bottom"></li>
 
-        <li class="<%= @participant.final_appointment ? 'visited' : '' %> popover" data-toggle="popover" data-content="Popover data-content" data-placement="bottom"></li>
+        <li class="<%= @participant.final_appointment ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t 'conemo.views.active.participants.show.final_appointment_heading' %>" data-placement="bottom"></li>
         
       </ul>
     </div>
