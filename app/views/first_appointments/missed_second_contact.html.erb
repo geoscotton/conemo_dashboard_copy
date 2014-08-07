@@ -1,6 +1,4 @@
-<h1><%= t "conemo.views.patient_contacts.new.heading" %>
-  for <%= participant.first_name %> <%= participant.last_name %></h1>
-
+<h1><%=t("conemo.views.shared.reschedule").capitalize%> <%= t "conemo.views.second_contacts.new.heading" %>
 <div class="row well">
   <div class="col-md-10">
     <%= form_for @first_appointment, url: participant_first_appointment_path(participant), method: @first_appointment.valid? ? :patch : :post, html: {role: "form", class: "form-horizontal"} do |f| %>
