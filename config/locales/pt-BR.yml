@@ -14,6 +14,7 @@ pt-BR:
         edit: "editar"
         reschedule: "remarcar"
         app_download: "Baixar Aplicativo"
+        dialogue: "Diálogo"
       dashboards:
         index:
           heading: "Bem-vindo!"
@@ -21,16 +22,11 @@ pt-BR:
           enrollment_button: "Participantes pendentes"
           manage_button: "Participantes ativos"
           lessons_button: "Sessões"
+          dialogues_button: "Diálogos"
           sign_out: "Terminar sessão"
       smartphones:
         new:
-          heading: "Incluir informações do smartphone para"
-      second_contacts:
-        new:
-          heading: "1º Contato de seguimento"
-      third_contacts:
-        new:
-          heading: "4º Contato de seguimento"    
+          heading: "Informações do smartphone"
       users:
         sign_in:
           sign_in: "Login"
@@ -40,10 +36,19 @@ pt-BR:
           forgot_your_password: "esqueceu sua senha?"
       first_contacts:
         new:
-          heading: "Incluir informações do contato de confirmação"
+          heading: "Contato de confirmação"
       first_appointments:
         new:
-          heading: "Incluir informações do primeiro encontro"
+          heading: "Primeiro encontro"
+      second_contacts:
+        new:
+          heading: "1º Contato de seguimento"
+      third_contacts:
+        new:
+          heading: "4º Contato de seguimento"
+      final_appointments:
+        new:
+          heading: "Encontro final"     
         form:
           smartphone_comfort_options:
             o4: "4 – O paciente pode ligar o celular, acessar e usar o aplicativo sozinho depois da primeira demonstração"

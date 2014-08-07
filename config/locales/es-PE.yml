@@ -14,6 +14,7 @@ es-PE:
         edit: "editar"
         reschedule: "reprogramar"
         app_download: "Descarga la Aplicación"
+        dialogue: "Diálogo"
       dashboards:
         index:
           heading: "¡Bienvenido!"
@@ -21,6 +22,7 @@ es-PE:
           enrollment_button: "Participantes reclutados"
           manage_button: "Participantes activos"
           lessons_button: "Sesiones"
+          dialogues_button: "Diálogos"
           sign_in: "Ingresar"
           sign_out: "Salir"
       lessons:
@@ -28,10 +30,19 @@ es-PE:
           add_lesson: "Add Lesson"
       first_contacts:
         new:
-          heading: "Incluir información del llamada confirmando cita"
+          heading: "Llamada confirmando cita"
       first_appointments:
         new:
-          heading: "Incluir información del cita de inicio"
+          heading: "Cita de inicio"
+      second_contacts:
+        new:
+          heading: "Llamada de seguimiento sem. 1"
+      third_contacts:
+        new:
+          heading: "Llamada de seguimiento sem. 4"
+      final_appointments:
+        new:
+          heading: "Cita final"
         form:
           smartphone_comfort_options:
             o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
@@ -70,13 +81,13 @@ es-PE:
           other: Otro
       second_contacts:
         new:
-          heading: "Incluir información de llamada de seguimiento sem. 1 para"
+          heading: "Llamada de seguimiento sem. 1"
       smartphones:
         new:
-          heading: "Incluir información de smartphone"
+          heading: "Información de smartphone"
       third_contacts:
         new:
-          heading: "Incluir información de llamada de seguimiento sem. 4 para"
+          heading: "Llamada de seguimiento sem. 4"
       users:
         sign_in:
           sign_in: "Ingresar"
@@ -234,7 +245,7 @@ es-PE:
       third_contact:
         final_appointment_at: "Cita final para"
         final_appointment_location: "Lugar de cita final"
-        contacted_at: "Fecha de llamada"
+        contacted_at: "Fecha de la llamada"
         session_length: "Duración de la llamada (min)"
         notes: "Notas"
       patient_contact:
