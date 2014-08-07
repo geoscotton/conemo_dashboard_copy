@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
   validates :role, inclusion: {in: ROLES.values}
   before_save :sanitize_number
 
+  def last_and_first_name
+    "#{last_name}, #{first_name}"
+  end
+  
   def sanitize_number
     self.phone = self.phone.gsub(/[^0-9]/, "")
   end
