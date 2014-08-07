@@ -2,7 +2,7 @@ module Active
   # Managing Active Participants
   class ParticipantsController < ApplicationController
     def index
-      @participants = Participant.active.where(locale_param)
+      @participants = Participant.active.where(locale_param).order(last_name: :asc)
     end
 
     def show
