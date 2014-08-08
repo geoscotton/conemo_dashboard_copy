@@ -34,15 +34,6 @@ es-PE:
       first_appointments:
         new:
           heading: "Cita de inicio"
-      second_contacts:
-        new:
-          heading: "Llamada de seguimiento sem. 1"
-      third_contacts:
-        new:
-          heading: "Llamada de seguimiento sem. 4"
-      final_appointments:
-        new:
-          heading: "Cita final"
         form:
           smartphone_comfort_options:
             o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
@@ -57,6 +48,15 @@ es-PE:
             o3: "3 –Muy probable"
             o2: "2 – 50/50 (Más o menos probable)"
             o1: "1 –Poco probable"
+      second_contacts:
+        new:
+          heading: "Llamada de seguimiento sem. 1"
+      third_contacts:
+        new:
+          heading: "Llamada de seguimiento sem. 4"
+      final_appointments:
+        new:
+          heading: "Cita final"
       nurse_participant_evaluations:
         form:
           q1:

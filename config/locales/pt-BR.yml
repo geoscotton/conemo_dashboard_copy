@@ -40,15 +40,6 @@ pt-BR:
       first_appointments:
         new:
           heading: "Primeiro encontro"
-      second_contacts:
-        new:
-          heading: "1º Contato de seguimento"
-      third_contacts:
-        new:
-          heading: "4º Contato de seguimento"
-      final_appointments:
-        new:
-          heading: "Encontro final"     
         form:
           smartphone_comfort_options:
             o4: "4 – O paciente pode ligar o celular, acessar e usar o aplicativo sozinho depois da primeira demonstração"
@@ -63,6 +54,15 @@ pt-BR:
             o3: "3 – Grande/alta chance"
             o2: "2 – Chance intermediária" 
             o1: "1 – Pouca/nenhuma chance"
+      second_contacts:
+        new:
+          heading: "1º Contato de seguimento"
+      third_contacts:
+        new:
+          heading: "4º Contato de seguimento"
+      final_appointments:
+        new:
+          heading: "Encontro final"      
       nurse_participant_evaluations:
         form:
           q1:
