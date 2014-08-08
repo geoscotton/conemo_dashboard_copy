@@ -25,7 +25,7 @@ describe "participant management" do
 
       click_on "first_contact_#{participant.id}"
 
-      expect(page).to have_text "Input First Contact Information"
+      expect(page).to have_text "First Contact"
 
       fill_in "First appointment location", with: "location string for first appointment"
       click_on "Save"
@@ -51,7 +51,7 @@ describe "participant management" do
 
       click_on "appointment_#{participant.id}"
 
-      expect(page).to have_text "Input First Appointment"
+      expect(page).to have_text "First Appointment"
     end
 
     it "takes the user to the smartphone form after successful first appointment input" do
