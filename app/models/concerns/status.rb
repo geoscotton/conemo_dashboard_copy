@@ -110,6 +110,8 @@ module Status
         two_lessons_passed
       elsif one_lesson_ago
         one_lesson_passed
+      elsif content_access_events.any?
+        "stable"
       else
         "disabled"
       end
