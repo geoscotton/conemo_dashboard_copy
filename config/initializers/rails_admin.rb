@@ -19,7 +19,9 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do
+      except ['Participant']
+    end
     export
     bulk_delete
     show
@@ -27,7 +29,7 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
-    config.included_models = [User, Participant, ReminderMessage, ContentAccessEvent, Lesson, Response, Dialogue]
+    config.included_models = [User, Participant]
 
     config.model User do
     
