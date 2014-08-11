@@ -93,7 +93,7 @@ class ReminderMessage < ActiveRecord::Base
           participant: {
               appointment: {
                   hour_1: "Su cita en el programa CONEMO empieza en una hora",
-                  hour_24: "Acuerdese de su cita manana en el CEDHI para iniciar el programa CONEMO."
+                  hour_24: "Acuerdese de su cita maniana en el CEDHI para iniciar el programa CONEMO."
               },
               second_contact: {
                   hour_1: "Tu enfermera o enfermero te llamara en 1 hora.",
@@ -105,13 +105,13 @@ class ReminderMessage < ActiveRecord::Base
               },
               final: {
                   hour_1: "Su cita final dentro del programa CONEMO empieza en una hora",
-                  hour_24: "Acuerdese de su cita manana en el CEDHI para finalizar el programa CONEMO."
+                  hour_24: "Acuerdese de su cita maniana en el CEDHI para finalizar el programa CONEMO."
               }
           },
           nurse: {
               appointment: {
                   hour_1: "Tu cita con un nuevo paciente del programa CONEMO empieza en una hora",
-                  hour_24: "Manana tienes la primera cita con un nuevo paciente del programa CONEMO."
+                  hour_24: "Maniana tienes la primera cita con un nuevo paciente del programa CONEMO."
               },
               second_contact: {
                   hour_1: "Recuerda llamar a tu paciente en 1 hora",
@@ -123,7 +123,7 @@ class ReminderMessage < ActiveRecord::Base
               },
               final: {
                   hour_1: "Tu cita final con un paciente del programa CONEMO empieza en una hora",
-                  hour_24: "Manana tienes la cita final con un paciente del programa CONEMO"
+                  hour_24: "Maniana tienes la cita final con un paciente del programa CONEMO"
               }
           }
       }
