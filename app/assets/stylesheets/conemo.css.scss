@@ -98,6 +98,11 @@ i.warning {
   color: yellow;
 }
 
+tr.warning td{
+  background: yellow !important;
+  color: #666;
+}
+
 div.access-count {
   border: 3px solid #4e5d6c;
   height: 125px;

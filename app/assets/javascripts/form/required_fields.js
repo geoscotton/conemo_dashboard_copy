@@ -17,6 +17,18 @@
             "width": "75%"
           }
         });
+        $('.date-select').select2({
+          minimumResultsForSearch: -1,
+          allowClear: true,
+          containerCss: {
+            "margin-top": "5px",
+            "margin-right": "5px"
+          },
+          dropdownCss: {
+            "left": "31.5%",
+            "width": "27%"
+          }
+        });
         
     }
 
