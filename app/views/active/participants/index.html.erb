@@ -26,7 +26,7 @@
             <% if current_user.admin? && participant.nurse %>
                 <td><%= link_to participant.nurse.last_and_first_name, pending_activate_path(participant), id: "activate_#{participant.id}" %></td>
             <% elsif participant.nurse %>
-                <td><%= participant.nurse.last_name %></td>
+                <td><%= participant.nurse.last_and_first_name %></td>
             <% else %>
                 <td><%= link_to "#{t "conemo.views.shared.nurse"}", pending_activate_path(participant), id: "activate_#{participant.id}" %></td>
             <% end %>
