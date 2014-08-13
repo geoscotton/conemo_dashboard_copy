@@ -209,7 +209,7 @@ es-PE:
       first_appointment:
         appointment_at: "Programada para"
         appointment_location: "Lugar de cita de inicio"
-        next_contact: "Fecha/hora para el Llamada de seguimiento sem. 1"
+        next_contact: "Fecha/hora para el llamada de seguimiento sem. 1"
         session_length: "Duración de la sesión (minutos)"
         notes: "Notas"
         smartphone_comfort: "¿Cuál de las siguientes frases describe mejor al paciente durante la sesión del entrenamiento?"
@@ -227,7 +227,7 @@ es-PE:
       second_contact:
         contact_at: "Fecha de llamada"
         session_length: "Duración de la llamada (min)"
-        next_contact: "Fecha/hora para el Llamada de seguimiento sem. 4"
+        next_contact: "Fecha/hora para el llamada de seguimiento sem. 4"
         q1: "¿Cómo le va con CONEMO? (Siempre pide especificaciones, preguntando por ejemplo 'cómo', 'por qué', 'cómo así')"
         q2: "¿Ha tenido algunas dificultades usando el teléfono / Smartphone?"
         q2_notes: "En caso afirmativo, especifique"
