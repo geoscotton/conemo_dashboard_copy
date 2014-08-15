@@ -13,6 +13,7 @@ pt-BR:
         update: "atualizar"
         edit: "editar"
         reschedule: "remarcar"
+        reschedule_heading: "Data e hora re-agendada para"
         app_download: "Baixar Aplicativo"
         dialogue: "Diálogo"
       dashboards:
@@ -40,6 +41,8 @@ pt-BR:
       first_appointments:
         new:
           heading: "Primeiro encontro"
+        reschedule:
+          heading: "a primeiro encontro"
         form:
           smartphone_comfort_options:
             o4: "4 – O paciente pode ligar o celular, acessar e usar o aplicativo sozinho depois da primeira demonstração"
@@ -57,12 +60,18 @@ pt-BR:
       second_contacts:
         new:
           heading: "1º Contato de seguimento"
+        reschedule:
+          heading: "1º Contato de seguimento"
       third_contacts:
         new:
+          heading: "4º Contato de seguimento"
+        reschedule:
           heading: "4º Contato de seguimento"
       final_appointments:
         new:
           heading: "Encontro final"      
+        reschedule:
+          heading: "a encontro final"
       nurse_participant_evaluations:
         form:
           q1:

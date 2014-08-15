@@ -9,10 +9,11 @@ es-PE:
         "false": "No"
         pending: "Pendiente"
         ineligible: "Ineligible"
-        create: "crear"
+        create: "realizado"
         update: "actualizar"
         edit: "editar"
         reschedule: "reprogramar"
+        reschedule_heading: "Fecha y hora re-programada para"
         app_download: "Descarga la Aplicación"
         dialogue: "Diálogo"
       dashboards:
@@ -34,6 +35,8 @@ es-PE:
       first_appointments:
         new:
           heading: "Cita de inicio"
+        reschedule:
+          heading: "la llamada cita de inicio"
         form:
           smartphone_comfort_options:
             o4: "4 – El Paciente pudo encender el teléfono, acceder y usar independientemente la aplicación, después de la primera demostración"
@@ -48,15 +51,11 @@ es-PE:
             o3: "3 –Muy probable"
             o2: "2 – 50/50 (Más o menos probable)"
             o1: "1 –Poco probable"
-      second_contacts:
-        new:
-          heading: "Llamada de seguimiento sem. 1"
-      third_contacts:
-        new:
-          heading: "Llamada de seguimiento sem. 4"
       final_appointments:
         new:
           heading: "Cita final"
+        reschedule:
+          heading: "la llamada cita final"
       nurse_participant_evaluations:
         form:
           q1:
@@ -82,12 +81,16 @@ es-PE:
       second_contacts:
         new:
           heading: "Llamada de seguimiento sem. 1"
+        reschedule:
+          heading: "la llamada de seguimiento sem. 1"
       smartphones:
         new:
           heading: "Información de smartphone"
       third_contacts:
         new:
           heading: "Llamada de seguimiento sem. 4"
+        reschedule:
+          heading: "la llamada de seguimiento sem. 4"
       users:
         sign_in:
           sign_in: "Ingresar"
@@ -209,7 +212,7 @@ es-PE:
       first_appointment:
         appointment_at: "Programada para"
         appointment_location: "Lugar de cita de inicio"
-        next_contact: "Fecha/hora para el llamada de seguimiento sem. 1"
+        next_contact: "Fecha/hora para la llamada de seguimiento sem. 1"
         session_length: "Duración de la sesión (minutos)"
         notes: "Notas"
         smartphone_comfort: "¿Cuál de las siguientes frases describe mejor al paciente durante la sesión del entrenamiento?"
@@ -225,9 +228,9 @@ es-PE:
         is_owned_by_participant: "¿El teléfono inteligente es del participante?"
         is_smartphone_owner: "Paciente tiene su propio teléfono inteligente (smartphone)"
       second_contact:
-        contact_at: "Fecha de llamada"
+        contact_at: "Fecha de la llamada"
         session_length: "Duración de la llamada (min)"
-        next_contact: "Fecha/hora para el llamada de seguimiento sem. 4"
+        next_contact: "Fecha/hora para la llamada de seguimiento sem. 4"
         q1: "¿Cómo le va con CONEMO? (Siempre pide especificaciones, preguntando por ejemplo 'cómo', 'por qué', 'cómo así')"
         q2: "¿Ha tenido algunas dificultades usando el teléfono / Smartphone?"
         q2_notes: "En caso afirmativo, especifique"
