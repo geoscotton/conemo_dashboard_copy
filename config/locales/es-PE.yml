@@ -248,7 +248,7 @@ es-PE:
       third_contact:
         final_appointment_at: "Cita final para"
         final_appointment_location: "Lugar de cita final"
-        contacted_at: "Fecha de la llamada"
+        contact_at: "Fecha de la llamada"
         session_length: "Duración de la llamada (min)"
         notes: "Notas"
       patient_contact:
