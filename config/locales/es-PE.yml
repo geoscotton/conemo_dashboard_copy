@@ -78,6 +78,11 @@ es-PE:
           non_adherence: Llamada por no-adherencia
           patient_requested_call: Llamada solicitada por el paciente
           other: Otro
+        reschedule_options:
+          no_show: Paciente faltó a su cita
+          patient_reschedule: Paciente pidió re-programar su cita
+          nurse_reschedule: Enfermera necesitó re-programar
+          other: Otros motivos (especifique abajo)
       second_contacts:
         new:
           heading: "Llamada de seguimiento sem. 1"
@@ -228,7 +233,7 @@ es-PE:
         is_owned_by_participant: "¿El teléfono inteligente es del participante?"
         is_smartphone_owner: "Paciente tiene su propio teléfono inteligente (smartphone)"
       second_contact:
-        contact_at: "Fecha de la llamada"
+        contact_at: "Fecha/hora de la llamada"
         session_length: "Duración de la llamada (min)"
         next_contact: "Fecha/hora para la llamada de seguimiento sem. 4"
         q1: "¿Cómo le va con CONEMO? (Siempre pide especificaciones, preguntando por ejemplo 'cómo', 'por qué', 'cómo así')"

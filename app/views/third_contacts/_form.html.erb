@@ -16,7 +16,7 @@
     <div class="form-group">
       <%= f.label :final_appointment_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :final_appointment_at, {required: true}, {class: "date-select"} %>
+        <%= f.datetime_select :final_appointment_at, {default: participant.third_contact ? third_contact.final_appointment_at : DateTime.current + 2.weeks, required: true}, {class: "date-select"} %>
         <br>
         <small><%= Time.zone %></small>
       </div>

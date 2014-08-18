@@ -13,6 +13,7 @@ en:
         update: "update"
         edit: "edit"
         reschedule: "reschedule"
+        reschedule_heading: "Reschedule"
         app_download: "App Download"
       dashboards:
         index:
@@ -31,6 +32,8 @@ en:
       first_appointments:
         new:
           heading: "First Appointment"
+        reschedule:
+          heading: "First Appointment"
         form:
           smartphone_comfort_options:
             o4: "4 – Patient can turn on the cell phone, access and use the app by her/himself after the first demonstration"
@@ -45,15 +48,21 @@ en:
             o3: "3 – high chance"
             o2: "2 – 50/50 chance"
             o1: "1 – low chance"
-      second_contact:
+      second_contacts:
         new:
           heading: "Second contact"
-      third_contact:
+        reschedule:
+          heading: "second contact"
+      third_contacts:
         new:
           heading: "Third contact"
+        reschedule:
+          heading: "third contact"
       final_appointments:
         new:
           heading: "Final Appointment"
+        reschedule:
+          heading: "final appointment"
       nurse_participant_evaluations:
         form:
           q1:
@@ -76,9 +85,11 @@ en:
           non_adherence: Non-adherence
           patient_requested_call: Requested phone call by patient
           other: Other
-      second_contacts:
-        new:
-          heading: "Input Second Contact Information"
+        reschedule_options:
+          no_show: Patient didn't come
+          patient_reschedule: Patient asked to reschedule
+          nurse_reschedule: NA asked to reschedule
+          other: Other (specify below)
       smartphones:
         new:
           heading: "Input Smartphone Information"
