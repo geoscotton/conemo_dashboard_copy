@@ -38,6 +38,8 @@ pt-BR:
       first_contacts:
         new:
           heading: "Contato de confirmação"
+        reschedule:
+          heading: "a contato de confirmação"
       first_appointments:
         new:
           heading: "Primeiro encontro"
@@ -94,6 +96,11 @@ pt-BR:
           non_adherence: Contato por não adesão
           patient_requested_call: Solicitação de contato pelo paciente
           other: Outro
+        reschedule_options:
+          no_show: Paciente não compareceu
+          patient_reschedule: Paciente pediu para reagendar
+          nurse_reschedule: AE precisou remarcar
+          other: Outros motivos (especifique abaixo)
       participants:
         new:
           heading: "Cadastrar novo participante"
