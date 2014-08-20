@@ -221,6 +221,7 @@ es-PE:
         session_length: "Duración de la sesión (minutos)"
         notes: "Notas"
         smartphone_comfort: "¿Cuál de las siguientes frases describe mejor al paciente durante la sesión del entrenamiento?"
+        smart_phone_comfort_note:
         participant_session_engagement: "¿Qué tan interesado se mostró el paciente durante la sesión? (Considere aspectos como prestar atención, hacer comentarios, hacer preguntas, etc.)"
         app_usage_prediction: "¿En su opinión, qué tan probable es que el paciente use la aplicación?"
       nurse_participant_evaluation:
@@ -254,6 +255,15 @@ es-PE:
         final_appointment_at: "Cita final para"
         final_appointment_location: "Lugar de cita final"
         contact_at: "Fecha de la llamada"
+        q1: "¿Cómo le va con CONEMO? (Siempre pide especificaciones, preguntando por ejemplo 'cómo', 'por qué', 'cómo así')"
+        q2: "¿Ha tenido algunas dificultades usando el teléfono / Smartphone?"
+        q2_notes: "En caso afirmativo, especifique"
+        q3: "¿Ha tenido algunas dificultades usando la aplicación?"
+        q3_notes: "En caso afirmativo, especifique"
+        q4: "La primera sesión de CONEMO contenía un video. ¿Ha podido verlo?"
+        q4_notes: "En el caso de no: ¿Cuál fue la dificultad?"
+        q5: "¿Se escuchó bien el audio del video?"
+        q5_notes: "Notas"
         session_length: "Duración de la llamada (min)"
         notes: "Notas"
       patient_contact:
