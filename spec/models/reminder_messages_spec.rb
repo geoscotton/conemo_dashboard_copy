@@ -137,14 +137,14 @@ describe ReminderMessage do
 
         it "returns the correct appointment message for participant" do
           message = pt_reminder_message.message
-
-          expect(message).to eq(ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24])
+          expected_message = "#{ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24]} -- #{pt_reminder_message.participant.study_identifier}"
+          expect(message).to eq(expected_message)
         end
 
         it "returns the correct second_contact message for nurse" do
           message = es_reminder_message.message
-
-          expect(message).to eq(ReminderMessage::MESSAGES[:es_PE][:nurse][:second_contact][:hour_24])
+          expected_message = "#{ReminderMessage::MESSAGES[:es_PE][:nurse][:second_contact][:hour_24]} -- #{es_reminder_message.participant.study_identifier}"
+          expect(message).to eq(expected_message)
         end
       end
     end
