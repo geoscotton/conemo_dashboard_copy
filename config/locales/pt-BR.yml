@@ -13,7 +13,7 @@ pt-BR:
         update: "atualizar"
         edit: "editar"
         reschedule: "remarcar"
-        reschedule_heading: "Data e hora re-agendada para"
+        reschedule_heading: "Remarcar"
         app_download: "Baixar Aplicativo"
         dialogue: "Diálogo"
       dashboards:
