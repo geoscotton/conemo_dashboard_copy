@@ -5,7 +5,7 @@
             .closest(".form-group")
             .children("label")
             .append(" <i class='fa fa-asterisk text-danger'></i>");
-        $('.dropdown').select2({
+        $('select.dropdown').select2({
           width: "100%",
           minimumResultsForSearch: -1,
           allowClear: true,
@@ -17,7 +17,7 @@
             "width": "75%"
           }
         });
-        $('.date-select').select2({
+        $('select.date-select').select2({
           minimumResultsForSearch: -1,
           allowClear: true,
           containerCss: {
