@@ -13,7 +13,7 @@ es-PE:
         update: "actualizar"
         edit: "editar"
         reschedule: "reprogramar"
-        reschedule_heading: "Fecha y hora re-programada para"
+        reschedule_heading: "Reprogramar"
         app_download: "Descarga la Aplicación"
         dialogue: "Diálogo"
       dashboards:
