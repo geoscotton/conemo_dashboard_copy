@@ -41,13 +41,12 @@
           <li class="dropdown visible-sm">
             <a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown"><span class="glyphicon glyphicon-th-large"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
+              <li class="<%= I18n.locale == :en ? "active" : "" %> hidden-sm"><%= link_to "English", dashboard_path(locale: "en") %></li>
+              <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %> hidden-sm"><%= link_to "Español", dashboard_path(locale: "es-PE") %></li>
+              <li class="<%= I18n.locale == :"pt-BR" ? "active" : "" %> hidden-sm"><%= link_to "Português", dashboard_path(locale: "pt-BR") %></li>
+              <% if user_signed_in? %>
+                  <li><%= link_to t("conemo.views.dashboards.index.sign_out"), destroy_user_session_path, method: :delete, class: "hidden-sm" %></li>
+              <% end %>
             </ul>
           </li>
         </ul>
