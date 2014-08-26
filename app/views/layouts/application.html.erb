@@ -3,6 +3,7 @@
 <head>
   <title>ConemoDashboard</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css' rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -36,17 +37,15 @@
         <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %> hidden-sm"><%= link_to "Español", dashboard_path(locale: "es-PE") %></li>
         <li class="<%= I18n.locale == :"pt-BR" ? "active" : "" %> hidden-sm"><%= link_to "Português", dashboard_path(locale: "pt-BR") %></li>
         <% if user_signed_in? %>
-            <li><%= link_to t("conemo.views.dashboards.index.sign_out"), destroy_user_session_path, method: :delete, class: "hidden-sm" %></li>
+            <li><%= link_to fa_icon('sign-out', text: "#{t("conemo.views.dashboards.index.sign_out")}", right: true), destroy_user_session_path, method: :delete %></li>
         <% end %>
+        
           <li class="dropdown visible-sm">
-            <a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown"><span class="glyphicon glyphicon-th-large"></span></a>
+            <a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown"><span class="fa fa-language fa-lg" style="color:darkorange"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li class="<%= I18n.locale == :en ? "active" : "" %>"><%= link_to "English", dashboard_path(locale: "en") %></li>
               <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %>"><%= link_to "Español", dashboard_path(locale: "es-PE") %></li>
               <li class="<%= I18n.locale == :"pt-BR" ? "active" : "" %>"><%= link_to "Português", dashboard_path(locale: "pt-BR") %></li>
-              <% if user_signed_in? %>
-                  <li><%= link_to t("conemo.views.dashboards.index.sign_out"), destroy_user_session_path, method: :delete %></li>
-              <% end %>
             </ul>
           </li>
         </ul>
