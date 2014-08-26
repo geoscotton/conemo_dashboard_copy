@@ -17,7 +17,7 @@ class ReminderMessage < ActiveRecord::Base
           participant: {
               appointment: {
                   hour_1: "Seu primeiro encontro CONEMO com a enfermagem será em uma hora.",
-                  hour_24: "Seu primeiro encontro CONEMO com a enfermagem é AMANHÃ. Para reagendar, faça contato."
+                  hour_24: "Seu primeiro encontro CONEMO com a enfermagem é AMANHÃ. Para reagendar, entre em contato."
               },
               second_contact: {
                   hour_1: "O técnico de enfermagem irá lhe telefonar nas 1 hora",
@@ -29,13 +29,13 @@ class ReminderMessage < ActiveRecord::Base
               },
               final: {
                   hour_1: "Sua consulta final do CONEMO é em uma hora",
-                  hour_24: "Sua consulta final do CONEMO é AMANHÃ. Para reagendar, faça contato"
+                  hour_24: "Sua consulta final do CONEMO é AMANHÃ. Para reagendar, entre em contato."
               }
           },
           nurse: {
               appointment: {
                   hour_1: "Seu primeiro contato com novo paciente em uma hora.",
-                  hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, faça contato."
+                  hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, entre em contato.."
               },
               second_contact: {
                   hour_1: "Não se esqueça de telefonar para seu paciente nas 1 hora",
@@ -47,7 +47,7 @@ class ReminderMessage < ActiveRecord::Base
               },
               final: {
                   hour_1: "Você tem paciente para última consulta em uma hora",
-                  hour_24: "Você tem paciente para última consulta AMANHÃ. Para reagendar, faça contato"
+                  hour_24: "Você tem paciente para última consulta AMANHÃ. Para reagendar, entre em contato."
               }
           }
       },
