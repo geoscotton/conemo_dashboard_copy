@@ -88,7 +88,8 @@ describe ReminderMessage do
           first_appointment_one_hour = ReminderMessage.where(participant: participant,
                                        notify_at: "1",
                                        message_type: "participant",
-                                       appointment_type: "appointment"
+                                       appointment_type: "appointment",
+                                       status: "pending"
                                        ).first
           
           old_one_hour_time = first_appointment_one_hour.notification_time
@@ -98,10 +99,40 @@ describe ReminderMessage do
           new_one_hour_time = ReminderMessage.where(participant: participant,
                                        notify_at: "1",
                                        message_type: "participant",
-                                       appointment_type: "appointment"
+                                       appointment_type: "appointment",
+                                       status: "pending"
                                        ).first
                                         .notification_time
           expect(old_one_hour_time).to_not eq(new_one_hour_time)
+        end
+      end
+      
+      context "after notification sent" do
+        let(:participant) { participants(:active_participant) }
+        let(:first_contact) { first_contacts(:first_contact) }
+        it "updates notification time of past reminder messages for first appointment and makes them pending" do
+          
+          first_contact.schedule_message(participant, "appointment")
+          first_appointment_one_hour = ReminderMessage.where(participant: participant,
+                                       notify_at: "1",
+                                       message_type: "participant",
+                                       appointment_type: "appointment"
+                                       ).first
+          
+          first_appointment_one_hour.update_attribute(:status, "sent")
+
+          expect(first_appointment_one_hour.status).to eq("sent")
+
+          first_appointment_one_hour.requeue
+
+          expect(first_appointment_one_hour.status).to eq("pending")
+
+          first_contact.update(first_appointment_at: DateTime.current + 3.days)
+
+          first_contact.schedule_message(participant, "appointment")
+          
+          expect(first_appointment_one_hour.status).to eq("pending")
+
         end
       end
     end
@@ -132,8 +163,8 @@ describe ReminderMessage do
 
     describe "#message" do
       context "24 hour first contact for portuguese participant" do
-        let(:pt_reminder_message) { reminder_messages(:pt_first_participant_24) }
-        let(:es_reminder_message) { reminder_messages(:es_second_nurse_24) }
+        let(:pt_reminder_message) { reminder_messages(:pt_first_participant_24_pending) }
+        let(:es_reminder_message) { reminder_messages(:es_second_nurse_24_pending) }
 
         it "returns the correct appointment message for participant" do
           message = pt_reminder_message.message

@@ -170,4 +170,12 @@ class ReminderMessage < ActiveRecord::Base
     end
     MESSAGES[string_locale][message_type.to_sym][appointment][hour] + identifier
   end
+
+  # requeues sent message if appointment time has been updated
+
+  def requeue
+    if status == "sent"
+      update_attribute(:status, "pending")
+    end
+  end
 end

@@ -1,16 +1,35 @@
-pt_first_participant_24:
+pt_first_participant_24_pending:
   participant: portuguese_active_participant
   nurse: nurse1
   notify_at: "24"
   message_type: participant
   appointment_type: "appointment"
+  status: "pending"
 
-es_second_nurse_24:
+es_second_nurse_24_pending:
   participant: es_active_participant
   nurse: nurse1
   notify_at: "24"
   message_type: nurse
   appointment_type: "second_contact"
+  status: "pending"
+
+pt_first_participant_24_sent:
+  participant: portuguese_active_participant
+  nurse: nurse1
+  notify_at: "24"
+  message_type: participant
+  appointment_type: "appointment"
+  status: "sent"
+
+es_second_nurse_24_sent:
+  participant: es_active_participant
+  nurse: nurse1
+  notify_at: "24"
+  message_type: nurse
+  appointment_type: "second_contact"
+  status: "sent"
+
 
 # pt_first_participant_1:
 #   participant: portuguese_active_participant
