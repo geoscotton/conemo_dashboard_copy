@@ -64,6 +64,8 @@ pt-BR:
           heading: "1º Contato de seguimento"
         reschedule:
           heading: "1º Contato de seguimento"
+        patient_question_header: Dados colhidos com o paciente
+        nurse_question_header: Impressões do profissional de saúde
       third_contacts:
         new:
           heading: "4º Contato de seguimento"

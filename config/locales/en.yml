@@ -53,6 +53,8 @@ en:
           heading: "Second contact"
         reschedule:
           heading: "second contact"
+        patient_question_header: Questions for patient
+        nurse_question_header: Questions for nurse
       third_contacts:
         new:
           heading: "Third contact"
