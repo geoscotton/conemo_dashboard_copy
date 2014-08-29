@@ -32,6 +32,8 @@ es-PE:
       first_contacts:
         new:
           heading: "Llamada confirmando cita"
+        reschedule:
+          heading: "la llamada confirmando cita"
       first_appointments:
         new:
           heading: "Cita de inicio"
