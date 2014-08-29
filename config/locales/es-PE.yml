@@ -88,6 +88,8 @@ es-PE:
           heading: "Llamada de seguimiento sem. 1"
         reschedule:
           heading: "la llamada de seguimiento sem. 1"
+        patient_question_header: Preguntas para el paciente
+        nurse_question_header: Preguntas para la enfermera
       smartphones:
         new:
           heading: "Información de smartphone"

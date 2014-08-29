@@ -35,7 +35,7 @@ class ReminderMessage < ActiveRecord::Base
           nurse: {
               appointment: {
                   hour_1: "Seu primeiro contato com novo paciente em uma hora.",
-                  hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, entre em contato.."
+                  hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, entre em contato."
               },
               second_contact: {
                   hour_1: "Não se esqueça de telefonar para seu paciente nas 1 hora",

@@ -1,0 +1,36 @@
+<%= f.fields_for :nurse_participant_evaluation, nurse_participant_evaluation do |builder| %>
+    <div class="form-group">
+      <%= builder.label :q1, class: "col-md-4 control-label" %>
+      <div class="col-md-7">
+<%= builder.select :q1, options_for_select(
+                            [ 
+                              "#{t("conemo.views.nurse_participant_evaluations.form.q1.o3")}",
+                              "#{t("conemo.views.nurse_participant_evaluations.form.q1.o2")}",
+                              "#{t("conemo.views.nurse_participant_evaluations.form.q1.o1")}"
+                             ], nurse_participant_evaluation.q1),
+                           {}, {class: "dropdown", required: true} %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= builder.label :q2, class: "col-md-4 control-label" %>
+      <div class="col-md-7">
+        <%= builder.select :q2, options_for_select([
+                                   "#{t("conemo.views.nurse_participant_evaluations.form.q2.o3")}",
+                                   "#{t("conemo.views.nurse_participant_evaluations.form.q2.o2")}",
+                                   "#{t("conemo.views.nurse_participant_evaluations.form.q2.o1")}"
+                           ], nurse_participant_evaluation.q2),
+                           {}, {class: "dropdown", required: true} %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= builder.label :q3, class: "col-md-4 control-label" %>
+      <div class="col-md-7">
+<%= builder.select :q3, options_for_select([
+                             "#{t("conemo.views.nurse_participant_evaluations.form.q3.o3")}",
+                             "#{t("conemo.views.nurse_participant_evaluations.form.q3.o2")}",
+                             "#{t("conemo.views.nurse_participant_evaluations.form.q3.o1")}"
+                     ], nurse_participant_evaluation.q3),
+                           {}, {class: "dropdown", required: true} %>
+      </div>
+    </div>
+<% end %>

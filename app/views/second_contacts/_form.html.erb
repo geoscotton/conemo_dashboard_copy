@@ -16,6 +16,9 @@
       </div>
     </div>
     <div class="form-group">
+      <h3><%= t "conemo.views.second_contacts.patient_question_header"%></h3>
+    </div>
+    <div class="form-group">
       <%= f.label :q1, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.text_area :q1, class: "form-control" %>
@@ -123,7 +126,10 @@
         <%= f.text_area :q7_notes, class: "form-control" %>
       </div>
     </div>
-    <%= render 'nurse_participant_evaluations/form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} %>
+    <div class="form-group">
+      <h3><%= t "conemo.views.second_contacts.nurse_question_header"%></h3>
+    </div>
+    <%= render 'nurse_participant_evaluations/second_contact_form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} %>
     <div class="form-group">
       <%= f.label :session_length, class: "col-md-4 control-label" %>
       <div class="col-md-7">
