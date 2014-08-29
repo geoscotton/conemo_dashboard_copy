@@ -137,7 +137,7 @@ describe ReminderMessage do
 
         it "returns the correct appointment message for participant" do
           message = pt_reminder_message.message
-          expected_message = "#{ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24]} -- #{pt_reminder_message.participant.study_identifier}"
+          expected_message = ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24]
           expect(message).to eq(expected_message)
         end
 

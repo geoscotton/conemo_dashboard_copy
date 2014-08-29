@@ -163,6 +163,11 @@ class ReminderMessage < ActiveRecord::Base
     string_locale = participant.locale.gsub("-", "_").to_sym
     hour = "hour_#{notify_at}".to_sym
     appointment = appointment_type.to_sym
-    MESSAGES[string_locale][message_type.to_sym][appointment][hour] + " -- #{participant.study_identifier}"
+    if message_type == "nurse"
+      identifier = " -- #{participant.study_identifier}"
+    else
+      identifier = ""
+    end
+    MESSAGES[string_locale][message_type.to_sym][appointment][hour] + identifier
   end
 end
