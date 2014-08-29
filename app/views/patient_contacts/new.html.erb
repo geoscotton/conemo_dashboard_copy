@@ -16,7 +16,6 @@
                   <dl>
                     <dt><%= contact.contact_reason %> <%= link_to "#{fa_icon 'times-circle'}".html_safe, participant_patient_contact_path(id: contact.id, participant_id: participant.id), method: :delete, :"data-confirm" => "#{ t 'conemo.views.active.participants.report.delete' }", class: 'pull-right delete-note' %></dt>
                     <dd><%= contact.note %></dd>
-                    <dd><em><%= l contact.contact_at, format: :long %></em></dd>
                   </dl>
                 </td>
               </tr>
