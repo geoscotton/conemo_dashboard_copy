@@ -271,7 +271,7 @@ pt-BR:
       final_appointment:
         appointment_at: "Data/hora"
         appointment_location: "Local"
-        phone_returned: "Foi o telefone voltou?"
+        phone_returned: "O telefone foi devolvido?"
         notes: "Anotações"
   date:
     abbr_day_names:
