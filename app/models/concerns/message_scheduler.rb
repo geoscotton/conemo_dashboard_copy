@@ -21,9 +21,7 @@ module MessageScheduler
                                                     appointment_type: model_name_string
     )
 
-    if message.status == "sent"
-      message.status = "pending"
-    end
+    message.requeue
 
     message.save
   end
@@ -36,9 +34,7 @@ module MessageScheduler
                                                     appointment_type: model_name_string
     )
 
-    if message.status == "sent"
-      message.status = "pending"
-    end
+    message.requeue
 
     message.save
   end
