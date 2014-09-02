@@ -16,7 +16,7 @@ class ReminderMessage < ActiveRecord::Base
       pt_BR: {
           participant: {
               appointment: {
-                  hour_1: "Seu primeiro encontro CONEMO com a enfermagem será em uma hora.",
+                  hour_1: "Seu primeiro encontro CONEMO  é em uma hora.",
                   hour_24: "Seu primeiro encontro CONEMO com a enfermagem é AMANHÃ. Para reagendar, entre em contato."
               },
               second_contact: {
@@ -34,7 +34,7 @@ class ReminderMessage < ActiveRecord::Base
           },
           nurse: {
               appointment: {
-                  hour_1: "Seu primeiro contato com novo paciente em uma hora.",
+                  hour_1: "Primeiro contato com novo paciente em uma hora",
                   hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, entre em contato."
               },
               second_contact: {
