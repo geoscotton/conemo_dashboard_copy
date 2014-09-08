@@ -24,7 +24,7 @@ class ReminderMessage < ActiveRecord::Base
                   hour_24: "O(a) técnico(a) de enfermagem irá lhe telefonar nas próximas 24 horas."
               },
               third_contact: {
-                  hour_1: "O técnico de enfermagem irá lhe telefonar nas 1 hora",
+                  hour_1: "O técnico de enfermagem irá lhe telefonar em 1 hora",
                   hour_24: "O(a) técnico(a) de enfermagem irá lhe telefonar nas próximas 24 horas."
               },
               final: {
@@ -38,11 +38,11 @@ class ReminderMessage < ActiveRecord::Base
                   hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, entre em contato."
               },
               second_contact: {
-                  hour_1: "Não se esqueça de telefonar para seu paciente nas 1 hora",
+                  hour_1: "Não se esqueça de telefonar para seu paciente em 1 hora",
                   hour_24: "Não esqueça de telefonar para seu paciente dentro de 24 horas"
               },
               third_contact: {
-                  hour_1: "Não se esqueça de telefonar para seu paciente nas 1 hora",
+                  hour_1: "Não se esqueça de telefonar para seu paciente em 1 hora",
                   hour_24: "Não esqueça de telefonar para seu paciente dentro de 24 horas"
               },
               final: {
