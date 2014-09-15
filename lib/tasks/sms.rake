@@ -40,7 +40,7 @@ namespace :sms do
             puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 2/2, time: #{Time.now}"
           else
             @message = @account.sms.messages.create({ from: "+13125488213", to: "#{country_code}#{phone_number}", body: reminder_message.message.force_encoding("UTF-8") })
-            puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body}, time: #{Time.now}"
+            puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 1/1, time: #{Time.now}"
           end
           reminder_message.update_attribute(:status, "sent")
         rescue Twilio::REST::RequestError => err
