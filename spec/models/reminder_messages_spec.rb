@@ -167,8 +167,8 @@ describe ReminderMessage do
         let(:es_reminder_message) { reminder_messages(:es_second_nurse_24_pending) }
 
         it "returns the correct appointment message for participant" do
-          message = pt_reminder_message.message
-          expected_message = ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24]
+          message = pt_reminder_message.message("part_a")
+          expected_message = ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24] [:part_a]
           expect(message).to eq(expected_message)
         end
 
