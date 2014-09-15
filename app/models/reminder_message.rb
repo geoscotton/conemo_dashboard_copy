@@ -17,7 +17,10 @@ class ReminderMessage < ActiveRecord::Base
           participant: {
               appointment: {
                   hour_1: "Seu primeiro encontro CONEMO  é em uma hora.",
-                  hour_24: "Seu primeiro encontro CONEMO com a enfermagem é AMANHÃ. Para reagendar, entre em contato."
+                  hour_24: { 
+                    part_a: "Seu primeiro encontro CONEMO com a enfermagem é AMANHÃ.",
+                    part_b: "Para reagendar, entre em contato."
+                  }
               },
               second_contact: {
                   hour_1: "O técnico de enfermagem irá lhe telefonar nas 1 hora",
@@ -29,13 +32,19 @@ class ReminderMessage < ActiveRecord::Base
               },
               final: {
                   hour_1: "Sua consulta final do CONEMO é em uma hora",
-                  hour_24: "Sua consulta final do CONEMO é AMANHÃ. Para reagendar, entre em contato."
+                  hour_24: {
+                    part_a: "Sua consulta final do CONEMO é AMANHÃ.",
+                    part_b: "Para reagendar, entre em contato."
+                  }
               }
           },
           nurse: {
               appointment: {
                   hour_1: "Primeiro contato com novo paciente em uma hora",
-                  hour_24: "Primeiro contato com novo paciente amanhã. Para reagendar, entre em contato."
+                  hour_24: {
+                    part_a: "Primeiro contato com novo paciente amanhã.",
+                    part_b: "Para reagendar, entre em contato."
+                  }
               },
               second_contact: {
                   hour_1: "Não se esqueça de telefonar para seu paciente em 1 hora",
@@ -47,7 +56,10 @@ class ReminderMessage < ActiveRecord::Base
               },
               final: {
                   hour_1: "Você tem paciente para última consulta em uma hora",
-                  hour_24: "Você tem paciente para última consulta AMANHÃ. Para reagendar, entre em contato."
+                  hour_24: {
+                    part_a: "Você tem paciente para última consulta AMANHÃ.",
+                    part_b: "Para reagendar, entre em contato."
+                  }
               }
           }
       },
@@ -159,20 +171,36 @@ class ReminderMessage < ActiveRecord::Base
   end
 
   # message is constructed by traversing MESSAGES hash
-  def message
+  def message(message_part=nil)
     string_locale = participant.locale.gsub("-", "_").to_sym
     hour = "hour_#{notify_at}".to_sym
     appointment = appointment_type.to_sym
-    if message_type == "nurse"
-      identifier = " -- #{participant.study_identifier}"
+    
+    if split_message && message_part
+      MESSAGES[string_locale][message_type.to_sym][appointment][hour][message_part.to_sym] + set_identifier
     else
-      identifier = ""
+      MESSAGES[string_locale][message_type.to_sym][appointment][hour] + set_identifier
     end
-    MESSAGES[string_locale][message_type.to_sym][appointment][hour] + identifier
+  end
+
+  def set_identifier
+    if message_type == "nurse"
+      return " -- #{participant.study_identifier}"
+    else
+      return ""
+    end
+  end
+
+  # determines if a message has been split into two parts
+  def split_message
+    if participant.locale == "pt-BR" && (appointment_type == "appointment" || appointment_type == "final")
+      return true
+    else
+      return false
+    end
   end
 
   # requeues sent message if appointment time has been updated
-
   def requeue
     if status == "sent"
       update_attribute(:status, "pending")
