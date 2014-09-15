@@ -162,13 +162,32 @@ describe ReminderMessage do
     end
 
     describe "#message" do
-      context "24 hour first contact for portuguese participant" do
+      context "24 hour first contact for various participant locales" do
         let(:pt_reminder_message) { reminder_messages(:pt_first_participant_24_pending) }
         let(:es_reminder_message) { reminder_messages(:es_second_nurse_24_pending) }
+        let(:en_reminder_message) { reminder_messages(:en_appointment_participant_24_pending) }
 
-        it "returns the correct appointment message for participant" do
+        it "returns the correct first appointment message for portuguese participant part a" do
           message = pt_reminder_message.message("part_a")
-          expected_message = ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24] [:part_a]
+          expected_message = ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24][:part_a]
+          expect(message).to eq(expected_message)
+        end
+
+        it "returns the correct first appointment message for portuguese participant part b" do
+          message = pt_reminder_message.message("part_b")
+          expected_message = ReminderMessage::MESSAGES[:pt_BR][:participant][:appointment][:hour_24][:part_b]
+          expect(message).to eq(expected_message)
+        end
+
+        it "returns the correct final appointment message for english participant part a" do
+          message = en_reminder_message.message("part_a")
+          expected_message = ReminderMessage::MESSAGES[:en][:participant][:final][:hour_24][:part_a]
+          expect(message).to eq(expected_message)
+        end
+
+        it "returns the correct final appointment message for english participant part b" do
+          message = en_reminder_message.message("part_b")
+          expected_message = ReminderMessage::MESSAGES[:en][:participant][:final][:hour_24][:part_b]
           expect(message).to eq(expected_message)
         end
 

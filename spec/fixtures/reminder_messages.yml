@@ -30,6 +30,22 @@ es_second_nurse_24_sent:
   appointment_type: "second_contact"
   status: "sent"
 
+en_appointment_nurse_24_pending:
+  participant: active_participant
+  nurse: nurse1
+  notify_at: "24"
+  message_type: nurse
+  appointment_type: "final"
+  status: "pending"
+
+en_appointment_participant_24_pending:
+  participant: active_participant
+  nurse: nurse1
+  notify_at: "24"
+  message_type: participant
+  appointment_type: "final"
+  status: "pending"
+
 
 # pt_first_participant_1:
 #   participant: portuguese_active_participant
