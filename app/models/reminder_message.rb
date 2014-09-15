@@ -183,6 +183,7 @@ class ReminderMessage < ActiveRecord::Base
     end
   end
 
+  # appends patient identifier for nurse sms messages only
   def set_identifier
     if message_type == "nurse"
       return " -- #{participant.study_identifier}"
