@@ -206,8 +206,12 @@ class ReminderMessage < ActiveRecord::Base
 
   # determines if a message has been split into two parts
   def split_message
-    if participant.locale != "es-PE" && (appointment_type == "appointment" || appointment_type == "final")
-      return true
+    if participant.locale != "es-PE"
+      if (appointment_type == "appointment" || appointment_type == "final") && notify_at == "24"
+        return true
+      else
+        return false
+      end
     else
       return false
     end
