@@ -67,7 +67,10 @@ class ReminderMessage < ActiveRecord::Base
           participant: {
               appointment: {
                   hour_1: "You have your first CONEMO appointment with the nurse assistant in 1 hour.",
-                  hour_24: "You have your first CONEMO appointment with the nurse assistant tomorrow. Please, let us know if you need to reschedule."
+                  hour_24: {
+                    part_a: "You have your first CONEMO appointment with the nurse assistant tomorrow.",
+                    part_b: "Please, let us know if you need to reschedule."
+                  }
               },
               second_contact: {
                   hour_1: "Your nurse assistant will call you in 1 hour",
@@ -78,14 +81,20 @@ class ReminderMessage < ActiveRecord::Base
                   hour_24: "Your nurse assistant will call you in the next 24 hours"
               },
               final: {
-                  hour_1: "English 1 hour participant reminder for final appointment",
-                  hour_24: "English 24 hour participant reminder for final appointment"
+                  hour_1: "You have your final CONEMO appointment with the nurse assistant in 1 hour.",
+                  hour_24: {
+                    part_a: "You have your final CONEMO appointment with the nurse assistant tomorrow.",
+                    part_b: "Please, let us know if you need to reschedule."
+                  }
               }
           },
           nurse: {
               appointment: {
                   hour_1: "You have your first CONEMO appointment with a patient in 1 hour",
-                  hour_24: "You have your first CONEMO appointment with a patient tomorrow. Please, contact him/her if you need to reschedule."
+                  hour_24: {
+                    part_a: "You have your first CONEMO appointment with a patient tomorrow.",
+                    part_b: "Please, contact him/her if you need to reschedule."
+                  }
               },
               second_contact: {
                   hour_1: "Don’t forget to call your patient in the next hour",
@@ -97,7 +106,10 @@ class ReminderMessage < ActiveRecord::Base
               },
               final: {
                   hour_1: "English 1 hour nurse reminder for final appointment",
-                  hour_24: "English 24 hour nurse reminder for final appointment"
+                  hour_24: {
+                    part_a: "You have your final CONEMO appointment with a patient tomorrow.",
+                    part_b: "Please, contact him/her if you need to reschedule."
+                  }
               }
           }
       },
@@ -194,7 +206,7 @@ class ReminderMessage < ActiveRecord::Base
 
   # determines if a message has been split into two parts
   def split_message
-    if participant.locale == "pt-BR" && (appointment_type == "appointment" || appointment_type == "final")
+    if participant.locale != "es-PE" && (appointment_type == "appointment" || appointment_type == "final")
       return true
     else
       return false
