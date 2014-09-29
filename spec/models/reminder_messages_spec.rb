@@ -1,6 +1,6 @@
 require "spec_helper"
 describe ReminderMessage do
-  fixtures :participants, :users, :reminder_messages, :first_contacts, :first_appointments
+  fixtures :users, :participants, :reminder_messages, :first_contacts, :first_appointments
 
   describe "Message Scheduler" do
     context "First Contact for Portuguese" do
