@@ -1,7 +1,6 @@
 require "spec_helper"
 describe ReminderMessage do
-  fixtures :participants, :users, :reminder_messages, :first_contacts, :first_appointments
-
+  fixtures :users, :participants, :reminder_messages, :first_contacts, :first_appointments
   describe "Message Scheduler" do
     context "First Contact for Portuguese" do
       let(:portuguese_participant) { participants(:portuguese_active_participant) }
@@ -10,7 +9,7 @@ describe ReminderMessage do
 
       describe "#schedule_message" do
         it "schedules all reminder messages for an upcoming first appointment" do
-          
+
           first_contact.schedule_message(portuguese_participant, "appointment")
 
           expect(ReminderMessage.where(participant: portuguese_participant,
@@ -83,7 +82,7 @@ describe ReminderMessage do
         let(:participant) { participants(:active_participant) }
         let(:first_contact) { first_contacts(:first_contact) }
         it "updates notification time of upcoming reminder messages for first appointment" do
-          
+
           first_contact.schedule_message(participant, "appointment")
           first_appointment_one_hour = ReminderMessage.where(participant: participant,
                                        notify_at: "1",
@@ -91,11 +90,11 @@ describe ReminderMessage do
                                        appointment_type: "appointment",
                                        status: "pending"
                                        ).first
-          
+
           old_one_hour_time = first_appointment_one_hour.notification_time
-          
+
           first_contact.update(first_appointment_at: DateTime.current + 3.days)
-          
+
           new_one_hour_time = ReminderMessage.where(participant: participant,
                                        notify_at: "1",
                                        message_type: "participant",
@@ -106,19 +105,19 @@ describe ReminderMessage do
           expect(old_one_hour_time).to_not eq(new_one_hour_time)
         end
       end
-      
+
       context "after notification sent" do
         let(:participant) { participants(:active_participant) }
         let(:first_contact) { first_contacts(:first_contact) }
         it "updates notification time of past reminder messages for first appointment and makes them pending" do
-          
+
           first_contact.schedule_message(participant, "appointment")
           first_appointment_one_hour = ReminderMessage.where(participant: participant,
                                        notify_at: "1",
                                        message_type: "participant",
                                        appointment_type: "appointment"
                                        ).first
-          
+
           first_appointment_one_hour.update_attribute(:status, "sent")
 
           expect(first_appointment_one_hour.status).to eq("sent")
@@ -130,7 +129,7 @@ describe ReminderMessage do
           first_contact.update(first_appointment_at: DateTime.current + 3.days)
 
           first_contact.schedule_message(participant, "appointment")
-          
+
           expect(first_appointment_one_hour.status).to eq("pending")
 
         end
@@ -139,7 +138,7 @@ describe ReminderMessage do
   end
 
   describe "Reminder Message" do
-    
+
     describe "#notification_time" do
       context "24 hour first contact" do
         let(:portuguese_participant) { participants(:portuguese_active_participant) }
