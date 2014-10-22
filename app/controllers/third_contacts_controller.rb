@@ -4,8 +4,7 @@ class ThirdContactsController < ApplicationController
 
   def new
     @third_contact = participant.build_third_contact
-    @nurse_participant_evaluation = @third_contact
-    .build_nurse_participant_evaluation
+    @nurse_participant_evaluation = @third_contact.build_nurse_participant_evaluation
   end
 
   def create
