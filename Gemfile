@@ -1,9 +1,9 @@
 source "https://rubygems.org"
 
-gem "rails", ">= 4.1.1"
+gem "rails", "~> 4.1.7"
 gem "turbolinks"
 gem "pg"
-gem "sass-rails"
+gem "sass-rails", "~> 4.0.2"
 gem "bootstrap-sass"
 gem "uglifier"
 gem "jquery-rails"
