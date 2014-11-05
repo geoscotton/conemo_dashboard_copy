@@ -17,6 +17,7 @@ gem "jbuilder"
 gem "ckeditor"
 gem "twilio-ruby"
 gem "normalize-rails"
+gem "nokogiri", "= 1.6.3.1"
 
 group :staging, :production do
   # email exceptions
