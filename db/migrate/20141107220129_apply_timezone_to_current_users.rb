@@ -9,10 +9,13 @@ class ApplyTimezoneToCurrentUsers < ActiveRecord::Migration
 
         when "en"
             u.timezone = "Central Time (US & Canada)"
+            u.save
         when "pt-BR"
             u.timezone = "Brasilia"
+            u.save
         when "es-PE"
             u.timezone = "Lima"
+            u.save
         else
             return
         end
