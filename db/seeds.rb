@@ -6,7 +6,8 @@ User.create!(
   phone: "555-555-5555",
   first_name: "David",
   last_name: "Shing",
-  locale: "en"
+  locale: "en",
+  timezone: "Central Time (US & Canada)"
 )
 User.create!(
   email: "nurse1@example.com",
@@ -16,5 +17,6 @@ User.create!(
   phone: "555-555-5555",
   first_name: "Linda",
   last_name: "Ratchet",
-  locale: "en"
+  locale: "en",
+  timezone: "Central Time (US & Canada)"
 )
