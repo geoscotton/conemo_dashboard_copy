@@ -6,6 +6,7 @@ nurse1:
   role: "nurse"
   phone: "555-555-5555"
   locale: "en"
+  timezone: "Central Time (US & Canada)"
 
 portuguese_nurse:
   first_name: Linda
@@ -15,6 +16,7 @@ portuguese_nurse:
   role: "nurse"
   phone: "555-555-5555"
   locale: "pt-BR"
+  timezone: "Brasilia"
 
 admin1:
   first_name: Hobo
@@ -24,3 +26,4 @@ admin1:
   role: "admin"
   phone: "15555555555"
   locale: "en"
+  timezone: "Central Time (US & Canada)"

@@ -3,7 +3,7 @@ require "spec_helper"
 module Active
   describe ParticipantsController do
     describe "GET index" do
-      let(:user) { double("user", admin?: true, nurse?: false) }
+      let(:user) { double("user", admin?: true, nurse?: false, timezone: "Central Time (US & Canada)") }
       context "for authenticated requests" do
         before do
           sign_in_user user

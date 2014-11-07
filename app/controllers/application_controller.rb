@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :authenticate_user!
   before_filter :authorize_locale
-  before_filter :set_timezone
+  around_filter :user_time_zone, if: :current_user
 
   layout :layout_by_resource
 
@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_timezone
-    Time.zone = cookies["time_zone"]
+  def user_time_zone(&block)
+    Time.use_zone(current_user.timezone, &block)
   end
 end

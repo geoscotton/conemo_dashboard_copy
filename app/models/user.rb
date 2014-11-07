@@ -17,12 +17,14 @@ class User < ActiveRecord::Base
 
   validates :email, :phone, :first_name, :last_name, :locale, presence: true
   validates :role, inclusion: {in: ROLES.values}
+  validates :timezone, inclusion: {in: ActiveSupport::TimeZone::MAPPING.keys}
+
   before_save :sanitize_number
 
   def last_and_first_name
     "#{last_name}, #{first_name}"
   end
-  
+
   def sanitize_number
     self.phone = self.phone.gsub(/[^0-9]/, "")
   end

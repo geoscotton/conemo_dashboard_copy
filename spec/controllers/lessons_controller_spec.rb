@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe LessonsController do
-  let(:user) { double("user", admin?: true, nurse?: false) }
+  let(:user) { double("user", admin?: true, nurse?: false, timezone: "Central Time (US & Canada)") }
   let(:lesson) { double("lesson") }
 
   shared_context "lesson is found" do

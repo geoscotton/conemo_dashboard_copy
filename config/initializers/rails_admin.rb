@@ -42,6 +42,7 @@ RailsAdmin.config do |config|
         field :first_name
         field :last_name
         field :phone
+        field :locale
       end
 
       edit do
@@ -54,6 +55,11 @@ RailsAdmin.config do |config|
         field :first_name
         field :last_name
         field :phone
+        field :timezone, :enum do
+          enum do
+            ["Brasilia", "Lima", "Central Time (US & Canada)"]
+          end
+        end
         field :locale, :enum do
           enum do
             ['en', 'pt-BR', 'es-PE']
