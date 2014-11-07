@@ -69,6 +69,7 @@ RailsAdmin.config do |config|
     end
 
     config.model Participant do
+      object_label_method :study_id
 
       list do
         field :nurse
@@ -88,6 +89,10 @@ RailsAdmin.config do |config|
         field :start_date
       end
     end
+  end
+
+  def study_id
+    return "#{self.study_identifier}"
   end
 
   config.model FirstContact do
