@@ -1,10 +1,8 @@
-class ApplyTimezoneToCurrentUsers < ActiveRecord::Migration
+class AddTimezoneToUsers < ActiveRecord::Migration
   def up
     users = User.all
 
    users.each do |u|
-      if !u.timezone
-
         case u.locale
 
         when "en"
@@ -19,7 +17,6 @@ class ApplyTimezoneToCurrentUsers < ActiveRecord::Migration
         else
             return
         end
-      end
     end
   end
 end
