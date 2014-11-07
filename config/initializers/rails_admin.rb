@@ -19,20 +19,22 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new do
-      except ['Participant']
-    end
     export
+    new do
+      only [User]
+    end
+    edit do
+      only [User]
+    end
     bulk_delete
     show
-    edit
     delete
     show_in_app
 
-    config.included_models = [User, Participant, ReminderMessage]
+    config.included_models = [User, Participant, ReminderMessage, FirstContact, FirstAppointment, SecondContact, ThirdContact]
 
     config.model User do
-    
+
       object_label_method :email
 
       list do
@@ -61,13 +63,13 @@ RailsAdmin.config do |config|
         field :password_confirmation
       end
     end
-  
+
     def email
       return "#{self.email}"
     end
 
     config.model Participant do
-      
+
       list do
         field :nurse
         field :first_name
@@ -85,6 +87,34 @@ RailsAdmin.config do |config|
         field :locale
         field :start_date
       end
+    end
+  end
+
+  config.model FirstContact do
+    list do
+      field :participant
+      field :first_appointment_at
+    end
+  end
+
+  config.model FirstAppointment do
+    list do
+      field :participant
+      field :next_contact
+    end
+  end
+
+  config.model SecondContact do
+    list do
+      field :participant
+      field :next_contact
+    end
+  end
+
+  config.model ThirdContact do
+    list do
+      field :participant
+      field :final_appointment_at
     end
   end
 end
