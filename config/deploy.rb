@@ -4,7 +4,7 @@ lock "3.2.1"
 set :application, "conemo_dashboard"
 set :repo_url, "git@github.com:cbitstech/#{ fetch(:application) }.git"
 set :rvm_type, :system
-set :rvm_ruby_version, "2.1.1"
+set :rvm_ruby_version, "2.1.5"
 
 # Default branch is :master
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -49,7 +49,7 @@ NameVirtualHost *:443
 <VirtualHost *:443>
   PassengerFriendlyErrorPages off
   PassengerAppEnv staging
-  PassengerRuby /usr/local/rvm/wrappers/ruby-2.1.1/ruby
+  PassengerRuby /usr/local/rvm/wrappers/ruby-#{ fetch(:rvm_ruby_version) }/ruby
 
   ServerName conemo-staging.cbits.northwestern.edu
 
@@ -81,7 +81,7 @@ NameVirtualHost *:443
 <VirtualHost *:443>
   PassengerFriendlyErrorPages off
   PassengerAppEnv production
-  PassengerRuby /usr/local/rvm/wrappers/ruby-2.1.1/ruby
+  PassengerRuby /usr/local/rvm/wrappers/ruby-#{ fetch(:rvm_ruby_version) }/ruby
 
   ServerName conemo.northwestern.edu
 

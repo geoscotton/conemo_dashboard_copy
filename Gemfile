@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 4.1.7"
+gem "rails", "~> 4.1.8"
 gem "turbolinks"
 gem "pg"
 gem "sass-rails", "~> 4.0.2"
@@ -35,7 +35,6 @@ group :development do
   gem "capistrano-rails", "~> 1.1", require: false
   gem "capistrano-rvm", "~> 0.1", require: false
   gem "capistrano-bundler", "~> 1.1.2"
-  gem "debugger"
   gem "spring"
   gem "spring-commands-rspec"
   gem "better_errors"
