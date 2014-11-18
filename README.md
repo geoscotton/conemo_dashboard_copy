@@ -1,6 +1,6 @@
 # CONEMO
 
-[![Build Status](https://travis-ci.org/cbitstech/conemo_dashboard.svg)](https://travis-ci.org/cbitstech/conemo_dashboard) [![security](https://hakiri.io/github/cbitstech/conemo_dashboard/staging.svg)](https://hakiri.io/github/cbitstech/conemo_dashboard/staging)
+[![Build Status](https://travis-ci.org/cbitstech/conemo_dashboard.svg)](https://travis-ci.org/cbitstech/conemo_dashboard) [![security](https://hakiri.io/github/cbitstech/conemo_dashboard/master.svg)](https://hakiri.io/github/cbitstech/conemo_dashboard/master)
 
 ## Clone repository
 
