@@ -6,6 +6,9 @@
   <link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css' rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport"
+content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,user-scalable=no"
+/>
 </head>
 
 <body>
@@ -39,7 +42,7 @@
         <% if user_signed_in? %>
             <li><%= link_to fa_icon('sign-out', text: "#{t("conemo.views.dashboards.index.sign_out")}", right: true), destroy_user_session_path, method: :delete %></li>
         <% end %>
-        
+
           <li class="dropdown visible-sm">
             <a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown"><span class="fa fa-language fa-lg" style="color:darkorange"></span></a>
             <ul class="dropdown-menu" role="menu">

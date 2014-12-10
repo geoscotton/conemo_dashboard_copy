@@ -139,6 +139,8 @@ en:
             first_contact_heading: "First Contact Information"
             first_appointment_heading: "First Appointment Information"
             second_contact_heading: "Second Contact Information"
+            third_contact_heading: "Third Contact Information"
+            final_appointment_heading: "Final Appointment"
           report:
             delete: "Are you sure you want to delete this note?"
             overall_status: "Overall Status"
@@ -181,7 +183,7 @@ en:
         not_destroyed: "Slide not deleted"
     models:
       participant:
-        enrollment_date_is_sane_error: "must be recent or upcoming"      
+        enrollment_date_is_sane_error: "must be recent or upcoming"
   helpers:
     label:
       participant:
