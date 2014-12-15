@@ -2,7 +2,11 @@ module Active
   # Managing Active Participants
   class ParticipantsController < ApplicationController
     def index
-      @participants = Participant.active.where(locale_param).order(created_at: :desc)
+      if current_user.admin?
+        @participants = Participant.where(locale_param).order(created_at: :desc)
+      else
+        @participants = current_user.active_participants.order(created_at: :desc)
+      end
     end
 
     def show
