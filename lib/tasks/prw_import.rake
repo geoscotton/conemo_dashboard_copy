@@ -128,7 +128,7 @@ class ImportPrwData
                                          read: false,
                                          message: message.FEATURE_VALUE_DT_message,
                                          staff_message_guid: message.GUID,
-                                         sent_at: message.eventDateTime.in_time_zone(participant.nurse.timezone)
+                                         sent_at: Time.at(message.timestamp.in_time_zone(participant.nurse.timezone))
                                         )
           if help_message.save
             puts "help_message created for #{participant.study_identifier}"
