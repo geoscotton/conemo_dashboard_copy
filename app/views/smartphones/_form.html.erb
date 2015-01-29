@@ -3,6 +3,7 @@
       <%= f.label :number, class: "col-md-5 control-label" %>
       <div class="col-md-7">
         <%= f.telephone_field :number, class: "form-control", required: true %>
+        <span id="helpBlock" class="help-block">ex. Lima: 95xxxxxxx; Sao Paulo: 11xxxxxxxxx </span>
       </div>
     </div>
     <% if params[:locale] != "es-PE" %>
