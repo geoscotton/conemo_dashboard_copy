@@ -39,7 +39,7 @@ describe "Participant Management" do
         fill_in "First appointment location", with: "location string for first appointment"
         click_on "Save"
 
-        expect(page).to have_text participant.first_contact.contact_at.to_s(:short)
+        expect(page).to have_text participant.first_contact.contact_at.in_time_zone(participant.nurse.timezone).to_s(:short)
       end
     end
 
@@ -52,7 +52,7 @@ describe "Participant Management" do
       it "renders a first appointment link for a participant" do
         visit "/en/active/participants"
 
-        expect(page).to have_text participant.first_contact.first_appointment_at.to_s(:short)
+        expect(page).to have_text participant.first_contact.first_appointment_at.in_time_zone(participant.nurse.timezone).to_s(:short)
       end
 
       it "creates a first appointment form" do

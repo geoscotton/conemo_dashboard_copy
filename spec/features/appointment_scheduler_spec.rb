@@ -17,7 +17,7 @@ describe "appointment scheduler" do
     context "first contact already created" do
       it "displays first appointment info on index page" do
         visit "/en/active/participants"
-        expect(page).to have_text participant.first_contact.first_appointment_at.to_s(:short)
+        expect(page).to have_text participant.first_contact.first_appointment_at.in_time_zone(participant.nurse.timezone).to_s(:short)
         expect(page).to have_text participant.first_contact.first_appointment_location
       end
     end
