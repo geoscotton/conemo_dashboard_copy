@@ -13,7 +13,9 @@
           <td><%= lesson.title %></td>
           <td>
             <%= "#{lesson.content_access_events.find_by(participant_id: participant.id).name.gsub(/[_]/, ' ')}: " rescue '' %>
-            <%= lesson.content_access_events.find_by(participant_id: participant.id).answer rescue '' %>
+            <% lesson.content_access_events.where(participant_id: participant.id).each do |event| %>
+              <%= event.answer rescue '' %><br>
+            <% end %>
           </td>
           <td><%= lesson.content_access_events.where(participant_id: participant.id).count rescue '' %></td>
         </tr>
