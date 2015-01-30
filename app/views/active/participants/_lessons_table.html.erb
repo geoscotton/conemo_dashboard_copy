@@ -1,19 +1,21 @@
 <div class="tab-pane active" id="lessons">
   <table class="table table-bordered">
     <thead>
-    <th><%= t "conemo.views.active.participants.report.release_day" %></th>
-    <th><%= t "conemo.views.active.participants.report.lesson" %></th>
-    <th><%= t "conemo.views.active.participants.report.patient_response" %></th>
-    <th><%= t "conemo.views.active.participants.report.access_count" %></th>
+      <th></th>
+      <th><%= t "conemo.views.active.participants.report.release_day" %></th>
+      <th><%= t "conemo.views.active.participants.report.lesson" %></th>
+      <th><%= t "conemo.views.active.participants.report.patient_response" %></th>
+      <th><%= t "conemo.views.active.participants.report.access_count" %></th>
     </thead>
     <tbody>
       <% lessons.each_with_index do |lesson, index| %>
         <tr class="<%= participant.lesson_status(lesson) %>">
-          <td>(<%= lesson.day_in_treatment %>) <%= l participant.start_date + lesson.day_in_treatment.days - 1.days, format: :long %></td>
+          <td><%= lesson.day_in_treatment %></td> 
+          <td><%= l participant.start_date + lesson.day_in_treatment.days - 1.days, format: :long %></td>
           <td><%= lesson.title %></td>
           <td>
             <% if participant.access_response(lesson) %>
-              <button class="btn btn-xs btn-default fill-column" href="#" data-toggle='modal' data-target="#modal-<%=index%>"><%="#{fa_icon 'info-circle', style: 'color: white'}".html_safe + " #{lesson.content_access_events.find_by(participant_id: participant.id).name.gsub(/[_]/, ' ')}" rescue '' %></button>
+              <button class="btn btn-xs btn-default fill-column" href="#" data-toggle='modal' data-target="#modal-<%=index%>"><%= fa_icon('info-circle', style: 'color: white').html_safe %> <%= lesson.content_access_events.find_by(participant_id: participant.id).name.gsub(/[_]/, ' ') rescue '' %></button>
             <% end %>
             <%= render partial: 'response_modal', locals: { participant: participant, lesson: lesson, index: index } %>
           </td>
