@@ -16,7 +16,7 @@ namespace :sms do
 
     reminder_messages.each do |reminder_message|
 
-    Time.use_zone(reminder_message.participant.nurse.timezone) do
+      Time.use_zone(reminder_message.participant.nurse.timezone) do
 
         if reminder_message.notification_time <= Time.current
           if reminder_message.message_type == "participant"
