@@ -34,7 +34,7 @@ module Status
   end
 
   def access_status(lesson)
-    access = content_access_events.where(lesson_id: lesson.id).first
+    access = access_response(lesson)
 
     if lesson.guid == current_lesson.guid
       "info"
@@ -45,6 +45,10 @@ module Status
     else
       "success"
     end
+  end
+
+  def access_response(lesson)
+    content_access_events.where(lesson_id: lesson.id).first
   end
 
   def next_lesson(lesson)

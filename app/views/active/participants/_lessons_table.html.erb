@@ -12,7 +12,9 @@
           <td>(<%= lesson.day_in_treatment %>) <%= l participant.start_date + lesson.day_in_treatment.days - 1.days, format: :long %></td>
           <td><%= lesson.title %></td>
           <td>
-            <button class="btn btn-xs btn-default fill-column" href="#" data-toggle='modal' data-target="#modal-<%=index%>"><%="#{fa_icon 'info-circle', style: 'color: white'}".html_safe + " #{lesson.content_access_events.find_by(participant_id: participant.id).name.gsub(/[_]/, ' ')}" rescue '' %></button>
+            <% if participant.access_response(lesson) %>
+              <button class="btn btn-xs btn-default fill-column" href="#" data-toggle='modal' data-target="#modal-<%=index%>"><%="#{fa_icon 'info-circle', style: 'color: white'}".html_safe + " #{lesson.content_access_events.find_by(participant_id: participant.id).name.gsub(/[_]/, ' ')}" rescue '' %></button>
+            <% end %>
             <%= render partial: 'response_modal', locals: { participant: participant, lesson: lesson, index: index } %>
           </td>
           <td><%= lesson.content_access_events.where(participant_id: participant.id).count rescue '' %></td>
