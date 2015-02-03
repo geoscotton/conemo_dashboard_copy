@@ -1,5 +1,11 @@
 response1:
   content_access_event: access_event1
-  question: "How old are you?"
-  name: "age_question"
-  answer: "I am as old as the hills!"
+  answer: '{"how_old_are_you?": "I am as old as the hills!"}'
+
+response2:
+  content_access_event: access_event2
+  answer: '{ "What is best in life?": ["To crush your enemies", "See them driven before you", "To hear the lamentations of their women"] }'
+
+response3:
+  content_access_event: access_event3
+  answer: '{ "What_is_your_name?": "Bob", "What_is_your_quest?": "The Holy Grail", "what_is_your_favorite_color?": "What?!" }'

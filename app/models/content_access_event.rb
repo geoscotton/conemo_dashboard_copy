@@ -5,7 +5,6 @@ class ContentAccessEvent < ActiveRecord::Base
   belongs_to :dialogue
   has_one :response
   delegate :answer, to: :response, allow_nil: true
-  delegate :name, to: :response, allow_nil: true
   accepts_nested_attributes_for :response
 
   def late?

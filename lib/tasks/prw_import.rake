@@ -77,15 +77,9 @@ class ImportPrwData
                                                         )
           if content_access_event.save
             puts "Lesson content_access_event created for #{participant.study_identifier}"
-            datum.parse_responses.each do |key, value|
-              if value.kind_of?(Array)
-                value_string = value.join(", ")
-              else
-                value_string = value
-              end
-              response = content_access_event.build_response(name: key, answer: value_string)
-              response.save
-            end
+            answer = lesson.FEATURE_VALUE_DT_form_payload
+            response = content_access_event.build_response(answer: answer)
+            response.save
           end
         end
       end

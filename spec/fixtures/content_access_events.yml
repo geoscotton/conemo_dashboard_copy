@@ -1,0 +1,14 @@
+access_event1:
+  participant: active_participant
+  lesson: day1
+  day_in_treatment_accessed: 1
+
+access_event2:
+  participant: active_participant
+  lesson: day2
+  day_in_treatment_accessed: 2
+
+access_event3:
+  participant: active_participant
+  lesson: day4
+  day_in_treatment_accessed: 4

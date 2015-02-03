@@ -5,8 +5,4 @@ class LessonDatum < ActiveRecord::Base
   def content_access_event_exists?
     ContentAccessEvent.exists?(lesson_datum_guid: self.GUID)
   end
-
-  def parse_responses
-    JSON.parse(self.FEATURE_VALUE_DT_form_payload)
-  end
 end
