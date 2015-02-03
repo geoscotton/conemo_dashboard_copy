@@ -8,27 +8,20 @@ class ResponsePresenter
 
   def formatted_answers
     handle_none @answers do
-      content = ''
-      @answers.each do |key, value|
-        content += h.content_tag :p, ("#{format_key(key)}"<<': '<<formatted_values(value))
-      end
-      content.html_safe
+      @answers.map do |key, value|
+        h.content_tag :p, ("#{format_key(key)}"<<': '<<formatted_values(value))
+      end.join("").html_safe
     end
   end
 
   def format_key(key)
-    key.gsub(/[_]/, ' ').capitalize
+    sanitized_key = ActionController::Base.helpers.sanitize(key)
+    sanitized_key.gsub(/[_]/, ' ').capitalize
   end
  
   def formatted_values(value)
-    if value.kind_of?(Array)
-      value_string = value.join(", ")
-    else
-      value_string = value
-    end
-    value_string
+    ActionController::Base.helpers.sanitize(value.kind_of?(Array) ? value.join(", ") : value)
   end
-
   
   private
   def h

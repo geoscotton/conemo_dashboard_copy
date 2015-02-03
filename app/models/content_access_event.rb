@@ -3,7 +3,7 @@ class ContentAccessEvent < ActiveRecord::Base
   belongs_to :lesson
   belongs_to :participant
   belongs_to :dialogue
-  has_one :response
+  has_one :response, dependent: :destroy
   delegate :answer, to: :response, allow_nil: true
   accepts_nested_attributes_for :response
 
