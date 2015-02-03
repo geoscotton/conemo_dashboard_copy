@@ -102,7 +102,7 @@ class ImportPrwData
                                                         )
           if content_access_event.save
             puts "dialogue content_access_event created for #{participant.study_identifier}"
-            response = content_access_event.build_response(name: dialogue.title, answer: datum.FEATURE_VALUE_DT_answer)
+            response = content_access_event.build_response(question: dialogue.title, answer: datum.FEATURE_VALUE_DT_answer)
             response.save
           end
         end
