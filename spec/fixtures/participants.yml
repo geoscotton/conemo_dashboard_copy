@@ -7,6 +7,7 @@ participant1:
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-555-5555"
   diabetes: true
+  date_of_birth: <%= Date.yesterday %>
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   gender: male
@@ -21,6 +22,7 @@ active_participant:
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-455-5555"
   diabetes: true
+  date_of_birth: <%= Date.yesterday %>
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
@@ -36,6 +38,7 @@ active_participant_day_5:
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-455-5555"
   diabetes: true
+  date_of_birth: <%= Date.yesterday %>
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
@@ -47,6 +50,7 @@ portuguese_active_participant:
   last_name: Doe
   email: participant2@example.com
   study_identifier: s4
+  date_of_birth: <%= Date.yesterday %>
   family_health_unit_name: HealthUnit1
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-455-5555"
@@ -68,6 +72,7 @@ portuguese_active_participant2:
   diabetes: true
   enrollment_date: <%= Date.yesterday %>
   nurse: portuguese_nurse2
+  date_of_birth: <%= Date.yesterday %>
   status: active
   start_date: <%= Date.today - 5.days %>
   locale: "pt-BR"
@@ -81,6 +86,7 @@ es_active_participant:
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-455-5555"
   diabetes: true
+  date_of_birth: <%= Date.yesterday %>
   enrollment_date: <%= Date.yesterday %>
   nurse: portuguese_nurse
   status: active
@@ -96,6 +102,7 @@ english_active_participant:
   family_record_number: <%= SecureRandom.uuid %>
   phone: "555-455-5555"
   diabetes: true
+  date_of_birth: <%= Date.yesterday %>
   enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
