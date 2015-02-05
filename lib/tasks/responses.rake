@@ -21,6 +21,9 @@ namespace :responses do
             answer = datum.FEATURE_VALUE_DT_form_payload
             response = content_access_event.build_response(answer: answer)
             response.save!
+            
+            rescue StandardError => error
+              puts error
           end
         end
       end
