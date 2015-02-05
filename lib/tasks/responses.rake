@@ -10,17 +10,17 @@ namespace :responses do
         lesson = Lesson.where(guid: datum.FEATURE_VALUE_DT_lesson_guid).first
 
         if participant && lesson
-        
-          content_access_event = ContentAccessEvent.new(participant: participant,
-                                                      accessed_at: datum.eventDateTime,
-                                                      lesson: lesson,
-                                                      day_in_treatment_accessed: datum.FEATURE_VALUE_DT_days_in_treatment,
-                                                      lesson_datum_guid: datum.GUID
-                                                      )
-          if content_access_event.save
-            answer = lesson.FEATURE_VALUE_DT_form_payload
+          ActiveRecord::Base.transaction do 
+            content_access_event = ContentAccessEvent.new(participant: participant,
+                                                        accessed_at: datum.eventDateTime,
+                                                        lesson: lesson,
+                                                        day_in_treatment_accessed: datum.FEATURE_VALUE_DT_days_in_treatment,
+                                                        lesson_datum_guid: datum.GUID
+                                                        )
+            content_access_event.save!
+            answer = datum.FEATURE_VALUE_DT_form_payload
             response = content_access_event.build_response(answer: answer)
-            response.save
+            response.save!
           end
         end
       end
