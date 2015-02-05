@@ -61,6 +61,7 @@ class ImportPrwData
 
   def self.import_content_access_events
     puts "begin lesson data import at #{Time.now}"
+    
     LessonDatum.all.each do |datum|
       if !datum.content_access_event_exists?
 
@@ -68,18 +69,21 @@ class ImportPrwData
         lesson = Lesson.where(guid: datum.FEATURE_VALUE_DT_lesson_guid).first
 
         if participant && lesson
-          
-          content_access_event = ContentAccessEvent.new(participant: participant,
-                                                        accessed_at: datum.eventDateTime,
-                                                        lesson: lesson,
-                                                        day_in_treatment_accessed: datum.FEATURE_VALUE_DT_days_in_treatment,
-                                                        lesson_datum_guid: datum.GUID
-                                                        )
-          if content_access_event.save
-            puts "Lesson content_access_event created for #{participant.study_identifier}"
-            answer = lesson.FEATURE_VALUE_DT_form_payload
-            response = content_access_event.build_response(answer: answer)
-            response.save
+          begin
+            ActiveRecord::Base.transaction do 
+              content_access_event = ContentAccessEvent.new(participant: participant,
+                                                          accessed_at: datum.eventDateTime,
+                                                          lesson: lesson,
+                                                          day_in_treatment_accessed: datum.FEATURE_VALUE_DT_days_in_treatment,
+                                                          lesson_datum_guid: datum.GUID
+                                                          )
+              content_access_event.save!
+              answer = datum.FEATURE_VALUE_DT_form_payload
+              response = content_access_event.build_response(answer: answer)
+              response.save!
+            end 
+          rescue StandardError => error
+            puts error
           end
         end
       end
