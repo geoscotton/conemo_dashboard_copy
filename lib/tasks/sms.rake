@@ -6,18 +6,27 @@ namespace :sms do
   task message: :environment do
 
     puts "******** Begin SMS Rake #{Time.now} *********"
-    @account_sid = ConemoDashboard::Application.config.twilio_account_sid 
-    @auth_token = ConemoDashboard::Application.config.twilio_auth_token 
-    @client = Twilio::REST::Client.new(@account_sid, @auth_token)
+    begin
+      @account_sid = ConemoDashboard::Application.config.twilio_account_sid 
+      @auth_token = ConemoDashboard::Application.config.twilio_auth_token 
+      @client = Twilio::REST::Client.new(@account_sid, @auth_token)
 
-    @account = @client.account
+      @account = @client.account
+    rescue StandardError => err
+      next unless defined?(ExceptionNotifier)
+      ExceptionNotifier.notify_exception(
+        Exception.new("SMS rake failure"),
+        data: {
+          error: err
+        }
+      )
+    end
 
     reminder_messages = ReminderMessage.where(status: "pending")
 
     reminder_messages.each do |reminder_message|
-      Time.use_zone(reminder_message.participant.nurse.timezone) do
-
-        begin
+      begin
+        Time.use_zone(reminder_message.participant.nurse.timezone) do
           if reminder_message.notification_time && reminder_message.notification_time <= Time.current
             if reminder_message.message_type == "participant"
               country_code = reminder_message.participant.prefix
@@ -50,16 +59,16 @@ namespace :sms do
               puts "* #{err}"
             end
           end
-        rescue StandardError => err
-          next unless defined?(ExceptionNotifier)
-          ExceptionNotifier.notify_exception(
-            Exception.new("SMS rake failure"),
-            data: {
-              reminder_message: reminder_message.try(:id),
-              participant: participant.try(:id)
-            }
-          )
         end
+      rescue StandardError => err
+        next unless defined?(ExceptionNotifier)
+        ExceptionNotifier.notify_exception(
+          Exception.new("SMS rake failure"),
+          data: {
+            reminder_message: reminder_message.try(:id),
+            participant: participant.try(:id)
+          }
+        )
       end
     end
   end
