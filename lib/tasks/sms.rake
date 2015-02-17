@@ -18,7 +18,7 @@ namespace :sms do
 
       Time.use_zone(reminder_message.participant.nurse.timezone) do
 
-        if reminder_message.notification_time <= Time.current
+        if reminder_message.notification_time && reminder_message.notification_time <= Time.current
           if reminder_message.message_type == "participant"
             country_code = reminder_message.participant.prefix
             if reminder_message.participant.smartphone
