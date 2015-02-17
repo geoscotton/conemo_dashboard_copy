@@ -6,8 +6,8 @@ namespace :sms do
   task message: :environment do
 
     puts "******** Begin SMS Rake #{Time.now} *********"
-    @account_sid = Rails::Application.config.twilio_account_sid 
-    @auth_token = Rails::Application.config.twilio_auth_token 
+    @account_sid = ConemoDashboard::Application.config.twilio_account_sid 
+    @auth_token = ConemoDashboard::Application.config.twilio_auth_token 
     @client = Twilio::REST::Client.new(@account_sid, @auth_token)
 
     @account = @client.account
