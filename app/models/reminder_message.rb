@@ -155,30 +155,34 @@ class ReminderMessage < ActiveRecord::Base
 
   # returns datetime object for the reminder message
   def notification_time
-    if appointment_type == "appointment"
-      if notify_at == "1"
-        participant.first_contact.first_appointment_at - 1.hour
-      else # => '24'
-        participant.first_contact.first_appointment_at - 1.days
+    begin
+      if appointment_type == "appointment"
+        if notify_at == "1"
+          participant.first_contact.first_appointment_at - 1.hour
+        else # => '24'
+          participant.first_contact.first_appointment_at - 1.days
+        end
+      elsif appointment_type == "second_contact"
+        if notify_at == "1"
+          participant.first_appointment.next_contact - 1.hour
+        else
+          participant.first_appointment.next_contact - 1.days
+        end
+      elsif appointment_type == "third_contact"
+        if notify_at == "1"
+          participant.second_contact.next_contact - 1.hour
+        else
+          participant.second_contact.next_contact - 1.days
+        end
+      else # => 'final'
+        if notify_at == "1"
+          participant.third_contact.final_appointment_at - 1.hour
+        else
+          participant.third_contact.final_appointment_at - 1.days
+        end
       end
-    elsif appointment_type == "second_contact"
-      if notify_at == "1"
-        participant.first_appointment.next_contact - 1.hour
-      else
-        participant.first_appointment.next_contact - 1.days
-      end
-    elsif appointment_type == "third_contact"
-      if notify_at == "1"
-        participant.second_contact.next_contact - 1.hour
-      else
-        participant.second_contact.next_contact - 1.days
-      end
-    else # => 'final'
-      if notify_at == "1"
-        participant.third_contact.final_appointment_at - 1.hour
-      else
-        participant.third_contact.final_appointment_at - 1.days
-      end
+    rescue StandardError => error
+      puts error
     end
   end
 
