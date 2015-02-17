@@ -182,7 +182,7 @@ class ReminderMessage < ActiveRecord::Base
         end
       end
     rescue StandardError => error
-      puts error
+      puts "Participant: #{participant.id} | Notification time err: #{error}"
     end
   end
 
