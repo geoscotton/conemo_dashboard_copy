@@ -66,7 +66,6 @@ namespace :sms do
           Exception.new("SMS rake failure"),
           data: {
             reminder_message: reminder_message.try(:id),
-            participant: participant.try(:id)
           }
         )
       end
