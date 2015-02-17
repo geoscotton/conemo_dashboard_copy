@@ -65,7 +65,7 @@ namespace :sms do
         ExceptionNotifier.notify_exception(
           Exception.new("SMS rake failure"),
           data: {
-            reminder_message: reminder_message.try(:id),
+            reminder_message: reminder_message.try(:id)
           }
         )
       end
