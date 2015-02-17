@@ -18,20 +18,24 @@ class ImportPrwData
     participants = Participant.active
 
     participants.each do |participant|
-      StartDate.all.each do |date|
-        if date.participant_identifier == participant.study_identifier
-          if !participant.start_date
-            participant.start_date = date.start_date.to_date
-            participant.save
-            puts "start date created for #{participant.study_identifier}" 
-          elsif participant.start_date < date.start_date.to_date
-            participant.start_date = date.start_date.to_date
-            participant.save
-            puts "start date updated for #{participant.study_identifier}"
-          else
-            nil 
+      begin
+        StartDate.all.each do |date|
+          if date.participant_identifier == participant.study_identifier
+            if !participant.start_date
+              participant.start_date = date.start_date.to_date
+              participant.save
+              puts "start date created for #{participant.study_identifier}" 
+            elsif participant.start_date < date.start_date.to_date
+              participant.start_date = date.start_date.to_date
+              participant.save
+              puts "start date updated for #{participant.study_identifier}"
+            else
+              nil 
+            end
           end
         end
+      rescue StandardError => error
+        puts "Participant: #{participant.id} | StartDate import error: #{error}"
       end
     end
   end
@@ -41,20 +45,22 @@ class ImportPrwData
     if AppLogin.all.any?
       participants = Participant.active
       participants.each do |participant|
-
-        AppLogin.all.each do |app_login|
-          if participant.study_identifier == app_login.participant_identifier
-            if !Login.exists?(app_login_guid: app_login.guid)
-              
-              login = participant.logins.new(logged_in_at: app_login.login, app_login_guid: app_login.guid)
-              
-              if login.save
-                puts "login at #{login.logged_in_at} created for #{participant.study_identifier}"
-              end 
+        begin
+          AppLogin.all.each do |app_login|
+            if participant.study_identifier == app_login.participant_identifier
+              if !Login.exists?(app_login_guid: app_login.guid)
+                
+                login = participant.logins.new(logged_in_at: app_login.login, app_login_guid: app_login.guid)
+                
+                if login.save
+                  puts "login at #{login.logged_in_at} created for #{participant.study_identifier}"
+                end 
+              end
             end
           end
+        rescue StandardError => error
+          puts "Participant: #{participant.id} | Login import error: #{error}"
         end
-        
       end
     end
   end
@@ -83,7 +89,7 @@ class ImportPrwData
               response.save!
             end 
           rescue StandardError => error
-            puts error
+            puts "Participant: #{participant.id} | Lesson access import error: #{error}"
           end
         end
       end
@@ -97,17 +103,23 @@ class ImportPrwData
         dialogue = Dialogue.where(guid: datum.FEATURE_VALUE_DT_dialogue_guid).first
 
         if participant && dialogue
+          begin
+            ActiveRecord::Base.transaction do 
           
-          content_access_event = ContentAccessEvent.new(participant: participant,
-                                                        accessed_at: datum.eventDateTime,
-                                                        dialogue: dialogue,
-                                                        day_in_treatment_accessed: datum.FEATURE_VALUE_DT_days_in_treatment,
-                                                        dialogue_datum_guid: datum.GUID
-                                                        )
-          if content_access_event.save
-            puts "dialogue content_access_event created for #{participant.study_identifier}"
-            response = content_access_event.build_response(question: dialogue.title, answer: datum.FEATURE_VALUE_DT_answer)
-            response.save
+              content_access_event = ContentAccessEvent.new(participant: participant,
+                                                            accessed_at: datum.eventDateTime,
+                                                            dialogue: dialogue,
+                                                            day_in_treatment_accessed: datum.FEATURE_VALUE_DT_days_in_treatment,
+                                                            dialogue_datum_guid: datum.GUID
+                                                            )
+              if content_access_event.save!
+                puts "dialogue content_access_event created for #{participant.study_identifier}"
+                response = content_access_event.build_response(question: dialogue.title, answer: datum.FEATURE_VALUE_DT_answer)
+                response.save!
+              end
+            end
+          rescue StandardError => error
+            puts "Participant: #{participant.id} | Dialogue access import error: #{error}"
           end
         end
       end
@@ -121,15 +133,18 @@ class ImportPrwData
         participant = Participant.where(study_identifier: message.FEATURE_VALUE_DT_user_id)
                         .first
         if participant
-
-          help_message = HelpMessage.new(participant: participant,
-                                         read: false,
-                                         message: message.FEATURE_VALUE_DT_message,
-                                         staff_message_guid: message.GUID,
-                                         sent_at: Time.at(message.timestamp)
-                                        )
-          if help_message.save
-            puts "help_message created for #{participant.study_identifier}"
+          begin
+            help_message = HelpMessage.new(participant: participant,
+                                          read: false,
+                                          message: message.FEATURE_VALUE_DT_message,
+                                          staff_message_guid: message.GUID,
+                                          sent_at: Time.at(message.timestamp)
+                                          )
+            if help_message.save!
+              puts "help_message created for #{participant.study_identifier}"
+            end
+          rescue StandardError => error
+            puts "Participant: #{participant.id} | Help message import error: #{error}"
           end
         end
       end
