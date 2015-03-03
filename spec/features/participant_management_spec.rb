@@ -13,6 +13,7 @@ describe "Participant Management" do
     let(:participant) { participants(:active_participant) }
     let(:es_active_participant) { participants(:es_active_participant) }
     let(:english_active_participant) { participants(:english_active_participant) }
+    let(:en_inactive_participant) { participants(:english_inactive_participant) }
     let(:admin) { users(:admin1) }
 
     it "should show a list of active participants within the locale" do
@@ -25,6 +26,11 @@ describe "Participant Management" do
       visit "/en/active/participants"
 
       expect(page).to_not have_text(es_active_participant.study_identifier)
+    end
+
+    it "should not show inactive participants" do
+      visit "/en/active/participants"
+      expect(page).to_not have_text(en_inactive_participant.study_identifier)
     end
 
     describe "first contact" do
