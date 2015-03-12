@@ -24,8 +24,6 @@ class PatientContactsController < ApplicationController
   def destroy
     @patient_contact = PatientContact.find(params[:id])
     
-    return redirect_to :back unless @patient_contact
-
     if @patient_contact.destroy
       if @patient_contact.participant.start_date
         redirect_to active_report_path(participant)
