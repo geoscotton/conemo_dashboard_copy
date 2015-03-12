@@ -22,16 +22,18 @@ class PatientContactsController < ApplicationController
   end
 
   def destroy
-    @patient_contact = PatientContact.where(id: params[:id]).first
+    @patient_contact = PatientContact.find(params[:id])
+    
+    return redirect_to :back unless @patient_contact
+
     if @patient_contact.destroy
-      flash[:success] = "Note deleted."
+      if @patient_contact.participant.start_date
+        redirect_to active_report_path(participant)
+      else
+        redirect_to active_participants_path
+      end
     else
       flash[:error] = "There were errors."
-    end
-    if @patient_contact.participant.start_date
-      redirect_to active_report_path(participant)
-    else
-      redirect_to active_participants_path
     end
   end
 
