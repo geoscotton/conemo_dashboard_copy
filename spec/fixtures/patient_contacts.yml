@@ -1,0 +1,7 @@
+patient_contact1:
+  participant: participant1
+  contact_at: <%= DateTime.current %>
+  contact_reason: Because
+  note: Blergh
+
+
