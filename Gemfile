@@ -19,15 +19,19 @@ gem "twilio-ruby"
 gem "normalize-rails"
 gem "nokogiri", "= 1.6.3.1"
 
+gem "sentry-raven",
+    git: "https://github.com/getsentry/raven-ruby.git",
+    tag: "0.12.3"
+
 group :staging, :production do
-  # email exceptions
-  gem "exception_notification", "~> 4.1.0.rc1"
   # scheduling tasks
   gem "whenever", require: false
 end
 
 group :development, :test do
   gem "rspec-rails", "~> 3.0.0.beta"
+  gem "simplecov", "~> 0.9.1"
+  gem "rubocop", "~> 0.28"
 end
 
 group :development do
@@ -39,6 +43,7 @@ group :development do
   gem "spring-commands-rspec"
   gem "better_errors"
   gem "binding_of_caller"
+  gem "brakeman"
 end
 
 group :test do

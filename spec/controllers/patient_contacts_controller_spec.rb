@@ -16,7 +16,7 @@ describe PatientContactsController do
     end
 
     it "should destroy a patient contact record" do
-      expect{
+      expect {
         delete :destroy, participant_id: participant, id: patient_contact
       }.to change(PatientContact, :count).by(-1)
     end

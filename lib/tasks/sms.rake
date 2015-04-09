@@ -13,8 +13,8 @@ namespace :sms do
 
       @account = @client.account
     rescue StandardError => err
-      next unless defined?(ExceptionNotifier)
-      ExceptionNotifier.notify_exception(
+      next unless defined?(Raven)
+      Raven.annotate_exception(
         Exception.new("SMS rake failure"),
         data: {
           error: err
@@ -61,8 +61,8 @@ namespace :sms do
           end
         end
       rescue StandardError => err
-        next unless defined?(ExceptionNotifier)
-        ExceptionNotifier.notify_exception(
+        next unless defined?(Raven)
+        Raven.annotate_exception(
           Exception.new("SMS rake failure"),
           data: {
             reminder_message: reminder_message.try(:id),
