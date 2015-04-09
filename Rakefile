@@ -4,3 +4,10 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+if Rails.env.test? || Rails.env.development?
+  task :default do
+    dir = File.dirname(__FILE__)
+    puts `#{ File.join(dir, "bin", "brakeman") } #{ File.join(dir, ".") }`
+  end
+end

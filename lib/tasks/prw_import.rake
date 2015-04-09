@@ -7,8 +7,8 @@ namespace :prw_import do
     begin
       ImportPrwData.set_start_dates
     rescue StandardError => e
-      next unless defined?(ExceptionNotifier)
-      ExceptionNotifier.notify_exception(
+      next unless defined?(Raven)
+      Raven.annotate_exception(
         Exception.new("Start Date Rake Failed"),
           data: {
             error: e 
@@ -19,8 +19,8 @@ namespace :prw_import do
     begin
       ImportPrwData.import_logins
     rescue StandardError => e
-      next unless defined?(ExceptionNotifier)
-      ExceptionNotifier.notify_exception(
+      next unless defined?(Raven)
+      Raven.annotate_exception(
         Exception.new("Login Rake Failed"),
           data: {
             error: e 
@@ -31,8 +31,8 @@ namespace :prw_import do
     begin
       ImportPrwData.import_content_access_events
     rescue StandardError => e
-      next unless defined?(ExceptionNotifier)
-      ExceptionNotifier.notify_exception(
+      next unless defined?(Raven)
+      Raven.annotate_exception(
         Exception.new("Content Access Rake Failed"),
           data: {
             error: e 
@@ -43,8 +43,8 @@ namespace :prw_import do
     begin
       ImportPrwData.import_help_messages
     rescue StandardError => e
-      next unless defined?(ExceptionNotifier)
-      ExceptionNotifier.notify_exception(
+      next unless defined?(Raven)
+      Raven.annotate_exception(
         Exception.new("Help Message Rake Failed"),
           data: {
             error: e 
