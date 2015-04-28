@@ -39,4 +39,3 @@ development:
 test:
   <<: *default
   database: conemo_dashboard_test
-  username: postgres
