@@ -5,8 +5,12 @@ require "rspec/rails"
 require "database_cleaner"
 
 require "simplecov"
-SimpleCov.minimum_coverage 77
+SimpleCov.minimum_coverage 67
 SimpleCov.start "rails"
+
+Dir[File.expand_path("../../app/**/*.rb", __FILE__)].each do |file|
+  require file
+end
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
