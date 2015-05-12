@@ -2,13 +2,22 @@
 class FirstAppointmentsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
+  def self.filter_params(params)
+    params.require(:first_appointment).permit(
+      :appointment_at, :appointment_location, :next_contact, :session_length,
+      :notes, :smartphone_comfort, :smart_phone_comfort_note,
+      :participant_session_engagement, :app_usage_prediction,
+      patient_contacts_attributes: [:contact_reason, :note, :participant_id]
+    )
+  end
+
   def new
     @first_appointment = participant.build_first_appointment
   end
 
   def create
     @first_appointment = participant
-    .build_first_appointment(first_appointment_params)
+    .build_first_appointment(self.class.filter_params(params))
     if @first_appointment.save
       @first_appointment.schedule_message(participant, "second_contact")
       redirect_to new_participant_smartphone_path,
@@ -30,7 +39,7 @@ class FirstAppointmentsController < ApplicationController
 
   def update
     @first_appointment = participant.first_appointment
-    if @first_appointment.update(first_appointment_params)
+    if @first_appointment.update(self.class.filter_params(params))
       @first_appointment.schedule_message(participant, "second_contact")
       redirect_to active_participants_path,
                   notice: "Successfully updated first_appointment"
@@ -41,19 +50,6 @@ class FirstAppointmentsController < ApplicationController
   end
 
   private
-
-  def first_appointment_params
-    params.require(:first_appointment).permit(
-        :participant_id, :appointment_at, :appointment_location,
-        :next_contact, :session_length, :notes,
-        :smartphone_comfort, :participant_session_engagement,
-        :app_usage_prediction,
-        patient_contacts_attributes: [
-            :first_appointment_id, :contact_reason, :participant_id,
-            :note, :contact_at
-        ]
-    )
-  end
 
   def participant
     Participant.find(params[:participant_id])
