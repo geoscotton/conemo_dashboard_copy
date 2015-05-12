@@ -19,7 +19,8 @@ namespace :seed do
     ActiveRecord::FixtureSet.create_fixtures path, [
       :users, :participants, :"bit_core/slideshows", :"bit_core/slides", :lessons,
       :first_contacts, :content_access_events,
-      :responses
+      :responses, :first_appointments, :patient_contacts,
+      :reminder_messages, :responses, :smartphones
     ]
   end
 end
