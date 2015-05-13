@@ -2,6 +2,16 @@
 class ThirdContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
+  def self.filter_params(params)
+    params.require(:third_contact).permit(
+      :contact_at, :session_length, :final_appointment_at,
+      :final_appointment_location, :q1, :q2, :q2_notes, :q3, :q3_notes, :q4,
+      :q4_notes, :q5, :q5_notes, :notes,
+      patient_contacts_attributes: [:contact_reason, :note, :participant_id],
+      nurse_participant_evaluation_attributes: [:q1, :q2]
+    )
+  end
+
   def new
     @third_contact = participant.build_third_contact
     @nurse_participant_evaluation = @third_contact.build_nurse_participant_evaluation
@@ -42,22 +52,6 @@ class ThirdContactsController < ApplicationController
   private
 
   def third_contact_params
-    params.require(:third_contact).permit(
-        :participant_id, :contact_at,
-        :notes, :session_length,
-        :final_appointment_at,
-        :final_appointment_location,
-        patient_contacts_attributes: [
-            :third_contact_id, :contact_reason, :participant_id,
-            :note, :contact_at
-        ],
-        nurse_participant_evaluation_attributes: [
-            :third_contact_id,
-            :q1,
-            :q2,
-            :q3
-        ]
-    )
   end
 
   def participant
