@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3 - 2015-05-13
+
+* fix permitted parameters for third contacts
+* ignore unrecognized request exceptions
+* update Raven-Ruby gem
+
 ## 0.1.2 - 2015-05-12
 
 * fix permitted parameters for first appointments
