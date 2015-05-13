@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/getsentry/raven-ruby.git
-  revision: ee74ce968f60a6480db55d6bc5eb66d8ef7ee41b
-  tag: 0.12.3
+  revision: 169b5d91fb75b8912d0e19094c8094eb5e00b8ed
+  tag: 0.13.3
   specs:
-    sentry-raven (0.12.3)
+    sentry-raven (0.13.2)
       faraday (>= 0.7.6)
 
 GEM

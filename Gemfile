@@ -21,7 +21,7 @@ gem "nokogiri", "= 1.6.3.1"
 
 gem "sentry-raven",
     git: "https://github.com/getsentry/raven-ruby.git",
-    tag: "0.12.3"
+    tag: "0.13.3"
 
 group :staging, :production do
   # scheduling tasks
