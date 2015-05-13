@@ -52,6 +52,7 @@ class ThirdContactsController < ApplicationController
   private
 
   def third_contact_params
+    self.class.filter_params params
   end
 
   def participant
