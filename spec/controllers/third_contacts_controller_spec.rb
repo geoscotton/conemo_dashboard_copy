@@ -46,10 +46,10 @@ RSpec.describe ThirdContactsController, type: :controller do
 
   describe "POST create" do
     context "when unauthenticated" do
-      it "responds with 302" do
+      it "redirect to the login page" do
         post :create, participant_id: Participant.first.id
 
-        expect(response.status).to eq 302
+        expect(response).to redirect_to new_user_session_url
       end
     end
 
