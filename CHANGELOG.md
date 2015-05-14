@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 - 2015-05-14
+
+* fix broken controller and add spec
+* remove fixtures corresponding to PRW data table
+
 ## 0.1.3 - 2015-05-13
 
 * fix permitted parameters for third contacts
