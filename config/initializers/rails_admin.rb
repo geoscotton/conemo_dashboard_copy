@@ -31,7 +31,25 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
-    config.included_models = [User, Participant, ReminderMessage, FirstContact, FirstAppointment, SecondContact, ThirdContact]
+    config.included_models = [
+      ContentAccessEvent,
+      Dialogue,
+      FinalAppointment,
+      FirstAppointment,
+      FirstContact,
+      HelpMessage,
+      Lesson,
+      Login,
+      NurseParticipantEvaluation,
+      Participant,
+      PatientContact,
+      ReminderMessage,
+      Response,
+      SecondContact,
+      Smartphone,
+      ThirdContact,
+      User
+    ]
 
     config.model User do
 

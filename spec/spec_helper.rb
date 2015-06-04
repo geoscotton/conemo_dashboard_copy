@@ -5,7 +5,7 @@ require "rspec/rails"
 require "database_cleaner"
 
 require "simplecov"
-SimpleCov.minimum_coverage 68
+SimpleCov.minimum_coverage 65
 SimpleCov.start "rails"
 
 Dir[File.expand_path("../../app/**/*.rb", __FILE__)].each do |file|
