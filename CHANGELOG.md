@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5 - 2015-06-04
+
+* add local db table backed models to Rails Admin
+
 ## 0.1.4 - 2015-05-14
 
 * fix broken controller and add spec
