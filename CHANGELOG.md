@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6 - 2015-06-18
+
+* Update rails and rack.
+
 ## 0.1.5 - 2015-06-04
 
 * add local db table backed models to Rails Admin
