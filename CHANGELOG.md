@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.7 - 2015-07-22
+
+* ensure #lesson_released? works for all cases
+* make the Capybara RSpec matcher warnings disappear
+* update select2 css to use digest asset paths
+* redirect requests to third_contact#show
+* add asterisk to all required input labels
+* ensure all model exports include a locale and study_identifier
+* update Travis and Brakeman config
+
 ## 0.1.6 - 2015-06-18
 
 * Update rails and rack.
