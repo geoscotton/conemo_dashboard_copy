@@ -1,5 +1,9 @@
 language: ruby
 rvm:
-  - 2.2.2
+- 2.2.2
 before_script:
-  - bundle exec rake db:create db:migrate
+- bundle exec rake db:create db:schema:load
+sudo: false
+notifications:
+  slack:
+    secure: d8633iBtJG+A+GN+hK6Z0soaKrA+FdpvqW9K3pbU+fvUzH28hedF/UxTxkqxL/Kts7WDwycWVRIwm1EBcUmncKH+zXG6TZ0HuL59rt2l91ktrXmAHFqU2DhdkSrGak8HAQjuHMO0UdXLU0ONYXJiZKs/n1nb5z5n8S6yXddqGZc=
