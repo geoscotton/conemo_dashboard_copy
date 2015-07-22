@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       resource :first_contact
       resource :first_appointment
       resource :second_contact
-      resource :third_contact
+      resource :third_contact, only: [:new, :create, :edit, :update]
+      get "/third_contact", to: redirect("/%{locale}/active/participants")
       resource :final_appointment
       resource :smartphone
       resources :patient_contacts, only: [:new, :create, :destroy]
