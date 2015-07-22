@@ -41,8 +41,6 @@ group :development do
   gem "capistrano-bundler", "~> 1.1.2"
   gem "spring"
   gem "spring-commands-rspec"
-  gem "better_errors"
-  gem "binding_of_caller"
   gem "brakeman"
 end
 
