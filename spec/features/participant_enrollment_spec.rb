@@ -1,9 +1,7 @@
 require "spec_helper"
 
 describe "participant enrollment" do
-  fixtures(
-    :users, :participants
-  )
+  fixtures :all
 
   before(:each) do
     sign_in_user users(:admin1)

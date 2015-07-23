@@ -46,7 +46,6 @@ end
 
 group :test do
   gem "capybara"
-  gem "database_cleaner"
 end
 
 gem "bit_core", "~> 1.0"

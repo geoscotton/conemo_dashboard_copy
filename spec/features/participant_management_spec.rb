@@ -1,11 +1,9 @@
 require "spec_helper"
 
 describe "Participant Management" do
-  context "For Admins" do
-    fixtures(
-      :users, :participants, :smartphones
-    )
+  fixtures :all
 
+  context "For Admins" do
     before(:each) do
       sign_in_user users(:admin1)
     end
@@ -36,6 +34,7 @@ describe "Participant Management" do
     describe "first contact" do
 
       it "creates a first contact for a participant and shows the contact_at date on the index" do
+        FirstContact.destroy_all
         visit "/en/active/participants"
 
         click_on "first_contact_#{participant.id}"
@@ -50,11 +49,6 @@ describe "Participant Management" do
     end
 
     describe "first appointment" do
-
-      fixtures(
-        :first_contacts
-      )
-
       it "renders a first appointment link for a participant" do
         visit "/en/active/participants"
 
@@ -96,10 +90,6 @@ describe "Participant Management" do
     end
   end
   context "For Nurses" do
-    fixtures(
-      :users, :participants
-    )
-
     let(:portuguese_active_participant2) { participants(:portuguese_active_participant2) }
     let(:portuguese_active_participant) { participants(:portuguese_active_participant) }
     let(:english_active_participant) { participants(:english_active_participant) }

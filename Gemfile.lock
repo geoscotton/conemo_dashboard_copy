@@ -87,7 +87,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    database_cleaner (1.2.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -284,7 +283,6 @@ DEPENDENCIES
   capybara
   ckeditor
   coffee-script
-  database_cleaner
   devise
   font-awesome-sass
   jbuilder
