@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "participant enrollment" do
+describe "participant enrollment", type: :feature do
   fixtures :all
 
   before(:each) do

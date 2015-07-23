@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe PatientContactsController do
+describe PatientContactsController, type: :controller do
   fixtures :all
   
   describe "DELETE destroy" do

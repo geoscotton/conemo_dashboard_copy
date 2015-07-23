@@ -41,3 +41,8 @@ RSpec.configure do |config|
 
   config.include AuthenticationHelpers, type: :feature
 end
+
+# Allow instance_double on ActiveRecord classes
+RSpec::Mocks.configuration.before_verifying_doubles do |reference|
+  reference.target.define_attribute_methods
+end

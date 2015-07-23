@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Participant Management" do
+describe "Participant Management", type: :feature do
   fixtures :all
 
   context "For Admins" do

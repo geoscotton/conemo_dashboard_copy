@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Participant Report" do
+describe "Participant Report", type: :feature do
   fixtures :all
 
   let(:participant) { participants(:active_participant) }

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "lesson management" do
+describe "lesson management", type: :feature do
   fixtures :all
 
   before do

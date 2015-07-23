@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe LessonsController do
+describe LessonsController, type: :controller do
   let(:user) { double("user", admin?: true, nurse?: false, timezone: "Central Time (US & Canada)") }
   let(:lesson) { double("lesson") }
 

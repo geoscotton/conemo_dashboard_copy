@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "appointment scheduler" do
+describe "appointment scheduler", type: :feature do
   fixtures :all
 
   before(:each) do
