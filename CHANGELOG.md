@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.9 - 2015-07-23
+
+* add missing select2 image asset
+* fix brittle dialogues table partial
+
 ## 0.1.8 - 2015-07-23
 
 * fix and test brittle partial active participants lessons table
