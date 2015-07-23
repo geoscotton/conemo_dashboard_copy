@@ -10,8 +10,8 @@
     <tbody>
       <% lessons.each_with_index do |lesson, index| %>
         <tr class="<%= participant.lesson_status(lesson) %>">
-          <td><%= lesson.day_in_treatment %></td> 
-          <td><%= l participant.start_date + lesson.day_in_treatment.days - 1.days, format: :long %></td>
+          <td class="release-day"><%= lesson.day_in_treatment %></td> 
+          <td class="release-date"><%= participant.start_date ? l(participant.start_date + lesson.day_in_treatment.days - 1.days, format: :long) : "" %></td>
           <td><%= lesson.title %></td>
           <td>
             <% if participant.access_response(lesson) %>
