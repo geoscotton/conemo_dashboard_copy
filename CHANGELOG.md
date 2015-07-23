@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.8 - 2015-07-23
+
+* fix and test brittle partial active participants lessons table
+* bump rspec gem versions
+* remove database_cleaner and speed specs by 75%
+
 ## 0.1.7 - 2015-07-22
 
 * ensure #lesson_released? works for all cases
