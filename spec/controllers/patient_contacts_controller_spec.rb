@@ -1,9 +1,7 @@
 require "spec_helper"
 
-describe PatientContactsController do
-  fixtures(
-    :users, :participants, :patient_contacts
-  )
+describe PatientContactsController, type: :controller do
+  fixtures :all
   
   describe "DELETE destroy" do
     let(:user) { double("user", admin?: true, nurse?: false, timezone: "Central Time (US & Canada)") }

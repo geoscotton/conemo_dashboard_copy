@@ -29,7 +29,7 @@ group :staging, :production do
 end
 
 group :development, :test do
-  gem "rspec-rails", "~> 3.0.0.beta"
+  gem "rspec-rails"
   gem "simplecov", "~> 0.9.1"
   gem "rubocop", "~> 0.28"
 end
@@ -46,7 +46,6 @@ end
 
 group :test do
   gem "capybara"
-  gem "database_cleaner"
 end
 
 gem "bit_core", "~> 1.0"

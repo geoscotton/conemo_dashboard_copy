@@ -1,10 +1,7 @@
 require "spec_helper"
 
-describe "Participant Report" do
-  fixtures(
-    :users, :participants, :"bit_core/slideshows", :lessons,
-    :content_access_events, :responses
-  )
+describe "Participant Report", type: :feature do
+  fixtures :all
 
   let(:participant) { participants(:active_participant) }
   let(:admin) { users(:admin1) }

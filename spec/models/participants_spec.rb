@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Participant do
-  fixtures :users, :participants, :"bit_core/slideshows", :lessons
+  fixtures :all
 
   describe "#sanitize_number" do
     let(:participant) { participants(:participant1)}

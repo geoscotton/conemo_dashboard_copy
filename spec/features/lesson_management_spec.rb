@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe "lesson management" do
-  fixtures :users, :"bit_core/slideshows", :"bit_core/slides", :lessons
+describe "lesson management", type: :feature do
+  fixtures :all
 
   before do
     sign_in_user users(:admin1)

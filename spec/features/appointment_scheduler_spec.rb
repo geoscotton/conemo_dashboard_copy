@@ -1,9 +1,7 @@
 require "spec_helper"
 
-describe "appointment scheduler" do
-  fixtures(
-    :users, :participants, :first_contacts, :first_appointments
-  )
+describe "appointment scheduler", type: :feature do
+  fixtures :all
 
   before(:each) do
     sign_in_user users(:admin1)

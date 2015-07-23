@@ -1,6 +1,7 @@
 require "spec_helper"
 describe ReminderMessage do
-  fixtures :users, :participants, :reminder_messages, :first_contacts, :first_appointments
+  fixtures :all
+
   describe "Message Scheduler" do
     context "First Contact for Portuguese" do
       let(:portuguese_participant) { participants(:portuguese_active_participant) }

@@ -1,7 +1,7 @@
 require "spec_helper"
 
 module Active
-  describe ParticipantsController do
+  describe ParticipantsController, type: :controller do
     describe "GET index" do
       let(:user) { double("user", admin?: true, nurse?: false, timezone: "Central Time (US & Canada)") }
       context "for authenticated requests" do
