@@ -24,7 +24,9 @@ namespace :responses do
               response.save!
             end 
           rescue StandardError => error
-            puts error
+            Raven.extra_context message: error
+            Raven.capture_exception error
+            Raven::Context.clear!
           end
         end
       end

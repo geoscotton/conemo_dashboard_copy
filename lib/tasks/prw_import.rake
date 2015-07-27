@@ -8,48 +8,36 @@ namespace :prw_import do
       ImportPrwData.set_start_dates
     rescue StandardError => e
       next unless defined?(Raven)
-      Raven.annotate_exception(
-        Exception.new("Start Date Rake Failed"),
-          data: {
-            error: e 
-          }
-      )
+      Raven.extra_context message: "Start Date Rake Failed"
+      Raven.capture_exception e
+      Raven::Context.clear!
     end
 
     begin
       ImportPrwData.import_logins
     rescue StandardError => e
       next unless defined?(Raven)
-      Raven.annotate_exception(
-        Exception.new("Login Rake Failed"),
-          data: {
-            error: e 
-          }
-      )
+      Raven.extra_context message: "Login Rake Failed"
+      Raven.capture_exception e
+      Raven::Context.clear!
     end
 
     begin
       ImportPrwData.import_content_access_events
     rescue StandardError => e
       next unless defined?(Raven)
-      Raven.annotate_exception(
-        Exception.new("Content Access Rake Failed"),
-          data: {
-            error: e 
-          }
-      )
+      Raven.extra_context message: "Content Access Rake Failed"
+      Raven.capture_exception e
+      Raven::Context.clear!
     end
 
     begin
       ImportPrwData.import_help_messages
     rescue StandardError => e
       next unless defined?(Raven)
-      Raven.annotate_exception(
-        Exception.new("Help Message Rake Failed"),
-          data: {
-            error: e 
-          }
-      )
+      Raven.extra_context message: "Help Message Rake Failed"
+      Raven.capture_exception e
+      Raven::Context.clear!
     end
   end
 end
@@ -78,7 +66,9 @@ class ImportPrwData
           end
         end
       rescue StandardError => error
-        puts "Participant: #{participant.id} | StartDate import error: #{error}"
+        Raven.extra_context message: "Participant: #{participant.id} | StartDate import error: #{error}"
+        Raven.capture_exception error
+        Raven::Context.clear!
       end
     end
   end
@@ -102,7 +92,9 @@ class ImportPrwData
             end
           end
         rescue StandardError => error
-          puts "Participant: #{participant.id} | Login import error: #{error}"
+          Raven.extra_context message: "Participant: #{participant.id} | Login import error: #{error}"
+          Raven.capture_exception error
+          Raven::Context.clear!
         end
       end
     end
@@ -132,7 +124,9 @@ class ImportPrwData
               response.save!
             end 
           rescue StandardError => error
-            puts "Participant: #{participant.id} | Lesson access import error: #{error}"
+            Raven.extra_context message: "Participant: #{participant.id} | Lesson access import error: #{error}"
+            Raven.capture_exception error
+            Raven::Context.clear!
           end
         end
       end
@@ -162,7 +156,9 @@ class ImportPrwData
               end
             end
           rescue StandardError => error
-            puts "Participant: #{participant.id} | Dialogue access import error: #{error}"
+            Raven.extra_context message: "Participant: #{participant.id} | Dialogue access import error: #{error}"
+            Raven.capture_exception error
+            Raven::Context.clear!
           end
         end
       end
@@ -187,7 +183,9 @@ class ImportPrwData
               puts "help_message created for #{participant.study_identifier}"
             end
           rescue StandardError => error
-            puts "Participant: #{participant.id} | Help message import error: #{error}"
+            Raven.extra_context message: "Participant: #{participant.id} | Help message import error: #{error}"
+            Raven.capture_exception error
+            Raven::Context.clear!
           end
         end
       end

@@ -14,12 +14,9 @@ namespace :sms do
       @account = @client.account
     rescue StandardError => err
       next unless defined?(Raven)
-      Raven.annotate_exception(
-        Exception.new("SMS rake failure"),
-        data: {
-          error: err
-        }
-      )
+      Raven.extra_context message: "SMS rake failure"
+      Raven.capture_exception err
+      Raven::Context.clear!
     end
 
     reminder_messages = ReminderMessage.where(status: "pending")
@@ -55,20 +52,18 @@ namespace :sms do
               end
               reminder_message.update_attribute(:status, "sent")
             rescue Twilio::REST::RequestError => err
-              puts "Error sending sms to #{sent_to}: #{country_code}#{phone_number}"
-              puts "* #{err}"
+              Raven.extra_context message: "Error sending sms to #{sent_to}: #{country_code}#{phone_number}"
+              Raven.capture_exception err
+              Raven::Context.clear!
             end
           end
         end
       rescue StandardError => err
         next unless defined?(Raven)
-        Raven.annotate_exception(
-          Exception.new("SMS rake failure"),
-          data: {
-            reminder_message: reminder_message.try(:id),
-            error: err
-          }
-        )
+        Raven.extra_context message: "SMS rake failure",
+                            reminder_message: reminder_message.try(:id)
+        Raven.capture_exception err
+        Raven::Context.clear!
       end
     end
   end
