@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.10 - 2015-07-26
+
+* revamp exception reporting
+
 ## 0.1.9 - 2015-07-23
 
 * add missing select2 image asset
