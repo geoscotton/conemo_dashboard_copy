@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.11 - 2015-08-14
+
+* increase font sizes, make minor html adjustment
+* update jquery-rails with security patch
+
 ## 0.1.10 - 2015-07-26
 
 * revamp exception reporting
