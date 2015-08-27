@@ -30,7 +30,6 @@ end
 
 group :development, :test do
   gem "rspec-rails"
-  gem "simplecov", "~> 0.9.1"
   gem "rubocop", "~> 0.28"
 end
 
@@ -39,13 +38,12 @@ group :development do
   gem "capistrano-rails", "~> 1.1", require: false
   gem "capistrano-rvm", "~> 0.1", require: false
   gem "capistrano-bundler", "~> 1.1.2"
-  gem "spring"
-  gem "spring-commands-rspec"
   gem "brakeman"
 end
 
 group :test do
   gem "capybara"
+  gem "simplecov", "~> 0.10.0", require: false
 end
 
 gem "bit_core", "~> 1.0"

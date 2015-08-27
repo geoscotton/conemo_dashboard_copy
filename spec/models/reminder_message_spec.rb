@@ -1,5 +1,6 @@
 require "spec_helper"
-describe ReminderMessage do
+
+RSpec.describe ReminderMessage, type: :model do
   fixtures :all
 
   describe "Message Scheduler" do

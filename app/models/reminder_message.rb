@@ -129,7 +129,7 @@ class ReminderMessage < ActiveRecord::Base
               },
               final: {
                   hour_1: "Su cita final dentro del programa CONEMO empieza en una hora",
-                  hour_24: "Acuerdese de su cita maniana en el CEDHI para finalizar el programa CONEMO."
+                  hour_24: "Acuerdese de su cita maniana en el Centro de Salud para finalizar el programa CONEMO"
               }
           },
           nurse: {
