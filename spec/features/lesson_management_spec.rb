@@ -38,13 +38,13 @@ describe "lesson management", type: :feature do
   it "should allow an admin to create a lesson slide with HTML content" do
     click_on lessons(:day1).title
     click_on "Add Slide"
-    fill_in "Title", with: "Slide 2"
+    fill_in "Title", with: "Slide xyz"
     fill_in "Body", with: "<p>I'm a slide dawg</p>"
     click_on "Create Slide"
 
     expect(page).to have_text("Slide saved")
 
-    click_on "Slide 2"
+    click_on "Slide xyz"
 
     expect(page).to have_text("I'm a slide dawg")
   end
@@ -68,6 +68,6 @@ describe "lesson management", type: :feature do
     click_on "destroy-slide-#{ bit_core_slides(:day1_slide1).id }"
 
     expect(page).to have_text("Slide deleted")
-    expect(page).not_to have_text(bit_core_slides(:day1_slide1).title)
+    expect(page.body).not_to match(/#{ bit_core_slides(:day1_slide1).title }/)
   end
 end
