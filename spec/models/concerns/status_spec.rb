@@ -16,19 +16,11 @@ module Concerns
   RSpec.describe Status do
     describe "#lesson_status" do
       let(:started_participant) {  MockParticipant.new(study_day: 3) }
-      let(:statuses) do
-        {
-          info: "info",
-          danger: "danger",
-          warning: "warning",
-          success: "success",
-          unreleased: "un-released"
-        }
-      end
+      let(:statuses) { Status::LESSON_STATUSES }
 
       context "when the lesson is nil" do
         it "returns 'un-released'" do
-          expect(started_participant.lesson_status(nil)).to eq statuses[:unreleased]
+          expect(started_participant.lesson_status(nil)).to eq statuses.unreleased
         end
       end
 
@@ -38,7 +30,7 @@ module Concerns
           lesson = instance_double(Lesson, day_in_treatment: 5)
 
           expect(started_participant.lesson_status(lesson))
-            .to eq statuses[:unreleased]
+            .to eq statuses.unreleased
         end
       end
 
@@ -48,7 +40,7 @@ module Concerns
           lesson = instance_double(Lesson, day_in_treatment: 5)
 
           expect(unstarted_participant.lesson_status(lesson))
-            .to eq statuses[:unreleased]
+            .to eq statuses.unreleased
         end
       end
 
@@ -73,7 +65,7 @@ module Concerns
             allow(Lesson).to receive_message_chain("where.where.order")
               .and_return([lesson])
 
-            expect(participant.lesson_status(lesson)).to eq statuses[:info]
+            expect(participant.lesson_status(lesson)).to eq statuses.info
           end
         end
 
@@ -89,7 +81,7 @@ module Concerns
                 allow(Lesson).to receive_message_chain("where.where.order")
                   .and_return([current_lesson])
 
-                expect(participant.lesson_status(lesson)).to eq statuses[:danger]
+                expect(participant.lesson_status(lesson)).to eq statuses.danger
               end
             end
           end
@@ -106,7 +98,7 @@ module Concerns
                 allow(Lesson).to receive_message_chain("where.where.order")
                   .and_return([current_lesson])
 
-                expect(participant.lesson_status(lesson)).to eq statuses[:warning]
+                expect(participant.lesson_status(lesson)).to eq statuses.warning
               end
             end
 
@@ -121,7 +113,7 @@ module Concerns
                 allow(Lesson).to receive_message_chain("where.where.order")
                   .and_return([current_lesson])
 
-                expect(participant.lesson_status(lesson)).to eq statuses[:success]
+                expect(participant.lesson_status(lesson)).to eq statuses.success
               end
             end
           end

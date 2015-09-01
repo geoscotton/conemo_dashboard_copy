@@ -1,6 +1,9 @@
 # Handles Participant overall and individual lesson status logic
 module Status
-  extend ActiveSupport::Concern
+  LESSON_STATUSES = Struct
+                    .new(:unreleased, :info, :danger, :warning, :success)
+                    .new("un-released", "info", "danger", "warning", "success")
+                    .freeze
 
   def prefix
     if locale
@@ -21,7 +24,7 @@ module Status
     if lesson_released?(lesson)
       access_status(lesson)
     else
-      "un-released"
+      LESSON_STATUSES.unreleased
     end
   end
 
@@ -45,7 +48,8 @@ module Status
     end
   end
 
-  # TODO: make private?
+  private
+
   def lesson_released?(lesson)
     if lesson && study_day
       lesson.day_in_treatment <= study_day
@@ -54,29 +58,26 @@ module Status
     end
   end
 
-  # TODO: make private?
   def access_status(lesson)
     access = access_response(lesson)
 
     if lesson.guid == current_lesson.guid
-      "info"
+      LESSON_STATUSES.info
     elsif !access && lesson_released?(next_lesson(lesson))
-      "danger"
+      LESSON_STATUSES.danger
     elsif access && access.late?
-      "warning"
+      LESSON_STATUSES.warning
     else
-      "success"
+      LESSON_STATUSES.success
     end
   end
 
-  # TODO: make private?
   def next_lesson(lesson)
     Lesson.where("day_in_treatment > ?", lesson.day_in_treatment)
     .where(locale: locale)
     .order(day_in_treatment: :asc).first
   end
 
-  # TODO: make private?
   # Overall Status
   def current_lesson
     Lesson.where("day_in_treatment <= ?", study_day)
@@ -84,35 +85,30 @@ module Status
     .order(day_in_treatment: :desc).first
   end
 
-  # TODO: make private?
   def one_lesson_ago
     Lesson.where("day_in_treatment <= ?", study_day)
     .where(locale: locale)
     .order(day_in_treatment: :desc).second
   end
 
-  # TODO: make private?
   def two_lessons_ago
     Lesson.where("day_in_treatment <= ?", study_day)
     .where(locale: locale)
     .order(day_in_treatment: :desc).offset(2).first
   end
 
-  # TODO: make private?
   def two_lessons_ago_complete?
     if two_lessons_ago
       two_lessons_ago.content_access_events.where(participant_id: id).any?
     end
   end
 
-  # TODO: make private?
   def one_lesson_ago_complete?
     if one_lesson_ago
       one_lesson_ago.content_access_events.where(participant_id: id).any?
     end
   end
 
-  # TODO: make private?
   def two_lessons_passed
     if  !one_lesson_ago_complete? &&
         !two_lessons_ago_complete?
@@ -125,7 +121,6 @@ module Status
     end
   end
 
-  # TODO: make private?
   def one_lesson_passed
     if one_lesson_ago_complete?
       "stable"
