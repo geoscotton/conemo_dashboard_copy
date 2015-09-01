@@ -2,7 +2,7 @@ language: ruby
 rvm:
 - 2.2.2
 before_script:
-- bundle exec rake db:create db:schema:load
+- bundle exec rake db:create db:migrate
 sudo: false
 notifications:
   slack:
