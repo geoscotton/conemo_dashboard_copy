@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.12 - 2015-09-02
+
+* update column headings
+* update final appointment SMS content
+* increase font size
+
 ## 0.1.11 - 2015-08-14
 
 * increase font sizes, make minor html adjustment
