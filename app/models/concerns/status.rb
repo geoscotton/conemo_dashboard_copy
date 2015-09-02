@@ -1,6 +1,9 @@
 # Handles Participant overall and individual lesson status logic
 module Status
-  extend ActiveSupport::Concern
+  LESSON_STATUSES = Struct
+                    .new(:unreleased, :info, :danger, :warning, :success)
+                    .new("un-released", "info", "danger", "warning", "success")
+                    .freeze
 
   def prefix
     if locale
@@ -21,9 +24,31 @@ module Status
     if lesson_released?(lesson)
       access_status(lesson)
     else
-      "un-released"
+      LESSON_STATUSES.unreleased
     end
   end
+
+  def access_response(lesson)
+    content_access_events.where(lesson_id: lesson.id).first
+  end
+
+  def current_study_status
+    if start_date
+      if one_lesson_ago && two_lessons_ago
+        two_lessons_passed
+      elsif one_lesson_ago
+        one_lesson_passed
+      elsif content_access_events.any?
+        "stable"
+      else
+        "disabled"
+      end
+    else
+      "none"
+    end
+  end
+
+  private
 
   def lesson_released?(lesson)
     if lesson && study_day
@@ -37,18 +62,14 @@ module Status
     access = access_response(lesson)
 
     if lesson.guid == current_lesson.guid
-      "info"
+      LESSON_STATUSES.info
     elsif !access && lesson_released?(next_lesson(lesson))
-      "danger"
+      LESSON_STATUSES.danger
     elsif access && access.late?
-      "warning"
+      LESSON_STATUSES.warning
     else
-      "success"
+      LESSON_STATUSES.success
     end
-  end
-
-  def access_response(lesson)
-    content_access_events.where(lesson_id: lesson.id).first
   end
 
   def next_lesson(lesson)
@@ -105,22 +126,6 @@ module Status
       "stable"
     else
       "warning"
-    end
-  end
-
-  def current_study_status
-    if start_date
-      if one_lesson_ago && two_lessons_ago
-        two_lessons_passed
-      elsif one_lesson_ago
-        one_lesson_passed
-      elsif content_access_events.any?
-        "stable"
-      else
-        "disabled"
-      end
-    else
-      "none"
     end
   end
 end
