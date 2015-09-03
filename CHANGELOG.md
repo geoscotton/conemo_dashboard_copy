@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.13 - 2015-09-03
+
+* increase font sizes to 20px
+
 ## 0.1.12 - 2015-09-02
 
 * update column headings
