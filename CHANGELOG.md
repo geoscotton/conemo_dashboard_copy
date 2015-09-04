@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.14 - 2015-09-03
+
+* capture and save PR debug logs to the file system
+
 ## 0.1.13 - 2015-09-03
 
 * increase font sizes to 20px
