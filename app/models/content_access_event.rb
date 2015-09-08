@@ -1,4 +1,5 @@
-# Patient app use data imported from PRI
+# Patient app use data imported from PRI.
+# Each represents the COMPLETION of a Session (Lesson).
 class ContentAccessEvent < ActiveRecord::Base
   belongs_to :lesson
   belongs_to :participant

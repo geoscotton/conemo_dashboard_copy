@@ -1,4 +1,5 @@
 # backed by PRW; imports into content access events
+# Each of these represents the completion of a lesson.
 class LessonDatum < ActiveRecord::Base
   establish_connection :prw
 
