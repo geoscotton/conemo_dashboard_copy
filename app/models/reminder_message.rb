@@ -117,7 +117,7 @@ class ReminderMessage < ActiveRecord::Base
           participant: {
               appointment: {
                   hour_1: "Su cita en el programa CONEMO empieza en una hora",
-                  hour_24: "Acuerdese de su cita maniana en el CEDHI para iniciar el programa CONEMO."
+                  hour_24: "Acuerdese de su cita maniana en el Centro de Salud para iniciar el programa CONEMO."
               },
               second_contact: {
                   hour_1: "Tu enfermera o enfermero te llamara en 1 hora.",
