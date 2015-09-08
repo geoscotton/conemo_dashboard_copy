@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0 - 2015-09-08
+
+* replace SMS text
+* display accessed sessions on the dashboard
+* import session event data from PRW
+
 ## 0.1.14 - 2015-09-03
 
 * capture and save PR debug logs to the file system
