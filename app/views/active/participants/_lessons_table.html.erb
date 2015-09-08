@@ -6,6 +6,7 @@
       <th><%= t "conemo.views.active.participants.report.lesson" %></th>
       <th><%= t "conemo.views.active.participants.report.patient_response" %></th>
       <th><%= t "conemo.views.active.participants.report.access_count" %></th>
+      <th><%= t "conemo.views.active.participants.report.completion_count" %></th>
     </thead>
     <tbody>
       <% lessons.each_with_index do |lesson, index| %>
@@ -19,6 +20,7 @@
             <% end %>
             <%= render partial: 'response_modal', locals: { participant: participant, lesson: lesson, index: index } %>
           </td>
+          <td><%= lesson.session_events.accesses.where(participant_id: participant.id).count %></td>
           <td><%= lesson.content_access_events.where(participant_id: participant.id).count rescue '' %></td>
         </tr>
       <% end %>

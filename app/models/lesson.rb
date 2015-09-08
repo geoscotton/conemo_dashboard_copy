@@ -5,6 +5,7 @@ class Lesson < ActiveRecord::Base
              foreign_key: :bit_core_slideshow_id
   has_many :slides, through: :slideshow
   has_many :content_access_events
+  has_many :session_events, dependent: :restrict_with_exception
   has_many :participants, through: :content_access_events
   
   validates :title,
