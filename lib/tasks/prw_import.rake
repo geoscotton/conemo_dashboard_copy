@@ -23,7 +23,16 @@ namespace :prw_import do
     end
 
     begin
-      ImportPrwData.import_content_access_events
+      ImportPrwData.import_session_access_events
+    rescue StandardError => e
+      next unless defined?(Raven)
+      Raven.extra_context message: "Content Access Rake Failed"
+      Raven.capture_exception e
+      Raven::Context.clear!
+    end
+
+    begin
+      ImportPrwData.import_content_completion_events
     rescue StandardError => e
       next unless defined?(Raven)
       Raven.extra_context message: "Content Access Rake Failed"
@@ -100,7 +109,35 @@ class ImportPrwData
     end
   end
 
-  def self.import_content_access_events
+  def self.import_session_access_events
+    puts "begin lesson access import at #{Time.now}"
+    ClientSessionEvent.access_events.each do |event|
+      participant = Participant
+                    .where(study_identifier: event.participant_identifier)
+                    .first
+      lesson = Lesson.where(guid: event.lesson_guid).first
+
+      next unless participant && lesson
+
+      attributes = {
+        participant_id: participant.id,
+        lesson_id: lesson.id,
+        event_type: ClientSessionEvent::TYPES.access
+      }
+
+      next if SessionEvent.exists?(attributes)
+
+      begin
+        SessionEvent.create!(attributes.merge(occurred_at: event.occurred_at))
+      rescue StandardError => error
+        Raven.extra_context message: "Participant: #{participant.id} | Lesson access import error: #{error}"
+        Raven.capture_exception error
+        Raven::Context.clear!
+      end
+    end
+  end
+
+  def self.import_content_completion_events
     puts "begin lesson data import at #{Time.now}"
     
     LessonDatum.all.each do |datum|
@@ -124,7 +161,7 @@ class ImportPrwData
               response.save!
             end 
           rescue StandardError => error
-            Raven.extra_context message: "Participant: #{participant.id} | Lesson access import error: #{error}"
+            Raven.extra_context message: "Participant: #{participant.id} | Lesson completion import error: #{error}"
             Raven.capture_exception error
             Raven::Context.clear!
           end
