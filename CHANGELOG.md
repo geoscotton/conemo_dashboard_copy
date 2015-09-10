@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 - 2015-09-10
+
+* reset font sizes
+
 ## 0.2.0 - 2015-09-08
 
 * replace SMS text
