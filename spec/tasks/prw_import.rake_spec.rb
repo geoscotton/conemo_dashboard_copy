@@ -85,26 +85,51 @@ describe "prw_import:sync" do
       end
     end
 
-    context "when another access event for a session has been imported" do
-      it "does not import a new one for the same session" do
+    context "when the access event for a session has been imported" do
+      it "does not import it again" do
         prepare_task
+        now = Time.zone.now
         access_event =
           instance_double(ClientSessionEvent,
                           event_type: ClientSessionEvent::TYPES.access,
                           participant_identifier: participant.study_identifier,
                           lesson_guid: lesson.guid,
-                          occurred_at: Time.zone.now)
+                          occurred_at: now)
         allow(ClientSessionEvent).to receive(:access_events) { [access_event] }
         SessionEvent.create!(
           participant: participant,
           lesson: lesson,
           event_type: ClientSessionEvent::TYPES.access,
-          occurred_at: Time.zone.now
+          occurred_at: now
         )
 
         subject.reenable
 
         expect { subject.invoke }.not_to change { SessionEvent.count }
+      end
+    end
+
+    context "when another access event for a session has been imported" do
+      it "imports a new one for the session" do
+        prepare_task
+        now = Time.zone.now
+        access_event =
+          instance_double(ClientSessionEvent,
+                          event_type: ClientSessionEvent::TYPES.access,
+                          participant_identifier: participant.study_identifier,
+                          lesson_guid: lesson.guid,
+                          occurred_at: now)
+        allow(ClientSessionEvent).to receive(:access_events) { [access_event] }
+        SessionEvent.create!(
+          participant: participant,
+          lesson: lesson,
+          event_type: ClientSessionEvent::TYPES.access,
+          occurred_at: now + 1.second
+        )
+
+        subject.reenable
+
+        expect { subject.invoke }.to change { SessionEvent.count }.by(1)
       end
     end
   end
