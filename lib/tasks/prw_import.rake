@@ -122,13 +122,14 @@ class ImportPrwData
       attributes = {
         participant_id: participant.id,
         lesson_id: lesson.id,
-        event_type: ClientSessionEvent::TYPES.access
+        event_type: ClientSessionEvent::TYPES.access,
+        occurred_at: event.occurred_at
       }
 
       next if SessionEvent.exists?(attributes)
 
       begin
-        SessionEvent.create!(attributes.merge(occurred_at: event.occurred_at))
+        SessionEvent.create!(attributes)
       rescue StandardError => error
         Raven.extra_context message: "Participant: #{participant.id} | Lesson access import error: #{error}"
         Raven.capture_exception error
