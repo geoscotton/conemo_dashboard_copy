@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2 - 2015-09-19
+
+* count all lesson accesses separately
+
 ## 0.2.1 - 2015-09-10
 
 * reset font sizes
