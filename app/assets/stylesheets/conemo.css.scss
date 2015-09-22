@@ -1,3 +1,8 @@
+// statuses
+.accessed > td, .accessed > th {
+  background-color: orange;
+}
+
 // accommodate fixed navbar
 body {
   padding-top: 70px;

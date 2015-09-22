@@ -1,8 +1,10 @@
 # Handles Participant overall and individual lesson status logic
 module Status
   LESSON_STATUSES = Struct
-                    .new(:unreleased, :info, :danger, :warning, :success)
-                    .new("un-released", "info", "danger", "warning", "success")
+                    .new(:unreleased, :accessed, :info, :danger, :warning,
+                         :success)
+                    .new("un-released", "accessed", "info", "danger", "warning",
+                         "success")
                     .freeze
 
   def prefix
@@ -59,14 +61,18 @@ module Status
   end
 
   def access_status(lesson)
-    access = access_response(lesson)
+    access = session_events.where(lesson_id: lesson.id).order(:occurred_at)
+             .first
+    completion = access_response(lesson)
 
     if lesson.guid == current_lesson.guid
       LESSON_STATUSES.info
-    elsif !access && lesson_released?(next_lesson(lesson))
-      LESSON_STATUSES.danger
     elsif access && access.late?
       LESSON_STATUSES.warning
+    elsif access && !access.late? && !completion
+      LESSON_STATUSES.accessed
+    elsif !completion && lesson_released?(next_lesson(lesson))
+      LESSON_STATUSES.danger
     else
       LESSON_STATUSES.success
     end

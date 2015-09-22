@@ -93,10 +93,11 @@ describe Participant do
 
       context "lesson has been accessed but it was late" do
         it "should return 'warning'" do
-          ContentAccessEvent.create(participant_id: participant_day_5.id,
-                                    day_in_treatment_accessed: 5,
-                                    lesson_id: late_lesson.id
-                                   )
+          SessionEvent.create!(
+            event_type: SessionEvent::TYPES.access,
+            participant_id: participant_day_5.id,
+            occurred_at: participant_day_5.start_date + 10.days,
+            lesson_id: late_lesson.id)
 
           result = participant_day_5.lesson_status(late_lesson)
 
