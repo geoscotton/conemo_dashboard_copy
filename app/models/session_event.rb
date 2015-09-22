@@ -8,4 +8,14 @@ class SessionEvent < ActiveRecord::Base
   validates :participant, :lesson, :occurred_at, :event_type, presence: true
 
   scope :accesses, -> { where(event_type: TYPES.access) }
+
+  def late?
+    day_in_treatment_accessed > lesson.day_in_treatment
+  end
+
+  private
+
+  def day_in_treatment_accessed
+    occurred_at.to_date - participant.start_date + 1
+  end
 end
