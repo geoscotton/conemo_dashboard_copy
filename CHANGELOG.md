@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.3 - 2015-09-22
+
+* add 'accessed' display to dashboard
+
 ## 0.2.2 - 2015-09-19
 
 * count all lesson accesses separately
