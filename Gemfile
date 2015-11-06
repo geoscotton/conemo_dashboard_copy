@@ -29,7 +29,7 @@ group :staging, :production do
 end
 
 group :development, :test do
-  gem "rspec-rails"
+  gem "rspec-rails", "~> 3.3"
   gem "rubocop", "~> 0.28"
 end
 
