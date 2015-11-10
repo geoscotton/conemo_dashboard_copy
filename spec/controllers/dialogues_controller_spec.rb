@@ -24,7 +24,18 @@ RSpec.describe DialoguesController, type: :controller do
       no_text: "n" }
   end
 
+  let(:invalid_dialogue_params) do
+    { title: nil, day_in_treatment: nil, message: nil, yes_text: nil,
+      no_text: nil }
+  end
+
   describe "GET index" do
+    context "for an unauthenticated User" do
+      before { get :index }
+
+      it_behaves_like "a rejected user action"
+    end
+
     context "for an authorized User" do
       it "sets dialogs" do
         allow(controller).to receive(:authorize!).with(:index, Dialogue)
@@ -42,6 +53,12 @@ RSpec.describe DialoguesController, type: :controller do
   end
 
   describe "GET show" do
+    context "for an unauthenticated User" do
+      before { get :show, id: 1 }
+
+      it_behaves_like "a rejected user action"
+    end
+
     context "for an authorized User" do
       it "sets the dialog" do
         LOCALES.each do |locale|
@@ -58,6 +75,12 @@ RSpec.describe DialoguesController, type: :controller do
   end
 
   describe "GET new" do
+    context "for an unauthenticated User" do
+      before { get :new }
+
+      it_behaves_like "a rejected user action"
+    end
+
     context "for an authorized User" do
       it "sets the dialog" do
         authorize!
@@ -74,6 +97,12 @@ RSpec.describe DialoguesController, type: :controller do
   end
 
   describe "POST create" do
+    context "for an unauthenticated User" do
+      before { post :create }
+
+      it_behaves_like "a rejected user action"
+    end
+
     context "for an authorized User" do
       context "when successful" do
         it "redirects to the dialogues index" do
@@ -97,7 +126,7 @@ RSpec.describe DialoguesController, type: :controller do
           LOCALES.each do |locale|
             sign_in_nurse_for locale
 
-            post :create, locale: locale, dialogue: { foo: "baz" }
+            post :create, locale: locale, dialogue: invalid_dialogue_params
 
             expect(assigns(:dialogue)).to be_an_instance_of Dialogue
             expect(response).to render_template :new
@@ -108,6 +137,12 @@ RSpec.describe DialoguesController, type: :controller do
   end
 
   describe "GET edit" do
+    context "for an unauthenticated User" do
+      before { get :edit, id: 1 }
+
+      it_behaves_like "a rejected user action"
+    end
+
     context "for an authorized User" do
       it "sets the dialog" do
         authorize!
@@ -125,6 +160,12 @@ RSpec.describe DialoguesController, type: :controller do
   end
 
   describe "PUT update" do
+    context "for an unauthenticated User" do
+      before { put :update, id: 1 }
+
+      it_behaves_like "a rejected user action"
+    end
+
     context "for an authorized User" do
       context "when successful" do
         it "redirects to the dialogues index" do
@@ -152,7 +193,7 @@ RSpec.describe DialoguesController, type: :controller do
             dialogue = create_dialogue!(locale)
 
             put :update, id: dialogue.id, locale: locale,
-                dialogue: { title: nil }
+                dialogue: invalid_dialogue_params
 
             expect(assigns(:dialogue)).to eq dialogue
             expect(response).to render_template :edit
@@ -163,6 +204,12 @@ RSpec.describe DialoguesController, type: :controller do
   end
 
   describe "DELETE destroy" do
+    context "for an unauthenticated User" do
+      before { delete :destroy, id: 1 }
+
+      it_behaves_like "a rejected user action"
+    end
+
     context "for an authorized User" do
       context "when successful" do
         it "redirects to the dialogues index" do
