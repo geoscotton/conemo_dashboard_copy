@@ -40,7 +40,7 @@ class DialoguesController < ApplicationController
     else
       flash.now[:alert] = I18n.t("conemo.controllers.dialogues.not_saved") +
           ": " + validation_errors
-      render :new
+      render :edit
     end
   end
 
