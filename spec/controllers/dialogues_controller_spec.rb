@@ -1,6 +1,8 @@
 require "spec_helper"
 
 RSpec.describe DialoguesController, type: :controller do
+  fixtures :all
+
   LOCALES = %w( en pt-BR es-PE )
 
   def create_dialogue!(locale)

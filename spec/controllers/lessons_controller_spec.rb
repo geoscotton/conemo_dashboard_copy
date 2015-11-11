@@ -1,6 +1,8 @@
 require "spec_helper"
 
 describe LessonsController, type: :controller do
+  fixtures :all
+
   let(:user) { double("user", admin?: true, nurse?: false, timezone: "Central Time (US & Canada)") }
   let(:lesson) { double("lesson") }
 

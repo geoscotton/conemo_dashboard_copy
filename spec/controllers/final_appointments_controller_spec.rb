@@ -1,6 +1,8 @@
 require "spec_helper"
 
 RSpec.describe FinalAppointmentsController, type: :controller do
+  fixtures :all
+
   let(:participant) { Participant.first }
 
   let(:valid_final_appointment_params) do

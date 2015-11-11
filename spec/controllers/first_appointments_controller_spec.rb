@@ -1,6 +1,8 @@
 require "spec_helper"
 
 RSpec.describe FirstAppointmentsController, type: :controller do
+  fixtures :all
+
   describe ".filter_params" do
     it "permits expected parameters" do
       # h/t http://blog.pivotal.io/pivotal-labs/labs/rails-4-testing-strong-parameters
