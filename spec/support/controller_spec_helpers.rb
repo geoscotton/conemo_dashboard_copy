@@ -3,6 +3,15 @@ module ControllerSpecHelpers
     sign_in_resource(user, "user")
   end
 
+  def sign_in_admin
+    sign_in_user instance_double(
+      User,
+      nurse?: false,
+      locale: %w( en pt-BR es-PE ).sample,
+      timezone: "America/Chicago"
+    )
+  end
+
   private
 
   def sign_in_resource(resource, name)
