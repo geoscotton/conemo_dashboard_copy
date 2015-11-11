@@ -6,4 +6,5 @@ class FinalAppointment < ActiveRecord::Base
             :appointment_at,
             :appointment_location,
             presence: true
+  validates :phone_returned, inclusion: { in: [true, false] }
 end

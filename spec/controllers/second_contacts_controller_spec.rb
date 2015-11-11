@@ -1,6 +1,8 @@
 require "spec_helper"
 
 RSpec.describe SecondContactsController, type: :controller do
+  fixtures :all
+
   def sign_in_admin
     sign_in_user instance_double(User,
                                  nurse?: false,

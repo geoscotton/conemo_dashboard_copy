@@ -31,6 +31,10 @@ end
 group :development, :test do
   gem "rspec-rails", "~> 3.3"
   gem "rubocop", "~> 0.28"
+  gem "guard-rspec", require: false
+  gem "spring-commands-rspec"
+  gem "rb-fsevent"
+  gem "terminal-notifier-guard"
 end
 
 group :development do

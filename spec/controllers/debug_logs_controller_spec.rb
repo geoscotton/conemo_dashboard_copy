@@ -2,6 +2,8 @@ require "spec_helper"
 
 RSpec.describe DebugLogsController, type: :controller do
   describe "POST create" do
+    fixtures :all
+
     it "generates a log file" do
       log_path = Rails.root.join("log/debug_logs")
 
