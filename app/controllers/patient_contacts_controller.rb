@@ -3,11 +3,14 @@ class PatientContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def new
-    @patient_contact = PatientContact.new
+    @patient_contact = participant.patient_contacts.build
   end
 
   def create
-    @patient_contact = PatientContact.new(patient_contact_params)
+    @patient_contact = participant.patient_contacts.build(
+      patient_contact_params
+    )
+
     if @patient_contact.save
       if @patient_contact.participant.start_date
         redirect_to active_report_path(participant),
@@ -31,7 +34,7 @@ class PatientContactsController < ApplicationController
         redirect_to active_participants_path
       end
     else
-      flash[:error] = "There were errors."
+      redirect_to active_participants_path, alert: "There were errors."
     end
   end
 
