@@ -43,7 +43,7 @@ class LessonsController < ApplicationController
     else
       flash.now[:alert] = I18n.t("conemo.controllers.lessons.not_saved") +
           ": " + validation_errors
-      render :new
+      render :edit
     end
   end
 
@@ -63,12 +63,11 @@ class LessonsController < ApplicationController
   def slide_order
     authorize! :update, find_lesson
 
-    if @lesson.update_slide_order(slide_order_params)
-      flash.now[:notice] = I18n.t("conemo.controllers.lessons.saved")
-      render :slide_order_success
-    else
-      render :slide_order_failure
-    end
+    @lesson.update_slide_order(slide_order_params)
+    flash.now[:notice] = I18n.t("conemo.controllers.lessons.saved")
+    render :slide_order_success
+  rescue ActiveRecord::ActiveRecordError
+    render :slide_order_failure
   end
 
   private
