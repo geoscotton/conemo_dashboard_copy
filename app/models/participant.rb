@@ -18,7 +18,10 @@ class Participant < ActiveRecord::Base
   has_many :logins, dependent: :destroy
   has_many :session_events, dependent: :destroy
 
-  STATUS = ["pending", "active", "ineligible"]
+  PENDING = "pending".freeze
+  ACTIVE = "active".freeze
+  INELIGIBLE = "ineligible".freeze
+  STATUS = [PENDING, ACTIVE, INELIGIBLE].freeze
   GENDER = ["male", "female"]
 
   validates :first_name,
@@ -54,7 +57,9 @@ class Participant < ActiveRecord::Base
   private
 
   def sanitize_number
-    self.phone = self.phone.gsub(/[^0-9]/, "")
+    return unless phone.respond_to?(:gsub)
+
+    self.phone = phone.gsub(/[^0-9]/, "")
   end
 
   def enrollment_date_is_sane

@@ -27,6 +27,7 @@ active_participant:
   nurse: nurse1
   status: active
   start_date: <%= Date.today - 4.days %>
+  gender: female
   locale: "en"
 
 active_participant_day_5:
@@ -43,6 +44,7 @@ active_participant_day_5:
   nurse: nurse1
   status: active
   start_date: <%= Date.today - 4.days %>
+  gender: male
   locale: "en"
 
 portuguese_active_participant:
@@ -59,6 +61,7 @@ portuguese_active_participant:
   nurse: portuguese_nurse
   status: active
   start_date: <%= Date.today - 5.days %>
+  gender: female
   locale: "pt-BR"
 
 portuguese_active_participant2:
@@ -75,6 +78,7 @@ portuguese_active_participant2:
   date_of_birth: <%= Date.yesterday %>
   status: active
   start_date: <%= Date.today - 5.days %>
+  gender: male
   locale: "pt-BR"
 
 es_active_participant:
@@ -91,6 +95,7 @@ es_active_participant:
   nurse: portuguese_nurse
   status: active
   start_date: <%= Date.today - 5.days %>
+  gender: female
   locale: "es-PE"
 
 english_active_participant:
@@ -107,6 +112,7 @@ english_active_participant:
   nurse: nurse1
   status: active
   start_date: <%= Date.today - 5.days %>
+  gender: male
   locale: "en"
 
 english_inactive_participant:
@@ -123,4 +129,5 @@ english_inactive_participant:
   nurse: nurse1
   status: inactive
   start_date: <%= Date.today - 5.days %>
+  gender: female
   locale: "en"
