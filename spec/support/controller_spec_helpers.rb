@@ -2,7 +2,6 @@ module ControllerSpecHelpers
   def sign_in_admin
     sign_in_user instance_double(
       User,
-      admin?: true,
       nurse?: false,
       admin?: true,
       locale: %w( en pt-BR es-PE ).sample,
