@@ -1,0 +1,23 @@
+en_day1:
+  day_in_treatment: 1
+  locale: en
+  guid: 31a7e21f-fa61-49f9-bc95-e3c2cb2c4ea8
+  message: English message
+  yes_text: Yes
+  no_text: No
+
+pt_day1:
+  day_in_treatment: 1
+  locale: pt-BR
+  guid: cd208f16-0532-4351-a876-8e92479c772c
+  message: Portuguese message
+  yes_text: Yes
+  no_text: No
+
+es_day1:
+  day_in_treatment: 1
+  locale: es-PE
+  guid: 03f0e3fb-1795-49f4-b5e4-7c3b48b8e36e
+  message: Spanish message
+  yes_text: Yes
+  no_text: No

@@ -48,7 +48,7 @@ RSpec.describe DialoguesController, type: :controller do
 
           get :index, locale: locale
 
-          expect(assigns(:dialogues)).to eq([dialogue])
+          expect(assigns(:dialogues)).to include dialogue
         end
       end
     end
