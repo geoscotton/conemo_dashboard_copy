@@ -56,6 +56,8 @@ class Lesson < ActiveRecord::Base
   end
 
   def destroy_slideshow
+    return if Lesson.exists?(bit_core_slideshow_id: bit_core_slideshow_id)
+
     slideshow.destroy
   end
 

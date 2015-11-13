@@ -1,7 +1,7 @@
 require "spec_helper"
 
 RSpec.describe Lesson, type: :model do
-  fixtures :"bit_core/slideshows", :"bit_core/slides", :lessons
+  fixtures :all
 
   let(:slideshow) { bit_core_slideshows(:day1) }
 

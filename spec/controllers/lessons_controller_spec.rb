@@ -50,7 +50,7 @@ RSpec.describe LessonsController, type: :controller do
         it "sets the lesson" do
           authorize!
 
-          admin_request :get, :show, id: lesson.id
+          admin_request :get, :show, id: lesson.id, locale: lesson.locale
 
           expect(assigns(:lesson)).to eq lesson
         end
@@ -88,7 +88,7 @@ RSpec.describe LessonsController, type: :controller do
       it "sets the lesson" do
         authorize!
 
-        admin_request :get, :edit, id: lesson.id
+        admin_request :get, :edit, id: lesson.id, locale: lesson.locale
 
         expect(assigns(:lesson)).to eq lesson
       end
@@ -146,7 +146,7 @@ RSpec.describe LessonsController, type: :controller do
           authorize!
 
           expect do
-            admin_request :put, :update, id: lesson.id,
+            admin_request :put, :update, id: lesson.id, locale: lesson.locale,
                           lesson: valid_lesson_params
           end.to change { Lesson.find(lesson.id).updated_at }
         end
@@ -154,7 +154,7 @@ RSpec.describe LessonsController, type: :controller do
         it "redirects to the lessons url" do
           authorize!
 
-          admin_request :put, :update, id: lesson.id,
+          admin_request :put, :update, id: lesson.id, locale: lesson.locale,
                         lesson: valid_lesson_params
 
           expect(response).to redirect_to lessons_url
@@ -165,7 +165,7 @@ RSpec.describe LessonsController, type: :controller do
         it "renders the edit template" do
           authorize!
 
-          admin_request :put, :update, id: lesson.id,
+          admin_request :put, :update, id: lesson.id, locale: lesson.locale,
                         lesson: invalid_lesson_params
 
           expect(response).to render_template :edit
@@ -187,14 +187,15 @@ RSpec.describe LessonsController, type: :controller do
           authorize!
 
           expect do
-            admin_request :delete, :destroy, id: lesson.id
+            admin_request :delete, :destroy, id: lesson.id,
+                          locale: lesson.locale
           end.to change { Lesson.where(id: lesson.id).count }.by(-1)
         end
 
         it "redirects to the lessons url" do
           authorize!
 
-          admin_request :delete, :destroy, id: lesson.id
+          admin_request :delete, :destroy, id: lesson.id, locale: lesson.locale
 
           expect(response).to redirect_to lessons_url
         end
@@ -229,7 +230,7 @@ RSpec.describe LessonsController, type: :controller do
           slide = lesson.build_slide(title: "t", body: "b").tap(&:save!)
 
           admin_request :post, :slide_order, id: lesson.id, slide: [slide.id],
-                        format: :js
+                        format: :js, locale: lesson.locale
 
           expect(response).to render_template :slide_order_success
         end
@@ -240,7 +241,7 @@ RSpec.describe LessonsController, type: :controller do
           authorize!
 
           admin_request :post, :slide_order, id: lesson.id, slide: [-1],
-                        format: :js
+                        format: :js, locale: lesson.locale
 
           expect(response).to render_template :slide_order_failure
         end
