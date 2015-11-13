@@ -32,3 +32,17 @@ day6:
   title: Day 6
   guid: day6
   slideshow: day6
+
+day1_pt:
+  locale: pt-BR
+  day_in_treatment: 1
+  title: Day 1
+  guid: day1
+  slideshow: day1
+
+day1_es:
+  locale: es-PE
+  day_in_treatment: 1
+  title: Day 1
+  guid: day1
+  slideshow: day1
