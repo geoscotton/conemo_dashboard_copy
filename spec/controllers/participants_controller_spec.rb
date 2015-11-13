@@ -134,6 +134,22 @@ RSpec.describe ParticipantsController, type: :controller do
           end
         end
       end
+
+      context "when unsuccessful" do
+        it "sets the flash alert" do
+          admin_request :put, :update, id: participant.id,
+                        participant: invalid_participant_params
+
+          expect(flash[:alert]).not_to be_nil
+        end
+
+        it "renders the edit template" do
+          admin_request :put, :update, id: participant.id,
+                        participant: invalid_participant_params
+
+          expect(response).to render_template :edit
+        end
+      end
     end
   end
 
