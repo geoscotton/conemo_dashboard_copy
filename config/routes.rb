@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     resources :participants, except: [:index, :show] do
       resource :first_contact
-      resource :first_appointment
+      resource :first_appointment, only: [:new, :create, :edit, :update]
       resource :second_contact
       resource :third_contact, only: [:new, :create, :edit, :update]
       get "/third_contact", to: redirect("/%{locale}/active/participants")
