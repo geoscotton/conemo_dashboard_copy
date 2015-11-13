@@ -1,0 +1,17 @@
+second_contact:
+  participant: active_participant
+  contact_at: <%= Date.today %>
+  session_length: 1
+  next_contact: <%= DateTime.current + 2.day %>
+
+portuguese_second_contact:
+  participant: portuguese_active_participant
+  contact_at: <%= Date.yesterday %>
+  session_length: 1
+  next_contact: <%= DateTime.current + 2.day %>
+
+english_second_contact:
+  participant: english_active_participant
+  contact_at: <%= Date.yesterday %>
+  session_length: 1
+  next_contact: <%= DateTime.current + 2.day %>

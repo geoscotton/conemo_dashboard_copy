@@ -7,10 +7,20 @@ class ReminderMessage < ActiveRecord::Base
             :participant,
             presence: true
 
-  APPOINTMENT_TYPES = ["third_contact", "second_contact", "appointment", "final"]
-  MESSAGE_TYPES = {nurse: "nurse", participant: "participant"}
+  THIRD_CONTACT = "third_contact".freeze
+  SECOND_CONTACT = "second_contact".freeze
+  APPOINTMENT = "appointment".freeze
+  FINAL_APPOINTMENT = "final".freeze
+  APPOINTMENT_TYPES = [
+    THIRD_CONTACT, SECOND_CONTACT, APPOINTMENT, FINAL_APPOINTMENT
+  ].freeze
+  NURSE = "nurse".freeze
+  PARTICIPANT = "participant".freeze
+  MESSAGE_TYPES = { nurse: NURSE, participant: PARTICIPANT }.freeze
+  ONE_HOUR = "1".freeze
+  ONE_DAY = "24".freeze
 
-  validates :appointment_type, inclusion: {in: APPOINTMENT_TYPES}
+  validates :appointment_type, inclusion: { in: APPOINTMENT_TYPES }
 
   MESSAGES = {
       pt_BR: {
@@ -155,34 +165,16 @@ class ReminderMessage < ActiveRecord::Base
 
   # returns datetime object for the reminder message
   def notification_time
-    begin
-      if appointment_type == "appointment"
-        if notify_at == "1"
-          participant.first_contact.first_appointment_at - 1.hour
-        else # => '24'
-          participant.first_contact.first_appointment_at - 1.days
-        end
-      elsif appointment_type == "second_contact"
-        if notify_at == "1"
-          participant.first_appointment.next_contact - 1.hour
-        else
-          participant.first_appointment.next_contact - 1.days
-        end
-      elsif appointment_type == "third_contact"
-        if notify_at == "1"
-          participant.second_contact.next_contact - 1.hour
-        else
-          participant.second_contact.next_contact - 1.days
-        end
-      else # => 'final'
-        if notify_at == "1"
-          participant.third_contact.final_appointment_at - 1.hour
-        else
-          participant.third_contact.final_appointment_at - 1.days
-        end
-      end
-    rescue StandardError => error
-      puts "Participant: #{participant.id} | Notification time err: #{error}"
+    difference = { ONE_HOUR => 1.hour, ONE_DAY => 1.day }
+
+    if appointment_type == APPOINTMENT
+      participant.first_contact.first_appointment_at - difference[notify_at]
+    elsif appointment_type == SECOND_CONTACT
+      participant.first_appointment.next_contact - difference[notify_at]
+    elsif appointment_type == THIRD_CONTACT
+      participant.second_contact.next_contact - difference[notify_at]
+    else # => 'final'
+      participant.third_contact.final_appointment_at - difference[notify_at]
     end
   end
 
@@ -210,15 +202,13 @@ class ReminderMessage < ActiveRecord::Base
 
   # determines if a message has been split into two parts
   def split_message
-    if participant.locale != "es-PE"
-      if (appointment_type == "appointment" || appointment_type == "final") && notify_at == "24"
-        return true
-      else
-        return false
-      end
-    else
-      return false
+    return false if participant.locale == "es-PE"
+
+    if (appointment_type == APPOINTMENT || appointment_type == "final") && notify_at == ONE_DAY
+      return true
     end
+
+    false
   end
 
   # requeues sent message if appointment time has been updated
