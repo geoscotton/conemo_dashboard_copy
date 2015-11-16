@@ -1,16 +1,31 @@
 module ControllerSpecHelpers
   def sign_in_admin
-    sign_in_user instance_double(
+    @signed_in_user ||= sign_in_user(instance_double(
       User,
       nurse?: false,
       admin?: true,
       locale: %w( en pt-BR es-PE ).sample,
       timezone: "America/Chicago"
-    )
+    ))
+  end
+
+  def sign_in_nurse
+    @signed_in_user ||= sign_in_user(instance_double(
+      User,
+      nurse?: true,
+      admin?: false,
+      locale: %w( en pt-BR es-PE ).sample,
+      timezone: "America/Chicago"
+    ))
   end
 
   def admin_request(http_method, action, params = {})
     sign_in_admin
+    send http_method, action, params
+  end
+
+  def nurse_request(http_method, action, params = {})
+    sign_in_nurse
     send http_method, action, params
   end
 
@@ -26,9 +41,12 @@ module ControllerSpecHelpers
         .and_throw(:warden, scope: :"#{ name }")
       controller.stub :"current_#{ name }" => nil
     else
-      expect(request.env["warden"]).to receive(:authenticate!) { resource }
+      expect(request.env["warden"]).to receive(:authenticate!).at_most(5).times
+        .and_return(resource)
       allow(controller).to receive("current_#{ name }") { resource }
     end
+
+    resource
   end
 end
 
