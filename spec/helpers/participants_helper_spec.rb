@@ -261,7 +261,9 @@ RSpec.describe ParticipantsHelper, type: :helper do
     context "when there are unread help messages" do
       it "returns a blinking link" do
         participant = Participant.first
-        participant.help_messages.create read: false
+        participant.help_messages.create!(
+          read: false, sent_at: Time.zone.now, message: "m"
+        )
         participant.reload
 
         output = helper.render_status_link(participant)
