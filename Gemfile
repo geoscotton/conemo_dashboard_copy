@@ -1,16 +1,16 @@
 source "https://rubygems.org"
 
-gem "rails", "= 4.1.11"
-gem "turbolinks"
-gem "pg"
+gem "rails", "= 4.2.5"
+gem "turbolinks", "= 2.5.3"
+gem "pg", "= 0.18.4"
 gem "sass-rails", "~> 4.0.2"
 gem "bootstrap-sass"
 gem "uglifier"
 gem "jquery-rails", "~> 3.1.3"
 gem "jquery-ui-rails"
-gem "devise"
-gem "rails_admin"
-gem "cancan"
+gem "devise", "= 3.5.2"
+gem "rails_admin", "= 0.6.3"
+gem "cancancan", "= 1.13.1"
 gem "font-awesome-sass"
 gem "coffee-script"
 gem "jbuilder"
@@ -18,10 +18,7 @@ gem "ckeditor"
 gem "twilio-ruby"
 gem "normalize-rails"
 gem "nokogiri", "= 1.6.3.1"
-
-gem "sentry-raven",
-    git: "https://github.com/getsentry/raven-ruby.git",
-    tag: "0.13.3"
+gem "sentry-raven", "= 0.15.2"
 
 group :staging, :production do
   # scheduling tasks
@@ -29,8 +26,8 @@ group :staging, :production do
 end
 
 group :development, :test do
-  gem "rspec-rails", "~> 3.3"
-  gem "rubocop", "~> 0.28"
+  gem "rspec-rails", "~> 3.4"
+  gem "rubocop", "~> 0.35"
   gem "guard-rspec", require: false
   gem "spring-commands-rspec"
   gem "rb-fsevent"

@@ -72,7 +72,7 @@ RSpec.describe LessonsController, type: :controller do
         admin_request :get, :new, locale: locale
 
         expect(assigns(:lesson)).to be_instance_of Lesson
-        expect(assigns(:lesson).locale).to equal locale.to_sym
+        expect(assigns(:lesson).locale).to eq locale
       end
     end
   end

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "app_logins", force: true do |t|
+  create_table "app_logins", force: :cascade do |t|
     t.datetime "occurred_at"
     t.integer  "participant_id"
     t.datetime "created_at"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "app_logins", ["participant_id"], name: "index_app_logins_on_participant_id", using: :btree
 
-  create_table "bit_core_content_modules", force: true do |t|
+  create_table "bit_core_content_modules", force: :cascade do |t|
     t.string   "title",                        null: false
     t.integer  "position",         default: 1, null: false
     t.integer  "bit_core_tool_id",             null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "bit_core_content_modules", ["bit_core_tool_id", "position"], name: "bit_core_content_module_position", unique: true, using: :btree
 
-  create_table "bit_core_content_providers", force: true do |t|
+  create_table "bit_core_content_providers", force: :cascade do |t|
     t.string   "type",                                   null: false
     t.string   "source_content_type"
     t.integer  "source_content_id"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "bit_core_content_providers", ["bit_core_content_module_id", "position"], name: "bit_core_content_provider_position", unique: true, using: :btree
 
-  create_table "bit_core_slides", force: true do |t|
+  create_table "bit_core_slides", force: :cascade do |t|
     t.string   "title",                                null: false
     t.text     "body",                                 null: false
     t.integer  "position",              default: 1,    null: false
@@ -60,13 +60,13 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "bit_core_slides", ["bit_core_slideshow_id", "position"], name: "bit_core_slide_position", unique: true, using: :btree
 
-  create_table "bit_core_slideshows", force: true do |t|
+  create_table "bit_core_slideshows", force: :cascade do |t|
     t.string   "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "bit_core_tools", force: true do |t|
+  create_table "bit_core_tools", force: :cascade do |t|
     t.string   "title",                  null: false
     t.integer  "position",   default: 0, null: false
     t.datetime "created_at"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "bit_core_tools", ["position"], name: "bit_core_tool_position", unique: true, using: :btree
 
-  create_table "content_access_events", force: true do |t|
+  create_table "content_access_events", force: :cascade do |t|
     t.integer  "participant_id"
     t.datetime "accessed_at"
     t.datetime "created_at"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
   add_index "content_access_events", ["participant_id"], name: "index_content_access_events_on_participant_id", using: :btree
 
-  create_table "dialogues", force: true do |t|
+  create_table "dialogues", force: :cascade do |t|
     t.string   "title"
     t.string   "guid"
     t.string   "day_in_treatment"
@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
     t.datetime "updated_at"
   end
 
-  create_table "final_appointments", force: true do |t|
+  create_table "final_appointments", force: :cascade do |t|
     t.datetime "appointment_at"
     t.string   "appointment_location"
     t.boolean  "phone_returned",       null: false
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
     t.integer  "participant_id"
   end
 
-  create_table "first_appointments", force: true do |t|
+  create_table "first_appointments", force: :cascade do |t|
     t.integer  "participant_id",                 null: false
     t.datetime "appointment_at",                 null: false
     t.string   "appointment_location"
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "first_appointments", ["participant_id"], name: "index_first_appointments_on_participant_id", using: :btree
 
-  create_table "first_contacts", force: true do |t|
+  create_table "first_contacts", force: :cascade do |t|
     t.integer  "participant_id",             null: false
     t.datetime "contact_at",                 null: false
     t.datetime "first_appointment_at",       null: false
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "first_contacts", ["participant_id"], name: "index_first_contacts_on_participant_id", using: :btree
 
-  create_table "help_messages", force: true do |t|
+  create_table "help_messages", force: :cascade do |t|
     t.integer  "participant_id"
     t.text     "message"
     t.boolean  "read"
@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "help_messages", ["participant_id"], name: "index_help_messages_on_participant_id", using: :btree
 
-  create_table "lessons", force: true do |t|
+  create_table "lessons", force: :cascade do |t|
     t.string   "title",                                null: false
     t.integer  "bit_core_slideshow_id"
     t.integer  "day_in_treatment",      default: 1,    null: false
@@ -165,7 +165,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "lessons", ["bit_core_slideshow_id"], name: "index_lessons_on_bit_core_slideshow_id", using: :btree
 
-  create_table "logins", force: true do |t|
+  create_table "logins", force: :cascade do |t|
     t.integer  "participant_id"
     t.datetime "logged_in_at"
     t.datetime "created_at"
@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "logins", ["participant_id"], name: "index_logins_on_participant_id", using: :btree
 
-  create_table "nurse_participant_evaluations", force: true do |t|
+  create_table "nurse_participant_evaluations", force: :cascade do |t|
     t.integer  "second_contact_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -188,7 +188,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   add_index "nurse_participant_evaluations", ["second_contact_id"], name: "index_nurse_participant_evaluations_on_second_contact_id", using: :btree
   add_index "nurse_participant_evaluations", ["third_contact_id"], name: "index_nurse_participant_evaluations_on_third_contact_id", using: :btree
 
-  create_table "participants", force: true do |t|
+  create_table "participants", force: :cascade do |t|
     t.integer  "nurse_id"
     t.string   "first_name",                                  null: false
     t.string   "last_name",                                   null: false
@@ -214,7 +214,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree
 
-  create_table "patient_contacts", force: true do |t|
+  create_table "patient_contacts", force: :cascade do |t|
     t.string   "contact_reason"
     t.text     "note"
     t.datetime "contact_at"
@@ -233,7 +233,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   add_index "patient_contacts", ["second_contact_id"], name: "index_patient_contacts_on_second_contact_id", using: :btree
   add_index "patient_contacts", ["third_contact_id"], name: "index_patient_contacts_on_third_contact_id", using: :btree
 
-  create_table "reminder_messages", force: true do |t|
+  create_table "reminder_messages", force: :cascade do |t|
     t.integer  "nurse_id",                             null: false
     t.integer  "participant_id",                       null: false
     t.datetime "created_at"
@@ -247,7 +247,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   add_index "reminder_messages", ["nurse_id"], name: "index_reminder_messages_on_nurse_id", using: :btree
   add_index "reminder_messages", ["participant_id"], name: "index_reminder_messages_on_participant_id", using: :btree
 
-  create_table "responses", force: true do |t|
+  create_table "responses", force: :cascade do |t|
     t.integer  "content_access_event_id"
     t.string   "question"
     t.text     "answer"
@@ -257,7 +257,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "responses", ["content_access_event_id"], name: "index_responses_on_content_access_event_id", using: :btree
 
-  create_table "second_contacts", force: true do |t|
+  create_table "second_contacts", force: :cascade do |t|
     t.integer  "participant_id", null: false
     t.datetime "contact_at",     null: false
     t.integer  "session_length", null: false
@@ -282,7 +282,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "second_contacts", ["participant_id"], name: "index_second_contacts_on_participant_id", using: :btree
 
-  create_table "session_events", force: true do |t|
+  create_table "session_events", force: :cascade do |t|
     t.integer  "participant_id", null: false
     t.string   "event_type",     null: false
     t.datetime "occurred_at",    null: false
@@ -294,7 +294,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   add_index "session_events", ["lesson_id"], name: "index_session_events_on_lesson_id", using: :btree
   add_index "session_events", ["participant_id"], name: "index_session_events_on_participant_id", using: :btree
 
-  create_table "smartphones", force: true do |t|
+  create_table "smartphones", force: :cascade do |t|
     t.string   "number",                                  null: false
     t.boolean  "is_app_compatible",       default: false
     t.integer  "participant_id",                          null: false
@@ -306,7 +306,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "smartphones", ["participant_id"], name: "index_smartphones_on_participant_id", using: :btree
 
-  create_table "third_contacts", force: true do |t|
+  create_table "third_contacts", force: :cascade do |t|
     t.datetime "final_appointment_at"
     t.string   "final_appointment_location"
     t.integer  "session_length"
@@ -328,7 +328,7 @@ ActiveRecord::Schema.define(version: 20150907190444) do
 
   add_index "third_contacts", ["participant_id"], name: "index_third_contacts_on_participant_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -352,4 +352,16 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "bit_core_content_modules", "bit_core_tools", name: "fk_content_modules_tools"
+  add_foreign_key "bit_core_content_providers", "bit_core_content_modules", name: "fk_content_providers_modules"
+  add_foreign_key "bit_core_slides", "bit_core_slideshows", name: "fk_slideshows_slides"
+  add_foreign_key "first_appointments", "participants", name: "fk_first_appointments_participants"
+  add_foreign_key "first_contacts", "participants", name: "fk_first_contacts_participants"
+  add_foreign_key "lessons", "bit_core_slideshows", name: "fk_lessons_slideshows"
+  add_foreign_key "nurse_participant_evaluations", "second_contacts", name: "fk_evaluations_second_contacts"
+  add_foreign_key "participants", "users", column: "nurse_id", name: "fk_participants_nurses"
+  add_foreign_key "reminder_messages", "participants", name: "fk_reminder_messages_participants"
+  add_foreign_key "reminder_messages", "users", column: "nurse_id", name: "fk_reminder_messages_nurses"
+  add_foreign_key "second_contacts", "participants", name: "fk_second_contacts_participants"
+  add_foreign_key "smartphones", "participants", name: "fk_smartphones_participants"
 end

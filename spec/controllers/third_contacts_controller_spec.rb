@@ -19,13 +19,13 @@ RSpec.describe ThirdContactsController, type: :controller do
       final_appointment_at: Time.new,
       final_appointment_location: 'd',
       q1: 'e',
-      q2: 'f',
+      q2: false,
       q2_notes: 'g',
-      q3: 'h',
+      q3: true,
       q3_notes: 'i',
-      q4: 'j',
+      q4: false,
       q4_notes: 'k',
-      q5: 'l',
+      q5: true,
       q5_notes: 'm',
       notes: 'n'
     }
