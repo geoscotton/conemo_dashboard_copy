@@ -1,9 +1,10 @@
+# CRUD Dialogues.
 class DialoguesController < ApplicationController
   layout "lesson_editor"
 
   def index
     authorize! :index, Dialogue
-    @dialogues = locale_dialogues.order('day_in_treatment ASC')
+    @dialogues = locale_dialogues.order("day_in_treatment ASC")
   end
 
   def show

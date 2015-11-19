@@ -1,5 +1,5 @@
-require 'rubygems'
-require 'twilio-ruby'
+require "rubygems"
+require "twilio-ruby"
 
 namespace :sms do
   desc "sends pending messages that are due"

@@ -15,19 +15,19 @@ RSpec.describe ThirdContactsController, type: :controller do
   let(:valid_third_contact_params) do
     {
       contact_at: Time.new,
-      session_length: 'b',
+      session_length: "b",
       final_appointment_at: Time.new,
-      final_appointment_location: 'd',
-      q1: 'e',
+      final_appointment_location: "d",
+      q1: "e",
       q2: false,
-      q2_notes: 'g',
+      q2_notes: "g",
       q3: true,
-      q3_notes: 'i',
+      q3_notes: "i",
       q4: false,
-      q4_notes: 'k',
+      q4_notes: "k",
       q5: true,
-      q5_notes: 'm',
-      notes: 'n'
+      q5_notes: "m",
+      notes: "n"
     }
   end
 
@@ -35,15 +35,15 @@ RSpec.describe ThirdContactsController, type: :controller do
     valid_third_contact_params.merge(
       patient_contacts_attributes: {
         "0": {
-          contact_reason: 'o',
-          note: 'p',
-          participant_id: 'q'
+          contact_reason: "o",
+          note: "p",
+          participant_id: "q"
         }
       },
       nurse_participant_evaluation_attributes: {
         "0": {
-          q1: 'r',
-          q2: 's'
+          q1: "r",
+          q2: "s"
         }
       }
     )
@@ -137,7 +137,7 @@ RSpec.describe ThirdContactsController, type: :controller do
 
           post :create,
                participant_id: participant.id,
-               third_contact: { q1: 'question 1' },
+               third_contact: { q1: "question 1" },
                locale: user.locale
 
           expect(response).to redirect_to(active_participants_path)

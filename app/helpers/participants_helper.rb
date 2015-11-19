@@ -116,7 +116,7 @@ module ParticipantsHelper
     if participant.final_appointment
       fa_icon "check-circle 2x", style: "color: green;"
     elsif participant.third_contact
-      " #{l participant.third_contact.final_appointment_at, format: :short}" rescue ''
+      " #{l participant.third_contact.final_appointment_at, format: :short}" rescue ""
     else
       ""
     end
