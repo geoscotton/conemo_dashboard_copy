@@ -4,6 +4,8 @@ class Response < ActiveRecord::Base
 
   has_one :participant,
           through: :content_access_event
+
+  validates :answer, presence: true
   
   def parse_responses
     JSON.parse(answer)
