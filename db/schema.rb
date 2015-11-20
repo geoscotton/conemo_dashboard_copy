@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120020050) do
+ActiveRecord::Schema.define(version: 20151120190501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,8 +164,8 @@ ActiveRecord::Schema.define(version: 20151120020050) do
   add_index "lessons", ["bit_core_slideshow_id"], name: "index_lessons_on_bit_core_slideshow_id", using: :btree
 
   create_table "logins", force: :cascade do |t|
-    t.integer  "participant_id"
-    t.datetime "logged_in_at"
+    t.integer  "participant_id", null: false
+    t.datetime "logged_in_at",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "app_login_guid"
@@ -359,6 +359,7 @@ ActiveRecord::Schema.define(version: 20151120020050) do
   add_foreign_key "first_contacts", "participants", name: "fk_first_contacts_participants"
   add_foreign_key "help_messages", "participants"
   add_foreign_key "lessons", "bit_core_slideshows", name: "fk_lessons_slideshows"
+  add_foreign_key "logins", "participants"
   add_foreign_key "nurse_participant_evaluations", "second_contacts", name: "fk_evaluations_second_contacts"
   add_foreign_key "participants", "users", column: "nurse_id", name: "fk_participants_nurses"
   add_foreign_key "reminder_messages", "participants", name: "fk_reminder_messages_participants"
