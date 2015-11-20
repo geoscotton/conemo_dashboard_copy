@@ -1,4 +1,21 @@
 inherit_from: .rubocop_todo.yml
 
+AllCops:
+  Exclude:
+    - bin/**/*
+    - config/**/*
+    - db/**/*
+    - vendor/**/*
+
+Documentation:
+  Exclude:
+    - spec/**/*
+
 LambdaCall:
   Enabled: false
+
+NumericLiterals:
+  Enabled: false
+
+StringLiterals:
+  EnforcedStyle: double_quotes

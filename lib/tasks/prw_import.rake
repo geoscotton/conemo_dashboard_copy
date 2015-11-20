@@ -51,6 +51,7 @@ namespace :prw_import do
   end
 end
 
+# Helper for migrating data from PRW to app database.
 class ImportPrwData
 
   def self.set_start_dates

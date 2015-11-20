@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe ResponsePresenter do
   include ActionView::TestCase::Behavior

@@ -19,15 +19,19 @@ describe Participant do
     let(:current_lesson) { lessons(:day5) }
 
     before :each do
-      @content_access_event_for_two_lessons_ago = ContentAccessEvent.create(participant_id: participant_day_5.id,
-                                                                            day_in_treatment_accessed: two_lessons_ago.day_in_treatment,
-                                                                            lesson_id: two_lessons_ago.id
-                                                                           )
+      @content_access_event_for_two_lessons_ago = ContentAccessEvent.create!(
+        participant: participant_day_5,
+        day_in_treatment_accessed: two_lessons_ago.day_in_treatment,
+        lesson: two_lessons_ago,
+        accessed_at: Time.zone.now
+      )
 
-      @content_access_event_for_one_lesson_ago = ContentAccessEvent.create(participant_id: participant_day_5.id,
-                                                                           day_in_treatment_accessed: one_lesson_ago.day_in_treatment,
-                                                                           lesson_id: one_lesson_ago.id
-                                                                          )
+      @content_access_event_for_one_lesson_ago = ContentAccessEvent.create!(
+        participant: participant_day_5,
+        day_in_treatment_accessed: one_lesson_ago.day_in_treatment,
+        lesson: one_lesson_ago,
+        accessed_at: Time.zone.now
+      )
     end
 
     describe "#current_study_status" do
@@ -107,10 +111,12 @@ describe Participant do
 
       context "lesson was accessed on time" do
         it "should return 'success'" do
-          ContentAccessEvent.create(participant_id: participant_day_5.id,
-                                    day_in_treatment_accessed: on_time_lesson.day_in_treatment,
-                                    lesson_id: on_time_lesson.id
-                                   )
+          ContentAccessEvent.create!(
+            participant: participant_day_5,
+            day_in_treatment_accessed: on_time_lesson.day_in_treatment,
+            lesson: on_time_lesson,
+            accessed_at: Time.zone.now
+          )
 
           result = participant_day_5.lesson_status(on_time_lesson)
 

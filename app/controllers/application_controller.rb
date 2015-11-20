@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def layout_by_resource
     if devise_controller?
-      if controller_name == 'sessions' && action_name == 'new'
+      if controller_name == "sessions" && action_name == "new"
         "login"
       else
         "dashboard"

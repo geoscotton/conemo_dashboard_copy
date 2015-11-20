@@ -3,16 +3,12 @@
     <thead>
       <th><%= t "conemo.views.active.participants.report.release_day" %></th>
       <th><%= t "conemo.views.shared.dialogue" %></th>
-      <th><%= t "conemo.views.active.participants.report.patient_response" %></th>
     </thead>
     <tbody>
       <% dialogues.each_with_index do |dialogue, index| %>
         <tr>
           <td class="release-day">(<%= dialogue.day_in_treatment %>)<%= participant.start_date ? " " + l(participant.start_date + dialogue.day_in_treatment.to_i.days - 1.days, format: :long) : "" %></td>
           <td class="dialogue-message"><%= dialogue.message %></td>
-          <td class="patient-response">
-            <%= dialogue.content_access_events.find_by(participant_id: participant.id).answer rescue '' %>
-          </td>
         </tr>
       <% end %>
     </tbody>

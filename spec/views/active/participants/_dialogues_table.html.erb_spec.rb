@@ -1,20 +1,13 @@
 require "spec_helper"
 
 RSpec.describe "active/participants/_dialogues_table", type: :view do
-  let(:content_access_event) do
-    instance_double("ContentAccessEvent", answer: "because lol")
-  end
-  let(:content_access_events) do
-    double("Access events", find_by: content_access_event)
-  end
   let(:participant) do
     instance_double("Participant", start_date: nil, id: 12345)
   end
   let(:dialogue) do
     instance_double("Dialogue",
                     day_in_treatment: 2,
-                    message: "Lorem ipsum",
-                    content_access_events: content_access_events)
+                    message: "Lorem ipsum")
   end
   let(:dialogues) { [dialogue] }
 
@@ -44,24 +37,5 @@ RSpec.describe "active/participants/_dialogues_table", type: :view do
            locals: { dialogues: dialogues, participant: participant }
 
     expect(rendered).to have_selector(".dialogue-message", text: "Lorem ipsum")
-  end
-
-  context "when there is a content access event" do
-    it "renders the participant answer" do
-      render partial: "active/participants/dialogues_table.html.erb",
-             locals: { dialogues: dialogues, participant: participant }
-
-      expect(rendered).to have_selector(".patient-response", text: "because lol")
-    end
-  end
-
-  context "when there are no content access events" do
-    it "does not render a participant answer" do
-      allow(content_access_events).to receive(:find_by) { [] }
-      render partial: "active/participants/dialogues_table.html.erb",
-             locals: { dialogues: dialogues, participant: participant }
-
-      expect(rendered).to have_selector(".patient-response", text: "")
-    end
   end
 end

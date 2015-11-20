@@ -9,14 +9,14 @@ class ResponsePresenter
   def formatted_answers
     handle_none @answers do
       @answers.map do |key, value|
-        h.content_tag :p, ("#{format_key(key)}"<<': '<<formatted_values(value))
+        h.content_tag :p, ("#{format_key(key)}"<<": "<<formatted_values(value))
       end.join("").html_safe
     end
   end
 
   def format_key(key)
     sanitized_key = ActionController::Base.helpers.sanitize(key)
-    sanitized_key.gsub(/[_]/, ' ').capitalize
+    sanitized_key.gsub(/[_]/, " ").capitalize
   end
  
   def formatted_values(value)
