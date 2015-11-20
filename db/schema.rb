@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907190444) do
+ActiveRecord::Schema.define(version: 20151120020050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,18 +76,16 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   add_index "bit_core_tools", ["position"], name: "bit_core_tool_position", unique: true, using: :btree
 
   create_table "content_access_events", force: :cascade do |t|
-    t.integer  "participant_id"
-    t.datetime "accessed_at"
+    t.integer  "participant_id",            null: false
+    t.datetime "accessed_at",               null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lesson_id"
-    t.integer  "day_in_treatment_accessed"
+    t.integer  "lesson_id",                 null: false
+    t.integer  "day_in_treatment_accessed", null: false
     t.string   "lesson_datum_guid"
-    t.integer  "dialogue_id"
     t.string   "dialogue_datum_guid"
   end
 
-  add_index "content_access_events", ["dialogue_id"], name: "index_content_access_events_on_dialogue_id", using: :btree
   add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
   add_index "content_access_events", ["participant_id"], name: "index_content_access_events_on_participant_id", using: :btree
 
@@ -142,13 +140,13 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   add_index "first_contacts", ["participant_id"], name: "index_first_contacts_on_participant_id", using: :btree
 
   create_table "help_messages", force: :cascade do |t|
-    t.integer  "participant_id"
-    t.text     "message"
-    t.boolean  "read"
+    t.integer  "participant_id",                     null: false
+    t.text     "message",                            null: false
+    t.boolean  "read",               default: false, null: false
     t.string   "staff_message_guid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "sent_at"
+    t.datetime "sent_at",                            null: false
   end
 
   add_index "help_messages", ["participant_id"], name: "index_help_messages_on_participant_id", using: :btree
@@ -355,8 +353,11 @@ ActiveRecord::Schema.define(version: 20150907190444) do
   add_foreign_key "bit_core_content_modules", "bit_core_tools", name: "fk_content_modules_tools"
   add_foreign_key "bit_core_content_providers", "bit_core_content_modules", name: "fk_content_providers_modules"
   add_foreign_key "bit_core_slides", "bit_core_slideshows", name: "fk_slideshows_slides"
+  add_foreign_key "content_access_events", "lessons"
+  add_foreign_key "content_access_events", "participants"
   add_foreign_key "first_appointments", "participants", name: "fk_first_appointments_participants"
   add_foreign_key "first_contacts", "participants", name: "fk_first_contacts_participants"
+  add_foreign_key "help_messages", "participants"
   add_foreign_key "lessons", "bit_core_slideshows", name: "fk_lessons_slideshows"
   add_foreign_key "nurse_participant_evaluations", "second_contacts", name: "fk_evaluations_second_contacts"
   add_foreign_key "participants", "users", column: "nurse_id", name: "fk_participants_nurses"

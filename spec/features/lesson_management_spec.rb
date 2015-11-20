@@ -28,11 +28,15 @@ describe "lesson management", type: :feature do
     expect(page).to have_text("Edited lesson")
   end
 
-  it "should allow an admin to destroy a lesson" do
-    click_on "destroy-lesson-#{ lessons(:day1).id }"
+  context "when there are no associated ContentAccessEvents" do
+    it "should allow an admin to destroy a lesson" do
+      ContentAccessEvent.destroy_all
 
-    expect(page).to have_text("Lesson deleted")
-    expect(page).not_to have_text(lessons(:day1).title)
+      click_on "destroy-lesson-#{ lessons(:day1).id }"
+
+      expect(page).to have_text("Lesson deleted")
+      expect(page).not_to have_text(lessons(:day1).title)
+    end
   end
 
   it "should allow an admin to create a lesson slide with HTML content" do
