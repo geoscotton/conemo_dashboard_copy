@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120202451) do
+ActiveRecord::Schema.define(version: 20151120221012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -364,5 +364,7 @@ ActiveRecord::Schema.define(version: 20151120202451) do
   add_foreign_key "reminder_messages", "participants", name: "fk_reminder_messages_participants"
   add_foreign_key "reminder_messages", "users", column: "nurse_id", name: "fk_reminder_messages_nurses"
   add_foreign_key "second_contacts", "participants", name: "fk_second_contacts_participants"
+  add_foreign_key "session_events", "lessons"
+  add_foreign_key "session_events", "participants"
   add_foreign_key "smartphones", "participants", name: "fk_smartphones_participants"
 end
