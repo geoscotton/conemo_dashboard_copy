@@ -51,7 +51,11 @@ namespace :sms do
                 puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 1/1, time: #{Time.now}"
               end
               reminder_message.update_attribute(:status, "sent")
-            rescue Twilio::REST::RequestError => err
+            rescue Net::OpenTimeout
+              # ReminderMessage will still have status "pending", so ignore and
+              # retry later
+              puts "swallowed Net::OpenTimeout exception"
+            rescue Twilio::REST::RequestError, Twilio::REST::ServerError => err
               Raven.extra_context message: "Error sending sms to #{sent_to}: #{country_code}#{phone_number}"
               Raven.capture_exception err
               Raven::Context.clear!
