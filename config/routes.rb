@@ -11,15 +11,15 @@ Rails.application.routes.draw do
     mount RailsAdmin::Engine => "/admin", as: "rails_admin"
 
     resources :participants, except: [:index, :show] do
-      resource :first_contact
+      resource :first_contact, only: [:new, :create, :edit, :update]
       resource :first_appointment, only: [:new, :create, :edit, :update]
-      resource :second_contact
+      resource :second_contact, only: [:new, :create, :edit, :update]
       resource :third_contact, only: [:new, :create, :edit, :update]
-      get "/third_contact", to: redirect("/%{locale}/active/participants")
-      resource :final_appointment
+      resource :final_appointment, only: [:new, :create, :edit, :update]
       resource :smartphone, only: [:new, :create, :edit, :update]
       resources :patient_contacts, only: [:new, :create, :destroy]
       resources :help_messages, only: [:update]
+      get "*unknown", to: redirect("/%{locale}/active/participants")
     end
 
     resources :debug_logs, only: :create
