@@ -48,4 +48,8 @@ Rails.application.routes.draw do
     get "/" => "dashboards#index", as: :dashboard
     root to: "dashboards#index"
   end
+
+  # catch all for unrecognized routes
+  get "*unknown", to: redirect("/404")
+  post "*unknown", to: redirect("/404")
 end
