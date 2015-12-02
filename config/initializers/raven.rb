@@ -6,6 +6,7 @@ Raven.configure do |config|
   config.excluded_exceptions = %w(
     URI::InvalidURIError
     ActionController::UnknownHttpMethod
+    ActionController::InvalidAuthenticityToken
   )
   dsn = Rails.application.config.try(:sentry_dsn)
   config.dsn = dsn if dsn
