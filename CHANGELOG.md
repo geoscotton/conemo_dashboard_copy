@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.3.0 - 2015-12-07
+
+* redirect unknown GET and POST requests
+* ignore invalid auth token exceptions
+* ignore Net::OpenTimeout
+* update to patched version of twilio-ruby gem
+* add release version to Raven config
+* increase data integrity of SessionEvents
+* enforce data integrity of Responses
+* protect data integrity for Logins
+* make data integrity updates to ContentAccessEvent
+* improve data integrity for HelpMessages
+* update gem versions
+* update and fix other Lesson-related code
+
 ## 0.2.3 - 2015-09-22
 
 * add 'accessed' display to dashboard
