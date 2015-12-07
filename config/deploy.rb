@@ -150,7 +150,9 @@ desc "copy ckeditor nondigest assets"
 task :copy_nondigest_assets do
   on roles(:web), in: :sequence, wait: 5 do
     within release_path do
-      execute :rake, "ckeditor:create_nondigest_assets"
+      with rails_env: fetch(:rails_env) do
+        execute :rake, "ckeditor:create_nondigest_assets"
+      end
     end
   end
 end
