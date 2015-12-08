@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resource :version, only: :show
 
   namespace "api", constraints: { format: 'json' }  do
     get "lessons" => "lessons#index"
