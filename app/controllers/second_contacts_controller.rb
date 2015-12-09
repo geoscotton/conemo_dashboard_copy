@@ -4,7 +4,8 @@ class SecondContactsController < ApplicationController
 
   def new
     @second_contact = participant.build_second_contact
-    @nurse_participant_evaluation = @second_contact.build_nurse_participant_evaluation
+    @nurse_participant_evaluation =
+      @second_contact.build_nurse_participant_evaluation
   end
 
   def create
@@ -20,7 +21,10 @@ class SecondContactsController < ApplicationController
 
   def edit
     @second_contact = participant.second_contact
-    @nurse_participant_evaluation = NurseParticipantEvaluation.find_or_initialize_by(second_contact: @second_contact)
+    @nurse_participant_evaluation =
+      NurseParticipantEvaluation.find_or_initialize_by(
+        second_contact: @second_contact
+      )
   end
 
   def update
@@ -43,20 +47,13 @@ class SecondContactsController < ApplicationController
 
   def second_contact_params
     params.require(:second_contact).permit(
-        :participant_id, :contact_at, :video_access,
-        :notes, :session_length, :next_contact,
-        :q1, :q2, :q2_notes, :q3, :q3_notes, :q4, :q4_notes,
-        :q5, :q5_notes, :q6, :q6_notes, :q7, :q7_notes,
-        patient_contacts_attributes: [
-            :second_contact_id, :contact_reason, :participant_id,
-            :note, :contact_at
-        ],
-        nurse_participant_evaluation_attributes: [
-            :second_contact_id,
-            :q1,
-            :q2,
-            :q3
-        ]
+      :contact_at, :video_access, :notes, :session_length, :next_contact, :q1,
+      :q2, :q2_notes, :q3, :q3_notes, :q4, :q4_notes, :q5, :q5_notes, :q6,
+      :q6_notes, :q7, :q7_notes, patient_contacts_attributes: [
+        :second_contact_id, :contact_reason, :note, :contact_at
+      ], nurse_participant_evaluation_attributes: [
+        :second_contact_id, :q1, :q2, :q3
+      ]
     )
   end
 

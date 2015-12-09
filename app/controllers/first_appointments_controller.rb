@@ -7,7 +7,7 @@ class FirstAppointmentsController < ApplicationController
       :appointment_at, :appointment_location, :next_contact, :session_length,
       :notes, :smartphone_comfort, :smart_phone_comfort_note,
       :participant_session_engagement, :app_usage_prediction,
-      patient_contacts_attributes: [:contact_reason, :note, :participant_id]
+      patient_contacts_attributes: [:contact_reason, :note]
     )
   end
 
@@ -16,8 +16,8 @@ class FirstAppointmentsController < ApplicationController
   end
 
   def create
-    @first_appointment = participant
-    .build_first_appointment(self.class.filter_params(params))
+    @first_appointment =
+      participant.build_first_appointment(self.class.filter_params(params))
     if @first_appointment.save
       @first_appointment.schedule_message(participant, "second_contact")
       redirect_to new_participant_smartphone_path,

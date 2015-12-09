@@ -11,6 +11,11 @@ Rails.application.routes.draw do
 
     mount RailsAdmin::Engine => "/admin", as: "rails_admin"
 
+    get "/participants/:participant_id/first_contacts/missed_appointment" => "first_contacts#missed_appointment", as: :missed_appointment
+    get "/participants/:participant_id/first_appointments/missed_second_contact" => "first_appointments#missed_second_contact", as: :missed_second_contact
+    get "/participants/:participant_id/second_contacts/missed_third_contact" => "second_contacts#missed_third_contact", as: :missed_third_contact
+    get "/participants/:participant_id/third_contacts/missed_final_appointment" => "third_contacts#missed_final_appointment", as: :missed_final_appointment
+
     resources :participants, except: [:index, :show] do
       resource :first_contact, only: [:new, :create, :edit, :update]
       resource :first_appointment, only: [:new, :create, :edit, :update]
@@ -24,11 +29,6 @@ Rails.application.routes.draw do
     end
 
     resources :debug_logs, only: :create
-
-    get "/participants/:participant_id/first_contacts/missed_appointment" => "first_contacts#missed_appointment", as: :missed_appointment
-    get "/participants/:participant_id/first_appointments/missed_second_contact" => "first_appointments#missed_second_contact", as: :missed_second_contact
-    get "/participants/:participant_id/second_contacts/missed_third_contact" => "second_contacts#missed_third_contact", as: :missed_third_contact
-    get "/participants/:participant_id/third_contacts/missed_final_appointment" => "third_contacts#missed_final_appointment", as: :missed_final_appointment
 
     namespace "pending" do
       resources  :participants, only: :index

@@ -40,8 +40,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
           patient_contacts_attributes: {
             "0": {
               contact_reason: "j",
-              note: "k",
-              participant_id: "l"
+              note: "k"
             }
           }
         }
