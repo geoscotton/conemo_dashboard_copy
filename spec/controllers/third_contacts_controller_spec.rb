@@ -36,8 +36,7 @@ RSpec.describe ThirdContactsController, type: :controller do
       patient_contacts_attributes: {
         "0": {
           contact_reason: "o",
-          note: "p",
-          participant_id: "q"
+          note: "p"
         }
       },
       nurse_participant_evaluation_attributes: {

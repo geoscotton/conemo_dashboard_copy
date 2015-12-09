@@ -8,7 +8,7 @@ class FinalAppointmentsController < ApplicationController
 
   def create
     @final_appointment = participant
-    .build_final_appointment(final_appointment_params)
+                         .build_final_appointment(final_appointment_params)
     if @final_appointment.save
       redirect_to active_participants_path,
                   notice: "Successfully created first appointment"
@@ -37,8 +37,7 @@ class FinalAppointmentsController < ApplicationController
 
   def final_appointment_params
     params.require(:final_appointment).permit(
-        :participant_id, :appointment_at,
-        :appointment_location, :phone_returned, :notes
+      :appointment_at, :appointment_location, :phone_returned, :notes
     )
   end
 
