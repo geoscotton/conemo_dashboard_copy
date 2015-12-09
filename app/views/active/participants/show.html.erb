@@ -43,5 +43,5 @@
   <%= render 'final_appointment', final_appointment: @participant.final_appointment if @participant.final_appointment %>
 </ul>
 <script>
- $('.popover').popover('show');
+  $('.popover').popover({ trigger: 'manual' }).popover('show');
 </script>
