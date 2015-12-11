@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 - 2015-12-11
+
+* prevent null timezone attribute for Users
+* prevent timeline popovers from toggling
+* remove :participant_id from permitted attributes
+* move routes above participants namespace
+* add version route
+
 ## 0.3.0 - 2015-12-07
 
 * redirect unknown GET and POST requests
