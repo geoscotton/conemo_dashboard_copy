@@ -1,0 +1,59 @@
+user_1:
+  email: user_1@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  role: admin
+  phone: 11111111111
+  first_name: English
+  last_name: Administrator
+  locale: en
+  timezone: Central Time (US & Canada)
+
+user_2:
+  email: user_2@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  role: admin
+  phone: 12222222222
+  first_name: Spanish
+  last_name: Administrator
+  locale: es-PE
+  timezone: Lima
+
+user_3:
+  email: user_3@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  role: admin
+  phone: 13333333333
+  first_name: Portuguese
+  last_name: Administrator
+  locale: pt-BR
+  timezone: Brasilia
+
+user_4:
+  email: user_4@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  role: nurse
+  phone: 14444444444
+  first_name: English
+  last_name: nurse
+  locale: en
+  timezone: Central Time (US & Canada)
+
+user_5:
+  email: user_5@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  role: nurse
+  phone: 15555555555
+  first_name: English
+  last_name: nurse
+  locale: es-PE
+  timezone: Central Time (US & Canada)
+
+user_6:
+  email: user_6@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  role: nurse
+  phone: 16666666666
+  first_name: English
+  last_name: nurse
+  locale: pt-BR
+  timezone: Central Time (US & Canada)

@@ -1,0 +1,41 @@
+participant1:
+  nurse: user_4
+  first_name: Joe
+  last_name: Schmo
+  study_identifier: 1111
+  family_health_unit_name: Family Health Center
+  family_record_number: 11111
+  phone: 11111111111
+  date_of_birth: <%= Date.today - ((25 * 365) + 100) %>
+  gender: male
+  enrollment_date: <%= Date.today %>
+  status: pending
+  locale: en
+
+participant2:
+  nurse: user_4
+  first_name: John
+  last_name: Smith
+  study_identifier: 2222
+  family_health_unit_name: Family Health Center
+  family_record_number: 22222
+  phone: 12222222222
+  date_of_birth: <%= Date.today - ((35 * 365) + 20) %>
+  gender: male
+  enrollment_date: <%= Date.today %>
+  status: pending
+  locale: en
+
+participant3:
+  nurse: user_4
+  first_name: Patti
+  last_name: Smith
+  study_identifier: 3333
+  family_health_unit_name: Family Health Center
+  family_record_number: 33333
+  phone: 13333333333
+  date_of_birth: <%= Date.today - ((69 * 365) + 14) %>
+  gender: female
+  enrollment_date: <%= Date.today %>
+  status: ineligible
+  locale: en
