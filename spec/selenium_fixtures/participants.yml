@@ -1,6 +1,6 @@
 <% (100..102).each do |i| %>
   participant<%= i %>:
-    nurse: user_4
+    nurse: user_400
     first_name: First
     last_name: Last-<%= i %> 
     study_identifier: <%= i %>
@@ -16,7 +16,7 @@
 
 <% (200..201).each do |i| %>
   participant<%= i %>:
-    nurse: user_4
+    nurse: user_400
     first_name: First
     last_name: Last-<%= i %>
     study_identifier: <%= i %>
@@ -30,9 +30,9 @@
     locale: en
 <% end %>
 
-<% (300..302).each do |i| %>
+<% (300..312).each do |i| %>
   participant<%= i %>:
-    nurse: user_4
+    nurse: user_400
     first_name: First
     last_name: Last-<%= i %>
     study_identifier: <%= i %>

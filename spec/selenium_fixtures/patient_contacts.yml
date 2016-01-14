@@ -1,0 +1,5 @@
+patient_contact_1:
+  contact_reason: Non-adherence
+  note: Pre-loaded notes. Hello!
+  participant: participant305
+  contact_at: <%= Time.zone.now %>

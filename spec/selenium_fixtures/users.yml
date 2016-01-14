@@ -1,59 +1,71 @@
-user_1:
-  email: user_1@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
-  role: admin
-  phone: 11111111111
-  first_name: English
-  last_name: Administrator
-  locale: en
-  timezone: Central Time (US & Canada)
+<% (100..100).each do |i| %>
+  user_<%= i %>:
+    email: user_<%= i %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: admin
+    phone: 11111111<%= i %>
+    first_name: English
+    last_name: Administrator-<%= i %>
+    locale: en
+    timezone: Central Time (US & Canada)
+<% end %>
 
-user_2:
-  email: user_2@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
-  role: admin
-  phone: 12222222222
-  first_name: Spanish
-  last_name: Administrator
-  locale: es-PE
-  timezone: Lima
+<% (200..200).each do |i| %>
+  user_<%= i %>:
+    email: user_<%= i %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: admin
+    phone: 12222222<%= i %>
+    first_name: Spanish
+    last_name: Administrator-<%= i %>
+    locale: es-PE
+    timezone: Lima
+<% end %>
 
-user_3:
-  email: user_3@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
-  role: admin
-  phone: 13333333333
-  first_name: Portuguese
-  last_name: Administrator
-  locale: pt-BR
-  timezone: Brasilia
+<% (300..300).each do |i| %>
+  user_<%= i %>:
+    email: user_<%= i %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: admin
+    phone: 13333333<%= i %>
+    first_name: Portuguese
+    last_name: Administrator-<%= i %>
+    locale: pt-BR
+    timezone: Brasilia
+<% end %>
 
-user_4:
-  email: user_4@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
-  role: nurse
-  phone: 14444444444
-  first_name: English
-  last_name: Nurse
-  locale: en
-  timezone: Central Time (US & Canada)
+<% (400..401).each do |i| %>
+  user_<%= i %>:
+    email: user_<%= i %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: nurse
+    phone: 14444444<%= i %>
+    first_name: English
+    last_name: Nurse-<%= i %>
+    locale: en
+    timezone: Central Time (US & Canada)
+<% end %>
 
-user_5:
-  email: user_5@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
-  role: nurse
-  phone: 15555555555
-  first_name: Spanish
-  last_name: Nurse
-  locale: es-PE
-  timezone: Central Time (US & Canada)
+<% (500..500).each do |i| %>
+  user_<%= i %>:
+    email: user_<%= i %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: nurse
+    phone: 15555555<%= i %>
+    first_name: Spanish
+    last_name: Nurse-<%= i %>
+    locale: es-PE
+    timezone: Central Time (US & Canada)
+<% end %>
 
-user_6:
-  email: user_6@example.com
-  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
-  role: nurse
-  phone: 16666666666
-  first_name: Portuguese
-  last_name: Nurse
-  locale: pt-BR
-  timezone: Central Time (US & Canada)
+<% (600..600).each do |i| %>
+  user_<%= i %>:
+    email: user_<%= i %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: nurse
+    phone: 16666666<%= i %>
+    first_name: Portuguese
+    last_name: Nurse-<%= i %>
+    locale: pt-BR
+    timezone: Central Time (US & Canada)
+<% end %>

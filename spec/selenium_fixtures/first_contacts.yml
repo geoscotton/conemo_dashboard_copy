@@ -1,0 +1,7 @@
+<% (311..312).each do |i| %>
+  first_contacts_<%= i %>:
+    participant: participant<%= i %>
+    contact_at: <%= DateTime.now - 2 %>
+    first_appointment_at: <%= DateTime.now %>
+    first_appointment_location: Test Location
+<% end %>

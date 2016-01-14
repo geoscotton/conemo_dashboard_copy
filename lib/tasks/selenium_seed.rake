@@ -17,6 +17,8 @@ namespace :selenium_seed do
   desc "seed the database with fixtures from spec/selenium_fixtures"
   task with_fixtures: :environment do
     path = File.join(File.dirname(__FILE__), "..", "..", "spec", "selenium_fixtures")
-    ActiveRecord::FixtureSet.create_fixtures path, [:users, :participants]
+    ActiveRecord::FixtureSet.create_fixtures path, [
+      :users, :participants, :patient_contacts, :first_contacts
+    ]
   end
 end
