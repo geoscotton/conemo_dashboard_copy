@@ -1,0 +1,13 @@
+<% (320..328).each do |i| %>
+  first_appointment_<%= i %>:
+    participant: participant<%= i %>
+    appointment_at: <%= DateTime.now - 2 %>
+    appointment_location: Test Location
+    session_length: 120
+    next_contact: <%= DateTime.now %>
+    notes: So many notes
+    smartphone_comfort: 3 – After FIRST demonstration patient needs help
+    participant_session_engagement: 2 – More or less engaged
+    app_usage_prediction: 2 – 50/50 chance
+    smart_phone_comfort_note: So many phone notes
+<% end %>

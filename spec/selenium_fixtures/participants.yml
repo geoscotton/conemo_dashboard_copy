@@ -30,7 +30,7 @@
     locale: en
 <% end %>
 
-<% (300..312).each do |i| %>
+<% (300..328).each do |i| %>
   participant<%= i %>:
     nurse: user_400
     first_name: First
