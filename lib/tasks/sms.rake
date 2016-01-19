@@ -27,11 +27,11 @@ namespace :sms do
           if reminder_message.notification_time && reminder_message.notification_time <= Time.current
             if reminder_message.message_type == "participant"
               country_code = reminder_message.participant.prefix
-              if reminder_message.participant.smartphone
-                phone_number = reminder_message.participant.smartphone.number
-              else
-                phone_number = reminder_message.participant.phone
-              end
+              phone_number = if reminder_message.participant.smartphone
+                               reminder_message.participant.smartphone.number
+                             else
+                               reminder_message.participant.phone
+                             end
               sent_to = reminder_message.participant.study_identifier
             else
               country_code = reminder_message.nurse.prefix

@@ -62,7 +62,7 @@ module Status
 
   def access_status(lesson)
     access = session_events.where(lesson_id: lesson.id).order(:occurred_at)
-             .first
+                           .first
     completion = access_response(lesson)
 
     if lesson.guid == current_lesson.guid
@@ -80,27 +80,27 @@ module Status
 
   def next_lesson(lesson)
     Lesson.where("day_in_treatment > ?", lesson.day_in_treatment)
-    .where(locale: locale)
-    .order(day_in_treatment: :asc).first
+          .where(locale: locale)
+          .order(day_in_treatment: :asc).first
   end
 
   # Overall Status
   def current_lesson
     Lesson.where("day_in_treatment <= ?", study_day)
-    .where(locale: locale)
-    .order(day_in_treatment: :desc).first
+          .where(locale: locale)
+          .order(day_in_treatment: :desc).first
   end
 
   def one_lesson_ago
     Lesson.where("day_in_treatment <= ?", study_day)
-    .where(locale: locale)
-    .order(day_in_treatment: :desc).second
+          .where(locale: locale)
+          .order(day_in_treatment: :desc).second
   end
 
   def two_lessons_ago
     Lesson.where("day_in_treatment <= ?", study_day)
-    .where(locale: locale)
-    .order(day_in_treatment: :desc).offset(2).first
+          .where(locale: locale)
+          .order(day_in_treatment: :desc).offset(2).first
   end
 
   def two_lessons_ago_complete?

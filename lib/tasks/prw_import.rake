@@ -209,7 +209,7 @@ class ImportPrwData
     StaffMessage.all.each do |message|
       if !message.help_message_exists?
         participant = Participant.where(study_identifier: message.FEATURE_VALUE_DT_user_id)
-                        .first
+                                 .first
         if participant
           begin
             help_message = HelpMessage.new(participant: participant,

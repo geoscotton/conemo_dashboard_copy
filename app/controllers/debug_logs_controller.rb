@@ -2,7 +2,7 @@ require "fileutils"
 
 # Handle debug logs from Purple Robot.
 class DebugLogsController < ActionController::Base
-  DEBUG_LOG_PATH = "log/debug_logs"
+  DEBUG_LOG_PATH = "log/debug_logs".freeze
 
   def create
     payload = JSON.parse(params[:json])

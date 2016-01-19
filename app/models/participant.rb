@@ -22,7 +22,7 @@ class Participant < ActiveRecord::Base
   ACTIVE = "active".freeze
   INELIGIBLE = "ineligible".freeze
   STATUS = [PENDING, ACTIVE, INELIGIBLE].freeze
-  GENDER = ["male", "female"]
+  GENDER = %w( male female ).freeze
 
   validates :first_name,
             :last_name,
@@ -40,9 +40,9 @@ class Participant < ActiveRecord::Base
 
   before_validation :sanitize_number
 
-  scope :ineligible, -> { where(status: "ineligible") }
-  scope :pending, -> { where(status: "pending") }
-  scope :active, -> { where(status: "active") }
+  scope :ineligible, -> { where(status: INELIGIBLE) }
+  scope :pending, -> { where(status: PENDING) }
+  scope :active, -> { where(status: ACTIVE) }
 
   def seven_day_access
     logins.where("logged_in_at > ?", Date.today - 7.days)
@@ -50,7 +50,7 @@ class Participant < ActiveRecord::Base
 
   def study_day
     if start_date
-      ((Date.today - start_date).to_i) + 1
+      (Date.today - start_date).to_i + 1
     end
   end
 
