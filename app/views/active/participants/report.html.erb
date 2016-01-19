@@ -56,8 +56,8 @@
       </tbody>
     </table>
   </div>
-  <div class="col-md-7 col-sm-7 col-xs-7" id="main-report">
 
+  <div class="col-md-7 col-sm-7 col-xs-7" id="main-report">
     <ul class="nav nav-tabs" id="report-table">
       <li class="active">
         <a href="#lessons" data-toggle="tab"><%= t "conemo.views.dashboards.index.lessons_button" %></a>
@@ -66,11 +66,13 @@
         <a href="#dialogues" data-toggle="tab"><%= t "conemo.views.dashboards.index.dialogues_button" %></a>
       </li>
     </ul>
+
     <div class="tab-content">
       <%= render partial: "lessons_table", :locals => {participant: @participant, lessons: @lessons} %>
       <%= render partial: "dialogues_table", :locals => {participant: @participant, dialogues: @dialogues} %>
     </div>
   </div>
+
   <div class="col-md-3 col-sm-3 col-xs-3">
     <table class="table accordion-toggle" data-toggle="collapse" data-target="#notes-table">
       <thead>
@@ -116,14 +118,14 @@
     </table>
   </div>
 </div>
-<script>
-    function tabifyReport() {
-        $('#report-table a').click(function (e) {
-            e.preventDefault()
-            $(this).tab('show')
-        });
-    }
 
-    $(document).ready(tabifyReport);
-    $(document).on("page:change", tabifyReport);
+<script>
+  function tabifyReport() {
+    $('#main-report').tabs({
+      active: 0
+    });
+  }
+
+  $(document).ready(tabifyReport);
+  $(document).on("page:change", tabifyReport);
 </script>

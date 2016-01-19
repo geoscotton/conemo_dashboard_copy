@@ -16,7 +16,7 @@
 
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "#{t 'conemo.views.shared.app_download'}", "http://mohrlab.northwestern.edu/management/conemo/" %></li>
+        <li><%= link_to "#{t 'conemo.views.shared.app_download'}", "https://rink.hockeyapp.net" %></li>
         <li class="<%= I18n.locale == :en ? "active" : "" %>"><%= link_to "English", new_user_session_path(locale: "en") %></li>
         <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %>"><%= link_to "Español", new_user_session_path(locale: "es-PE") %></li>
         <li class="<%= I18n.locale == :"pt-BR" ? "active" : "" %>"><%= link_to "Português", new_user_session_path(locale: "pt-BR") %></li>

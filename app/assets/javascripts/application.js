@@ -11,13 +11,13 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.ui.core
-//= require jquery.ui.widget
-//= require jquery.ui.mouse
-//= require jquery.ui.draggable
-//= require jquery.ui.sortable
+//= require jquery-ui/core
+//= require jquery-ui/widget
+//= require jquery-ui/mouse
+//= require jquery-ui/draggable
+//= require jquery-ui/sortable
+//= require jquery-ui/tabs
 //= require jquery_ujs
-//= require bootstrap-sprockets
 //= require turbolinks
 //= require ckeditor/init
 //= require_tree .

@@ -23,7 +23,7 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
 
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "#{t 'conemo.views.shared.app_download'}", "http://mohrlab.northwestern.edu/management/conemo/" %></li>
+        <li><%= link_to "#{t 'conemo.views.shared.app_download'}", "https://rink.hockeyapp.net" %></li>
         <li class="<%= I18n.locale == :en ? "active" : "" %> hidden-sm"><%= link_to "English", dashboard_path(locale: "en") %></li>
         <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %> hidden-sm"><%= link_to "Español", dashboard_path(locale: "es-PE") %></li>
         <li class="<%= I18n.locale == :"pt-BR" ? "active" : "" %> hidden-sm"><%= link_to "Português", dashboard_path(locale: "pt-BR") %></li>
