@@ -6,7 +6,35 @@
     session_length: 120
     next_contact: <%= DateTime.now %>
     notes: So many notes
-    smartphone_comfort: 3 – After FIRST demonstration patient needs help
+    smartphone_comfort: 4 – Patient can turn on the cell phone, access and use the app by her/himself after the first demonstration
+    participant_session_engagement: 2 – More or less engaged
+    app_usage_prediction: 2 – 50/50 chance
+    smart_phone_comfort_note: So many phone notes
+<% end %>
+
+<% (329..336).each do |i| %>
+  first_appointment_<%= i %>:
+    participant: participant<%= i %>
+    appointment_at: <%= DateTime.now - 23 %>
+    appointment_location: Test Location
+    session_length: 120
+    next_contact: <%= DateTime.now - 21 %>
+    notes: So many notes
+    smartphone_comfort: 4 – Patient can turn on the cell phone, access and use the app by her/himself after the first demonstration
+    participant_session_engagement: 2 – More or less engaged
+    app_usage_prediction: 2 – 50/50 chance
+    smart_phone_comfort_note: So many phone notes
+<% end %>
+
+<% (337..343).each do |i| %>
+  first_appointment_<%= i %>:
+    participant: participant<%= i %>
+    appointment_at: <%= DateTime.now - 37 %>
+    appointment_location: Test Location
+    session_length: 120
+    next_contact: <%= DateTime.now - 35 %>
+    notes: So many notes
+    smartphone_comfort: 4 – Patient can turn on the cell phone, access and use the app by her/himself after the first demonstration
     participant_session_engagement: 2 – More or less engaged
     app_usage_prediction: 2 – 50/50 chance
     smart_phone_comfort_note: So many phone notes
