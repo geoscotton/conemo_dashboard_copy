@@ -1,0 +1,5 @@
+<% (1..4).each do |i| %>
+  login_<%= i %>:
+    participant: participant343
+    logged_in_at: <%= DateTime.now - i %>
+<% end %>

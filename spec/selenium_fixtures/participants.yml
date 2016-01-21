@@ -43,6 +43,7 @@
     gender: female
     enrollment_date: <%= Date.today %>
     status: active
+    start_date: <%= Date.today %>
     locale: en
 <% end %>
 
@@ -59,6 +60,7 @@
     gender: female
     enrollment_date: <%= Date.today - 2 %>
     status: active
+    start_date: <%= Date.today - 2 %>
     locale: en
 <% end %>
 
@@ -75,6 +77,7 @@
     gender: female
     enrollment_date: <%= Date.today - 4 %>
     status: active
+    start_date: <%= Date.today - 4 %>
     locale: en
 <% end %>
 
@@ -91,6 +94,7 @@
     gender: female
     enrollment_date: <%= Date.today - 25 %>
     status: active
+    start_date: <%= Date.today - 25 %>
     locale: en
 <% end %>
 
@@ -107,5 +111,176 @@
     gender: female
     enrollment_date: <%= Date.today - 39 %>
     status: active
+    start_date: <%= Date.today - 39 %>
+    locale: en
+<% end %>
+
+<% (400..401).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 1 %>
+    status: active
+    start_date: <%= Date.today - 1 %>
+    locale: en
+<% end %>
+
+<% (410..412).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 3 %>
+    status: active
+    start_date: <%= Date.today - 3 %>
+    locale: en
+<% end %>
+
+<% (420..422).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 5 %>
+    status: active
+    start_date: <%= Date.today - 5 %>
+    locale: en
+<% end %>
+
+<% (430..432).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 6 %>
+    status: active
+    start_date: <%= Date.today - 6 %>
+    locale: en
+<% end %>
+
+<% (440..442).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 7 %>
+    status: active
+    start_date: <%= Date.today - 7 %>
+    locale: en
+<% end %>
+
+<% (450..452).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 8 %>
+    status: active
+    start_date: <%= Date.today - 8 %>
+    locale: en
+<% end %>
+
+<% (460..462).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 9 %>
+    status: active
+    start_date: <%= Date.today - 9 %>
+    locale: en
+<% end %>
+
+<% (470..472).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 10 %>
+    status: active
+    start_date: <%= Date.today - 10 %>
+    locale: en
+<% end %>
+
+<% (480..480).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 11 %>
+    status: active
+    start_date: <%= Date.today - 11 %>
+    locale: en
+<% end %>
+
+<% (490..490).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %>
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 44<%= i %>
+    phone: 14444444<%= i %>
+    date_of_birth: <%= Date.today - ((54 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today - 12 %>
+    status: active
+    start_date: <%= Date.today - 12 %>
     locale: en
 <% end %>
