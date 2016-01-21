@@ -1,0 +1,16 @@
+<% (329..336).each do |i| %>
+  nurse_participant_evaluation_<%= i %>:
+    second_contact: second_contact_<%= i %>
+    q1: 1 - Seems to have great difficulty using the application
+    q2: 1 – Not interested
+    q3: 1 – Not probable
+<% end %>
+
+<% (337..343).each do |i| %>
+  nurse_participant_evaluation_<%= i %>:
+    second_contact: second_contact_<%= i %>
+    q1: 1 - Seems to have great difficulty using the application
+    q2: 1 – Not interested
+    q3: 1 – Not probable
+    third_contact: third_contact_<%= i %>
+<% end %>

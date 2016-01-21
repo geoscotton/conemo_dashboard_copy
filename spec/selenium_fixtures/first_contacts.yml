@@ -1,0 +1,31 @@
+<% (311..319).each do |i| %>
+  first_contacts_<%= i %>:
+    participant: participant<%= i %>
+    contact_at: <%= DateTime.now - 2 %>
+    first_appointment_at: <%= DateTime.now %>
+    first_appointment_location: Test Location
+<% end %>
+
+<% (320..328).each do |i| %>
+  first_contacts_<%= i %>:
+    participant: participant<%= i %>
+    contact_at: <%= DateTime.now - 4 %>
+    first_appointment_at: <%= DateTime.now - 2 %>
+    first_appointment_location: Test Location
+<% end %>
+
+<% (329..336).each do |i| %>
+  first_contacts_<%= i %>:
+    participant: participant<%= i %>
+    contact_at: <%= DateTime.now - 25 %>
+    first_appointment_at: <%= DateTime.now - 23 %>
+    first_appointment_location: Test Location
+<% end %>
+
+<% (337..343).each do |i| %>
+  first_contacts_<%= i %>:
+    participant: participant<%= i %>
+    contact_at: <%= DateTime.now - 39 %>
+    first_appointment_at: <%= DateTime.now  - 37 %>
+    first_appointment_location: Test Location
+<% end %>
