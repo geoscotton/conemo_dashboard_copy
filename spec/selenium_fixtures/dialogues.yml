@@ -1,0 +1,8 @@
+dialogue_1:
+  title: Day 1
+  guid: whatever
+  day_in_treatment: 1
+  locale: en
+  message: Hey! This is dailogue 1
+  yes_text: Yes
+  no_text: No

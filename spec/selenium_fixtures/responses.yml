@@ -1,0 +1,11 @@
+response_1:
+  content_access_event: content_access_event_1
+  answer: '{"What is your name?": "First Last-320", "How old are you?": "53"}'
+
+response_2:
+  content_access_event: content_access_event_2
+  answer: '{"How is it going?": "Swell!"}'
+
+response_3:
+  content_access_event: content_access_event_3
+  answer: '{"What are you up to?": "Nothing at all"}'

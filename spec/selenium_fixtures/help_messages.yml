@@ -1,0 +1,17 @@
+help_message_1:
+  participant: participant333
+  message: Help me!
+  read: false
+  sent_at: <%= DateTime.now %>
+
+help_message_2:
+  participant: participant343
+  message: I need some help, please
+  read: true
+  sent_at: <%= DateTime.now - 2 %>
+
+help_message_3:
+  participant: participant343
+  message: Help!
+  read: true
+  sent_at: <%= DateTime.now - 1 %>
