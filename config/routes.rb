@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount TokenAuth::Engine => '/'
+
   resource :version, only: :show
 
   namespace "api", constraints: { format: 'json' }  do

@@ -12,7 +12,6 @@ class Participant < ActiveRecord::Base
   has_many :reminder_messages, dependent: :destroy
   has_many :content_access_events, dependent: :destroy
   has_many :lessons, through: :content_access_events
-  has_many :dialogues, through: :content_access_events
   has_many :patient_contacts, dependent: :destroy
   has_many :help_messages, dependent: :destroy
   has_many :logins, dependent: :destroy
@@ -39,6 +38,7 @@ class Participant < ActiveRecord::Base
   validate :enrollment_date_is_sane
 
   before_validation :sanitize_number
+  after_save :create_synchronizable_resources
 
   scope :ineligible, -> { where(status: INELIGIBLE) }
   scope :pending, -> { where(status: PENDING) }
@@ -69,5 +69,21 @@ class Participant < ActiveRecord::Base
           I18n.t("conemo.models.participant.enrollment_date_is_sane_error")
       )
     end
+  end
+
+  def create_synchronizable_resources
+    return if TokenAuth::SynchronizableResource.exists?(
+      entity_id: id,
+      class_name: Device.name
+    )
+
+    TokenAuth::SynchronizableResource.create!(
+      entity_id: id,
+      entity_id_attribute_name: "participant_id",
+      name: "devices",
+      class_name: Device.name,
+      is_pullable: false,
+      is_pushable: true
+    )
   end
 end

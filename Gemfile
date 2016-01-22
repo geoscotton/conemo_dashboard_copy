@@ -7,7 +7,7 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier"
 gem "jquery-rails", "~> 3.1.3"
 gem "jquery-ui-rails"
-gem "devise", "= 3.5.2"
+gem "devise", "~> 3.5.2"
 gem "rails_admin", "~> 0.8.1"
 gem "cancancan", "= 1.13.1"
 gem "font-awesome-sass"
@@ -47,3 +47,7 @@ group :test do
 end
 
 gem "bit_core", "~> 1.0"
+gem "token_auth",
+    git: "https://github.com/NU-CBITS/token_auth_server_rails",
+    tag: "0.1.2"
+gem "active_model_serializers", "= 0.10.0.rc3"

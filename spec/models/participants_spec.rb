@@ -3,12 +3,21 @@ require "spec_helper"
 describe Participant do
   fixtures :all
 
+  let(:participant) { participants(:participant1)}
+
   describe "#sanitize_number" do
-    let(:participant) { participants(:participant1)}
     it "strips non-numeric characters" do
       participant.phone = "(444)555-5555"
       participant.save
       expect(participant.phone).to eq "4445555555"
+    end
+  end
+
+  describe "synchronizable resource creation" do
+    it "creates a Device resource" do
+      expect { participant.save }.to change {
+        TokenAuth::SynchronizableResource.where(class_name: Device.name).count
+      }.by(1)
     end
   end
 
