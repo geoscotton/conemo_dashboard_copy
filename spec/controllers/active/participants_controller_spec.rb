@@ -2,7 +2,7 @@ require "spec_helper"
 
 module Active
   describe ParticipantsController, type: :controller do
-    LOCALES = %w( en es-PE pt-BR )
+    LOCALES = %w( en es-PE pt-BR ).freeze
 
     fixtures :all
 

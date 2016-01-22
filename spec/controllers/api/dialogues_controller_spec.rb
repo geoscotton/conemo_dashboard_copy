@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe Api::DialoguesController, type: :controller do
   fixtures :all
 
-  LOCALES = %w( en pt-BR es-PE )
+  LOCALES = %w( en pt-BR es-PE ).freeze
 
   describe "GET index" do
     it "sets the lessons" do

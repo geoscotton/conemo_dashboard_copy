@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209215415) do
+ActiveRecord::Schema.define(version: 20160119153539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,22 @@ ActiveRecord::Schema.define(version: 20151209215415) do
 
   add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
   add_index "content_access_events", ["participant_id"], name: "index_content_access_events_on_participant_id", using: :btree
+
+  create_table "devices", force: :cascade do |t|
+    t.string   "uuid",           null: false
+    t.string   "device_uuid",    null: false
+    t.string   "manufacturer",   null: false
+    t.string   "model",          null: false
+    t.string   "platform",       null: false
+    t.string   "device_version", null: false
+    t.datetime "inserted_at",    null: false
+    t.integer  "participant_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "devices", ["device_uuid"], name: "index_devices_on_device_uuid", unique: true, using: :btree
+  add_index "devices", ["uuid"], name: "index_devices_on_uuid", unique: true, using: :btree
 
   create_table "dialogues", force: :cascade do |t|
     t.string   "title"
@@ -324,6 +340,38 @@ ActiveRecord::Schema.define(version: 20151209215415) do
   end
 
   add_index "third_contacts", ["participant_id"], name: "index_third_contacts_on_participant_id", using: :btree
+
+  create_table "token_auth_authentication_tokens", force: :cascade do |t|
+    t.integer "entity_id",                             null: false
+    t.string  "value",       limit: 32,                null: false
+    t.boolean "is_enabled",             default: true, null: false
+    t.string  "uuid",        limit: 36,                null: false
+    t.string  "client_uuid",                           null: false
+  end
+
+  add_index "token_auth_authentication_tokens", ["client_uuid"], name: "index_token_auth_authentication_tokens_on_client_uuid", unique: true, using: :btree
+  add_index "token_auth_authentication_tokens", ["entity_id"], name: "index_token_auth_authentication_tokens_on_entity_id", unique: true, using: :btree
+  add_index "token_auth_authentication_tokens", ["value"], name: "index_token_auth_authentication_tokens_on_value", unique: true, using: :btree
+
+  create_table "token_auth_configuration_tokens", force: :cascade do |t|
+    t.datetime "expires_at", null: false
+    t.string   "value",      null: false
+    t.integer  "entity_id",  null: false
+  end
+
+  add_index "token_auth_configuration_tokens", ["entity_id"], name: "index_token_auth_configuration_tokens_on_entity_id", unique: true, using: :btree
+
+  create_table "token_auth_synchronizable_resources", force: :cascade do |t|
+    t.string   "uuid",                                     null: false
+    t.integer  "entity_id",                                null: false
+    t.string   "entity_id_attribute_name",                 null: false
+    t.string   "name",                                     null: false
+    t.string   "class_name",                               null: false
+    t.boolean  "is_pullable",              default: false, null: false
+    t.boolean  "is_pushable",              default: false, null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

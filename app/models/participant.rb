@@ -12,7 +12,6 @@ class Participant < ActiveRecord::Base
   has_many :reminder_messages, dependent: :destroy
   has_many :content_access_events, dependent: :destroy
   has_many :lessons, through: :content_access_events
-  has_many :dialogues, through: :content_access_events
   has_many :patient_contacts, dependent: :destroy
   has_many :help_messages, dependent: :destroy
   has_many :logins, dependent: :destroy
@@ -22,7 +21,7 @@ class Participant < ActiveRecord::Base
   ACTIVE = "active".freeze
   INELIGIBLE = "ineligible".freeze
   STATUS = [PENDING, ACTIVE, INELIGIBLE].freeze
-  GENDER = ["male", "female"]
+  GENDER = %w( male female ).freeze
 
   validates :first_name,
             :last_name,
@@ -39,10 +38,11 @@ class Participant < ActiveRecord::Base
   validate :enrollment_date_is_sane
 
   before_validation :sanitize_number
+  after_save :create_synchronizable_resources
 
-  scope :ineligible, -> { where(status: "ineligible") }
-  scope :pending, -> { where(status: "pending") }
-  scope :active, -> { where(status: "active") }
+  scope :ineligible, -> { where(status: INELIGIBLE) }
+  scope :pending, -> { where(status: PENDING) }
+  scope :active, -> { where(status: ACTIVE) }
 
   def seven_day_access
     logins.where("logged_in_at > ?", Date.today - 7.days)
@@ -50,7 +50,7 @@ class Participant < ActiveRecord::Base
 
   def study_day
     if start_date
-      ((Date.today - start_date).to_i) + 1
+      (Date.today - start_date).to_i + 1
     end
   end
 
@@ -69,5 +69,21 @@ class Participant < ActiveRecord::Base
           I18n.t("conemo.models.participant.enrollment_date_is_sane_error")
       )
     end
+  end
+
+  def create_synchronizable_resources
+    return if TokenAuth::SynchronizableResource.exists?(
+      entity_id: id,
+      class_name: Device.name
+    )
+
+    TokenAuth::SynchronizableResource.create!(
+      entity_id: id,
+      entity_id_attribute_name: "participant_id",
+      name: "devices",
+      class_name: Device.name,
+      is_pullable: false,
+      is_pushable: true
+    )
   end
 end

@@ -1,0 +1,79 @@
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_1
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>
+
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_2
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>
+
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_3
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>
+
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_4
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>
+
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_5
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>
+
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_6
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>
+
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_7
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>
+
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_8
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>
+
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_9
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>
+
+<% (1..5).each do |i| %>
+  slide_<%= i %>:
+    slideshow: slideshow_10
+    title: Slide <%= i %>
+    body: <h1>This is slide <%= i %><h1><p>read this<p>
+    position: <%= i %>
+<% end %>

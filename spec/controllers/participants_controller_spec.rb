@@ -1,7 +1,7 @@
 require "spec_helper"
 
 RSpec.describe ParticipantsController, type: :controller do
-  LOCALES = %w( en pt-BR es-PE )
+  LOCALES = %w( en pt-BR es-PE ).freeze
 
   fixtures :all
 

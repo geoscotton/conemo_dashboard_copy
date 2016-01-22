@@ -1,0 +1,43 @@
+<% (329..336).each do |i| %>
+  second_contact_<%= i %>:
+    participant: participant<%= i %>
+    contact_at: <%= DateTime.now - 21 %>
+    session_length: 60
+    notes: More notes. No fun
+    q1: q1 notes
+    q2: true
+    q2_notes: q2 notes
+    q3: false
+    q3_notes: q3 notes
+    q4: true
+    q4_notes: q4 notes
+    q5: false
+    q5_notes: q5 notes
+    q6: true
+    q6_notes: q6 notes
+    q7: false
+    q7_notes: q7 notes
+    next_contact: <%= DateTime.now %>
+<% end %>
+
+<% (337..343).each do |i| %>
+  second_contact_<%= i %>:
+    participant: participant<%= i %>
+    contact_at: <%= DateTime.now - 35 %>
+    session_length: 60
+    notes: More notes. No fun
+    q1: q1 notes
+    q2: true
+    q2_notes: q2 notes
+    q3: false
+    q3_notes: q3 notes
+    q4: true
+    q4_notes: q4 notes
+    q5: false
+    q5_notes: q5 notes
+    q6: true
+    q6_notes: q6 notes
+    q7: false
+    q7_notes: q7 notes
+    next_contact: <%= DateTime.now - 14 %>
+<% end %>

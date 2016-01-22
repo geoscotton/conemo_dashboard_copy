@@ -3,13 +3,12 @@ source "https://rubygems.org"
 gem "rails", "= 4.2.5"
 gem "turbolinks", "= 2.5.3"
 gem "pg", "= 0.18.4"
-gem "sass-rails", "~> 4.0.2"
-gem "bootstrap-sass"
+gem "sass-rails", "~> 5.0"
 gem "uglifier"
 gem "jquery-rails", "~> 3.1.3"
 gem "jquery-ui-rails"
-gem "devise", "= 3.5.2"
-gem "rails_admin", "= 0.6.3"
+gem "devise", "~> 3.5.2"
+gem "rails_admin", "~> 0.8.1"
 gem "cancancan", "= 1.13.1"
 gem "font-awesome-sass"
 gem "coffee-script"
@@ -18,7 +17,7 @@ gem "ckeditor"
 gem "twilio-ruby", "~> 3.11"
 gem "normalize-rails"
 gem "nokogiri", "= 1.6.3.1"
-gem "sentry-raven", "= 0.15.2"
+gem "sentry-raven", "~> 0.15.2"
 
 group :staging, :production do
   # scheduling tasks
@@ -48,3 +47,7 @@ group :test do
 end
 
 gem "bit_core", "~> 1.0"
+gem "token_auth",
+    git: "https://github.com/NU-CBITS/token_auth_server_rails",
+    tag: "0.1.2"
+gem "active_model_serializers", "= 0.10.0.rc3"

@@ -161,7 +161,7 @@ class ReminderMessage < ActiveRecord::Base
               }
           }
       }
-  }
+  }.freeze
 
   # returns datetime object for the reminder message
   def notification_time

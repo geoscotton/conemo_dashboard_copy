@@ -1,0 +1,5 @@
+# session_event_1:
+#   participant: participant321
+#   event_type: whatever
+#   occurred_at: <%= Date.today - 4 %>
+#   lesson: lesson_1

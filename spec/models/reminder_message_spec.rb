@@ -97,13 +97,14 @@ RSpec.describe ReminderMessage, type: :model do
 
           first_contact.update(first_appointment_at: DateTime.current + 3.days)
 
-          new_one_hour_time = ReminderMessage.where(participant: participant,
-                                       notify_at: "1",
-                                       message_type: ReminderMessage::PARTICIPANT,
-                                       appointment_type: ReminderMessage::APPOINTMENT,
-                                       status: "pending"
-                                       ).first
-                                        .notification_time
+          new_one_hour_time = ReminderMessage.where(
+            participant: participant,
+            notify_at: "1",
+            message_type: ReminderMessage::PARTICIPANT,
+            appointment_type: ReminderMessage::APPOINTMENT,
+            status: "pending"
+          ).first.notification_time
+
           expect(old_one_hour_time).to_not eq(new_one_hour_time)
         end
       end

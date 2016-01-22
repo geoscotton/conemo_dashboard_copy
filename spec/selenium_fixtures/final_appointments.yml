@@ -1,0 +1,13 @@
+final_appointment_342:
+  appointment_at: <%= DateTime.now %>
+  appointment_location: 100 Final Ln, Chicago, IL 60601
+  phone_returned: true
+  notes: Final notes, woohoo!
+  participant: participant342
+
+final_appointment_343:
+  appointment_at: <%= DateTime.now %>
+  appointment_location: 100 Final Ln, Chicago, IL 60601
+  phone_returned: true
+  notes: Final notes, woohoo!
+  participant: participant343

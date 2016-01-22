@@ -3,7 +3,7 @@ require "spec_helper"
 RSpec.describe DialoguesController, type: :controller do
   fixtures :all
 
-  LOCALES = %w( en pt-BR es-PE )
+  LOCALES = %w( en pt-BR es-PE ).freeze
 
   def create_dialogue!(locale)
     Dialogue.create!(locale: locale, title: "t", day_in_treatment: 1,
