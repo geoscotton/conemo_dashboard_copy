@@ -17,7 +17,7 @@ gem "ckeditor"
 gem "twilio-ruby", "~> 3.11"
 gem "normalize-rails"
 gem "nokogiri", "= 1.6.3.1"
-gem "sentry-raven", "= 0.15.2"
+gem "sentry-raven", "~> 0.15.2"
 
 group :staging, :production do
   # scheduling tasks
