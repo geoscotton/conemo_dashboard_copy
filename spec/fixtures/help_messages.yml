@@ -2,3 +2,4 @@ participant1:
   participant: participant1
   message: Need some help
   sent_at: <%= Time.zone.now %>
+  uuid: <%= SecureRandom.uuid %>

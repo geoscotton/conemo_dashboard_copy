@@ -4,4 +4,12 @@ class HelpMessage < ActiveRecord::Base
 
   validates :read, inclusion: { in: [true, false] }
   validates :message, :sent_at, :participant, presence: true
+
+  before_validation :set_uuid
+
+  private
+
+  def set_uuid
+    self.uuid ||= SecureRandom.uuid
+  end
 end

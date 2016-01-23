@@ -19,6 +19,14 @@ describe Participant do
         TokenAuth::SynchronizableResource.where(class_name: Device.name).count
       }.by(1)
     end
+
+    it "creates a HelpMessage resource" do
+      expect { participant.save }.to change {
+        TokenAuth::SynchronizableResource.where(
+          class_name: HelpMessage.name
+        ).count
+      }.by(1)
+    end
   end
 
   describe "Overall Study Status" do
