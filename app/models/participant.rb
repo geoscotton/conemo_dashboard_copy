@@ -72,18 +72,32 @@ class Participant < ActiveRecord::Base
   end
 
   def create_synchronizable_resources
-    return if TokenAuth::SynchronizableResource.exists?(
+    unless TokenAuth::SynchronizableResource.exists?(
       entity_id: id,
       class_name: Device.name
     )
+      TokenAuth::SynchronizableResource.create!(
+        entity_id: id,
+        entity_id_attribute_name: "participant_id",
+        name: "devices",
+        class_name: Device.name,
+        is_pullable: false,
+        is_pushable: true
+      )
+    end
 
-    TokenAuth::SynchronizableResource.create!(
+    unless TokenAuth::SynchronizableResource.exists?(
       entity_id: id,
-      entity_id_attribute_name: "participant_id",
-      name: "devices",
-      class_name: Device.name,
-      is_pullable: false,
-      is_pushable: true
+      class_name: HelpMessage.name
     )
+      TokenAuth::SynchronizableResource.create!(
+        entity_id: id,
+        entity_id_attribute_name: "participant_id",
+        name: "help_messages",
+        class_name: HelpMessage.name,
+        is_pullable: false,
+        is_pushable: true
+      )
+    end
   end
 end
