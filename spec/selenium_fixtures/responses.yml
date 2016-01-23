@@ -1,11 +1,7 @@
-response_1:
-  content_access_event: content_access_event_1
-  answer: '{"What is your name?": "First Last-320", "How old are you?": "53"}'
-
-response_2:
-  content_access_event: content_access_event_2
-  answer: '{"How is it going?": "Swell!"}'
-
-response_3:
-  content_access_event: content_access_event_3
-  answer: '{"What are you up to?": "Nothing at all"}'
+<% ['1', '2', '3', '411', '324', '421', '431', '441', '451', '461', '471',
+    '480', '490', '303', '317', '412', '324', '422', '432', '442', '452',
+    '462', '472'].each do |i| %>
+  reponse_<%= i %>:
+    content_access_event: content_access_event_<%= i %>
+    answer: '{"Does it matter?": "No"}'
+<% end %>
