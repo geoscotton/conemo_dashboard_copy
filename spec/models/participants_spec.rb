@@ -27,6 +27,14 @@ describe Participant do
         ).count
       }.by(1)
     end
+
+    it "creates a ParticipantStartDate resource" do
+      expect { participant.save }.to change {
+        TokenAuth::SynchronizableResource.where(
+          class_name: ParticipantStartDate.name
+        ).count
+      }.by(1)
+    end
   end
 
   describe "Overall Study Status" do

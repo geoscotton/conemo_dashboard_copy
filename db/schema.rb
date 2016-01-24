@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123032657) do
+ActiveRecord::Schema.define(version: 20160123235537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -202,6 +202,16 @@ ActiveRecord::Schema.define(version: 20160123032657) do
 
   add_index "nurse_participant_evaluations", ["second_contact_id"], name: "index_nurse_participant_evaluations_on_second_contact_id", using: :btree
   add_index "nurse_participant_evaluations", ["third_contact_id"], name: "index_nurse_participant_evaluations_on_third_contact_id", using: :btree
+
+  create_table "participant_start_dates", force: :cascade do |t|
+    t.date     "date",           null: false
+    t.string   "uuid",           null: false
+    t.integer  "participant_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "participant_start_dates", ["participant_id"], name: "index_participant_start_dates_on_participant_id", unique: true, using: :btree
 
   create_table "participants", force: :cascade do |t|
     t.integer  "nurse_id"
@@ -409,6 +419,7 @@ ActiveRecord::Schema.define(version: 20160123032657) do
   add_foreign_key "lessons", "bit_core_slideshows", name: "fk_lessons_slideshows"
   add_foreign_key "logins", "participants"
   add_foreign_key "nurse_participant_evaluations", "second_contacts", name: "fk_evaluations_second_contacts"
+  add_foreign_key "participant_start_dates", "participants"
   add_foreign_key "participants", "users", column: "nurse_id", name: "fk_participants_nurses"
   add_foreign_key "reminder_messages", "participants", name: "fk_reminder_messages_participants"
   add_foreign_key "reminder_messages", "users", column: "nurse_id", name: "fk_reminder_messages_nurses"
