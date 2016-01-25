@@ -76,6 +76,7 @@ class Participant < ActiveRecord::Base
       ContentAccessEvent
       Device
       HelpMessage
+      Login
       ParticipantStartDate
       SessionEvent
     )
