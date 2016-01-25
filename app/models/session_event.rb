@@ -9,6 +9,10 @@ class SessionEvent < ActiveRecord::Base
 
   scope :accesses, -> { where(event_type: TYPES.access) }
 
+  attr_accessor :lesson_guid
+
+  before_validation :set_uuid, :set_lesson
+
   def late?
     day_in_treatment_accessed > lesson.day_in_treatment
   end
@@ -17,5 +21,13 @@ class SessionEvent < ActiveRecord::Base
 
   def day_in_treatment_accessed
     occurred_at.to_date - participant.start_date + 1
+  end
+
+  def set_uuid
+    self.uuid ||= SecureRandom.uuid
+  end
+
+  def set_lesson
+    self.lesson ||= Lesson.find_by(guid: lesson_guid)
   end
 end

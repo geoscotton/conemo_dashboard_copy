@@ -3,7 +3,7 @@ class HelpMessage < ActiveRecord::Base
   belongs_to :participant
 
   validates :read, inclusion: { in: [true, false] }
-  validates :message, :sent_at, :participant, presence: true
+  validates :message, :sent_at, :participant, :uuid, presence: true
 
   before_validation :set_uuid
 

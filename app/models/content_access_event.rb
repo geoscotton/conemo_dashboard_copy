@@ -9,10 +9,24 @@ class ContentAccessEvent < ActiveRecord::Base
 
   accepts_nested_attributes_for :response
 
+  attr_accessor :lesson_guid
+
   validates :lesson, :participant, :day_in_treatment_accessed, :accessed_at,
-            presence: true
+            :uuid, presence: true
+
+  before_validation :set_uuid, :set_lesson
 
   def late?
     day_in_treatment_accessed > lesson.day_in_treatment
+  end
+
+  private
+
+  def set_uuid
+    self.uuid ||= SecureRandom.uuid
+  end
+
+  def set_lesson
+    self.lesson ||= Lesson.find_by(guid: lesson_guid)
   end
 end
