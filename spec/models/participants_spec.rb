@@ -18,6 +18,7 @@ describe Participant do
       ContentAccessEvent
       Device
       HelpMessage
+      Login
       ParticipantStartDate
       SessionEvent
     ).each do |resource|
