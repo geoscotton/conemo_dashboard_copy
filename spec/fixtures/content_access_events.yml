@@ -3,15 +3,18 @@ access_event1:
   lesson: day1
   day_in_treatment_accessed: 1
   accessed_at: <%= Time.zone.now %>
+  uuid: <%= SecureRandom.uuid %>
 
 access_event2:
   participant: active_participant
   lesson: day2
   day_in_treatment_accessed: 2
   accessed_at: <%= Time.zone.now %>
+  uuid: <%= SecureRandom.uuid %>
 
 access_event3:
   participant: active_participant
   lesson: day4
   day_in_treatment_accessed: 4
   accessed_at: <%= Time.zone.now %>
+  uuid: <%= SecureRandom.uuid %>

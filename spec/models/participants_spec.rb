@@ -14,26 +14,18 @@ describe Participant do
   end
 
   describe "synchronizable resource creation" do
-    it "creates a Device resource" do
-      expect { participant.save }.to change {
-        TokenAuth::SynchronizableResource.where(class_name: Device.name).count
-      }.by(1)
-    end
-
-    it "creates a HelpMessage resource" do
-      expect { participant.save }.to change {
-        TokenAuth::SynchronizableResource.where(
-          class_name: HelpMessage.name
-        ).count
-      }.by(1)
-    end
-
-    it "creates a ParticipantStartDate resource" do
-      expect { participant.save }.to change {
-        TokenAuth::SynchronizableResource.where(
-          class_name: ParticipantStartDate.name
-        ).count
-      }.by(1)
+    %w(
+      ContentAccessEvent
+      Device
+      HelpMessage
+      ParticipantStartDate
+      SessionEvent
+    ).each do |resource|
+      it "creates a #{resource} resource" do
+        expect { participant.save }.to change {
+          TokenAuth::SynchronizableResource.where(class_name: resource).count
+        }.by(1)
+      end
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123235537) do
+ActiveRecord::Schema.define(version: 20160125032724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160123235537) do
     t.integer  "day_in_treatment_accessed", null: false
     t.string   "lesson_datum_guid"
     t.string   "dialogue_datum_guid"
+    t.string   "uuid",                      null: false
   end
 
   add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
@@ -313,6 +314,7 @@ ActiveRecord::Schema.define(version: 20160123235537) do
     t.integer  "lesson_id",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uuid",           null: false
   end
 
   add_index "session_events", ["lesson_id"], name: "index_session_events_on_lesson_id", using: :btree

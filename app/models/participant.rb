@@ -73,9 +73,11 @@ class Participant < ActiveRecord::Base
 
   def create_synchronizable_resources
     pushable_resources = %w(
+      ContentAccessEvent
       Device
       HelpMessage
       ParticipantStartDate
+      SessionEvent
     )
 
     pushable_resources.each do |resource_name|
