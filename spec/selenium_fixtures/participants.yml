@@ -1,3 +1,19 @@
+<% (1000..1000).each do |i| %>
+  participant<%= i %>:
+    nurse: user_400
+    first_name: First
+    last_name: Last-<%= i %> 
+    study_identifier: <%= i %>
+    family_health_unit_name: Family Health Center
+    family_record_number: 1<%= i %>
+    phone: 1111111<%= i %>
+    date_of_birth: <%= Date.today - ((30 * 365) + i) %>
+    gender: female
+    enrollment_date: <%= Date.today %>
+    status: active
+    locale: en
+<% end %>
+
 <% (100..102).each do |i| %>
   participant<%= i %>:
     nurse: user_400

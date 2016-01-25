@@ -1,8 +1,10 @@
-dialogue_1:
-  title: Day 1
-  guid: whatever
-  day_in_treatment: 1
-  locale: en
-  message: Hey! This is dailogue 1
-  yes_text: Yes
-  no_text: No
+<% (1..4).each do |i| %>
+  dialogue_<%= i %>:
+    title: Day <%= i %>
+    guid: whatever
+    day_in_treatment: <%= i %>
+    locale: en
+    message: Hey! This is dailogue <%= i %>
+    yes_text: Yes
+    no_text: No
+<% end %>

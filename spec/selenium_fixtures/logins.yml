@@ -2,4 +2,5 @@
   login_<%= i %>:
     participant: participant343
     logged_in_at: <%= DateTime.now - i %>
+    uuid: <%= SecureRandom.uuid %>
 <% end %>
