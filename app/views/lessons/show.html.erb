@@ -2,6 +2,10 @@
 
 <h2><%= @lesson.title %></h2>
 
+<% if @lesson.has_activity_planning? %>
+  <p>Has activity planning</p>
+<% end %>
+
 <%= link_to t("conemo.views.lessons.show.add_slide"), new_lesson_slide_path(@lesson) %>
 
 <table class="table" id="sortable">

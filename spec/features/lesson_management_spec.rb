@@ -12,10 +12,15 @@ describe "lesson management", type: :feature do
     click_on "Add Lesson"
     fill_in "Title", with: "Lesson 1"
     fill_in "Day in treatment", with: 1
+    choose "Yes"
     click_on "Create Lesson"
 
     expect(page).to have_text("Lesson saved")
     expect(page).to have_text("Lesson 1")
+
+    click_on "Lesson 1"
+
+    expect(page).to have_text "Has activity planning"
   end
 
   it "should allow an admin to update a lesson" do
