@@ -14,6 +14,7 @@ class Lesson < ActiveRecord::Base
             :guid,
             :slideshow,
             presence: true
+  validates :has_activity_planning, inclusion: { in: [true, false] }
 
   before_validation :generate_guid, :create_slideshow, on: :create
   after_destroy :destroy_slideshow

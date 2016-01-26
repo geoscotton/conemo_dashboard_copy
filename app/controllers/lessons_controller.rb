@@ -81,7 +81,11 @@ class LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:title, :day_in_treatment)
+    params.require(:lesson).permit(
+      :title,
+      :day_in_treatment,
+      :has_activity_planning
+    )
   end
 
   def validation_errors
