@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "= 4.2.5"
+gem "rails", "~> 4.2.5"
 gem "turbolinks", "= 2.5.3"
 gem "pg", "= 0.18.4"
 gem "sass-rails", "~> 5.0"
