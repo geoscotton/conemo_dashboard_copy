@@ -33,6 +33,7 @@ RailsAdmin.config do |config|
 
     config.included_models = [
       ContentAccessEvent,
+      Device,
       Dialogue,
       FinalAppointment,
       FirstAppointment,
@@ -43,9 +44,11 @@ RailsAdmin.config do |config|
       NurseParticipantEvaluation,
       Participant,
       PatientContact,
+      ParticipantStartDate,
       ReminderMessage,
       Response,
       SecondContact,
+      SessionEvent,
       Smartphone,
       ThirdContact,
       User
