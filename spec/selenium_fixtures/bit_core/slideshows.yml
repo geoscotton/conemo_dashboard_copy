@@ -1,4 +1,4 @@
-<% (1..10).each do |i| %>
-  slideshow_<%= i %>:
+<% (1..15).each do |i| %>
+  slideshow<%= i %>:
     title: Day <%= i %>
 <% end %>
