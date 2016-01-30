@@ -20,6 +20,7 @@ describe Participant do
       HelpMessage
       Login
       ParticipantStartDate
+      PlannedActivity
       SessionEvent
     ).each do |resource|
       it "creates a #{resource} resource" do

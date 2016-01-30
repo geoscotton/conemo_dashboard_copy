@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125222644) do
+ActiveRecord::Schema.define(version: 20160130221549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -260,6 +260,20 @@ ActiveRecord::Schema.define(version: 20160125222644) do
   add_index "patient_contacts", ["participant_id"], name: "index_patient_contacts_on_participant_id", using: :btree
   add_index "patient_contacts", ["second_contact_id"], name: "index_patient_contacts_on_second_contact_id", using: :btree
   add_index "patient_contacts", ["third_contact_id"], name: "index_patient_contacts_on_third_contact_id", using: :btree
+
+  create_table "planned_activities", force: :cascade do |t|
+    t.string   "uuid",               null: false
+    t.integer  "participants_id",    null: false
+    t.string   "name",               null: false
+    t.boolean  "is_complete"
+    t.boolean  "is_help_wanted"
+    t.string   "level_of_happiness"
+    t.string   "how_worthwhile"
+    t.datetime "planned_at",         null: false
+    t.string   "lesson_guid",        null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "reminder_messages", force: :cascade do |t|
     t.integer  "nurse_id",                             null: false

@@ -78,6 +78,7 @@ class Participant < ActiveRecord::Base
       HelpMessage
       Login
       ParticipantStartDate
+      PlannedActivity
       SessionEvent
     )
 
