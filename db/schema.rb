@@ -263,7 +263,7 @@ ActiveRecord::Schema.define(version: 20160130221549) do
 
   create_table "planned_activities", force: :cascade do |t|
     t.string   "uuid",               null: false
-    t.integer  "participants_id",    null: false
+    t.integer  "participant_id",     null: false
     t.string   "name",               null: false
     t.boolean  "is_complete"
     t.boolean  "is_help_wanted"
