@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.4.0 - 2016-02-02
+
+* show PlannedActivities in Rails admin, add assoc.
+* fix badly named column
+* add hasActivityPlanning to Lesson JSON
+* add PlannedActivities to sync API
+* patch Rails
+* add missing validation
+* include all synced models in Rails admin views
+* add has activity planning option to Lessons
+* sync logins
+* sync lesson events
+* add missing validation to HelpMessage
+* make synchronizable ParticipantStartDates
+* sync help messages
+* bump sentry-raven version
+* incorporate TokenAuth and make Devices syncable
+* update RuboCop compatibility with version 0.36
+* update rails admin gem and styles
+
 ## 0.3.1 - 2015-12-11
 
 * prevent null timezone attribute for Users
