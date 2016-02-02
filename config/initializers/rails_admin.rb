@@ -45,6 +45,7 @@ RailsAdmin.config do |config|
       Participant,
       PatientContact,
       ParticipantStartDate,
+      PlannedActivity,
       ReminderMessage,
       Response,
       SecondContact,
