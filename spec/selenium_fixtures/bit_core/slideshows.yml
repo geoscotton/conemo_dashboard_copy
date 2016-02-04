@@ -54,4 +54,7 @@
 
   es_slideshow_17:
     title: "\u00a1Contin\u00faa con tu rutina!"
+
+  es_slideshow_18:
+    title: "Sesi\u00f3n final"
 <% end %>

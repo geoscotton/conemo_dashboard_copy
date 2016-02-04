@@ -131,6 +131,6 @@
     day_in_treatment: 41
     guid: "40dd808e-83dd-4218-94d0-1f6ce80c0abf"
     locale: "es-PE"
-    slideshow:es_slideshow_18
+    slideshow: es_slideshow_18
     title: "Sesi\u00f3n final"
 <% end %>
