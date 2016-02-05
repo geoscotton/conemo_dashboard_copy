@@ -55,8 +55,11 @@ RailsAdmin.config do |config|
       User
     ]
 
-    config.model User do
+    config.model ContentAccessEvent do
+      navigation_label "Transmitted"
+    end
 
+    config.model User do
       object_label_method :email
 
       list do
@@ -105,6 +108,11 @@ RailsAdmin.config do |config|
         field :last_name
         field :phone
         field :study_identifier
+        field :configuration_token do
+          pretty_value do
+            "<a href=\"/entities/#{ bindings[:object].id }/tokens\">Show</a>".html_safe
+          end
+        end
         field :locale
       end
 
