@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1 - 2016-02-05
+
+* add link to token configuration
+
 ## 0.4.0 - 2016-02-02
 
 * show PlannedActivities in Rails admin, add assoc.
