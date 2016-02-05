@@ -1,5 +1,5 @@
-# config valid only for Capistrano 3.1
-lock "3.2.1"
+# config valid only for this version of Capistrano
+lock "3.4.0"
 
 set :application, "conemo_dashboard"
 set :repo_url, "git@github.com:cbitstech/#{ fetch(:application) }.git"
