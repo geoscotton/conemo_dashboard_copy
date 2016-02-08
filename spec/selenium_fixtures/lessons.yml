@@ -5,4 +5,142 @@
     day_in_treatment: <%= i %>
     locale: en
     guid: slideshow<%= i %>
+    has_activity_planning: true
+<% end %>
+
+<% (1..1).each do |i| %>
+  es_lesson_1:
+    day_in_treatment: 1
+    guid: "f584a39b-c9b2-4a2f-9aff-f177fd44b85b"
+    locale: "es-PE"
+    slideshow: es_slideshow_1
+    title: "\u00a1Bienvenido a CONEMO! "
+    has_activity_planning: true
+
+  es_lesson_2:
+    day_in_treatment: 3
+    guid: "529a2f05-65f8-41f7-ab18-2a673e6eb0f3"
+    locale: "es-PE"
+    slideshow: es_slideshow_2
+    title: "Estar activo te ayudar\u00e1 a tener una vida m\u00e1s saludable"
+
+  es_lesson_3:
+    day_in_treatment: 6
+    guid: "2f6ea7cb-a281-4bf7-98ff-02ac557de206"
+    locale: "es-PE"
+    slideshow: es_slideshow_3
+    title: "\u00bfQu\u00e9 quieres lograr con CONEMO?"
+    has_activity_planning: true
+
+  es_lesson_4:
+    day_in_treatment: 8
+    guid: "0f7a1cc3-3bb0-4a2c-b1fb-3088ef9bc412"
+    locale: "es-PE"
+    slideshow: es_slideshow_4
+    title: "Realizar actividades placenteras nos hace sentir bien."
+
+  es_lesson_5:
+    day_in_treatment: 10
+    guid: "481c9380-d8a7-42c7-b010-7aabfca37e4d"
+    locale: "es-PE"
+    slideshow: es_slideshow_5
+    title: "Terminar nuestras tareas nos hace sentir mejor."
+    has_activity_planning: true
+
+  es_lesson_6:
+    day_in_treatment: 13
+    guid: "bbb5abf3-f8c7-46c2-8bb8-a5296bf00f49"
+    locale: "es-PE"
+    slideshow: es_slideshow_6
+    title: "\u00a1Cuidar tu salud es importante!"
+
+  es_lesson_7:
+    day_in_treatment: 15
+    guid: "f0dc6d45-d678-4806-9e1b-1aa532a6491f"
+    locale: "es-PE"
+    slideshow: es_slideshow_7
+    title: "Planeando actividades para la semana."
+    has_activity_planning: true
+
+  es_lesson_8:
+    day_in_treatment: 17
+    guid: "410a6881-dc59-4651-8915-4bb7ddab4dbe"
+    locale: "es-PE"
+    slideshow: es_slideshow_8
+    title: "Puede ser dif\u00edcil comenzar"
+
+  es_lesson_9:
+    day_in_treatment: 20
+    guid: "6e5925d2-c9a8-42ab-b67f-52d95d2a6ed3"
+    locale: "es-PE"
+    slideshow: es_slideshow_9
+    title: "Encontrando las mejores actividades para ti."
+    has_activity_planning: true
+
+  es_lesson_10:
+    day_in_treatment: 22
+    guid: "13a2470e-ce38-4357-b37a-10c37d2686f4"
+    locale: "es-PE"
+    slideshow: es_slideshow_10
+    title: "Cumplir con nuestros deberes nos hace sentir aliviados"
+
+  es_lesson_11:
+    day_in_treatment: 24
+    guid: "f6f33efc-d66b-4c9f-a22b-cbc77fa1de87"
+    locale: "es-PE"
+    slideshow: es_slideshow_11
+    title: "Haz las cosas a tu propio ritmo "
+    has_activity_planning: true
+
+  es_lesson_12:
+    day_in_treatment: 27
+    guid: "fd91e151-2a83-4012-b7b0-0c4bd685432f"
+    locale: "es-PE"
+    slideshow: es_slideshow_12
+    title: "\u00a1La costumbre es lo que te hace seguir adelante!"
+
+  es_lesson_13:
+    day_in_treatment: 29
+    guid: "ee4ca5b6-8ac0-4efd-a0c9-eb912754fe8f"
+    locale: "es-PE"
+    slideshow: es_slideshow_13
+    title: "Actividades que mejoran tu salud"
+    has_activity_planning: true
+
+  es_lesson_14:
+    day_in_treatment: 31
+    guid: "a8282a46-9b11-45a2-b735-e65fc470b33e"
+    locale: "es-PE"
+    slideshow: es_slideshow_14
+    title: "\u00a1Un paso a la vez!"
+
+  es_lesson_15:
+    day_in_treatment: 34
+    guid: "40b9d58f-47b8-43a0-a73f-1d76a1033f04"
+    locale: "es-PE"
+    slideshow: es_slideshow_15
+    title: "\u00a1No te olvides de tu objetivo! "
+    has_activity_planning: true
+
+  es_lesson_16:
+    day_in_treatment: 36
+    guid: "a5dfac05-c5bd-4749-8f78-1b8dbb08110c"
+    locale: "es-PE"
+    slideshow: es_slideshow_16
+    title: "\u00a1Los cambios toman tiempo!"
+
+  es_lesson_17:
+    day_in_treatment: 38
+    guid: "94b9b930-f396-4c43-913c-9b8ac12ab14d"
+    locale: "es-PE"
+    slideshow: es_slideshow_17
+    title: "\u00a1Contin\u00faa con tu rutina!"
+    has_activity_planning: true
+
+  es_lesson_18:
+    day_in_treatment: 41
+    guid: "40dd808e-83dd-4218-94d0-1f6ce80c0abf"
+    locale: "es-PE"
+    slideshow: es_slideshow_18
+    title: "Sesi\u00f3n final"
 <% end %>

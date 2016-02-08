@@ -2,3 +2,59 @@
   slideshow<%= i %>:
     title: Day <%= i %>
 <% end %>
+
+<% (1..1).each do |i| %>
+  es_slideshow_1:
+    title: "\u00a1Bienvenido a CONEMO!"
+
+  es_slideshow_2:
+    title: "Estar activo te ayudar\u00e1 a tener una vida m\u00e1s saludable"
+
+  es_slideshow_3:
+    title: "\u00bfQu\u00e9 quieres lograr con CONEMO?"
+
+  es_slideshow_4:
+    title: "Realizar actividades placenteras nos hace sentir bien."
+
+  es_slideshow_5:
+    title: "Terminar nuestras tareas nos hace sentir mejor."
+
+  es_slideshow_6:
+    title: "\u00a1Cuidar tu salud es importante!"
+
+  es_slideshow_7:
+    title: "Planeando actividades para la semana."
+
+  es_slideshow_8:
+    title: "Puede ser dif\u00edcil comenzar"
+
+  es_slideshow_9:
+    title: "Encontrando las mejores actividades para ti."
+
+  es_slideshow_10:
+    title: "Cumplir con nuestros deberes nos hace sentir aliviados"
+
+  es_slideshow_11:
+    title: "Haz las cosas a tu propio ritmo "
+
+  es_slideshow_12:
+    title: "\u00a1La costumbre es lo que te hace seguir adelante!"
+
+  es_slideshow_13:
+    title: "Actividades que mejoran tu salud"
+
+  es_slideshow_14:
+    title: "\u00a1Un paso a la vez!"
+
+  es_slideshow_15:
+    title: "\u00a1No te olvides de tu objetivo! "
+
+  es_slideshow_16:
+    title: "\u00a1Los cambios toman tiempo!"
+
+  es_slideshow_17:
+    title: "\u00a1Contin\u00faa con tu rutina!"
+
+  es_slideshow_18:
+    title: "Sesi\u00f3n final"
+<% end %>
