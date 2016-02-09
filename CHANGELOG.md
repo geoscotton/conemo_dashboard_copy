@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2 - 2016-02-08
+
+* stop dumping pr debug log files
+* capture responses to session forms
+
 ## 0.4.1 - 2016-02-05
 
 * add link to token configuration
