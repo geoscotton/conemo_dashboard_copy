@@ -2,7 +2,11 @@
 class User < ActiveRecord::Base
   include Status
 
-  ROLES = {admin: "admin", nurse: "nurse"}.freeze
+  ROLES = {
+    admin: "admin",
+    nurse: "nurse",
+    nurse_supervisor: "nurse_supervisor"
+  }.freeze
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

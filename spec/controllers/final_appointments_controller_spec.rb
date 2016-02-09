@@ -3,7 +3,8 @@ require "spec_helper"
 RSpec.describe FinalAppointmentsController, type: :controller do
   fixtures :all
 
-  let(:participant) { Participant.first }
+  let(:locale) { LOCALES.values.sample }
+  let(:participant) { Participant.find_by(locale: locale) }
 
   let(:valid_final_appointment_params) do
     {
@@ -31,18 +32,15 @@ RSpec.describe FinalAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          sign_in_admin
-
-          get :new, participant_id: -1
+          nurse_request :get, :new, locale, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
       end
 
       it "sets the final_appointment" do
-        sign_in_admin
-
-        get :new, participant_id: participant.id
+        nurse_request :get, :new, locale, participant_id: participant.id,
+                      locale: locale
 
         expect(assigns(:final_appointment)).to be_instance_of FinalAppointment
         expect(assigns(:final_appointment).participant).to eq participant
@@ -60,7 +58,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          sign_in_admin
+          sign_in_admin locale
 
           post :create, participant_id: -1
         end
@@ -70,7 +68,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
 
       context "when successful" do
         it "creates a new FinalAppointment" do
-          sign_in_admin
+          sign_in_admin locale
 
           expect do
             post :create, participant_id: participant.id,
@@ -81,7 +79,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
         end
 
         it "redirects to the active_participants_path" do
-          sign_in_admin
+          sign_in_admin locale
 
           post :create, participant_id: participant.id,
                final_appointment: valid_final_appointment_params
@@ -92,7 +90,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          sign_in_admin
+          sign_in_admin locale
 
           post :create, participant_id: participant.id,
                final_appointment: invalid_final_appointment_params
@@ -101,7 +99,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
         end
 
         it "renders the new template" do
-          sign_in_admin
+          sign_in_admin locale
 
           post :create, participant_id: participant.id,
                final_appointment: invalid_final_appointment_params
@@ -122,7 +120,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          sign_in_admin
+          sign_in_admin locale
 
           get :edit, participant_id: -1
         end
@@ -131,7 +129,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
       end
 
       it "sets the final_appointment" do
-        sign_in_admin
+        sign_in_admin locale
         participant.create_final_appointment valid_final_appointment_params
 
         get :edit, participant_id: participant.id
@@ -152,7 +150,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          sign_in_admin
+          sign_in_admin locale
 
           put :update, participant_id: -1
         end
@@ -162,7 +160,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
 
       context "when successful" do
         it "redirects to the active_participants_path" do
-          sign_in_admin
+          sign_in_admin locale
           participant.create_final_appointment valid_final_appointment_params
 
           put :update, participant_id: participant.id,
@@ -174,7 +172,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          sign_in_admin
+          sign_in_admin locale
           participant.create_final_appointment valid_final_appointment_params
 
           put :update, participant_id: participant.id,
@@ -184,7 +182,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
         end
 
         it "renders the edit template" do
-          sign_in_admin
+          sign_in_admin locale
           participant.create_final_appointment valid_final_appointment_params
 
           put :update, participant_id: participant.id,

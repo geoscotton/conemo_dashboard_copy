@@ -1,13 +1,11 @@
 require "spec_helper"
 
 RSpec.describe Api::LessonsController, type: :controller do
-  LOCALES = %w( en pt-BR es-PE ).freeze
-
   fixtures :all
 
   describe "GET index" do
     it "sets the lessons" do
-      expect(LOCALES.all? do |locale|
+      expect(LOCALES.values.all? do |locale|
         Lesson.exists? locale: locale
       end).to be true
 

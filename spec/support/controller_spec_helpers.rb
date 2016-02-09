@@ -1,31 +1,31 @@
 module ControllerSpecHelpers
-  def sign_in_admin
+  def sign_in_admin(locale)
     @signed_in_user ||= sign_in_user(instance_double(
       User,
       nurse?: false,
       admin?: true,
-      locale: %w( en pt-BR es-PE ).sample,
+      locale: locale,
       timezone: "America/Chicago"
     ))
   end
 
-  def sign_in_nurse
+  def sign_in_nurse(locale)
     @signed_in_user ||= sign_in_user(instance_double(
       User,
       nurse?: true,
       admin?: false,
-      locale: %w( en pt-BR es-PE ).sample,
+      locale: locale,
       timezone: "America/Chicago"
     ))
   end
 
-  def admin_request(http_method, action, params = {})
-    sign_in_admin
+  def admin_request(http_method, action, locale, params = {})
+    sign_in_admin locale
     send http_method, action, params
   end
 
-  def nurse_request(http_method, action, params = {})
-    sign_in_nurse
+  def nurse_request(http_method, action, locale, params = {})
+    sign_in_nurse locale
     send http_method, action, params
   end
 

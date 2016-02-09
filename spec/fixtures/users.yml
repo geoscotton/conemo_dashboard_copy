@@ -8,6 +8,16 @@ nurse1:
   locale: "en"
   timezone: "Central Time (US & Canada)"
 
+peruvian_nurse:
+  first_name: Consuela
+  last_name: Ratchet
+  email: peruvian_nurse@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  role: nurse
+  phone: 555-555-5555
+  locale: es-PE
+  timezone: Lima
+
 portuguese_nurse:
   first_name: Linda
   last_name: Ratchet

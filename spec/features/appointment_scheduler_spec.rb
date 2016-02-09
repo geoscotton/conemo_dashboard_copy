@@ -4,7 +4,7 @@ describe "appointment scheduler", type: :feature do
   fixtures :all
 
   before(:each) do
-    sign_in_user users(:admin1)
+    sign_in_user users(:nurse1)
   end
 
   let(:participant) { participants(:active_participant) }

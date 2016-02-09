@@ -92,7 +92,7 @@ es_active_participant:
   diabetes: true
   date_of_birth: <%= Date.yesterday %>
   enrollment_date: <%= Date.yesterday %>
-  nurse: portuguese_nurse
+  nurse: peruvian_nurse
   status: active
   start_date: <%= Date.today - 5.days %>
   gender: female

@@ -9,3 +9,9 @@ day1_slide2:
   title: Slide 2
   body: "<h3>¡some html!</h3>"
   position: 2
+
+day1_pt_slide1:
+  slideshow: day1_pt
+  title: Slide 1
+  body: "<h3>¡some html!</h3>"
+  position: 1

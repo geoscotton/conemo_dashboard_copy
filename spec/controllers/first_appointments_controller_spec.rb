@@ -3,7 +3,8 @@ require "spec_helper"
 RSpec.describe FirstAppointmentsController, type: :controller do
   fixtures :all
 
-  let(:participant) { Participant.first }
+  let(:locale) { LOCALES.values.sample }
+  let(:participant) { Participant.find_by(locale: locale) }
 
   let!(:first_appointment) do
     participant.create_first_appointment!(
@@ -62,13 +63,13 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
     context "for an authenticated user" do
       context "when the Participant isn't found" do
-        before { admin_request :get, :new, participant_id: -1 }
+        before { admin_request :get, :new, locale, participant_id: -1 }
 
         it_behaves_like "a bad request"
       end
 
       it "sets the first appointment" do
-        admin_request :get, :new, participant_id: participant.id
+        admin_request :get, :new, locale, participant_id: participant.id
 
         expect(assigns(:first_appointment)).to be_instance_of FirstAppointment
         expect(assigns(:first_appointment).participant).to eq participant
@@ -85,7 +86,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
     context "for an authenticated user" do
       context "when the Participant isn't found" do
-        before { admin_request :post, :create, participant_id: -1 }
+        before { admin_request :post, :create, locale, participant_id: -1 }
 
         it_behaves_like "a bad request"
       end
@@ -95,7 +96,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
           FirstAppointment.destroy_all
 
           expect do
-            admin_request :post, :create, participant_id: participant.id,
+            admin_request :post, :create, locale, participant_id: participant.id,
                           first_appointment: valid_first_appointment_params
           end.to change {
             FirstAppointment.where(participant: participant).count
@@ -104,13 +105,13 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
         it "schedules messages" do
           expect do
-            admin_request :post, :create, participant_id: participant.id,
+            admin_request :post, :create, locale, participant_id: participant.id,
                           first_appointment: valid_first_appointment_params
           end.to change { ReminderMessage.count }.by(3)
         end
 
         it "redirects to new participant smartphone" do
-          admin_request :post, :create, participant_id: participant.id,
+          admin_request :post, :create, locale, participant_id: participant.id,
                         first_appointment: valid_first_appointment_params
 
           expect(response).to redirect_to new_participant_smartphone_path
@@ -119,14 +120,14 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          admin_request :post, :create, participant_id: participant.id,
+          admin_request :post, :create, locale, participant_id: participant.id,
                         first_appointment: invalid_first_appointment_params
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the new template" do
-          admin_request :post, :create, participant_id: participant.id,
+          admin_request :post, :create, locale, participant_id: participant.id,
                         first_appointment: invalid_first_appointment_params
 
           expect(response).to render_template :new
@@ -144,7 +145,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
     context "for an authenticated user" do
       context "when the Participant isn't found" do
-        before { admin_request :get, :edit, participant_id: -1 }
+        before { admin_request :get, :edit, locale, participant_id: -1 }
 
         it_behaves_like "a bad request"
       end
@@ -152,7 +153,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
       it "sets the first appointment" do
         participant.create_first_appointment valid_first_appointment_params
 
-        admin_request :get, :edit, participant_id: participant.id
+        admin_request :get, :edit, locale, participant_id: participant.id
 
         expect(assigns(:first_appointment)).to eq participant.first_appointment
       end
@@ -169,21 +170,21 @@ RSpec.describe FirstAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :missed_second_contact, participant_id: -1
+          admin_request :get, :missed_second_contact, locale, participant_id: -1
         end
 
         it_behaves_like "a bad request"
       end
 
       it "sets the first appointment" do
-        admin_request :get, :missed_second_contact,
+        admin_request :get, :missed_second_contact, locale,
                       participant_id: participant.id
 
         expect(assigns(:first_appointment)).to eq participant.first_appointment
       end
 
       it "sets the patient contact" do
-        admin_request :get, :missed_second_contact,
+        admin_request :get, :missed_second_contact, locale,
                       participant_id: participant.id
 
         expect(assigns(:patient_contact)).to be_instance_of PatientContact
@@ -202,7 +203,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
     context "for an authenticated user" do
       context "when the Participant isn't found" do
-        before { admin_request :put, :update, participant_id: -1 }
+        before { admin_request :put, :update, locale, participant_id: -1 }
 
         it_behaves_like "a bad request"
       end
@@ -210,7 +211,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
       context "when successful" do
         it "updates the FirstAppointment" do
           expect do
-            admin_request :put, :update, participant_id: participant.id,
+            admin_request :put, :update, locale, participant_id: participant.id,
                           first_appointment: valid_first_appointment_params
           end.to change {
             FirstAppointment.find_by(participant_id: participant.id).updated_at
@@ -219,13 +220,13 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
         it "schedules messages" do
           expect do
-            admin_request :put, :update, participant_id: participant.id,
+            admin_request :put, :update, locale, participant_id: participant.id,
                           first_appointment: valid_first_appointment_params
           end.to change { ReminderMessage.count }.by(3)
         end
 
         it "redirects to active participants" do
-          admin_request :put, :update, participant_id: participant.id,
+          admin_request :put, :update, locale, participant_id: participant.id,
                         first_appointment: valid_first_appointment_params
 
           expect(response).to redirect_to active_participants_path
@@ -234,14 +235,14 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          admin_request :put, :update, participant_id: participant.id,
+          admin_request :put, :update, locale, participant_id: participant.id,
                         first_appointment: invalid_first_appointment_params
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the edit template" do
-          admin_request :put, :update, participant_id: participant.id,
+          admin_request :put, :update, locale, participant_id: participant.id,
                         first_appointment: invalid_first_appointment_params
 
           expect(response).to render_template :edit

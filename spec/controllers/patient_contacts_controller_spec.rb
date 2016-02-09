@@ -3,18 +3,13 @@ require "spec_helper"
 describe PatientContactsController, type: :controller do
   fixtures :all
 
-  let(:participant) { Participant.first }
+  let(:locale) { LOCALES.values.sample }
+  let(:participant) { Participant.find_by(locale: locale) }
 
   let(:valid_patient_contact_params) { { contact_at: Time.zone.now } }
 
   shared_examples "a bad request" do
     it { expect(response).to redirect_to active_participants_url }
-  end
-
-  def admin_request(http_method, action, params)
-    sign_in_admin
-
-    send http_method, action, params
   end
 
   describe "GET new" do
@@ -26,13 +21,13 @@ describe PatientContactsController, type: :controller do
 
     context "for an authenticated user" do
       context "when the Participant isn't found" do
-        before { admin_request :get, :new, participant_id: -1 }
+        before { admin_request :get, :new, locale, participant_id: -1 }
 
         it_behaves_like "a bad request"
       end
 
       it "sets patient contact" do
-        admin_request :get, :new, participant_id: participant.id
+        admin_request :get, :new, locale, participant_id: participant.id
 
         expect(assigns(:patient_contact)).to be_instance_of PatientContact
         expect(assigns(:patient_contact).participant).to eq participant
@@ -50,7 +45,7 @@ describe PatientContactsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :post, :create, participant_id: -1,
+          admin_request :post, :create, locale, participant_id: -1,
                         patient_contact: valid_patient_contact_params
         end
 
@@ -60,7 +55,7 @@ describe PatientContactsController, type: :controller do
       context "when successful" do
         it "creates a patient contact" do
           expect do
-            admin_request :post, :create, participant_id: participant.id,
+            admin_request :post, :create, locale, participant_id: participant.id,
                           patient_contact: valid_patient_contact_params
           end.to change { PatientContact.where(participant: participant).count }
             .by(1)
@@ -68,10 +63,11 @@ describe PatientContactsController, type: :controller do
 
         context "and the Participant has a start date" do
           it "redirects to the active report path" do
-            participant[:start_date] = Time.zone.today
+            participant.update start_date: Time.zone.today
 
-            admin_request :post, :create, participant_id: participant.id,
-                          patient_contact: valid_patient_contact_params
+            admin_request :post, :create, locale, participant_id: participant.id,
+                          patient_contact: valid_patient_contact_params,
+                          locale: locale
 
             expect(response).to redirect_to active_report_path(participant)
           end
@@ -81,7 +77,7 @@ describe PatientContactsController, type: :controller do
           it "redirects to the active participants path" do
             participant.update start_date: nil
 
-            admin_request :post, :create, participant_id: participant.id,
+            admin_request :post, :create, locale, participant_id: participant.id,
                           patient_contact: valid_patient_contact_params
 
             expect(response).to redirect_to active_participants_path
@@ -101,7 +97,7 @@ describe PatientContactsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :delete, :destroy, participant_id: -1, id: 1
+          admin_request :delete, :destroy, locale, participant_id: -1, id: 1
         end
 
         it_behaves_like "a bad request"
@@ -116,6 +112,7 @@ describe PatientContactsController, type: :controller do
           expect do
             admin_request(:delete,
                           :destroy,
+                          locale,
                           participant_id: participant,
                           id: patient_contact.id)
           end.to change {
@@ -128,10 +125,12 @@ describe PatientContactsController, type: :controller do
             patient_contact = participant.patient_contacts.create(
               valid_patient_contact_params
             )
-            participant[:start_date] = Time.zone.today
+            participant.update start_date: Time.zone.today
 
-            admin_request :delete, :destroy, participant_id: participant.id,
-                          id: patient_contact.id
+            admin_request :delete, :destroy, locale,
+                          participant_id: participant.id,
+                          id: patient_contact.id,
+                          locale: locale
 
             expect(response).to redirect_to active_report_path(participant)
           end
@@ -144,7 +143,8 @@ describe PatientContactsController, type: :controller do
             )
             participant.update start_date: nil
 
-            admin_request :delete, :destroy, participant_id: participant.id,
+            admin_request :delete, :destroy, locale,
+                          participant_id: participant.id,
                           id: patient_contact.id
 
             expect(response).to redirect_to active_participants_path
@@ -160,6 +160,7 @@ describe PatientContactsController, type: :controller do
 
             admin_request(:delete,
                           :destroy,
+                          locale,
                           participant_id: participant,
                           id: patient_contact.id)
 

@@ -1,10 +1,9 @@
 require "spec_helper"
 
 RSpec.describe LessonsController, type: :controller do
-  LOCALES = %w( en pt-BR es-PE ).freeze
-
   fixtures :all
 
+  let(:locale) { LOCALES.values.sample }
   let(:lesson) { Lesson.first }
 
   let(:valid_lesson_params) do
@@ -14,8 +13,6 @@ RSpec.describe LessonsController, type: :controller do
   let(:invalid_lesson_params) do
     { title: nil, day_in_treatment: nil, locale: nil }
   end
-
-  let(:locale) { LOCALES.sample }
 
   def authorize!
     allow(controller).to receive(:authorize!)
@@ -32,7 +29,7 @@ RSpec.describe LessonsController, type: :controller do
       it "renders the index template" do
         allow(controller).to receive(:authorize!).with(:index, Lesson)
 
-        admin_request :get, :index
+        admin_request :get, :index, locale
 
         expect(response).to render_template :index
       end
@@ -50,7 +47,7 @@ RSpec.describe LessonsController, type: :controller do
         it "sets the lesson" do
           authorize!
 
-          admin_request :get, :show, id: lesson.id, locale: lesson.locale
+          admin_request :get, :show, locale, id: lesson.id, locale: lesson.locale
 
           expect(assigns(:lesson)).to eq lesson
         end
@@ -69,7 +66,7 @@ RSpec.describe LessonsController, type: :controller do
       it "sets the lesson" do
         authorize!
 
-        admin_request :get, :new, locale: locale
+        admin_request :get, :new, locale, locale: locale
 
         expect(assigns(:lesson)).to be_instance_of Lesson
         expect(assigns(:lesson).locale).to eq locale
@@ -88,7 +85,7 @@ RSpec.describe LessonsController, type: :controller do
       it "sets the lesson" do
         authorize!
 
-        admin_request :get, :edit, id: lesson.id, locale: lesson.locale
+        admin_request :get, :edit, locale, id: lesson.id, locale: lesson.locale
 
         expect(assigns(:lesson)).to eq lesson
       end
@@ -108,14 +105,14 @@ RSpec.describe LessonsController, type: :controller do
           authorize!
 
           expect do
-            admin_request :post, :create, lesson: valid_lesson_params
+            admin_request :post, :create, locale, lesson: valid_lesson_params
           end.to change { Lesson.count }.by(1)
         end
 
         it "redirects to the lessons url" do
           authorize!
 
-          admin_request :post, :create, lesson: valid_lesson_params
+          admin_request :post, :create, locale, lesson: valid_lesson_params
 
           expect(response).to redirect_to lessons_url
         end
@@ -125,7 +122,7 @@ RSpec.describe LessonsController, type: :controller do
         it "renders the new template" do
           authorize!
 
-          admin_request :post, :create, lesson: invalid_lesson_params
+          admin_request :post, :create, locale, lesson: invalid_lesson_params
 
           expect(response).to render_template :new
         end
@@ -146,7 +143,7 @@ RSpec.describe LessonsController, type: :controller do
           authorize!
 
           expect do
-            admin_request :put, :update, id: lesson.id, locale: lesson.locale,
+            admin_request :put, :update, locale, id: lesson.id, locale: lesson.locale,
                           lesson: valid_lesson_params
           end.to change { Lesson.find(lesson.id).updated_at }
         end
@@ -154,7 +151,7 @@ RSpec.describe LessonsController, type: :controller do
         it "redirects to the lessons url" do
           authorize!
 
-          admin_request :put, :update, id: lesson.id, locale: lesson.locale,
+          admin_request :put, :update, locale, id: lesson.id, locale: lesson.locale,
                         lesson: valid_lesson_params
 
           expect(response).to redirect_to lessons_url
@@ -165,7 +162,7 @@ RSpec.describe LessonsController, type: :controller do
         it "renders the edit template" do
           authorize!
 
-          admin_request :put, :update, id: lesson.id, locale: lesson.locale,
+          admin_request :put, :update, locale, id: lesson.id, locale: lesson.locale,
                         lesson: invalid_lesson_params
 
           expect(response).to render_template :edit
@@ -187,7 +184,7 @@ RSpec.describe LessonsController, type: :controller do
           authorize!
 
           expect do
-            admin_request :delete, :destroy, id: lesson.id,
+            admin_request :delete, :destroy, locale, id: lesson.id,
                           locale: lesson.locale
           end.to change { Lesson.where(id: lesson.id).count }.by(-1)
         end
@@ -195,7 +192,7 @@ RSpec.describe LessonsController, type: :controller do
         it "redirects to the lessons url" do
           authorize!
 
-          admin_request :delete, :destroy, id: lesson.id, locale: lesson.locale
+          admin_request :delete, :destroy, locale, id: lesson.id, locale: lesson.locale
 
           expect(response).to redirect_to lessons_url
         end
@@ -208,7 +205,7 @@ RSpec.describe LessonsController, type: :controller do
           authorize!
           allow(Lesson).to receive_message_chain("where.find" => lesson)
 
-          admin_request :delete, :destroy, id: lesson.id
+          admin_request :delete, :destroy, locale, id: lesson.id
 
           expect(response).to redirect_to lessons_url
         end
@@ -229,7 +226,7 @@ RSpec.describe LessonsController, type: :controller do
           authorize!
           slide = lesson.build_slide(title: "t", body: "b").tap(&:save!)
 
-          admin_request :post, :slide_order, id: lesson.id, slide: [slide.id],
+          admin_request :post, :slide_order, locale, id: lesson.id, slide: [slide.id],
                         format: :js, locale: lesson.locale
 
           expect(response).to render_template :slide_order_success
@@ -240,7 +237,7 @@ RSpec.describe LessonsController, type: :controller do
         it "renders the slide order failure template" do
           authorize!
 
-          admin_request :post, :slide_order, id: lesson.id, slide: [-1],
+          admin_request :post, :slide_order, locale, id: lesson.id, slide: [-1],
                         format: :js, locale: lesson.locale
 
           expect(response).to render_template :slide_order_failure
