@@ -45,12 +45,12 @@ class Participant < ActiveRecord::Base
   scope :active, -> { where(status: ACTIVE) }
 
   def seven_day_access
-    logins.where("logged_in_at > ?", Date.today - 7.days)
+    logins.where("logged_in_at > ?", Time.zone.today - 7.days)
   end
 
   def study_day
     if start_date
-      (Date.today - start_date).to_i + 1
+      (Time.zone.today - start_date).to_i + 1
     end
   end
 
@@ -63,7 +63,7 @@ class Participant < ActiveRecord::Base
   end
 
   def enrollment_date_is_sane
-    unless enrollment_date.nil? || enrollment_date > Date.today - 5.years
+    unless enrollment_date.nil? || enrollment_date > Time.zone.today - 5.years
       errors.add(
           :enrollment_date,
           I18n.t("conemo.models.participant.enrollment_date_is_sane_error")

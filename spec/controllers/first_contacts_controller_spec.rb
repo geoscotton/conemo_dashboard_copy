@@ -4,7 +4,7 @@ RSpec.describe FirstContactsController, type: :controller do
   fixtures :all
 
   let(:valid_first_contact_params) do
-    { contact_at: Time.new, first_appointment_at: Time.new }
+    { contact_at: Time.zone.now, first_appointment_at: Time.zone.now }
   end
 
   let(:invalid_first_contact_params) do

@@ -29,15 +29,17 @@ class User < ActiveRecord::Base
     "#{last_name}, #{first_name}"
   end
 
-  def sanitize_number
-    self.phone = self.phone.gsub(/[^0-9]/, "")
-  end
-
   def admin?
     role == ROLES[:admin]
   end
 
   def nurse?
     role == ROLES[:nurse]
+  end
+
+  private
+
+  def sanitize_number
+    self.phone = phone.gsub(/[^0-9]/, "")
   end
 end

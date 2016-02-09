@@ -2,7 +2,7 @@ namespace :prw_import do
   desc "gets conemo prw data"
   task sync: :environment do
 
-    puts "******** Begin prw_import at #{Time.now} **********"
+    puts "******** Begin prw_import at #{Time.zone.now} **********"
     
     begin
       ImportPrwData.set_start_dates
@@ -55,7 +55,7 @@ end
 class ImportPrwData
 
   def self.set_start_dates
-    puts "begin start_date import at #{Time.now}"
+    puts "begin start_date import at #{Time.zone.now}"
     participants = Participant.active
 
     participants.each do |participant|
@@ -84,7 +84,7 @@ class ImportPrwData
   end
 
   def self.import_logins
-    puts "begin logins import at #{Time.now}"
+    puts "begin logins import at #{Time.zone.now}"
     if AppLogin.all.any?
       participants = Participant.active
       participants.each do |participant|
@@ -111,7 +111,7 @@ class ImportPrwData
   end
 
   def self.import_session_access_events
-    puts "begin lesson access import at #{Time.now}"
+    puts "begin lesson access import at #{Time.zone.now}"
     ClientSessionEvent.access_events.each do |event|
       participant = Participant
                     .where(study_identifier: event.participant_identifier)
@@ -139,8 +139,9 @@ class ImportPrwData
     end
   end
 
+  # rubocop:disable Metrics/AbcSize
   def self.import_content_completion_events
-    puts "begin lesson data import at #{Time.now}"
+    puts "begin lesson data import at #{Time.zone.now}"
     
     LessonDatum.all.each do |datum|
       if !datum.content_access_event_exists?
@@ -171,7 +172,7 @@ class ImportPrwData
       end
     end
     
-    puts "begin dialogue data import at #{Time.now}"
+    puts "begin dialogue data import at #{Time.zone.now}"
     DialogueDatum.all.each do |datum|
       if !datum.content_access_event_exists?
 
@@ -203,9 +204,11 @@ class ImportPrwData
       end
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
+  # rubocop:disable Rails/TimeZone
   def self.import_help_messages
-    puts "begin help messages import at #{Time.now}"
+    puts "begin help messages import at #{Time.zone.now}"
     StaffMessage.all.each do |message|
       if !message.help_message_exists?
         participant = Participant.where(study_identifier: message.FEATURE_VALUE_DT_user_id)
@@ -230,4 +233,5 @@ class ImportPrwData
       end
     end
   end
+  # rubocop:enable Rails/TimeZone
 end

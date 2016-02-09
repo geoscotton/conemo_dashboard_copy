@@ -10,7 +10,7 @@ RSpec.describe ParticipantsController, type: :controller do
   let(:valid_participant_params) do
     { first_name: "f", last_name: "l", study_identifier: "s",
       family_health_unit_name: "u", family_record_number: "r",
-      phone: "555-555-5555", enrollment_date: Date.today, gender: "male" }
+      phone: "555-555-5555", enrollment_date: Time.zone.today, gender: "male" }
   end
 
   let(:invalid_participant_params) do
@@ -113,7 +113,7 @@ RSpec.describe ParticipantsController, type: :controller do
 
         context "and the Participant is active" do
           it "redirects to active participants" do
-            participant.update status: Participant::ACTIVE
+            participant[:status] = Participant::ACTIVE
 
             admin_request :put, :update, id: participant.id,
                           participant: valid_participant_params

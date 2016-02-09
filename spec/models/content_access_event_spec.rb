@@ -11,7 +11,7 @@ RSpec.describe ContentAccessEvent, type: :model do
         expect do
           ContentAccessEvent.create!(
             participant: participant,
-            accessed_at: Time.new,
+            accessed_at: Time.zone.now,
             lesson: Lesson.first,
             day_in_treatment_accessed: 1,
             response_attributes: {

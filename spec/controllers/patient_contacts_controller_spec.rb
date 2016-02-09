@@ -5,7 +5,7 @@ describe PatientContactsController, type: :controller do
 
   let(:participant) { Participant.first }
 
-  let(:valid_patient_contact_params) { { contact_at: Time.new } }
+  let(:valid_patient_contact_params) { { contact_at: Time.zone.now } }
 
   shared_examples "a bad request" do
     it { expect(response).to redirect_to active_participants_url }
@@ -68,7 +68,7 @@ describe PatientContactsController, type: :controller do
 
         context "and the Participant has a start date" do
           it "redirects to the active report path" do
-            participant.update(start_date: Date.today)
+            participant[:start_date] = Time.zone.today
 
             admin_request :post, :create, participant_id: participant.id,
                           patient_contact: valid_patient_contact_params
@@ -128,7 +128,7 @@ describe PatientContactsController, type: :controller do
             patient_contact = participant.patient_contacts.create(
               valid_patient_contact_params
             )
-            participant.update(start_date: Date.today)
+            participant[:start_date] = Time.zone.today
 
             admin_request :delete, :destroy, participant_id: participant.id,
                           id: patient_contact.id
@@ -142,7 +142,7 @@ describe PatientContactsController, type: :controller do
             patient_contact = participant.patient_contacts.create(
               valid_patient_contact_params
             )
-            participant.update(start_date: nil)
+            participant.update start_date: nil
 
             admin_request :delete, :destroy, participant_id: participant.id,
                           id: patient_contact.id

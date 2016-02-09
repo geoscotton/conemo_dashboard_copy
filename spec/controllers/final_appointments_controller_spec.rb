@@ -7,7 +7,9 @@ RSpec.describe FinalAppointmentsController, type: :controller do
 
   let(:valid_final_appointment_params) do
     {
-      appointment_at: Time.new, appointment_location: "l", phone_returned: true
+      appointment_at: Time.zone.now,
+      appointment_location: "l",
+      phone_returned: true
     }
   end
 

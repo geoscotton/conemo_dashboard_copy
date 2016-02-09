@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
   before_action :authenticate_user!
-  before_filter :authorize_locale
-  around_filter :user_time_zone, if: :current_user
+  before_action :authorize_locale
+  around_action :user_time_zone, if: :current_user
 
   layout :layout_by_resource
 

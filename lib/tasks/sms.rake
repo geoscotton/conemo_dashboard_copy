@@ -5,7 +5,7 @@ namespace :sms do
   desc "sends pending messages that are due"
   task message: :environment do
 
-    puts "******** Begin SMS Rake #{Time.now} *********"
+    puts "******** Begin SMS Rake #{Time.zone.now} *********"
     begin
       @account_sid = ConemoDashboard::Application.config.twilio_account_sid 
       @auth_token = ConemoDashboard::Application.config.twilio_auth_token 
@@ -42,13 +42,13 @@ namespace :sms do
             begin
               if reminder_message.split_message #special case for pt-BR locale
                 @message = @account.sms.messages.create({ from: "+13125488213", to: "#{country_code}#{phone_number}", body: reminder_message.message("part_a").force_encoding("UTF-8") })
-                puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 1/2, time: #{Time.now}"
+                puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 1/2, time: #{Time.zone.now}"
                 sleep(5)
                 @message = @account.sms.messages.create({ from: "+13125488213", to: "#{country_code}#{phone_number}", body: reminder_message.message("part_b").force_encoding("UTF-8") })
-                puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 2/2, time: #{Time.now}"
+                puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 2/2, time: #{Time.zone.now}"
               else
                 @message = @account.sms.messages.create({ from: "+13125488213", to: "#{country_code}#{phone_number}", body: reminder_message.message.force_encoding("UTF-8") })
-                puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 1/1, time: #{Time.now}"
+                puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 1/1, time: #{Time.zone.now}"
               end
               reminder_message.update_attribute(:status, "sent")
             rescue Net::OpenTimeout

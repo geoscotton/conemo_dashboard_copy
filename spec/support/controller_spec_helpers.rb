@@ -38,12 +38,12 @@ module ControllerSpecHelpers
   def sign_in_resource(resource, name)
     if resource.nil?
       expect(request.env["warden"]).to receive(:authenticate!)
-        .and_throw(:warden, scope: :"#{ name }")
-      controller.stub :"current_#{ name }" => nil
+        .and_throw(:warden, scope: :"#{name}")
+      controller.stub :"current_#{name}" => nil
     else
       expect(request.env["warden"]).to receive(:authenticate!).at_most(5).times
         .and_return(resource)
-      allow(controller).to receive("current_#{ name }") { resource }
+      allow(controller).to receive("current_#{name}") { resource }
     end
 
     resource
