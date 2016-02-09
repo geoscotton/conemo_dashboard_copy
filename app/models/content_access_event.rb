@@ -20,6 +20,13 @@ class ContentAccessEvent < ActiveRecord::Base
     day_in_treatment_accessed > lesson.day_in_treatment
   end
 
+  def response_attributes=(value)
+    response = JSON.parse(value)
+    super({ answer: response["answer"].to_json })
+  rescue TypeError
+    super value
+  end
+
   private
 
   def set_uuid
