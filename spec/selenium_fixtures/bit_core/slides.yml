@@ -157,7 +157,7 @@
 
   es_slide_7:
     slideshow: es_slideshow_1
-    body: '<p>&nbsp;</p><p>Para iniciar el v&iacute;deo, por favor, presiona el tri&aacute;ngulo debajo del v&iacute;deo.&nbsp;</p><p><video style=\"max-width:100%;\"><source type=\"video/mp4\" src=\"videos/LM1.mp4\" /></video></p>'
+    body: '<p>&nbsp;</p><p>Para iniciar el v&iacute;deo, por favor, presiona el tri&aacute;ngulo debajo del v&iacute;deo.&nbsp;</p><p>videoLM1</p>'
     position: 7
     title: "Slide 3 Video 1"
 
@@ -302,7 +302,7 @@
 
   es_slide_31:
     slideshow: es_slideshow_7
-    body: '<p>&iexcl;Planeando actividades para la semana!</p><p>&nbsp;</p><p>Para iniciar el v&iacute;deo, por favor, presiona el tri&aacute;ngulo debajo del v&iacute;deo.&nbsp;</p><p><span style=\"font-size:13px\"><video style=\"max-width:100%;\"><source type=\"video/mp4\" src=\"videos/LM2.mp4\" /></video></span></p>'
+    body: '<p>&iexcl;Planeando actividades para la semana!</p><p>&nbsp;</p><p>Para iniciar el v&iacute;deo, por favor, presiona el tri&aacute;ngulo debajo del v&iacute;deo.&nbsp;</p><p>videoLM2</p>'
     position: 1
     title: " Slide 1 Video 2"
 
@@ -440,7 +440,7 @@
 
   es_slide_54:
     slideshow: es_slideshow_14
-    body: '<p>&iexcl;Un paso a la vez!</p><p>&nbsp;</p><p>Para iniciar el v&iacute;deo, por favor, presiona el tri&aacute;ngulo debajo del v&iacute;deo.&nbsp;</p><p><video style=\"max-width:100%;\"><source type=\"video/mp4\" src=\"videos/LM3.mp4\" /></video></p>'
+    body: '<p>&iexcl;Un paso a la vez!</p><p>&nbsp;</p><p>Para iniciar el v&iacute;deo, por favor, presiona el tri&aacute;ngulo debajo del v&iacute;deo.&nbsp;</p><p>videoLM3</p>'
     position: 1
     title: " Slide 1 Video 3"
 
@@ -482,7 +482,7 @@
 
   es_slide_61:
     slideshow: es_slideshow_16
-    body: '<p>&nbsp;</p><p>Para iniciar el v&iacute;deo, por favor, presiona el tri&aacute;ngulo debajo del v&iacute;deo.&nbsp;</p><p>&nbsp;</p><p><video style=\"max-width:100%;\"><source type=\"video/mp4\" src=\"videos/LM4.mp4\" /></video></p>'
+    body: '<p>&nbsp;</p><p>Para iniciar el v&iacute;deo, por favor, presiona el tri&aacute;ngulo debajo del v&iacute;deo.&nbsp;</p><p>&nbsp;</p><p>videoLM4</p>'
     position: 4
     title: "Slide 4 Video 4"
 
