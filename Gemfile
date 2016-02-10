@@ -44,6 +44,7 @@ end
 group :test do
   gem "capybara"
   gem "simplecov", "~> 0.10.0", require: false
+  gem "poltergeist"
 end
 
 gem "bit_core", "~> 1.0"
