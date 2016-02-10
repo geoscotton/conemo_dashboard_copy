@@ -1,3 +1,5 @@
+require "securerandom"
+
 # An authenticatable person who uses the site, is a Nurse or Researcher
 class User < ActiveRecord::Base
   include Status
@@ -23,6 +25,7 @@ class User < ActiveRecord::Base
   validates :role, inclusion: {in: ROLES.values}
   validates :timezone, inclusion: {in: ActiveSupport::TimeZone::MAPPING.keys}
 
+  before_validation :set_password
   before_save :sanitize_number
 
   def active_participants
@@ -42,6 +45,12 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def set_password
+    return unless password.nil?
+
+    self.password = self.password_confirmation = SecureRandom.uuid
+  end
 
   def sanitize_number
     self.phone = phone.gsub(/[^0-9]/, "")

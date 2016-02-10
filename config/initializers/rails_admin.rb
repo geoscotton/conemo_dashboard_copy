@@ -21,10 +21,10 @@ RailsAdmin.config do |config|
     index                         # mandatory
     export
     new do
-      only [User]
+      only [User, NurseSupervisor]
     end
     edit do
-      only [User]
+      only [User, NurseSupervisor]
     end
     bulk_delete
     show
@@ -42,6 +42,7 @@ RailsAdmin.config do |config|
       Lesson,
       Login,
       NurseParticipantEvaluation,
+      NurseSupervisor,
       Participant,
       PatientContact,
       ParticipantStartDate,
@@ -59,7 +60,37 @@ RailsAdmin.config do |config|
       navigation_label "Transmitted"
     end
 
+    config.model Device do
+      navigation_label "Transmitted"
+    end
+
+    config.model HelpMessage do
+      navigation_label "Transmitted"
+    end
+
+    config.model Login do
+      navigation_label "Transmitted"
+    end
+
+    config.model ParticipantStartDate do
+      navigation_label "Transmitted"
+    end
+
+    config.model PlannedActivity do
+      navigation_label "Transmitted"
+    end
+
+    config.model Response do
+      navigation_label "Transmitted"
+    end
+
+    config.model SessionEvent do
+      navigation_label "Transmitted"
+    end
+
     config.model User do
+      navigation_label "Management"
+
       object_label_method :email
 
       list do
@@ -100,6 +131,8 @@ RailsAdmin.config do |config|
     end
 
     config.model Participant do
+      navigation_label "Management"
+
       object_label_method :study_id
 
       list do
@@ -132,6 +165,8 @@ RailsAdmin.config do |config|
   end
 
   config.model FirstContact do
+    navigation_label "Data"
+
     list do
       field :participant
       field :first_appointment_at
@@ -139,13 +174,41 @@ RailsAdmin.config do |config|
   end
 
   config.model FirstAppointment do
+    navigation_label "Data"
+
     list do
       field :participant
       field :next_contact
     end
   end
 
+  config.model NurseSupervisor do
+    edit do
+      field :email
+      field :phone
+      field :first_name
+      field :last_name
+      field :locale, :hidden do
+        default_value do
+          bindings[:view].current_user.locale
+        end
+      end
+      field :timezone, :hidden do
+        default_value do
+          bindings[:view].current_user.timezone
+        end
+      end
+      field :role, :hidden do
+        default_value do
+          "nurse_supervisor"
+        end
+      end
+    end
+  end
+
   config.model SecondContact do
+    navigation_label "Data"
+
     list do
       field :participant
       field :next_contact
@@ -153,6 +216,8 @@ RailsAdmin.config do |config|
   end
 
   config.model ThirdContact do
+    navigation_label "Data"
+
     list do
       field :participant
       field :final_appointment_at
