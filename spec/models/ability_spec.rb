@@ -57,17 +57,18 @@ RSpec.describe Ability do
   describe "Nurse permissions" do
     let(:en_nurse_role) { Ability.new(users(:nurse1)) }
 
-    it "can manage a Participant of the same locale" do
-      expect(en_nurse_role.can?(:manage, en_participant)).to eq true
-    end
-
-    it "can manage Participants of the same locale" do
+    it "can read Participants of the same locale" do
       en_participants = Participant.where(locale: LOCALES[:en])
-      expect(en_nurse_role.can?(:manage, en_participants)).to eq true
+      expect(en_nurse_role.can?(:read, en_participants)).to eq true
     end
 
-    it "cannot manage a Participant of a different locale" do
-      expect(en_nurse_role.can?(:manage, pt_participant)).to eq false
+    it "can update Participants of the same locale" do
+      en_participants = Participant.where(locale: LOCALES[:en])
+      expect(en_nurse_role.can?(:update, en_participants)).to eq true
+    end
+
+    it "cannot read a Participant of a different locale" do
+      expect(en_nurse_role.can?(:read, pt_participant)).to eq false
     end
   end
 end

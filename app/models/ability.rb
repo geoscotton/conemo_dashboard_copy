@@ -11,8 +11,10 @@ class Ability
       authorize_nurse user
     end
 
-    can :manage, ActiveRecord::Relation do |relation|
-      relation.all? { |model| can?(:manage, model) }
+    [:read, :create, :update, :destroy, :manage].each do |permission|
+      can permission, ActiveRecord::Relation do |relation|
+        relation.all? { |model| can?(permission, model) }
+      end
     end
   end
 
@@ -26,6 +28,6 @@ class Ability
   end
 
   def authorize_nurse(nurse)
-    can :manage, Participant, locale: nurse.locale
+    can [:read, :update], Participant, locale: nurse.locale
   end
 end
