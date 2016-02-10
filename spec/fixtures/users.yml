@@ -47,3 +47,14 @@ admin1:
   phone: "15555555555"
   locale: "en"
   timezone: "Central Time (US & Canada)"
+
+en_nurse_supervisor_1:
+  type: NurseSupervisor
+  role: nurse_supervisor
+  first_name: En Nurse
+  last_name: Supervisor 1
+  email: nurse-supervisor-1@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  phone: 555-555-5555
+  locale: en
+  timezone: Central Time (US & Canada)

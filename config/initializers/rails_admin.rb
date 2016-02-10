@@ -21,10 +21,10 @@ RailsAdmin.config do |config|
     index                         # mandatory
     export
     new do
-      only [User, NurseSupervisor]
+      only [Nurse, NurseSupervisor]
     end
     edit do
-      only [User, NurseSupervisor]
+      only [Nurse, NurseSupervisor]
     end
     bulk_delete
     show
@@ -41,6 +41,7 @@ RailsAdmin.config do |config|
       HelpMessage,
       Lesson,
       Login,
+      Nurse,
       NurseParticipantEvaluation,
       NurseSupervisor,
       Participant,
@@ -182,7 +183,44 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model Nurse do
+    edit do
+      field :email
+      field :phone
+      field :first_name
+      field :last_name
+      field :nurse_supervisor do
+        associated_collection_cache_all false
+        associated_collection_scope do
+          locale = bindings[:view].current_user.locale
+          Proc.new { |scope|
+            scope = scope.where(locale: locale)
+          }
+        end
+      end
+      field :locale, :hidden do
+        default_value do
+          bindings[:view].current_user.locale
+        end
+      end
+      field :timezone, :hidden do
+        default_value do
+          bindings[:view].current_user.timezone
+        end
+      end
+      field :role, :hidden do
+        default_value do
+          "nurse"
+        end
+      end
+    end
+  end
+
   config.model NurseSupervisor do
+    object_label_method do
+      :last_and_first_name
+    end
+
     edit do
       field :email
       field :phone
