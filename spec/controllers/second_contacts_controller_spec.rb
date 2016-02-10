@@ -11,7 +11,7 @@ RSpec.describe SecondContactsController, type: :controller do
   end
 
   let(:valid_second_contact_params) do
-    { contact_at: Time.new, session_length: 1, next_contact: Time.new }
+    { contact_at: Time.zone.now, session_length: 1, next_contact: Time.zone.now }
   end
 
   let(:invalid_second_contact_params) do

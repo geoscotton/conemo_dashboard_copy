@@ -2,39 +2,35 @@ require "spec_helper"
 
 module Active
   describe ParticipantsController, type: :controller do
-    LOCALES = %w( en es-PE pt-BR ).freeze
-
     fixtures :all
 
-    let(:participant) { Participant.first }
+    let(:locale) { LOCALES.values.sample }
 
     describe "GET index" do
       context "for authenticated requests" do
         it "should render the index page" do
-          admin_request :get, :index
+          admin_request :get, :index, locale, locale: locale
 
           expect(response).to render_template :index
         end
 
         context "when the User is an admin" do
           it "sets participants not scoped by User" do
-            LOCALES.each do |locale|
-              admin_request :get, :index, locale: locale
+            admin_request :get, :index, locale, locale: locale
 
-              expect(assigns(:participants).count)
-                .to eq Participant.where(locale: locale).active.count
-            end
+            expect(assigns(:participants).count)
+              .to eq Participant.where(locale: locale).active.count
           end
         end
 
         context "when the User is not an admin" do
           it "sets participants scoped by User" do
-            nurse = sign_in_nurse
-            participants = Participant.where(locale: nurse.locale)
+            nurse = sign_in_nurse(locale)
+            participants = Participant.where(locale: locale)
             allow(nurse).to receive(:active_participants)
               .and_return(participants)
 
-            nurse_request :get, :index, locale: nurse.locale
+            nurse_request :get, :index, locale, locale: locale
 
             expect(assigns(:participants).count)
               .to eq participants.count
@@ -45,7 +41,9 @@ module Active
 
     describe "GET show" do
       it "sets the participant" do
-        admin_request :get, :show, id: participant.id
+        participant = Participant.where(locale: locale).first
+
+        admin_request :get, :show, locale, id: participant.id, locale: locale
 
         expect(assigns(:participant)).to eq participant
       end

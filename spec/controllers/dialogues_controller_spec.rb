@@ -3,8 +3,6 @@ require "spec_helper"
 RSpec.describe DialoguesController, type: :controller do
   fixtures :all
 
-  LOCALES = %w( en pt-BR es-PE ).freeze
-
   def create_dialogue!(locale)
     Dialogue.create!(locale: locale, title: "t", day_in_treatment: 1,
                      guid: "g", message: "m", yes_text: "y", no_text: "n")
@@ -42,7 +40,7 @@ RSpec.describe DialoguesController, type: :controller do
       it "sets dialogs" do
         allow(controller).to receive(:authorize!).with(:index, Dialogue)
 
-        LOCALES.each do |locale|
+        LOCALES.values.each do |locale|
           sign_in_nurse_for locale
           dialogue = create_dialogue!(locale)
 
@@ -63,7 +61,7 @@ RSpec.describe DialoguesController, type: :controller do
 
     context "for an authorized User" do
       it "sets the dialog" do
-        LOCALES.each do |locale|
+        LOCALES.values.each do |locale|
           sign_in_nurse_for locale
           dialogue = create_dialogue!(locale)
           allow(controller).to receive(:authorize!).with(:show, dialogue)
@@ -87,7 +85,7 @@ RSpec.describe DialoguesController, type: :controller do
       it "sets the dialog" do
         authorize!
 
-        LOCALES.each do |locale|
+        LOCALES.values.each do |locale|
           sign_in_nurse_for locale
 
           get :new, locale: locale
@@ -110,7 +108,7 @@ RSpec.describe DialoguesController, type: :controller do
         it "redirects to the dialogues index" do
           authorize!
 
-          LOCALES.each do |locale|
+          LOCALES.values.each do |locale|
             sign_in_nurse_for locale
 
             post :create, locale: locale, dialogue: valid_dialogue_params
@@ -125,7 +123,7 @@ RSpec.describe DialoguesController, type: :controller do
         it "renders the new page" do
           authorize!
 
-          LOCALES.each do |locale|
+          LOCALES.values.each do |locale|
             sign_in_nurse_for locale
 
             post :create, locale: locale, dialogue: invalid_dialogue_params
@@ -149,7 +147,7 @@ RSpec.describe DialoguesController, type: :controller do
       it "sets the dialog" do
         authorize!
 
-        LOCALES.each do |locale|
+        LOCALES.values.each do |locale|
           sign_in_nurse_for locale
           dialogue = create_dialogue!(locale)
 
@@ -173,7 +171,7 @@ RSpec.describe DialoguesController, type: :controller do
         it "redirects to the dialogues index" do
           authorize!
 
-          LOCALES.each do |locale|
+          LOCALES.values.each do |locale|
             sign_in_nurse_for locale
             dialogue = create_dialogue!(locale)
 
@@ -190,7 +188,7 @@ RSpec.describe DialoguesController, type: :controller do
         it "renders the new page" do
           authorize!
 
-          LOCALES.each do |locale|
+          LOCALES.values.each do |locale|
             sign_in_nurse_for locale
             dialogue = create_dialogue!(locale)
 
@@ -217,7 +215,7 @@ RSpec.describe DialoguesController, type: :controller do
         it "redirects to the dialogues index" do
           authorize!
 
-          LOCALES.each do |locale|
+          LOCALES.values.each do |locale|
             sign_in_nurse_for locale
             dialogue = create_dialogue!(locale)
 
@@ -232,7 +230,7 @@ RSpec.describe DialoguesController, type: :controller do
         it "sets the flash alert" do
           authorize!
 
-          LOCALES.each do |locale|
+          LOCALES.values.each do |locale|
             sign_in_nurse_for locale
             dialogue = create_dialogue!(locale)
             allow(Dialogue).to receive_message_chain("where.find" => dialogue)

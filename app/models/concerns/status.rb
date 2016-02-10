@@ -31,7 +31,7 @@ module Status
   end
 
   def access_response(lesson)
-    content_access_events.where(lesson_id: lesson.id).first
+    content_access_events.find_by lesson_id: lesson.id
   end
 
   def current_study_status

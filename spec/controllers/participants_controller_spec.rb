@@ -1,8 +1,6 @@
 require "spec_helper"
 
 RSpec.describe ParticipantsController, type: :controller do
-  LOCALES = %w( en pt-BR es-PE ).freeze
-
   fixtures :all
 
   let(:participant) { Participant.first }
@@ -10,7 +8,7 @@ RSpec.describe ParticipantsController, type: :controller do
   let(:valid_participant_params) do
     { first_name: "f", last_name: "l", study_identifier: "s",
       family_health_unit_name: "u", family_record_number: "r",
-      phone: "555-555-5555", enrollment_date: Date.today, gender: "male" }
+      phone: "555-555-5555", enrollment_date: Time.zone.today, gender: "male" }
   end
 
   let(:invalid_participant_params) do
@@ -19,7 +17,7 @@ RSpec.describe ParticipantsController, type: :controller do
       phone: nil, enrollment_date: nil }
   end
 
-  let(:locale) { LOCALES.sample }
+  let(:locale) { LOCALES.values.sample }
 
   describe "GET new" do
     context "for unauthenticated requests" do
@@ -30,7 +28,7 @@ RSpec.describe ParticipantsController, type: :controller do
 
     context "for authenticated requests" do
       it "sets the participant" do
-        admin_request :get, :new
+        admin_request :get, :new, locale
 
         expect(assigns(:participant)).to be_instance_of Participant
       end
@@ -48,13 +46,15 @@ RSpec.describe ParticipantsController, type: :controller do
       context "when successful" do
         it "creates a Participant" do
           expect do
-            admin_request :post, :create, participant: valid_participant_params,
+            admin_request :post, :create, locale,
+                          participant: valid_participant_params,
                           locale: locale
           end.to change { Participant.where(locale: locale).count }.by(1)
         end
 
         it "redirects to pending_participants_path" do
-          admin_request :post, :create, participant: valid_participant_params,
+          admin_request :post, :create, locale,
+                        participant: valid_participant_params,
                         locale: locale
 
           expect(response).to redirect_to pending_participants_path
@@ -63,14 +63,16 @@ RSpec.describe ParticipantsController, type: :controller do
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          admin_request :post, :create, participant: invalid_participant_params,
+          admin_request :post, :create, locale,
+                        participant: invalid_participant_params,
                         locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders new" do
-          admin_request :post, :create, participant: invalid_participant_params,
+          admin_request :post, :create, locale,
+                        participant: invalid_participant_params,
                         locale: locale
 
           expect(response).to render_template :new
@@ -88,7 +90,8 @@ RSpec.describe ParticipantsController, type: :controller do
 
     context "for authenticated requests" do
       it "sets the participant" do
-        admin_request :get, :edit, id: participant.id
+        admin_request :get, :edit, locale,
+                      id: participant.id
         
         expect(assigns(:participant)).to eq participant
       end
@@ -106,16 +109,17 @@ RSpec.describe ParticipantsController, type: :controller do
       context "when successful" do
         it "updates the Participant" do
           expect do
-            admin_request :put, :update, id: participant.id,
+            admin_request :put, :update, locale,
+                          id: participant.id,
                           participant: valid_participant_params
           end.to change { Participant.find(participant.id).updated_at }
         end
 
         context "and the Participant is active" do
           it "redirects to active participants" do
-            participant.update status: Participant::ACTIVE
+            participant[:status] = Participant::ACTIVE
 
-            admin_request :put, :update, id: participant.id,
+            admin_request :put, :update, locale, id: participant.id,
                           participant: valid_participant_params
 
             expect(response).to redirect_to active_participants_path
@@ -127,7 +131,7 @@ RSpec.describe ParticipantsController, type: :controller do
             participant.update! status: [Participant::PENDING,
                                          Participant::INELIGIBLE].sample
 
-            admin_request :put, :update, id: participant.id,
+            admin_request :put, :update, locale, id: participant.id,
                           participant: valid_participant_params
 
             expect(response).to redirect_to pending_participants_path
@@ -137,14 +141,14 @@ RSpec.describe ParticipantsController, type: :controller do
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          admin_request :put, :update, id: participant.id,
+          admin_request :put, :update, locale, id: participant.id,
                         participant: invalid_participant_params
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the edit template" do
-          admin_request :put, :update, id: participant.id,
+          admin_request :put, :update, locale, id: participant.id,
                         participant: invalid_participant_params
 
           expect(response).to render_template :edit
@@ -164,12 +168,12 @@ RSpec.describe ParticipantsController, type: :controller do
       context "when successful" do
         it "destroys the Participant" do
           expect do
-            admin_request :delete, :destroy, id: participant.id
+            admin_request :delete, :destroy, locale, id: participant.id
           end.to change { Participant.exists?(id: participant.id) }
         end
 
         it "redirects to pending participants" do
-          admin_request :delete, :destroy, id: participant.id
+          admin_request :delete, :destroy, locale, id: participant.id
 
           expect(response).to redirect_to pending_participants_path
         end
@@ -180,7 +184,7 @@ RSpec.describe ParticipantsController, type: :controller do
           allow(participant).to receive(:destroy) { false }
           allow(Participant).to receive(:where) { [participant] }
 
-          admin_request :delete, :destroy, id: participant.id
+          admin_request :delete, :destroy, locale, id: participant.id
 
           expect(flash[:error]).not_to be_nil
         end
@@ -189,7 +193,7 @@ RSpec.describe ParticipantsController, type: :controller do
           allow(participant).to receive(:destroy) { false }
           allow(Participant).to receive(:where) { [participant] }
 
-          admin_request :delete, :destroy, id: participant.id
+          admin_request :delete, :destroy, locale, id: participant.id
 
           expect(response).to redirect_to pending_participants_path
         end

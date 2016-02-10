@@ -24,7 +24,7 @@ describe "lesson management", type: :feature do
   end
 
   it "should allow an admin to update a lesson" do
-    click_on "edit-lesson-#{ lessons(:day1).id }"
+    click_on "edit-lesson-#{lessons(:day1).id}"
     fill_in "Title", with: "Edited lesson"
     fill_in "Day in treatment", with: 8
     click_on "Update Lesson"
@@ -37,7 +37,7 @@ describe "lesson management", type: :feature do
     it "should allow an admin to destroy a lesson" do
       ContentAccessEvent.destroy_all
 
-      click_on "destroy-lesson-#{ lessons(:day1).id }"
+      click_on "destroy-lesson-#{lessons(:day1).id}"
 
       expect(page).to have_text("Lesson deleted")
       expect(page).not_to have_text(lessons(:day1).title)
@@ -60,7 +60,7 @@ describe "lesson management", type: :feature do
 
   it "should allow an admin to update a lesson slide" do
     click_on lessons(:day1).title
-    click_on "edit-slide-#{ bit_core_slides(:day1_slide1).id }"
+    click_on "edit-slide-#{bit_core_slides(:day1_slide1).id}"
     fill_in "Title", with: "Edited slide"
     fill_in "Body", with: "<span>edited slide</span>"
     click_on "Update Slide"
@@ -74,9 +74,9 @@ describe "lesson management", type: :feature do
 
   it "should allow an admin to destroy a lesson slide" do
     click_on lessons(:day1).title
-    click_on "destroy-slide-#{ bit_core_slides(:day1_slide1).id }"
+    click_on "destroy-slide-#{bit_core_slides(:day1_slide1).id}"
 
     expect(page).to have_text("Slide deleted")
-    expect(page.body).not_to match(/#{ bit_core_slides(:day1_slide1).title }/)
+    expect(page.body).not_to match(/#{bit_core_slides(:day1_slide1).title}/)
   end
 end

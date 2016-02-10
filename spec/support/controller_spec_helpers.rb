@@ -1,31 +1,31 @@
 module ControllerSpecHelpers
-  def sign_in_admin
+  def sign_in_admin(locale)
     @signed_in_user ||= sign_in_user(instance_double(
       User,
       nurse?: false,
       admin?: true,
-      locale: %w( en pt-BR es-PE ).sample,
+      locale: locale,
       timezone: "America/Chicago"
     ))
   end
 
-  def sign_in_nurse
+  def sign_in_nurse(locale)
     @signed_in_user ||= sign_in_user(instance_double(
       User,
       nurse?: true,
       admin?: false,
-      locale: %w( en pt-BR es-PE ).sample,
+      locale: locale,
       timezone: "America/Chicago"
     ))
   end
 
-  def admin_request(http_method, action, params = {})
-    sign_in_admin
+  def admin_request(http_method, action, locale, params = {})
+    sign_in_admin locale
     send http_method, action, params
   end
 
-  def nurse_request(http_method, action, params = {})
-    sign_in_nurse
+  def nurse_request(http_method, action, locale, params = {})
+    sign_in_nurse locale
     send http_method, action, params
   end
 
@@ -38,12 +38,12 @@ module ControllerSpecHelpers
   def sign_in_resource(resource, name)
     if resource.nil?
       expect(request.env["warden"]).to receive(:authenticate!)
-        .and_throw(:warden, scope: :"#{ name }")
-      controller.stub :"current_#{ name }" => nil
+        .and_throw(:warden, scope: :"#{name}")
+      controller.stub :"current_#{name}" => nil
     else
       expect(request.env["warden"]).to receive(:authenticate!).at_most(5).times
         .and_return(resource)
-      allow(controller).to receive("current_#{ name }") { resource }
+      allow(controller).to receive("current_#{name}") { resource }
     end
 
     resource

@@ -3,7 +3,8 @@ require "spec_helper"
 RSpec.describe SmartphonesController, type: :controller do
   fixtures :all
 
-  let(:participant) { Participant.first }
+  let(:locale) { LOCALES.values.sample }
+  let(:participant) { Participant.find_by(locale: locale) }
 
   let(:valid_smartphone_params) { { number: "1" } }
 
@@ -11,12 +12,6 @@ RSpec.describe SmartphonesController, type: :controller do
 
   shared_examples "a bad request" do
     it { expect(response).to redirect_to active_participants_url }
-  end
-
-  def admin_request(http_method, action, params)
-    sign_in_admin
-
-    send http_method, action, params
   end
 
   describe "GET new" do
@@ -28,13 +23,13 @@ RSpec.describe SmartphonesController, type: :controller do
 
     context "for an authenticated User" do
       context "when the Participant isn't found" do
-        before { admin_request :get, :new, participant_id: -1 }
+        before { admin_request :get, :new, locale, participant_id: -1 }
 
         it_behaves_like "a bad request"
       end
 
       it "sets smartphone" do
-        admin_request :get, :new, participant_id: participant.id
+        admin_request :get, :new, locale, participant_id: participant.id
 
         expect(assigns(:smartphone)).to be_instance_of Smartphone
         expect(assigns(:smartphone).participant).to eq participant
@@ -51,22 +46,24 @@ RSpec.describe SmartphonesController, type: :controller do
 
     context "for an authenticated User" do
       context "when the Participant isn't found" do
-        before { admin_request :post, :create, participant_id: -1 }
+        before { admin_request :post, :create, locale, participant_id: -1 }
 
         it_behaves_like "a bad request"
       end
 
       context "when successful" do
         it "creates a new Smartphone" do
+          Smartphone.destroy_all
+
           expect do
-            admin_request :post, :create, participant_id: participant.id,
-                          smartphone: valid_smartphone_params
+            admin_request :post, :create, locale, participant_id: participant.id,
+                          smartphone: valid_smartphone_params, locale: locale
           end.to change { Smartphone.where(participant: participant).count }
             .by(1)
         end
 
         it "redirects to active_participants_path" do
-          admin_request :post, :create, participant_id: participant.id,
+          admin_request :post, :create, locale, participant_id: participant.id,
                         smartphone: valid_smartphone_params
 
           expect(response).to redirect_to active_participants_path
@@ -75,14 +72,14 @@ RSpec.describe SmartphonesController, type: :controller do
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          admin_request :post, :create, participant_id: participant.id,
+          admin_request :post, :create, locale, participant_id: participant.id,
                         smartphone: invalid_smartphone_params
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the new template" do
-          admin_request :post, :create, participant_id: participant.id,
+          admin_request :post, :create, locale, participant_id: participant.id,
                         smartphone: invalid_smartphone_params
 
           expect(response).to render_template :new
@@ -100,7 +97,7 @@ RSpec.describe SmartphonesController, type: :controller do
 
     context "for an authenticated User" do
       context "when the Participant isn't found" do
-        before { admin_request :get, :edit, participant_id: -1 }
+        before { admin_request :get, :edit, locale, participant_id: -1 }
 
         it_behaves_like "a bad request"
       end
@@ -108,7 +105,7 @@ RSpec.describe SmartphonesController, type: :controller do
       it "sets smartphone" do
         participant.create_smartphone valid_smartphone_params
 
-        admin_request :get, :edit, participant_id: participant.id,
+        admin_request :get, :edit, locale, participant_id: participant.id,
                       smartphone: invalid_smartphone_params
 
         expect(assigns(:smartphone)).to be_instance_of Smartphone
@@ -126,7 +123,7 @@ RSpec.describe SmartphonesController, type: :controller do
 
     context "for an authenticated User" do
       context "when the Participant isn't found" do
-        before { admin_request :put, :update, participant_id: -1 }
+        before { admin_request :put, :update, locale, participant_id: -1 }
 
         it_behaves_like "a bad request"
       end
@@ -135,7 +132,7 @@ RSpec.describe SmartphonesController, type: :controller do
         it "redirects to active_participant_path" do
           participant.create_smartphone valid_smartphone_params
 
-          admin_request :put, :update, participant_id: participant.id,
+          admin_request :put, :update, locale, participant_id: participant.id,
                         smartphone: valid_smartphone_params
 
           expect(response).to redirect_to active_participant_path(participant)
@@ -146,7 +143,7 @@ RSpec.describe SmartphonesController, type: :controller do
         it "sets the flash alert" do
           participant.create_smartphone valid_smartphone_params
 
-          admin_request :put, :update, participant_id: participant.id,
+          admin_request :put, :update, locale, participant_id: participant.id,
                         smartphone: invalid_smartphone_params
 
           expect(flash[:alert]).not_to be_nil
@@ -155,7 +152,7 @@ RSpec.describe SmartphonesController, type: :controller do
         it "renders the edit template" do
           participant.create_smartphone valid_smartphone_params
 
-          admin_request :put, :update, participant_id: participant.id,
+          admin_request :put, :update, locale, participant_id: participant.id,
                         smartphone: invalid_smartphone_params
 
           expect(response).to render_template :edit

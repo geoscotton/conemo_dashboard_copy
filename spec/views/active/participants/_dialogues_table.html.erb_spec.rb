@@ -28,7 +28,7 @@ RSpec.describe "active/participants/_dialogues_table", type: :view do
              locals: { dialogues: dialogues, participant: participant }
 
       date_str = I18n.l(Date.parse("2000-07-14"), format: :long)
-      expect(rendered).to have_selector(".release-day", text: "(2) #{ date_str }")
+      expect(rendered).to have_selector(".release-day", text: "(2) #{date_str}")
     end
   end
 

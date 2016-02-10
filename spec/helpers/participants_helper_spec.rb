@@ -29,7 +29,7 @@ RSpec.describe ParticipantsHelper, type: :helper do
         output = helper.first_contact(participant)
 
         path = new_participant_first_contact_path(participant)
-        expect(output).to include "href=\"#{ path }\""
+        expect(output).to include "href=\"#{path}\""
       end
     end
   end
@@ -101,7 +101,7 @@ RSpec.describe ParticipantsHelper, type: :helper do
           participant.create_second_contact(
             contact_at: Time.zone.now,
             session_length: 1,
-            next_contact: DateTime.now
+            next_contact: Time.zone.now
           )
           participant.reload
           output = helper.third_contact(participant)
@@ -129,13 +129,13 @@ RSpec.describe ParticipantsHelper, type: :helper do
           participant.create_second_contact(
             contact_at: Time.zone.now,
             session_length: 1,
-            next_contact: DateTime.now
+            next_contact: Time.zone.now
           )
           participant.reload
           output = helper.third_contact_link(participant)
 
           path = new_participant_third_contact_path(participant)
-          expect(output).to include "href=\"#{ path }\""
+          expect(output).to include "href=\"#{path}\""
         end
       end
     end
@@ -156,14 +156,14 @@ RSpec.describe ParticipantsHelper, type: :helper do
           participant.create_second_contact(
             contact_at: Time.zone.now,
             session_length: 1,
-            next_contact: DateTime.now
+            next_contact: Time.zone.now
           )
           participant.reload
           output = helper.reschedule_third_contact(participant)
 
           path = missed_third_contact_path(participant_id: participant.id,
                                            id: participant.second_contact.id)
-          expect(output).to include "href=\"#{ path }\""
+          expect(output).to include "href=\"#{path}\""
         end
       end
     end
@@ -185,7 +185,7 @@ RSpec.describe ParticipantsHelper, type: :helper do
           participant.create_third_contact(
             contact_at: Time.zone.now,
             session_length: 1,
-            final_appointment_at: DateTime.now,
+            final_appointment_at: Time.zone.now,
             final_appointment_location: "inside"
           )
           participant.reload
@@ -214,14 +214,14 @@ RSpec.describe ParticipantsHelper, type: :helper do
           participant.create_third_contact(
             contact_at: Time.zone.now,
             session_length: 1,
-            final_appointment_at: DateTime.now,
+            final_appointment_at: Time.zone.now,
             final_appointment_location: "inside"
           )
           participant.reload
           output = helper.final_appointment_link(participant)
 
           path = new_participant_final_appointment_path(participant)
-          expect(output).to include "href=\"#{ path }\""
+          expect(output).to include "href=\"#{path}\""
         end
       end
     end
@@ -243,7 +243,7 @@ RSpec.describe ParticipantsHelper, type: :helper do
           participant.create_third_contact(
             contact_at: Time.zone.now,
             session_length: 1,
-            final_appointment_at: DateTime.now,
+            final_appointment_at: Time.zone.now,
             final_appointment_location: "inside"
           )
           participant.reload
@@ -251,7 +251,7 @@ RSpec.describe ParticipantsHelper, type: :helper do
 
           path = missed_final_appointment_path(participant_id: participant.id,
                                                id: participant.third_contact.id)
-          expect(output).to include "href=\"#{ path }\""
+          expect(output).to include "href=\"#{path}\""
         end
       end
     end

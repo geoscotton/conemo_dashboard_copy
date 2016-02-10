@@ -1,8 +1,14 @@
+require "securerandom"
+
 # An authenticatable person who uses the site, is a Nurse or Researcher
 class User < ActiveRecord::Base
   include Status
 
-  ROLES = {admin: "admin", nurse: "nurse"}.freeze
+  ROLES = {
+    admin: "admin",
+    nurse: "nurse",
+    nurse_supervisor: "nurse_supervisor"
+  }.freeze
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -19,6 +25,7 @@ class User < ActiveRecord::Base
   validates :role, inclusion: {in: ROLES.values}
   validates :timezone, inclusion: {in: ActiveSupport::TimeZone::MAPPING.keys}
 
+  before_validation :set_password
   before_save :sanitize_number
 
   def active_participants
@@ -29,15 +36,23 @@ class User < ActiveRecord::Base
     "#{last_name}, #{first_name}"
   end
 
-  def sanitize_number
-    self.phone = self.phone.gsub(/[^0-9]/, "")
-  end
-
   def admin?
     role == ROLES[:admin]
   end
 
   def nurse?
     role == ROLES[:nurse]
+  end
+
+  private
+
+  def set_password
+    return unless password.nil?
+
+    self.password = self.password_confirmation = SecureRandom.uuid
+  end
+
+  def sanitize_number
+    self.phone = phone.gsub(/[^0-9]/, "")
   end
 end

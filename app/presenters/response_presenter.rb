@@ -7,7 +7,7 @@ class ResponsePresenter
   end
 
   def formatted_answers
-    handle_none @answers do
+    handle_none(@answers) do
       @answers.map do |key, value|
         h.content_tag :p, (format_key(key) << ": " << formatted_values(value))
       end.join("").html_safe

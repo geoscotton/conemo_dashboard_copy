@@ -26,7 +26,7 @@ end
 
 group :development, :test do
   gem "rspec-rails", "~> 3.4"
-  gem "rubocop", "~> 0.35"
+  gem "rubocop", "= 0.36"
   gem "guard-rspec", require: false
   gem "spring-commands-rspec"
   gem "rb-fsevent"
@@ -44,6 +44,7 @@ end
 group :test do
   gem "capybara"
   gem "simplecov", "~> 0.10.0", require: false
+  gem "poltergeist"
 end
 
 gem "bit_core", "~> 1.0"

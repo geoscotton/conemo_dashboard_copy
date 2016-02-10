@@ -8,6 +8,9 @@ AllCops:
     - vendor/**/*
   TargetRubyVersion: 2.2
 
+Rails:
+  Enabled: true
+
 Documentation:
   Exclude:
     - spec/**/*
@@ -17,6 +20,9 @@ LambdaCall:
 
 NumericLiterals:
   Enabled: false
+
+SpaceInsideStringInterpolation:
+  EnforcedStyle: no_space
 
 StringLiterals:
   EnforcedStyle: double_quotes

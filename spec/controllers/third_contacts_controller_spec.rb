@@ -14,9 +14,9 @@ RSpec.describe ThirdContactsController, type: :controller do
 
   let(:valid_third_contact_params) do
     {
-      contact_at: Time.new,
+      contact_at: Time.zone.now,
       session_length: "b",
-      final_appointment_at: Time.new,
+      final_appointment_at: Time.zone.now,
       final_appointment_location: "d",
       q1: "e",
       q2: false,
