@@ -21,6 +21,7 @@ class Ability
   private
 
   def authorize_admin(admin)
+    can :manage, Dialogue, locale: admin.locale
     can :manage, Lesson, locale: admin.locale
     can :manage, BitCore::Slide
     can :manage, Participant, locale: admin.locale
