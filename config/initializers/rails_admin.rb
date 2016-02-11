@@ -192,10 +192,12 @@ RailsAdmin.config do |config|
       field :nurse_supervisor do
         associated_collection_cache_all false
         associated_collection_scope do
-          locale = bindings[:view].current_user.locale
-          Proc.new { |scope|
-            scope = scope.where(locale: locale)
-          }
+          if bindings[:view]
+            locale = bindings[:view].current_user.locale
+            Proc.new { |scope|
+              scope = scope.where(locale: locale)
+            }
+          end
         end
       end
       field :locale, :hidden do
