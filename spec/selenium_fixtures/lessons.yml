@@ -5,7 +5,6 @@
     day_in_treatment: <%= i %>
     locale: en
     guid: slideshow<%= i %>
-    has_activity_planning: true
 <% end %>
 
 <% (1..1).each do |i| %>
@@ -45,7 +44,6 @@
     locale: "es-PE"
     slideshow: es_slideshow_5
     title: "Terminar nuestras tareas nos hace sentir mejor."
-    has_activity_planning: true
 
   es_lesson_6:
     day_in_treatment: 13
@@ -60,7 +58,6 @@
     locale: "es-PE"
     slideshow: es_slideshow_7
     title: "Planeando actividades para la semana."
-    has_activity_planning: true
 
   es_lesson_8:
     day_in_treatment: 17
@@ -75,7 +72,6 @@
     locale: "es-PE"
     slideshow: es_slideshow_9
     title: "Encontrando las mejores actividades para ti."
-    has_activity_planning: true
 
   es_lesson_10:
     day_in_treatment: 22
@@ -90,7 +86,6 @@
     locale: "es-PE"
     slideshow: es_slideshow_11
     title: "Haz las cosas a tu propio ritmo "
-    has_activity_planning: true
 
   es_lesson_12:
     day_in_treatment: 27
@@ -105,7 +100,6 @@
     locale: "es-PE"
     slideshow: es_slideshow_13
     title: "Actividades que mejoran tu salud"
-    has_activity_planning: true
 
   es_lesson_14:
     day_in_treatment: 31
@@ -120,7 +114,6 @@
     locale: "es-PE"
     slideshow: es_slideshow_15
     title: "\u00a1No te olvides de tu objetivo! "
-    has_activity_planning: true
 
   es_lesson_16:
     day_in_treatment: 36
@@ -135,7 +128,6 @@
     locale: "es-PE"
     slideshow: es_slideshow_17
     title: "\u00a1Contin\u00faa con tu rutina!"
-    has_activity_planning: true
 
   es_lesson_18:
     day_in_treatment: 41
