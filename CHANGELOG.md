@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.3 - 2016-02-11
+
+* update Participant management permissions
+* enable Nurse and NurseSupervisor management
+* update authorization and specs accordingly
+
 ## 0.4.2 - 2016-02-08
 
 * stop dumping pr debug log files
