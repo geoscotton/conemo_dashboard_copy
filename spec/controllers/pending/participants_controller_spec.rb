@@ -3,7 +3,16 @@ require "spec_helper"
 describe Pending::ParticipantsController, type: :controller do
   fixtures :all
 
-  let(:user) { double("user", admin?: true, nurse?: false, timezone: "Central Time (US & Canada)") }
+  let(:locale) { LOCALES.values.sample }
+  let(:user) do
+    instance_double(
+      User,
+      admin?: true,
+      nurse?: false,
+      timezone: "Central Time (US & Canada)",
+      locale: locale
+    )
+  end
 
   describe "GET index" do
     context "for authenticated requests" do
@@ -27,8 +36,8 @@ describe Pending::ParticipantsController, type: :controller do
     context "for authenticated requests" do
       context "when the participant is found" do
         before do
-          allow(Participant).to receive_message_chain("find")
-            .and_return([double("participant")])
+          allow(Participant).to receive(:find)
+            .and_return(Participant.new(locale: locale))
           sign_in_user user
           get :activate, id: 1
         end
