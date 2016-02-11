@@ -1,12 +1,16 @@
 # Creating, Editing, Updating, and Deleting all participants.
 class ParticipantsController < ApplicationController
   def new
-    @participant = Participant.new
+    @participant = Participant.new(locale: current_user.locale)
+    authorize! :create, @participant
   end
 
   def create
-    @participant = Participant.new(participant_params)
-    @participant.locale = params[:locale]
+    @participant = Participant.new(
+      participant_params.merge(locale: current_user.locale)
+    )
+    authorize! :create, @participant
+
     if @participant.save
       redirect_to pending_participants_path,
                   notice: "Successfully created participant"
@@ -18,10 +22,13 @@ class ParticipantsController < ApplicationController
 
   def edit
     @participant = Participant.where(id: params[:id]).first
+    authorize! :update, @participant
   end
 
   def update
     @participant = Participant.where(id: params[:id]).first
+    authorize! :update, @participant
+
     if @participant.update(participant_params)
       after_update_path(@participant)
     else
@@ -32,6 +39,8 @@ class ParticipantsController < ApplicationController
 
   def destroy
     @participant = Participant.where(id: params[:id]).first
+    authorize! :destroy, @participant
+
     if @participant.destroy
       flash[:success] = "Participant deleted."
     else
@@ -48,7 +57,7 @@ class ParticipantsController < ApplicationController
         :email, :phone, :secondary_phone, :family_health_unit_name,
         :family_record_number, :date_of_birth, :address,
         :enrollment_date, :gender, :status,
-        :locale, :emergency_contact_name, :emergency_contact_phone,
+        :emergency_contact_name, :emergency_contact_phone,
         :nurse_id, :diabetes, :hypertension
     )
   end

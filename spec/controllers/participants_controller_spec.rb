@@ -3,7 +3,8 @@ require "spec_helper"
 RSpec.describe ParticipantsController, type: :controller do
   fixtures :all
 
-  let(:participant) { Participant.first }
+  let(:locale) { LOCALES.values.sample }
+  let(:participant) { Participant.find_by(locale: locale) }
 
   let(:valid_participant_params) do
     { first_name: "f", last_name: "l", study_identifier: "s",
@@ -17,8 +18,6 @@ RSpec.describe ParticipantsController, type: :controller do
       phone: nil, enrollment_date: nil }
   end
 
-  let(:locale) { LOCALES.values.sample }
-
   describe "GET new" do
     context "for unauthenticated requests" do
       before { get :new }
@@ -28,7 +27,7 @@ RSpec.describe ParticipantsController, type: :controller do
 
     context "for authenticated requests" do
       it "sets the participant" do
-        admin_request :get, :new, locale
+        admin_request :get, :new, locale, locale: locale
 
         expect(assigns(:participant)).to be_instance_of Participant
       end
@@ -117,7 +116,7 @@ RSpec.describe ParticipantsController, type: :controller do
 
         context "and the Participant is active" do
           it "redirects to active participants" do
-            participant[:status] = Participant::ACTIVE
+            participant.update status: Participant::ACTIVE
 
             admin_request :put, :update, locale, id: participant.id,
                           participant: valid_participant_params

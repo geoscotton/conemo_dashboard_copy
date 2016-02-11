@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-12 col-sm-12">
     <h1><%= t "conemo.views.pending.participants.index.heading" %>
-      <%= link_to " #{t 'conemo.views.pending.participants.index.add_new_participant'}", new_participant_path, class: "pull-right btn btn-primary fa fa-plus btn-lg" %>
+      <% if can? :create, Participant %>
+        <%= link_to " #{t 'conemo.views.pending.participants.index.add_new_participant'}", new_participant_path, class: "pull-right btn btn-primary fa fa-plus btn-lg" %>
+      <% end %>
     </h1>
     <br>
     <div id="main-panel">
