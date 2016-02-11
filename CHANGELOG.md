@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.5 - 2016-02-11
+
+* allow admins to manage dialogues
+* add recoverable option for Users
+
 ## 0.4.3 - 2016-02-11
 
 * update Participant management permissions
