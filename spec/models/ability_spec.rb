@@ -14,10 +14,6 @@ RSpec.describe Ability do
     let(:pt_lesson) { lessons(:day1_pt) }
     let(:pt_dialogue) { Dialogue.find_by(locale: LOCALES[:"pt-BR"]) }
 
-    it "can manage a Nurse of the same locale" do
-      expect(en_admin_role.can?(:manage, en_nurse)).to eq true
-    end
-
     it "can manage Nurses of the same locale" do
       en_nurses = User.where(role: User::ROLES[:nurse], locale: LOCALES[:en])
       expect(en_admin_role.can?(:manage, en_nurses)).to eq true
@@ -25,10 +21,6 @@ RSpec.describe Ability do
 
     it "cannot manage a Nurse of a different locale" do
       expect(en_admin_role.can?(:manage, es_nurse)).to eq false
-    end
-
-    it "can manage a Participant of the same locale" do
-      expect(en_admin_role.can?(:manage, en_participant)).to eq true
     end
 
     it "can manage Participants of the same locale" do
