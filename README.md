@@ -5,7 +5,7 @@
 
 ## Clone repository
 
-    git clone https://github.com/cbitstech/conemo_dashboard
+    git clone git@github.com:cbitstech/conemo_dashboard.git
 
 ## Install dependencies
 
