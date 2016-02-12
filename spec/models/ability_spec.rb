@@ -5,10 +5,10 @@ RSpec.describe Ability do
 
   let(:en_participant) { participants(:participant1) }
   let(:pt_participant) { participants(:portuguese_active_participant) }
+  let(:en_nurse) { users(:nurse1) }
 
   describe "Admin permissions" do
     let(:en_admin_role) { Ability.new(users(:admin1)) }
-    let(:en_nurse) { users(:nurse1) }
     let(:es_nurse) { users(:peruvian_nurse) }
     let(:en_lesson) { lessons(:day1) }
     let(:pt_lesson) { lessons(:day1_pt) }
@@ -56,21 +56,48 @@ RSpec.describe Ability do
     end
   end
 
-  describe "Nurse permissions" do
-    let(:en_nurse_role) { Ability.new(users(:nurse1)) }
+  describe "Nurse Supervisor permissions" do
+    let(:en_nurse_supervisor_role) do
+      Ability.new(users(:en_nurse_supervisor_1))
+    end
 
     it "can read Participants of the same locale" do
       en_participants = Participant.where(locale: LOCALES[:en])
-      expect(en_nurse_role.can?(:read, en_participants)).to eq true
+      expect(en_nurse_supervisor_role.can?(:read, en_participants)).to eq true
     end
 
     it "can update Participants of the same locale" do
       en_participants = Participant.where(locale: LOCALES[:en])
-      expect(en_nurse_role.can?(:update, en_participants)).to eq true
+      expect(en_nurse_supervisor_role.can?(:update, en_participants)).to eq true
     end
 
     it "cannot read a Participant of a different locale" do
-      expect(en_nurse_role.can?(:read, pt_participant)).to eq false
+      expect(en_nurse_supervisor_role.can?(:read, pt_participant)).to eq false
+    end
+  end
+
+  describe "Nurse permissions" do
+    let(:en_nurse_role) { Ability.new(en_nurse) }
+
+    it "can read active assigned Participants" do
+      en_nurse_participants = Participant.active.where(nurse: en_nurse)
+      expect(en_nurse_participants.count > 0).to eq true
+
+      expect(en_nurse_role.can?(:read, en_nurse_participants)).to eq true
+    end
+
+    it "cannot read pending assigned Participants" do
+      en_nurse_participants = Participant.pending.where(nurse: en_nurse)
+      expect(en_nurse_participants.count > 0).to eq true
+
+      expect(en_nurse_role.can?(:read, en_nurse_participants)).to eq false
+    end
+
+    it "cannot read active unassigned Participants" do
+      en_nurse_participants = Participant.active.where.not(nurse: en_nurse)
+      expect(en_nurse_participants.count > 0).to eq true
+
+      expect(en_nurse_role.can?(:read, en_nurse_participants)).to eq false
     end
   end
 end

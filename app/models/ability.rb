@@ -7,6 +7,8 @@ class Ability
 
     if user.admin?
       authorize_admin user
+    elsif user.is_a? NurseSupervisor
+      authorize_nurse_supervisor user
     elsif user.nurse?
       authorize_nurse user
     end
@@ -28,7 +30,11 @@ class Ability
     can :manage, User, locale: admin.locale
   end
 
+  def authorize_nurse_supervisor(supervisor)
+    can [:read, :update], Participant, locale: supervisor.locale
+  end
+
   def authorize_nurse(nurse)
-    can [:read, :update], Participant, locale: nurse.locale
+    can :read, Participant, nurse_id: nurse.id, status: Participant::ACTIVE
   end
 end
