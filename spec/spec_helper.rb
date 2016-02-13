@@ -1,5 +1,5 @@
 require "simplecov"
-SimpleCov.minimum_coverage 88
+SimpleCov.minimum_coverage 95
 SimpleCov.start "rails"
 
 # This file is copied to spec/ when you run "rails generate rspec:install"

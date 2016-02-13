@@ -32,7 +32,7 @@ module Active
 
             expect(response).to render_template :index
             expect(assigns(:participants).count)
-              .to eq nurse.participants.count
+              .to eq nurse.active_participants.count
           end
         end
       end
