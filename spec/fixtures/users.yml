@@ -1,4 +1,5 @@
 nurse1:
+  type: Nurse
   first_name: Linda
   last_name: Ratchet
   email: nurse1@example.com
@@ -9,6 +10,7 @@ nurse1:
   timezone: "Central Time (US & Canada)"
 
 peruvian_nurse:
+  type: Nurse
   first_name: Consuela
   last_name: Ratchet
   email: peruvian_nurse@example.com
@@ -19,6 +21,7 @@ peruvian_nurse:
   timezone: Lima
 
 portuguese_nurse:
+  type: Nurse
   first_name: Linda
   last_name: Ratchet
   email: portuguese_nurse@example.com
@@ -29,6 +32,7 @@ portuguese_nurse:
   timezone: "Brasilia"
 
 portuguese_nurse2:
+  type: Nurse
   first_name: Linda
   last_name: Ratchet
   email: portuguese_nurse2@example.com

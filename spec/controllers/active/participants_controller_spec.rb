@@ -25,15 +25,14 @@ module Active
 
         context "when the User is not an admin" do
           it "sets participants scoped by User" do
-            nurse = sign_in_nurse(locale)
-            participants = Participant.where(locale: locale)
-            allow(nurse).to receive(:active_participants)
-              .and_return(participants)
+            nurse = Nurse.find_by(locale: locale)
+            sign_in_user nurse
 
-            nurse_request :get, :index, locale, locale: locale
+            get :index, locale, locale: locale
 
+            expect(response).to render_template :index
             expect(assigns(:participants).count)
-              .to eq participants.count
+              .to eq nurse.participants.count
           end
         end
       end
