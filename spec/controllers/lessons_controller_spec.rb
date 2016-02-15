@@ -25,11 +25,9 @@ RSpec.describe LessonsController, type: :controller do
       it_behaves_like "a rejected user action"
     end
 
-    context "for authenticated requests by admins or nurses" do
+    context "for authenticated requests" do
       it "renders the index template" do
-        allow(controller).to receive(:authorize!).with(:index, Lesson)
-
-        admin_request :get, :index, locale
+        admin_request :get, :index, locale, locale: locale
 
         expect(response).to render_template :index
       end

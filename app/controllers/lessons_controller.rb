@@ -3,8 +3,8 @@ class LessonsController < ApplicationController
   layout "lesson_editor"
 
   def index
-    authorize! :index, Lesson
     @lessons = locale_lessons.order("day_in_treatment ASC")
+    authorize! :read, @lessons
   end
 
   def show
@@ -13,7 +13,7 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new(locale: I18n.locale)
-    authorize! :new, @lesson
+    authorize! :create, @lesson
   end
 
   def create
@@ -31,7 +31,7 @@ class LessonsController < ApplicationController
   end
 
   def edit
-    authorize! :edit, find_lesson
+    authorize! :update, find_lesson
   end
 
   def update
