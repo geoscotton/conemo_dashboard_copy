@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Study Participant
 class Participant < ActiveRecord::Base
   include Status
