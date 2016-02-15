@@ -46,6 +46,10 @@ class Participant < ActiveRecord::Base
   scope :pending, -> { where(status: PENDING) }
   scope :active, -> { where(status: ACTIVE) }
 
+  def last_and_first_name
+    "#{last_name}, #{first_name}"
+  end
+
   def seven_day_access
     logins.where("logged_in_at > ?", Time.zone.today - 7.days)
   end

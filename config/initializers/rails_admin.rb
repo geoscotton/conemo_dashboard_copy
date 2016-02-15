@@ -63,22 +63,52 @@ RailsAdmin.config do |config|
 
     config.model Device do
       navigation_label "Transmitted"
+
+      list do
+        field :model
+        field :device_version
+        field :participant
+      end
+    end
+
+    config.model Dialogue do
+      navigation_label "Configuration"
+    end
+
+    config.model FinalAppointment do
+      navigation_label "Data"
     end
 
     config.model HelpMessage do
       navigation_label "Transmitted"
     end
 
+    config.model Lesson do
+      navigation_label "Configuration"
+    end
+
     config.model Login do
       navigation_label "Transmitted"
+    end
+
+    config.model NurseParticipantEvaluation do
+      navigation_label "Data"
     end
 
     config.model ParticipantStartDate do
       navigation_label "Transmitted"
     end
 
+    config.model PatientContact do
+      navigation_label "Data"
+    end
+
     config.model PlannedActivity do
       navigation_label "Transmitted"
+    end
+
+    config.model ReminderMessage do
+      navigation_label "Data"
     end
 
     config.model Response do
@@ -87,6 +117,10 @@ RailsAdmin.config do |config|
 
     config.model SessionEvent do
       navigation_label "Transmitted"
+    end
+
+    config.model Smartphone do
+      navigation_label "Data"
     end
 
     config.model User do
@@ -138,13 +172,22 @@ RailsAdmin.config do |config|
 
       list do
         field :nurse
-        field :first_name
-        field :last_name
+        field :last_and_first_name
         field :phone
         field :study_identifier
-        field :configuration_token do
+        field :tokens do
           pretty_value do
-            "<a href=\"/entities/#{ bindings[:object].id }/tokens\">Show</a>".html_safe
+            participant_id = bindings[:object].id
+
+            status = if TokenAuth::ConfigurationToken.exists?(entity_id: participant_id)
+                       "[pending]"
+                     elsif TokenAuth::AuthenticationToken.exists?(entity_id: participant_id)
+                       "[configured]"
+                     else
+                       ""
+                     end
+
+            ("<a href=\"/entities/#{ participant_id }/tokens\">Show</a> " + status).html_safe
           end
         end
         field :locale
