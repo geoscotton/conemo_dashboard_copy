@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.6 - 2016-02-15
+
+* update Rails admin for clearer presentation
+* remove PRW related code and specs
+* update Nurse and Nurse Supervisor permissions
+
 ## 0.4.5 - 2016-02-11
 
 * allow admins to manage dialogues
