@@ -1,3 +1,13 @@
+superuser1:
+  type: Superuser
+  first_name: Super
+  last_name: User
+  email: superuser1@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  phone: 555-555-5555
+  locale: en
+  timezone: Central Time (US & Canada)
+
 nurse1:
   type: Nurse
   first_name: Linda

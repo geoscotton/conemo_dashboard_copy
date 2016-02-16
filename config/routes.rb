@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount TokenAuth::Engine => '/'
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
 
   resource :version, only: :show
 
@@ -10,8 +11,6 @@ Rails.application.routes.draw do
 
   scope "/(:locale)" do
     devise_for :users
-
-    mount RailsAdmin::Engine => "/admin", as: "rails_admin"
 
     get "/participants/:participant_id/first_contacts/missed_appointment" => "first_contacts#missed_appointment", as: :missed_appointment
     get "/participants/:participant_id/first_appointments/missed_second_contact" => "first_appointments#missed_second_contact", as: :missed_second_contact

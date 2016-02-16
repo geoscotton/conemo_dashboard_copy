@@ -3,13 +3,16 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
-  config.authorize_with do
-    redirect_to main_app.root_path unless warden.user.admin?
+  # config.authorize_with do
+  #   redirect_to main_app.root_path unless warden.user.admin?
+  # end
+  config.authenticate_with do
+    warden.authenticate! scope: :user
   end
-  # config.current_user_method(&:current_user)
+  config.current_user_method(&:current_user)
 
   ## == Cancan ==
-  # config.authorize_with :cancan
+  config.authorize_with :cancan
 
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
@@ -21,10 +24,10 @@ RailsAdmin.config do |config|
     index                         # mandatory
     export
     new do
-      only [Nurse, NurseSupervisor]
+      only [Admin, Nurse, NurseSupervisor]
     end
     edit do
-      only [Nurse, NurseSupervisor]
+      only [Admin, Nurse, NurseSupervisor]
     end
     bulk_delete
     show
@@ -32,6 +35,7 @@ RailsAdmin.config do |config|
     show_in_app
 
     config.included_models = [
+      Admin,
       ContentAccessEvent,
       Device,
       Dialogue,
@@ -56,6 +60,32 @@ RailsAdmin.config do |config|
       ThirdContact,
       User
     ]
+
+    config.model Admin do
+      object_label_method do
+        :last_and_first_name
+      end
+
+      edit do
+        field :email
+        field :phone
+        field :first_name
+        field :last_name
+        field :locale, :enum do
+          enum { %w( en pt-BR es-PE ) }
+        end
+        field :timezone, :hidden do
+          default_value do
+            bindings[:view].current_user.timezone
+          end
+        end
+        field :role, :hidden do
+          default_value do
+            "admin"
+          end
+        end
+      end
+    end
 
     config.model ContentAccessEvent do
       navigation_label "Transmitted"
@@ -134,30 +164,6 @@ RailsAdmin.config do |config|
         field :last_name
         field :phone
         field :locale
-      end
-
-      edit do
-        field :role, :enum do
-          enum do
-            ['nurse', 'admin']
-          end
-        end
-        field :email
-        field :first_name
-        field :last_name
-        field :phone
-        field :timezone, :enum do
-          enum do
-            ["Brasilia", "Lima", "Central Time (US & Canada)"]
-          end
-        end
-        field :locale, :enum do
-          enum do
-            ['en', 'pt-BR', 'es-PE']
-          end
-        end
-        field :password
-        field :password_confirmation
       end
     end
 

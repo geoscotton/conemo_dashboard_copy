@@ -5,6 +5,12 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+    if user.is_a? Superuser
+      can :manage, :all
+
+      return
+    end
+
     if user.admin?
       authorize_admin user
     elsif user.is_a? NurseSupervisor
@@ -28,6 +34,9 @@ class Ability
     can :manage, BitCore::Slide
     can :manage, Participant, locale: admin.locale
     can :manage, User, locale: admin.locale
+    # Rails Admin specific abilities
+    can :access, :rails_admin
+    can :dashboard
   end
 
   def authorize_nurse_supervisor(supervisor)
