@@ -7,6 +7,14 @@ RSpec.describe Ability do
   let(:pt_participant) { participants(:portuguese_active_participant) }
   let(:en_nurse) { users(:nurse1) }
 
+  describe "Superuser permissions" do
+    let(:superuser_role) { Ability.new(Superuser.first) }
+
+    it "can manage all models" do
+      expect(superuser_role.can?(:manage, :all)).to eq true
+    end
+  end
+
   describe "Admin permissions" do
     let(:en_admin_role) { Ability.new(users(:admin1)) }
     let(:es_nurse) { users(:peruvian_nurse) }
