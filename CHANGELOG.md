@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.5.0 - 2016-02-17
+
+* display correct locale once authenticated
+* deploy with Ruby 2.3.0
+* add alerts to layouts
+* show pending participants on nurse supervisor dash
+* use already included FA stylesheets, not CDN
+* add Superuser role will all permissions
+* authorize based on records, not classes
+
 ## 0.4.6 - 2016-02-15
 
 * update Rails admin for clearer presentation
