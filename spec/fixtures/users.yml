@@ -67,8 +67,30 @@ en_nurse_supervisor_1:
   role: nurse_supervisor
   first_name: En Nurse
   last_name: Supervisor 1
-  email: nurse-supervisor-1@example.com
+  email: en-nurse-supervisor-1@example.com
   encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
   phone: 555-555-5555
   locale: en
   timezone: Central Time (US & Canada)
+
+peruvian_nurse_supervisor_1:
+  type: NurseSupervisor
+  role: nurse_supervisor
+  first_name: Es Nurse
+  last_name: Supervisor 1
+  email: es-nurse-supervisor-1@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  phone: 555-555-5555
+  locale: es-PE
+  timezone: Lima
+
+portuguese_nurse_supervisor_1:
+  type: NurseSupervisor
+  role: nurse_supervisor
+  first_name: Pt Nurse
+  last_name: Supervisor 1
+  email: pt-nurse-supervisor-1@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  phone: 555-555-5555
+  locale: pt-BR
+  timezone: Brasilia

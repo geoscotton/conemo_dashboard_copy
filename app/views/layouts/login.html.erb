@@ -3,7 +3,6 @@
 <head>
   <title>ConemoDashboard</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css' rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -29,6 +28,10 @@
 </div>
 <!-- navbar -->
 <div class="container">
+  <% if alert %>
+    <div class="alert alert-warning" role="alert"><%= alert %></div>
+  <% end %>
+
   <%= yield %>
 </div>
 </body>

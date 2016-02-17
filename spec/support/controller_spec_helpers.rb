@@ -11,8 +11,18 @@ module ControllerSpecHelpers
 
   def sign_in_nurse(locale)
     @signed_in_user ||= sign_in_user(instance_double(
-      User,
+      Nurse,
       nurse?: true,
+      admin?: false,
+      locale: locale,
+      timezone: "America/Chicago"
+    ))
+  end
+
+  def sign_in_nurse_supervisor(locale)
+    @signed_in_user ||= sign_in_user(instance_double(
+      NurseSupervisor,
+      nurse?: false,
       admin?: false,
       locale: locale,
       timezone: "America/Chicago"
@@ -26,6 +36,11 @@ module ControllerSpecHelpers
 
   def nurse_request(http_method, action, locale, params = {})
     sign_in_nurse locale
+    send http_method, action, params
+  end
+
+  def nurse_supervisor_request(http_method, action, locale, params = {})
+    sign_in_nurse_supervisor locale
     send http_method, action, params
   end
 
@@ -60,5 +75,11 @@ end
 shared_examples "a rejected user action" do
   it "should redirect to the user login" do
     expect(response).to redirect_to new_user_session_path
+  end
+end
+
+shared_examples "an unauthorized user action" do
+  it "should redirect to the root" do
+    expect(response).to redirect_to root_url(locale: user_locale)
   end
 end
