@@ -4,7 +4,7 @@ lock "3.4.0"
 set :application, "conemo_dashboard"
 set :repo_url, "git@github.com:cbitstech/#{ fetch(:application) }.git"
 set :rvm_type, :system
-set :rvm_ruby_version, "2.2.2"
+set :rvm_ruby_version, "2.3.0"
 
 # Default branch is :master
 ask :branch, proc { `git tag | gsort -V`.split("\n").last }
@@ -158,7 +158,7 @@ task :copy_nondigest_assets do
 end
 after "deploy:assets:precompile", "copy_nondigest_assets"
 
-before "deploy:started", "deploy_prepare:create_vhost"
+#before "deploy:started", "deploy_prepare:create_vhost"
 after "deploy_prepare:create_vhost", "deploy_prepare:configure_pg"
 after "deploy_prepare:configure_pg", "deploy:set_owner"
 after "bundler:install", "deploy:migrate"
