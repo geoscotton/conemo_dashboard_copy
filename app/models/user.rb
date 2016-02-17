@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
     role == ROLES[:admin]
   end
 
+  def nurse_supervisor?
+    role == ROLES[:nurse_supervisor]
+  end
+
   def nurse?
     role == ROLES[:nurse]
   end

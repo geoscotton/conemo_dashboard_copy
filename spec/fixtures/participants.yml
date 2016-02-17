@@ -131,3 +131,39 @@ english_inactive_participant:
   start_date: <%= Date.today - 5.days %>
   gender: female
   locale: "en"
+
+en_pending_participant:
+  status: pending
+  first_name: John
+  last_name: Doe
+  study_identifier: enp1
+  family_health_unit_name: HealthUnit1
+  family_record_number: <%= SecureRandom.uuid %>
+  phone: 555-555-5555
+  enrollment_date: <%= Date.yesterday %>
+  gender: male
+  locale: en
+
+es_pending_participant:
+  status: pending
+  first_name: John
+  last_name: Doe
+  study_identifier: esp1
+  family_health_unit_name: HealthUnit1
+  family_record_number: <%= SecureRandom.uuid %>
+  phone: 555-555-5555
+  enrollment_date: <%= Date.yesterday %>
+  gender: male
+  locale: es-PE
+
+pt_pending_participant:
+  status: pending
+  first_name: John
+  last_name: Doe
+  study_identifier: ptp1
+  family_health_unit_name: HealthUnit1
+  family_record_number: <%= SecureRandom.uuid %>
+  phone: 555-555-5555
+  enrollment_date: <%= Date.yesterday %>
+  gender: male
+  locale: pt-BR
