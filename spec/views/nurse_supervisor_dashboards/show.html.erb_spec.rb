@@ -16,6 +16,11 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     )
   end
 
+  let!(:locale) do
+    I18n.locale = LOCALES.values.sample
+    
+    I18n.locale
+  end
   let(:pending1) { stub_participant 1, "Andy Abacus" }
   let(:pending2) { stub_participant 2, "Billy Ball" }
   let(:date) { Time.zone.today }
@@ -49,12 +54,16 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       table_exists_with_the_following_rows(
         [
           [
-            "Edit Information", "Andy Abacus", "ID 1", date_str, date_str,
-            "Activate", "Disqualify"
+            I18n.t("conemo.views.pending.participants.index.edit_info"),
+            "Andy Abacus", "ID 1", date_str, date_str,
+            I18n.t("conemo.views.pending.participants.index.activate"),
+            I18n.t("conemo.views.pending.participants.index.disqualify")
           ],
           [
-            "Edit Information", "Billy Ball", "ID 2", date_str, date_str,
-            "Activate", "Disqualify"
+            I18n.t("conemo.views.pending.participants.index.edit_info"),
+            "Billy Ball", "ID 2", date_str, date_str,
+            I18n.t("conemo.views.pending.participants.index.activate"),
+            I18n.t("conemo.views.pending.participants.index.disqualify")
           ]
         ]
       )
