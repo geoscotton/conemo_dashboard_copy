@@ -50,5 +50,5 @@ end
 gem "bit_core", "~> 1.0"
 gem "token_auth",
     git: "https://github.com/NU-CBITS/token_auth_server_rails",
-    tag: "0.1.2"
+    tag: "0.1.3"
 gem "active_model_serializers", "= 0.10.0.rc3"
