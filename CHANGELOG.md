@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.1 - 2016-02-18
+
+* destroy dependent records with Participant
+* leave config token valid for 4 weeks
+* redirect and notify of unauthorized requests
+* update login locale behavior
+
 ## 0.5.0 - 2016-02-17
 
 * display correct locale once authenticated
