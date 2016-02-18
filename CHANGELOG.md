@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.5 - 2016-02-18
+
+* create special branch+tag for field trial dashboard deployment
+
 ## 0.2.3 - 2015-09-22
 
 * add 'accessed' display to dashboard
