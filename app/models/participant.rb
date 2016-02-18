@@ -5,18 +5,21 @@ class Participant < ActiveRecord::Base
   include Status
 
   belongs_to :nurse, class_name: "User", foreign_key: :nurse_id
-  has_one :first_contact, dependent: :destroy
-  has_one :first_appointment, dependent: :destroy
-  has_one :second_contact, dependent: :destroy
-  has_one :third_contact, dependent: :destroy
   has_one :final_appointment, dependent: :destroy
+  has_one :first_appointment, dependent: :destroy
+  has_one :first_contact, dependent: :destroy
+  has_one :second_contact, dependent: :destroy
   has_one :smartphone, dependent: :destroy
-  has_many :reminder_messages, dependent: :destroy
+  has_one :third_contact, dependent: :destroy
   has_many :content_access_events, dependent: :destroy
-  has_many :lessons, through: :content_access_events
-  has_many :patient_contacts, dependent: :destroy
+  has_many :devices, dependent: :destroy
   has_many :help_messages, dependent: :destroy
+  has_many :lessons, through: :content_access_events
   has_many :logins, dependent: :destroy
+  has_many :participant_start_dates, dependent: :destroy
+  has_many :patient_contacts, dependent: :destroy
+  has_many :planned_activities, dependent: :destroy
+  has_many :reminder_messages, dependent: :destroy
   has_many :session_events, dependent: :destroy
 
   PENDING = "pending".freeze
