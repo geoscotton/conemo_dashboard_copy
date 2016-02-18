@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/NU-CBITS/token_auth_server_rails
-  revision: e4a13e2c05de05cb0ffe284b4f88dcaec1dab66c
-  tag: 0.1.2
+  revision: f0906ab3cd5bdcc41e204f2f8bfa300c920d351a
+  tag: 0.1.3
   specs:
-    token_auth (0.1.2)
-      active_model_serializers (~> 0.10.0.rc3)
+    token_auth (0.1.3)
+      active_model_serializers (= 0.10.0.rc3)
       rails (~> 4)
 
 GEM
@@ -306,7 +306,7 @@ GEM
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.0.0)
+    sprockets-rails (3.0.1)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
