@@ -25,7 +25,7 @@ RSpec.describe NurseSupervisorDashboardsController, type: :controller do
     context "for an authenticated nurse supervisor" do
       def show_for_nurse_supervisor
         sign_in_user NurseSupervisor.find_by(locale: locale)
-        get :show
+        get :show, locale: locale
       end
 
       it "renders successfully" do
