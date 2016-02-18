@@ -29,8 +29,6 @@ Rails.application.routes.draw do
       get "*unknown", to: redirect("/%{locale}/active/participants")
     end
 
-    resources :debug_logs, only: :create
-
     namespace "pending" do
       resources  :participants, only: :index
       get "activate/:id" => "participants#activate", as: :activate
