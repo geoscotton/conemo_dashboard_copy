@@ -463,3 +463,6 @@ es-PE:
   activerecord:
     errors:
       <<: *errors
+  unauthorized:
+    manage:
+      all: No tiene permisos para acceder a esta página.

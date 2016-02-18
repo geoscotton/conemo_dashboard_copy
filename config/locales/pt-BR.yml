@@ -477,3 +477,6 @@ pt-BR:
   activerecord:
     errors:
       <<: *errors
+  unauthorized:
+    manage:
+      all: Você não está autorizado à acessar essa página.

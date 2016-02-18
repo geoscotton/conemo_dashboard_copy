@@ -2,10 +2,10 @@ require "spec_helper"
 
 RSpec.describe "active/participants/_dialogues_table", type: :view do
   let(:participant) do
-    instance_double("Participant", start_date: nil, id: 12345)
+    instance_double(Participant, start_date: nil, id: 12345)
   end
   let(:dialogue) do
-    instance_double("Dialogue",
+    instance_double(Dialogue,
                     day_in_treatment: 2,
                     message: "Lorem ipsum")
   end
