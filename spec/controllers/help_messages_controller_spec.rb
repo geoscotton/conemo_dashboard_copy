@@ -5,11 +5,8 @@ RSpec.describe HelpMessagesController, type: :controller do
 
   let(:locale) { LOCALES.values.sample }
   let(:participant) { Participant.find_by(locale: locale) }
-
   let(:help_message) { HelpMessage.first }
-
   let(:valid_help_message_params) { { read: true } }
-
   let(:invalid_help_message_params) { { read: nil } }
 
   describe "PUT update" do
@@ -26,7 +23,7 @@ RSpec.describe HelpMessagesController, type: :controller do
         it "redirects to active participants" do
           admin_request :put, :update, locale, participant_id: -1,
                         id: help_message.id,
-                        help_message: valid_help_message_params
+                        help_message: valid_help_message_params, locale: locale
 
           expect(response).to redirect_to active_participants_url
         end
@@ -37,14 +34,15 @@ RSpec.describe HelpMessagesController, type: :controller do
           expect do
             admin_request :put, :update, locale, participant_id: participant.id,
                           id: help_message.id,
-                          help_message: valid_help_message_params
+                          help_message: valid_help_message_params,
+                          locale: locale
           end.to change { HelpMessage.find(help_message.id).updated_at }
         end
 
         it "redirects to the active report" do
           admin_request :put, :update, locale, participant_id: participant.id,
                         id: help_message.id,
-                        help_message: valid_help_message_params
+                        help_message: valid_help_message_params, locale: locale
 
           expect(response).to redirect_to active_report_path(participant)
         end
@@ -54,7 +52,8 @@ RSpec.describe HelpMessagesController, type: :controller do
         it "sets the flash alert" do
           admin_request :put, :update, locale, participant_id: participant.id,
                         id: help_message.id,
-                        help_message: invalid_help_message_params
+                        help_message: invalid_help_message_params,
+                        locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
@@ -62,7 +61,8 @@ RSpec.describe HelpMessagesController, type: :controller do
         it "redirects to the active report" do
           admin_request :put, :update, locale, participant_id: participant.id,
                         id: help_message.id,
-                        help_message: invalid_help_message_params
+                        help_message: invalid_help_message_params,
+                        locale: locale
 
           expect(response).to redirect_to active_report_path(participant)
         end

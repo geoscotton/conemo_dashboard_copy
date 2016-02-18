@@ -4,23 +4,17 @@ RSpec.describe LessonsController, type: :controller do
   fixtures :all
 
   let(:locale) { LOCALES.values.sample }
-  let(:lesson) { Lesson.first }
-
+  let(:lesson) { Lesson.find_by(locale: locale) }
   let(:valid_lesson_params) do
     { title: "t", day_in_treatment: 1, locale: "pt-BR" }
   end
-
   let(:invalid_lesson_params) do
     { title: nil, day_in_treatment: nil, locale: nil }
   end
 
-  def authorize!
-    allow(controller).to receive(:authorize!)
-  end
-
   describe "GET index" do
     context "for unauthenticated requests" do
-      before { get :index }
+      before { get :index, locale: locale }
 
       it_behaves_like "a rejected user action"
     end
@@ -43,8 +37,6 @@ RSpec.describe LessonsController, type: :controller do
     context "for authenticated requests by admins or nurses" do
       context "when the lesson is found" do
         it "sets the lesson" do
-          authorize!
-
           admin_request :get, :show, locale, id: lesson.id, locale: lesson.locale
 
           expect(assigns(:lesson)).to eq lesson
@@ -62,8 +54,6 @@ RSpec.describe LessonsController, type: :controller do
 
     context "for authenticated requests by admins or nurses" do
       it "sets the lesson" do
-        authorize!
-
         admin_request :get, :new, locale, locale: locale
 
         expect(assigns(:lesson)).to be_instance_of Lesson
@@ -76,13 +66,13 @@ RSpec.describe LessonsController, type: :controller do
     context "for unauthenticated requests" do
       before { get :edit, id: 1 }
 
-      it_behaves_like "a rejected user action"
+      it_behaves_like "a rejected user action" do
+        let(:user_locale) { locale }
+      end
     end
 
     context "for authenticated requests by admins or nurses" do
       it "sets the lesson" do
-        authorize!
-
         admin_request :get, :edit, locale, id: lesson.id, locale: lesson.locale
 
         expect(assigns(:lesson)).to eq lesson
@@ -94,23 +84,23 @@ RSpec.describe LessonsController, type: :controller do
     context "for unauthenticated requests" do
       before { post :create }
 
-      it_behaves_like "a rejected user action"
+      it_behaves_like "a rejected user action" do
+        let(:user_locale) { locale }
+      end
     end
 
     context "for authenticated requests by admins or nurses" do
       context "when successful" do
         it "creates a lesson" do
-          authorize!
-
           expect do
-            admin_request :post, :create, locale, lesson: valid_lesson_params
+            admin_request :post, :create, locale, lesson: valid_lesson_params,
+                          locale: locale
           end.to change { Lesson.count }.by(1)
         end
 
         it "redirects to the lessons url" do
-          authorize!
-
-          admin_request :post, :create, locale, lesson: valid_lesson_params
+          admin_request :post, :create, locale, lesson: valid_lesson_params,
+                        locale: locale
 
           expect(response).to redirect_to lessons_url
         end
@@ -118,9 +108,8 @@ RSpec.describe LessonsController, type: :controller do
 
       context "when unsuccessful" do
         it "renders the new template" do
-          authorize!
-
-          admin_request :post, :create, locale, lesson: invalid_lesson_params
+          admin_request :post, :create, locale, lesson: invalid_lesson_params,
+                        locale: locale
 
           expect(response).to render_template :new
         end
@@ -132,14 +121,14 @@ RSpec.describe LessonsController, type: :controller do
     context "for unauthenticated requests" do
       before { put :update, id: 1 }
 
-      it_behaves_like "a rejected user action"
+      it_behaves_like "a rejected user action" do
+        let(:user_locale) { locale }
+      end
     end
 
     context "for authenticated requests by admins or nurses" do
       context "when successful" do
         it "updates the lesson" do
-          authorize!
-
           expect do
             admin_request :put, :update, locale, id: lesson.id, locale: lesson.locale,
                           lesson: valid_lesson_params
@@ -147,19 +136,15 @@ RSpec.describe LessonsController, type: :controller do
         end
 
         it "redirects to the lessons url" do
-          authorize!
-
           admin_request :put, :update, locale, id: lesson.id, locale: lesson.locale,
                         lesson: valid_lesson_params
 
-          expect(response).to redirect_to lessons_url
+          expect(response).to redirect_to lessons_url(locale: lesson.locale)
         end
       end
 
       context "when unsuccessful" do
         it "renders the edit template" do
-          authorize!
-
           admin_request :put, :update, locale, id: lesson.id, locale: lesson.locale,
                         lesson: invalid_lesson_params
 
@@ -173,14 +158,16 @@ RSpec.describe LessonsController, type: :controller do
     context "for unauthenticated requests" do
       before { delete :destroy, id: 1 }
 
-      it_behaves_like "a rejected user action"
+      it_behaves_like "a rejected user action" do
+        let(:user_locale) { locale }
+      end
     end
 
     context "for authenticated requests by admins or nurses" do
+      before { ContentAccessEvent.destroy_all }
+
       context "when successful" do
         it "destroys the lesson" do
-          authorize!
-
           expect do
             admin_request :delete, :destroy, locale, id: lesson.id,
                           locale: lesson.locale
@@ -188,22 +175,18 @@ RSpec.describe LessonsController, type: :controller do
         end
 
         it "redirects to the lessons url" do
-          authorize!
-
           admin_request :delete, :destroy, locale, id: lesson.id, locale: lesson.locale
 
-          expect(response).to redirect_to lessons_url
+          expect(response).to redirect_to lessons_url(locale: lesson.locale)
         end
       end
 
       context "when unsuccessful" do
         it "renders the new template" do
-          lesson = instance_double(Lesson, destroy: false, id: 1)
-          allow(lesson).to receive_message_chain("errors.full_messages" => [])
-          authorize!
+          allow(lesson).to receive(:destroy) { false }
           allow(Lesson).to receive_message_chain("where.find" => lesson)
 
-          admin_request :delete, :destroy, locale, id: lesson.id
+          admin_request :delete, :destroy, locale, id: lesson.id, locale: locale
 
           expect(response).to redirect_to lessons_url
         end
@@ -221,7 +204,6 @@ RSpec.describe LessonsController, type: :controller do
     context "for authenticated requests by admins or nurses" do
       context "when successful" do
         it "renders the slide order success template" do
-          authorize!
           slide = lesson.build_slide(title: "t", body: "b").tap(&:save!)
 
           admin_request :post, :slide_order, locale, id: lesson.id, slide: [slide.id],
@@ -233,8 +215,6 @@ RSpec.describe LessonsController, type: :controller do
 
       context "when unsuccessful" do
         it "renders the slide order failure template" do
-          authorize!
-
           admin_request :post, :slide_order, locale, id: lesson.id, slide: [-1],
                         format: :js, locale: lesson.locale
 

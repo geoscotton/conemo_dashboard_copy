@@ -33,7 +33,8 @@ RSpec.describe SlidesController, type: :controller do
         it "sets the slide" do
           authorize!
 
-          admin_request :get, :show, locale, lesson_id: lesson.id, id: slide.id
+          admin_request :get, :show, locale, lesson_id: lesson.id, id: slide.id,
+                        locale: locale
 
           expect(assigns(:slide)).to eq slide
         end
@@ -52,7 +53,8 @@ RSpec.describe SlidesController, type: :controller do
       it "sets the slide" do
         authorize!
 
-        admin_request :get, :new, locale, lesson_id: lesson.id
+        admin_request :get, :new, locale, lesson_id: lesson.id,
+                      locale: locale
 
         expect(assigns(:slide)).to be_instance_of BitCore::Slide
         expect(assigns(:slide).slideshow.id).to eq lesson.id
@@ -71,7 +73,8 @@ RSpec.describe SlidesController, type: :controller do
       it "sets the slide" do
         authorize!
 
-        admin_request :get, :edit, locale, lesson_id: lesson.id, id: slide.id
+        admin_request :get, :edit, locale, lesson_id: lesson.id, id: slide.id,
+                      locale: locale
 
         expect(assigns(:slide)).to eq slide
       end
@@ -92,7 +95,7 @@ RSpec.describe SlidesController, type: :controller do
 
           expect do
             admin_request :post, :create, locale, lesson_id: lesson.id,
-                          slide: valid_slide_params
+                          slide: valid_slide_params, locale: locale
           end.to change { BitCore::Slide.count }.by(1)
         end
 
@@ -100,7 +103,7 @@ RSpec.describe SlidesController, type: :controller do
           authorize!
 
           admin_request :post, :create, locale, lesson_id: lesson.id,
-                        slide: valid_slide_params
+                        slide: valid_slide_params, locale: locale
 
           expect(response).to redirect_to lesson_url(lesson)
         end
@@ -111,7 +114,7 @@ RSpec.describe SlidesController, type: :controller do
           authorize!
 
           admin_request :post, :create, locale, lesson_id: lesson.id,
-                        slide: invalid_slide_params
+                        slide: invalid_slide_params, locale: locale
 
           expect(response).to render_template :new
         end
@@ -133,7 +136,7 @@ RSpec.describe SlidesController, type: :controller do
 
           expect do
             admin_request :put, :update, locale, lesson_id: lesson.id, id: slide.id,
-                          slide: valid_slide_params
+                          slide: valid_slide_params, locale: locale
           end.to change { BitCore::Slide.find(slide.id).updated_at }
         end
 
@@ -141,7 +144,7 @@ RSpec.describe SlidesController, type: :controller do
           authorize!
 
           admin_request :put, :update, locale, lesson_id: lesson.id, id: slide.id,
-                        slide: valid_slide_params
+                        slide: valid_slide_params, locale: locale
 
           expect(response).to redirect_to lesson_url(lesson)
         end
@@ -152,7 +155,7 @@ RSpec.describe SlidesController, type: :controller do
           authorize!
 
           admin_request :put, :update, locale, lesson_id: lesson.id, id: slide.id,
-                        slide: invalid_slide_params
+                        slide: invalid_slide_params, locale: locale
 
           expect(response).to render_template :edit
         end
@@ -173,14 +176,16 @@ RSpec.describe SlidesController, type: :controller do
           authorize!
 
           expect do
-            admin_request :delete, :destroy, locale, lesson_id: lesson.id, id: slide.id
+            admin_request :delete, :destroy, locale, lesson_id: lesson.id,
+                          id: slide.id, locale: locale
           end.to change { BitCore::Slide.where(id: slide.id).count }.by(-1)
         end
 
         it "redirects to the lesson url" do
           authorize!
 
-          admin_request :delete, :destroy, locale, lesson_id: lesson.id, id: slide.id
+          admin_request :delete, :destroy, locale, lesson_id: lesson.id,
+                        id: slide.id, locale: locale
 
           expect(response).to redirect_to lesson_url(lesson)
         end
@@ -194,7 +199,8 @@ RSpec.describe SlidesController, type: :controller do
           allow(BitCore::Slide).to receive_message_chain("where.find" => slide)
           authorize!
 
-          admin_request :delete, :destroy, locale, lesson_id: lesson.id, id: slide.id
+          admin_request :delete, :destroy, locale, lesson_id: lesson.id,
+                        id: slide.id, locale: locale
 
           expect(response).to redirect_to lesson_url(lesson)
         end

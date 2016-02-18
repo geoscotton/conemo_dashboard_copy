@@ -5,29 +5,33 @@ describe PatientContactsController, type: :controller do
 
   let(:locale) { LOCALES.values.sample }
   let(:participant) { Participant.find_by(locale: locale) }
-
   let(:valid_patient_contact_params) { { contact_at: Time.zone.now } }
 
   shared_examples "a bad request" do
-    it { expect(response).to redirect_to active_participants_url }
+    it do
+      expect(response).to redirect_to active_participants_url(locale: locale)
+    end
   end
 
   describe "GET new" do
     context "for an unauthenticated request" do
-      before { get :new, participant_id: participant.id }
+      before { get :new, participant_id: participant.id, locale: locale }
 
       it_behaves_like "a rejected user action"
     end
 
     context "for an authenticated user" do
       context "when the Participant isn't found" do
-        before { admin_request :get, :new, locale, participant_id: -1 }
+        before do
+          admin_request :get, :new, locale, participant_id: -1, locale: locale
+        end
 
         it_behaves_like "a bad request"
       end
 
       it "sets patient contact" do
-        admin_request :get, :new, locale, participant_id: participant.id
+        admin_request :get, :new, locale, participant_id: participant.id,
+                      locale: locale
 
         expect(assigns(:patient_contact)).to be_instance_of PatientContact
         expect(assigns(:patient_contact).participant).to eq participant
@@ -46,7 +50,8 @@ describe PatientContactsController, type: :controller do
       context "when the Participant isn't found" do
         before do
           admin_request :post, :create, locale, participant_id: -1,
-                        patient_contact: valid_patient_contact_params
+                        patient_contact: valid_patient_contact_params,
+                        locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -56,7 +61,8 @@ describe PatientContactsController, type: :controller do
         it "creates a patient contact" do
           expect do
             admin_request :post, :create, locale, participant_id: participant.id,
-                          patient_contact: valid_patient_contact_params
+                          patient_contact: valid_patient_contact_params,
+                          locale: locale
           end.to change { PatientContact.where(participant: participant).count }
             .by(1)
         end
@@ -78,7 +84,8 @@ describe PatientContactsController, type: :controller do
             participant.update start_date: nil
 
             admin_request :post, :create, locale, participant_id: participant.id,
-                          patient_contact: valid_patient_contact_params
+                          patient_contact: valid_patient_contact_params,
+                          locale: locale
 
             expect(response).to redirect_to active_participants_path
           end
@@ -97,7 +104,8 @@ describe PatientContactsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :delete, :destroy, locale, participant_id: -1, id: 1
+          admin_request :delete, :destroy, locale, participant_id: -1, id: 1,
+                        locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -114,7 +122,7 @@ describe PatientContactsController, type: :controller do
                           :destroy,
                           locale,
                           participant_id: participant,
-                          id: patient_contact.id)
+                          id: patient_contact.id, locale: locale)
           end.to change {
             PatientContact.where(participant: participant).count
           }.by(-1)
@@ -145,7 +153,7 @@ describe PatientContactsController, type: :controller do
 
             admin_request :delete, :destroy, locale,
                           participant_id: participant.id,
-                          id: patient_contact.id
+                          id: patient_contact.id, locale: locale
 
             expect(response).to redirect_to active_participants_path
           end
@@ -162,7 +170,7 @@ describe PatientContactsController, type: :controller do
                           :destroy,
                           locale,
                           participant_id: participant,
-                          id: patient_contact.id)
+                          id: patient_contact.id, locale: locale)
 
             expect(flash[:alert]).not_to be_nil
           end

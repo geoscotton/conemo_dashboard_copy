@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to main_app.root_url, alert: exception.message
+  end
+
   before_action :set_locale
   before_action :authenticate_user!
   before_action :authorize_locale
@@ -27,14 +31,14 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || current_user.try(:locale) || I18n.default_locale
   end
 
-  def default_url_options(options = {})
-    {locale: I18n.locale}
+  def self.default_url_options(options = {})
+    options.merge(locale: I18n.locale)
   end
 
   def authorize_locale
-    if current_user
-      if current_user.nurse? && current_user.locale != params[:locale]
-        redirect_to root_path(locale: current_user.locale)
+    if current_user && !current_user.is_a?(Superuser)
+      if current_user.locale != params[:locale]
+        redirect_to dashboard_path(locale: current_user.locale)
       end
     end
   end

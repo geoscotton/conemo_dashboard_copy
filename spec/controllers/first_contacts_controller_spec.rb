@@ -6,17 +6,15 @@ RSpec.describe FirstContactsController, type: :controller do
   let(:valid_first_contact_params) do
     { contact_at: Time.zone.now, first_appointment_at: Time.zone.now }
   end
-
   let(:invalid_first_contact_params) do
     { contact_at: nil, first_appointment_at: nil }
   end
-
   let(:locale) { LOCALES.values.sample }
   let(:participant) { Participant.find_by(locale: locale) }
 
   shared_examples "a bad request" do
     it "should redirect to the active_participants_url" do
-      expect(response).to redirect_to active_participants_url
+      expect(response).to redirect_to active_participants_url(locale: locale)
     end
   end
 
@@ -29,13 +27,16 @@ RSpec.describe FirstContactsController, type: :controller do
 
     context "for an authenticated User" do
       context "when the Participant isn't found" do
-        before { admin_request :get, :new, locale, participant_id: -1 }
+        before do
+          admin_request :get, :new, locale, participant_id: -1, locale: locale
+        end
 
         it_behaves_like "a bad request"
       end
 
       it "sets the first_contact" do
-        admin_request :get, :new, locale, participant_id: participant.id
+        admin_request :get, :new, locale, participant_id: participant.id,
+                      locale: locale
 
         expect(assigns(:first_contact)).to be_instance_of FirstContact
         expect(assigns(:first_contact).participant).to eq participant
@@ -45,14 +46,17 @@ RSpec.describe FirstContactsController, type: :controller do
 
   describe "POST create" do
     context "for an unauthenticated User" do
-      before { post :create, participant_id: participant.id }
+      before { post :create, participant_id: participant.id, locale: locale }
 
       it_behaves_like "a rejected user action"
     end
 
     context "for an authenticated User" do
       context "when the Participant isn't found" do
-        before { admin_request :post, :create, locale, participant_id: -1 }
+        before do
+          admin_request :post, :create, locale, participant_id: -1,
+                        locale: locale
+        end
 
         it_behaves_like "a bad request"
       end
@@ -62,13 +66,15 @@ RSpec.describe FirstContactsController, type: :controller do
           expect do
             admin_request :post, :create, locale,
                           participant_id: participant.id,
-                          first_contact: valid_first_contact_params
+                          first_contact: valid_first_contact_params,
+                          locale: locale
           end.to change { ReminderMessage.count }.by(4)
         end
 
         it "redirects to the active_participants_path" do
           admin_request :post, :create, locale, participant_id: participant.id,
-                        first_contact: valid_first_contact_params
+                        first_contact: valid_first_contact_params,
+                        locale: locale
 
           expect(response).to redirect_to active_participants_path
         end
@@ -77,14 +83,16 @@ RSpec.describe FirstContactsController, type: :controller do
       context "when unsuccessful" do
         it "sets the flash alert" do
           admin_request :post, :create, locale, participant_id: participant.id,
-                        first_contact: invalid_first_contact_params
+                        first_contact: invalid_first_contact_params,
+                        locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the new template" do
           admin_request :post, :create, locale, participant_id: participant.id,
-                        first_contact: invalid_first_contact_params
+                        first_contact: invalid_first_contact_params,
+                        locale: locale
 
           expect(response).to render_template :new
         end
@@ -94,20 +102,23 @@ RSpec.describe FirstContactsController, type: :controller do
 
   describe "GET edit" do
     context "for an unauthenticated User" do
-      before { get :edit, participant_id: participant.id }
+      before { get :edit, participant_id: participant.id, locale: locale }
 
       it_behaves_like "a rejected user action"
     end
 
     context "for an authenticated User" do
       context "when the Participant isn't found" do
-        before { admin_request :get, :edit, locale, participant_id: -1 }
+        before do
+          admin_request :get, :edit, locale, participant_id: -1, locale: locale
+        end
 
         it_behaves_like "a bad request"
       end
 
       it "sets the first_contact" do
-        admin_request :get, :edit, locale, participant_id: participant.id
+        admin_request :get, :edit, locale, participant_id: participant.id,
+                      locale: locale
 
         expect(assigns(:first_contact)).to eq participant.first_contact
       end
@@ -123,7 +134,9 @@ RSpec.describe FirstContactsController, type: :controller do
 
     context "for an authenticated User" do
       context "when the Participant isn't found" do
-        before { admin_request :put, :update, locale, participant_id: -1 }
+        before do
+          admin_request :put, :update, locale, participant_id: -1, locale: locale
+        end
 
         it_behaves_like "a bad request"
       end
@@ -134,7 +147,8 @@ RSpec.describe FirstContactsController, type: :controller do
 
           expect do
             admin_request :put, :update, locale, participant_id: participant.id,
-                          first_contact: valid_first_contact_params
+                          first_contact: valid_first_contact_params,
+                          locale: locale
           end.to change { ReminderMessage.count }.by(4)
         end
       end
@@ -144,7 +158,8 @@ RSpec.describe FirstContactsController, type: :controller do
           participant.create_first_contact(valid_first_contact_params)
 
           admin_request :put, :update, locale, participant_id: participant.id,
-                        first_contact: invalid_first_contact_params
+                        first_contact: invalid_first_contact_params,
+                        locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
@@ -153,7 +168,8 @@ RSpec.describe FirstContactsController, type: :controller do
           participant.create_first_contact(valid_first_contact_params)
 
           admin_request :put, :update, locale, participant_id: participant.id,
-                        first_contact: invalid_first_contact_params
+                        first_contact: invalid_first_contact_params,
+                        locale: locale
 
           expect(response).to render_template :edit
         end
@@ -170,7 +186,10 @@ RSpec.describe FirstContactsController, type: :controller do
 
     context "for an authenticated User" do
       context "when the Participant isn't found" do
-        before { admin_request :get, :missed_appointment, locale, participant_id: -1 }
+        before do
+          admin_request :get, :missed_appointment, locale, participant_id: -1,
+                        locale: locale
+        end
 
         it_behaves_like "a bad request"
       end
@@ -178,7 +197,8 @@ RSpec.describe FirstContactsController, type: :controller do
       it "sets the first_contact" do
         participant.create_first_contact(valid_first_contact_params)
 
-        admin_request :get, :missed_appointment, locale, participant_id: participant.id
+        admin_request :get, :missed_appointment, locale,
+                      participant_id: participant.id, locale: locale
 
         expect(assigns(:first_contact)).to eq participant.first_contact
       end
@@ -186,7 +206,8 @@ RSpec.describe FirstContactsController, type: :controller do
       it "sets the patient_contact" do
         participant.create_first_contact(valid_first_contact_params)
 
-        admin_request :get, :missed_appointment, locale, participant_id: participant.id
+        admin_request :get, :missed_appointment, locale,
+                      participant_id: participant.id, locale: locale
 
         expect(assigns(:patient_contact)).to be_instance_of PatientContact
         expect(assigns(:patient_contact).first_contact)

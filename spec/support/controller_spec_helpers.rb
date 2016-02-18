@@ -74,7 +74,7 @@ end
 
 shared_examples "a rejected user action" do
   it "should redirect to the user login" do
-    expect(response).to redirect_to new_user_session_path
+    expect(response).to redirect_to new_user_session_url
   end
 end
 
