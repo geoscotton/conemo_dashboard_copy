@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.2 - 2016-02-19
+
+* fix broken token management link
+
 ## 0.5.1 - 2016-02-18
 
 * destroy dependent records with Participant
