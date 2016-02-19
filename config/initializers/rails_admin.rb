@@ -193,7 +193,7 @@ RailsAdmin.config do |config|
                        ""
                      end
 
-            ("<a href=\"/entities/#{ participant_id }/tokens\">Show</a> " + status).html_safe
+            ("<a href=\"/entities/#{ participant_id }/tokens?locale=#{ bindings[:view].current_user.locale }\">Show</a> " + status).html_safe
           end
         end
         field :locale
