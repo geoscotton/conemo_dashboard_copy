@@ -84,6 +84,7 @@ class Participant < ActiveRecord::Base
     pushable_resources = %w(
       ContentAccessEvent
       Device
+      ExceptionReport
       HelpMessage
       Login
       ParticipantStartDate
