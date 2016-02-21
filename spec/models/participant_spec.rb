@@ -1,9 +1,23 @@
 require "spec_helper"
 
 describe Participant do
-  fixtures :all
+  fixtures :participants, :lessons
 
   let(:participant) { participants(:participant1)}
+  let(:valid_attributes) do
+    {
+      first_name: "f",
+      last_name: "l",
+      family_health_unit_name: "fhun",
+      family_record_number: "frn",
+      phone: "123",
+      enrollment_date: Time.zone.today,
+      locale: LOCALES.values.sample,
+      study_identifier: SecureRandom.uuid,
+      status: Participant::STATUS.sample,
+      gender: Participant::GENDER.sample
+    }
+  end
 
   describe "#sanitize_number" do
     it "strips non-numeric characters" do
@@ -29,6 +43,14 @@ describe Participant do
           TokenAuth::SynchronizableResource.where(class_name: resource).count
         }.by(1)
       end
+    end
+  end
+
+  describe "configuration token creation" do
+    it "occurs on participant creation" do
+      expect { Participant.create!(valid_attributes) }.to change {
+        TokenAuth::ConfigurationToken.count
+      }.by(1)
     end
   end
 
