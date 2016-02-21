@@ -3,8 +3,6 @@
 require "spec_helper"
 
 RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
-  TEMPLATE = "nurse_supervisor_dashboards/show".freeze
-
   def stub_participant(id, name)
     instance_double(
       Participant,
@@ -16,6 +14,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     )
   end
 
+  let(:template) { "nurse_supervisor_dashboards/show" }
   let!(:locale) do
     I18n.locale = LOCALES.values.sample
     
@@ -30,7 +29,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
   it "renders correctly when there are no participants" do
     assign(:pending_participants, [])
 
-    render template: TEMPLATE
+    render template: template
 
     expect(rendered).to include "0 Unassigned Participants"
   end
@@ -39,7 +38,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     def assign_pending_and_render
       assign(:pending_participants, [pending1, pending2])
 
-      render template: TEMPLATE
+      render template: template
     end
 
     it "renders the participant count" do

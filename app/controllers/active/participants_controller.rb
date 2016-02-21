@@ -1,6 +1,14 @@
 module Active
   # Managing Active Participants
   class ParticipantsController < ApplicationController
+    helper do
+      def token_for(participant)
+        TokenAuth::ConfigurationToken
+          .find_by(entity_id: participant.id)
+          .try(:value)
+      end
+    end
+
     def index
       @participants = if current_user.admin?
                         Participant.where(locale: I18n.locale)
