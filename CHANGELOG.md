@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.4 - 2016-02-21
+
+* auto create config tokens for new participants
+
 ## 0.5.3 - 2016-02-21
 
 * change pencil icon to we chat
