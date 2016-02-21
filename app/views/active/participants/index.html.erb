@@ -73,7 +73,10 @@
               </div>
             </td>
             <td>
-              <%= link_to "#{fa_icon 'pencil-square 2x'}".html_safe, new_participant_patient_contact_path(participant), style: "color:white;" %>
+              <%= link_to(new_participant_patient_contact_path(participant), class: "btn btn-default", :"aria-label" => "Edit") do %>
+                <span class="fa fa-weixin fa-2x" aria-hidden="true"></span>
+                <span class="sr-only">Edit</span>
+              <% end %>
             </td>
             <td class="text-center">
               <%= render_status_link(participant) %>
