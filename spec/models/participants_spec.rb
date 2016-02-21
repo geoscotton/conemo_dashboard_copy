@@ -17,6 +17,7 @@ describe Participant do
     %w(
       ContentAccessEvent
       Device
+      ExceptionReport
       HelpMessage
       Login
       ParticipantStartDate
