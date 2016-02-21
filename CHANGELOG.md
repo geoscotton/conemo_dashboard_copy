@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.3 - 2016-02-21
+
+* change pencil icon to we chat
+* display config tokens on nurse dashboard
+* add app_version column to logins
+* capture and forward JS exceptions to Sentry
+
 ## 0.5.2 - 2016-02-19
 
 * fix broken token management link
