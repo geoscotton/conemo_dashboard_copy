@@ -31,6 +31,7 @@ class Participant < ActiveRecord::Base
   validates :first_name,
             :last_name,
             :family_health_unit_name,
+            :family_record_number,
             :phone,
             :enrollment_date,
             :locale,
@@ -44,6 +45,7 @@ class Participant < ActiveRecord::Base
 
   before_validation :sanitize_number
   after_save :create_synchronizable_resources
+  after_create :create_configuration_token
 
   scope :ineligible, -> { where(status: INELIGIBLE) }
   scope :pending, -> { where(status: PENDING) }
@@ -107,5 +109,9 @@ class Participant < ActiveRecord::Base
         is_pushable: true
       )
     end
+  end
+
+  def create_configuration_token
+    TokenAuth::ConfigurationToken.create entity_id: id
   end
 end
