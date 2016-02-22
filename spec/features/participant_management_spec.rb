@@ -31,24 +31,25 @@ describe "Participant Management", type: :feature do
       expect(page).to_not have_text(en_inactive_participant.study_identifier)
     end
 
-    describe "first contact" do
+    describe "confirmation call" do
 
-      it "creates a first contact for a participant and shows the contact_at date on the index" do
+      it "creates a confirmation call for a participant and shows the contact_at date on the index" do
         FirstContact.destroy_all
         visit "/en/active/participants"
 
         click_on "first_contact_#{participant.id}"
 
-        expect(page).to have_text "First Contact"
+        expect(page).to have_text "Confirmation call"
 
-        fill_in "First appointment location", with: "location string for first appointment"
+        fill_in "Initial in person appointment location",
+                with: "location string for first appointment"
         click_on "Save"
 
         expect(page).to have_text participant.first_contact.contact_at.in_time_zone(participant.nurse.timezone).to_s(:short)
       end
     end
 
-    describe "first appointment" do
+    describe "Initial in person appointment" do
       it "renders a first appointment link for a participant" do
         visit "/en/active/participants"
 
@@ -60,7 +61,7 @@ describe "Participant Management", type: :feature do
 
         click_on "appointment_#{participant.id}"
 
-        expect(page).to have_text "First Appointment"
+        expect(page).to have_text "Initial in person appointment"
       end
 
       it "takes the user to the smartphone form after successful first appointment input" do
