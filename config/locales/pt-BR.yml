@@ -37,7 +37,7 @@ pt-BR:
           forgot_your_password: "esqueceu sua senha?"
       first_contacts:
         new:
-          heading: "Contato de confirmação"
+          heading: Chamada de confirmação
         reschedule:
           heading: "a contato de confirmação"
       first_appointments:
@@ -61,16 +61,16 @@ pt-BR:
             o1: "1 – Pouca/nenhuma chance"
       second_contacts:
         new:
-          heading: "1º Contato de seguimento"
+          heading: "Chamada de seguimento sem. 1"
         reschedule:
-          heading: "1º Contato de seguimento"
+          heading: "Chamada de seguimento sem. 1"
         patient_question_header: Dados colhidos com o paciente
         nurse_question_header: Impressões do profissional de saúde
       third_contacts:
         new:
-          heading: "4º Contato de seguimento"
+          heading: "Chamada de seguimento sem. 3"
         reschedule:
-          heading: "4º Contato de seguimento"
+          heading: "Chamada de seguimento sem. 3"
       final_appointments:
         new:
           heading: "Encontro final"      
@@ -121,11 +121,11 @@ pt-BR:
             name: "Nome"
             study_identifier: "Identificação do participante"
             enrollment_date: "Data de inclusão"
-            first_contact: "Contato de confirmação"
+            first_contact: Chamada de confirmação
             first_appointment: "Primeiro encontro"
             location: "Local"
-            second_contact: "1º Contato de seguimento"
-            third_contact: "4º Contato de seguimento"
+            second_contact: "Chamada de seguimento sem. 1"
+            third_contact: "Chamada de seguimento sem. 3"
             final_appointment: "Encontro Final"
             status: "Status"
             legend:
@@ -137,10 +137,10 @@ pt-BR:
             heading: "Perfil de"
             contact_heading: "Informações de Contato"
             smartphone_heading: "Informações de Smartphone"
-            first_contact_heading: "Contato de confirmação"
+            first_contact_heading: Chamada de confirmação
             first_appointment_heading: "Primeiro encontro"
-            second_contact_heading: "1º Contato de seguimento"
-            third_contact_heading: "4º Contato de seguimento"
+            second_contact_heading: "Chamada de seguimento sem. 1"
+            third_contact_heading: "Chamada de seguimento sem. 3"
             final_appointment_heading: "Encontro final"
           report:
             delete: "Tem certeza de que deseja excluir esta anotação?"

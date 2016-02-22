@@ -28,12 +28,12 @@ en:
           add_lesson: "Add Lesson"
       first_contacts:
         new:
-          heading: "First Contact"
+          heading: Confirmation call
       first_appointments:
         new:
-          heading: "First Appointment"
+          heading: Initial in person appointment
         reschedule:
-          heading: "First Appointment"
+          heading: Initial in person appointment
         form:
           smartphone_comfort_options:
             o4: "4 – Patient can turn on the cell phone, access and use the app by her/himself after the first demonstration"
@@ -50,21 +50,21 @@ en:
             o1: "1 – low chance"
       second_contacts:
         new:
-          heading: "Second contact"
+          heading: Follow up call week 1
         reschedule:
-          heading: "second contact"
+          heading: Follow up call week 1
         patient_question_header: Questions for patient
         nurse_question_header: Questions for nurse
       third_contacts:
         new:
-          heading: "Third contact"
+          heading: Follow up call week 3
         reschedule:
-          heading: "third contact"
+          heading: Follow up call week 3
       final_appointments:
         new:
-          heading: "Final Appointment"
+          heading: Final in person appointment
         reschedule:
-          heading: "final appointment"
+          heading: Final in person appointment
       nurse_participant_evaluations:
         form:
           q1:
@@ -120,12 +120,12 @@ en:
             name: "Name"
             study_identifier: "Study Identifier"
             enrollment_date: "Enrollment Date"
-            first_contact: "First Contact"
-            first_appointment: "First Appointment"
+            first_contact: Confirmation call
+            first_appointment: Initial in person appointment
             location: "Location"
-            second_contact: "Second Contact"
-            third_contact: "Third Contact"
-            final_appointment: "Final Appointment"
+            second_contact: Follow up call week 1
+            third_contact: Follow up call week 3
+            final_appointment: Final in person appointment
             status: "Status"
             legend:
               green: up to date with past two lessons
@@ -136,11 +136,11 @@ en:
             heading: "Profile for"
             contact_heading: "Contact Information"
             smartphone_heading: "Smartphone Information"
-            first_contact_heading: "First Contact Information"
-            first_appointment_heading: "First Appointment Information"
-            second_contact_heading: "Second Contact Information"
-            third_contact_heading: "Third Contact Information"
-            final_appointment_heading: "Final Appointment"
+            first_contact_heading: Confirmation call information
+            first_appointment_heading: Initial in person appointment information
+            second_contact_heading: Follow up call week 1 information
+            third_contact_heading: Follow up call week 3 information
+            final_appointment_heading: Final in person appointment
           report:
             delete: "Are you sure you want to delete this note?"
             overall_status: "Overall Status"
@@ -206,8 +206,8 @@ en:
         day_in_treatment: "Day in treatment"
       first_contact:
         contact_at: "Date of contact"
-        first_appointment_at: "Schedule first appointment"
-        first_appointment_location: "First appointment location"
+        first_appointment_at: Schedule initial in person appointment
+        first_appointment_location: Initial in person appointment location
         alternative_contact_name: "Alternative contact name"
         alternative_contact_phone: "Alternative contact phone"
       first_appointment:
@@ -247,7 +247,7 @@ en:
         q7_notes: "If no: What was the difficulty?"
         notes: "Notes"
       third_contact:
-        final_appointment_at: "Final appointment date and time"
+        final_appointment_at: Final in person appointment date and time
         final_appointment_location: "Final appointemnt location"
         contacted_at: "Date of phone call"
         session_length: "Length of phone call (minutes)"

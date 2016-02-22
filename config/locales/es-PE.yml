@@ -97,9 +97,9 @@ es-PE:
           heading: "Información de smartphone"
       third_contacts:
         new:
-          heading: "Llamada de seguimiento sem. 4"
+          heading: "Llamada de seguimiento sem. 3"
         reschedule:
-          heading: "la llamada de seguimiento sem. 4"
+          heading: "la llamada de seguimiento sem. 3"
       users:
         sign_in:
           sign_in: "Ingresar"
@@ -128,7 +128,7 @@ es-PE:
             first_contact: "Llamada confirmando cita"
             first_appointment: "Cita de inicio"
             second_contact: "Llamada de seguimiento sem. 1"
-            third_contact: "Llamada de seguimiento sem. 4"
+            third_contact: "Llamada de seguimiento sem. 3"
             final_appointment: "Cita final"
             status: "Estado"
             legend:
@@ -143,7 +143,7 @@ es-PE:
             first_contact_heading: "Llamada confirmando cita"
             first_appointment_heading: "Cita de inicio"
             second_contact_heading: "Llamada de seguimiento sem. 1"
-            third_contact_heading: "Llamada de seguimiento sem. 4"
+            third_contact_heading: "Llamada de seguimiento sem. 3"
             final_appointment_heading: "Cita final"
           report:
             delete: "¿Está seguro que quiere eliminar esa nota?"
@@ -241,7 +241,7 @@ es-PE:
       second_contact:
         contact_at: "Fecha/hora de la llamada"
         session_length: "Duración de la llamada (min)"
-        next_contact: "Fecha/hora para la llamada de seguimiento sem. 4"
+        next_contact: "Fecha/hora para la llamada de seguimiento sem. 3"
         q1: "¿Cómo le va con CONEMO? (Siempre pide especificaciones, preguntando por ejemplo 'cómo', 'por qué', 'cómo así')"
         q2: "¿Ha tenido algunas dificultades usando el teléfono / Smartphone?"
         q2_notes: "En caso afirmativo, especifique"
