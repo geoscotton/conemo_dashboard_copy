@@ -58,6 +58,7 @@ RailsAdmin.config do |config|
       SessionEvent,
       Smartphone,
       ThirdContact,
+      TokenAuth::AuthenticationToken,
       User
     ]
 
