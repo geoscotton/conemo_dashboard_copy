@@ -259,7 +259,7 @@ RSpec.describe ReminderMessage, type: :model do
           )
 
           expect(message.notification_time)
-            .to eq(third_contact.final_appointment_at - 1.hour)
+            .to eq(third_contact.call_to_schedule_final_appointment_at - 1.hour)
         end
       end
 
@@ -276,7 +276,7 @@ RSpec.describe ReminderMessage, type: :model do
           )
 
           expect(message.notification_time)
-            .to eq(third_contact.final_appointment_at - 1.day)
+            .to eq(third_contact.call_to_schedule_final_appointment_at - 1.day)
         end
       end
     end

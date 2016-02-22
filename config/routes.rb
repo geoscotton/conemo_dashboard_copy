@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       resource :first_appointment, only: [:new, :create, :edit, :update]
       resource :second_contact, only: [:new, :create, :edit, :update]
       resource :third_contact, only: [:new, :create, :edit, :update]
+      resource :call_to_schedule_final_appointment, only: [:new, :create]
       resource :final_appointment, only: [:new, :create, :edit, :update]
       resource :smartphone, only: [:new, :create, :edit, :update]
       resources :patient_contacts, only: [:new, :create, :destroy]

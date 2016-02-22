@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221015036) do
+ActiveRecord::Schema.define(version: 20160222210733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 20160221015036) do
   end
 
   add_index "bit_core_tools", ["position"], name: "bit_core_tool_position", unique: true, using: :btree
+
+  create_table "call_to_schedule_final_appointments", force: :cascade do |t|
+    t.integer  "participant_id",             null: false
+    t.datetime "contact_at",                 null: false
+    t.datetime "final_appointment_at",       null: false
+    t.string   "final_appointment_location", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "call_to_schedule_final_appointments", ["participant_id"], name: "index_call_to_schedule_final_appointments_on_participant_id", unique: true, using: :btree
 
   create_table "content_access_events", force: :cascade do |t|
     t.integer  "participant_id",            null: false
@@ -350,8 +361,7 @@ ActiveRecord::Schema.define(version: 20160221015036) do
   add_index "smartphones", ["participant_id"], name: "index_smartphones_on_participant_id", using: :btree
 
   create_table "third_contacts", force: :cascade do |t|
-    t.datetime "final_appointment_at"
-    t.string   "final_appointment_location"
+    t.datetime "call_to_schedule_final_appointment_at"
     t.integer  "session_length"
     t.integer  "participant_id"
     t.datetime "created_at"
@@ -432,6 +442,7 @@ ActiveRecord::Schema.define(version: 20160221015036) do
   add_foreign_key "bit_core_content_modules", "bit_core_tools", name: "fk_content_modules_tools"
   add_foreign_key "bit_core_content_providers", "bit_core_content_modules", name: "fk_content_providers_modules"
   add_foreign_key "bit_core_slides", "bit_core_slideshows", name: "fk_slideshows_slides"
+  add_foreign_key "call_to_schedule_final_appointments", "participants"
   add_foreign_key "content_access_events", "lessons"
   add_foreign_key "content_access_events", "participants"
   add_foreign_key "first_appointments", "participants", name: "fk_first_appointments_participants"

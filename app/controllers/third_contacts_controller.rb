@@ -4,8 +4,8 @@ class ThirdContactsController < ApplicationController
 
   def self.filter_params(params)
     params.require(:third_contact).permit(
-      :contact_at, :session_length, :final_appointment_at,
-      :final_appointment_location, :q1, :q2, :q2_notes, :q3, :q3_notes, :q4,
+      :contact_at, :session_length, :call_to_schedule_final_appointment_at,
+      :q1, :q2, :q2_notes, :q3, :q3_notes, :q4,
       :q4_notes, :q5, :q5_notes, :notes,
       patient_contacts_attributes: [:contact_reason, :note],
       nurse_participant_evaluation_attributes: [:q1, :q2]

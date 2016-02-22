@@ -1,5 +1,16 @@
 pt-BR:
   conemo:
+    family_health_units:
+      - Unidade de Saúde 1
+      - Unidade de Saúde 2
+      - Unidade de Saúde 3
+      - Unidade de Saúde 4
+      - Unidade de Saúde 5
+      - Unidade de Saúde 6
+      - Unidade de Saúde 7
+      - Unidade de Saúde 8
+      - Unidade de Saúde 9
+      - Unidade de Saúde 10
     views:
       shared:
         save_button: "Salvar"
@@ -15,7 +26,6 @@ pt-BR:
         reschedule: "remarcar"
         reschedule_heading: "Remarcar"
         app_download: "Baixar Aplicativo"
-        dialogue: "Diálogo"
       dashboards:
         index:
           heading: "Bem-vindo!"
@@ -23,18 +33,7 @@ pt-BR:
           enrollment_button: "Participantes pendentes"
           manage_button: "Participantes ativos"
           lessons_button: "Sessões"
-          dialogues_button: "Diálogos"
           sign_out: "Terminar sessão"
-      smartphones:
-        new:
-          heading: "Informações do smartphone"
-      users:
-        sign_in:
-          sign_in: "Login"
-          email: "email"
-          password: "Senha"
-          remember_me: "Lembrar senha"
-          forgot_your_password: "esqueceu sua senha?"
       first_contacts:
         new:
           heading: Chamada de confirmação
@@ -71,6 +70,9 @@ pt-BR:
           heading: "Chamada de seguimento sem. 3"
         reschedule:
           heading: "Chamada de seguimento sem. 3"
+      call_to_schedule_final_appointments:
+        new:
+          heading: Chamada para agendar encontro final
       final_appointments:
         new:
           heading: "Encontro final"      
@@ -103,6 +105,16 @@ pt-BR:
           patient_reschedule: Paciente pediu para reagendar
           nurse_reschedule: AE precisou remarcar
           other: Outros motivos (especifique abaixo)
+      smartphones:
+        new:
+          heading: "Informações do smartphone"
+      users:
+        sign_in:
+          sign_in: "Login"
+          email: "email"
+          password: "Senha"
+          remember_me: "Lembrar senha"
+          forgot_your_password: "esqueceu sua senha?"
       participants:
         new:
           heading: "Cadastrar novo participante"
@@ -126,6 +138,7 @@ pt-BR:
             location: "Local"
             second_contact: "Chamada de seguimento sem. 1"
             third_contact: "Chamada de seguimento sem. 3"
+            call_to_schedule_final_appointment: Chamada para agendar encontro final
             final_appointment: "Encontro Final"
             status: "Status"
             legend:

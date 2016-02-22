@@ -14,7 +14,6 @@ class ThirdContact < ActiveRecord::Base
   validates :participant,
             :contact_at,
             :session_length,
-            :final_appointment_at,
-            :final_appointment_location,
+            :call_to_schedule_final_appointment_at,
             presence: true
 end

@@ -176,7 +176,7 @@ class ReminderMessage < ActiveRecord::Base
     elsif appointment_type == THIRD_CONTACT
       participant.second_contact.next_contact - difference[notify_at]
     else # => 'final'
-      participant.third_contact.final_appointment_at - difference[notify_at]
+      participant.third_contact.call_to_schedule_final_appointment_at - difference[notify_at]
     end
   end
 

@@ -1,5 +1,16 @@
 en:
   conemo:
+    family_health_units:
+      - unit 1
+      - unit 2
+      - unit 3
+      - unit 4
+      - unit 5
+      - unit 6
+      - unit 7
+      - unit 8
+      - unit 9
+      - unit 10
     views:
       shared:
         save_button: "Save"
@@ -22,6 +33,7 @@ en:
           enrollment_button: "Pending Participants"
           manage_button: "Active Participants"
           lessons_button: "Lessons"
+          sign_in: Sign in
           sign_out: "Sign out"
       lessons:
         index:
@@ -60,6 +72,9 @@ en:
           heading: Follow up call week 3
         reschedule:
           heading: Follow up call week 3
+      call_to_schedule_final_appointments:
+        new:
+          heading: Call to schedule final in person appointment
       final_appointments:
         new:
           heading: Final in person appointment
@@ -125,6 +140,7 @@ en:
             location: "Location"
             second_contact: Follow up call week 1
             third_contact: Follow up call week 3
+            call_to_schedule_final_appointment: Call to schedule final in person appointment
             final_appointment: Final in person appointment
             status: "Status"
             legend:
