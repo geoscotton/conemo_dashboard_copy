@@ -29,6 +29,6 @@ module ConemoDashboard
     config.i18n.enforce_available_locales = false
     config.i18n.default_locale = :"pt-BR"
 
-    config.active_record.observers = :participant_observer
+    config.active_record.observers = :first_contact_observer, :participant_observer
   end
 end
