@@ -28,5 +28,7 @@ module ConemoDashboard
     config.active_record.default_timezone = :utc
     config.i18n.enforce_available_locales = false
     config.i18n.default_locale = :"pt-BR"
+
+    config.active_record.observers = :participant_observer
   end
 end

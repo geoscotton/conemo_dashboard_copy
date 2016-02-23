@@ -18,6 +18,10 @@ gem "twilio-ruby", "~> 3.11"
 gem "normalize-rails"
 gem "nokogiri", "= 1.6.3.1"
 gem "sentry-raven", "~> 0.15.2"
+# for model lifecycle hooks
+gem "rails-observers", "~> 0.1.2"
+# for business date calculations
+gem "business_time", "= 0.7.4"
 
 group :staging, :production do
   # scheduling tasks
