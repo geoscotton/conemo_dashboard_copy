@@ -19,10 +19,6 @@ class NurseTask < ActiveRecord::Base
     where nurse: nurse, participant: participant
   end
 
-  def self.create_for_nurse_and_participant(nurse, participant)
-    create nurse: nurse, participant: participant
-  end
-
   def self.active
     where status: STATUSES.active
   end
