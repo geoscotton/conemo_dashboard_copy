@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       resource :smartphone, only: [:new, :create, :edit, :update]
       resources :patient_contacts, only: [:new, :create, :destroy]
       resources :help_messages, only: [:update]
+      resources :tasks, only: :index
       get "*unknown", to: redirect("/%{locale}/active/participants")
     end
 
