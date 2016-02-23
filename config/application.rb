@@ -29,7 +29,8 @@ module ConemoDashboard
     config.i18n.enforce_available_locales = false
     config.i18n.default_locale = :"pt-BR"
 
-    config.active_record.observers = :first_appointment_observer,
+    config.active_record.observers = :call_to_schedule_final_appointment_observer,
+                                     :first_appointment_observer,
                                      :first_contact_observer,
                                      :participant_observer
   end
