@@ -107,5 +107,13 @@ RSpec.describe Ability do
 
       expect(en_nurse_role.can?(:read, en_nurse_participants)).to eq false
     end
+
+    it "can create CallToScheduleFinalAppointments for assigned Participants" do
+      en_nurse_participant = Participant.active.find_by(nurse: en_nurse)
+
+      call =
+        CallToScheduleFinalAppointment.new(participant: en_nurse_participant)
+      expect(en_nurse_role.can?(:create, call)).to eq true
+    end
   end
 end

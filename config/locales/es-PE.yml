@@ -1,5 +1,16 @@
 es-PE:
   conemo:
+    family_health_units:
+      - Centro de salud 1
+      - Centro de salud 2
+      - Centro de salud 3
+      - Centro de salud 4
+      - Centro de salud 5
+      - Centro de salud 6
+      - Centro de salud 7
+      - Centro de salud 8
+      - Centro de salud 9
+      - Centro de salud 10
     views:
       shared:
         save_button: "Guardar"
@@ -15,7 +26,6 @@ es-PE:
         reschedule: "reprogramar"
         reschedule_heading: "Reprogramar"
         app_download: "Descarga la Aplicación"
-        dialogue: "Diálogo"
       dashboards:
         index:
           heading: "¡Bienvenido!"
@@ -23,7 +33,6 @@ es-PE:
           enrollment_button: "Participantes reclutados"
           manage_button: "Participantes activos"
           lessons_button: "Sesiones"
-          dialogues_button: "Diálogos"
           sign_in: "Ingresar"
           sign_out: "Salir"
       lessons:
@@ -53,11 +62,6 @@ es-PE:
             o3: "3 –Muy probable"
             o2: "2 – 50/50 (Más o menos probable)"
             o1: "1 –Poco probable"
-      final_appointments:
-        new:
-          heading: "Cita final"
-        reschedule:
-          heading: "la llamada cita final"
       nurse_participant_evaluations:
         form:
           q1:
@@ -72,6 +76,26 @@ es-PE:
             o3: "3 –Muy probable"
             o2: "2 – 50/50 (Más o menos probable)"
             o1: "1 –Poco probable"
+      second_contacts:
+        new:
+          heading: "Llamada de seguimiento sem. 1"
+        reschedule:
+          heading: "la llamada de seguimiento sem. 1"
+        patient_question_header: Preguntas para el paciente
+        nurse_question_header: Preguntas para la enfermera
+      third_contacts:
+        new:
+          heading: "Llamada de seguimiento sem. 3"
+        reschedule:
+          heading: "la llamada de seguimiento sem. 3"
+      call_to_schedule_final_appointments:
+        new:
+          heading: Llamada para programar cita final
+      final_appointments:
+        new:
+          heading: "Cita final"
+        reschedule:
+          heading: "la llamada cita final"
       patient_contacts:
         new:
           heading: Escribir una nota de
@@ -85,21 +109,9 @@ es-PE:
           patient_reschedule: Paciente pidió re-programar su cita
           nurse_reschedule: Enfermera necesitó re-programar
           other: Otros motivos (especifique abajo)
-      second_contacts:
-        new:
-          heading: "Llamada de seguimiento sem. 1"
-        reschedule:
-          heading: "la llamada de seguimiento sem. 1"
-        patient_question_header: Preguntas para el paciente
-        nurse_question_header: Preguntas para la enfermera
       smartphones:
         new:
           heading: "Información de smartphone"
-      third_contacts:
-        new:
-          heading: "Llamada de seguimiento sem. 3"
-        reschedule:
-          heading: "la llamada de seguimiento sem. 3"
       users:
         sign_in:
           sign_in: "Ingresar"
@@ -129,6 +141,7 @@ es-PE:
             first_appointment: "Cita de inicio"
             second_contact: "Llamada de seguimiento sem. 1"
             third_contact: "Llamada de seguimiento sem. 3"
+            call_to_schedule_final_appointment: Llamada para programar cita final
             final_appointment: "Cita final"
             status: "Estado"
             legend:

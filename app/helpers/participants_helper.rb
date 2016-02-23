@@ -33,15 +33,13 @@ module ParticipantsHelper
   end
 
   def reschedule_first_appointment(participant)
-    if participant.first_appointment
-      ""
-    elsif participant.first_contact
-      link_to " #{t 'conemo.views.shared.reschedule'}",
-              missed_appointment_path(participant_id: participant.id, id: participant.first_contact.id),
-              class: "fa fa-edit reschedule-link"
-    else
-      ""
+    if participant.first_appointment || participant.first_contact.blank?
+      return ""
     end
+
+    link_to " #{t 'conemo.views.shared.reschedule'}",
+            missed_appointment_path(participant_id: participant.id, id: participant.first_contact.id),
+            class: "fa fa-edit reschedule-link"
   end
 
   def second_contact(participant)
@@ -116,7 +114,8 @@ module ParticipantsHelper
     if participant.final_appointment
       fa_icon "check-circle 2x", style: "color: green;"
     elsif participant.third_contact
-      " #{l participant.third_contact.final_appointment_at, format: :short}" rescue ""
+      " #{l participant.third_contact.call_to_schedule_final_appointment_at,
+            format: :short}" rescue ""
     else
       ""
     end

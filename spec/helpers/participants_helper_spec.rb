@@ -185,14 +185,15 @@ RSpec.describe ParticipantsHelper, type: :helper do
           participant.create_third_contact(
             contact_at: Time.zone.now,
             session_length: 1,
-            final_appointment_at: Time.zone.now,
-            final_appointment_location: "inside"
+            call_to_schedule_final_appointment_at: Time.zone.now
           )
           participant.reload
           output = helper.final_appointment(participant)
 
           expect(output)
-            .to include I18n.l(participant.third_contact.final_appointment_at,
+            .to include I18n.l(participant
+                               .third_contact
+                               .call_to_schedule_final_appointment_at,
                                format: :short)
         end
       end
@@ -214,8 +215,7 @@ RSpec.describe ParticipantsHelper, type: :helper do
           participant.create_third_contact(
             contact_at: Time.zone.now,
             session_length: 1,
-            final_appointment_at: Time.zone.now,
-            final_appointment_location: "inside"
+            call_to_schedule_final_appointment_at: Time.zone.now
           )
           participant.reload
           output = helper.final_appointment_link(participant)
@@ -243,8 +243,7 @@ RSpec.describe ParticipantsHelper, type: :helper do
           participant.create_third_contact(
             contact_at: Time.zone.now,
             session_length: 1,
-            final_appointment_at: Time.zone.now,
-            final_appointment_location: "inside"
+            call_to_schedule_final_appointment_at: Time.zone.now
           )
           participant.reload
           output = helper.reschedule_final_appointment(participant)

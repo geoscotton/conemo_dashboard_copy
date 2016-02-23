@@ -2,19 +2,16 @@ third_contact:
   participant: active_participant
   contact_at: <%= Date.today %>
   session_length: 1
-  final_appointment_at: <%= DateTime.current + 2.day %>
-  final_appointment_location: "Far away from here"
+  call_to_schedule_final_appointment_at: <%= DateTime.current + 2.day %>
 
 portuguese_third_contact:
   participant: portuguese_active_participant
   contact_at: <%= Date.yesterday %>
   session_length: 1
-  final_appointment_at: <%= DateTime.current + 2.days %>
-  final_appointment_location: "Far away from here"
+  call_to_schedule_final_appointment_at: <%= DateTime.current + 2.days %>
 
 english_third_contact:
   participant: english_active_participant
   contact_at: <%= Date.yesterday %>
   session_length: 1
-  final_appointment_at: <%= DateTime.current + 2.days %>
-  final_appointment_location: "Far away from here"
+  call_to_schedule_final_appointment_at: <%= DateTime.current + 2.days %>

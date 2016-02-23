@@ -45,5 +45,8 @@ class Ability
 
   def authorize_nurse(nurse)
     can :read, Participant, nurse_id: nurse.id, status: Participant::ACTIVE
+    can :create,
+        CallToScheduleFinalAppointment,
+        participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
   end
 end
