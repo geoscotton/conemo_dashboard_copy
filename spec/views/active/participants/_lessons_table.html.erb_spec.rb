@@ -2,21 +2,21 @@ require "spec_helper"
 
 RSpec.describe "active/participants/_lessons_table", type: :view do
   let(:content_access_events) { double("Access events", where: []) }
-  let(:session_event) { instance_double(SessionEvent) }
+  let(:session_event) { double("SessionEvent") }
   let(:session_events) { double("Session events") }
   let(:participant) do
-    instance_double("Participant",
-                    lesson_status: nil,
-                    start_date: nil,
-                    access_response: nil,
-                    id: 12345)
+    double("Participant",
+           lesson_status: nil,
+           start_date: nil,
+           access_response: nil,
+           id: 12345)
   end
   let(:lesson) do
-    instance_double("Lesson",
-                    day_in_treatment: 2,
-                    title: "Lorem ipsum",
-                    content_access_events: content_access_events,
-                    session_events: session_events)
+    double("Lesson",
+           day_in_treatment: 2,
+           title: "Lorem ipsum",
+           content_access_events: content_access_events,
+           session_events: session_events)
   end
   let(:lessons) { [lesson] }
 

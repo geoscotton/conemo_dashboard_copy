@@ -1,0 +1,17 @@
+<h2>Your Patients</h2>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-bordered table-condensed table-hover">
+      <tbody>
+        <% @participants.each do |participant| %>
+          <tr>
+            <td>
+              <%= link_to participant.study_identifier, participant_tasks_path(participant) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
