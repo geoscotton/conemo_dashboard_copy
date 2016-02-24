@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.6 - 2016-02-24
+
+* observe and record payload fetch requests
+* add help request task triggering
+
 ## 0.5.5 - 2016-02-24
 
 * add Nurse dashboard view
