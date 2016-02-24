@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.5 - 2016-02-24
+
+* add Nurse dashboard view
+* add final appointment task
+* add call to schedule final appointment task
+* add follow up call week one task
+
 ## 0.5.4 - 2016-02-21
 
 * auto create config tokens for new participants

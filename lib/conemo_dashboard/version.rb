@@ -2,5 +2,5 @@
 
 # Application version.
 module ConemoDashboard
-  VERSION = "0.5.4".freeze
+  VERSION = "0.5.5".freeze
 end
