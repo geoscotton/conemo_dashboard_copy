@@ -4,7 +4,7 @@ class DashboardsController < ApplicationController
 
   def index
     if current_user.nurse?
-      redirect_to active_participants_url
+      redirect_to nurse_dashboard_url
     elsif current_user.nurse_supervisor?
       redirect_to nurse_supervisor_dashboard_url
     end

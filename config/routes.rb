@@ -49,6 +49,7 @@ Rails.application.routes.draw do
     post "lessons/:id/slide_order" => "lessons#slide_order", as: :lesson_slide_order
 
     resource :nurse_supervisor_dashboard, only: :show
+    resource :nurse_dashboard, only: :show
 
     get "/" => "dashboards#index", as: :dashboard
 
