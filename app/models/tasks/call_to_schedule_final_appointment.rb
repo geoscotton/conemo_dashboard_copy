@@ -3,5 +3,7 @@ module Tasks
   # appointment.
   class CallToScheduleFinalAppointment < NurseTask
     OVERDUE_AFTER_DAYS = 3
+
+    validates :user_id, uniqueness: { scope: [:participant_id, :type] }
   end
 end
