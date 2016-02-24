@@ -99,6 +99,7 @@ RailsAdmin.config do |config|
         field :model
         field :device_version
         field :participant
+        field :last_seen_at
       end
     end
 
@@ -311,6 +312,21 @@ RailsAdmin.config do |config|
     list do
       field :participant
       field :final_appointment_at
+    end
+  end
+
+  config.model TokenAuth::AuthenticationToken do
+    navigation_label "Management"
+
+    list do
+      field :entity_id do
+        label "Participant"
+        pretty_value do
+          Participant.find(value).study_identifier
+        end
+      end
+      field :is_enabled
+      field :client_uuid
     end
   end
 end
