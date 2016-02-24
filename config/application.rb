@@ -32,6 +32,7 @@ module ConemoDashboard
     config.active_record.observers = :call_to_schedule_final_appointment_observer,
                                      :first_appointment_observer,
                                      :first_contact_observer,
+                                     :help_message_observer,
                                      :participant_observer
   end
 end

@@ -2,7 +2,7 @@ require "ostruct"
 
 # Superclass for scheduled and triggered Nurse Tasks.
 class NurseTask < ActiveRecord::Base
-  STATUSES = OpenStruct.new(active: "active")
+  STATUSES = OpenStruct.new(active: "active", resolved: "resolved")
 
   belongs_to :nurse, foreign_key: :user_id
   belongs_to :participant
@@ -10,7 +10,6 @@ class NurseTask < ActiveRecord::Base
   validates :nurse, :participant, :status, :scheduled_at, :overdue_at,
             presence: true
   validates :status, inclusion: { in: STATUSES.to_h.values }
-  validates :user_id, uniqueness: { scope: [:participant_id, :type] }
 
   before_validation :set_scheduled_at
   before_validation :set_overdue_at
