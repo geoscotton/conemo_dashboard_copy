@@ -5,7 +5,8 @@
     <table class="table table-bordered table-condensed table-hover">
       <tbody>
         <% @participants.each do |participant| %>
-          <tr>
+          <% row = NurseParticipantRowPresenter.new(participant, @tasks[participant.id]) %>
+          <tr class="<%= row.css_class %>">
             <td>
               <%= link_to participant.study_identifier, participant_tasks_path(participant) %>
             </td>

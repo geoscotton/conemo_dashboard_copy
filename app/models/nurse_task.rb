@@ -30,6 +30,10 @@ class NurseTask < ActiveRecord::Base
     self.class.model_name.human
   end
 
+  def overdue?
+    Time.zone.now >= overdue_at
+  end
+
   private
 
   def set_scheduled_at
