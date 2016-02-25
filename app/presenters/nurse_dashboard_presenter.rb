@@ -9,7 +9,7 @@ class NurseDashboardPresenter
 
   def participant_summaries
     summaries = participants.map do |p|
-      NurseParticipantRowPresenter.new(p, @tasks_by_id[p.id])
+      ParticipantSummaryPresenter.new(p, @tasks_by_id[p.id])
     end
     
     summaries.sort do |a, b|

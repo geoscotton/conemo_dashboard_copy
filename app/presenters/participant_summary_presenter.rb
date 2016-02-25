@@ -1,6 +1,6 @@
-# Determine the appropriate CSS class to use for a Participant row on the Nurse
-# dashboard.
-class NurseParticipantRowPresenter
+# Determine the appropriate CSS class and tasks to display for a Participant on
+# a dashboard.
+class ParticipantSummaryPresenter
   attr_reader :participant, :tasks
 
   delegate :id, :study_identifier, to: :participant
@@ -13,11 +13,11 @@ class NurseParticipantRowPresenter
 
   def initialize(participant, tasks)
     @participant = participant
-    @tasks = tasks || []
+    @tasks = ordered_tasks(tasks || [])
   end
 
   def tasks_list
-    @tasks.join ", "
+    tasks.join ", "
   end
 
   def css_class
@@ -28,5 +28,11 @@ class NurseParticipantRowPresenter
     else
       CSS_CLASSES[:current_tasks]
     end
+  end
+
+  private
+
+  def ordered_tasks(unordered_tasks)
+    unordered_tasks.sort { |a, b| a.scheduled_at <=> b.scheduled_at }
   end
 end
