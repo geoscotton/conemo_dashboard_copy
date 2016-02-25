@@ -5,21 +5,23 @@ require_relative "../../../app/models/nurse_task"
 require_relative "../../../app/models/participant"
 
 RSpec.describe "nurse_dashboards/show", type: :view do
-  def stub_participant(id)
-    instance_double(
-      Participant,
+  def stub_participant_summary(id, tasks_list)
+    double(
+      "participant summary",
+      css_class: "class#{id}",
       id: id,
-      study_identifier: "ID #{id}"
+      study_identifier: "ID #{id}",
+      tasks_list: tasks_list
     )
   end
 
   let(:template) { "nurse_dashboards/show" }
-  let(:participant1) { stub_participant 1 }
-  let(:participant2) { stub_participant 2 }
-  let(:participant3) { stub_participant 3 }
+  let(:participant1) { stub_participant_summary 1, "" }
+  let(:participant2) { stub_participant_summary 2, "Walk without rhythm, Scat" }
+  let(:participant3) { stub_participant_summary 3, "Hopscotch" }
 
   it "renders correctly when there are no participants" do
-    assign(:participants, [])
+    assign(:nurse_dashboard, double("dashboard", participant_summaries: []))
 
     render template: template
 
@@ -39,7 +41,11 @@ RSpec.describe "nurse_dashboards/show", type: :view do
     end
 
     def assign_and_render
-      assign(:participants, [participant1, participant2, participant3])
+      dashboard = double("dashboard",
+                         participant_summaries: [participant1,
+                                                 participant2,
+                                                 participant3])
+      assign(:nurse_dashboard, dashboard)
       assign(:tasks, 2 => [current_task, overdue_task], 3 => [current_task])
 
       render template: template
@@ -52,27 +58,15 @@ RSpec.describe "nurse_dashboards/show", type: :view do
         [
           ["ID 1", ""],
           ["ID 2", "Walk without rhythm, Scat"],
-          ["ID 3", "Walk without rhythm"]
+          ["ID 3", "Hopscotch"]
         ]
       )
     end
 
-    it "renders success rows for no tasks" do
+    it "renders rows with specified CSS class" do
       assign_and_render
 
-      expect(rendered).to have_selector(".success", text: "ID 1")
-    end
-
-    it "renders warning rows for current tasks" do
-      assign_and_render
-
-      expect(rendered).to have_selector(".danger", text: "ID 2")
-    end
-
-    it "renders danger rows for overdue tasks" do
-      assign_and_render
-
-      expect(rendered).to have_selector(".warning", text: "ID 3")
+      expect(rendered).to have_selector(".class1", text: "ID 1")
     end
   end
 end

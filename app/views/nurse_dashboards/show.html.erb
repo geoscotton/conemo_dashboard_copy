@@ -4,14 +4,13 @@
   <div class="panel-body">
     <table class="table table-bordered table-condensed table-hover">
       <tbody>
-        <% @participants.each do |participant| %>
-          <% row = NurseParticipantRowPresenter.new(participant, @tasks[participant.id]) %>
-          <tr class="<%= row.css_class %>">
+        <% @nurse_dashboard.participant_summaries.each do |participant_summary| %>
+          <tr class="<%= participant_summary.css_class %>">
             <td>
-              <%= link_to participant.study_identifier, participant_tasks_path(participant) %>
+              <%= link_to participant_summary.study_identifier, participant_tasks_path(participant_summary.id) %>
             </td>
             <td>
-              <%= @tasks[participant.id].try(:join, ", ") %>
+              <%= participant_summary.tasks_list %>
             </td>
           </tr>
         <% end %>

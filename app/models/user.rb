@@ -13,10 +13,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
          :validatable
 
-  has_many :participants,
-           foreign_key: :nurse_id,
-           dependent: :nullify,
-           inverse_of: :nurse
   has_many :reminder_messages, foreign_key: :nurse_id, dependent: :destroy
 
   validates :email, :phone, :first_name, :last_name, :locale, presence: true
@@ -25,10 +21,6 @@ class User < ActiveRecord::Base
 
   before_validation :set_password
   before_save :sanitize_number
-
-  def active_participants
-    participants.where(status: "active")
-  end
 
   def last_and_first_name
     "#{last_name}, #{first_name}"

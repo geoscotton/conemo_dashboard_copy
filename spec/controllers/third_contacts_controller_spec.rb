@@ -4,7 +4,9 @@ RSpec.describe ThirdContactsController, type: :controller do
   fixtures :all
 
   let(:locale) { LOCALES.values.sample }
-  let(:participant) { Participant.find_by(locale: locale) }
+  let(:participant) do
+    Participant.where.not(nurse: nil).find_by(locale: locale)
+  end
   let(:valid_third_contact_params) do
     {
       contact_at: Time.zone.now,

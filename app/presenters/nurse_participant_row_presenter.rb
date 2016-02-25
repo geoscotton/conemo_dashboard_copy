@@ -1,6 +1,10 @@
 # Determine the appropriate CSS class to use for a Participant row on the Nurse
 # dashboard.
 class NurseParticipantRowPresenter
+  attr_reader :participant, :tasks
+
+  delegate :id, :study_identifier, to: :participant
+
   CSS_CLASSES = {
     no_tasks: "success",
     overdue_tasks: "danger",
@@ -10,6 +14,10 @@ class NurseParticipantRowPresenter
   def initialize(participant, tasks)
     @participant = participant
     @tasks = tasks || []
+  end
+
+  def tasks_list
+    @tasks.join ", "
   end
 
   def css_class
