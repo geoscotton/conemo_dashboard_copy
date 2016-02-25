@@ -26,6 +26,10 @@ class NurseTask < ActiveRecord::Base
     where(arel_table[:overdue_at].lteq(Time.zone.now))
   end
 
+  def to_s
+    self.class.model_name.human
+  end
+
   private
 
   def set_scheduled_at

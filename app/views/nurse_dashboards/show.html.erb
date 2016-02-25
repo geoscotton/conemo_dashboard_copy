@@ -9,6 +9,9 @@
             <td>
               <%= link_to participant.study_identifier, participant_tasks_path(participant) %>
             </td>
+            <td>
+              <%= @tasks[participant.id].try(:join, ", ") %>
+            </td>
           </tr>
         <% end %>
       </tbody>
