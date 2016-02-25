@@ -121,6 +121,12 @@ RailsAdmin.config do |config|
 
     config.model Login do
       navigation_label "Transmitted"
+
+      list do
+        field :participant
+        field :logged_in_at
+        field :app_version
+      end
     end
 
     config.model NurseParticipantEvaluation do
