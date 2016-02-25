@@ -1,6 +1,6 @@
-# Determine the appropriate CSS class to use for a Participant row on the Nurse
-# dashboard.
-class NurseParticipantRowPresenter
+# Determine the appropriate CSS class and tasks to display for a Participant on
+# a dashboard.
+class ParticipantSummaryPresenter
   attr_reader :participant, :tasks
 
   delegate :id, :study_identifier, to: :participant
