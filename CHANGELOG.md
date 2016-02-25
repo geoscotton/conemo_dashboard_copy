@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.7 - 2016-02-25
+
+* customize login list for Rails admin
+* color code participant rows based on tasks
+* add scheduled task to create connectivity alerts
+* display task names on nurse dashboard main page
+* add scheduled task to create connectivity alerts
+
 ## 0.5.6 - 2016-02-24
 
 * observe and record payload fetch requests
