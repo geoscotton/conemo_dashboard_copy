@@ -22,11 +22,11 @@ class Participant < ActiveRecord::Base
   has_many :reminder_messages, dependent: :destroy
   has_many :session_events, dependent: :destroy
 
-  PENDING = "pending".freeze
-  ACTIVE = "active".freeze
-  INELIGIBLE = "ineligible".freeze
-  STATUS = [PENDING, ACTIVE, INELIGIBLE].freeze
-  GENDER = %w( male female ).freeze
+  PENDING ||= "pending".freeze
+  ACTIVE ||= "active".freeze
+  INELIGIBLE ||= "ineligible".freeze
+  STATUS ||= [PENDING, ACTIVE, INELIGIBLE].freeze
+  GENDER ||= %w( male female ).freeze
 
   validates :first_name,
             :last_name,
