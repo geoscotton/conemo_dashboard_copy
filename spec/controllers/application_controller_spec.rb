@@ -47,7 +47,7 @@ RSpec.describe ApplicationController, type: :controller do
       context "and she attempts an unauthorized request" do
         controller do
           def index
-            fail CanCan::AccessDenied
+            raise CanCan::AccessDenied
           end
         end
 

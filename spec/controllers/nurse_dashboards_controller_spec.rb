@@ -48,7 +48,7 @@ RSpec.describe NurseDashboardsController, type: :controller do
 
         show_for_nurse
 
-        expect(assigns(:participants).length)
+        expect(assigns(:nurse_dashboard).participants.length)
           .to eq Participant.where(nurse: nurse).active.count
       end
     end
