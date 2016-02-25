@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20160224153018) do
     t.integer  "participant_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.datetime "last_seen_at"
+    t.datetime "last_seen_at",   null: false
   end
 
   add_index "devices", ["device_uuid"], name: "index_devices_on_device_uuid", unique: true, using: :btree
