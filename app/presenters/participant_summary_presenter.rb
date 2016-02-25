@@ -13,11 +13,11 @@ class ParticipantSummaryPresenter
 
   def initialize(participant, tasks)
     @participant = participant
-    @tasks = tasks || []
+    @tasks = ordered_tasks(tasks || [])
   end
 
   def tasks_list
-    @tasks.join ", "
+    tasks.join ", "
   end
 
   def css_class
@@ -28,5 +28,11 @@ class ParticipantSummaryPresenter
     else
       CSS_CLASSES[:current_tasks]
     end
+  end
+
+  private
+
+  def ordered_tasks(unordered_tasks)
+    unordered_tasks.sort { |a, b| a.scheduled_at <=> b.scheduled_at }
   end
 end
