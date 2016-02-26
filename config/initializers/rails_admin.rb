@@ -48,6 +48,7 @@ RailsAdmin.config do |config|
       Nurse,
       NurseParticipantEvaluation,
       NurseSupervisor,
+      NurseTask,
       Participant,
       PatientContact,
       ParticipantStartDate,
@@ -131,6 +132,19 @@ RailsAdmin.config do |config|
 
     config.model NurseParticipantEvaluation do
       navigation_label "Data"
+    end
+
+    config.model NurseTask do
+      navigation_label "Data"
+
+      list do
+        field :nurse
+        field :participant
+        field :type
+        field :status
+        field :scheduled_at
+        field :overdue_at
+      end
     end
 
     config.model ParticipantStartDate do

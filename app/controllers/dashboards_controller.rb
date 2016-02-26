@@ -8,6 +8,8 @@ class DashboardsController < ApplicationController
       redirect_to nurse_dashboard_url
     elsif current_user.nurse_supervisor?
       redirect_to nurse_supervisor_dashboard_url
+    elsif current_user.is_a? Superuser
+      redirect_to rails_admin_url
     end
   end
 end
