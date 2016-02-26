@@ -49,6 +49,9 @@ class Ability
     can :create,
         CallToScheduleFinalAppointment,
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
+    can :create,
+        AdditionalContact,
+        participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
     can :update,
         NurseTask,
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }

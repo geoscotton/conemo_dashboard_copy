@@ -123,5 +123,12 @@ RSpec.describe Ability do
 
       expect(en_nurse_role.can?(:update, en_nurse_tasks)).to eq true
     end
+
+    it "can create AdditionalContacts for assigned Participants" do
+      en_nurse_participant = Participant.active.find_by(nurse: en_nurse)
+
+      contact = AdditionalContact.new(participant: en_nurse_participant)
+      expect(en_nurse_role.can?(:create, contact)).to eq true
+    end
   end
 end

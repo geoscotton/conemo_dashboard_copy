@@ -277,3 +277,15 @@ en:
         appointment_location: "Location"
         phone_returned: "Was the phone returned?"
         notes: "Notes"
+  activerecord:
+    field_options:
+      additional_contact:
+        kinds:
+          - in person
+          - phone call
+    models:
+      additional_contact: Additional contact
+    attributes:
+      additional_contact:
+        scheduled_at: Date and time of contact
+        kind: Type

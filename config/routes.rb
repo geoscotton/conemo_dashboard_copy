@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get "/participants/:participant_id/third_contacts/missed_final_appointment" => "third_contacts#missed_final_appointment", as: :missed_final_appointment
 
     resources :participants, except: [:index, :show] do
+      resources :additional_contacts, only: [:new, :create]
       resource :first_contact, only: [:new, :create, :edit, :update]
       resource :first_appointment, only: [:new, :create, :edit, :update]
       resource :second_contact, only: [:new, :create, :edit, :update]

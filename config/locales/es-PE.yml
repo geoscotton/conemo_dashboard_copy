@@ -476,6 +476,17 @@ es-PE:
   activerecord:
     errors:
       <<: *errors
+    field_options:
+      additional_contact:
+        kinds:
+          - En persona
+          - Llamada telefónica
+    models:
+      additional_contact: Additional contact
+    attributes:
+      additional_contact:
+        scheduled_at: Fecha y hora de contacto
+        kind: Tipo de contacto
   unauthorized:
     manage:
       all: No tiene permisos para acceder a esta página.
