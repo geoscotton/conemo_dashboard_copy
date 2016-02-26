@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224153018) do
+ActiveRecord::Schema.define(version: 20160226171655) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "additional_contacts", force: :cascade do |t|
+    t.integer  "participant_id", null: false
+    t.integer  "nurse_id",       null: false
+    t.datetime "scheduled_at",   null: false
+    t.string   "kind",           null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "additional_contacts", ["nurse_id"], name: "index_additional_contacts_on_nurse_id", using: :btree
+  add_index "additional_contacts", ["participant_id"], name: "index_additional_contacts_on_participant_id", using: :btree
 
   create_table "app_logins", force: :cascade do |t|
     t.datetime "occurred_at"
@@ -454,6 +466,8 @@ ActiveRecord::Schema.define(version: 20160224153018) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "additional_contacts", "participants"
+  add_foreign_key "additional_contacts", "users", column: "nurse_id"
   add_foreign_key "bit_core_content_modules", "bit_core_tools", name: "fk_content_modules_tools"
   add_foreign_key "bit_core_content_providers", "bit_core_content_modules", name: "fk_content_providers_modules"
   add_foreign_key "bit_core_slides", "bit_core_slideshows", name: "fk_slideshows_slides"

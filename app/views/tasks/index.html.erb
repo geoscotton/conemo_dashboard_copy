@@ -1,3 +1,5 @@
 <h2>Patient <%= @participant.study_identifier %></h2>
 
+<div><%= link_to AdditionalContact.model_name.human, new_participant_additional_contact_path(@participant) %></div>
+
 <%= @tasks.count %> <%= "task".pluralize(@tasks.count) %>, <%= @tasks.overdue.count %> overdue
