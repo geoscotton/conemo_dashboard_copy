@@ -10,7 +10,7 @@
               <%= link_to participant_summary.study_identifier, participant_tasks_path(participant_summary.id) %>
             </td>
             <td>
-              <%= participant_summary.tasks_list %>
+              <%= link_to participant_summary.tasks_list, participant_tasks_path(participant_summary.id) %>
             </td>
           </tr>
         <% end %>
