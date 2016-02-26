@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226171655) do
+ActiveRecord::Schema.define(version: 20160226210850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,18 +129,6 @@ ActiveRecord::Schema.define(version: 20160226171655) do
 
   add_index "devices", ["device_uuid"], name: "index_devices_on_device_uuid", unique: true, using: :btree
   add_index "devices", ["uuid"], name: "index_devices_on_uuid", unique: true, using: :btree
-
-  create_table "dialogues", force: :cascade do |t|
-    t.string   "title"
-    t.string   "guid"
-    t.string   "day_in_treatment"
-    t.string   "locale"
-    t.text     "message"
-    t.text     "yes_text"
-    t.text     "no_text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "final_appointments", force: :cascade do |t|
     t.datetime "appointment_at"

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   namespace "api", constraints: { format: 'json' }  do
     get "lessons" => "lessons#index"
-    get "dialogues" => "dialogues#index"
   end
 
   scope "/(:locale)" do
@@ -41,8 +40,6 @@ Rails.application.routes.draw do
       resources :participants, only: [:index, :show]
       get "report/:id" => "participants#report", as: :report
     end
-
-    resources :dialogues
 
     resources :lessons do
       resources :slides
