@@ -38,7 +38,6 @@ RailsAdmin.config do |config|
       Admin,
       ContentAccessEvent,
       Device,
-      Dialogue,
       FinalAppointment,
       FirstAppointment,
       FirstContact,
@@ -102,10 +101,6 @@ RailsAdmin.config do |config|
         field :participant
         field :last_seen_at
       end
-    end
-
-    config.model Dialogue do
-      navigation_label "Configuration"
     end
 
     config.model FinalAppointment do

@@ -62,14 +62,10 @@
       <li class="active">
         <a href="#lessons" data-toggle="tab"><%= t "conemo.views.dashboards.index.lessons_button" %></a>
       </li>
-      <li>
-        <a href="#dialogues" data-toggle="tab"><%= t "conemo.views.dashboards.index.dialogues_button" %></a>
-      </li>
     </ul>
 
     <div class="tab-content">
       <%= render partial: "lessons_table", :locals => {participant: @participant, lessons: @lessons} %>
-      <%= render partial: "dialogues_table", :locals => {participant: @participant, dialogues: @dialogues} %>
     </div>
   </div>
 
