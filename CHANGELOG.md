@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.8 - 2016-02-26
+
+* customize superuser super powers
+* add additional contact creation for nurses
+* link from tasks to participant page
+* display tasks in chronological scheduled order
+
 ## 0.5.7 - 2016-02-25
 
 * customize login list for Rails admin
