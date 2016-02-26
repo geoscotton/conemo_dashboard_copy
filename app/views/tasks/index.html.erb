@@ -1,5 +1,13 @@
-<h2>Patient <%= @participant.study_identifier %></h2>
+<h2>Patient <%= @tasks.study_identifier %></h2>
 
-<div><%= link_to AdditionalContact.model_name.human, new_participant_additional_contact_path(@participant) %></div>
+<div><%= link_to AdditionalContact.model_name.human, new_participant_additional_contact_path(@tasks.id) %></div>
 
-<%= @tasks.count %> <%= "task".pluralize(@tasks.count) %>, <%= @tasks.overdue.count %> overdue
+<%= @tasks.tasks_count %> <%= "task".pluralize(@tasks.tasks_count) %>, <%= @tasks.tasks_overdue.count %> overdue
+
+<ul class="list-group">
+  <% @tasks.tasks.each do |task| %>
+    <li class="list-group-item">
+      <h4><%= task %> <small><%= time_ago_in_words task.scheduled_at %></small></h4>
+    </li>
+  <% end %>
+</ul>

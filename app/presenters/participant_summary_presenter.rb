@@ -5,6 +5,7 @@ class ParticipantSummaryPresenter
   attr_reader :participant, :tasks
 
   delegate :id, :study_identifier, to: :participant
+  delegate :count, to: :tasks, prefix: true
 
   CSS_CLASSES = {
     no_tasks: "success",
@@ -29,6 +30,10 @@ class ParticipantSummaryPresenter
     else
       CSS_CLASSES[:current_tasks]
     end
+  end
+
+  def tasks_overdue
+    tasks.select(&:overdue?)
   end
 
   private
