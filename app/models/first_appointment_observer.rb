@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Hook into First Appointment lifecycle events.
 class FirstAppointmentObserver < ActiveRecord::Observer
   def after_save(first_appointment)

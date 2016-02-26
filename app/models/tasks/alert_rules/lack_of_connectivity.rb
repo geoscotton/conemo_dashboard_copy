@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Tasks
   module AlertRules
     # Determines when network connectivity has been absent and is alertable.

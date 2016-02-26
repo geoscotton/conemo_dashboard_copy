@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Device serializer.
 class DeviceSerializer < ActiveModel::Serializer
   attributes :device_uuid, :manufacturer, :model, :platform,

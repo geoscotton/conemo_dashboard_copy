@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # A physical device used by a Participant.
 class Device < ActiveRecord::Base
   belongs_to :participant

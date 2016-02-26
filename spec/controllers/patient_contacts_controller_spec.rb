@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe PatientContactsController, type: :controller do
@@ -31,7 +32,7 @@ describe PatientContactsController, type: :controller do
 
       it "sets patient contact" do
         admin_request :get, :new, locale, participant_id: participant.id,
-                      locale: locale
+                                          locale: locale
 
         expect(assigns(:patient_contact)).to be_instance_of PatientContact
         expect(assigns(:patient_contact).participant).to eq participant
@@ -50,8 +51,8 @@ describe PatientContactsController, type: :controller do
       context "when the Participant isn't found" do
         before do
           admin_request :post, :create, locale, participant_id: -1,
-                        patient_contact: valid_patient_contact_params,
-                        locale: locale
+                                                patient_contact: valid_patient_contact_params,
+                                                locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -61,8 +62,8 @@ describe PatientContactsController, type: :controller do
         it "creates a patient contact" do
           expect do
             admin_request :post, :create, locale, participant_id: participant.id,
-                          patient_contact: valid_patient_contact_params,
-                          locale: locale
+                                                  patient_contact: valid_patient_contact_params,
+                                                  locale: locale
           end.to change { PatientContact.where(participant: participant).count }
             .by(1)
         end
@@ -72,8 +73,8 @@ describe PatientContactsController, type: :controller do
             participant.update start_date: Time.zone.today
 
             admin_request :post, :create, locale, participant_id: participant.id,
-                          patient_contact: valid_patient_contact_params,
-                          locale: locale
+                                                  patient_contact: valid_patient_contact_params,
+                                                  locale: locale
 
             expect(response).to redirect_to active_report_path(participant)
           end
@@ -84,8 +85,8 @@ describe PatientContactsController, type: :controller do
             participant.update start_date: nil
 
             admin_request :post, :create, locale, participant_id: participant.id,
-                          patient_contact: valid_patient_contact_params,
-                          locale: locale
+                                                  patient_contact: valid_patient_contact_params,
+                                                  locale: locale
 
             expect(response).to redirect_to active_participants_path
           end
@@ -93,7 +94,7 @@ describe PatientContactsController, type: :controller do
       end
     end
   end
-  
+
   describe "DELETE destroy" do
     context "for an unauthenticated request" do
       before { delete :destroy, participant_id: participant.id, id: 1 }
@@ -105,7 +106,7 @@ describe PatientContactsController, type: :controller do
       context "when the Participant isn't found" do
         before do
           admin_request :delete, :destroy, locale, participant_id: -1, id: 1,
-                        locale: locale
+                                                   locale: locale
         end
 
         it_behaves_like "a bad request"

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Represents the final meeting of a Nurse with a Participant.
 class FinalAppointment < ActiveRecord::Base
   belongs_to :participant

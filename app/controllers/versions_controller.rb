@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Render release version data.
 class VersionsController < ActionController::Base
   def show

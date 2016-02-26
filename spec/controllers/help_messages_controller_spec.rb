@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe HelpMessagesController, type: :controller do
@@ -22,8 +23,8 @@ RSpec.describe HelpMessagesController, type: :controller do
       context "when the participant is not found" do
         it "redirects to active participants" do
           admin_request :put, :update, locale, participant_id: -1,
-                        id: help_message.id,
-                        help_message: valid_help_message_params, locale: locale
+                                               id: help_message.id,
+                                               help_message: valid_help_message_params, locale: locale
 
           expect(response).to redirect_to active_participants_url
         end
@@ -33,16 +34,16 @@ RSpec.describe HelpMessagesController, type: :controller do
         it "updates the help message" do
           expect do
             admin_request :put, :update, locale, participant_id: participant.id,
-                          id: help_message.id,
-                          help_message: valid_help_message_params,
-                          locale: locale
+                                                 id: help_message.id,
+                                                 help_message: valid_help_message_params,
+                                                 locale: locale
           end.to change { HelpMessage.find(help_message.id).updated_at }
         end
 
         it "redirects to the active report" do
           admin_request :put, :update, locale, participant_id: participant.id,
-                        id: help_message.id,
-                        help_message: valid_help_message_params, locale: locale
+                                               id: help_message.id,
+                                               help_message: valid_help_message_params, locale: locale
 
           expect(response).to redirect_to active_report_path(participant)
         end
@@ -51,18 +52,18 @@ RSpec.describe HelpMessagesController, type: :controller do
       context "when unsuccessful" do
         it "sets the flash alert" do
           admin_request :put, :update, locale, participant_id: participant.id,
-                        id: help_message.id,
-                        help_message: invalid_help_message_params,
-                        locale: locale
+                                               id: help_message.id,
+                                               help_message: invalid_help_message_params,
+                                               locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "redirects to the active report" do
           admin_request :put, :update, locale, participant_id: participant.id,
-                        id: help_message.id,
-                        help_message: invalid_help_message_params,
-                        locale: locale
+                                               id: help_message.id,
+                                               help_message: invalid_help_message_params,
+                                               locale: locale
 
           expect(response).to redirect_to active_report_path(participant)
         end

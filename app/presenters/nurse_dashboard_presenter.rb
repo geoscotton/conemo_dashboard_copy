@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Presentation and ordering logic for the Nurse dashboard.
 class NurseDashboardPresenter
   attr_reader :participants
@@ -11,7 +12,7 @@ class NurseDashboardPresenter
     summaries = participants.map do |p|
       ParticipantSummaryPresenter.new(p, @tasks_by_id[p.id])
     end
-    
+
     summaries.sort do |a, b|
       latest_participant_task_date(a) <=> latest_participant_task_date(b)
     end

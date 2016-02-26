@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Hook into Call to Schedule Final Appointment lifecycle events.
 class CallToScheduleFinalAppointmentObserver < ActiveRecord::Observer
   def after_save(scheduling_call)

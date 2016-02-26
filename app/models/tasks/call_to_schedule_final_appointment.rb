@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Tasks
   # A scheduled task to complete the call to schedule final in person
   # appointment.

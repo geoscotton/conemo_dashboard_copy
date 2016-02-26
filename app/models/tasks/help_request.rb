@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Tasks
   # A triggered task to respond to a Help Message.
   class HelpRequest < NurseTask

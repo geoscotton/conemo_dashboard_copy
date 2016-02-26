@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe "appointment scheduler", type: :feature do
@@ -10,7 +11,7 @@ describe "appointment scheduler", type: :feature do
   let(:participant) { participants(:active_participant) }
 
   describe "first appointment time and place" do
-    let!(:first_contact) { first_contacts(:english_first_contact)}
+    let!(:first_contact) { first_contacts(:english_first_contact) }
 
     context "first contact already created" do
       it "displays first appointment info on index page" do

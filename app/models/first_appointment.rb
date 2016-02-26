@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # In-Person Participant Appointment record for Participant
 class FirstAppointment < ActiveRecord::Base
   include MessageScheduler

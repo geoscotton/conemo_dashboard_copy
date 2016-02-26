@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Dictates authorization rules.
 class Ability
   include CanCan::Ability

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Nurse evaluation of Participant for First Appointment
 class NurseParticipantEvaluation < ActiveRecord::Base
   belongs_to :third_contact

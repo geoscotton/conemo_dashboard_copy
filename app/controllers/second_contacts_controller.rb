@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Handles Second Contact info creation for active participant
 class SecondContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found

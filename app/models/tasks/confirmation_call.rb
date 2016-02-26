@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Tasks
   # A scheduled task to complete a Confirmation Call.
   class ConfirmationCall < NurseTask

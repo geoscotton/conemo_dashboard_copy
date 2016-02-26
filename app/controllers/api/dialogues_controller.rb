@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Api
   # JSON CRUD Dialogues.
   class DialoguesController < ApplicationController
@@ -5,8 +6,8 @@ module Api
 
     def index
       @dialogues = locale_dialogues("pt-BR").order("day_in_treatment ASC") +
-          locale_dialogues("es-PE").order("day_in_treatment ASC") +
-          locale_dialogues("en").order("day_in_treatment ASC")
+                   locale_dialogues("es-PE").order("day_in_treatment ASC") +
+                   locale_dialogues("en").order("day_in_treatment ASC")
 
       render "dialogues/index.json"
     end

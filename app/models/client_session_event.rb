@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # An interaction with an app Session (Lesson).
 class ClientSessionEvent < ActiveRecord::Base
   TYPES = Struct.new(:access).new("access").freeze

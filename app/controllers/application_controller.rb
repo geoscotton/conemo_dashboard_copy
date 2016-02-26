@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Controller superclass.
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
@@ -36,11 +37,11 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_locale
-    if current_user && !current_user.is_a?(Superuser)
-      if current_user.locale != params[:locale]
-        redirect_to dashboard_path(locale: current_user.locale)
-      end
-    end
+    return if current_user.nil? || current_user.is_a?(Superuser)
+
+    return if current_user.locale == params[:locale]
+
+    redirect_to dashboard_path(locale: current_user.locale)
   end
 
   def user_time_zone(&block)

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe DialoguesController, type: :controller do
@@ -176,7 +177,7 @@ RSpec.describe DialoguesController, type: :controller do
             dialogue = create_dialogue!(locale)
 
             put :update, id: dialogue.id, locale: locale,
-                dialogue: valid_dialogue_params
+                         dialogue: valid_dialogue_params
 
             expect(assigns(:dialogue)).to eq dialogue
             expect(response).to redirect_to dialogues_url
@@ -193,7 +194,7 @@ RSpec.describe DialoguesController, type: :controller do
             dialogue = create_dialogue!(locale)
 
             put :update, id: dialogue.id, locale: locale,
-                dialogue: invalid_dialogue_params
+                         dialogue: invalid_dialogue_params
 
             expect(assigns(:dialogue)).to eq dialogue
             expect(response).to render_template :edit

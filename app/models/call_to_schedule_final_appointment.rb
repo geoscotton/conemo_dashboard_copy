@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Captures information from call by Nurse to Participant.
 class CallToScheduleFinalAppointment < ActiveRecord::Base
   belongs_to :participant

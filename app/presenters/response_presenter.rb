@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Parses and renders JSON responses stored in responses table
 class ResponsePresenter
   def initialize(response, template)
@@ -18,16 +19,17 @@ class ResponsePresenter
     sanitized_key = ActionController::Base.helpers.sanitize(key)
     sanitized_key.gsub(/[_]/, " ").capitalize
   end
- 
+
   def formatted_values(value)
     ActionController::Base.helpers.sanitize(value.kind_of?(Array) ? value.join(", ") : value)
   end
-  
+
   private
+
   def h
     @template
   end
-  
+
   def handle_none(value)
     if value.present?
       yield

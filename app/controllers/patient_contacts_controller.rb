@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Handles Patient Contact info creation for active participant
 class PatientContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
@@ -26,7 +27,7 @@ class PatientContactsController < ApplicationController
 
   def destroy
     @patient_contact = PatientContact.find(params[:id])
-    
+
     if @patient_contact.destroy
       if @patient_contact.participant.start_date
         redirect_to active_report_path(participant)
@@ -42,8 +43,8 @@ class PatientContactsController < ApplicationController
 
   def patient_contact_params
     params.require(:patient_contact).permit(
-        :participant_id, :contact_at, :contact_reason,
-        :note
+      :participant_id, :contact_at, :contact_reason,
+      :note
     )
   end
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module AuthenticationHelpers
   def sign_in_user(user)
     visit new_user_session_path

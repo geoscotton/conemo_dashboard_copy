@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Hook into Help Message lifecycle events.
 class HelpMessageObserver < ActiveRecord::Observer
   def after_create(help_message)

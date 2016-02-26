@@ -17,7 +17,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
   let(:template) { "nurse_supervisor_dashboards/show" }
   let!(:locale) do
     I18n.locale = LOCALES.values.sample
-    
+
     I18n.locale
   end
   let(:pending1) { stub_participant 1, "Andy Abacus" }

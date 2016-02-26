@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Manages Participants.
 class Nurse < User
   belongs_to :nurse_supervisor

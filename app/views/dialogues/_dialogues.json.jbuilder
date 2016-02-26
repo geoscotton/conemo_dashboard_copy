@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 json._class "Dialogue"
 json.title dialogue.title
 json.dayInTreatment dialogue.day_in_treatment

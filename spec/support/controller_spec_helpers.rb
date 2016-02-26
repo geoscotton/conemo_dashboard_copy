@@ -1,31 +1,32 @@
+# frozen_string_literal: true
 module ControllerSpecHelpers
   def sign_in_admin(locale)
     @signed_in_user ||= sign_in_user(instance_double(
-      User,
-      nurse?: false,
-      admin?: true,
-      locale: locale,
-      timezone: "America/Chicago"
+                                       User,
+                                       nurse?: false,
+                                       admin?: true,
+                                       locale: locale,
+                                       timezone: "America/Chicago"
     ))
   end
 
   def sign_in_nurse(locale)
     @signed_in_user ||= sign_in_user(instance_double(
-      Nurse,
-      nurse?: true,
-      admin?: false,
-      locale: locale,
-      timezone: "America/Chicago"
+                                       Nurse,
+                                       nurse?: true,
+                                       admin?: false,
+                                       locale: locale,
+                                       timezone: "America/Chicago"
     ))
   end
 
   def sign_in_nurse_supervisor(locale)
     @signed_in_user ||= sign_in_user(instance_double(
-      NurseSupervisor,
-      nurse?: false,
-      admin?: false,
-      locale: locale,
-      timezone: "America/Chicago"
+                                       NurseSupervisor,
+                                       nurse?: false,
+                                       admin?: false,
+                                       locale: locale,
+                                       timezone: "America/Chicago"
     ))
   end
 

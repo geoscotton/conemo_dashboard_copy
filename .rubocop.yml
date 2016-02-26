@@ -6,7 +6,7 @@ AllCops:
     - config/**/*
     - db/**/*
     - vendor/**/*
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.3
 
 Rails:
   Enabled: true
@@ -17,6 +17,11 @@ Documentation:
 
 LambdaCall:
   Enabled: false
+
+LineLength:
+  Exclude:
+    - spec/**/*
+  Max: 185
 
 NumericLiterals:
   Enabled: false

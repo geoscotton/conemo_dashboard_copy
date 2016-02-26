@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe Participant do
   fixtures :participants, :lessons
 
-  let(:participant) { participants(:participant1)}
+  let(:participant) { participants(:participant1) }
   let(:valid_attributes) do
     {
       first_name: "f",

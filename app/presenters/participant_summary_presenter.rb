@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Determine the appropriate CSS class and tasks to display for a Participant on
 # a dashboard.
 class ParticipantSummaryPresenter
