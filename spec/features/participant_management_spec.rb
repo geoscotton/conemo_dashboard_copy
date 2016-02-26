@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 describe "Participant Management", type: :feature do
@@ -32,7 +33,6 @@ describe "Participant Management", type: :feature do
     end
 
     describe "confirmation call" do
-
       it "creates a confirmation call for a participant and shows the contact_at date on the index" do
         FirstContact.destroy_all
         visit "/en/active/participants"

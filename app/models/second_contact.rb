@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Information gathered by phone after First Appointment
 class SecondContact < ActiveRecord::Base
   include MessageScheduler

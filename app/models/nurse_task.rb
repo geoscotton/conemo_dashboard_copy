@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "ostruct"
 
 # Superclass for scheduled and triggered Nurse Tasks.

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # CRUD Dialogues.
 class DialoguesController < ApplicationController
   layout "lesson_editor"
@@ -17,14 +18,14 @@ class DialoguesController < ApplicationController
   end
 
   def create
-    @dialogue = Dialogue.new({locale: I18n.locale}.merge(dialogue_params))
+    @dialogue = Dialogue.new({ locale: I18n.locale }.merge(dialogue_params))
     authorize! :create, @dialogue
 
     if @dialogue.save
-      redirect_to dialogues_url               
+      redirect_to dialogues_url
     else
       flash.now[:alert] = I18n.t("conemo.controllers.dialogues.not_saved") +
-          ": " + validation_errors
+                          ": " + validation_errors
       render :new
     end
   end
@@ -40,7 +41,7 @@ class DialoguesController < ApplicationController
       redirect_to dialogues_url
     else
       flash.now[:alert] = I18n.t("conemo.controllers.dialogues.not_saved") +
-          ": " + validation_errors
+                          ": " + validation_errors
       render :edit
     end
   end
@@ -53,7 +54,7 @@ class DialoguesController < ApplicationController
     else
       redirect_to dialogues_url,
                   alert: I18n.t("conemo.controllers.dialogues.not_destroyed") +
-                      ": " + validation_errors
+                         ": " + validation_errors
     end
   end
 

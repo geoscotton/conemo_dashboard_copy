@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "securerandom"
 
 # An authenticatable person who uses the site, is a Nurse or Researcher
@@ -16,8 +17,8 @@ class User < ActiveRecord::Base
   has_many :reminder_messages, foreign_key: :nurse_id, dependent: :destroy
 
   validates :email, :phone, :first_name, :last_name, :locale, presence: true
-  validates :role, inclusion: {in: ROLES.values}
-  validates :timezone, inclusion: {in: ActiveSupport::TimeZone::MAPPING.keys}
+  validates :role, inclusion: { in: ROLES.values }
+  validates :timezone, inclusion: { in: ActiveSupport::TimeZone::MAPPING.keys }
 
   before_validation :set_password
   before_save :sanitize_number

@@ -1,7 +1,7 @@
 # Spy on API requests.
 ActionController::Base.class_eval do
-  PAYLOADS_CONTROLLER = "payloads".freeze
-  INDEX_ACTION = "index".freeze
+  PAYLOADS_CONTROLLER ||= "payloads".freeze
+  INDEX_ACTION ||= "index".freeze
 
   after_action :observe_request
 

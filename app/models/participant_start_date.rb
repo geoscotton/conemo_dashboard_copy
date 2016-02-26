@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Reflects the date on which a Participant's phone is configured.
 class ParticipantStartDate < ActiveRecord::Base
   belongs_to :participant

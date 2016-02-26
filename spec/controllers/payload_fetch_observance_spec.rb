@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 require "ostruct"
 require_relative "../../config/initializers/action_controller_base"

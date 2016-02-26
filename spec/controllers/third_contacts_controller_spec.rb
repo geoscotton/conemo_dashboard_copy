@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe ThirdContactsController, type: :controller do
@@ -86,7 +87,7 @@ RSpec.describe ThirdContactsController, type: :controller do
 
       it "sets the nurse_participant_evaluation" do
         admin_request :get, :new, locale, participant_id: participant.id,
-                      locale: locale
+                                          locale: locale
 
         expect(assigns(:nurse_participant_evaluation))
           .to be_instance_of NurseParticipantEvaluation
@@ -134,16 +135,16 @@ RSpec.describe ThirdContactsController, type: :controller do
       context "when unsuccessful" do
         it "sets the flash alert" do
           admin_request :post, :create, locale, participant_id: participant.id,
-                        third_contact: invalid_third_contact_params,
-                        locale: locale
+                                                third_contact: invalid_third_contact_params,
+                                                locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the new template" do
           admin_request :post, :create, locale, participant_id: participant.id,
-                        third_contact: invalid_third_contact_params,
-                        locale: locale
+                                                third_contact: invalid_third_contact_params,
+                                                locale: locale
 
           expect(response).to render_template :new
         end
@@ -171,7 +172,7 @@ RSpec.describe ThirdContactsController, type: :controller do
         participant.create_third_contact(valid_third_contact_params)
 
         admin_request :get, :edit, locale, participant_id: participant.id,
-                      locale: locale
+                                           locale: locale
 
         expect(assigns(:third_contact)).to be_instance_of ThirdContact
         expect(assigns(:third_contact).participant).to eq participant
@@ -181,7 +182,7 @@ RSpec.describe ThirdContactsController, type: :controller do
         participant.create_third_contact(valid_third_contact_params)
 
         admin_request :get, :edit, locale, participant_id: participant.id,
-                      locale: locale
+                                           locale: locale
 
         expect(assigns(:nurse_participant_evaluation))
           .to be_instance_of NurseParticipantEvaluation
@@ -202,7 +203,7 @@ RSpec.describe ThirdContactsController, type: :controller do
       context "when the Participant isn't found" do
         before do
           admin_request :put, :update, locale, participant_id: -1,
-                        locale: locale
+                                               locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -214,8 +215,8 @@ RSpec.describe ThirdContactsController, type: :controller do
 
           expect do
             admin_request :put, :update, locale, participant_id: participant.id,
-                          third_contact: valid_third_contact_params,
-                          locale: locale
+                                                 third_contact: valid_third_contact_params,
+                                                 locale: locale
           end.to change { ReminderMessage.count }.by(4)
         end
 
@@ -223,8 +224,8 @@ RSpec.describe ThirdContactsController, type: :controller do
           participant.create_third_contact(valid_third_contact_params)
 
           admin_request :put, :update, locale, participant_id: participant.id,
-                        third_contact: valid_third_contact_params,
-                        locale: locale
+                                               third_contact: valid_third_contact_params,
+                                               locale: locale
 
           expect(response).to redirect_to active_participants_path
         end
@@ -235,8 +236,8 @@ RSpec.describe ThirdContactsController, type: :controller do
           participant.create_third_contact(valid_third_contact_params)
 
           admin_request :put, :update, locale, participant_id: participant.id,
-                        third_contact: invalid_third_contact_params,
-                        locale: locale
+                                               third_contact: invalid_third_contact_params,
+                                               locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
@@ -245,8 +246,8 @@ RSpec.describe ThirdContactsController, type: :controller do
           participant.create_third_contact(valid_third_contact_params)
 
           admin_request :put, :update, locale, participant_id: participant.id,
-                        third_contact: invalid_third_contact_params,
-                        locale: locale
+                                               third_contact: invalid_third_contact_params,
+                                               locale: locale
 
           expect(response).to render_template :edit
         end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Manage Nurse Tasks for a Participant.
 class TasksController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found

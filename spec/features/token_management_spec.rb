@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe "Token management", type: :feature do
@@ -15,7 +16,7 @@ RSpec.describe "Token management", type: :feature do
     within ".participant_row:first .tokens_field" do
       click_on "Show"
     end
-    
+
     expect(page).to have_content "Manage tokens"
   end
 end

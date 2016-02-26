@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Thanks to Henning Koch: https://makandracards.com/makandra/763-cucumber-step-to-match-table-rows-with-capybara
 # Can be used for either view or feature specs.
 module ArrayMethods
@@ -7,7 +8,9 @@ module ArrayMethods
         first_column = row.find_index do |column|
           content = column.content.gsub(/[\r\n\t]+/, " ").gsub(/[ ]+/, " ").strip
           expected_content = expected_column.gsub("  ", " ").strip
-          matching_parts = expected_content.split("*", -1).collect { |part| Regexp.escape(part) }
+          matching_parts = expected_content.split("*", -1).collect do |part|
+            Regexp.escape(part)
+          end
           matching_expression = /\A#{matching_parts.join(".*")}\z/
           content =~ matching_expression
         end
@@ -85,16 +88,16 @@ end
 # Helper methods for table lookup
 def table_exists_with_the_following_rows(rows, options = {})
   document = Nokogiri::HTML(rendered || page.body)
-  table    = document.xpath("//table//tr").collect { |row| row.xpath(".//th|td") }
+  table = document.xpath("//table//tr").collect { |row| row.xpath(".//th|td") }
   in_order = options.delete(:ordered)
 
   expect(table).to contain_table(rows, in_order)
 end
 
 def no_table_exists_with_the_following_rows(rows, options = {})
-  document  = Nokogiri::HTML(page.body)
-  table     = document.xpath("//table//tr").collect { |row| row.xpath(".//th|td") }
-  in_order  = options.delete(:ordered)
+  document = Nokogiri::HTML(page.body)
+  table = document.xpath("//table//tr").collect { |row| row.xpath(".//th|td") }
+  in_order = options.delete(:ordered)
 
   table.should not_contain_table(rows, in_order)
 end

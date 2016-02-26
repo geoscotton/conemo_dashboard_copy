@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe LessonsController, type: :controller do
@@ -94,13 +95,13 @@ RSpec.describe LessonsController, type: :controller do
         it "creates a lesson" do
           expect do
             admin_request :post, :create, locale, lesson: valid_lesson_params,
-                          locale: locale
+                                                  locale: locale
           end.to change { Lesson.count }.by(1)
         end
 
         it "redirects to the lessons url" do
           admin_request :post, :create, locale, lesson: valid_lesson_params,
-                        locale: locale
+                                                locale: locale
 
           expect(response).to redirect_to lessons_url
         end
@@ -109,7 +110,7 @@ RSpec.describe LessonsController, type: :controller do
       context "when unsuccessful" do
         it "renders the new template" do
           admin_request :post, :create, locale, lesson: invalid_lesson_params,
-                        locale: locale
+                                                locale: locale
 
           expect(response).to render_template :new
         end
@@ -131,13 +132,13 @@ RSpec.describe LessonsController, type: :controller do
         it "updates the lesson" do
           expect do
             admin_request :put, :update, locale, id: lesson.id, locale: lesson.locale,
-                          lesson: valid_lesson_params
+                                                 lesson: valid_lesson_params
           end.to change { Lesson.find(lesson.id).updated_at }
         end
 
         it "redirects to the lessons url" do
           admin_request :put, :update, locale, id: lesson.id, locale: lesson.locale,
-                        lesson: valid_lesson_params
+                                               lesson: valid_lesson_params
 
           expect(response).to redirect_to lessons_url(locale: lesson.locale)
         end
@@ -146,7 +147,7 @@ RSpec.describe LessonsController, type: :controller do
       context "when unsuccessful" do
         it "renders the edit template" do
           admin_request :put, :update, locale, id: lesson.id, locale: lesson.locale,
-                        lesson: invalid_lesson_params
+                                               lesson: invalid_lesson_params
 
           expect(response).to render_template :edit
         end
@@ -170,7 +171,7 @@ RSpec.describe LessonsController, type: :controller do
         it "destroys the lesson" do
           expect do
             admin_request :delete, :destroy, locale, id: lesson.id,
-                          locale: lesson.locale
+                                                     locale: lesson.locale
           end.to change { Lesson.where(id: lesson.id).count }.by(-1)
         end
 
@@ -207,7 +208,7 @@ RSpec.describe LessonsController, type: :controller do
           slide = lesson.build_slide(title: "t", body: "b").tap(&:save!)
 
           admin_request :post, :slide_order, locale, id: lesson.id, slide: [slide.id],
-                        format: :js, locale: lesson.locale
+                                                     format: :js, locale: lesson.locale
 
           expect(response).to render_template :slide_order_success
         end
@@ -216,7 +217,7 @@ RSpec.describe LessonsController, type: :controller do
       context "when unsuccessful" do
         it "renders the slide order failure template" do
           admin_request :post, :slide_order, locale, id: lesson.id, slide: [-1],
-                        format: :js, locale: lesson.locale
+                                                     format: :js, locale: lesson.locale
 
           expect(response).to render_template :slide_order_failure
         end

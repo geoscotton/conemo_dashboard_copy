@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Pending
   # Managing pending participants.
   class ParticipantsController < ApplicationController
@@ -6,7 +7,7 @@ module Pending
     def index
       @pending_participants = Participant.pending.where(locale: params[:locale])
       authorize! :read, @pending_participants
-      
+
       @ineligible_participants = Participant.ineligible
                                             .where(locale: params[:locale])
       authorize! :read, @ineligible_participants

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Handles smartphone info creation for active participant
 class SmartphonesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
@@ -36,8 +37,8 @@ class SmartphonesController < ApplicationController
 
   def smartphone_params
     params.require(:smartphone).permit(
-        :participant_id, :number, :is_app_compatible,
-        :is_owned_by_participant, :is_smartphone_owner
+      :participant_id, :number, :is_app_compatible,
+      :is_owned_by_participant, :is_smartphone_owner
     )
   end
 

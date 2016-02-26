@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # The general entry point for the site.
 class DashboardsController < ApplicationController
   layout "dashboard"

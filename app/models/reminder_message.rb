@@ -9,160 +9,160 @@ class ReminderMessage < ActiveRecord::Base
             :participant,
             presence: true
 
-  THIRD_CONTACT = "third_contact".freeze
-  SECOND_CONTACT = "second_contact".freeze
-  APPOINTMENT = "appointment".freeze
-  FINAL_APPOINTMENT = "final".freeze
+  THIRD_CONTACT = "third_contact"
+  SECOND_CONTACT = "second_contact"
+  APPOINTMENT = "appointment"
+  FINAL_APPOINTMENT = "final"
   APPOINTMENT_TYPES = [
     THIRD_CONTACT, SECOND_CONTACT, APPOINTMENT, FINAL_APPOINTMENT
   ].freeze
-  NURSE = "nurse".freeze
-  PARTICIPANT = "participant".freeze
+  NURSE = "nurse"
+  PARTICIPANT = "participant"
   MESSAGE_TYPES = { nurse: NURSE, participant: PARTICIPANT }.freeze
-  ONE_HOUR = "1".freeze
-  ONE_DAY = "24".freeze
+  ONE_HOUR = "1"
+  ONE_DAY = "24"
 
   validates :appointment_type, inclusion: { in: APPOINTMENT_TYPES }
 
   MESSAGES = {
-      pt_BR: {
-          participant: {
-              appointment: {
-                  hour_1: "Seu primeiro encontro CONEMO  é em uma hora.",
-                  hour_24: { 
-                    part_a: "Seu primeiro encontro CONEMO com a enfermagem é AMANHÃ.",
-                    part_b: "Para reagendar, entre em contato."
-                  }
-              },
-              second_contact: {
-                  hour_1: "O técnico de enfermagem irá lhe telefonar nas 1 hora",
-                  hour_24: "O(a) técnico(a) de enfermagem irá lhe telefonar nas próximas 24 horas."
-              },
-              third_contact: {
-                  hour_1: "O técnico de enfermagem irá lhe telefonar em 1 hora",
-                  hour_24: "O(a) técnico(a) de enfermagem irá lhe telefonar nas próximas 24 horas."
-              },
-              final: {
-                  hour_1: "Sua consulta final do CONEMO é em uma hora",
-                  hour_24: {
-                    part_a: "Sua consulta final do CONEMO é AMANHÃ.",
-                    part_b: "Para reagendar, entre em contato."
-                  }
-              }
-          },
-          nurse: {
-              appointment: {
-                  hour_1: "Primeiro contato com novo paciente em uma hora",
-                  hour_24: {
-                    part_a: "Primeiro contato com novo paciente amanhã.",
-                    part_b: "Para reagendar, entre em contato."
-                  }
-              },
-              second_contact: {
-                  hour_1: "Não se esqueça de telefonar para seu paciente em 1 hora",
-                  hour_24: "Não esqueça de telefonar para seu paciente dentro de 24 horas"
-              },
-              third_contact: {
-                  hour_1: "Não se esqueça de telefonar para seu paciente em 1 hora",
-                  hour_24: "Não esqueça de telefonar para seu paciente dentro de 24 horas"
-              },
-              final: {
-                  hour_1: "Você tem paciente para última consulta em uma hora",
-                  hour_24: {
-                    part_a: "Você tem paciente para última consulta AMANHÃ.",
-                    part_b: "Para reagendar, entre em contato."
-                  }
-              }
+    pt_BR: {
+      participant: {
+        appointment: {
+          hour_1: "Seu primeiro encontro CONEMO  é em uma hora.",
+          hour_24: {
+            part_a: "Seu primeiro encontro CONEMO com a enfermagem é AMANHÃ.",
+            part_b: "Para reagendar, entre em contato."
           }
+        },
+        second_contact: {
+          hour_1: "O técnico de enfermagem irá lhe telefonar nas 1 hora",
+          hour_24: "O(a) técnico(a) de enfermagem irá lhe telefonar nas próximas 24 horas."
+        },
+        third_contact: {
+          hour_1: "O técnico de enfermagem irá lhe telefonar em 1 hora",
+          hour_24: "O(a) técnico(a) de enfermagem irá lhe telefonar nas próximas 24 horas."
+        },
+        final: {
+          hour_1: "Sua consulta final do CONEMO é em uma hora",
+          hour_24: {
+            part_a: "Sua consulta final do CONEMO é AMANHÃ.",
+            part_b: "Para reagendar, entre em contato."
+          }
+        }
       },
-      en: {
-          participant: {
-              appointment: {
-                  hour_1: "You have your first CONEMO appointment with the nurse assistant in 1 hour.",
-                  hour_24: {
-                    part_a: "You have your first CONEMO appointment with the nurse assistant tomorrow.",
-                    part_b: "Please, let us know if you need to reschedule."
-                  }
-              },
-              second_contact: {
-                  hour_1: "Your nurse assistant will call you in 1 hour",
-                  hour_24: "Your nurse assistant will call you in the next 24 hours"
-              },
-              third_contact: {
-                  hour_1: "Your nurse assistant will call you in 1 hour",
-                  hour_24: "Your nurse assistant will call you in the next 24 hours"
-              },
-              final: {
-                  hour_1: "You have your final CONEMO appointment with the nurse assistant in 1 hour.",
-                  hour_24: {
-                    part_a: "You have your final CONEMO appointment with the nurse assistant tomorrow.",
-                    part_b: "Please, let us know if you need to reschedule."
-                  }
-              }
-          },
-          nurse: {
-              appointment: {
-                  hour_1: "You have your first CONEMO appointment with a patient in 1 hour",
-                  hour_24: {
-                    part_a: "You have your first CONEMO appointment with a patient tomorrow.",
-                    part_b: "Please, contact him/her if you need to reschedule."
-                  }
-              },
-              second_contact: {
-                  hour_1: "Don’t forget to call your patient in the next hour",
-                  hour_24: "Don’t forget to call your patient in the next 24 hours"
-              },
-              third_contact: {
-                  hour_1: "Don’t forget to call your patient in the next hour",
-                  hour_24: "Don’t forget to call your patient in the next 24 hours"
-              },
-              final: {
-                  hour_1: "English 1 hour nurse reminder for final appointment",
-                  hour_24: {
-                    part_a: "You have your final CONEMO appointment with a patient tomorrow.",
-                    part_b: "Please, contact him/her if you need to reschedule."
-                  }
-              }
+      nurse: {
+        appointment: {
+          hour_1: "Primeiro contato com novo paciente em uma hora",
+          hour_24: {
+            part_a: "Primeiro contato com novo paciente amanhã.",
+            part_b: "Para reagendar, entre em contato."
           }
-      },
-      es_PE: {
-          participant: {
-              appointment: {
-                  hour_1: "Su cita en el programa CONEMO empieza en una hora",
-                  hour_24: "Acuerdese de su cita maniana en el Centro de Salud para iniciar el programa CONEMO."
-              },
-              second_contact: {
-                  hour_1: "Tu enfermera o enfermero te llamara en 1 hora.",
-                  hour_24: "Su enfermera o enfermero de CONEMO te llamara en las proximas 24 horas."
-              },
-              third_contact: {
-                  hour_1: "Tu enfermera o enfermero te llamara en 1 hora.",
-                  hour_24: "Su enfermera o enfermero de CONEMO te llamara en las proximas 24 horas."
-              },
-              final: {
-                  hour_1: "Su cita final dentro del programa CONEMO empieza en una hora",
-                  hour_24: "Acuerdese de su cita maniana en el Centro de Salud para finalizar el programa CONEMO"
-              }
-          },
-          nurse: {
-              appointment: {
-                  hour_1: "Tu cita con un nuevo paciente del programa CONEMO empieza en una hora",
-                  hour_24: "Maniana tienes la primera cita con un nuevo paciente del programa CONEMO."
-              },
-              second_contact: {
-                  hour_1: "Recuerda llamar a tu paciente en 1 hora",
-                  hour_24: "Recuerda llamar a tu paciente en las proximas 24 horas"
-              },
-              third_contact: {
-                  hour_1: "Recuerda llamar a tu paciente en 1 hora",
-                  hour_24: "Recuerda llamar a tu paciente en las proximas 24 horas"
-              },
-              final: {
-                  hour_1: "Tu cita final con un paciente del programa CONEMO empieza en una hora",
-                  hour_24: "Maniana tienes la cita final con un paciente del programa CONEMO"
-              }
+        },
+        second_contact: {
+          hour_1: "Não se esqueça de telefonar para seu paciente em 1 hora",
+          hour_24: "Não esqueça de telefonar para seu paciente dentro de 24 horas"
+        },
+        third_contact: {
+          hour_1: "Não se esqueça de telefonar para seu paciente em 1 hora",
+          hour_24: "Não esqueça de telefonar para seu paciente dentro de 24 horas"
+        },
+        final: {
+          hour_1: "Você tem paciente para última consulta em uma hora",
+          hour_24: {
+            part_a: "Você tem paciente para última consulta AMANHÃ.",
+            part_b: "Para reagendar, entre em contato."
           }
+        }
       }
+    },
+    en: {
+      participant: {
+        appointment: {
+          hour_1: "You have your first CONEMO appointment with the nurse assistant in 1 hour.",
+          hour_24: {
+            part_a: "You have your first CONEMO appointment with the nurse assistant tomorrow.",
+            part_b: "Please, let us know if you need to reschedule."
+          }
+        },
+        second_contact: {
+          hour_1: "Your nurse assistant will call you in 1 hour",
+          hour_24: "Your nurse assistant will call you in the next 24 hours"
+        },
+        third_contact: {
+          hour_1: "Your nurse assistant will call you in 1 hour",
+          hour_24: "Your nurse assistant will call you in the next 24 hours"
+        },
+        final: {
+          hour_1: "You have your final CONEMO appointment with the nurse assistant in 1 hour.",
+          hour_24: {
+            part_a: "You have your final CONEMO appointment with the nurse assistant tomorrow.",
+            part_b: "Please, let us know if you need to reschedule."
+          }
+        }
+      },
+      nurse: {
+        appointment: {
+          hour_1: "You have your first CONEMO appointment with a patient in 1 hour",
+          hour_24: {
+            part_a: "You have your first CONEMO appointment with a patient tomorrow.",
+            part_b: "Please, contact him/her if you need to reschedule."
+          }
+        },
+        second_contact: {
+          hour_1: "Don’t forget to call your patient in the next hour",
+          hour_24: "Don’t forget to call your patient in the next 24 hours"
+        },
+        third_contact: {
+          hour_1: "Don’t forget to call your patient in the next hour",
+          hour_24: "Don’t forget to call your patient in the next 24 hours"
+        },
+        final: {
+          hour_1: "English 1 hour nurse reminder for final appointment",
+          hour_24: {
+            part_a: "You have your final CONEMO appointment with a patient tomorrow.",
+            part_b: "Please, contact him/her if you need to reschedule."
+          }
+        }
+      }
+    },
+    es_PE: {
+      participant: {
+        appointment: {
+          hour_1: "Su cita en el programa CONEMO empieza en una hora",
+          hour_24: "Acuerdese de su cita maniana en el Centro de Salud para iniciar el programa CONEMO."
+        },
+        second_contact: {
+          hour_1: "Tu enfermera o enfermero te llamara en 1 hora.",
+          hour_24: "Su enfermera o enfermero de CONEMO te llamara en las proximas 24 horas."
+        },
+        third_contact: {
+          hour_1: "Tu enfermera o enfermero te llamara en 1 hora.",
+          hour_24: "Su enfermera o enfermero de CONEMO te llamara en las proximas 24 horas."
+        },
+        final: {
+          hour_1: "Su cita final dentro del programa CONEMO empieza en una hora",
+          hour_24: "Acuerdese de su cita maniana en el Centro de Salud para finalizar el programa CONEMO"
+        }
+      },
+      nurse: {
+        appointment: {
+          hour_1: "Tu cita con un nuevo paciente del programa CONEMO empieza en una hora",
+          hour_24: "Maniana tienes la primera cita con un nuevo paciente del programa CONEMO."
+        },
+        second_contact: {
+          hour_1: "Recuerda llamar a tu paciente en 1 hora",
+          hour_24: "Recuerda llamar a tu paciente en las proximas 24 horas"
+        },
+        third_contact: {
+          hour_1: "Recuerda llamar a tu paciente en 1 hora",
+          hour_24: "Recuerda llamar a tu paciente en las proximas 24 horas"
+        },
+        final: {
+          hour_1: "Tu cita final con un paciente del programa CONEMO empieza en una hora",
+          hour_24: "Maniana tienes la cita final con un paciente del programa CONEMO"
+        }
+      }
+    }
   }.freeze
 
   # returns datetime object for the reminder message
@@ -185,7 +185,7 @@ class ReminderMessage < ActiveRecord::Base
     string_locale = participant.locale.gsub("-", "_").to_sym
     hour = "hour_#{notify_at}".to_sym
     appointment = appointment_type.to_sym
-    
+
     if split_message && message_part
       MESSAGES[string_locale][message_type.to_sym][appointment][hour][message_part.to_sym] + set_identifier
     else

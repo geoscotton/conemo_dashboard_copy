@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe TasksController, type: :controller do
@@ -21,7 +22,7 @@ RSpec.describe TasksController, type: :controller do
   describe "GET index" do
     context "for an unauthenticated request" do
       before { get :index, participant_id: participant.id, locale: locale }
-      
+
       it_behaves_like "a rejected user action"
     end
 

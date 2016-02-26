@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe "Nurse Supervisor management", type: :feature do
@@ -14,7 +15,7 @@ RSpec.describe "Nurse Supervisor management", type: :feature do
       click_on "Nurse supervisors"
     end
     click_on "Add new"
-    
+
     fill_in "Email", with: "awesome-nurse-supervisor@example.com"
     fill_in "First name", with: "Nurse"
     fill_in "Last name", with: "Supervisor"
@@ -32,7 +33,7 @@ RSpec.describe "Nurse Supervisor management", type: :feature do
       click_on "Nurses"
     end
     click_on "Add new"
-    
+
     fill_in "Email", with: "nurse-1@example.com"
     fill_in "First name", with: "Nurse"
     fill_in "Last name", with: "Murse"

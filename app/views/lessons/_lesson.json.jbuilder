@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 json._class "Lesson"
 json.title lesson.title
 json.dayInTreatment lesson.day_in_treatment

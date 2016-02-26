@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Handles First Contact info creation for active participant
 class FirstContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found

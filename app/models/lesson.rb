@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # A day's worth of content to be viewed by a Participant.
 class Lesson < ActiveRecord::Base
   belongs_to :slideshow,
@@ -7,7 +8,7 @@ class Lesson < ActiveRecord::Base
   has_many :content_access_events, dependent: :restrict_with_exception
   has_many :session_events, dependent: :restrict_with_exception
   has_many :participants, through: :content_access_events
-  
+
   validates :title,
             :day_in_treatment,
             :locale,
@@ -24,21 +25,21 @@ class Lesson < ActiveRecord::Base
   end
 
   def build_slide(params = {})
-    slideshow.slides.build({position: last_position + 1}.merge(params))
+    slideshow.slides.build({ position: last_position + 1 }.merge(params))
   end
 
   def destroy_slide(slide)
-    if slide.destroy
-      slides.order(:position).each_with_index do |s, i|
-        s.update(position: i + 1)
-      end
+    return unless slide.destroy
+
+    slides.order(:position).each_with_index do |s, i|
+      s.update(position: i + 1)
     end
   end
 
   def update_slide_order(ids)
     self.class.transaction do
       self.class.connection.execute(
-          "SET CONSTRAINTS bit_core_slide_position DEFERRED"
+        "SET CONSTRAINTS bit_core_slide_position DEFERRED"
       )
       ids.each_with_index do |id, index|
         slides.find(id).update_attribute(:position, index + 1)

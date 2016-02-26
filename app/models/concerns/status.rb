@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Handles Participant overall and individual lesson status logic
 module Status
   LESSON_STATUSES = Struct
@@ -8,16 +9,16 @@ module Status
                     .freeze
 
   def prefix
-    if locale
-      if locale == "en"
-        "+"
-      elsif locale == "pt-BR"
-        "+55"
-      elsif locale == "es-PE"
-        "+51"
-      else
-        "+"
-      end
+    return unless locale
+
+    if locale == "en"
+      "+"
+    elsif locale == "pt-BR"
+      "+55"
+    elsif locale == "es-PE"
+      "+51"
+    else
+      "+"
     end
   end
 
@@ -104,15 +105,15 @@ module Status
   end
 
   def two_lessons_ago_complete?
-    if two_lessons_ago
-      two_lessons_ago.content_access_events.where(participant_id: id).any?
-    end
+    return unless two_lessons_ago
+
+    two_lessons_ago.content_access_events.where(participant_id: id).any?
   end
 
   def one_lesson_ago_complete?
-    if one_lesson_ago
-      one_lesson_ago.content_access_events.where(participant_id: id).any?
-    end
+    return unless one_lesson_ago
+
+    one_lesson_ago.content_access_events.where(participant_id: id).any?
   end
 
   def two_lessons_passed
@@ -120,7 +121,7 @@ module Status
         !two_lessons_ago_complete?
       "danger"
     elsif !one_lesson_ago_complete? ||
-        !two_lessons_ago_complete?
+          !two_lessons_ago_complete?
       "warning"
     else
       "stable"

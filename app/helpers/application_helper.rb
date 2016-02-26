@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Top level helper.
 module ApplicationHelper
   def present(object, klass=nil)

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
@@ -20,7 +21,7 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
   describe "GET new" do
     context "for an unauthenticated request" do
       before { get :new, participant_id: participant.id, locale: locale }
-      
+
       it_behaves_like "a rejected user action"
     end
 
@@ -66,7 +67,7 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
 
     context "for an unauthenticated request" do
       before { post :create, participant_id: participant.id, locale: locale }
-      
+
       it_behaves_like "a rejected user action"
     end
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Helpers for Appointment/Contact based on participant status
 module ParticipantsHelper
   def first_contact(participant)

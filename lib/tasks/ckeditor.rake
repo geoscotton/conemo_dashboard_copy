@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 namespace :ckeditor do
   desc "Create nondigest versions of some ckeditor assets (e.g. moono skin png)"
   task :create_nondigest_assets do

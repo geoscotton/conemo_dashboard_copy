@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe FirstAppointmentsController, type: :controller do
@@ -72,7 +73,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
       it "sets the first appointment" do
         admin_request :get, :new, locale, participant_id: participant.id,
-                      locale: locale
+                                          locale: locale
 
         expect(assigns(:first_appointment)).to be_instance_of FirstAppointment
         expect(assigns(:first_appointment).participant).to eq participant
@@ -102,8 +103,8 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
           expect do
             admin_request :post, :create, locale, participant_id: participant.id,
-                          first_appointment: valid_first_appointment_params,
-                          locale: locale
+                                                  first_appointment: valid_first_appointment_params,
+                                                  locale: locale
           end.to change {
             FirstAppointment.where(participant: participant).count
           }.by(1)
@@ -112,15 +113,15 @@ RSpec.describe FirstAppointmentsController, type: :controller do
         it "schedules messages" do
           expect do
             admin_request :post, :create, locale, participant_id: participant.id,
-                          first_appointment: valid_first_appointment_params,
-                          locale: locale
+                                                  first_appointment: valid_first_appointment_params,
+                                                  locale: locale
           end.to change { ReminderMessage.count }.by(3)
         end
 
         it "redirects to new participant smartphone" do
           admin_request :post, :create, locale, participant_id: participant.id,
-                        first_appointment: valid_first_appointment_params,
-                        locale: locale
+                                                first_appointment: valid_first_appointment_params,
+                                                locale: locale
 
           expect(response).to redirect_to new_participant_smartphone_path
         end
@@ -129,16 +130,16 @@ RSpec.describe FirstAppointmentsController, type: :controller do
       context "when unsuccessful" do
         it "sets the flash alert" do
           admin_request :post, :create, locale, participant_id: participant.id,
-                        first_appointment: invalid_first_appointment_params,
-                        locale: locale
+                                                first_appointment: invalid_first_appointment_params,
+                                                locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the new template" do
           admin_request :post, :create, locale, participant_id: participant.id,
-                        first_appointment: invalid_first_appointment_params,
-                        locale: locale
+                                                first_appointment: invalid_first_appointment_params,
+                                                locale: locale
 
           expect(response).to render_template :new
         end
@@ -166,7 +167,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
         participant.create_first_appointment valid_first_appointment_params
 
         admin_request :get, :edit, locale, participant_id: participant.id,
-                      locale: locale
+                                           locale: locale
 
         expect(assigns(:first_appointment)).to eq participant.first_appointment
       end
@@ -184,7 +185,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
       context "when the Participant isn't found" do
         before do
           admin_request :get, :missed_second_contact, locale, participant_id: -1,
-                        locale: locale
+                                                              locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -228,8 +229,8 @@ RSpec.describe FirstAppointmentsController, type: :controller do
         it "updates the FirstAppointment" do
           expect do
             admin_request :put, :update, locale, participant_id: participant.id,
-                          first_appointment: valid_first_appointment_params,
-                          locale: locale
+                                                 first_appointment: valid_first_appointment_params,
+                                                 locale: locale
           end.to change {
             FirstAppointment.find_by(participant_id: participant.id).updated_at
           }
@@ -238,15 +239,15 @@ RSpec.describe FirstAppointmentsController, type: :controller do
         it "schedules messages" do
           expect do
             admin_request :put, :update, locale, participant_id: participant.id,
-                          first_appointment: valid_first_appointment_params,
-                          locale: locale
+                                                 first_appointment: valid_first_appointment_params,
+                                                 locale: locale
           end.to change { ReminderMessage.count }.by(3)
         end
 
         it "redirects to active participants" do
           admin_request :put, :update, locale, participant_id: participant.id,
-                        first_appointment: valid_first_appointment_params,
-                        locale: locale
+                                               first_appointment: valid_first_appointment_params,
+                                               locale: locale
 
           expect(response).to redirect_to active_participants_path
         end
@@ -255,16 +256,16 @@ RSpec.describe FirstAppointmentsController, type: :controller do
       context "when unsuccessful" do
         it "sets the flash alert" do
           admin_request :put, :update, locale, participant_id: participant.id,
-                        first_appointment: invalid_first_appointment_params,
-                        locale: locale
+                                               first_appointment: invalid_first_appointment_params,
+                                               locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the edit template" do
           admin_request :put, :update, locale, participant_id: participant.id,
-                        first_appointment: invalid_first_appointment_params,
-                        locale: locale
+                                               first_appointment: invalid_first_appointment_params,
+                                               locale: locale
 
           expect(response).to render_template :edit
         end

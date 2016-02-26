@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Handles CallToScheduleFinalAppointment management.
 class CallToScheduleFinalAppointmentsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found

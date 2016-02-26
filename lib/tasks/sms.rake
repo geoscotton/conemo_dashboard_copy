@@ -1,14 +1,14 @@
+# frozen_string_literal: true
 require "rubygems"
 require "twilio-ruby"
 
 namespace :sms do
   desc "sends pending messages that are due"
   task message: :environment do
-
     puts "******** Begin SMS Rake #{Time.zone.now} *********"
     begin
-      @account_sid = ConemoDashboard::Application.config.twilio_account_sid 
-      @auth_token = ConemoDashboard::Application.config.twilio_auth_token 
+      @account_sid = ConemoDashboard::Application.config.twilio_account_sid
+      @auth_token = ConemoDashboard::Application.config.twilio_auth_token
       @client = Twilio::REST::Client.new(@account_sid, @auth_token)
 
       @account = @client.account
@@ -40,7 +40,7 @@ namespace :sms do
             end
 
             begin
-              if reminder_message.split_message #special case for pt-BR locale
+              if reminder_message.split_message # special case for pt-BR locale
                 @message = @account.sms.messages.create({ from: "+13125488213", to: "#{country_code}#{phone_number}", body: reminder_message.message("part_a").force_encoding("UTF-8") })
                 puts "sent_to: #{sent_to}, phone:#{country_code}#{phone_number}, message: #{@message.body} 1/2, time: #{Time.zone.now}"
                 sleep(5)

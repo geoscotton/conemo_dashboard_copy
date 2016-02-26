@@ -3,7 +3,7 @@
 require "spec_helper"
 
 RSpec.describe "pending/participants/index", type: :view do
-  TEMPLATE_PATH = "pending/participants/index.html.erb".freeze
+  TEMPLATE_PATH = "pending/participants/index.html.erb"
 
   def stub_instance_variables
     assign(:pending_participants, [])

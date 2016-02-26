@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Handles Help Message updates for active participant
 class HelpMessagesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
@@ -17,7 +18,7 @@ class HelpMessagesController < ApplicationController
 
   def help_message_params
     params.require(:help_message).permit(
-        :participant_id, :read
+      :participant_id, :read
     )
   end
 

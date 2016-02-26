@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Virtual model (not DB-backed) for reporting exceptions to Sentry.
 class ExceptionReport
   include ActiveModel::Model

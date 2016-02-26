@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Schedules reminder messages for First Appointment, Second Contact, and Final appointment
 module MessageScheduler
   extend ActiveSupport::Concern
@@ -6,11 +7,11 @@ module MessageScheduler
     schedule_24_hour("nurse", model_name_string, person)
     schedule_24_hour("participant", model_name_string, person)
     schedule_1_hour("nurse", model_name_string, person)
-    
-    if model_name_string == "appointment" || model_name_string == "final"
-      schedule_1_hour("participant", model_name_string, person)
-    end
-  
+
+    return unless model_name_string == "appointment" ||
+                  model_name_string == "final"
+
+    schedule_1_hour("participant", model_name_string, person)
   end
 
   def schedule_24_hour(message_type, model_name_string, person)
@@ -19,7 +20,7 @@ module MessageScheduler
                                                     notify_at: "24",
                                                     message_type: message_type,
                                                     appointment_type: model_name_string
-    )
+                                                   )
 
     message.requeue
 
@@ -32,7 +33,7 @@ module MessageScheduler
                                                     notify_at: "1",
                                                     message_type: message_type,
                                                     appointment_type: model_name_string
-    )
+                                                   )
 
     message.requeue
 

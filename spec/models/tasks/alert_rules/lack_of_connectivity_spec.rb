@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Tasks
@@ -29,7 +30,7 @@ module Tasks
         context "when a device has not been connected recently" do
           let(:stale_device) do
             long_ago = Time.zone.now -
-              (LackOfConnectivity::ALERTABLE_AFTER_DAYS + 1).days
+                       (LackOfConnectivity::ALERTABLE_AFTER_DAYS + 1).days
 
             double("Device",
                    last_seen_at: long_ago,

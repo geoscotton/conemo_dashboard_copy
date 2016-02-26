@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 module Concerns
@@ -17,7 +18,7 @@ module Concerns
 
   RSpec.describe Status do
     describe "#lesson_status" do
-      let(:started_participant) {  MockParticipant.new(study_day: 3) }
+      let(:started_participant) { MockParticipant.new(study_day: 3) }
       let(:statuses) { Status::LESSON_STATUSES }
 
       context "when the lesson is nil" do

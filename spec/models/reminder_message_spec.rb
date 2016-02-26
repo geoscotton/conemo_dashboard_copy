@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require "spec_helper"
 
 RSpec.describe ReminderMessage, type: :model do
@@ -11,32 +12,36 @@ RSpec.describe ReminderMessage, type: :model do
 
       describe "#schedule_message" do
         it "schedules all reminder messages for an upcoming first appointment" do
+          first_contact.schedule_message(portuguese_participant,
+                                         ReminderMessage::APPOINTMENT)
 
-          first_contact.schedule_message(portuguese_participant, ReminderMessage::APPOINTMENT)
+          expect(ReminderMessage.where(
+                   participant: portuguese_participant,
+                   notify_at: "24",
+                   message_type: ReminderMessage::NURSE,
+                   appointment_type: ReminderMessage::APPOINTMENT
+          )).to exist
 
-          expect(ReminderMessage.where(participant: portuguese_participant,
-                                       notify_at: "24",
-                                       message_type: ReminderMessage::NURSE,
-                                       appointment_type: ReminderMessage::APPOINTMENT
-                                       )).to exist
+          expect(ReminderMessage.where(
+                   participant: portuguese_participant,
+                   notify_at: "24",
+                   message_type: ReminderMessage::PARTICIPANT,
+                   appointment_type: ReminderMessage::APPOINTMENT
+          )).to exist
 
-          expect(ReminderMessage.where(participant: portuguese_participant,
-                                       notify_at: "24",
-                                       message_type: ReminderMessage::PARTICIPANT,
-                                       appointment_type: ReminderMessage::APPOINTMENT
-                                       )).to exist
+          expect(ReminderMessage.where(
+                   participant: portuguese_participant,
+                   notify_at: "1",
+                   message_type: ReminderMessage::NURSE,
+                   appointment_type: ReminderMessage::APPOINTMENT
+          )).to exist
 
-          expect(ReminderMessage.where(participant: portuguese_participant,
-                                       notify_at: "1",
-                                       message_type: ReminderMessage::NURSE,
-                                       appointment_type: ReminderMessage::APPOINTMENT
-                                       )).to exist
-
-          expect(ReminderMessage.where(participant: portuguese_participant,
-                                       notify_at: "1",
-                                       message_type: ReminderMessage::PARTICIPANT,
-                                       appointment_type: ReminderMessage::APPOINTMENT
-                                       )).to exist
+          expect(ReminderMessage.where(
+                   participant: portuguese_participant,
+                   notify_at: "1",
+                   message_type: ReminderMessage::PARTICIPANT,
+                   appointment_type: ReminderMessage::APPOINTMENT
+          )).to exist
         end
 
         it "does not schedule a 1 hour reminder for participants for phone appointments" do
@@ -46,7 +51,7 @@ RSpec.describe ReminderMessage, type: :model do
                                        notify_at: "1",
                                        message_type: ReminderMessage::PARTICIPANT,
                                        appointment_type: "second_contact"
-                                       )).to_not exist
+                                      )).to_not exist
         end
       end
 
@@ -60,7 +65,7 @@ RSpec.describe ReminderMessage, type: :model do
                                        notify_at: "24",
                                        message_type: ReminderMessage::PARTICIPANT,
                                        appointment_type: ReminderMessage::APPOINTMENT
-                                       )).to exist
+                                      )).to exist
         end
       end
 
@@ -69,12 +74,12 @@ RSpec.describe ReminderMessage, type: :model do
           first_contact.schedule_1_hour(ReminderMessage::PARTICIPANT,
                                         ReminderMessage::APPOINTMENT,
                                         portuguese_participant
-                                        )
+                                       )
           expect(ReminderMessage.where(participant: portuguese_participant,
                                        notify_at: "1",
                                        message_type: ReminderMessage::PARTICIPANT,
                                        appointment_type: ReminderMessage::APPOINTMENT
-                                       )).to exist
+                                      )).to exist
         end
       end
     end
@@ -84,14 +89,13 @@ RSpec.describe ReminderMessage, type: :model do
         let(:participant) { participants(:active_participant) }
         let(:first_contact) { first_contacts(:first_contact) }
         it "updates notification time of upcoming reminder messages for first appointment" do
-
           first_contact.schedule_message(participant, ReminderMessage::APPOINTMENT)
           first_appointment_one_hour = ReminderMessage.where(participant: participant,
-                                       notify_at: "1",
-                                       message_type: ReminderMessage::PARTICIPANT,
-                                       appointment_type: ReminderMessage::APPOINTMENT,
-                                       status: "pending"
-                                       ).first
+                                                             notify_at: "1",
+                                                             message_type: ReminderMessage::PARTICIPANT,
+                                                             appointment_type: ReminderMessage::APPOINTMENT,
+                                                             status: "pending"
+                                                            ).first
 
           old_one_hour_time = first_appointment_one_hour.notification_time
 
@@ -113,13 +117,12 @@ RSpec.describe ReminderMessage, type: :model do
         let(:participant) { participants(:active_participant) }
         let(:first_contact) { first_contacts(:first_contact) }
         it "updates notification time of past reminder messages for first appointment and makes them pending" do
-
           first_contact.schedule_message(participant, ReminderMessage::APPOINTMENT)
           first_appointment_one_hour = ReminderMessage.where(participant: participant,
-                                       notify_at: "1",
-                                       message_type: ReminderMessage::PARTICIPANT,
-                                       appointment_type: ReminderMessage::APPOINTMENT
-                                       ).first
+                                                             notify_at: "1",
+                                                             message_type: ReminderMessage::PARTICIPANT,
+                                                             appointment_type: ReminderMessage::APPOINTMENT
+                                                            ).first
 
           first_appointment_one_hour.update_attribute(:status, "sent")
 
@@ -134,7 +137,6 @@ RSpec.describe ReminderMessage, type: :model do
           first_contact.schedule_message(participant, ReminderMessage::APPOINTMENT)
 
           expect(first_appointment_one_hour.status).to eq("pending")
-
         end
       end
     end

@@ -22,9 +22,9 @@ class Participant < ActiveRecord::Base
   has_many :reminder_messages, dependent: :destroy
   has_many :session_events, dependent: :destroy
 
-  PENDING ||= "pending".freeze
-  ACTIVE ||= "active".freeze
-  INELIGIBLE ||= "ineligible".freeze
+  PENDING ||= "pending"
+  ACTIVE ||= "active"
+  INELIGIBLE ||= "ineligible"
   STATUS ||= [PENDING, ACTIVE, INELIGIBLE].freeze
   GENDER ||= %w( male female ).freeze
 
@@ -38,8 +38,8 @@ class Participant < ActiveRecord::Base
             presence: true
 
   validates :study_identifier, uniqueness: true, presence: true
-  validates :status, inclusion: {in: STATUS}
-  validates :gender, inclusion: {in: GENDER}
+  validates :status, inclusion: { in: STATUS }
+  validates :gender, inclusion: { in: GENDER }
 
   validate :enrollment_date_is_sane
 
@@ -76,8 +76,8 @@ class Participant < ActiveRecord::Base
   def enrollment_date_is_sane
     unless enrollment_date.nil? || enrollment_date > Time.zone.today - 5.years
       errors.add(
-          :enrollment_date,
-          I18n.t("conemo.models.participant.enrollment_date_is_sane_error")
+        :enrollment_date,
+        I18n.t("conemo.models.participant.enrollment_date_is_sane_error")
       )
     end
   end

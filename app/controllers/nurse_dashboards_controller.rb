@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Manage Nurse display.
 class NurseDashboardsController < ApplicationController
   def show

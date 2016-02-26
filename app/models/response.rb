@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Patient response in phone app imported from PRI
 class Response < ActiveRecord::Base
   belongs_to :content_access_event
@@ -6,7 +7,7 @@ class Response < ActiveRecord::Base
           through: :content_access_event
 
   validates :answer, presence: true
-  
+
   def parse_responses
     JSON.parse(answer)
   end
