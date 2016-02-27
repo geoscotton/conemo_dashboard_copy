@@ -12,7 +12,7 @@ class FirstContactsController < ApplicationController
     if @first_contact.save
       @first_contact.schedule_message(participant,
                                       "appointment")
-      redirect_to active_participants_path,
+      redirect_to participant_tasks_url(participant),
                   notice: "Successfully created first contact"
     else
       flash[:alert] = @first_contact.errors.full_messages.join(", ")
@@ -33,7 +33,7 @@ class FirstContactsController < ApplicationController
     @first_contact = participant.first_contact
     if @first_contact.update(first_contact_params)
       @first_contact.schedule_message(participant, "appointment")
-      redirect_to active_participants_path,
+      redirect_to participant_tasks_url(participant),
                   notice: "Successfully updated first_contact"
     else
       flash[:alert] = @first_contact.errors.full_messages.join(", ")
@@ -60,6 +60,7 @@ class FirstContactsController < ApplicationController
   helper_method :participant
 
   def record_not_found
-    redirect_to active_participants_url, alert: "Participant not found"
+    redirect_to nurse_dashboard_url(current_user),
+                alert: "Participant not found"
   end
 end

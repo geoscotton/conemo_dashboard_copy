@@ -16,7 +16,7 @@ class CallToScheduleFinalAppointmentsController < ApplicationController
     authorize! :create, @call_to_schedule_final_appointment
 
     if @call_to_schedule_final_appointment.save
-      redirect_to active_participants_path,
+      redirect_to participant_tasks_url(find_participant),
                   notice: "Successfully created call"
     else
       flash[:alert] =
@@ -38,6 +38,7 @@ class CallToScheduleFinalAppointmentsController < ApplicationController
   end
 
   def record_not_found
-    redirect_to active_participants_url, alert: "Participant not found"
+    redirect_to nurse_dashboard_url(current_user),
+                alert: "Participant not found"
   end
 end

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6 col-sm-6 col-xs-6">
     <h1>
-      <%= link_to "", active_participants_path, class: "fa fa-chevron-left" %>
+      <%= link_to "", participant_tasks_path(@participant), class: "fa fa-chevron-left" %>
       <%= "#{@participant.first_name} #{@participant.last_name}" %>
     </h1>
   </div>

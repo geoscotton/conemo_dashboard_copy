@@ -5,7 +5,10 @@ RSpec.describe HelpMessagesController, type: :controller do
   fixtures :all
 
   let(:locale) { LOCALES.values.sample }
-  let(:participant) { Participant.find_by(locale: locale) }
+  let(:participant) do
+    Participant.where.not(nurse: nil).find_by(locale: locale)
+  end
+  let(:nurse) { participant.nurse }
   let(:help_message) { HelpMessage.first }
   let(:valid_help_message_params) { { read: true } }
   let(:invalid_help_message_params) { { read: nil } }
@@ -22,11 +25,12 @@ RSpec.describe HelpMessagesController, type: :controller do
     context "for authenticated requests" do
       context "when the participant is not found" do
         it "redirects to active participants" do
-          admin_request :put, :update, locale, participant_id: -1,
-                                               id: help_message.id,
-                                               help_message: valid_help_message_params, locale: locale
+          sign_in_user nurse
+          put :update,
+              participant_id: -1, id: help_message.id,
+              help_message: valid_help_message_params, locale: locale
 
-          expect(response).to redirect_to active_participants_url
+          expect(response).to redirect_to nurse_dashboard_url(nurse)
         end
       end
 

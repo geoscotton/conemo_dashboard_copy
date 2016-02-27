@@ -17,7 +17,7 @@ class PatientContactsController < ApplicationController
         redirect_to active_report_path(participant),
                     notice: "Successfully created patient contact"
       else
-        redirect_to active_participants_path
+        redirect_to participant_tasks_url(participant)
       end
     else
       flash[:alert] = @patient_contact.errors.full_messages.join(", ")
@@ -32,10 +32,11 @@ class PatientContactsController < ApplicationController
       if @patient_contact.participant.start_date
         redirect_to active_report_path(participant)
       else
-        redirect_to active_participants_path
+        redirect_to participant_tasks_url(participant)
       end
     else
-      redirect_to active_participants_path, alert: "There were errors."
+      redirect_to participant_tasks_url(participant),
+                  alert: "There were errors."
     end
   end
 
@@ -55,6 +56,7 @@ class PatientContactsController < ApplicationController
   helper_method :participant
 
   def record_not_found
-    redirect_to active_participants_url, alert: "Participant not found"
+    redirect_to nurse_dashboard_url(current_user),
+                alert: "Participant not found"
   end
 end

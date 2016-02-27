@@ -17,6 +17,7 @@ class TasksController < ApplicationController
   end
 
   def record_not_found
-    redirect_to active_participants_url, alert: "Participant not found"
+    redirect_to nurse_dashboard_url(current_user),
+                alert: "Participant not found"
   end
 end

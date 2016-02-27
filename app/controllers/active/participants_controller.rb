@@ -10,18 +10,6 @@ module Active
       end
     end
 
-    def index
-      @participants = if current_user.admin?
-                        Participant.where(locale: I18n.locale)
-                                   .active
-                                   .order(created_at: :desc)
-                      else
-                        current_user.active_participants
-                                    .order(created_at: :desc)
-                      end
-      authorize! :read, @participants
-    end
-
     def show
       @participant = Participant.find(params[:id])
       authorize! :read, @participant

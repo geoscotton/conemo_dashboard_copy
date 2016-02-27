@@ -2,16 +2,19 @@
 require "rails_helper"
 
 RSpec.describe SmartphonesController, type: :controller do
-  fixtures :all
+  fixtures :users, :participants
 
   let(:locale) { LOCALES.values.sample }
-  let(:participant) { Participant.find_by(locale: locale) }
+  let(:participant) do
+    Participant.active.where.not(nurse: nil).find_by(locale: locale)
+  end
+  let(:nurse) { participant.nurse }
   let(:valid_smartphone_params) { { number: "1" } }
   let(:invalid_smartphone_params) { { number: nil } }
 
   shared_examples "a bad request" do
     it do
-      expect(response).to redirect_to active_participants_url(locale: locale)
+      expect(response).to redirect_to nurse_dashboard_url(nurse)
     end
   end
 
@@ -27,7 +30,8 @@ RSpec.describe SmartphonesController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :new, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+          get :new, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -55,8 +59,9 @@ RSpec.describe SmartphonesController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :post, :create, locale, participant_id: -1,
-                                                locale: locale
+          sign_in_user nurse
+
+          post :create, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -73,12 +78,12 @@ RSpec.describe SmartphonesController, type: :controller do
             .by(1)
         end
 
-        it "redirects to active_participants_path" do
+        it "redirects to participant tasks" do
           admin_request :post, :create, locale, participant_id: participant.id,
                                                 smartphone: valid_smartphone_params,
                                                 locale: locale
 
-          expect(response).to redirect_to active_participants_path
+          expect(response).to redirect_to participant_tasks_url(participant)
         end
       end
 
@@ -111,8 +116,9 @@ RSpec.describe SmartphonesController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :edit, locale, participant_id: -1,
-                                             locale: locale
+          sign_in_user nurse
+
+          get :edit, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -142,8 +148,9 @@ RSpec.describe SmartphonesController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :put, :update, locale, participant_id: -1,
-                                               locale: locale
+          sign_in_user nurse
+
+          put :update, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"

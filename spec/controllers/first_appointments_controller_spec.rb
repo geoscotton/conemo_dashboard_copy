@@ -2,10 +2,13 @@
 require "rails_helper"
 
 RSpec.describe FirstAppointmentsController, type: :controller do
-  fixtures :all
+  fixtures :users, :participants
 
   let(:locale) { LOCALES.values.sample }
-  let(:participant) { Participant.find_by(locale: locale) }
+  let(:participant) do
+    Participant.active.where.not(nurse: nil).find_by(locale: locale)
+  end
+  let(:nurse) { participant.nurse }
 
   let!(:first_appointment) do
     participant.create_first_appointment!(
@@ -22,7 +25,7 @@ RSpec.describe FirstAppointmentsController, type: :controller do
   end
 
   shared_examples "a bad request" do
-    it { expect(response).to redirect_to active_participants_url }
+    it { expect(response).to redirect_to nurse_dashboard_url(nurse) }
   end
 
   describe ".filter_params" do
@@ -65,7 +68,9 @@ RSpec.describe FirstAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :new, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+
+          get :new, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -91,7 +96,9 @@ RSpec.describe FirstAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :post, :create, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+
+          post :create, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -157,7 +164,9 @@ RSpec.describe FirstAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :edit, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+
+          get :edit, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -184,8 +193,9 @@ RSpec.describe FirstAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :missed_second_contact, locale, participant_id: -1,
-                                                              locale: locale
+          sign_in_user nurse
+
+          get :missed_second_contact, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -219,7 +229,9 @@ RSpec.describe FirstAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :put, :update, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+
+          put :update, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -244,12 +256,13 @@ RSpec.describe FirstAppointmentsController, type: :controller do
           end.to change { ReminderMessage.count }.by(3)
         end
 
-        it "redirects to active participants" do
-          admin_request :put, :update, locale, participant_id: participant.id,
-                                               first_appointment: valid_first_appointment_params,
-                                               locale: locale
+        it "redirects to participant tasks" do
+          admin_request :put, :update, locale,
+                        participant_id: participant.id,
+                        first_appointment: valid_first_appointment_params,
+                        locale: locale
 
-          expect(response).to redirect_to active_participants_path
+          expect(response).to redirect_to participant_tasks_url(participant)
         end
       end
 

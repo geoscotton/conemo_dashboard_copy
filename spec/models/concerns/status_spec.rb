@@ -17,6 +17,14 @@ module Concerns
   end
 
   RSpec.describe Status do
+    describe "#prefix" do
+      it "returns the locale appropriate phone prefix" do
+        { "en" => "+", "es-PE" => "+51", "pt-BR" => "+55" }.each do |l, p|
+          expect(MockParticipant.new(study_day: 1, locale: l).prefix).to eq p
+        end
+      end
+    end
+
     describe "#lesson_status" do
       let(:started_participant) { MockParticipant.new(study_day: 3) }
       let(:statuses) { Status::LESSON_STATUSES }

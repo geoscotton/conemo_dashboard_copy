@@ -31,7 +31,7 @@ class ParticipantsController < ApplicationController
     authorize! :update, @participant
 
     if @participant.update(participant_params)
-      after_update_path(@participant)
+      after_update_path
     else
       flash[:alert] = @participant.errors.full_messages.join(", ")
       render :edit
@@ -63,13 +63,8 @@ class ParticipantsController < ApplicationController
     )
   end
 
-  def after_update_path(participant)
-    if participant.status == "active"
-      redirect_to active_participants_path,
-                  notice: "Successfully updated participant"
-    else
-      redirect_to pending_participants_path,
-                  notice: "Successfully updated participant"
-    end
+  def after_update_path
+    redirect_to pending_participants_path,
+                notice: "Successfully updated participant"
   end
 end
