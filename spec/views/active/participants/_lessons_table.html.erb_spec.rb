@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe "active/participants/_lessons_table", type: :view do
   let(:content_access_events) { double("Access events", where: []) }

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe Pending::ParticipantsController, type: :controller do
+RSpec.describe Pending::ParticipantsController, type: :controller do
   fixtures :users, :participants
 
   let(:locale) { LOCALES.values.sample }

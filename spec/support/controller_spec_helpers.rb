@@ -73,13 +73,13 @@ end
 
 # Shared examples
 
-shared_examples "a rejected user action" do
+RSpec.shared_examples "a rejected user action" do
   it "should redirect to the user login" do
     expect(response).to redirect_to new_user_session_url
   end
 end
 
-shared_examples "an unauthorized user action" do
+RSpec.shared_examples "an unauthorized user action" do
   it "should redirect to the root" do
     expect(response).to redirect_to root_url(locale: user_locale)
   end

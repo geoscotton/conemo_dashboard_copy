@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe "participant enrollment", type: :feature do
+RSpec.describe "participant enrollment", type: :feature do
   fixtures :all
 
   before(:each) do

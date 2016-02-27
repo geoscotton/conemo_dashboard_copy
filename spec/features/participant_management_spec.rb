@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe "Participant Management", type: :feature do
+RSpec.describe "Participant Management", type: :feature do
   fixtures :all
 
   context "For Admins" do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe "appointment scheduler", type: :feature do
+RSpec.describe "appointment scheduler", type: :feature do
   fixtures :all
 
   before(:each) do

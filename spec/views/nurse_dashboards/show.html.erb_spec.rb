@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 require_relative "../../../app/models/nurse_task"
 require_relative "../../../app/models/participant"
 

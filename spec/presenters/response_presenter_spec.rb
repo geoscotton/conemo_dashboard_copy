@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe ResponsePresenter do
+RSpec.describe ResponsePresenter do
   include ActionView::TestCase::Behavior
 
   it "says when none given" do

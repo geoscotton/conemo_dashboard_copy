@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe PatientContactsController, type: :controller do
+RSpec.describe PatientContactsController, type: :controller do
   fixtures :all
 
   let(:locale) { LOCALES.values.sample }

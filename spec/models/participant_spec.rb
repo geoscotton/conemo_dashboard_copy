@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe Participant do
+RSpec.describe Participant do
   fixtures :participants, :lessons
 
   let(:participant) { participants(:participant1) }

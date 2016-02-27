@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
 class MockTask < NurseTask
   OVERDUE_AFTER_DAYS = 5

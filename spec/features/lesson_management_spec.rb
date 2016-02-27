@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe "lesson management", type: :feature do
+RSpec.describe "lesson management", type: :feature do
   fixtures :all
 
   before do
