@@ -1,5 +1,6 @@
 <h2>Patient <%= @tasks.study_identifier %></h2>
 
+<div><%= link_to "Clinical Summary", active_participant_path(@tasks.id) %></div>
 <div><%= link_to AdditionalContact.model_name.human, new_participant_additional_contact_path(@tasks.id) %></div>
 
 <%= @tasks.tasks_count %> <%= "task".pluralize(@tasks.tasks_count) %>, <%= @tasks.tasks_overdue.count %> overdue
