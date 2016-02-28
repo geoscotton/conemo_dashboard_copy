@@ -1,5 +1,5 @@
 <h1>
-  <%= link_to "", active_participants_path, class: "fa fa-chevron-left" %> <%= t "conemo.views.active.participants.show.heading" %> <%= @participant.first_name %> <%= @participant.last_name %>
+  <%= link_to "", participant_tasks_path(@participant), class: "fa fa-chevron-left" %> <%= t "conemo.views.active.participants.show.heading" %> <%= @participant.first_name %> <%= @participant.last_name %>
 </h1>
 
 <div class="profile">
