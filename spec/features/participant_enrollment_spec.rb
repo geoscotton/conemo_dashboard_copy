@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe "participant enrollment", type: :feature do
-  fixtures :all
+RSpec.describe "participant enrollment", type: :feature do
+  fixtures :users, :participants
 
   before(:each) do
     sign_in_user users(:admin1)
@@ -67,6 +67,6 @@ describe "participant enrollment", type: :feature do
     select nurse.last_name, from: "participant_nurse_id"
     click_on "Save"
 
-    expect(page).to have_text participant.study_identifier
+    expect(page).to have_text "Successfully updated participant"
   end
 end

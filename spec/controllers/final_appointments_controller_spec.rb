@@ -1,11 +1,12 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe FinalAppointmentsController, type: :controller do
   fixtures :all
 
   let(:locale) { LOCALES.values.sample }
-  let(:participant) { Participant.find_by(locale: locale) }
+  let(:participant) { Participant.where.not(nurse: nil).find_by(locale: locale) }
+  let(:nurse) { participant.nurse }
   let(:valid_final_appointment_params) do
     {
       appointment_at: Time.zone.now,
@@ -19,7 +20,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
 
   shared_examples "a bad request" do
     it do
-      expect(response).to redirect_to active_participants_url(locale: locale)
+      expect(response).to redirect_to nurse_dashboard_url(nurse)
     end
   end
 
@@ -33,7 +34,8 @@ RSpec.describe FinalAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          nurse_request :get, :new, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+          get :new, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -59,7 +61,8 @@ RSpec.describe FinalAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :post, :create, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+          post :create, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -77,28 +80,31 @@ RSpec.describe FinalAppointmentsController, type: :controller do
           }.by(1)
         end
 
-        it "redirects to the active_participants_path" do
-          admin_request :post, :create, locale, participant_id: participant.id,
-                                                final_appointment: valid_final_appointment_params,
-                                                locale: locale
+        it "redirects to the participant tasks page" do
+          admin_request :post, :create, locale,
+                        participant_id: participant.id,
+                        final_appointment: valid_final_appointment_params,
+                        locale: locale
 
-          expect(response).to redirect_to active_participants_path
+          expect(response).to redirect_to participant_tasks_url(participant)
         end
       end
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          admin_request :post, :create, locale, participant_id: participant.id,
-                                                final_appointment: invalid_final_appointment_params,
-                                                locale: locale
+          admin_request :post, :create, locale,
+                        participant_id: participant.id,
+                        final_appointment: invalid_final_appointment_params,
+                        locale: locale
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the new template" do
-          admin_request :post, :create, locale, participant_id: participant.id,
-                                                final_appointment: invalid_final_appointment_params,
-                                                locale: locale
+          admin_request :post, :create, locale,
+                        participant_id: participant.id,
+                        final_appointment: invalid_final_appointment_params,
+                        locale: locale
 
           expect(response).to render_template :new
         end
@@ -116,7 +122,8 @@ RSpec.describe FinalAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :edit, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+          get :edit, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -125,8 +132,8 @@ RSpec.describe FinalAppointmentsController, type: :controller do
       it "sets the final_appointment" do
         participant.create_final_appointment valid_final_appointment_params
 
-        admin_request :get, :edit, locale, participant_id: participant.id,
-                                           locale: locale
+        admin_request :get, :edit, locale,
+                      participant_id: participant.id, locale: locale
 
         expect(assigns(:final_appointment)).to be_instance_of FinalAppointment
         expect(assigns(:final_appointment).participant).to eq participant
@@ -144,22 +151,23 @@ RSpec.describe FinalAppointmentsController, type: :controller do
     context "for an authenticated user" do
       context "when the Participant isn't found" do
         before do
-          admin_request :put, :update, locale, participant_id: -1,
-                                               locale: locale
+          sign_in_user nurse
+          put :update, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
       end
 
       context "when successful" do
-        it "redirects to the active_participants_path" do
+        it "redirects to the participant tasks page" do
           participant.create_final_appointment valid_final_appointment_params
 
-          admin_request :put, :update, locale, participant_id: participant.id,
-                                               final_appointment: valid_final_appointment_params,
-                                               locale: locale
+          admin_request :put, :update, locale,
+                        participant_id: participant.id,
+                        final_appointment: valid_final_appointment_params,
+                        locale: locale
 
-          expect(response).to redirect_to active_participants_path
+          expect(response).to redirect_to participant_tasks_url(participant)
         end
       end
 
@@ -167,9 +175,9 @@ RSpec.describe FinalAppointmentsController, type: :controller do
         it "sets the flash alert" do
           participant.create_final_appointment valid_final_appointment_params
 
-          admin_request :put, :update, locale, participant_id: participant.id,
-                                               final_appointment: invalid_final_appointment_params,
-                                               locale: locale
+          admin_request :put, :update, locale,
+                        participant_id: participant.id, locale: locale,
+                        final_appointment: invalid_final_appointment_params
 
           expect(flash[:alert]).not_to be_nil
         end
@@ -177,9 +185,9 @@ RSpec.describe FinalAppointmentsController, type: :controller do
         it "renders the edit template" do
           participant.create_final_appointment valid_final_appointment_params
 
-          admin_request :put, :update, locale, participant_id: participant.id,
-                                               final_appointment: invalid_final_appointment_params,
-                                               locale: locale
+          admin_request :put, :update, locale,
+                        participant_id: participant.id, locale: locale,
+                        final_appointment: invalid_final_appointment_params
 
           expect(response).to render_template :edit
         end

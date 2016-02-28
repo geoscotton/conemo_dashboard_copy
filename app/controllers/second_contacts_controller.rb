@@ -13,7 +13,7 @@ class SecondContactsController < ApplicationController
     @second_contact = participant.build_second_contact(second_contact_params)
     if @second_contact.save
       @second_contact.schedule_message(participant, "third_contact")
-      redirect_to active_participants_path
+      redirect_to participant_tasks_url(participant)
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
       render :new
@@ -32,7 +32,7 @@ class SecondContactsController < ApplicationController
     @second_contact = participant.second_contact
     if @second_contact.update(second_contact_params)
       @second_contact.schedule_message(participant, "third_contact")
-      redirect_to active_participants_path
+      redirect_to participant_tasks_url(participant)
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
       render :edit
@@ -65,6 +65,7 @@ class SecondContactsController < ApplicationController
   helper_method :participant
 
   def record_not_found
-    redirect_to active_participants_url, alert: "Participant not found"
+    redirect_to nurse_dashboard_url(current_user),
+                alert: "Participant not found"
   end
 end

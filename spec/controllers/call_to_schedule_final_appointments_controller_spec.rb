@@ -1,15 +1,18 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
   fixtures :participants
 
   let(:locale) { LOCALES.values.sample }
-  let(:participant) { Participant.active.find_by(locale: locale) }
+  let(:participant) do
+    Participant.where.not(nurse: nil).active.find_by(locale: locale)
+  end
+  let(:nurse) { participant.nurse }
 
   shared_examples "a bad request" do
     it do
-      expect(response).to redirect_to active_participants_url(locale: locale)
+      expect(response).to redirect_to nurse_dashboard_url(nurse)
     end
   end
 
@@ -28,7 +31,7 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
     context "for an authenticated nurse" do
       context "when the Participant isn't found" do
         before do
-          authorize_nurse
+          sign_in_user nurse
 
           get :new, participant_id: -1, locale: locale
         end
@@ -85,13 +88,13 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
           }.by(1)
         end
 
-        it "redirects to the active_participants_path" do
+        it "redirects to the participant tasks" do
           authorize_nurse
 
           post :create, participant_id: participant.id, locale: locale,
                         call_to_schedule_final_appointment: valid_params
 
-          expect(response).to redirect_to active_participants_path
+          expect(response).to redirect_to participant_tasks_url(participant)
         end
       end
 

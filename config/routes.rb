@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       resources :patient_contacts, only: [:new, :create, :destroy]
       resources :help_messages, only: [:update]
       resources :tasks, only: :index
-      get "*unknown", to: redirect("/%{locale}/active/participants")
+      get "*unknown", to: redirect("/%{locale}")
     end
 
     namespace "pending" do
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     end
     
     namespace "active" do
-      resources :participants, only: [:index, :show]
+      resources :participants, only: :show
       get "report/:id" => "participants#report", as: :report
     end
 

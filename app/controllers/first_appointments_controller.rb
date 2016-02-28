@@ -42,7 +42,7 @@ class FirstAppointmentsController < ApplicationController
     @first_appointment = participant.first_appointment
     if @first_appointment.update(self.class.filter_params(params))
       @first_appointment.schedule_message(participant, "second_contact")
-      redirect_to active_participants_path,
+      redirect_to participant_tasks_url(participant),
                   notice: "Successfully updated first_appointment"
     else
       flash[:alert] = @first_appointment.errors.full_messages.join(", ")
@@ -59,6 +59,7 @@ class FirstAppointmentsController < ApplicationController
   helper_method :participant
 
   def record_not_found
-    redirect_to active_participants_url, alert: "Participant not found"
+    redirect_to nurse_dashboard_url(current_user),
+                alert: "Participant not found"
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe "pending/participants/index", type: :view do
   TEMPLATE_PATH = "pending/participants/index.html.erb"

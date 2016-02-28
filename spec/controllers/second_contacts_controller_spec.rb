@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe SecondContactsController, type: :controller do
   fixtures :all
@@ -10,12 +10,15 @@ RSpec.describe SecondContactsController, type: :controller do
   let(:invalid_second_contact_params) do
     { contact_at: nil, session_length: nil, next_contact: nil }
   end
-  let(:participant) { Participant.find_by(locale: locale) }
+  let(:participant) do
+    Participant.where.not(nurse: nil).find_by(locale: locale)
+  end
+  let(:nurse) { participant.nurse }
   let(:locale) { LOCALES.values.sample }
 
   shared_examples "a bad request" do
-    it "should redirect to the active_participants_url" do
-      expect(response).to redirect_to active_participants_url
+    it "should redirect to the nurse dashboard" do
+      expect(response).to redirect_to nurse_dashboard_url(nurse)
     end
   end
 
@@ -31,7 +34,8 @@ RSpec.describe SecondContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :new, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+          get :new, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -67,8 +71,8 @@ RSpec.describe SecondContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :post, :create, locale, participant_id: -1,
-                                                locale: locale
+          sign_in_user nurse
+          post :create, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -84,28 +88,28 @@ RSpec.describe SecondContactsController, type: :controller do
           end.to change { ReminderMessage.count }.by(3)
         end
 
-        it "redirects to the active_participants_path" do
-          admin_request :post, :create, locale, participant_id: participant.id,
-                                                second_contact: valid_second_contact_params,
-                                                locale: locale
+        it "redirects to the participant tasks page" do
+          admin_request :post, :create, locale,
+                        participant_id: participant.id, locale: locale,
+                        second_contact: valid_second_contact_params
 
-          expect(response).to redirect_to active_participants_path
+          expect(response).to redirect_to participant_tasks_url(participant)
         end
       end
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          admin_request :post, :create, locale, participant_id: participant.id,
-                                                second_contact: invalid_second_contact_params,
-                                                locale: locale
+          admin_request :post, :create, locale,
+                        participant_id: participant.id, locale: locale,
+                        second_contact: invalid_second_contact_params
 
           expect(flash[:alert]).not_to be_nil
         end
 
         it "renders the new template" do
-          admin_request :post, :create, locale, participant_id: participant.id,
-                                                second_contact: invalid_second_contact_params,
-                                                locale: locale
+          admin_request :post, :create, locale,
+                        participant_id: participant.id, locale: locale,
+                        second_contact: invalid_second_contact_params
 
           expect(response).to render_template :new
         end
@@ -125,22 +129,23 @@ RSpec.describe SecondContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :edit, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+          get :edit, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
       end
 
       it "sets the second_contact" do
-        admin_request :get, :edit, locale, participant_id: participant.id,
-                                           locale: locale
+        admin_request :get, :edit, locale,
+                      participant_id: participant.id, locale: locale
 
         expect(assigns(:second_contact)).to eq participant.second_contact
       end
 
       it "sets the nurse_participant_evaluation" do
-        admin_request :get, :edit, locale, participant_id: participant.id,
-                                           locale: locale
+        admin_request :get, :edit, locale,
+                      participant_id: participant.id, locale: locale
 
         expect(assigns(:nurse_participant_evaluation))
           .to be_instance_of NurseParticipantEvaluation
@@ -162,8 +167,8 @@ RSpec.describe SecondContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :put, :update, locale, participant_id: -1,
-                                               locale: locale
+          sign_in_user nurse
+          put :update, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -174,9 +179,9 @@ RSpec.describe SecondContactsController, type: :controller do
           participant.create_second_contact(valid_second_contact_params)
 
           expect do
-            admin_request :put, :update, locale, participant_id: participant.id,
-                                                 second_contact: valid_second_contact_params,
-                                                 locale: locale
+            admin_request :put, :update, locale,
+                          participant_id: participant.id, locale: locale,
+                          second_contact: valid_second_contact_params
           end.to change { ReminderMessage.count }.by(3)
         end
       end
@@ -185,9 +190,9 @@ RSpec.describe SecondContactsController, type: :controller do
         it "sets the alert" do
           participant.create_second_contact(valid_second_contact_params)
 
-          admin_request :put, :update, locale, participant_id: participant.id,
-                                               second_contact: invalid_second_contact_params,
-                                               locale: locale
+          admin_request :put, :update, locale,
+                        participant_id: participant.id, locale: locale,
+                        second_contact: invalid_second_contact_params
 
           expect(flash[:alert]).not_to be_nil
         end
@@ -195,9 +200,9 @@ RSpec.describe SecondContactsController, type: :controller do
         it "renders the edit template" do
           participant.create_second_contact(valid_second_contact_params)
 
-          admin_request :put, :update, locale, participant_id: participant.id,
-                                               second_contact: invalid_second_contact_params,
-                                               locale: locale
+          admin_request :put, :update, locale,
+                        participant_id: participant.id, locale: locale,
+                        second_contact: invalid_second_contact_params
 
           expect(response).to render_template :edit
         end
@@ -208,8 +213,8 @@ RSpec.describe SecondContactsController, type: :controller do
   describe "GET missed_third_contact" do
     context "for an unauthenticated User" do
       before do
-        get :missed_third_contact, participant_id: participant.id,
-                                   locale: locale
+        get :missed_third_contact,
+            participant_id: participant.id, locale: locale
       end
 
       it_behaves_like "a rejected user action" do
@@ -220,8 +225,8 @@ RSpec.describe SecondContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :missed_third_contact, locale, participant_id: -1,
-                                                             locale: locale
+          sign_in_user nurse
+          get :missed_third_contact, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"

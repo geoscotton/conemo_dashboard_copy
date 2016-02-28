@@ -21,9 +21,6 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
     <div class="navbar-collapse">
       <% if !current_page?("/#{params[:locale]}") %>
           <ul class="nav navbar-nav">
-            <li>
-              <%= link_to t('conemo.views.dashboards.index.manage_button'), main_app.active_participants_path, class: "primary" %>
-            </li>
             <% if user_signed_in? %>
                 <li>
                   <%= link_to t('conemo.views.dashboards.index.enrollment_button'), main_app.pending_participants_path, class: "info" unless !current_user.admin? %>

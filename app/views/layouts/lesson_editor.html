@@ -19,10 +19,6 @@
         <div class="navbar-collapse">
             <% if !current_page?("/#{params[:locale]}") %>
             <ul class="nav navbar-nav">
-                <li>
-                    <%= link_to t('conemo.views.dashboards.index.manage_button'), active_participants_path, class:
-                    "primary" %>
-                </li>
                 <% if user_signed_in? %>
                 <li>
                     <%= link_to t('conemo.views.dashboards.index.enrollment_button'), pending_participants_path, class:

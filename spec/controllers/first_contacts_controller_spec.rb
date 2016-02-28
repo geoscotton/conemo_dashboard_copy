@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe FirstContactsController, type: :controller do
-  fixtures :all
+  fixtures :users, :participants
 
   let(:valid_first_contact_params) do
     { contact_at: Time.zone.now, first_appointment_at: Time.zone.now }
@@ -11,11 +11,14 @@ RSpec.describe FirstContactsController, type: :controller do
     { contact_at: nil, first_appointment_at: nil }
   end
   let(:locale) { LOCALES.values.sample }
-  let(:participant) { Participant.find_by(locale: locale) }
+  let(:participant) do
+    Participant.where.not(nurse: nil).active.find_by(locale: locale)
+  end
+  let(:nurse) { participant.nurse }
 
   shared_examples "a bad request" do
-    it "should redirect to the active_participants_url" do
-      expect(response).to redirect_to active_participants_url(locale: locale)
+    it "should redirect to the nurse dashboard" do
+      expect(response).to redirect_to nurse_dashboard_url(nurse)
     end
   end
 
@@ -29,7 +32,9 @@ RSpec.describe FirstContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :new, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+
+          get :new, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -55,8 +60,9 @@ RSpec.describe FirstContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :post, :create, locale, participant_id: -1,
-                                                locale: locale
+          sign_in_user nurse
+
+          post :create, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -72,12 +78,13 @@ RSpec.describe FirstContactsController, type: :controller do
           end.to change { ReminderMessage.count }.by(4)
         end
 
-        it "redirects to the active_participants_path" do
-          admin_request :post, :create, locale, participant_id: participant.id,
-                                                first_contact: valid_first_contact_params,
-                                                locale: locale
+        it "redirects to the participant tasks" do
+          admin_request :post, :create, locale,
+                        participant_id: participant.id,
+                        first_contact: valid_first_contact_params,
+                        locale: locale
 
-          expect(response).to redirect_to active_participants_path
+          expect(response).to redirect_to participant_tasks_url(participant)
         end
       end
 
@@ -111,7 +118,9 @@ RSpec.describe FirstContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :edit, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+
+          get :edit, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -136,7 +145,9 @@ RSpec.describe FirstContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :put, :update, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+
+          put :update, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -188,8 +199,9 @@ RSpec.describe FirstContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :missed_appointment, locale, participant_id: -1,
-                                                           locale: locale
+          sign_in_user nurse
+
+          get :missed_appointment, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"

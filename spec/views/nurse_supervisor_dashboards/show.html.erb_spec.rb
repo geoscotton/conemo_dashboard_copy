@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
   def stub_participant(id, name)

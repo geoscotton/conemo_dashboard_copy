@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 require "rake"
 
-describe "sms:message" do
+RSpec.describe "sms:message" do
   fixtures :all
 
   let(:task_path) { "lib/tasks/sms" }

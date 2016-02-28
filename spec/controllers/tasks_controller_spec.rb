@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe TasksController, type: :controller do
   fixtures :participants
@@ -12,7 +12,7 @@ RSpec.describe TasksController, type: :controller do
 
   shared_examples "a bad request" do
     it do
-      expect(response).to redirect_to active_participants_url(locale: locale)
+      expect(response).to redirect_to nurse_dashboard_url(nurse)
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe TasksController, type: :controller do
     context "for an authenticated nurse" do
       context "when the Participant isn't found" do
         before do
-          authorize_nurse
+          sign_in_user nurse
 
           get :index, participant_id: -1, locale: locale
         end

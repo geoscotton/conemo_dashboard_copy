@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
-describe "Participant Report", type: :feature do
+RSpec.describe "Participant Report", type: :feature do
   fixtures :all
 
   let(:participant) { participants(:active_participant) }

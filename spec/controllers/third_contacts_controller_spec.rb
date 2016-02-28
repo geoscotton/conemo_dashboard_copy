@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "spec_helper"
+require "rails_helper"
 
 RSpec.describe ThirdContactsController, type: :controller do
   fixtures :all
@@ -8,6 +8,7 @@ RSpec.describe ThirdContactsController, type: :controller do
   let(:participant) do
     Participant.where.not(nurse: nil).find_by(locale: locale)
   end
+  let(:nurse) { participant.nurse }
   let(:valid_third_contact_params) do
     {
       contact_at: Time.zone.now,
@@ -50,7 +51,7 @@ RSpec.describe ThirdContactsController, type: :controller do
   end
 
   shared_examples "a bad request" do
-    it { expect(response).to redirect_to active_participants_url }
+    it { expect(response).to redirect_to nurse_dashboard_url(nurse) }
   end
 
   describe ".filter_params" do
@@ -72,7 +73,8 @@ RSpec.describe ThirdContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :new, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+          get :new, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -105,14 +107,15 @@ RSpec.describe ThirdContactsController, type: :controller do
     context "when authenticated" do
       context "when the Participant isn't found" do
         before do
-          admin_request :post, :create, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+          post :create, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
       end
 
       context "when successful" do
-        it "redirects to the active participants" do
+        it "redirects to the participant tasks" do
           contact = instance_double("ThirdContact",
                                     save: true,
                                     schedule_message: nil)
@@ -127,8 +130,7 @@ RSpec.describe ThirdContactsController, type: :controller do
                         third_contact: { q1: "question 1" },
                         locale: locale
 
-          expect(response)
-            .to redirect_to(active_participants_path(locale: locale))
+          expect(response).to redirect_to(participant_tasks_url(participant))
         end
       end
 
@@ -162,7 +164,8 @@ RSpec.describe ThirdContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :edit, locale, participant_id: -1, locale: locale
+          sign_in_user nurse
+          get :edit, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -202,8 +205,8 @@ RSpec.describe ThirdContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :put, :update, locale, participant_id: -1,
-                                               locale: locale
+          sign_in_user nurse
+          put :update, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
@@ -220,14 +223,14 @@ RSpec.describe ThirdContactsController, type: :controller do
           end.to change { ReminderMessage.count }.by(4)
         end
 
-        it "redirects to active_participants_path" do
+        it "redirects to participant tasks" do
           participant.create_third_contact(valid_third_contact_params)
 
-          admin_request :put, :update, locale, participant_id: participant.id,
-                                               third_contact: valid_third_contact_params,
-                                               locale: locale
+          admin_request :put, :update, locale,
+                        participant_id: participant.id, locale: locale,
+                        third_contact: valid_third_contact_params
 
-          expect(response).to redirect_to active_participants_path
+          expect(response).to redirect_to participant_tasks_url(participant)
         end
       end
 
@@ -235,9 +238,9 @@ RSpec.describe ThirdContactsController, type: :controller do
         it "sets the flash alert" do
           participant.create_third_contact(valid_third_contact_params)
 
-          admin_request :put, :update, locale, participant_id: participant.id,
-                                               third_contact: invalid_third_contact_params,
-                                               locale: locale
+          admin_request :put, :update, locale,
+                        participant_id: participant.id, locale: locale,
+                        third_contact: invalid_third_contact_params
 
           expect(flash[:alert]).not_to be_nil
         end
@@ -245,9 +248,9 @@ RSpec.describe ThirdContactsController, type: :controller do
         it "renders the edit template" do
           participant.create_third_contact(valid_third_contact_params)
 
-          admin_request :put, :update, locale, participant_id: participant.id,
-                                               third_contact: invalid_third_contact_params,
-                                               locale: locale
+          admin_request :put, :update, locale,
+                        participant_id: participant.id, locale: locale,
+                        third_contact: invalid_third_contact_params
 
           expect(response).to render_template :edit
         end
@@ -265,8 +268,8 @@ RSpec.describe ThirdContactsController, type: :controller do
     context "for an authenticated User" do
       context "when the Participant isn't found" do
         before do
-          admin_request :get, :missed_final_appointment, locale,
-                        participant_id: -1, locale: locale
+          sign_in_user nurse
+          get :missed_final_appointment, participant_id: -1, locale: locale
         end
 
         it_behaves_like "a bad request"
