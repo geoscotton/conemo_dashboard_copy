@@ -27,6 +27,10 @@ class NurseTask < ActiveRecord::Base
     where(arel_table[:overdue_at].lteq(Time.zone.now))
   end
 
+  def active?
+    status == STATUSES.active
+  end
+
   def to_s
     self.class.model_name.human
   end

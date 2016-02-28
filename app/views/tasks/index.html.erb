@@ -5,10 +5,22 @@
 
 <%= @tasks.tasks_count %> <%= "task".pluralize(@tasks.tasks_count) %>, <%= @tasks.tasks_overdue.count %> overdue
 
+<div class="progress">
+  <% @tasks.tasks.each_with_index do |task, i| %>
+    <%= content_tag("div",
+                    class: "progress-bar progress-bar-#{ task.active? ? 'warning' : 'success' }",
+                    style: "width: #{ 100 / @tasks.tasks.count }%; border-right: 1px solid;") do %>
+      <span><%= task %></span>
+    <% end %>
+  <% end %>
+</div>
+
 <ul class="list-group">
   <% @tasks.tasks.each do |task| %>
-    <li class="list-group-item">
-      <h4><%= task %> <small><%= time_ago_in_words task.scheduled_at %></small></h4>
-    </li>
+    <% if task.active? %>
+      <li class="list-group-item">
+        <h4><%= task %> <small><%= time_ago_in_words task.scheduled_at %></small></h4>
+      </li>
+    <% end %>
   <% end %>
 </ul>
