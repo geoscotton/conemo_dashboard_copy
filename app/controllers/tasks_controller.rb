@@ -32,7 +32,8 @@ class TasksController < ApplicationController
       nurse_task: task
     )
     if notification.save
-      flash[:notice] = "Supervisor successfully notified"
+      flash[:notice] = "a notification has been sent for your supervisor " \
+                       "to review this issue"
     else
       flash[:alert] = "Error notifying supervisor"
     end
