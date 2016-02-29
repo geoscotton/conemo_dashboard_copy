@@ -64,9 +64,9 @@ RSpec.describe AdditionalContactsController, type: :controller do
     context "for an authenticated nurse" do
       context "when successful" do
         it "creates a new AdditionalContact" do
-          expect do
-            sign_in_user nurse
+          sign_in_user nurse
 
+          expect do
             post :create, participant_id: participant.id,
                           additional_contact: valid_params,
                           locale: locale
