@@ -8,6 +8,7 @@
     last_name: Administrator-<%= i %>
     locale: en
     timezone: Central Time (US & Canada)
+    type: Admin
 <% end %>
 
 <% (200..200).each do |i| %>
@@ -20,6 +21,7 @@
     last_name: Administrator-<%= i %>
     locale: es-PE
     timezone: Lima
+    type: Admin
 <% end %>
 
 <% (300..300).each do |i| %>
@@ -32,6 +34,7 @@
     last_name: Administrator-<%= i %>
     locale: pt-BR
     timezone: Brasilia
+    type: Admin
 <% end %>
 
 <% (400..401).each do |i| %>
@@ -44,6 +47,7 @@
     last_name: Nurse-<%= i %>
     locale: en
     timezone: Central Time (US & Canada)
+    type: Nurse
 <% end %>
 
 <% (500..500).each do |i| %>
@@ -56,6 +60,7 @@
     last_name: Nurse-<%= i %>
     locale: es-PE
     timezone: Central Time (US & Canada)
+    type: Nurse
 <% end %>
 
 <% (600..600).each do |i| %>
@@ -68,4 +73,5 @@
     last_name: Nurse-<%= i %>
     locale: pt-BR
     timezone: Central Time (US & Canada)
+    type: Nurse
 <% end %>

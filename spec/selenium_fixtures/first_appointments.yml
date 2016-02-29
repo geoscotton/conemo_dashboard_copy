@@ -1,7 +1,7 @@
 <% (320..328).each do |i| %>
   first_appointment_<%= i %>:
     participant: participant<%= i %>
-    appointment_at: <%= DateTime.now - 2 %>
+    appointment_at: <%= DateTime.now - 7 %>
     appointment_location: Test Location
     session_length: 120
     next_contact: <%= DateTime.now %>
@@ -15,7 +15,7 @@
 <% (329..336).each do |i| %>
   first_appointment_<%= i %>:
     participant: participant<%= i %>
-    appointment_at: <%= DateTime.now - 23 %>
+    appointment_at: <%= DateTime.now - 28 %>
     appointment_location: Test Location
     session_length: 120
     next_contact: <%= DateTime.now - 21 %>
@@ -29,7 +29,7 @@
 <% (337..343).each do |i| %>
   first_appointment_<%= i %>:
     participant: participant<%= i %>
-    appointment_at: <%= DateTime.now - 37 %>
+    appointment_at: <%= DateTime.now - 42 %>
     appointment_location: Test Location
     session_length: 120
     next_contact: <%= DateTime.now - 35 %>

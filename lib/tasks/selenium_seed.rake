@@ -22,8 +22,8 @@ namespace :selenium_seed do
       :users, :participants, :"bit_core/slideshows", :"bit_core/slides", :lessons,
       :patient_contacts, :first_contacts, :first_appointments, :second_contacts,
       :third_contacts, :final_appointments, :nurse_participant_evaluations,
-      :content_access_events, :session_events, :responses, :dialogues, :help_messages,
-      :logins
+      :content_access_events, :session_events, :responses, :help_messages, :logins,
+      :nurse_tasks
     ]
   end
 end
