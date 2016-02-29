@@ -8,16 +8,12 @@ RSpec.describe AdditionalContactsController, type: :controller do
   let(:participant) do
     Participant.active.where.not(nurse: nil).find_by(locale: locale)
   end
+  let(:nurse) { participant.nurse }
 
   shared_examples "a bad request" do
     it do
-      expect(response).to redirect_to nurse_dashboard_url(participant.nurse)
+      expect(response).to redirect_to nurse_dashboard_url(nurse)
     end
-  end
-
-  def authorize_nurse
-    sign_in_user participant.nurse
-    allow(controller).to receive(:authorize!)
   end
 
   describe "GET new" do
@@ -30,7 +26,7 @@ RSpec.describe AdditionalContactsController, type: :controller do
     context "for an authenticated nurse" do
       context "when the Participant isn't found" do
         before do
-          authorize_nurse
+          sign_in_user nurse
 
           get :new, participant_id: -1, locale: locale
         end
@@ -39,7 +35,7 @@ RSpec.describe AdditionalContactsController, type: :controller do
       end
 
       it "sets the additional_contact" do
-        authorize_nurse
+        sign_in_user nurse
 
         get :new, participant_id: participant.id, locale: locale
 
@@ -69,7 +65,7 @@ RSpec.describe AdditionalContactsController, type: :controller do
       context "when successful" do
         it "creates a new AdditionalContact" do
           expect do
-            authorize_nurse
+            sign_in_user nurse
 
             post :create, participant_id: participant.id,
                           additional_contact: valid_params,
@@ -80,7 +76,7 @@ RSpec.describe AdditionalContactsController, type: :controller do
         end
 
         it "redirects to the participant_tasks_path" do
-          authorize_nurse
+          sign_in_user nurse
 
           post :create, participant_id: participant.id, locale: locale,
                         additional_contact: valid_params
@@ -91,7 +87,7 @@ RSpec.describe AdditionalContactsController, type: :controller do
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          authorize_nurse
+          sign_in_user nurse
 
           post :create, participant_id: participant.id, locale: locale,
                         additional_contact: invalid_params
@@ -100,7 +96,7 @@ RSpec.describe AdditionalContactsController, type: :controller do
         end
 
         it "renders the new template" do
-          authorize_nurse
+          sign_in_user nurse
 
           post :create, participant_id: participant.id, locale: locale,
                         additional_contact: invalid_params
