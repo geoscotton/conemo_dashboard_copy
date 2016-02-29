@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.10 - 2016-02-29
+
+* patch Rails
+* remove 7 day access count
+* add confirmation to supervisor notification
+* enable supervisor notification for tasks
+* enable alert task resolve action
+
 ## 0.5.9 - 2016-02-29
 
 * add task progress bar
