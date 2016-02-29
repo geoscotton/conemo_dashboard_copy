@@ -48,6 +48,7 @@
     locale: en
     timezone: Central Time (US & Canada)
     type: Nurse
+    nurse_supervisor: user_700
 <% end %>
 
 <% (500..500).each do |i| %>
@@ -74,4 +75,43 @@
     locale: pt-BR
     timezone: Central Time (US & Canada)
     type: Nurse
+<% end %>
+
+<% (700..700).each do |i| %>
+  user_<%= i %>:
+    email: user_<%= i %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: nurse supervisor
+    phone: 17777777<%= i %>
+    first_name: English
+    last_name: Nurse Supervisor-<%= i %>
+    locale: en
+    timezone: Central Time (US & Canada)
+    type: NurseSupervisor
+<% end %>
+
+<% (800..800).each do |i| %>
+  user_<%= i %>:
+    email: user_<%= i %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: nurse supervisor
+    phone: 18888888<%= i %>
+    first_name: Spanish
+    last_name: Nurse Supervisor-<%= i %>
+    locale: es-PE
+    timezone: Central Time (US & Canada)
+    type: NurseSupervisor
+<% end %>
+
+<% (900..900).each do |i| %>
+  user_<%= i %>:
+    email: user_<%= i %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: nurse supervisor
+    phone: 19999999<%= i %>
+    first_name: Portuguese
+    last_name: Nurse Supervisor-<%= i %>
+    locale: pt-BR
+    timezone: Central Time (US & Canada)
+    type: NurseSupervisor
 <% end %>
