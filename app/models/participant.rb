@@ -55,10 +55,6 @@ class Participant < ActiveRecord::Base
     "#{last_name}, #{first_name}"
   end
 
-  def seven_day_access
-    logins.where("logged_in_at > ?", Time.zone.today - 7.days)
-  end
-
   def study_day
     if start_date
       (Time.zone.today - start_date).to_i + 1
