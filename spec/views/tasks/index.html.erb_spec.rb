@@ -11,7 +11,7 @@ RSpec.describe "tasks/index", type: :view do
            tasks: [],
            all_tasks: [],
            tasks_count: rand,
-           tasks_overdue: [])
+           overdue_tasks: [])
   end
 
   it "renders a progress bar with all tasks" do
@@ -45,7 +45,7 @@ RSpec.describe "tasks/index", type: :view do
 
   it "renders the overdue task count" do
     assign(:tasks, tasks)
-    allow(tasks).to receive(:tasks_overdue) { ["task 1", "task 2"] }
+    allow(tasks).to receive(:overdue_tasks) { ["task 1", "task 2"] }
 
     render template: template
 
