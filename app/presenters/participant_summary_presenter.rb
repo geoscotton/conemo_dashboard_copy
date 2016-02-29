@@ -7,11 +7,8 @@ class ParticipantSummaryPresenter
   delegate :id, :study_identifier, to: :participant
   delegate :count, to: :tasks, prefix: true
 
-  CSS_CLASSES = {
-    no_tasks: "success",
-    overdue_tasks: "danger",
-    current_tasks: "warning"
-  }.freeze
+  CSS_CLASSES = Struct.new(:no_tasks, :overdue_tasks, :current_tasks)
+                      .new("success", "danger", "warning")
 
   def initialize(participant, tasks)
     @participant = participant
@@ -19,21 +16,25 @@ class ParticipantSummaryPresenter
   end
 
   def active_tasks_list
-    tasks.select(&:active?).join ", "
+    active_tasks.join ", "
   end
 
   def css_class
-    if @tasks.count == 0
-      CSS_CLASSES[:no_tasks]
-    elsif @tasks.any?(&:overdue?)
-      CSS_CLASSES[:overdue_tasks]
+    if active_tasks.count == 0
+      CSS_CLASSES.no_tasks
+    elsif overdue_tasks.count > 0
+      CSS_CLASSES.overdue_tasks
     else
-      CSS_CLASSES[:current_tasks]
+      CSS_CLASSES.current_tasks
     end
   end
 
-  def tasks_overdue
-    tasks.select(&:overdue?)
+  def active_tasks
+    tasks.select(&:active?)
+  end
+
+  def overdue_tasks
+    active_tasks.select(&:overdue?)
   end
 
   private
