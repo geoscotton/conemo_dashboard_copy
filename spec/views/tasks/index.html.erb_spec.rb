@@ -23,7 +23,7 @@ RSpec.describe "tasks/index", type: :view do
 
     render template: template
 
-    expect(rendered). to include "completed task 1"
+    expect(rendered).to include "completed task 1"
   end
 
   it "renders the participant study id" do
@@ -31,7 +31,7 @@ RSpec.describe "tasks/index", type: :view do
 
     render template: template
 
-    expect(rendered). to include "Patient 1234"
+    expect(rendered).to include "Patient 1234"
   end
 
   it "renders the assigned active task count" do
@@ -40,7 +40,7 @@ RSpec.describe "tasks/index", type: :view do
 
     render template: template
 
-    expect(rendered). to include "5 tasks"
+    expect(rendered).to include "5 tasks"
   end
 
   it "renders the overdue task count" do
@@ -49,7 +49,7 @@ RSpec.describe "tasks/index", type: :view do
 
     render template: template
 
-    expect(rendered). to include "2 overdue"
+    expect(rendered).to include "2 overdue"
   end
 
   it "renders the time before/until each task" do
@@ -57,12 +57,27 @@ RSpec.describe "tasks/index", type: :view do
     task = instance_double(NurseTask,
                            to_s: "Do fu",
                            scheduled_at: 1.minute.ago,
-                           active?: true)
+                           active?: true).as_null_object
     assign(:tasks, tasks)
     allow(tasks).to receive(:tasks) { [task] }
 
     render template: template
 
-    expect(rendered). to match(/Do fu .*1 minute/)
+    expect(rendered).to match(/Do fu .*1 minute/)
+  end
+
+  context "for alert tasks" do
+    it "renders a 'Mark as resolved' button" do
+      task = instance_double(NurseTask,
+                             active?: true,
+                             scheduled_at: Time.zone.now,
+                             alert?: true).as_null_object
+      assign(:tasks, tasks)
+      allow(tasks).to receive(:tasks) { [task] }
+
+      render template: template
+
+      expect(rendered).to include "Mark as resolved"
+    end
   end
 end

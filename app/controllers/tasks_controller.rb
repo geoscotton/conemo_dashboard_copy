@@ -9,6 +9,19 @@ class TasksController < ApplicationController
     authorize! :update, tasks
   end
 
+  def resolve
+    @task = NurseTask.for_nurse_and_participant(current_user, find_participant)
+                     .find(params[:id])
+
+    if @task.resolve
+      flash[:notice] = "Task successfully resolved"
+    else
+      flash[:alert] = "Error resolving task: #{@task.errors.full_messages}"
+    end
+
+    redirect_to participant_tasks_url(find_participant)
+  end
+
   private
 
   def find_participant

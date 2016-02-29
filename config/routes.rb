@@ -27,7 +27,11 @@ Rails.application.routes.draw do
       resource :smartphone, only: [:new, :create, :edit, :update]
       resources :patient_contacts, only: [:new, :create, :destroy]
       resources :help_messages, only: [:update]
-      resources :tasks, only: :index
+      resources :tasks, only: :index do
+        member do
+          put :resolve
+        end
+      end
       get "*unknown", to: redirect("/%{locale}")
     end
 

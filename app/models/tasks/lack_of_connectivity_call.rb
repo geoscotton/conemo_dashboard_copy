@@ -6,5 +6,9 @@ module Tasks
 
     validates :user_id,
               uniqueness: { scope: [:participant_id, :type, :status] }
+
+    def alert?
+      true
+    end
   end
 end
