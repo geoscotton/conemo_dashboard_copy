@@ -11,7 +11,7 @@ RSpec.describe "nurse_dashboards/show", type: :view do
       css_class: "class#{id}",
       id: id,
       study_identifier: "ID #{id}",
-      tasks_list: tasks_list
+      active_tasks_list: tasks_list
     )
   end
 

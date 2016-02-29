@@ -9,8 +9,21 @@ RSpec.describe "tasks/index", type: :view do
            id: rand,
            study_identifier: "1234",
            tasks: [],
+           all_tasks: [],
            tasks_count: rand,
            tasks_overdue: [])
+  end
+
+  it "renders a progress bar with all tasks" do
+    assign(:tasks, tasks)
+    completed_task = instance_double(NurseTask,
+                                     to_s: "completed task 1",
+                                     active?: false)
+    allow(tasks).to receive(:tasks) { [completed_task] }
+
+    render template: template
+
+    expect(rendered). to include "completed task 1"
   end
 
   it "renders the participant study id" do
@@ -21,7 +34,7 @@ RSpec.describe "tasks/index", type: :view do
     expect(rendered). to include "Patient 1234"
   end
 
-  it "renders the assigned task count" do
+  it "renders the assigned active task count" do
     assign(:tasks, tasks)
     allow(tasks).to receive(:tasks_count) { 5 }
 
@@ -41,7 +54,10 @@ RSpec.describe "tasks/index", type: :view do
 
   it "renders the time before/until each task" do
     I18n.locale = "en"
-    task = instance_double(NurseTask, to_s: "Do fu", scheduled_at: 1.minute.ago)
+    task = instance_double(NurseTask,
+                           to_s: "Do fu",
+                           scheduled_at: 1.minute.ago,
+                           active?: true)
     assign(:tasks, tasks)
     allow(tasks).to receive(:tasks) { [task] }
 

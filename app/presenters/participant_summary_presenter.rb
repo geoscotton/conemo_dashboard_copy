@@ -18,8 +18,8 @@ class ParticipantSummaryPresenter
     @tasks = ordered_tasks(tasks || [])
   end
 
-  def tasks_list
-    tasks.join ", "
+  def active_tasks_list
+    tasks.select(&:active?).join ", "
   end
 
   def css_class
