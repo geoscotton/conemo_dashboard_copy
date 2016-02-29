@@ -20,6 +20,12 @@
     <% if task.active? %>
       <li class="list-group-item">
         <h4><%= task %> <small><%= time_ago_in_words task.scheduled_at %></small></h4>
+
+        <% if task.alert? %>
+          <%= button_to "Mark as resolved",
+                        resolve_participant_task_path(participant_id: @tasks.id, id: task.id),
+                        { method: :put, class: "btn btn-default" } %>
+        <% end %>
       </li>
     <% end %>
   <% end %>

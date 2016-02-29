@@ -39,6 +39,14 @@ class NurseTask < ActiveRecord::Base
     Time.zone.now >= overdue_at
   end
 
+  def alert?
+    false
+  end
+
+  def resolve
+    update status: STATUSES.resolved
+  end
+
   private
 
   def set_scheduled_at
