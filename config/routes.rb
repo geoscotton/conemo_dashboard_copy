@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       resources :tasks, only: :index do
         member do
           put :resolve
+          post :notify_supervisor
         end
       end
       get "*unknown", to: redirect("/%{locale}")

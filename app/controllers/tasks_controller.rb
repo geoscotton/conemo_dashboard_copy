@@ -10,13 +10,31 @@ class TasksController < ApplicationController
   end
 
   def resolve
-    @task = NurseTask.for_nurse_and_participant(current_user, find_participant)
-                     .find(params[:id])
+    task = NurseTask.for_nurse_and_participant(current_user, find_participant)
+                    .find(params[:id])
 
-    if @task.resolve
+    if task.resolve
       flash[:notice] = "Task successfully resolved"
     else
-      flash[:alert] = "Error resolving task: #{@task.errors.full_messages}"
+      flash[:alert] = "Error resolving task: #{task.errors.full_messages}"
+    end
+
+    redirect_to participant_tasks_url(find_participant)
+  end
+
+  def notify_supervisor
+    task = NurseTask.for_nurse_and_participant(current_user, find_participant)
+                    .find(params[:id])
+
+    notification = SupervisorNotification.new(
+      nurse: current_user,
+      nurse_supervisor: current_user.nurse_supervisor,
+      nurse_task: task
+    )
+    if notification.save
+      flash[:notice] = "Supervisor successfully notified"
+    else
+      flash[:alert] = "Error notifying supervisor"
     end
 
     redirect_to participant_tasks_url(find_participant)

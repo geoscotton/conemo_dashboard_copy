@@ -25,6 +25,9 @@
           <%= button_to "Mark as resolved",
                         resolve_participant_task_path(participant_id: @tasks.id, id: task.id),
                         { method: :put, class: "btn btn-default" } %>
+          <%= button_to "Contact Supervisor",
+                        notify_supervisor_participant_task_path(participant_id: @tasks.id, id: task.id),
+                        { class: "btn btn-default" } %>
         <% end %>
       </li>
     <% end %>
