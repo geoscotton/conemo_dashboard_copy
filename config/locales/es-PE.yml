@@ -162,7 +162,6 @@ es-PE:
             delete: "¿Está seguro que quiere eliminar esa nota?"
             overall_status: "Estado general"
             content_accessed: "Acceso a sesión"
-            seven_day_access_count: "Número de ingresos en 7 días"
             messages: "Mensajes"
             release_day: "Fecha de lanzamiento"
             lesson: "Sesión"

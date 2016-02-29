@@ -161,7 +161,6 @@ en:
             delete: "Are you sure you want to delete this note?"
             overall_status: "Overall Status"
             content_accessed: "Content accessed"
-            seven_day_access_count: "7 day access count"
             messages: "Messages"
             release_day: "Release day"
             lesson: "Lesson"
