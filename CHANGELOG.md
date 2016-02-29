@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.9 - 2016-02-29
+
+* add task progress bar
+* add clinical summary link from tasks page
+* remove active participants page and related code
+* display time since/until tasks
+
 ## 0.5.8 - 2016-02-26
 
 * customize superuser super powers
