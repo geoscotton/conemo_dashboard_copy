@@ -16,11 +16,6 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
     end
   end
 
-  def authorize_nurse
-    sign_in_nurse locale
-    allow(controller).to receive(:authorize!)
-  end
-
   describe "GET new" do
     context "for an unauthenticated request" do
       before { get :new, participant_id: participant.id, locale: locale }
@@ -40,7 +35,7 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
       end
 
       it "sets the call_to_schedule_final_appointment" do
-        authorize_nurse
+        sign_in_user nurse
 
         get :new, participant_id: participant.id, locale: locale
 
@@ -78,7 +73,7 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
       context "when successful" do
         it "creates a new FinalAppointment" do
           expect do
-            authorize_nurse
+            sign_in_user nurse
 
             post :create, participant_id: participant.id,
                           call_to_schedule_final_appointment: valid_params,
@@ -89,7 +84,7 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
         end
 
         it "redirects to the participant tasks" do
-          authorize_nurse
+          sign_in_user nurse
 
           post :create, participant_id: participant.id, locale: locale,
                         call_to_schedule_final_appointment: valid_params
@@ -100,7 +95,7 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
 
       context "when unsuccessful" do
         it "sets the flash alert" do
-          authorize_nurse
+          sign_in_user nurse
 
           post :create, participant_id: participant.id, locale: locale,
                         call_to_schedule_final_appointment: invalid_params
@@ -109,7 +104,7 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
         end
 
         it "renders the new template" do
-          authorize_nurse
+          sign_in_user nurse
 
           post :create, participant_id: participant.id, locale: locale,
                         call_to_schedule_final_appointment: invalid_params
