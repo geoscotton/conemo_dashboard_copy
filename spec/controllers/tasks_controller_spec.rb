@@ -138,4 +138,114 @@ RSpec.describe TasksController, type: :controller do
       end
     end
   end
+
+  describe "POST notify_supervisor" do
+    context "for an unauthenticated request" do
+      before do
+        post :notify_supervisor,
+             participant_id: participant.id, locale: locale, id: rand
+      end
+
+      it_behaves_like "a rejected user action"
+    end
+
+    context "for an authenticated nurse" do
+      def stub_task
+        stub_tasks
+        allow(tasks).to receive(:find) { task }
+      end
+
+      context "when the Participant isn't found" do
+        before do
+          sign_in_user nurse
+
+          post :notify_supervisor,
+               participant_id: -1, locale: locale, id: rand
+        end
+
+        it_behaves_like "a bad request"
+      end
+
+      context "when the Task isn't found" do
+        before do
+          sign_in_user nurse
+
+          post :notify_supervisor,
+               participant_id: participant.id, locale: locale, id: -1
+        end
+
+        it_behaves_like "a bad request"
+      end
+
+      it "creates a notification" do
+        authorize_nurse
+        stub_task
+        allow(SupervisorNotification)
+          .to receive_message_chain("new.save") { true }
+
+        post :notify_supervisor,
+             participant_id: participant.id, locale: locale, id: rand
+
+        expect(SupervisorNotification)
+          .to have_received(:new)
+          .with(nurse: nurse,
+                nurse_supervisor: nurse.nurse_supervisor,
+                nurse_task: task)
+      end
+
+      context "when successful" do
+        it "sets the flash notice" do
+          authorize_nurse
+          stub_task
+          allow(SupervisorNotification)
+            .to receive_message_chain("new.save") { true }
+
+          post :notify_supervisor,
+               participant_id: participant.id, locale: locale, id: rand
+
+          expect(flash[:notice]).not_to be_blank
+        end
+
+        it "redirects to the tasks page" do
+          authorize_nurse
+          stub_task
+          allow(SupervisorNotification)
+            .to receive_message_chain("new.save") { true }
+
+          post :notify_supervisor,
+               participant_id: participant.id, locale: locale, id: rand
+
+          expect(response).to redirect_to participant_tasks_url(participant)
+        end
+      end
+
+      context "when unsuccessful" do
+        it "sets the flash alert" do
+          authorize_nurse
+          stub_task
+          allow(SupervisorNotification)
+            .to receive_message_chain("new.save") { false }
+          allow(task).to receive_message_chain("errors.full_messages")
+
+          post :notify_supervisor,
+               participant_id: participant.id, locale: locale, id: rand
+
+          expect(flash[:alert]).not_to be_blank
+        end
+
+        it "redirects to the tasks page" do
+          authorize_nurse
+          stub_task
+          allow(SupervisorNotification)
+            .to receive_message_chain("new.save") { false }
+          allow(task).to receive_message_chain("errors.full_messages")
+
+          post :notify_supervisor,
+               participant_id: participant.id, locale: locale, id: rand
+
+          expect(response).to redirect_to participant_tasks_url(participant)
+        end
+      end
+    end
+  end
 end
