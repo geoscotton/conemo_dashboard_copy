@@ -8,20 +8,6 @@ module Status
                          "success")
                     .freeze
 
-  def prefix
-    return unless locale
-
-    if locale == "en"
-      "+"
-    elsif locale == "pt-BR"
-      "+55"
-    elsif locale == "es-PE"
-      "+51"
-    else
-      "+"
-    end
-  end
-
   # Lesson Status
   def lesson_status(lesson)
     if lesson_released?(lesson)
@@ -33,22 +19,6 @@ module Status
 
   def access_response(lesson)
     content_access_events.find_by lesson_id: lesson.id
-  end
-
-  def current_study_status
-    if start_date
-      if one_lesson_ago && two_lessons_ago
-        two_lessons_passed
-      elsif one_lesson_ago
-        one_lesson_passed
-      elsif content_access_events.any?
-        "stable"
-      else
-        "disabled"
-      end
-    else
-      "none"
-    end
   end
 
   private
@@ -114,25 +84,5 @@ module Status
     return unless one_lesson_ago
 
     one_lesson_ago.content_access_events.where(participant_id: id).any?
-  end
-
-  def two_lessons_passed
-    if  !one_lesson_ago_complete? &&
-        !two_lessons_ago_complete?
-      "danger"
-    elsif !one_lesson_ago_complete? ||
-          !two_lessons_ago_complete?
-      "warning"
-    else
-      "stable"
-    end
-  end
-
-  def one_lesson_passed
-    if one_lesson_ago_complete?
-      "stable"
-    else
-      "warning"
-    end
   end
 end

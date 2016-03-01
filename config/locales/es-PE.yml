@@ -160,7 +160,6 @@ es-PE:
             final_appointment_heading: "Cita final"
           report:
             delete: "¿Está seguro que quiere eliminar esa nota?"
-            overall_status: "Estado general"
             content_accessed: "Acceso a sesión"
             messages: "Mensajes"
             release_day: "Fecha de lanzamiento"

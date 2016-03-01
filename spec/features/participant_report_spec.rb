@@ -12,10 +12,6 @@ RSpec.describe "Participant Report", type: :feature do
     visit "en/active/report/#{participant.id}"
   end
 
-  it "renders the report page" do
-    expect(page).to have_content("Overall Status")
-  end
-
   it "displays lesson modal with correct responses" do
     within '#modal-0' do
       expect(page).to have_content("How old are you?")

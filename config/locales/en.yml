@@ -159,7 +159,6 @@ en:
             final_appointment_heading: Final in person appointment
           report:
             delete: "Are you sure you want to delete this note?"
-            overall_status: "Overall Status"
             content_accessed: "Content accessed"
             messages: "Messages"
             release_day: "Release day"

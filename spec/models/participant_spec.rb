@@ -76,32 +76,6 @@ RSpec.describe Participant do
         accessed_at: Time.zone.now
       )
     end
-
-    describe "#current_study_status" do
-      context "previous and current lesson have been accessed" do
-        it "should return 'stable'" do
-          result = participant_day_5.current_study_status
-          expect(result).to eq "stable"
-        end
-      end
-
-      context "previous lesson has not been accessed" do
-        it "should return 'warning'" do
-          @content_access_event_for_two_lessons_ago.destroy
-          result = participant_day_5.current_study_status
-          expect(result).to eq "warning"
-        end
-      end
-
-      context "previous and current lesson have not been accessed" do
-        it "should return 'danger'" do
-          @content_access_event_for_one_lesson_ago.destroy
-          @content_access_event_for_two_lessons_ago.destroy
-          result = participant_day_5.current_study_status
-          expect(result).to eq "danger"
-        end
-      end
-    end
   end
 
   describe "Lesson Status" do
