@@ -157,7 +157,6 @@ pt-BR:
             final_appointment_heading: "Encontro final"
           report:
             delete: "Tem certeza de que deseja excluir esta anotação?"
-            overall_status: "Status geral"
             content_accessed: "Acesso ao conteúdo"
             messages: "Solicitação de ajuda"
             release_day: "Sessão enviada em"
