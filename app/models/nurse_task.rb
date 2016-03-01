@@ -1,9 +1,7 @@
 # frozen_string_literal: true
-require "ostruct"
-
 # Superclass for scheduled and triggered Nurse Tasks.
 class NurseTask < ActiveRecord::Base
-  STATUSES = OpenStruct.new(active: "active", resolved: "resolved")
+  STATUSES = Struct.new(:active, :resolved).new("active", "resolved")
 
   belongs_to :nurse, foreign_key: :user_id
   belongs_to :participant

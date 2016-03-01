@@ -5,7 +5,10 @@ module Tasks
     OVERDUE_AFTER_DAYS = 2
 
     validates :user_id,
-              uniqueness: { scope: [:participant_id, :type, :status] }
+              uniqueness: {
+                scope: [:participant_id, :type],
+                conditions: -> { where(status: NurseTask::STATUSES.active) }
+              }
 
     def alert?
       true
