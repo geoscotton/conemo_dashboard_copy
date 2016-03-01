@@ -30,8 +30,9 @@ class Ability
   private
 
   def authorize_admin(admin)
-    can :manage, Lesson, locale: admin.locale
     can :manage, BitCore::Slide
+    can :manage, Device
+    can :manage, Lesson, locale: admin.locale
     can :manage, Participant, locale: admin.locale
     can :manage, User, locale: admin.locale
     # Rails Admin specific abilities

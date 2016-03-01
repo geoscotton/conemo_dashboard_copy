@@ -1,0 +1,29 @@
+1:
+  uuid: <%= SecureRandom.uuid %>
+  device_uuid: <%= SecureRandom.uuid %>
+  manufacturer: Samsung
+  model: G123
+  platform: Android
+  device_version: 5.1.1
+  inserted_at: <%= Time.zone.now %>
+  last_seen_at: <%= Time.zone.now %>
+
+2:
+  uuid: <%= SecureRandom.uuid %>
+  device_uuid: <%= SecureRandom.uuid %>
+  manufacturer: Samsung
+  model: G123
+  platform: Android
+  device_version: 5.1.1
+  inserted_at: <%= Time.zone.now %>
+  last_seen_at: <%= Time.zone.now %>
+
+3:
+  uuid: <%= SecureRandom.uuid %>
+  device_uuid: <%= SecureRandom.uuid %>
+  manufacturer: Samsung
+  model: G123
+  platform: Android
+  device_version: 5.1.1
+  inserted_at: <%= Time.zone.now %>
+  last_seen_at: <%= Time.zone.now %>
