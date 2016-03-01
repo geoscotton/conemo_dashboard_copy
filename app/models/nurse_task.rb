@@ -47,7 +47,15 @@ class NurseTask < ActiveRecord::Base
     update status: STATUSES.resolved
   end
 
+  def target
+    raise "implement in subclass"
+  end
+
   private
+
+  def symbolize(klass)
+    klass.to_s.underscore.to_sym
+  end
 
   def set_scheduled_at
     self.scheduled_at ||= Time.zone.now
