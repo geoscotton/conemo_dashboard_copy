@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe "Participant Management", type: :feature do
-  fixtures :users, :participants
+  fixtures :users, :participants, :first_contacts
 
   context "For Nurses" do
     let(:portuguese_active_participant2) { participants(:portuguese_active_participant2) }
