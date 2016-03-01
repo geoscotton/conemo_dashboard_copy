@@ -6,10 +6,10 @@
 <%= @tasks.tasks_count %> <%= "task".pluralize(@tasks.tasks_count) %>, <%= @tasks.overdue_tasks.count %> overdue
 
 <div class="progress">
-  <% @tasks.tasks.each_with_index do |task, i| %>
+  <% @tasks.scheduled_tasks.each_with_index do |task, i| %>
     <%= content_tag("div",
                     class: "progress-bar progress-bar-#{ task.active? ? 'warning' : 'success' }",
-                    style: "width: #{ 100 / @tasks.tasks.count }%; border-right: 1px solid;") do %>
+                    style: "width: #{ 100 / @tasks.scheduled_tasks.count }%; border-right: 1px solid;") do %>
       <span><%= task %></span>
     <% end %>
   <% end %>

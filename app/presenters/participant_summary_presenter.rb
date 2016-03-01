@@ -37,6 +37,10 @@ class ParticipantSummaryPresenter
     active_tasks.select(&:overdue?)
   end
 
+  def scheduled_tasks
+    tasks.reject(&:alert?)
+  end
+
   def latest_notification_at
     SupervisorNotification.where(
       nurse: participant.nurse,
