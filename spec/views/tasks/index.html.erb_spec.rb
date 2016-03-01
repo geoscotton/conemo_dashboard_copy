@@ -5,13 +5,13 @@ require "rails_helper"
 RSpec.describe "tasks/index", type: :view do
   let(:template) { "tasks/index" }
   let(:tasks) do
-    double("Tasks",
-           id: rand,
-           study_identifier: "1234",
-           tasks: [],
-           all_tasks: [],
-           tasks_count: rand,
-           overdue_tasks: [])
+    instance_double(ParticipantSummaryPresenter,
+                    id: rand,
+                    study_identifier: "1234",
+                    tasks: [],
+                    tasks_count: rand,
+                    overdue_tasks: [],
+                    latest_notification_at: Time.zone.now)
   end
 
   it "renders a progress bar with all tasks" do
@@ -67,17 +67,37 @@ RSpec.describe "tasks/index", type: :view do
   end
 
   context "for alert tasks" do
-    it "renders a 'Mark as resolved' button" do
+    def stub_alert_tasks
       task = instance_double(NurseTask,
                              active?: true,
                              scheduled_at: Time.zone.now,
                              alert?: true).as_null_object
       assign(:tasks, tasks)
       allow(tasks).to receive(:tasks) { [task] }
+    end
+
+    it "renders a 'Mark as resolved' button" do
+      stub_alert_tasks
 
       render template: template
 
       expect(rendered).to include "Mark as resolved"
+    end
+
+    it "renders a 'Contact Supervisor' button" do
+      stub_alert_tasks
+
+      render template: template
+
+      expect(rendered).to include "Contact Supervisor"
+    end
+
+    it "renders the timestamp of the last supervisor notification" do
+      stub_alert_tasks
+
+      render template: template
+
+      expect(rendered).to include "last supervisor contact sent "
     end
   end
 end

@@ -37,6 +37,13 @@ class ParticipantSummaryPresenter
     active_tasks.select(&:overdue?)
   end
 
+  def latest_notification_at
+    SupervisorNotification.where(
+      nurse: participant.nurse,
+      nurse_task: tasks
+    ).order(:created_at).last.try(:created_at)
+  end
+
   private
 
   def ordered_tasks(unordered_tasks)
