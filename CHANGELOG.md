@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.6 - 2016-02-29
+
+* patch Rails
+
 ## 0.2.5 - 2016-02-18
 
 * create special branch+tag for field trial dashboard deployment
