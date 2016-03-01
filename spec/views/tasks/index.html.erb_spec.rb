@@ -11,6 +11,7 @@ RSpec.describe "tasks/index", type: :view do
                     tasks: [],
                     tasks_count: rand,
                     overdue_tasks: [],
+                    scheduled_tasks: [],
                     latest_notification_at: Time.zone.now)
   end
 
@@ -19,7 +20,7 @@ RSpec.describe "tasks/index", type: :view do
     completed_task = instance_double(NurseTask,
                                      to_s: "completed task 1",
                                      active?: false)
-    allow(tasks).to receive(:tasks) { [completed_task] }
+    allow(tasks).to receive(:scheduled_tasks) { [completed_task] }
 
     render template: template
 
