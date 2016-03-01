@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.11 - 2016-03-01
+
+* update Clinical Summary link
+* specify when a task was/will be assigned
+* display only scheduled tasks in the progress bar
+* display timestamp of last supervisor notification
+* display overdue task styles and counts correctly
+* do not require web font due to slow loading
+
 ## 0.5.10 - 2016-02-29
 
 * patch Rails
