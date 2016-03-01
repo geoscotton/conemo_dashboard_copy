@@ -53,6 +53,10 @@ RSpec.describe Ability do
     it "cannot manage a Lesson of a different locale" do
       expect(en_admin_role.can?(:manage, pt_lesson)).to eq false
     end
+
+    it "can manage Devices" do
+      expect(en_admin_role.can?(:manage, Device.all)).to eq true
+    end
   end
 
   describe "Nurse Supervisor permissions" do
