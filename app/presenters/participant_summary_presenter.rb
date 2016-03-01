@@ -5,7 +5,6 @@ class ParticipantSummaryPresenter
   attr_reader :participant, :tasks
 
   delegate :id, :study_identifier, to: :participant
-  delegate :count, to: :tasks, prefix: true
 
   CSS_CLASSES = Struct.new(:no_tasks, :overdue_tasks, :current_tasks)
                       .new("success", "danger", "warning")
