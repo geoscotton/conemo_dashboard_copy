@@ -106,4 +106,24 @@ RSpec.describe "tasks/index", type: :view do
       expect(rendered).to include "last supervisor contact sent "
     end
   end
+
+  context "for scheduled tasks" do
+    def stub_scheduled_tasks
+      task = instance_double(NurseTask,
+                             active?: true,
+                             scheduled_at: Time.zone.now,
+                             target: :first_contact,
+                             alert?: false).as_null_object
+      assign(:tasks, tasks)
+      allow(tasks).to receive(:tasks) { [task] }
+    end
+
+    it "renders a 'Confirm' link" do
+      stub_scheduled_tasks
+
+      render template: template
+
+      expect(rendered).to include "Confirm"
+    end
+  end
 end
