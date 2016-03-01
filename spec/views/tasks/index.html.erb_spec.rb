@@ -12,7 +12,7 @@ RSpec.describe "tasks/index", type: :view do
                     active_tasks: [],
                     overdue_tasks: [],
                     scheduled_tasks: [],
-                    latest_notification_at: Time.zone.now)
+                    latest_notification_at: nil)
   end
 
   it "renders a progress bar with all tasks" do
@@ -100,6 +100,7 @@ RSpec.describe "tasks/index", type: :view do
 
     it "renders the timestamp of the last supervisor notification" do
       stub_alert_tasks
+      allow(tasks).to receive(:latest_notification_at) { Time.zone.now }
 
       render template: template
 
