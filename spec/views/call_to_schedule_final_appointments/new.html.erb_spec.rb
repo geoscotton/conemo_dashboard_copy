@@ -17,6 +17,6 @@ RSpec.describe "call_to_schedule_final_appointments/new", type: :view do
 
     render template: template
 
-    expect(rendered).to include "Save"
+    expect(rendered).to include I18n.t("conemo.views.shared.save_button")
   end
 end
