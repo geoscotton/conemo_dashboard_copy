@@ -9,7 +9,7 @@ RSpec.describe "tasks/index", type: :view do
                     id: rand,
                     study_identifier: "1234",
                     tasks: [],
-                    tasks_count: rand,
+                    active_tasks: [],
                     overdue_tasks: [],
                     scheduled_tasks: [],
                     latest_notification_at: Time.zone.now)
@@ -37,7 +37,7 @@ RSpec.describe "tasks/index", type: :view do
 
   it "renders the assigned active task count" do
     assign(:tasks, tasks)
-    allow(tasks).to receive(:tasks_count) { 5 }
+    allow(tasks).to receive(:active_tasks) { %w( 1 2 3 4 5 ) }
 
     render template: template
 
