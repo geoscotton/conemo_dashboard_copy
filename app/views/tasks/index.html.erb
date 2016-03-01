@@ -19,7 +19,7 @@
   <% @tasks.tasks.each do |task| %>
     <% if task.active? %>
       <li class="list-group-item">
-        <h4><%= task %> <small><%= time_ago_in_words task.scheduled_at %></small></h4>
+        <h4><%= task %> <small><%= task.scheduled_at.future? ? "in " : "" %><%= time_ago_in_words task.scheduled_at %><%= task.scheduled_at.past? ? " ago" : "" %></small></h4>
 
         <% if task.alert? %>
           <%= button_to "Mark as resolved",

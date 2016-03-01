@@ -59,12 +59,17 @@ RSpec.describe "tasks/index", type: :view do
                            to_s: "Do fu",
                            scheduled_at: 1.minute.ago,
                            active?: true).as_null_object
+    task2 = instance_double(NurseTask,
+                            to_s: "Do ba",
+                            scheduled_at: 2.hours.from_now,
+                            active?: true).as_null_object
     assign(:tasks, tasks)
-    allow(tasks).to receive(:tasks) { [task] }
+    allow(tasks).to receive(:tasks) { [task, task2] }
 
     render template: template
 
-    expect(rendered).to match(/Do fu .*1 minute/)
+    expect(rendered).to match(/Do fu .*1 minute ago/)
+    expect(rendered).to match(/Do ba .*in about 2 hours/)
   end
 
   context "for alert tasks" do
