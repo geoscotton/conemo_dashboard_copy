@@ -37,7 +37,7 @@
     type: Admin
 <% end %>
 
-<% (400..401).each do |i| %>
+<% (400..400).each do |i| %>
   user_<%= i %>:
     email: user_<%= i %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
