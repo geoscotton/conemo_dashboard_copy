@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.12 - 2016-03-01
+
+* add Confirm links to scheduled tasks
+* remove status circle
+* enable Admins to manage Devices
+* remove sms notifications for participants, nurses
+* display only active tasks in total count
+
 ## 0.5.11 - 2016-03-01
 
 * update Clinical Summary link
