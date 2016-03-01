@@ -19,7 +19,6 @@ class Participant < ActiveRecord::Base
   has_many :participant_start_dates, dependent: :destroy
   has_many :patient_contacts, dependent: :destroy
   has_many :planned_activities, dependent: :destroy
-  has_many :reminder_messages, dependent: :destroy
   has_many :session_events, dependent: :destroy
 
   PENDING ||= "pending"

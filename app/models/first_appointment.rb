@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 # In-Person Participant Appointment record for Participant
 class FirstAppointment < ActiveRecord::Base
-  include MessageScheduler
-
   model_name.instance_variable_set :@route_key, "first_appointment"
   belongs_to :participant
   has_many :patient_contacts

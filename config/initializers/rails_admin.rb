@@ -52,7 +52,6 @@ RailsAdmin.config do |config|
       PatientContact,
       ParticipantStartDate,
       PlannedActivity,
-      ReminderMessage,
       Response,
       SecondContact,
       SessionEvent,
@@ -152,10 +151,6 @@ RailsAdmin.config do |config|
 
     config.model PlannedActivity do
       navigation_label "Transmitted"
-    end
-
-    config.model ReminderMessage do
-      navigation_label "Data"
     end
 
     config.model Response do
