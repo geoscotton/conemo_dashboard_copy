@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.14 - 2016-03-01
+
+* allow one active, multiple resolved alert tasks
+* handle no existing supervisor notifications
+
 ## 0.5.12 - 2016-03-01
 
 * add Confirm links to scheduled tasks
