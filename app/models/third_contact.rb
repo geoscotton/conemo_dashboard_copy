@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 # Represents the third meeting of the Nurse with the Participant.
 class ThirdContact < ActiveRecord::Base
-  include MessageScheduler
-
   model_name.instance_variable_set :@route_key, "third_contact"
 
   belongs_to :participant

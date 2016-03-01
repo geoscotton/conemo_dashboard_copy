@@ -117,14 +117,6 @@ RSpec.describe FirstAppointmentsController, type: :controller do
           }.by(1)
         end
 
-        it "schedules messages" do
-          expect do
-            admin_request :post, :create, locale, participant_id: participant.id,
-                                                  first_appointment: valid_first_appointment_params,
-                                                  locale: locale
-          end.to change { ReminderMessage.count }.by(3)
-        end
-
         it "redirects to new participant smartphone" do
           admin_request :post, :create, locale, participant_id: participant.id,
                                                 first_appointment: valid_first_appointment_params,
@@ -246,14 +238,6 @@ RSpec.describe FirstAppointmentsController, type: :controller do
           end.to change {
             FirstAppointment.find_by(participant_id: participant.id).updated_at
           }
-        end
-
-        it "schedules messages" do
-          expect do
-            admin_request :put, :update, locale, participant_id: participant.id,
-                                                 first_appointment: valid_first_appointment_params,
-                                                 locale: locale
-          end.to change { ReminderMessage.count }.by(3)
         end
 
         it "redirects to participant tasks" do

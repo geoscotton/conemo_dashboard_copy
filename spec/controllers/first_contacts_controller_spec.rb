@@ -69,15 +69,6 @@ RSpec.describe FirstContactsController, type: :controller do
       end
 
       context "when successful" do
-        it "schedules the third_contact reminder messages" do
-          expect do
-            admin_request :post, :create, locale,
-                          participant_id: participant.id,
-                          first_contact: valid_first_contact_params,
-                          locale: locale
-          end.to change { ReminderMessage.count }.by(4)
-        end
-
         it "redirects to the participant tasks" do
           admin_request :post, :create, locale,
                         participant_id: participant.id,
@@ -151,18 +142,6 @@ RSpec.describe FirstContactsController, type: :controller do
         end
 
         it_behaves_like "a bad request"
-      end
-
-      context "when successful" do
-        it "schedules the third_contact message" do
-          participant.create_first_contact(valid_first_contact_params)
-
-          expect do
-            admin_request :put, :update, locale, participant_id: participant.id,
-                                                 first_contact: valid_first_contact_params,
-                                                 locale: locale
-          end.to change { ReminderMessage.count }.by(4)
-        end
       end
 
       context "when unsuccessful" do

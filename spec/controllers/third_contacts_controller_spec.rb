@@ -116,9 +116,7 @@ RSpec.describe ThirdContactsController, type: :controller do
 
       context "when successful" do
         it "redirects to the participant tasks" do
-          contact = instance_double("ThirdContact",
-                                    save: true,
-                                    schedule_message: nil)
+          contact = instance_double("ThirdContact", save: true)
           allow(Participant).to receive(:find) { participant }
 
           expect(participant).to receive(:build_third_contact)
@@ -213,16 +211,6 @@ RSpec.describe ThirdContactsController, type: :controller do
       end
 
       context "when successful" do
-        it "schedules final reminder messages" do
-          participant.create_third_contact(valid_third_contact_params)
-
-          expect do
-            admin_request :put, :update, locale, participant_id: participant.id,
-                                                 third_contact: valid_third_contact_params,
-                                                 locale: locale
-          end.to change { ReminderMessage.count }.by(4)
-        end
-
         it "redirects to participant tasks" do
           participant.create_third_contact(valid_third_contact_params)
 

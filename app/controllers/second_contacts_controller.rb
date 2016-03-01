@@ -12,7 +12,6 @@ class SecondContactsController < ApplicationController
   def create
     @second_contact = participant.build_second_contact(second_contact_params)
     if @second_contact.save
-      @second_contact.schedule_message(participant, "third_contact")
       redirect_to participant_tasks_url(participant)
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
@@ -31,7 +30,6 @@ class SecondContactsController < ApplicationController
   def update
     @second_contact = participant.second_contact
     if @second_contact.update(second_contact_params)
-      @second_contact.schedule_message(participant, "third_contact")
       redirect_to participant_tasks_url(participant)
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")

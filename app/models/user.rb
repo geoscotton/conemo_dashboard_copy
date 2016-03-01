@@ -14,8 +14,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable,
          :validatable
 
-  has_many :reminder_messages, foreign_key: :nurse_id, dependent: :destroy
-
   validates :email, :phone, :first_name, :last_name, :locale, presence: true
   validates :role, inclusion: { in: ROLES.values }
   validates :timezone, inclusion: { in: ActiveSupport::TimeZone::MAPPING.keys }

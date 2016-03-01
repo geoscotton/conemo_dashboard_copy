@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 # Information gathered by phone after First Appointment
 class SecondContact < ActiveRecord::Base
-  include MessageScheduler
-
   model_name.instance_variable_set :@route_key, "second_contact"
 
   belongs_to :participant

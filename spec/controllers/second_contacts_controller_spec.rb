@@ -79,15 +79,6 @@ RSpec.describe SecondContactsController, type: :controller do
       end
 
       context "when successful" do
-        it "schedules the third_contact reminder messages" do
-          expect do
-            admin_request :post, :create, locale,
-                          participant_id: participant.id,
-                          second_contact: valid_second_contact_params,
-                          locale: locale
-          end.to change { ReminderMessage.count }.by(3)
-        end
-
         it "redirects to the participant tasks page" do
           admin_request :post, :create, locale,
                         participant_id: participant.id, locale: locale,
@@ -172,18 +163,6 @@ RSpec.describe SecondContactsController, type: :controller do
         end
 
         it_behaves_like "a bad request"
-      end
-
-      context "when successful" do
-        it "schedules the third_contact message" do
-          participant.create_second_contact(valid_second_contact_params)
-
-          expect do
-            admin_request :put, :update, locale,
-                          participant_id: participant.id, locale: locale,
-                          second_contact: valid_second_contact_params
-          end.to change { ReminderMessage.count }.by(3)
-        end
       end
 
       context "when unsuccessful" do

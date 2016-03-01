@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require "simplecov"
-SimpleCov.minimum_coverage 95
+SimpleCov.minimum_coverage 96
 SimpleCov.start "rails"
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'

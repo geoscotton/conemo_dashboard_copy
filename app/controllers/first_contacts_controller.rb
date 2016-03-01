@@ -10,8 +10,6 @@ class FirstContactsController < ApplicationController
   def create
     @first_contact = participant.build_first_contact(first_contact_params)
     if @first_contact.save
-      @first_contact.schedule_message(participant,
-                                      "appointment")
       redirect_to participant_tasks_url(participant),
                   notice: "Successfully created first contact"
     else
@@ -32,7 +30,6 @@ class FirstContactsController < ApplicationController
   def update
     @first_contact = participant.first_contact
     if @first_contact.update(first_contact_params)
-      @first_contact.schedule_message(participant, "appointment")
       redirect_to participant_tasks_url(participant),
                   notice: "Successfully updated first_contact"
     else
