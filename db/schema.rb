@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301180238) do
+ActiveRecord::Schema.define(version: 20160302164402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,15 +27,6 @@ ActiveRecord::Schema.define(version: 20160301180238) do
 
   add_index "additional_contacts", ["nurse_id"], name: "index_additional_contacts_on_nurse_id", using: :btree
   add_index "additional_contacts", ["participant_id"], name: "index_additional_contacts_on_participant_id", using: :btree
-
-  create_table "app_logins", force: :cascade do |t|
-    t.datetime "occurred_at"
-    t.integer  "participant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "app_logins", ["participant_id"], name: "index_app_logins_on_participant_id", using: :btree
 
   create_table "bit_core_content_modules", force: :cascade do |t|
     t.string   "title",                        null: false
@@ -108,23 +99,27 @@ ActiveRecord::Schema.define(version: 20160301180238) do
     t.string   "lesson_datum_guid"
     t.string   "dialogue_datum_guid"
     t.string   "uuid",                      null: false
+    t.datetime "client_created_at"
+    t.datetime "client_updated_at"
   end
 
   add_index "content_access_events", ["lesson_id"], name: "index_content_access_events_on_lesson_id", using: :btree
   add_index "content_access_events", ["participant_id"], name: "index_content_access_events_on_participant_id", using: :btree
 
   create_table "devices", force: :cascade do |t|
-    t.string   "uuid",           null: false
-    t.string   "device_uuid",    null: false
-    t.string   "manufacturer",   null: false
-    t.string   "model",          null: false
-    t.string   "platform",       null: false
-    t.string   "device_version", null: false
-    t.datetime "inserted_at",    null: false
+    t.string   "uuid",              null: false
+    t.string   "device_uuid",       null: false
+    t.string   "manufacturer",      null: false
+    t.string   "model",             null: false
+    t.string   "platform",          null: false
+    t.string   "device_version",    null: false
+    t.datetime "inserted_at",       null: false
     t.integer  "participant_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.datetime "last_seen_at",   null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.datetime "last_seen_at",      null: false
+    t.datetime "client_created_at"
+    t.datetime "client_updated_at"
   end
 
   add_index "devices", ["device_uuid"], name: "index_devices_on_device_uuid", unique: true, using: :btree
@@ -177,6 +172,8 @@ ActiveRecord::Schema.define(version: 20160301180238) do
     t.datetime "updated_at"
     t.datetime "sent_at",                            null: false
     t.string   "uuid",                               null: false
+    t.datetime "client_created_at"
+    t.datetime "client_updated_at"
   end
 
   add_index "help_messages", ["participant_id"], name: "index_help_messages_on_participant_id", using: :btree
@@ -195,13 +192,15 @@ ActiveRecord::Schema.define(version: 20160301180238) do
   add_index "lessons", ["bit_core_slideshow_id"], name: "index_lessons_on_bit_core_slideshow_id", using: :btree
 
   create_table "logins", force: :cascade do |t|
-    t.integer  "participant_id", null: false
-    t.datetime "logged_in_at",   null: false
+    t.integer  "participant_id",    null: false
+    t.datetime "logged_in_at",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "app_login_guid"
-    t.string   "uuid",           null: false
+    t.string   "uuid",              null: false
     t.string   "app_version"
+    t.datetime "client_created_at"
+    t.datetime "client_updated_at"
   end
 
   add_index "logins", ["participant_id"], name: "index_logins_on_participant_id", using: :btree
@@ -234,11 +233,13 @@ ActiveRecord::Schema.define(version: 20160301180238) do
   add_index "nurse_tasks", ["user_id"], name: "index_nurse_tasks_on_user_id", using: :btree
 
   create_table "participant_start_dates", force: :cascade do |t|
-    t.date     "date",           null: false
-    t.string   "uuid",           null: false
+    t.date     "date",              null: false
+    t.string   "uuid",              null: false
     t.integer  "participant_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.datetime "client_created_at"
+    t.datetime "client_updated_at"
   end
 
   add_index "participant_start_dates", ["participant_id"], name: "index_participant_start_dates_on_participant_id", unique: true, using: :btree
@@ -300,6 +301,8 @@ ActiveRecord::Schema.define(version: 20160301180238) do
     t.string   "lesson_guid",        null: false
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.datetime "client_created_at"
+    t.datetime "client_updated_at"
   end
 
   create_table "responses", force: :cascade do |t|
@@ -337,13 +340,15 @@ ActiveRecord::Schema.define(version: 20160301180238) do
   add_index "second_contacts", ["participant_id"], name: "index_second_contacts_on_participant_id", using: :btree
 
   create_table "session_events", force: :cascade do |t|
-    t.integer  "participant_id", null: false
-    t.string   "event_type",     null: false
-    t.datetime "occurred_at",    null: false
-    t.integer  "lesson_id",      null: false
+    t.integer  "participant_id",    null: false
+    t.string   "event_type",        null: false
+    t.datetime "occurred_at",       null: false
+    t.integer  "lesson_id",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "uuid",           null: false
+    t.string   "uuid",              null: false
+    t.datetime "client_created_at"
+    t.datetime "client_updated_at"
   end
 
   add_index "session_events", ["lesson_id"], name: "index_session_events_on_lesson_id", using: :btree
