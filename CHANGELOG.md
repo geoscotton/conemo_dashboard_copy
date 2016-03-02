@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.15 - 2016-03-02
+
+* add client timestamp columns
+
 ## 0.5.14 - 2016-03-01
 
 * allow one active, multiple resolved alert tasks
