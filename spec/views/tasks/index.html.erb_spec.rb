@@ -126,5 +126,13 @@ RSpec.describe "tasks/index", type: :view do
 
       expect(rendered).to include "Confirm"
     end
+
+    it "renders a 'Cancel' link" do
+      stub_scheduled_tasks
+
+      render template: template
+
+      expect(rendered).to include "Cancel"
+    end
   end
 end
