@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       resources :help_messages, only: [:update]
       resources :tasks, only: :index do
         member do
+          put :cancel
           put :resolve
           post :notify_supervisor
         end

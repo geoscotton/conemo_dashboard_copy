@@ -9,6 +9,19 @@ class TasksController < ApplicationController
     authorize! :update, tasks
   end
 
+  def cancel
+    task = NurseTask.for_nurse_and_participant(current_user, find_participant)
+                    .find(params[:id])
+
+    if task.cancel
+      flash[:notice] = "Task successfully cancelled"
+    else
+      flash[:alert] = "Error cancelling task: #{task.errors.full_messages}"
+    end
+
+    redirect_to participant_tasks_url(find_participant)
+  end
+
   def resolve
     task = NurseTask.for_nurse_and_participant(current_user, find_participant)
                     .find(params[:id])

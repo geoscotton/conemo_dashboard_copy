@@ -36,6 +36,9 @@
             <%= link_to "Confirm",
                 new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
                 { class: "btn btn-link" } %>
+            <%= button_to "Cancel",
+                          cancel_participant_task_path(participant_id: @tasks.id, id: task.id),
+                          { method: :put, class: "btn btn-default" } %>
           <% end %>
         </div>
       </li>

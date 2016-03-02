@@ -58,6 +58,87 @@ RSpec.describe TasksController, type: :controller do
     end
   end
 
+  describe "PUT cancel" do
+    context "for an unauthenticated request" do
+      before do
+        put :cancel, participant_id: participant.id, locale: locale, id: rand
+      end
+
+      it_behaves_like "a rejected user action"
+    end
+
+    context "for an authenticated nurse" do
+      def stub_task
+        stub_tasks
+        allow(tasks).to receive(:find) { task }
+      end
+
+      context "when the Participant isn't found" do
+        before do
+          sign_in_user nurse
+
+          put :cancel, participant_id: -1, locale: locale, id: rand
+        end
+
+        it_behaves_like "a bad request"
+      end
+
+      context "when the Task isn't found" do
+        before do
+          sign_in_user nurse
+
+          put :cancel, participant_id: participant.id, locale: locale, id: -1
+        end
+
+        it_behaves_like "a bad request"
+      end
+
+      it "updates the task's status" do
+        authorize_nurse
+        stub_task
+
+        put :cancel, participant_id: participant.id, locale: locale, id: rand
+
+        expect(task).to have_received(:cancel)
+      end
+
+      context "when successful" do
+        it "sets the flash notice" do
+          authorize_nurse
+          stub_task
+          allow(task).to receive(:cancel) { true }
+
+          put :cancel, participant_id: participant.id, locale: locale, id: rand
+
+          expect(flash[:notice]).not_to be_blank
+        end
+      end
+
+      context "when unsuccessful" do
+        it "sets the flash alert" do
+          authorize_nurse
+          stub_task
+          allow(task).to receive(:cancel) { false }
+          allow(task).to receive_message_chain("errors.full_messages")
+
+          put :cancel, participant_id: participant.id, locale: locale, id: rand
+
+          expect(flash[:alert]).not_to be_blank
+        end
+      end
+
+      it "redirects to the tasks page" do
+        authorize_nurse
+        stub_tasks
+        allow(tasks).to receive(:find) { task }
+
+        put :cancel, participant_id: participant.id, locale: locale, id: rand
+
+        expect(response).to redirect_to participant_tasks_url(participant)
+      end
+    end
+  end
+
   describe "PUT resolve" do
     context "for an unauthenticated request" do
       before do
@@ -155,6 +236,11 @@ RSpec.describe TasksController, type: :controller do
         allow(tasks).to receive(:find) { task }
       end
 
+      def stub_notification(saves)
+        allow(SupervisorNotification)
+          .to receive_message_chain("new.save") { saves }
+      end
+
       context "when the Participant isn't found" do
         before do
           sign_in_user nurse
@@ -180,8 +266,7 @@ RSpec.describe TasksController, type: :controller do
       it "creates a notification" do
         authorize_nurse
         stub_task
-        allow(SupervisorNotification)
-          .to receive_message_chain("new.save") { true }
+        stub_notification true
 
         post :notify_supervisor,
              participant_id: participant.id, locale: locale, id: rand
@@ -197,8 +282,7 @@ RSpec.describe TasksController, type: :controller do
         it "sets the flash notice" do
           authorize_nurse
           stub_task
-          allow(SupervisorNotification)
-            .to receive_message_chain("new.save") { true }
+          stub_notification true
 
           post :notify_supervisor,
                participant_id: participant.id, locale: locale, id: rand
@@ -209,8 +293,7 @@ RSpec.describe TasksController, type: :controller do
         it "redirects to the tasks page" do
           authorize_nurse
           stub_task
-          allow(SupervisorNotification)
-            .to receive_message_chain("new.save") { true }
+          stub_notification true
 
           post :notify_supervisor,
                participant_id: participant.id, locale: locale, id: rand
@@ -223,8 +306,7 @@ RSpec.describe TasksController, type: :controller do
         it "sets the flash alert" do
           authorize_nurse
           stub_task
-          allow(SupervisorNotification)
-            .to receive_message_chain("new.save") { false }
+          stub_notification false
           allow(task).to receive_message_chain("errors.full_messages")
 
           post :notify_supervisor,
@@ -236,8 +318,7 @@ RSpec.describe TasksController, type: :controller do
         it "redirects to the tasks page" do
           authorize_nurse
           stub_task
-          allow(SupervisorNotification)
-            .to receive_message_chain("new.save") { false }
+          stub_notification false
           allow(task).to receive_message_chain("errors.full_messages")
 
           post :notify_supervisor,
