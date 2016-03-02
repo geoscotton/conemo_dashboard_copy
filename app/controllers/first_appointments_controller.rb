@@ -13,12 +13,12 @@ class FirstAppointmentsController < ApplicationController
   end
 
   def new
-    @first_appointment = participant.build_first_appointment
+    @first_appointment = find_participant.build_first_appointment
   end
 
   def create
     @first_appointment =
-      participant.build_first_appointment(self.class.filter_params(params))
+      find_participant.build_first_appointment(self.class.filter_params(params))
     if @first_appointment.save
       redirect_to new_participant_smartphone_path,
                   notice: "Successfully created first appointment"
@@ -29,18 +29,18 @@ class FirstAppointmentsController < ApplicationController
   end
 
   def edit
-    @first_appointment = participant.first_appointment
+    @first_appointment = find_participant.first_appointment
   end
 
   def missed_second_contact
-    @first_appointment = participant.first_appointment
+    @first_appointment = find_participant.first_appointment
     @patient_contact = @first_appointment.patient_contacts.build
   end
 
   def update
-    @first_appointment = participant.first_appointment
+    @first_appointment = find_participant.first_appointment
     if @first_appointment.update(self.class.filter_params(params))
-      redirect_to participant_tasks_url(participant),
+      redirect_to participant_tasks_url(find_participant),
                   notice: "Successfully updated first_appointment"
     else
       flash[:alert] = @first_appointment.errors.full_messages.join(", ")
@@ -50,11 +50,9 @@ class FirstAppointmentsController < ApplicationController
 
   private
 
-  def participant
-    Participant.find(params[:participant_id])
+  def find_participant
+    @participant ||= Participant.find(params[:participant_id])
   end
-
-  helper_method :participant
 
   def record_not_found
     redirect_to nurse_dashboard_url(current_user),

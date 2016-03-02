@@ -1,8 +1,8 @@
-<%= form_for @third_contact, url: participant_third_contact_path(participant), method: @third_contact.valid? ? :patch : :post, html: {role: "form", class: "form-horizontal"} do |f| %>
+<%= form_for @third_contact, url: participant_third_contact_path(@participant), method: @third_contact.valid? ? :patch : :post, html: {role: "form", class: "form-horizontal"} do |f| %>
     <div class="form-group">
       <%= f.label :contact_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :contact_at, {required: true, default: participant.third_contact ? third_contact.contact_at : (participant.second_contact.next_contact)}, {class: "date-select"} %>
+        <%= f.datetime_select :contact_at, {required: true, default: @participant.third_contact ? @third_contact.contact_at : (@participant.second_contact.next_contact)}, {class: "date-select"} %>
         <br>
         <small><%= Time.zone %></small>
       </div>
@@ -16,7 +16,7 @@
     <div class="form-group">
       <%= f.label :call_to_schedule_final_appointment_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :call_to_schedule_final_appointment_at, {default: participant.third_contact ? third_contact.final_appointment_at : DateTime.current + 2.weeks, required: true}, {class: "date-select"} %>
+        <%= f.datetime_select :call_to_schedule_final_appointment_at, {default: DateTime.current + 2.weeks, required: true}, {class: "date-select"} %>
         <br>
         <small><%= Time.zone %></small>
       </div>
@@ -111,7 +111,7 @@
     <div class="form-group">
       <div class="col-md-offset-4 col-md-7">
         <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-        <%= link_to t("conemo.views.shared.cancel_button"), active_participants_path, class: "btn btn-default" %>
+        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
       </div>
     </div>
 <% end %>

@@ -4,15 +4,16 @@ class SecondContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def new
-    @second_contact = participant.build_second_contact
+    @second_contact = find_participant.build_second_contact
     @nurse_participant_evaluation =
       @second_contact.build_nurse_participant_evaluation
   end
 
   def create
-    @second_contact = participant.build_second_contact(second_contact_params)
+    @second_contact = find_participant
+                      .build_second_contact(second_contact_params)
     if @second_contact.save
-      redirect_to participant_tasks_url(participant)
+      redirect_to participant_tasks_url(find_participant)
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
       render :new
@@ -20,7 +21,7 @@ class SecondContactsController < ApplicationController
   end
 
   def edit
-    @second_contact = participant.second_contact
+    @second_contact = find_participant.second_contact
     @nurse_participant_evaluation =
       NurseParticipantEvaluation.find_or_initialize_by(
         second_contact: @second_contact
@@ -28,9 +29,9 @@ class SecondContactsController < ApplicationController
   end
 
   def update
-    @second_contact = participant.second_contact
+    @second_contact = find_participant.second_contact
     if @second_contact.update(second_contact_params)
-      redirect_to participant_tasks_url(participant)
+      redirect_to participant_tasks_url(find_participant)
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
       render :edit
@@ -38,7 +39,7 @@ class SecondContactsController < ApplicationController
   end
 
   def missed_third_contact
-    @second_contact = participant.second_contact
+    @second_contact = find_participant.second_contact
     @patient_contact = @second_contact.patient_contacts.build
   end
 
@@ -56,11 +57,9 @@ class SecondContactsController < ApplicationController
     )
   end
 
-  def participant
-    Participant.find(params[:participant_id])
+  def find_participant
+    @participant ||= Participant.find(params[:participant_id])
   end
-
-  helper_method :participant
 
   def record_not_found
     redirect_to nurse_dashboard_url(current_user),

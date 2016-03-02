@@ -1,8 +1,8 @@
-<%= form_for @second_contact, url: participant_second_contact_path(participant), method: @second_contact.valid? ? :patch : :post, html: {role: "form", class: "form-horizontal"} do |f| %>
+<%= form_for @second_contact, url: participant_second_contact_path(@participant), method: @second_contact.valid? ? :patch : :post, html: {role: "form", class: "form-horizontal"} do |f| %>
     <div class="form-group">
       <%= f.label :contact_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :contact_at, {required: true, default: participant.second_contact ? second_contact.contact_at : participant.first_appointment.next_contact}, {class: "date-select"}  %>
+        <%= f.datetime_select :contact_at, {required: true, default: @participant.second_contact ? second_contact.contact_at : @participant.first_appointment.next_contact}, {class: "date-select"}  %>
         <br>
         <small><%= Time.zone %></small>
       </div>
@@ -10,7 +10,7 @@
     <div class="form-group">
       <%= f.label :next_contact, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :next_contact, {default: participant.second_contact ? second_contact.next_contact : participant.first_appointment.next_contact + 3.weeks, required: true}, {class: "date-select"} %>
+        <%= f.datetime_select :next_contact, {default: @participant.second_contact ? second_contact.next_contact : @participant.first_appointment.next_contact + 3.weeks, required: true}, {class: "date-select"} %>
         <br>
         <small><%= Time.zone %></small>
       </div>
@@ -145,7 +145,7 @@
     <div class="form-group">
       <div class="col-md-offset-4 col-md-7">
         <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-        <%= link_to t("conemo.views.shared.cancel_button"), active_participants_path, class: "btn btn-default" %>
+        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
       </div>
     </div>
 <% end %>
