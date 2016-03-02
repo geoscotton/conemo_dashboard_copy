@@ -35,7 +35,7 @@
     uuid: <%= SecureRandom.uuid %>
 <% end %>
 
-<% ['313', '317', '412', '326', '422',
+<% ['402', '317', '412', '326', '422',
     '432', '442', '452', '462', '472'].zip(1..10) do |x, y| %>
   content_access_event_<%= x %>:
     participant: participant<%= x %>
