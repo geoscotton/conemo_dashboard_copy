@@ -4,21 +4,17 @@ class PatientContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def new
-    @patient_contact = participant.patient_contacts.build
+    @patient_contact = find_participant.patient_contacts.build
   end
 
   def create
-    @patient_contact = participant.patient_contacts.build(
+    @patient_contact = find_participant.patient_contacts.build(
       patient_contact_params
     )
 
     if @patient_contact.save
-      if @patient_contact.participant.start_date
-        redirect_to active_report_path(participant),
-                    notice: "Successfully created patient contact"
-      else
-        redirect_to participant_tasks_url(participant)
-      end
+      redirect_to active_report_path(find_participant),
+                  notice: "Successfully created patient contact"
     else
       flash[:alert] = @patient_contact.errors.full_messages.join(", ")
       render :new
@@ -29,13 +25,10 @@ class PatientContactsController < ApplicationController
     @patient_contact = PatientContact.find(params[:id])
 
     if @patient_contact.destroy
-      if @patient_contact.participant.start_date
-        redirect_to active_report_path(participant)
-      else
-        redirect_to participant_tasks_url(participant)
-      end
+      redirect_to active_report_path(find_participant),
+                  notice: "Successfully destroyed patient contact"
     else
-      redirect_to participant_tasks_url(participant),
+      redirect_to participant_tasks_url(find_participant),
                   alert: "There were errors."
     end
   end
@@ -49,11 +42,9 @@ class PatientContactsController < ApplicationController
     )
   end
 
-  def participant
-    Participant.find(params[:participant_id])
+  def find_participant
+    @participant ||= Participant.find(params[:participant_id])
   end
-
-  helper_method :participant
 
   def record_not_found
     redirect_to nurse_dashboard_url(current_user),
