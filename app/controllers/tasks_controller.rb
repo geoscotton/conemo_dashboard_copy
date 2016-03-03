@@ -48,7 +48,8 @@ class TasksController < ApplicationController
       flash[:notice] = "a notification has been sent for your supervisor " \
                        "to review this issue"
     else
-      flash[:alert] = "Error notifying supervisor"
+      errors = notification.errors.full_messages.join(", ")
+      flash[:alert] = "Error notifying supervisor: #{errors}"
     end
 
     redirect_to participant_tasks_url(find_participant)
