@@ -231,14 +231,16 @@ RSpec.describe TasksController, type: :controller do
     end
 
     context "for an authenticated nurse" do
+      let(:notification) { instance_double(SupervisorNotification) }
+
       def stub_task
         stub_tasks
         allow(tasks).to receive(:find) { task }
       end
 
-      def stub_notification(saves)
-        allow(SupervisorNotification)
-          .to receive_message_chain("new.save") { saves }
+      def stub_notification(does_save)
+        allow(SupervisorNotification).to receive(:new) { notification }
+        allow(notification).to receive(:save) { does_save }
       end
 
       context "when the Participant isn't found" do
@@ -307,7 +309,9 @@ RSpec.describe TasksController, type: :controller do
           authorize_nurse
           stub_task
           stub_notification false
-          allow(task).to receive_message_chain("errors.full_messages")
+          allow(notification)
+            .to receive_message_chain("errors.full_messages")
+            .and_return([])
 
           post :notify_supervisor,
                participant_id: participant.id, locale: locale, id: rand
@@ -319,7 +323,9 @@ RSpec.describe TasksController, type: :controller do
           authorize_nurse
           stub_task
           stub_notification false
-          allow(task).to receive_message_chain("errors.full_messages")
+          allow(notification)
+            .to receive_message_chain("errors.full_messages")
+            .and_return([])
 
           post :notify_supervisor,
                participant_id: participant.id, locale: locale, id: rand

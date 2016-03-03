@@ -29,8 +29,8 @@
             <%= button_to "Contact Supervisor",
                           notify_supervisor_participant_task_path(participant_id: @tasks.id, id: task.id),
                           { class: "btn btn-default", data: { confirm: "are you sure you want to notify the supervisor that you need help?" } } %>
-            <% if @tasks.latest_notification_at %>
-              <p>last supervisor contact sent <%= l @tasks.latest_notification_at, format: :long %></p>
+            <% if @tasks.latest_notification_at(task) %>
+              <p>last supervisor contact sent <%= l @tasks.latest_notification_at(task), format: :long %></p>
             <% end %>
           <% else %>
             <%= link_to "Confirm",
