@@ -493,6 +493,11 @@ pt-BR:
         kinds:
           - presencial
           - por telefone
+      first_contact:
+        locations:
+          - Casa do paciente
+          - Unidade de saúde
+          - Outro lugar
     models:
       additional_contact: Additional contact
     attributes:

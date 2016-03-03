@@ -6,6 +6,7 @@ RSpec.describe "participants/new", type: :view do
   let(:participant) { Participant.new }
 
   it "renders the heading" do
+    I18n.locale = "en"
     assign(:participant, participant)
 
     render template: template

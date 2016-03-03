@@ -23,8 +23,7 @@ RSpec.describe "Participant Management", type: :feature do
 
         expect(page).to have_text "Confirmation call"
 
-        fill_in "Initial in person appointment location",
-                with: "location string for first appointment"
+        select "Health unit", from: "Initial in person appointment location"
         click_on "Save"
 
         expect(page).to have_text "Successfully created first contact"
