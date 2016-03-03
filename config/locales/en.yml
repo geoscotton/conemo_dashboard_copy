@@ -281,6 +281,11 @@ en:
         kinds:
           - in person
           - phone call
+      first_contact:
+        locations:
+          - "Patient's home"
+          - Health unit
+          - Other location
     models:
       additional_contact: Additional contact
     attributes:
