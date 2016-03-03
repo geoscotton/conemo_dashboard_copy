@@ -4,13 +4,13 @@ class FirstContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def new
-    @first_contact = participant.build_first_contact
+    @first_contact = find_participant.build_first_contact
   end
 
   def create
-    @first_contact = participant.build_first_contact(first_contact_params)
+    @first_contact = find_participant.build_first_contact(first_contact_params)
     if @first_contact.save
-      redirect_to participant_tasks_url(participant),
+      redirect_to participant_tasks_url(find_participant),
                   notice: "Successfully created first contact"
     else
       flash[:alert] = @first_contact.errors.full_messages.join(", ")
@@ -19,18 +19,18 @@ class FirstContactsController < ApplicationController
   end
 
   def edit
-    @first_contact = participant.first_contact
+    @first_contact = find_participant.first_contact
   end
 
   def missed_appointment
-    @first_contact = participant.first_contact
+    @first_contact = find_participant.first_contact
     @patient_contact = @first_contact.patient_contacts.build
   end
 
   def update
-    @first_contact = participant.first_contact
+    @first_contact = find_participant.first_contact
     if @first_contact.update(first_contact_params)
-      redirect_to participant_tasks_url(participant),
+      redirect_to participant_tasks_url(find_participant),
                   notice: "Successfully updated first_contact"
     else
       flash[:alert] = @first_contact.errors.full_messages.join(", ")
@@ -50,11 +50,9 @@ class FirstContactsController < ApplicationController
     )
   end
 
-  def participant
-    Participant.find(params[:participant_id])
+  def find_participant
+    @participant ||= Participant.find(params[:participant_id])
   end
-
-  helper_method :participant
 
   def record_not_found
     redirect_to nurse_dashboard_url(current_user),

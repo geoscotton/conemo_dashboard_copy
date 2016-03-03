@@ -14,15 +14,15 @@ class ThirdContactsController < ApplicationController
   end
 
   def new
-    @third_contact = participant.build_third_contact
+    @third_contact = find_participant.build_third_contact
     @nurse_participant_evaluation =
       @third_contact.build_nurse_participant_evaluation
   end
 
   def create
-    @third_contact = participant.build_third_contact(third_contact_params)
+    @third_contact = find_participant.build_third_contact(third_contact_params)
     if @third_contact.save
-      redirect_to participant_tasks_url(participant)
+      redirect_to participant_tasks_url(find_participant)
     else
       flash[:alert] = @third_contact.errors.full_messages.join(", ")
       render :new
@@ -30,16 +30,16 @@ class ThirdContactsController < ApplicationController
   end
 
   def edit
-    @third_contact = participant.third_contact
+    @third_contact = find_participant.third_contact
     @nurse_participant_evaluation = NurseParticipantEvaluation.where(
       third_contact_id: @third_contact.id
     ).first_or_initialize
   end
 
   def update
-    @third_contact = participant.third_contact
+    @third_contact = find_participant.third_contact
     if @third_contact.update(third_contact_params)
-      redirect_to participant_tasks_url(participant)
+      redirect_to participant_tasks_url(find_participant)
     else
       flash[:alert] = @third_contact.errors.full_messages.join(", ")
       render :edit
@@ -47,7 +47,7 @@ class ThirdContactsController < ApplicationController
   end
 
   def missed_final_appointment
-    @third_contact = participant.third_contact
+    @third_contact = find_participant.third_contact
     @patient_contact = @third_contact.patient_contacts.build
   end
 
@@ -57,11 +57,9 @@ class ThirdContactsController < ApplicationController
     self.class.filter_params params
   end
 
-  def participant
-    Participant.find(params[:participant_id])
+  def find_participant
+    @participant ||= Participant.find(params[:participant_id])
   end
-
-  helper_method :participant
 
   def record_not_found
     redirect_to nurse_dashboard_url(current_user),
