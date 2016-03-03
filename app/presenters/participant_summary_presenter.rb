@@ -40,11 +40,8 @@ class ParticipantSummaryPresenter
     tasks.reject(&:alert?)
   end
 
-  def latest_notification_at(task)
-    SupervisorNotification.where(
-      nurse: participant.nurse,
-      nurse_task: task
-    ).order(:created_at).last.try(:created_at)
+  def latest_notification(task)
+    SupervisorNotification.latest_for task
   end
 
   private

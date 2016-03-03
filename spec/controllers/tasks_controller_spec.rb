@@ -335,4 +335,116 @@ RSpec.describe TasksController, type: :controller do
       end
     end
   end
+
+  describe "DELETE clear_latest_supervisor_notification" do
+    context "for an unauthenticated request" do
+      before do
+        delete :clear_latest_supervisor_notification,
+               participant_id: participant.id, locale: locale, id: rand
+      end
+
+      it_behaves_like "a rejected user action"
+    end
+
+    context "for an authenticated nurse" do
+      let(:notification) { instance_double(SupervisorNotification) }
+
+      def stub_task
+        stub_tasks
+        allow(tasks).to receive(:find) { task }
+      end
+
+      def stub_notification(does_destroy)
+        allow(SupervisorNotification).to receive(:latest_for) { notification }
+        allow(notification).to receive(:destroy) { does_destroy }
+      end
+
+      context "when the Participant isn't found" do
+        before do
+          sign_in_user nurse
+
+          delete :clear_latest_supervisor_notification,
+                 participant_id: -1, locale: locale, id: rand
+        end
+
+        it_behaves_like "a bad request"
+      end
+
+      context "when the Task isn't found" do
+        before do
+          sign_in_user nurse
+
+          delete :clear_latest_supervisor_notification,
+                 participant_id: participant.id, locale: locale, id: -1
+        end
+
+        it_behaves_like "a bad request"
+      end
+
+      it "destroys a notification" do
+        authorize_nurse
+        stub_task
+        stub_notification true
+
+        delete :clear_latest_supervisor_notification,
+               participant_id: participant.id, locale: locale, id: rand
+
+        expect(notification).to have_received(:destroy)
+      end
+
+      context "when successful" do
+        it "sets the flash notice" do
+          authorize_nurse
+          stub_task
+          stub_notification true
+
+          delete :clear_latest_supervisor_notification,
+                 participant_id: participant.id, locale: locale, id: rand
+
+          expect(flash[:notice]).not_to be_blank
+        end
+
+        it "redirects to the tasks page" do
+          authorize_nurse
+          stub_task
+          stub_notification true
+
+          delete :clear_latest_supervisor_notification,
+                 participant_id: participant.id, locale: locale, id: rand
+
+          expect(response).to redirect_to participant_tasks_url(participant)
+        end
+      end
+
+      context "when unsuccessful" do
+        it "sets the flash alert" do
+          authorize_nurse
+          stub_task
+          stub_notification false
+          allow(notification)
+            .to receive_message_chain("errors.full_messages")
+            .and_return([])
+
+          delete :clear_latest_supervisor_notification,
+                 participant_id: participant.id, locale: locale, id: rand
+
+          expect(flash[:alert]).not_to be_blank
+        end
+
+        it "redirects to the tasks page" do
+          authorize_nurse
+          stub_task
+          stub_notification false
+          allow(notification)
+            .to receive_message_chain("errors.full_messages")
+            .and_return([])
+
+          delete :clear_latest_supervisor_notification,
+                 participant_id: participant.id, locale: locale, id: rand
+
+          expect(response).to redirect_to participant_tasks_url(participant)
+        end
+      end
+    end
+  end
 end
