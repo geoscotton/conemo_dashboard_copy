@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.16 - 2016-03-03
+
+* enable clearing of supervisor notifications
+* display timestamp of last specific notification
+* allow nurses to cancel scheduled tasks
+
 ## 0.5.15 - 2016-03-02
 
 * add client timestamp columns
