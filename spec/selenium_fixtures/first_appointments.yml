@@ -39,3 +39,17 @@
     app_usage_prediction: 2 – 50/50 chance
     smart_phone_comfort_note: So many phone notes
 <% end %>
+
+<% (700..703).each do |i| %>
+  first_appointment_<%= i %>:
+    participant: participant<%= i %>
+    appointment_at: <%= DateTime.now - 42 %>
+    appointment_location: Test Location
+    session_length: 120
+    next_contact: <%= DateTime.now - 35 %>
+    notes: So many notes
+    smartphone_comfort: 4 – Patient can turn on the cell phone, access and use the app by her/himself after the first demonstration
+    participant_session_engagement: 2 – More or less engaged
+    app_usage_prediction: 2 – 50/50 chance
+    smart_phone_comfort_note: So many phone notes
+<% end %>
