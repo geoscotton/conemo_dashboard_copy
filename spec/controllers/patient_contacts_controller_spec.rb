@@ -73,28 +73,14 @@ RSpec.describe PatientContactsController, type: :controller do
             .by(1)
         end
 
-        context "and the Participant has a start date" do
-          it "redirects to the active report path" do
-            participant.update start_date: Time.zone.today
+        it "redirects to the active report path" do
+          participant.update start_date: Time.zone.today
 
-            admin_request :post, :create, locale,
-                          participant_id: participant.id, locale: locale,
-                          patient_contact: valid_patient_contact_params
+          admin_request :post, :create, locale,
+                        participant_id: participant.id, locale: locale,
+                        patient_contact: valid_patient_contact_params
 
-            expect(response).to redirect_to active_report_path(participant)
-          end
-        end
-
-        context "when the Participant doesn't have a start date" do
-          it "redirects to the participant tasks page" do
-            participant.update start_date: nil
-
-            admin_request :post, :create, locale,
-                          participant_id: participant.id, locale: locale,
-                          patient_contact: valid_patient_contact_params
-
-            expect(response).to redirect_to participant_tasks_url(participant)
-          end
+          expect(response).to redirect_to active_report_path(participant)
         end
       end
     end
@@ -134,35 +120,18 @@ RSpec.describe PatientContactsController, type: :controller do
           }.by(-1)
         end
 
-        context "and the participant has a start date" do
-          it "redirects to the active report path" do
-            patient_contact = participant.patient_contacts.create(
-              valid_patient_contact_params
-            )
-            participant.update start_date: Time.zone.today
+        it "redirects to the active report path" do
+          patient_contact = participant.patient_contacts.create(
+            valid_patient_contact_params
+          )
+          participant.update start_date: Time.zone.today
 
-            admin_request :delete, :destroy, locale,
-                          participant_id: participant.id,
-                          id: patient_contact.id,
-                          locale: locale
+          admin_request :delete, :destroy, locale,
+                        participant_id: participant.id,
+                        id: patient_contact.id,
+                        locale: locale
 
-            expect(response).to redirect_to active_report_path(participant)
-          end
-        end
-
-        context "and the participant doesn't have a start date" do
-          it "redirects to the participant tasks page" do
-            patient_contact = participant.patient_contacts.create(
-              valid_patient_contact_params
-            )
-            participant.update start_date: nil
-
-            admin_request :delete, :destroy, locale,
-                          participant_id: participant.id,
-                          id: patient_contact.id, locale: locale
-
-            expect(response).to redirect_to participant_tasks_url(participant)
-          end
+          expect(response).to redirect_to active_report_path(participant)
         end
 
         context "when unsuccessful" do

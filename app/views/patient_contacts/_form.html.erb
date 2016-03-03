@@ -2,7 +2,7 @@
     <div class="form-group">
       <%= f.label :contact_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :contact_at, class: "form-control", required: true %>
+        <%= f.datetime_select :contact_at, { required: true }, { class: "date-select" } %>
         <br>
         <small><%= Time.zone %></small>
       </div>
@@ -29,7 +29,7 @@
       <div class="col-md-offset-4 col-md-7">
         <%= f.hidden_field :participant_id, value: @participant.id %>
         <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-        <%= link_to t("conemo.views.shared.cancel_button"), @participant.start_date ? active_report_path(@participant) : pending_participants_path, class: "btn btn-default" %>
+        <%= link_to t("conemo.views.shared.cancel_button"), active_report_path(@participant), class: "btn btn-default" %>
       </div>
     </div>
 <% end %>

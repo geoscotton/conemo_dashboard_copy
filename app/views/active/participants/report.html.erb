@@ -15,10 +15,10 @@
     <div class="accordion">
       <table class="table table-bordered accordion-toggle" data-toggle="collapse" data-target="#messages-table">
         <thead>
-        <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t 'conemo.views.active.participants.report.messages' %></th>
+          <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t 'conemo.views.active.participants.report.messages' %></th>
         </thead>
         <tbody class="accordion-body collapse in" id="messages-table">
-        <% @participant.help_messages.each do |help_message| %>
+          <% @participant.help_messages.each do |help_message| %>
             <tr>
               <td class="<%= help_message.read ? '' : 'warning' %>">
                 <%= link_to "#{fa_icon 'eye 2x'}".html_safe, participant_help_message_path(id: help_message.id, participant_id: @participant.id, help_message: {read: true}), class: "pull-right danger", method: :put unless help_message.read %>
@@ -27,20 +27,21 @@
                 <small><%= l help_message.sent_at, format: :long %></small>
               </td>
             </tr>
-        <% end %>
+          <% end %>
         </tbody>
       </table>
     </div>
+
     <table class="table table-bordered accordion-toggle" data-toggle="collapse" data-target="#logins-table">
       <thead>
-      <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t "conemo.views.active.participants.report.logins" %></th>
+        <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t "conemo.views.active.participants.report.logins" %></th>
       </thead>
       <tbody class="accordion-body collapse" id="logins-table">
-      <% @participant.logins.each do |login| %>
+        <% @participant.logins.each do |login| %>
           <tr>
             <td><%= l login.logged_in_at, format: :long %></td>
           </tr>
-      <% end %>
+        <% end %>
       </tbody>
     </table>
   </div>
@@ -60,10 +61,16 @@
   <div class="col-md-3 col-sm-3 col-xs-3">
     <table class="table accordion-toggle" data-toggle="collapse" data-target="#notes-table">
       <thead>
-      <th class="text-center"><%= t 'conemo.views.active.participants.report.notes' %><%= link_to "#{fa_icon 'plus-circle'}".html_safe, new_participant_patient_contact_path(@participant), class: "pull-right", style: "color:white;" %></th>
+        <th class="text-center">
+          <%= t 'conemo.views.active.participants.report.notes' %>
+          <%= link_to(new_participant_patient_contact_path(@participant), class: "pull-right", style: "color:white;") do %>
+            <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
+            <span class="sr-only">Write note</span>
+          <% end %>
+        </th>
       </thead>
       <tbody class="accordion-body" id="notes-table">
-      <% if @participant.patient_contacts.any? %>
+        <% if @participant.patient_contacts.any? %>
           <% @participant.patient_contacts.order(contact_at: :desc).each do |contact| %>
               <tr>
                 <td>
@@ -75,8 +82,8 @@
                 </td>
               </tr>
           <% end %>
-      <% end %>
-      <% if @participant.first_appointment %>
+        <% end %>
+        <% if @participant.first_appointment %>
           <tr>
             <td>
               <dl>
@@ -86,8 +93,8 @@
               </dl>
             </td>
           </tr>
-      <% end %>
-      <% if @participant.second_contact %>
+        <% end %>
+        <% if @participant.second_contact %>
           <tr>
             <td>
               <dl>
@@ -97,19 +104,8 @@
               </dl>
             </td>
           </tr>
-      <% end %>
+        <% end %>
       </tbody>
     </table>
   </div>
 </div>
-
-<script>
-  function tabifyReport() {
-    $('#main-report').tabs({
-      active: 0
-    });
-  }
-
-  $(document).ready(tabifyReport);
-  $(document).on("page:change", tabifyReport);
-</script>
