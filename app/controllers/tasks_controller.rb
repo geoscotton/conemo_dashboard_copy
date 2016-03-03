@@ -10,39 +10,30 @@ class TasksController < ApplicationController
   end
 
   def cancel
-    task = NurseTask.for_nurse_and_participant(current_user, find_participant)
-                    .find(params[:id])
-
-    if task.cancel
+    if find_task.cancel
       flash[:notice] = "Task successfully cancelled"
     else
-      flash[:alert] = "Error cancelling task: #{task.errors.full_messages}"
+      flash[:alert] = "Error cancelling task: #{find_task.errors.full_messages}"
     end
 
     redirect_to participant_tasks_url(find_participant)
   end
 
   def resolve
-    task = NurseTask.for_nurse_and_participant(current_user, find_participant)
-                    .find(params[:id])
-
-    if task.resolve
+    if find_task.resolve
       flash[:notice] = "Task successfully resolved"
     else
-      flash[:alert] = "Error resolving task: #{task.errors.full_messages}"
+      flash[:alert] = "Error resolving task: #{find_task.errors.full_messages}"
     end
 
     redirect_to participant_tasks_url(find_participant)
   end
 
   def notify_supervisor
-    task = NurseTask.for_nurse_and_participant(current_user, find_participant)
-                    .find(params[:id])
-
     notification = SupervisorNotification.new(
       nurse: current_user,
       nurse_supervisor: current_user.nurse_supervisor,
-      nurse_task: task
+      nurse_task: find_task
     )
     if notification.save
       flash[:notice] = "a notification has been sent for your supervisor " \
@@ -55,7 +46,25 @@ class TasksController < ApplicationController
     redirect_to participant_tasks_url(find_participant)
   end
 
+  def clear_latest_supervisor_notification
+    notification = SupervisorNotification.latest_for(find_task)
+
+    if notification.destroy
+      flash[:notice] = "Notification successfully cleared"
+    else
+      errors = notification.errors.full_messages.join(", ")
+      flash[:alert] = "Error clearing notification: #{errors}"
+    end
+
+    redirect_to participant_tasks_url(find_participant)
+  end
+
   private
+
+  def find_task
+    @task ||= NurseTask.for_nurse_and_participant(current_user, find_participant)
+                       .find(params[:id])
+  end
 
   def find_participant
     @participant ||=

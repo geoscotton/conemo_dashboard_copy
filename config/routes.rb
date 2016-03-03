@@ -32,6 +32,7 @@ Rails.application.routes.draw do
           put :cancel
           put :resolve
           post :notify_supervisor
+          delete :clear_latest_supervisor_notification
         end
       end
       get "*unknown", to: redirect("/%{locale}")

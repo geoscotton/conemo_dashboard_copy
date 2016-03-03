@@ -10,4 +10,8 @@ class SupervisorNotification < ActiveRecord::Base
 
   validates :nurse, :nurse_supervisor, :nurse_task, :status, presence: true
   validates :status, inclusion: { in: STATUSES.values }
+
+  def self.latest_for(task)
+    where(nurse_task: task).order(:created_at).last
+  end
 end
