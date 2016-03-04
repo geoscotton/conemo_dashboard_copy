@@ -2,5 +2,5 @@
 
 # Application version.
 module ConemoDashboard
-  VERSION = "0.5.17"
+  VERSION = "0.5.18"
 end

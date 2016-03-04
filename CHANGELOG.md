@@ -1,7 +1,8 @@
 # Changelog
 
-## 0.5.17 - 2016-03-04
+## 0.5.18 - 2016-03-04
 
+* update lessons table display
 * remove, reorder first appointment form fields
 * update smartphone form
 * prettify report page html and update note icon
