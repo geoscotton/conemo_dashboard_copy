@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 # Top level helper.
 module ApplicationHelper
-  def present(object, klass=nil)
-    klass ||= "#{object.class}Presenter".constantize
-    presenter = klass.new(object, self)
+  def present(object)
+    presenter = ResponsePresenter.new(object, self)
     yield presenter if block_given?
     presenter
   end
