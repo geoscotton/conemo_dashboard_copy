@@ -149,9 +149,6 @@ en:
             messages: "Messages"
             release_day: "Release day"
             lesson: "Lesson"
-            patient_response: "Patient response"
-            access_count: "Lesson access count"
-            completion_count: "Lesson completion count"
             notes: "Notes"
             legend:
               green: accessed on time

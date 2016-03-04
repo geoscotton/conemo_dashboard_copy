@@ -4,24 +4,13 @@
       <th></th>
       <th><%= t "conemo.views.active.participants.report.release_day" %></th>
       <th><%= t "conemo.views.active.participants.report.lesson" %></th>
-      <th><%= t "conemo.views.active.participants.report.patient_response" %></th>
-      <th><%= t "conemo.views.active.participants.report.access_count" %></th>
-      <th><%= t "conemo.views.active.participants.report.completion_count" %></th>
     </thead>
     <tbody>
       <% lessons.each_with_index do |lesson, index| %>
         <tr class="<%= participant.lesson_status(lesson) %>">
-          <td class="release-day"><%= lesson.day_in_treatment %></td> 
+          <td class="release-day"><%= index + 1 %></td>
           <td class="release-date"><%= participant.start_date ? l(participant.start_date + lesson.day_in_treatment.days - 1.days, format: :long) : "" %></td>
           <td><%= lesson.title %></td>
-          <td>
-            <% if participant.access_response(lesson) %>
-              <button class="btn btn-xs btn-default fill-column" href="#" data-toggle='modal' data-target="#modal-<%=index%>"><%= fa_icon('info-circle', style: 'color: white').html_safe %></button>
-            <% end %>
-            <%= render partial: 'response_modal', locals: { participant: participant, lesson: lesson, index: index } %>
-          </td>
-          <td><%= lesson.session_events.accesses.where(participant_id: participant.id).count %></td>
-          <td><%= lesson.content_access_events.where(participant_id: participant.id).count rescue '' %></td>
         </tr>
       <% end %>
     </tbody>

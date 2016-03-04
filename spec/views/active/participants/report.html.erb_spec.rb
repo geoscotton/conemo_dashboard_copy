@@ -23,29 +23,12 @@ RSpec.describe "active/participants/report", type: :view do
   end
 
   describe "the lessons table" do
-    let(:content_access_event) do
-      instance_double(ContentAccessEvent,
-                      created_at: now,
-                      response: Response.new).as_null_object
-    end
-    let(:content_access_events) do
-      double("ContentAccessEvents", where: [content_access_event])
-    end
-    let(:session_event) do
-      instance_double(SessionEvent).as_null_object
-    end
-    let(:session_events) do
-      double("SessionEvents").tap do |s|
-        allow(s).to receive_message_chain("accesses.where") { [session_event] }
-      end
-    end
+    let(:release_day) { 3 }
     let(:lesson) do
       instance_double(
         Lesson,
-        day_in_treatment: 1,
-        title: "Lesson 1",
-        content_access_events: content_access_events,
-        session_events: session_events
+        day_in_treatment: release_day,
+        title: "Lesson 1"
       ).as_null_object
     end
 
@@ -58,15 +41,7 @@ RSpec.describe "active/participants/report", type: :view do
 
       table_exists_with_the_following_rows(
         [
-          [
-            "1",
-            I18n.l(today, format: :long),
-            "Lesson 1",
-            # NOTE: the "×" below is not the "x" you type on the keyboard
-            "× " + I18n.l(now, format: :long) + ": None given",
-            "1",
-            "1"
-          ]
+          ["1", I18n.l(today + release_day - 1, format: :long), "Lesson 1"]
         ]
       )
     end
