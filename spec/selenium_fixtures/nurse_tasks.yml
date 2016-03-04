@@ -249,3 +249,13 @@
     scheduled_at: <%= today_at_11_am %>
     overdue_at: <%= today_at_11_am + 3.days %>
 <% end %>
+
+<% (400..405).each do |i| %>
+  nurse_task_7<%= i %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
+    participant: participant<%= i %>
+    type: Tasks::HelpRequest
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 2.days %>
+<% end %>
