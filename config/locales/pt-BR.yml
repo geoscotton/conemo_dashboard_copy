@@ -147,9 +147,6 @@ pt-BR:
             messages: "Solicitação de ajuda"
             release_day: "Sessão enviada em"
             lesson: "Sessão"
-            patient_response: "Resposta do participante"
-            access_count: "Número de sessões acessadas"
-            completion_count: "Número de sessões concluídas"
             notes: "Anotações"
             legend:
               green: acessado no tempo certo
