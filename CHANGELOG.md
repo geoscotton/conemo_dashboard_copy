@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.17 - 2016-03-04
+
+* remove, reorder first appointment form fields
+* update smartphone form
+* prettify report page html and update note icon
+* preserve participant note feature
+* update confirmation call form
+
 ## 0.5.16 - 2016-03-03
 
 * enable clearing of supervisor notifications
