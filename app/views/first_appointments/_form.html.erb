@@ -1,83 +1,50 @@
 <%= form_for @first_appointment, url: participant_first_appointment_path(@participant), method: @first_appointment.valid? ? :patch : :post, html: {role: "form", class: "form-horizontal"} do |f| %>
-    <div class="form-group">
-      <%= f.label :appointment_at, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.datetime_select :appointment_at, {required: true, default: @participant.first_appointment ? first_appointment.appointment_at : @participant.first_contact.first_appointment_at}, {class: "date-select"} %>
-        <br>
-        <small><%= Time.zone %></small>
-      </div>
+  <div class="form-group">
+    <%= f.label :appointment_at, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.datetime_select :appointment_at, {required: true, default: @participant.first_appointment ? first_appointment.appointment_at : @participant.first_contact.first_appointment_at}, {class: "date-select"} %>
+      <br>
+      <small><%= Time.zone %></small>
     </div>
-    <div class="form-group">
-      <%= f.label :appointment_location, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_field :appointment_location, class: "form-control" %>
-      </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :appointment_location, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.select :appointment_location, options_for_select(t("activerecord.field_options.first_contact.locations")),
+                   {},
+                   { class: "dropdown", required: true } %>
     </div>
-    <div class="form-group">
-      <%= f.label :next_contact, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.datetime_select :next_contact, {default: @participant.first_appointment ? first_appointment.next_contact : DateTime.current + 1.weeks, required: true},{class: "date-select"}  %>
-        <br>
-        <small><%= Time.zone %></small>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :session_length, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.number_field :session_length, min: 1, class: "form-control", required: true %>
     </div>
-    <div class="form-group">
-      <%= f.label :session_length, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.number_field :session_length, min: 1, class: "form-control", required: true %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :next_contact, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.datetime_select :next_contact, {default: @participant.first_appointment ? first_appointment.next_contact : DateTime.current + 1.weeks, required: true},{class: "date-select"}  %>
+      <br>
+      <small><%= Time.zone %></small>
     </div>
-    <div class="form-group">
-      <%= f.label :smartphone_comfort, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.select :smartphone_comfort, options_for_select(
-                            [
-                              "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o4")}",
-                              "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o3")}",
-                              "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o2")}",
-                              "#{t("conemo.views.first_appointments.form.smartphone_comfort_options.o1")}"
-                             ], @first_appointment.smartphone_comfort),
-                           {}, {class: "dropdown", required: true} %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :notes, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :smart_phone_comfort_note, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :smart_phone_comfort_note, class: "form-control" %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-7">
+      <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+      <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
     </div>
-    <div class="form-group">
-      <%= f.label :participant_session_engagement, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.select :participant_session_engagement, options_for_select([
-                                   "#{t("conemo.views.first_appointments.form.participant_session_engagement_options.o3")}",
-                                   "#{t("conemo.views.first_appointments.form.participant_session_engagement_options.o2")}",
-                                   "#{t("conemo.views.first_appointments.form.participant_session_engagement_options.o1")}"
-                           ], @first_appointment.participant_session_engagement),
-                           {}, {class: "dropdown", required: true} %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :app_usage_prediction, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.select :app_usage_prediction, options_for_select([
-                             "#{t("conemo.views.first_appointments.form.app_usage_prediction_options.o3")}",
-                             "#{t("conemo.views.first_appointments.form.app_usage_prediction_options.o2")}",
-                             "#{t("conemo.views.first_appointments.form.app_usage_prediction_options.o1")}"
-                     ], @first_appointment.app_usage_prediction),
-                           {}, {class: "dropdown", required: true} %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :notes, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :notes, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-offset-4 col-md-7">
-        <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
-      </div>
-    </div>
+  </div>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304025744) do
+ActiveRecord::Schema.define(version: 20160304033310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,18 +136,14 @@ ActiveRecord::Schema.define(version: 20160304025744) do
   end
 
   create_table "first_appointments", force: :cascade do |t|
-    t.integer  "participant_id",                 null: false
-    t.datetime "appointment_at",                 null: false
+    t.integer  "participant_id",       null: false
+    t.datetime "appointment_at",       null: false
     t.string   "appointment_location"
-    t.integer  "session_length",                 null: false
-    t.datetime "next_contact",                   null: false
+    t.integer  "session_length",       null: false
+    t.datetime "next_contact",         null: false
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "smartphone_comfort"
-    t.string   "participant_session_engagement"
-    t.string   "app_usage_prediction"
-    t.text     "smart_phone_comfort_note"
   end
 
   add_index "first_appointments", ["participant_id"], name: "index_first_appointments_on_participant_id", using: :btree
