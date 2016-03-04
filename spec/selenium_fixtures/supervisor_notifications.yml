@@ -1,0 +1,17 @@
+<% (402..403).each do |i| %>
+  supervisor_notification_<%= i %>:
+    nurse: user_400
+    nurse_supervisor: user_700
+    nurse_task: nurse_task_7<%= i %>
+    status: active
+    created_at: <%= DateTime.now - 3.hours %>
+<% end %>
+
+<% (412..413).each do |i| %>
+  supervisor_notification_<%= i %>:
+    nurse: user_400
+    nurse_supervisor: user_700
+    nurse_task: nurse_task_8<%= i %>
+    status: active
+    created_at: <%= DateTime.now - 2.hours %>
+<% end %>

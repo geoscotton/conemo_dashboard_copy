@@ -131,7 +131,7 @@
     locale: en
 <% end %>
 
-<% (400..402).each do |i| %>
+<% (400..405).each do |i| %>
   participant<%= i %>:
     nurse: user_400
     first_name: First
@@ -148,7 +148,7 @@
     locale: en
 <% end %>
 
-<% (410..412).each do |i| %>
+<% (410..415).each do |i| %>
   participant<%= i %>:
     nurse: user_400
     first_name: First
@@ -165,7 +165,7 @@
     locale: en
 <% end %>
 
-<% (420..422).each do |i| %>
+<% (420..425).each do |i| %>
   participant<%= i %>:
     nurse: user_400
     first_name: First
@@ -335,7 +335,7 @@
     locale: pt-BR
 <% end %>
 
-<% (700..703).each do |i| %>
+<% (700..705).each do |i| %>
   participant<%= i %>:
     nurse: user_400
     first_name: First

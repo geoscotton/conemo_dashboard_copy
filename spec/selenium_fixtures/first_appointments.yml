@@ -28,7 +28,7 @@
     notes: So many notes
 <% end %>
 
-<% (700..703).each do |i| %>
+<% (700..705).each do |i| %>
   first_appointment_<%= i %>:
     participant: participant<%= i %>
     appointment_at: <%= DateTime.now - 42 %>
