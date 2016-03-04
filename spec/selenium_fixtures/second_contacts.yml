@@ -42,7 +42,7 @@
     next_contact: <%= DateTime.now - 14 %>
 <% end %>
 
-<% (700..703).each do |i| %>
+<% (700..705).each do |i| %>
   second_contact_<%= i %>:
     participant: participant<%= i %>
     contact_at: <%= DateTime.now - 35 %>

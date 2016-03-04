@@ -30,7 +30,7 @@
     first_appointment_location: Test Location
 <% end %>
 
-<% (700..703).each do |i| %>
+<% (700..705).each do |i| %>
   first_contacts_<%= i %>:
     participant: participant<%= i %>
     contact_at: <%= DateTime.now - 45 %>

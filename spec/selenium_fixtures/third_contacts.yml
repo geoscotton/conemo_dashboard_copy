@@ -16,7 +16,7 @@
     q5_notes: q5 notes
 <% end %>
 
-<% (700..703).each do |i| %>
+<% (700..705).each do |i| %>
   third_contact_<%= i %>:
     call_to_schedule_final_appointment_at: <%= DateTime.now %>
     session_length: 60
