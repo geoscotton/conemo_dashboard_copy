@@ -237,10 +237,8 @@ pt-BR:
         q2: "Baseado na conversa que você teve com o paciente por telefone, como você considera o nível de motivação em realizar as tarefas solicitadas e em participar do CONEMO?"
         q3: "Na sua opinião, e baseado na sua experiência, quais seriam as chances deste paciente usar o aplicativo?"
       smartphone:
-        number: "Número do Smartphone"
-        is_app_compatible: "O sistema do smartphone do participante é compatível com o aplicativo?"
-        is_owned_by_participant: "O smartphone usado no estudo pertence ao participante?"
-        is_smartphone_owner: "O participante tem seu próprio smartphone?"
+        number: Número do Smartphone
+        phone_identifier: Código do Smartphone
       second_contact:
         contact_at: "Data da ligação"
         next_contact: "Data/hora próximo contato"

@@ -1,6 +1,4 @@
 smartphone1:
-  number: "12244200655"                               
-  is_app_compatible: true
+  number: 12244200655
   participant: participant1
-  is_owned_by_participant: false
-  is_smartphone_owner: false
+  phone_identifier: 123

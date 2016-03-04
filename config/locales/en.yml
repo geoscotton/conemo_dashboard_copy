@@ -238,10 +238,8 @@ en:
         q2: "Based on the call you had with the patient, how motivated is he/she to perform the proposed tasks and participate in CONEMO?"
         q3: "In your opinion, how likely is the patient to use the application?"
       smartphone:
-        number: "SMS Phone # of Smartphone"
-        is_app_compatible: "Is the smartphone compatible with the app?"
-        is_owned_by_participant: "Does the study smartphone belong to the participant?"
-        is_smartphone_owner: "Is the participant a smartphone owner?"
+        number: Phone number of study phone
+        phone_identifier: Phone ID
       second_contact:
         contact_at: "Date of phone call"
         session_length: "Length of phone call (minutes)"
