@@ -4,12 +4,15 @@ class Smartphone < ActiveRecord::Base
   model_name.instance_variable_set :@route_key, "smartphone"
   belongs_to :participant
 
-  validates :number,
-            presence: true
+  validates :participant, :number, :phone_identifier, presence: true
 
-  before_save :sanitize_number
+  before_validation :sanitize_number
+
+  private
 
   def sanitize_number
+    return if number.nil?
+
     self.number = number.gsub(/[^0-9]/, "")
   end
 end

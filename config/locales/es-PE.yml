@@ -245,10 +245,8 @@ es-PE:
         q2: "Basada en la llamada que ha tenido con el paciente, ¿qué tan motivado parece para realizar las tareas propuestas y participar en CONEMO?"
         q3: "¿En su opinión, qué tan probable es que el paciente use la aplicación?"
       smartphone:
-        number: "Número del celular inteligente (smartphone)"
-        is_app_compatible: "¿El sistema del celular inteligente (smartphone) es compartible con el aplicativo?"
-        is_owned_by_participant: "¿El teléfono inteligente es del participante?"
-        is_smartphone_owner: "Paciente tiene su propio teléfono inteligente (smartphone)"
+        number: Número del celular inteligente (Smartphone)
+        phone_identifier: Código del celular inteligente (Smartphone)
       second_contact:
         contact_at: "Fecha/hora de la llamada"
         session_length: "Duración de la llamada (min)"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302164402) do
+ActiveRecord::Schema.define(version: 20160304025744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -355,13 +355,11 @@ ActiveRecord::Schema.define(version: 20160302164402) do
   add_index "session_events", ["participant_id"], name: "index_session_events_on_participant_id", using: :btree
 
   create_table "smartphones", force: :cascade do |t|
-    t.string   "number",                                  null: false
-    t.boolean  "is_app_compatible",       default: false
-    t.integer  "participant_id",                          null: false
-    t.boolean  "is_owned_by_participant", default: false
+    t.string   "number",                         null: false
+    t.integer  "participant_id",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_smartphone_owner",     default: false
+    t.string   "phone_identifier", default: "?", null: false
   end
 
   add_index "smartphones", ["participant_id"], name: "index_smartphones_on_participant_id", using: :btree
