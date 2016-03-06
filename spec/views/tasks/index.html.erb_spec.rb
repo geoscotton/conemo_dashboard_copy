@@ -37,11 +37,22 @@ RSpec.describe "tasks/index", type: :view do
 
   it "renders the assigned active task count" do
     assign(:tasks, tasks)
-    allow(tasks).to receive(:active_tasks) { %w( 1 2 3 4 5 ) }
+    allow(tasks)
+      .to receive(:active_tasks)
+      .and_return(
+        [
+          instance_double(NurseTask, scheduled_at: Time.zone.now)
+            .as_null_object,
+          instance_double(NurseTask, scheduled_at: Time.zone.now)
+            .as_null_object,
+          instance_double(NurseTask, scheduled_at: Time.zone.now)
+            .as_null_object
+        ]
+      )
 
     render template: template
 
-    expect(rendered).to include "5 tasks"
+    expect(rendered).to include "3 tasks"
   end
 
   it "renders the overdue task count" do
@@ -53,33 +64,26 @@ RSpec.describe "tasks/index", type: :view do
     expect(rendered).to include "2 overdue"
   end
 
-  it "renders the time before/until each task" do
+  it "renders the time since each task was scheduled" do
     I18n.locale = "en"
     task = instance_double(NurseTask,
                            to_s: "Do fu",
-                           scheduled_at: 1.minute.ago,
-                           active?: true).as_null_object
-    task2 = instance_double(NurseTask,
-                            to_s: "Do ba",
-                            scheduled_at: 2.hours.from_now,
-                            active?: true).as_null_object
+                           scheduled_at: 1.minute.ago).as_null_object
     assign(:tasks, tasks)
-    allow(tasks).to receive(:tasks) { [task, task2] }
+    allow(tasks).to receive(:active_tasks) { [task] }
 
     render template: template
 
     expect(rendered).to match(/Do fu .*1 minute ago/)
-    expect(rendered).to match(/Do ba .*in about 2 hours/)
   end
 
   context "for alert tasks" do
     def stub_alert_tasks
       task = instance_double(NurseTask,
-                             active?: true,
                              scheduled_at: Time.zone.now,
                              alert?: true).as_null_object
       assign(:tasks, tasks)
-      allow(tasks).to receive(:tasks) { [task] }
+      allow(tasks).to receive(:active_tasks) { [task] }
     end
 
     it "renders a 'Mark as resolved' button" do
@@ -113,12 +117,11 @@ RSpec.describe "tasks/index", type: :view do
   context "for scheduled tasks" do
     def stub_scheduled_tasks
       task = instance_double(NurseTask,
-                             active?: true,
                              scheduled_at: Time.zone.now,
                              target: :first_contact,
                              alert?: false).as_null_object
       assign(:tasks, tasks)
-      allow(tasks).to receive(:tasks) { [task] }
+      allow(tasks).to receive(:active_tasks) { [task] }
     end
 
     it "renders a 'Confirm' link" do
