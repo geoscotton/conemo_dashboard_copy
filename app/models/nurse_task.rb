@@ -30,6 +30,10 @@ class NurseTask < ActiveRecord::Base
     status == STATUSES.active
   end
 
+  def due?
+    scheduled_at.to_date <= Time.zone.today
+  end
+
   def to_s
     self.class.model_name.human
   end

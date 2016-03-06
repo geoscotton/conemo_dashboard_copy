@@ -16,35 +16,33 @@
 </div>
 
 <ul class="list-group">
-  <% @tasks.tasks.each do |task| %>
-    <% if task.active? %>
-      <li class="list-group-item">
-        <h4><%= task %> <small><%= task.scheduled_at.future? ? "in " : "" %><%= time_ago_in_words task.scheduled_at %><%= task.scheduled_at.past? ? " ago" : "" %></small></h4>
+  <% @tasks.active_tasks.each do |task| %>
+    <li class="list-group-item">
+      <h4><%= task %> <small><%= time_ago_in_words task.scheduled_at %> ago</small></h4>
 
-        <div class="btn-group" role="group" aria-label="Actions">
-          <% if task.alert? %>
-            <%= button_to "Mark as resolved",
-                          resolve_participant_task_path(participant_id: @tasks.id, id: task.id),
-                          { method: :put, class: "btn btn-default" } %>
-            <%= button_to "Contact Supervisor",
-                          notify_supervisor_participant_task_path(participant_id: @tasks.id, id: task.id),
-                          { class: "btn btn-default", data: { confirm: "are you sure you want to notify the supervisor that you need help?" } } %>
-            <% if @tasks.latest_notification(task) %>
-              <p>last supervisor contact sent <%= l @tasks.latest_notification(task).created_at, format: :long %></p>
-              <%= button_to "clear",
-                            clear_latest_supervisor_notification_participant_task_path(participant_id: @tasks.id, id: task.id),
-                            { method: :delete, class: "btn btn-default", data: { confirm: "are you sure you want to clear this?" } } %>
-            <% end %>
-          <% else %>
-            <%= link_to "Confirm",
-                new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
-                { class: "btn btn-link" } %>
-            <%= button_to "Cancel",
-                          cancel_participant_task_path(participant_id: @tasks.id, id: task.id),
-                          { method: :put, class: "btn btn-default" } %>
+      <div class="btn-group" role="group" aria-label="Actions">
+        <% if task.alert? %>
+          <%= button_to "Mark as resolved",
+                        resolve_participant_task_path(participant_id: @tasks.id, id: task.id),
+                        { method: :put, class: "btn btn-default" } %>
+          <%= button_to "Contact Supervisor",
+                        notify_supervisor_participant_task_path(participant_id: @tasks.id, id: task.id),
+                        { class: "btn btn-default", data: { confirm: "are you sure you want to notify the supervisor that you need help?" } } %>
+          <% if @tasks.latest_notification(task) %>
+            <p>last supervisor contact sent <%= l @tasks.latest_notification(task).created_at, format: :long %></p>
+            <%= button_to "clear",
+                          clear_latest_supervisor_notification_participant_task_path(participant_id: @tasks.id, id: task.id),
+                          { method: :delete, class: "btn btn-default", data: { confirm: "are you sure you want to clear this?" } } %>
           <% end %>
-        </div>
-      </li>
-    <% end %>
+        <% else %>
+          <%= link_to "Confirm",
+              new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
+              { class: "btn btn-link" } %>
+          <%= button_to "Cancel",
+                        cancel_participant_task_path(participant_id: @tasks.id, id: task.id),
+                        { method: :put, class: "btn btn-default" } %>
+        <% end %>
+      </div>
+    </li>
   <% end %>
 </ul>

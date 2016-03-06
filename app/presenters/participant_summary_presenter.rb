@@ -29,7 +29,7 @@ class ParticipantSummaryPresenter
   end
 
   def active_tasks
-    tasks.select(&:active?)
+    tasks.select { |t| t.active? && t.due? }
   end
 
   def overdue_tasks

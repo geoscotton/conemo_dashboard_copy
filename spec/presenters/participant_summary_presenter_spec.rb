@@ -7,6 +7,7 @@ RSpec.describe ParticipantSummaryPresenter do
                     scheduled_at: scheduled_at,
                     to_s: str,
                     active?: active,
+                    due?: true,
                     overdue?: overdue)
   end
 
