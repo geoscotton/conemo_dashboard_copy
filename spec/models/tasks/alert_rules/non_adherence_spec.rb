@@ -4,7 +4,7 @@ require "rails_helper"
 module Tasks
   module AlertRules
     RSpec.describe NonAdherence do
-      fixtures :participants, :users
+      fixtures :all
 
       let(:participant) { Participant.active.where.not(nurse: nil).first }
       let(:now) { Time.zone.now }
@@ -27,10 +27,10 @@ module Tasks
 
         context "when there have been enough lessons released" do
           let!(:lessons) do
-            (1..NonAdherence::THRESHOLD_LESSONS_MISSED + 1).map do
+            (1..NonAdherence::THRESHOLD_LESSONS_MISSED + 1).map do |n|
               Lesson.create!(locale: participant.locale,
                              title: "t",
-                             day_in_treatment: participant.study_day - rand(10))
+                             day_in_treatment: participant.study_day - n)
             end
           end
           let(:connectivity_alert) do

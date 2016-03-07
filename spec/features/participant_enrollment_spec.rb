@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe "participant enrollment", type: :feature do
-  fixtures :users, :participants
+  fixtures :all
 
   before(:each) do
     sign_in_user users(:admin1)

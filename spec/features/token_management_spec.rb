@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe "Token management", type: :feature do
-  fixtures :users, :participants
+  fixtures :all
 
   let(:en_admin) { users(:admin1) }
 

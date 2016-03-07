@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe CallToScheduleFinalAppointmentObserver do
-  fixtures :participants, :users
+  fixtures :all
 
   let(:participant) { Participant.where.not(nurse: nil).first }
   let(:observer) { CallToScheduleFinalAppointmentObserver.instance }

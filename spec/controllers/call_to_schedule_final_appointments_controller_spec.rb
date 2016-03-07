@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
-  fixtures :participants
+  fixtures :all
 
   let(:locale) { LOCALES.values.sample }
   let(:participant) do
