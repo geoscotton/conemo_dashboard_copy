@@ -8,7 +8,7 @@
 <div class="progress">
   <% @tasks.scheduled_tasks.each_with_index do |task, i| %>
     <%= content_tag("div",
-                    class: "progress-bar progress-bar-#{ task.active? ? 'warning' : 'success' }",
+                    class: "progress-bar progress-bar-#{ task.css_class }",
                     style: "width: #{ 100 / @tasks.scheduled_tasks.count }%; border-right: 1px solid;") do %>
       <span><%= task %></span>
     <% end %>

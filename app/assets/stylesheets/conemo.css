@@ -2,3 +2,8 @@
 body {
   padding-top: 70px;
 }
+
+/* progress bar on participant tasks page */
+.progress-bar-future {
+  background-color: transparent;
+}
