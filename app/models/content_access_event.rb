@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# Patient app use data imported from PRI.
 # Each represents the COMPLETION of a Session (Lesson).
 class ContentAccessEvent < ActiveRecord::Base
   belongs_to :lesson

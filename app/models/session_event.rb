@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# An imported copy of a ClientSessionEvent.
+# Represents a session (lesson) access event.
 class SessionEvent < ActiveRecord::Base
   TYPES = Struct.new(:access).new("access").freeze
 

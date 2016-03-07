@@ -20,6 +20,11 @@ class Lesson < ActiveRecord::Base
   before_validation :generate_guid, :create_slideshow, on: :create
   after_destroy :destroy_slideshow
 
+  def self.available_for(participant)
+    where(locale: participant.locale)
+      .where("day_in_treatment <= ?", participant.study_day)
+  end
+
   def find_slide(slide_id)
     slideshow.slides.find(slide_id)
   end
