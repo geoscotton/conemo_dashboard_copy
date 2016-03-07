@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.6.0 - 2016-03-07
+
+* create task for lack of adherence call
+* add 30 minute User session timeout
+* remove remember me option
+* display only due/overdue tasks
+* update links between detailed / contact info pages
+
 ## 0.5.18 - 2016-03-04
 
 * update lessons table display
