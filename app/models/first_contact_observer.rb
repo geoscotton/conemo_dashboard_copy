@@ -8,4 +8,10 @@ class FirstContactObserver < ActiveRecord::Observer
       scheduled_at: first_contact.first_appointment_at
     )
   end
+
+  def after_create(first_contact)
+    Tasks::ConfirmationCall.active.find_by(
+      participant: first_contact.participant
+    ).try(:resolve)
+  end
 end

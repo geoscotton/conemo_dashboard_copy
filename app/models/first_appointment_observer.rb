@@ -20,4 +20,10 @@ class FirstAppointmentObserver < ActiveRecord::Observer
       scheduled_at: first_appointment.next_contact + 5.weeks
     )
   end
+
+  def after_create(first_appointment)
+    Tasks::InitialInPersonAppointment.active.find_by(
+      participant: first_appointment.participant
+    ).try(:resolve)
+  end
 end

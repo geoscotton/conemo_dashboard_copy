@@ -24,4 +24,20 @@ RSpec.describe CallToScheduleFinalAppointmentObserver do
         .for_nurse_and_participant(participant.nurse, participant).count
     }.by(1)
   end
+
+  it "resolves the Call to Schedule Final Appointment Task" do
+    Tasks::CallToScheduleFinalAppointment.create!(
+      nurse: participant.nurse,
+      participant: participant
+    )
+
+    expect do
+      observer.after_create(call_to_schedule_final_appointment)
+    end.to change {
+      Tasks::CallToScheduleFinalAppointment
+        .for_nurse_and_participant(participant.nurse, participant)
+        .last
+        .status
+    }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)
+  end
 end
