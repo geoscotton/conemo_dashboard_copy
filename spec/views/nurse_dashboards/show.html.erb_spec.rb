@@ -6,12 +6,13 @@ require_relative "../../../app/models/participant"
 
 RSpec.describe "nurse_dashboards/show", type: :view do
   def stub_participant_summary(id, tasks_list)
-    double(
-      "participant summary",
+    instance_double(
+      ParticipantSummaryPresenter,
       css_class: "class#{id}",
       id: id,
       study_identifier: "ID #{id}",
-      active_tasks_list: tasks_list
+      active_tasks_list: tasks_list,
+      configuration_token: "token_#{id}"
     )
   end
 
@@ -56,9 +57,9 @@ RSpec.describe "nurse_dashboards/show", type: :view do
 
       table_exists_with_the_following_rows(
         [
-          ["ID 1", ""],
-          ["ID 2", "Walk without rhythm, Scat"],
-          ["ID 3", "Hopscotch"]
+          ["ID 1", "", "token_1"],
+          ["ID 2", "Walk without rhythm, Scat", "token_2"],
+          ["ID 3", "Hopscotch", "token_3"]
         ]
       )
     end

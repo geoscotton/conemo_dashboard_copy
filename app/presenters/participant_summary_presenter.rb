@@ -44,6 +44,10 @@ class ParticipantSummaryPresenter
     SupervisorNotification.latest_for task
   end
 
+  def configuration_token
+    TokenAuth::ConfigurationToken.find_by(entity_id: id).try(:value)
+  end
+
   private
 
   def ordered_tasks(unordered_tasks)
