@@ -11,7 +11,7 @@ class ParticipantSummaryPresenter
 
   def initialize(participant, tasks)
     @participant = participant
-    @tasks = ordered_tasks(tasks || [])
+    @tasks = ordered_tasks(tasks || []).map { |t| TaskPresenter.new(t) }
   end
 
   def active_tasks_list

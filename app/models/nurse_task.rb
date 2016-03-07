@@ -30,6 +30,14 @@ class NurseTask < ActiveRecord::Base
     status == STATUSES.active
   end
 
+  def resolved?
+    status == STATUSES.resolved
+  end
+
+  def cancelled?
+    status == STATUSES.cancelled
+  end
+
   def due?
     scheduled_at.to_date <= Time.zone.today
   end

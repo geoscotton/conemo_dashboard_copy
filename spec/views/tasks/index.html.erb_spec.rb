@@ -17,14 +17,15 @@ RSpec.describe "tasks/index", type: :view do
 
   it "renders a progress bar with all tasks" do
     assign(:tasks, tasks)
-    completed_task = instance_double(NurseTask,
+    completed_task = instance_double(TaskPresenter,
                                      to_s: "completed task 1",
-                                     active?: false)
+                                     css_class: "foo")
     allow(tasks).to receive(:scheduled_tasks) { [completed_task] }
 
     render template: template
 
-    expect(rendered).to include "completed task 1"
+    expect(rendered)
+      .to have_selector(".progress-bar-foo", text: "completed task 1")
   end
 
   it "renders the participant study id" do
