@@ -12,10 +12,10 @@ RSpec.describe FirstAppointmentObserver do
                     next_contact: Time.zone.now)
   end
 
+  before { NurseTask.destroy_all }
+
   it "creates a Follow up Call Week One Task " \
      "the first time a First Appointment is created" do
-    NurseTask.destroy_all
-
     expect do
       observer.after_save(first_appointment)
       observer.after_save(first_appointment)
@@ -27,8 +27,6 @@ RSpec.describe FirstAppointmentObserver do
 
   it "creates a Follow up Call Week Three Task " \
      "the first time a First Appointment is created" do
-    NurseTask.destroy_all
-
     expect do
       observer.after_save(first_appointment)
       observer.after_save(first_appointment)
@@ -40,8 +38,6 @@ RSpec.describe FirstAppointmentObserver do
 
   it "creates a Call to Schedule Final Appointment Task " \
      "the first time a First Appointment is created" do
-    NurseTask.destroy_all
-
     expect do
       observer.after_save(first_appointment)
       observer.after_save(first_appointment)
@@ -49,5 +45,21 @@ RSpec.describe FirstAppointmentObserver do
       Tasks::CallToScheduleFinalAppointment
         .for_nurse_and_participant(participant.nurse, participant).count
     }.by(1)
+  end
+
+  it "resolves the First in Person Appointment Task" do
+    Tasks::InitialInPersonAppointment.create!(
+      nurse: participant.nurse,
+      participant: participant
+    )
+
+    expect do
+      observer.after_create(first_appointment)
+    end.to change {
+      Tasks::InitialInPersonAppointment
+        .for_nurse_and_participant(participant.nurse, participant)
+        .last
+        .status
+    }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)
   end
 end

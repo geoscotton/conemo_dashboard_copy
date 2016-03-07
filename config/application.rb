@@ -30,9 +30,12 @@ module ConemoDashboard
     config.i18n.default_locale = :"pt-BR"
 
     config.active_record.observers = :call_to_schedule_final_appointment_observer,
+                                     :final_appointment_observer,
                                      :first_appointment_observer,
                                      :first_contact_observer,
                                      :help_message_observer,
-                                     :participant_observer
+                                     :participant_observer,
+                                     :second_contact_observer,
+                                     :third_contact_observer
   end
 end
