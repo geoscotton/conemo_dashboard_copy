@@ -4,7 +4,7 @@ require "rails_helper"
 module Tasks
   module AlertRules
     RSpec.describe NonAdherence do
-      fixtures :participants, :users
+      fixtures :all
 
       let(:participant) { Participant.active.where.not(nurse: nil).first }
       let(:now) { Time.zone.now }

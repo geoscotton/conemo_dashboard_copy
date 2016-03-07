@@ -4,7 +4,7 @@ require "rails_helper"
 module Tasks
   module AlertRules
     RSpec.describe LackOfConnectivity do
-      fixtures :participants, :users
+      fixtures :all
 
       let(:participant) { Participant.where.not(nurse: nil).first }
 

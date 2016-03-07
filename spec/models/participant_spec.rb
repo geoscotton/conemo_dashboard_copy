@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe Participant do
-  fixtures :participants, :lessons
+  fixtures :all
 
   let(:participant) { participants(:participant1) }
   let(:valid_attributes) do

@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe ParticipantsController, type: :controller do
-  fixtures :users, :participants
+  fixtures :all
 
   let(:locale) { LOCALES.values.sample }
   let(:participant) { Participant.find_by(locale: locale) }
