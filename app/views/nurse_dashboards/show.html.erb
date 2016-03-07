@@ -12,6 +12,9 @@
             <td>
               <%= link_to participant_summary.active_tasks_list, participant_tasks_path(participant_summary.id) %>
             </td>
+            <td>
+              <%= participant_summary.configuration_token %>
+            </td>
           </tr>
         <% end %>
       </tbody>
