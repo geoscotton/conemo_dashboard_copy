@@ -9,6 +9,25 @@ class TasksController < ApplicationController
     authorize! :update, tasks
   end
 
+  def edit
+    find_participant
+    @task = NurseTask.find(params[:id])
+    authorize! :update, @task
+  end
+
+  def update
+    find_participant
+    @task = NurseTask.find(params[:id])
+    authorize! :update, @task
+
+    if @task.update(params[:task].permit(:scheduled_at))
+      redirect_to participant_tasks_url(find_participant)
+    else
+      flash[:alert] = "Error rescheduling task: #{find_task.errors.full_messages}"
+      render :edit
+    end
+  end
+
   def cancel
     if find_task.cancel
       flash[:notice] = "Task successfully cancelled"

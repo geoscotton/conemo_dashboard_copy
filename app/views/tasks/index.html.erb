@@ -41,6 +41,9 @@
           <%= button_to "Cancel",
                         cancel_participant_task_path(participant_id: @tasks.id, id: task.id),
                         { method: :put, class: "btn btn-default" } %>
+          <%= link_to "Reschedule",
+              edit_participant_task_path(participant_id: @tasks.id, id: task.id),
+              { class: "btn btn-link" } %>
         <% end %>
       </div>
     </li>
