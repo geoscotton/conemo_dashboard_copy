@@ -15,3 +15,12 @@
     status: active
     created_at: <%= DateTime.now - 2.hours %>
 <% end %>
+
+# <% (422..423).each do |i| %>
+#   supervisor_notification_<%= i %>:
+#     nurse: user_400
+#     nurse_supervisor: user_700
+#     nurse_task: nurse_task_9<%= i %>
+#     status: active
+#     created_at: <%= DateTime.now - 2.hours %>
+# <% end %>
