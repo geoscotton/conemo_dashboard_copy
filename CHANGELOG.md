@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.1 - 2016-03-08
+
+* complete participant when final aptmt complete
+* add progress bar colors
+* add tokens to nurse dashboard main page
+* resolve tasks when associated form is completed
+
 ## 0.6.0 - 2016-03-07
 
 * create task for lack of adherence call
