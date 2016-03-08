@@ -27,4 +27,12 @@ RSpec.describe FinalAppointmentObserver do
         .status
     }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)
   end
+
+  it "completes the Participant" do
+    expect do
+      observer.after_create(final_appointment)
+    end.to change {
+      participant.status
+    }.from(Participant::ACTIVE).to(Participant::COMPLETED)
+  end
 end

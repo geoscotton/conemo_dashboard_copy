@@ -5,5 +5,7 @@ class FinalAppointmentObserver < ActiveRecord::Observer
     Tasks::FinalInPersonAppointment.active.find_by(
       participant: final_appointment.participant
     ).try(:resolve)
+
+    final_appointment.participant.complete
   end
 end

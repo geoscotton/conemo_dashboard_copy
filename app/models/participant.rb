@@ -24,7 +24,8 @@ class Participant < ActiveRecord::Base
   PENDING ||= "pending"
   ACTIVE ||= "active"
   INELIGIBLE ||= "ineligible"
-  STATUS ||= [PENDING, ACTIVE, INELIGIBLE].freeze
+  COMPLETED ||= "completed"
+  STATUS ||= [PENDING, ACTIVE, INELIGIBLE, COMPLETED].freeze
   GENDER ||= %w( male female ).freeze
 
   validates :first_name,
@@ -58,6 +59,10 @@ class Participant < ActiveRecord::Base
     if start_date
       (Time.zone.today - start_date).to_i + 1
     end
+  end
+
+  def complete
+    update status: COMPLETED
   end
 
   private
