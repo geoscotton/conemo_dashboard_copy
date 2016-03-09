@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304033310) do
+ActiveRecord::Schema.define(version: 20160312184639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -175,14 +175,21 @@ ActiveRecord::Schema.define(version: 20160304033310) do
   add_index "help_messages", ["participant_id"], name: "index_help_messages_on_participant_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
-    t.string   "title",                                 null: false
+    t.string   "title",                                         null: false
     t.integer  "bit_core_slideshow_id"
-    t.integer  "day_in_treatment",      default: 1,     null: false
-    t.string   "locale",                default: "en",  null: false
+    t.integer  "day_in_treatment",              default: 1,     null: false
+    t.string   "locale",                        default: "en",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "guid",                                  null: false
-    t.boolean  "has_activity_planning", default: false, null: false
+    t.string   "guid",                                          null: false
+    t.boolean  "has_activity_planning",         default: false, null: false
+    t.string   "pre_planning_content"
+    t.string   "post_planning_content"
+    t.string   "non_planning_content"
+    t.integer  "feedback_after_days"
+    t.string   "planning_response_yes_content"
+    t.string   "planning_response_no_content"
+    t.string   "non_planning_response_content"
   end
 
   add_index "lessons", ["bit_core_slideshow_id"], name: "index_lessons_on_bit_core_slideshow_id", using: :btree
@@ -299,6 +306,7 @@ ActiveRecord::Schema.define(version: 20160304033310) do
     t.datetime "updated_at",         null: false
     t.datetime "client_created_at"
     t.datetime "client_updated_at"
+    t.datetime "follow_up_at"
   end
 
   create_table "responses", force: :cascade do |t|

@@ -85,7 +85,14 @@ class LessonsController < ApplicationController
     params.require(:lesson).permit(
       :title,
       :day_in_treatment,
-      :has_activity_planning
+      :has_activity_planning,
+      :pre_planning_content,
+      :post_planning_content,
+      :non_planning_content,
+      :feedback_after_days,
+      :planning_response_yes_content,
+      :planning_response_no_content,
+      :non_planning_response_content
     )
   end
 

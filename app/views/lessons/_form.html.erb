@@ -33,6 +33,55 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :pre_planning_content, class: "col-sm-2 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :pre_planning_content, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :post_planning_content, class: "col-sm-2 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :post_planning_content, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :non_planning_content, class: "col-sm-2 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :non_planning_content, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :feedback_after_days, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= f.number_field :feedback_after_days, class: "form-control", required: true %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :planning_response_yes_content, class: "col-sm-2 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :planning_response_yes_content, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :planning_response_no_content, class: "col-sm-2 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :planning_response_no_content, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :non_planning_response_content, class: "col-sm-2 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :non_planning_response_content, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit class: "btn btn-primary" %>
       <%= link_to "Cancel", lessons_path, class: "btn btn-default" %>
