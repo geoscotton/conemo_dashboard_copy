@@ -87,6 +87,7 @@ class LessonsController < ApplicationController
       :day_in_treatment,
       :has_activity_planning,
       :pre_planning_content,
+      :activity_choices,
       :post_planning_content,
       :non_planning_content,
       :feedback_after_days,

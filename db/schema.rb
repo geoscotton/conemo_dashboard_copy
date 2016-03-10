@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312184639) do
+ActiveRecord::Schema.define(version: 20160312184640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 20160312184639) do
     t.string   "planning_response_yes_content"
     t.string   "planning_response_no_content"
     t.string   "non_planning_response_content"
+    t.text     "activity_choices"
   end
 
   add_index "lessons", ["bit_core_slideshow_id"], name: "index_lessons_on_bit_core_slideshow_id", using: :btree
