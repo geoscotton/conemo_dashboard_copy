@@ -126,7 +126,7 @@
     uuid: <%= SecureRandom.uuid %>
 <% end %>
 
-<% (337..343).each do |i| %>
+<% (337..345).each do |i| %>
   content_access_event_<%= x %>_<%= i %>:
     participant: participant<%= i %>
     event_type: accessed

@@ -114,7 +114,7 @@
     locale: en
 <% end %>
 
-<% (337..343).each do |i| %>
+<% (337..345).each do |i| %>
   participant<%= i %>:
     nurse: user_400
     first_name: First

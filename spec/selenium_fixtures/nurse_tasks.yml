@@ -240,16 +240,6 @@
     overdue_at: <%= today_at_11_am - 36.days %>
 <% end %>
 
-<% (320..328).each do |i| %>
-  nurse_task_4<%= i %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
-    participant: participant<%= i %>
-    type: Tasks::FollowUpCallWeekThree
-    status: active
-    scheduled_at: <%= today_at_11_am + 14.days %>
-    overdue_at: <%= today_at_11_am + 17.days %>
-<% end %>
-
 <% (329..336).each do |i| %>
   nurse_task_4<%= i %>:
     user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
@@ -300,26 +290,6 @@
     overdue_at: <%= today_at_11_am - 15.days %>
 <% end %>
 
-<% (320..328).each do |i| %>
-  nurse_task_5<%= i %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
-    participant: participant<%= i %>
-    type: Tasks::CallToScheduleFinalAppointment
-    status: active
-    scheduled_at: <%= today_at_11_am + 21.days %>
-    overdue_at: <%= today_at_11_am + 31.days %>
-<% end %>
-
-<% (329..336).each do |i| %>
-  nurse_task_5<%= i %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
-    participant: participant<%= i %>
-    type: Tasks::CallToScheduleFinalAppointment
-    status: active
-    scheduled_at: <%= today_at_11_am + 14.days %>
-    overdue_at: <%= today_at_11_am + 17.days %>
-<% end %>
-
 <% (337..343).each do |i| %>
   nurse_task_5<%= i %>:
     user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
@@ -361,6 +331,16 @@
 <% end %>
 
 <% (337..341).each do |i| %>
+  nurse_task_6<%= i %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
+    participant: participant<%= i %>
+    type: Tasks::FinalInPersonAppointment
+    status: active
+    scheduled_at: <%= today_at_11_am %>
+    overdue_at: <%= today_at_11_am + 3.days %>
+<% end %>
+
+<% (344..345).each do |i| %>
   nurse_task_6<%= i %>:
     user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= i %>
