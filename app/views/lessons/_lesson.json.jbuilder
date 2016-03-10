@@ -6,6 +6,7 @@ json.l10n lesson.locale
 json.guid lesson.guid
 json.hasActivityPlanning lesson.has_activity_planning
 json.prePlanningContent lesson.pre_planning_content
+json.activityChoices lesson.activity_choices
 json.postPlanningContent lesson.post_planning_content
 json.nonPlanningContent lesson.non_planning_content
 json.feedbackAfterDays lesson.feedback_after_days
