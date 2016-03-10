@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.3 - 2016-03-10
+
+* enable dynamic activity choices list
+
 ## 0.6.2 - 2016-03-09
 
 * enable activity planning customization
