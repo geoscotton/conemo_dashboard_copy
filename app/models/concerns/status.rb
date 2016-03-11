@@ -2,10 +2,10 @@
 # Handles Participant overall and individual lesson status logic
 module Status
   LESSON_STATUSES = Struct
-                    .new(:unreleased, :accessed, :info, :danger, :warning,
-                         :success)
-                    .new("un-released", "accessed", "info", "danger", "warning",
-                         "success")
+                    .new(:unreleased, :accessed_incomplete, :completed_late,
+                         :info, :danger, :completed_on_time)
+                    .new("un-released", "warning", "slippage",
+                         "info", "danger", "success")
                     .freeze
 
   # Lesson Status
@@ -38,14 +38,14 @@ module Status
 
     if lesson.guid == current_lesson.guid
       LESSON_STATUSES.info
-    elsif access && access.late?
-      LESSON_STATUSES.warning
-    elsif access && !access.late? && !completion
-      LESSON_STATUSES.accessed
+    elsif access && !completion
+      LESSON_STATUSES.accessed_incomplete
+    elsif access && completion.late?
+      LESSON_STATUSES.completed_late
     elsif !completion && lesson_released?(next_lesson(lesson))
       LESSON_STATUSES.danger
     else
-      LESSON_STATUSES.success
+      LESSON_STATUSES.completed_on_time
     end
   end
 

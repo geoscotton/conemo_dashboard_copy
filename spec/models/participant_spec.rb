@@ -122,7 +122,7 @@ RSpec.describe Participant do
 
           result = participant_day_5.lesson_status(late_lesson)
 
-          expect(result).to eq Status::LESSON_STATUSES.warning
+          expect(result).to eq Status::LESSON_STATUSES.accessed_incomplete
         end
       end
 
@@ -137,7 +137,7 @@ RSpec.describe Participant do
 
           result = participant_day_5.lesson_status(on_time_lesson)
 
-          expect(result).to eq Status::LESSON_STATUSES.success
+          expect(result).to eq Status::LESSON_STATUSES.completed_on_time
         end
       end
     end
