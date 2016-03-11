@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 require "simplecov"
 SimpleCov.minimum_coverage 96
-SimpleCov.start "rails"
+SimpleCov.start "rails" do
+  add_group "Presenters", "app/presenters"
+end
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= "test"
