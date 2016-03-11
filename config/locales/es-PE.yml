@@ -473,6 +473,15 @@ es-PE:
           - Celular inteligente apagado
           - Otra
           - No lo sé
+      non_adherence_call:
+        explanations:
+          - Dificultades para usar CONEMO
+          - Sin tiempo para usar CONEMO
+          - Sin voluntad de usar CONEMO
+          - Error de transferencia de datos (sesiones fueron completadas)
+          - Paciente está viajando (sin el smartphone)
+          - Razón no fue comunicada
+          - Otra
     models:
       additional_contact: Additional contact
       call_to_schedule_final_appointments: Llamada para programar cita final

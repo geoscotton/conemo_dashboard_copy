@@ -487,6 +487,15 @@ pt-BR:
           - Smartphone desligado
           - Outra
           - Não sei
+      non_adherence_call:
+        explanations:
+          - Dificuldades para usar CONEMO
+          - Sem tempo para CONEMO
+          - Sem vontade de usar CONEMO
+          - Erro na transmissão de dados (sessões foram completadas)
+          - Paciente está viajando (sem smartphone)
+          - Razão não foi comunicado
+          - Outra
     models:
       additional_contact: Additional contact
       call_to_schedule_final_appointments: Chamada para agendar encontro final

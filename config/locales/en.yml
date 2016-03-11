@@ -279,6 +279,15 @@ en:
           - Cellphone turned off
           - Other
           - "I don't know"
+      non_adherence_call:
+        explanations:
+          - Difficulties using CONEMO
+          - No time for CONEMO
+          - Not willing to use CONEMO
+          - Failure of data transfer (sessions were completed)
+          - Patient is traveling (without the smartphone)
+          - No reason stated
+          - Other
     models:
       additional_contact: Additional contact
       call_to_schedule_final_appointments: Call to schedule final in person appointment
