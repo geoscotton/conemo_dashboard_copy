@@ -25,6 +25,28 @@ class CallToScheduleFinalAppointmentsController < ApplicationController
     end
   end
 
+  def edit
+    @call_to_schedule_final_appointment =
+      find_participant.call_to_schedule_final_appointment
+    authorize! :update, @call_to_schedule_final_appointment
+  end
+
+  def update
+    @call_to_schedule_final_appointment =
+      find_participant.call_to_schedule_final_appointment
+    authorize! :update, @call_to_schedule_final_appointment
+
+    if @call_to_schedule_final_appointment.update(call_params)
+      redirect_to participant_tasks_url(find_participant),
+                  notice: "Successfully updated " +
+                          @call_to_schedule_final_appointment.model_name.human
+    else
+      flash[:alert] = @call_to_schedule_final_appointment
+                      .errors.full_messages.join(", ")
+      render :edit
+    end
+  end
+
   private
 
   def find_participant

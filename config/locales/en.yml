@@ -58,9 +58,6 @@ en:
           heading: Follow up call week 3
         reschedule:
           heading: Follow up call week 3
-      call_to_schedule_final_appointments:
-        new:
-          heading: Call to schedule final in person appointment
       final_appointments:
         new:
           heading: Final in person appointment
@@ -284,7 +281,10 @@ en:
           - "I don't know"
     models:
       additional_contact: Additional contact
+      call_to_schedule_final_appointments: Call to schedule final in person appointment
     attributes:
       additional_contact:
         scheduled_at: Date and time of contact
         kind: Type
+      call_to_schedule_final_appointment:
+        contact_at: Contact at

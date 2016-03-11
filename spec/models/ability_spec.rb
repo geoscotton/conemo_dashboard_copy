@@ -111,6 +111,14 @@ RSpec.describe Ability do
       expect(en_nurse_role.can?(:create, call)).to eq true
     end
 
+    it "can update CallToScheduleFinalAppointments for assigned Participants" do
+      en_nurse_participant = Participant.active.find_by(nurse: en_nurse)
+
+      call =
+        CallToScheduleFinalAppointment.new(participant: en_nurse_participant)
+      expect(en_nurse_role.can?(:update, call)).to eq true
+    end
+
     it "can update NurseTasks for assigned Participants" do
       en_nurse_tasks = NurseTask.where(nurse: en_nurse)
       expect(en_nurse_tasks.count > 0).to eq true
