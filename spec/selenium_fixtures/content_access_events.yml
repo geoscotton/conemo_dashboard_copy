@@ -1,5 +1,3 @@
-<% today_at_11_am = DateTime.now.noon - 1.hours %>
-
 <% (1..1).each do |i| %>
   content_access_event_<%= i %>:
     participant: participant400
@@ -40,7 +38,7 @@
 <% (311..319).each do |i| %>
   content_access_event_1<%= i %>:
     participant: participant<%= i %>
-    accessed_at: <%= DateTime.now - 2 %>
+    accessed_at: <%= DateTime.now - (2 - 1) %>
     lesson: lesson_1
     day_in_treatment_accessed: 1
     uuid: <%= SecureRandom.uuid %>
@@ -49,7 +47,7 @@
 <% (320..328).each do |i| %>
   content_access_event_1<%= i %>:
     participant: participant<%= i %>
-    accessed_at: <%= DateTime.now - 4 %>
+    accessed_at: <%= DateTime.now - (4 - 1) %>
     lesson: lesson_1
     day_in_treatment_accessed: 1
     uuid: <%= SecureRandom.uuid %>
@@ -58,7 +56,7 @@
 <% (311..311).each do |i| %>
   content_access_event_2<%= i %>:
     participant: participant<%= i %>
-    accessed_at: <%= DateTime.now - 1 %>
+    accessed_at: <%= DateTime.now - (2 - 2) %>
     lesson: lesson_2
     day_in_treatment_accessed: 2
     uuid: <%= SecureRandom.uuid %>
@@ -67,7 +65,7 @@
 <% (313..319).each do |i| %>
   content_access_event_2<%= i %>:
     participant: participant<%= i %>
-    accessed_at: <%= DateTime.now - 1 %>
+    accessed_at: <%= DateTime.now - (2 - 2) %>
     lesson: lesson_2
     day_in_treatment_accessed: 2
     uuid: <%= SecureRandom.uuid %>
@@ -85,7 +83,7 @@
 <% (325..328).each do |i| %>
   content_access_event_2<%= i %>:
     participant: participant<%= i %>
-    accessed_at: <%= DateTime.now - 3 %>
+    accessed_at: <%= DateTime.now - (4 - 2) %>
     lesson: lesson_2
     day_in_treatment_accessed: 2
     uuid: <%= SecureRandom.uuid %>
@@ -94,7 +92,7 @@
 <% (320..328).each do |i| %>
   content_access_event3<%= i %>:
     participant: participant<%= i %>
-    accessed_at: <%= DateTime.now - 2 %>
+    accessed_at: <%= DateTime.now - (4 - 3) %>
     lesson: lesson_3
     day_in_treatment_accessed: 3
     uuid: <%= SecureRandom.uuid %>
@@ -112,7 +110,7 @@
 <% (324..328).each do |i| %>
   content_access_event4<%= i %>:
     participant: participant<%= i %>
-    accessed_at: <%= DateTime.now - 1 %>
+    accessed_at: <%= DateTime.now - (4 - 4) %>
     lesson: lesson_4
     day_in_treatment_accessed: 4
     uuid: <%= SecureRandom.uuid %>
@@ -156,6 +154,15 @@
     day_in_treatment_accessed: <%= x %>
     uuid: <%= SecureRandom.uuid %>
 <% end %>
+
+<% (428..428).each do |i| %>
+  content_access_event_<%= x %>_<%= i %>:
+    participant: participant<%= i %>
+    accessed_at: <%= DateTime.now - (3 - x) %>
+    lesson: lesson_<%= x %>
+    day_in_treatment_accessed: <%= x %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
 <% end %>
 
 <% (2..3).each do |x| %>
@@ -187,6 +194,15 @@
     day_in_treatment_accessed: <%= x %>
     uuid: <%= SecureRandom.uuid %>
 <% end %>
+<% end %>
+
+<% (428..428).each do |i| %>
+  content_access_event_4_<%= i %>:
+    participant: participant<%= i %>
+    accessed_at: <%= DateTime.now %>
+    lesson: lesson_4
+    day_in_treatment_accessed: 4
+    uuid: <%= SecureRandom.uuid %>
 <% end %>
 
 <% (4..5).each do |x| %>
@@ -409,7 +425,7 @@
 <% end %>
 <% end %>
 
-<% (9..10).each do |x| %>
+<% (10..11).each do |x| %>
 <% (480..480).each do |i| %>
   content_access_event_<%= x %>_<%= i %>:
     participant: participant<%= i %>
@@ -425,6 +441,17 @@
   content_access_event_<%= x %>_<%= i %>:
     participant: participant<%= i %>
     accessed_at: <%= DateTime.now - (12 - x) %>
+    lesson: lesson_<%= x %>
+    day_in_treatment_accessed: <%= x %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+<% end %>
+
+<% (11..12).each do |x| %>
+<% (490..490).each do |i| %>
+  content_access_event_<%= x %>_<%= i %>:
+    participant: participant<%= i %>
+    accessed_at: <%= DateTime.now - (11 - x) %>
     lesson: lesson_<%= x %>
     day_in_treatment_accessed: <%= x %>
     uuid: <%= SecureRandom.uuid %>
@@ -456,10 +483,21 @@
 <% (420..427).each do |i| %>
   content_access_event_3_<%= i %>:
     participant: participant<%= i %>
-    accessed_at: <%= DateTime.now - 2 %>
+    accessed_at: <%= DateTime.now - (5 - 3) %>
     lesson: lesson_3
     day_in_treatment_accessed: 3
     uuid: <%= SecureRandom.uuid %>
+<% end %>
+
+<% (4..5).each do |x| %>
+<% (422..422).each do |i| %>
+  content_access_event_<%= x %>_<%= i %>:
+    participant: participant<%= i %>
+    accessed_at: <%= DateTime.now - (5 - x) %>
+    lesson: lesson_<%= x %>
+    day_in_treatment_accessed: <%= x %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
 <% end %>
 
 <% (426..426).each do |i| %>
