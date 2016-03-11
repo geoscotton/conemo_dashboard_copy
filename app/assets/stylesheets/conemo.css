@@ -7,3 +7,8 @@ body {
 .progress-bar-future {
   background-color: transparent;
 }
+
+/* lessons table on detailed participant page */
+.table > tbody > tr.slippage > td {
+  background-color: #A4A441;
+}

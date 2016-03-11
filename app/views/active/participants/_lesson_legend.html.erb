@@ -1,4 +1,22 @@
-<small><%= t "conemo.views.active.participants.report.legend.blue" %> </small><i class="fa fa-square info"></i><br>
-<small><%= t "conemo.views.active.participants.report.legend.red" %> </small><i class="fa fa-square danger"></i><br>
-<small><%= t "conemo.views.active.participants.report.legend.yellow" %> </small><i class="fa fa-square warning"></i><br>
-<small><%= t "conemo.views.active.participants.report.legend.green" %> </small><i class="fa fa-square success"></i><br>
+<table class="table table-condensed">
+  <tbody>
+    <tr class="un-released">
+      <td>Unreleased</td>
+    </tr>
+    <tr class="info">
+      <td>Current</td>
+    </tr>
+    <tr class="slippage">
+      <td>Completed late</td>
+    </tr>
+    <tr class="warning">
+      <td>Accessed but not completed</td>
+    </tr>
+    <tr class="danger">
+      <td>Not accessed</td>
+    </tr>
+    <tr class="success">
+      <td>Completed on time</td>
+    </tr>
+  </tbody>
+</table>

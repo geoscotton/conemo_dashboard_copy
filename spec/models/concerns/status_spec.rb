@@ -98,58 +98,63 @@ module Concerns
           end
 
           context "and the lesson has been accessed" do
-            context "and the access was late" do
+            context "and the completion was late" do
               it "returns 'warning'" do
                 current_lesson = instance_double(Lesson,
                                                  guid: guid + "_abcd",
                                                  day_in_treatment: 1)
-                late_access = instance_double(SessionEvent, late?: true)
+                access = instance_double(SessionEvent)
+                late_completion = instance_double(ContentAccessEvent,
+                                                  late?: true)
                 allow(access_events).to receive_message_chain("where.order")
-                  .and_return([late_access])
+                  .and_return([access])
                 allow(completion_events)
                   .to receive(:find_by).with(lesson_id: lesson.id)
-                  .and_return(nil)
+                  .and_return(late_completion)
                 allow(Lesson).to receive_message_chain("where.where.order")
                   .and_return([current_lesson])
 
-                expect(participant.lesson_status(lesson)).to eq statuses.warning
+                expect(participant.lesson_status(lesson))
+                  .to eq statuses.completed_late
               end
             end
 
-            context "and the access was not late" do
-              context "and the lesson was not finished" do
-                it "returns 'accessed'" do
-                  current_lesson = instance_double(Lesson,
-                                                   guid: guid + "_abcd",
-                                                   day_in_treatment: 1)
-                  access_event = instance_double(SessionEvent, late?: false)
-                  allow(completion_events)
-                    .to receive(:find_by).with(lesson_id: lesson.id)
-                    .and_return(nil)
-                  allow(access_events).to receive_message_chain("where.order")
-                    .and_return([access_event])
-                  allow(Lesson).to receive_message_chain("where.where.order")
-                    .and_return([current_lesson])
+            context "and the lesson was not completed" do
+              it "returns 'accessed'" do
+                current_lesson = instance_double(Lesson,
+                                                 guid: guid + "_abcd",
+                                                 day_in_treatment: 1)
+                access = instance_double(SessionEvent)
+                allow(completion_events)
+                  .to receive(:find_by).with(lesson_id: lesson.id)
+                  .and_return(nil)
+                allow(access_events).to receive_message_chain("where.order")
+                  .and_return([access])
+                allow(Lesson).to receive_message_chain("where.where.order")
+                  .and_return([current_lesson])
 
-                  expect(participant.lesson_status(lesson)).to eq statuses.accessed
-                end
+                expect(participant.lesson_status(lesson))
+                  .to eq statuses.accessed_incomplete
               end
 
-              context "and the lesson was finished" do
+              context "and the lesson was completed on time" do
                 it "returns 'success'" do
                   current_lesson = instance_double(Lesson,
                                                    guid: guid + "_abcd",
                                                    day_in_treatment: 1)
-                  on_time_access = instance_double(SessionEvent, late?: false)
+                  access = instance_double(SessionEvent)
+                  on_time_completion = instance_double(ContentAccessEvent,
+                                                       late?: false)
                   allow(access_events).to receive_message_chain("where.order")
-                    .and_return([on_time_access])
+                    .and_return([access])
                   allow(completion_events)
                     .to receive(:find_by).with(lesson_id: lesson.id)
-                    .and_return(instance_double(ContentAccessEvent))
+                    .and_return(on_time_completion)
                   allow(Lesson).to receive_message_chain("where.where.order")
                     .and_return([current_lesson])
 
-                  expect(participant.lesson_status(lesson)).to eq statuses.success
+                  expect(participant.lesson_status(lesson))
+                    .to eq statuses.completed_on_time
                 end
               end
             end
