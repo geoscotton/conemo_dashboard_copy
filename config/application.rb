@@ -34,6 +34,9 @@ module ConemoDashboard
                                      :first_appointment_observer,
                                      :first_contact_observer,
                                      :help_message_observer,
+                                     :help_request_call_observer,
+                                     :lack_of_connectivity_call_observer,
+                                     :non_adherence_call_observer,
                                      :participant_observer,
                                      :second_contact_observer,
                                      :third_contact_observer

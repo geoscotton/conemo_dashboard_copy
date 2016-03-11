@@ -13,5 +13,9 @@ module Tasks
     def alert?
       true
     end
+
+    def target
+      symbolize ::NonAdherenceCall
+    end
   end
 end

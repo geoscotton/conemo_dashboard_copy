@@ -461,6 +461,21 @@ es-PE:
           - Casa del paciente
           - Centro de salud
           - Otro lugar
+      help_request_call:
+        explanations:
+          - Dificultades con CONEMO
+          - Pregunta sobre la intervención
+          - Botón de solicitar ayuda presionado por error
+          - No relacionado a CONEMO (p. ej. salud)
+          - Otra
+      lack_of_connectivity_call:
+        explanations:
+          = Datos móviles apagados
+          - Sin cobertura de internet
+          - Se agotaron los datos móviles disponibles
+          - Celular inteligente apagado
+          - Otra
+          - No lo sé
     models:
       additional_contact: Additional contact
     attributes:

@@ -124,5 +124,26 @@ RSpec.describe Ability do
       contact = AdditionalContact.new(participant: en_nurse_participant)
       expect(en_nurse_role.can?(:create, contact)).to eq true
     end
+
+    it "can create HelpRequestCalls for assigned Participants" do
+      en_nurse_participant = Participant.active.find_by(nurse: en_nurse)
+
+      contact = HelpRequestCall.new(participant: en_nurse_participant)
+      expect(en_nurse_role.can?(:create, contact)).to eq true
+    end
+
+    it "can create LackOfConnectivityCalls for assigned Participants" do
+      en_nurse_participant = Participant.active.find_by(nurse: en_nurse)
+
+      contact = LackOfConnectivityCall.new(participant: en_nurse_participant)
+      expect(en_nurse_role.can?(:create, contact)).to eq true
+    end
+
+    it "can create NonAdherenceCalls for assigned Participants" do
+      en_nurse_participant = Participant.active.find_by(nurse: en_nurse)
+
+      contact = NonAdherenceCall.new(participant: en_nurse_participant)
+      expect(en_nurse_role.can?(:create, contact)).to eq true
+    end
   end
 end

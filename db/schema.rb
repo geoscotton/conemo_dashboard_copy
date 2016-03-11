@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312184640) do
+ActiveRecord::Schema.define(version: 20160312184643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -174,6 +174,26 @@ ActiveRecord::Schema.define(version: 20160312184640) do
 
   add_index "help_messages", ["participant_id"], name: "index_help_messages_on_participant_id", using: :btree
 
+  create_table "help_request_calls", force: :cascade do |t|
+    t.integer  "participant_id", null: false
+    t.datetime "contact_at",     null: false
+    t.string   "explanation",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "help_request_calls", ["participant_id"], name: "index_help_request_calls_on_participant_id", using: :btree
+
+  create_table "lack_of_connectivity_calls", force: :cascade do |t|
+    t.integer  "participant_id", null: false
+    t.datetime "contact_at",     null: false
+    t.string   "explanation",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "lack_of_connectivity_calls", ["participant_id"], name: "index_lack_of_connectivity_calls_on_participant_id", using: :btree
+
   create_table "lessons", force: :cascade do |t|
     t.string   "title",                                         null: false
     t.integer  "bit_core_slideshow_id"
@@ -208,6 +228,16 @@ ActiveRecord::Schema.define(version: 20160312184640) do
   end
 
   add_index "logins", ["participant_id"], name: "index_logins_on_participant_id", using: :btree
+
+  create_table "non_adherence_calls", force: :cascade do |t|
+    t.integer  "participant_id", null: false
+    t.datetime "contact_at",     null: false
+    t.string   "explanation",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "non_adherence_calls", ["participant_id"], name: "index_non_adherence_calls_on_participant_id", using: :btree
 
   create_table "nurse_participant_evaluations", force: :cascade do |t|
     t.integer  "second_contact_id"
@@ -472,8 +502,11 @@ ActiveRecord::Schema.define(version: 20160312184640) do
   add_foreign_key "first_appointments", "participants", name: "fk_first_appointments_participants"
   add_foreign_key "first_contacts", "participants", name: "fk_first_contacts_participants"
   add_foreign_key "help_messages", "participants"
+  add_foreign_key "help_request_calls", "participants"
+  add_foreign_key "lack_of_connectivity_calls", "participants"
   add_foreign_key "lessons", "bit_core_slideshows", name: "fk_lessons_slideshows"
   add_foreign_key "logins", "participants"
+  add_foreign_key "non_adherence_calls", "participants"
   add_foreign_key "nurse_participant_evaluations", "second_contacts", name: "fk_evaluations_second_contacts"
   add_foreign_key "nurse_tasks", "participants"
   add_foreign_key "nurse_tasks", "users"
