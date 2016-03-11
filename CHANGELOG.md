@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.4 - 2016-03-11
+
+* display contact history by descending date
+* add final call to contact details
+* enable non scheduled task resolution
+
 ## 0.6.3 - 2016-03-10
 
 * enable dynamic activity choices list
