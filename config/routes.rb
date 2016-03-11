@@ -18,15 +18,17 @@ Rails.application.routes.draw do
 
     resources :participants, except: [:index, :show] do
       resources :additional_contacts, only: [:new, :create]
-      resource :first_contact, only: [:new, :create, :edit, :update]
-      resource :first_appointment, only: [:new, :create, :edit, :update]
-      resource :second_contact, only: [:new, :create, :edit, :update]
-      resource :third_contact, only: [:new, :create, :edit, :update]
       resource :call_to_schedule_final_appointment, only: [:new, :create]
       resource :final_appointment, only: [:new, :create, :edit, :update]
-      resource :smartphone, only: [:new, :create, :edit, :update]
-      resources :patient_contacts, only: [:new, :create, :destroy]
+      resource :first_contact, only: [:new, :create, :edit, :update]
+      resource :first_appointment, only: [:new, :create, :edit, :update]
       resources :help_messages, only: [:update]
+      resources :help_request_calls, only: [:new, :create]
+      resources :lack_of_connectivity_calls, only: [:new, :create]
+      resources :non_adherence_calls, only: [:new, :create]
+      resources :patient_contacts, only: [:new, :create, :destroy]
+      resource :second_contact, only: [:new, :create, :edit, :update]
+      resource :smartphone, only: [:new, :create, :edit, :update]
       resources :tasks, only: [:index, :edit, :update] do
         member do
           put :cancel
@@ -35,6 +37,9 @@ Rails.application.routes.draw do
           delete :clear_latest_supervisor_notification
         end
       end
+      resource :third_contact, only: [:new, :create, :edit, :update]
+
+      # catchall for urecognized requests
       get "*unknown", to: redirect("/%{locale}")
     end
 

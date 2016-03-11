@@ -475,6 +475,21 @@ pt-BR:
           - Casa do paciente
           - Unidade de saúde
           - Outro lugar
+      help_request_call:
+        explanations:
+          - Dificuldades com o CONEMO
+          - Perguntas sobre a intervenção
+          - Botão para pedir ajuda pressionado por engano
+          - Não relacionada ao CONEMO (p. ex. saúde)
+          - Outra
+      lack_of_connectivity_call:
+        explanations:
+          - Dados móveis desligados
+          - Falta de cobertura de internet
+          - Sem crédito / Pacote de dados acabou
+          - Smartphone desligado
+          - Outra
+          - Não sei
     models:
       additional_contact: Additional contact
     attributes:

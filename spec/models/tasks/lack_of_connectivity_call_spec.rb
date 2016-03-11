@@ -13,13 +13,13 @@ module Tasks
 
     describe "validation" do
       it "permits multiple resolved tasks" do
-        LackOfConnectivityCall.create!(
+        Tasks::LackOfConnectivityCall.create!(
           nurse: nurse,
           participant: participant,
           status: NurseTask::STATUSES.resolved
         )
 
-        dup_task = LackOfConnectivityCall.new(
+        dup_task = Tasks::LackOfConnectivityCall.new(
           nurse: nurse,
           participant: participant,
           status: NurseTask::STATUSES.resolved
@@ -29,13 +29,13 @@ module Tasks
       end
 
       it "doesn't permit more than one active task" do
-        LackOfConnectivityCall.create!(
+        Tasks::LackOfConnectivityCall.create!(
           nurse: nurse,
           participant: participant,
           status: NurseTask::STATUSES.active
         )
 
-        dup_task = LackOfConnectivityCall.new(
+        dup_task = Tasks::LackOfConnectivityCall.new(
           nurse: nurse,
           participant: participant,
           status: NurseTask::STATUSES.active

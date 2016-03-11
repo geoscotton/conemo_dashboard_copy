@@ -42,12 +42,9 @@ RSpec.describe "tasks/index", type: :view do
       .to receive(:active_tasks)
       .and_return(
         [
-          instance_double(NurseTask, scheduled_at: Time.zone.now)
-            .as_null_object,
-          instance_double(NurseTask, scheduled_at: Time.zone.now)
-            .as_null_object,
-          instance_double(NurseTask, scheduled_at: Time.zone.now)
-            .as_null_object
+          Tasks::ConfirmationCall.new(scheduled_at: Time.zone.now, id: rand),
+          Tasks::HelpRequest.new(scheduled_at: Time.zone.now, id: rand),
+          Tasks::NonAdherenceCall.new(scheduled_at: Time.zone.now, id: rand)
         ]
       )
 
@@ -67,22 +64,19 @@ RSpec.describe "tasks/index", type: :view do
 
   it "renders the time since each task was scheduled" do
     I18n.locale = "en"
-    task = instance_double(NurseTask,
-                           to_s: "Do fu",
-                           scheduled_at: 1.minute.ago).as_null_object
+    task = Tasks::FollowUpCallWeekOne.new(scheduled_at: 1.minute.ago, id: rand)
     assign(:tasks, tasks)
     allow(tasks).to receive(:active_tasks) { [task] }
 
     render template: template
 
-    expect(rendered).to match(/Do fu .*1 minute ago/)
+    expect(rendered).to match(/Follow up call week one .*1 minute ago/)
   end
 
   context "for alert tasks" do
     def stub_alert_tasks
-      task = instance_double(NurseTask,
-                             scheduled_at: Time.zone.now,
-                             alert?: true).as_null_object
+      task = Tasks::LackOfConnectivityCall.new(scheduled_at: Time.zone.now,
+                                               id: rand)
       assign(:tasks, tasks)
       allow(tasks).to receive(:active_tasks) { [task] }
     end

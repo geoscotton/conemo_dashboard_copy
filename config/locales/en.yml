@@ -267,6 +267,21 @@ en:
           - "Patient's home"
           - Health unit
           - Other location
+      help_request_call:
+        explanations:
+          - Difficulty using the CONEMO app
+          - Question about the intervention
+          - Pressed help button by mistake
+          - Not related to CONEMO (e.g. health)
+          - Other
+      lack_of_connectivity_call:
+        explanations:
+          - Mobile data turned off
+          - No internet coverage
+          - Mobile plan used up
+          - Cellphone turned off
+          - Other
+          - "I don't know"
     models:
       additional_contact: Additional contact
     attributes:
