@@ -74,9 +74,6 @@ es-PE:
           heading: "Llamada de seguimiento sem. 3"
         reschedule:
           heading: "la llamada de seguimiento sem. 3"
-      call_to_schedule_final_appointments:
-        new:
-          heading: Llamada para programar cita final
       final_appointments:
         new:
           heading: "Cita final"
@@ -478,10 +475,13 @@ es-PE:
           - No lo sé
     models:
       additional_contact: Additional contact
+      call_to_schedule_final_appointments: Llamada para programar cita final
     attributes:
       additional_contact:
         scheduled_at: Fecha y hora de contacto
         kind: Tipo de contacto
+      call_to_schedule_final_appointment:
+        contact_at: Fecha y hora de contacto
   unauthorized:
     manage:
       all: No tiene permisos para acceder a esta página.

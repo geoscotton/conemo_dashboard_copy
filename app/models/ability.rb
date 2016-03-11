@@ -49,7 +49,7 @@ class Ability
     can :create,
         AdditionalContact,
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
-    can :create,
+    can [:create, :update],
         CallToScheduleFinalAppointment,
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
     can :create,

@@ -4,6 +4,21 @@ require "rails_helper"
 RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
   fixtures :all
 
+  let(:now) { Time.zone.now }
+  let(:valid_params) do
+    {
+      contact_at: now,
+      final_appointment_at: now,
+      final_appointment_location: "l"
+    }
+  end
+  let(:invalid_params) do
+    {
+      contact_at: nil,
+      final_appointment_at: nil,
+      final_appointment_location: nil
+    }
+  end
   let(:locale) { LOCALES.values.sample }
   let(:participant) do
     Participant.where.not(nurse: nil).active.find_by(locale: locale)
@@ -50,8 +65,8 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
   describe "POST create" do
     let(:valid_params) do
       {
-        contact_at: Time.zone.now,
-        final_appointment_at: Time.zone.now,
+        contact_at: now,
+        final_appointment_at: now,
         final_appointment_location: "l"
       }
     end
@@ -110,6 +125,76 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
                         call_to_schedule_final_appointment: invalid_params
 
           expect(response).to render_template :new
+        end
+      end
+    end
+  end
+
+  describe "GET edit" do
+    context "for an unauthenticated User" do
+      before { get :edit, participant_id: participant.id, locale: locale }
+
+      it_behaves_like "a rejected user action"
+    end
+
+    context "for an authenticated User" do
+      context "when the Participant isn't found" do
+        before do
+          sign_in_user nurse
+
+          get :edit, participant_id: -1, locale: locale
+        end
+
+        it_behaves_like "a bad request"
+      end
+
+      it "sets the call_to_schedule_final_appointment" do
+        admin_request :get, :edit, locale, participant_id: participant.id,
+                                           locale: locale
+
+        expect(assigns(:call_to_schedule_final_appointment))
+          .to eq participant.call_to_schedule_final_appointment
+      end
+    end
+  end
+
+  describe "PUT update" do
+    context "for an unauthenticated User" do
+      before { put :update, participant_id: participant.id }
+
+      it_behaves_like "a rejected user action"
+    end
+
+    context "for an authenticated User" do
+      context "when the Participant isn't found" do
+        before do
+          sign_in_user nurse
+
+          put :update, participant_id: -1, locale: locale
+        end
+
+        it_behaves_like "a bad request"
+      end
+
+      context "when unsuccessful" do
+        it "sets the alert" do
+          participant.create_call_to_schedule_final_appointment(valid_params)
+          sign_in_user nurse
+
+          put :update, participant_id: participant.id, locale: locale,
+                       call_to_schedule_final_appointment: invalid_params
+
+          expect(flash[:alert]).not_to be_nil
+        end
+
+        it "renders the edit template" do
+          participant.create_call_to_schedule_final_appointment(valid_params)
+          sign_in_user nurse
+
+          put :update, participant_id: participant.id, locale: locale,
+                       call_to_schedule_final_appointment: invalid_params
+
+          expect(response).to render_template :edit
         end
       end
     end

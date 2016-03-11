@@ -56,9 +56,6 @@ pt-BR:
           heading: "Chamada de seguimento sem. 3"
         reschedule:
           heading: "Chamada de seguimento sem. 3"
-      call_to_schedule_final_appointments:
-        new:
-          heading: Chamada para agendar encontro final
       final_appointments:
         new:
           heading: "Encontro final"      
@@ -492,10 +489,13 @@ pt-BR:
           - Não sei
     models:
       additional_contact: Additional contact
+      call_to_schedule_final_appointments: Chamada para agendar encontro final
     attributes:
       additional_contact:
         scheduled_at: Data e hora do contato
         kind: Tipo de contato
+      call_to_schedule_final_appointment:
+        contact_at: Data da ligação
   unauthorized:
     manage:
       all: Você não está autorizado à acessar essa página.
