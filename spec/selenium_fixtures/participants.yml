@@ -139,7 +139,7 @@
     study_identifier: <%= i %>
     family_health_unit_name: Family Health Center
     family_record_number: 44<%= i %>
-    phone: 14444444<%= i %>
+    phone: 14444444<%= i %>40
     date_of_birth: <%= Date.today - ((54 * 365) + i) %>
     gender: female
     enrollment_date: <%= Date.today - 1 %>
