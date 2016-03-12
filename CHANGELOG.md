@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.2 - 2016-03-09
+
+* enable activity planning customization
+* enable task rescheduling
+
 ## 0.6.1 - 2016-03-08
 
 * complete participant when final aptmt complete
