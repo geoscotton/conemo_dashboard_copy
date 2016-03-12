@@ -1,5 +1,4 @@
 <% today_at_11_am = DateTime.now.noon - 1.hours %>
-<% today_at_1_pm = DateTime.now.noon + 1.hours %>
 
 <% (301..310).each do |i| %>
   nurse_task_1<%= i %>:
@@ -452,11 +451,41 @@
 <% end %>
 
 <% (804..804).each do |i| %>
-  nurse_task_7<%= i %>:
+  nurse_task_9<%= i %>:
     user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= i %>
     type: Tasks::NonAdherenceCall
     status: active
     scheduled_at: <%= DateTime.now - 3.days %>
     overdue_at: <%= DateTime.now - 1.days %>
+<% end %>
+
+<% (1000..1000).each do |i| %>
+  nurse_task_8<%= i %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
+    participant: participant<%= i %>
+    type: Tasks::LackOfConnectivityCall
+    status: active
+    scheduled_at: <%= DateTime.now - 1.days %>
+    overdue_at: <%= DateTime.now + 1.days %>
+<% end %>
+
+<% (1000..1000).each do |i| %>
+  nurse_task_1<%= i %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
+    participant: participant<%= i %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= today_at_11_am - 3.days %>
+    overdue_at: <%= today_at_11_am + 13.hours %>
+<% end %>
+
+<% (1000..1000).each do |i| %>
+  nurse_task_7<%= i %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
+    participant: participant<%= i %>
+    type: Tasks::HelpRequest
+    status: active
+    scheduled_at: <%= DateTime.now - 2.days %>
+    overdue_at: <%= today_at_11_am + 13.hours %>
 <% end %>

@@ -196,13 +196,15 @@
 <% end %>
 <% end %>
 
+<% (4..5).each do |x| %>
 <% (428..428).each do |i| %>
-  content_access_event_4_<%= i %>:
+  content_access_event_<%= x %>_<%= i %>:
     participant: participant<%= i %>
-    accessed_at: <%= DateTime.now %>
-    lesson: lesson_4
-    day_in_treatment_accessed: 4
+    accessed_at: <%= DateTime.now - (5 - x) %>
+    lesson: lesson_<%= x %>
+    day_in_treatment_accessed: <%= x %>
     uuid: <%= SecureRandom.uuid %>
+<% end %>
 <% end %>
 
 <% (4..5).each do |x| %>

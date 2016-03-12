@@ -9,7 +9,7 @@
     phone: 1111111<%= i %>
     date_of_birth: <%= Date.today - ((30 * 365) + i) %>
     gender: female
-    enrollment_date: <%= Date.today %>
+    enrollment_date: <%= Date.today - 2 %>
     status: active
     locale: en
 <% end %>
