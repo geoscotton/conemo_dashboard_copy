@@ -23,7 +23,8 @@ namespace :selenium_seed do
       :patient_contacts, :first_contacts, :first_appointments, :second_contacts,
       :third_contacts, :final_appointments, :nurse_participant_evaluations,
       :content_access_events, :session_events, :responses, :help_messages, :logins,
-      :nurse_tasks, :supervisor_notifications, :"token_auth/configuration_tokens"
+      :nurse_tasks, :supervisor_notifications, :"token_auth/configuration_tokens",
+      :call_to_schedule_final_appointments
     ]
   end
 end

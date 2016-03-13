@@ -1,6 +1,6 @@
-<% [338, 300, 326, 318, 305, 337, 308, 322, 325, 339].each do |i| %>
-  configuration_token_<%= i %>:
+<% [338, 300, 326, 318, 305, 337, 308, 322, 325, 339].each do |pt_id| %>
+  configuration_token_<%= pt_id %>:
     expires_at: <%= DateTime.now + 21.days %>
-    value: aBc<%= i %>XyZ
-    entity_id: <%= ActiveRecord::FixtureSet.identify(:"participant#{i}") %>
+    value: aBc<%= pt_id %>XyZ
+    entity_id: <%= ActiveRecord::FixtureSet.identify(:"participant#{pt_id}") %>
 <% end %>

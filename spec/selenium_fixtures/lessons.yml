@@ -1,10 +1,10 @@
-<% (1..15).each do |i| %>
-  lesson_<%= i %>:
-    title: Lesson <%= i %>
-    slideshow: slideshow<%= i %>
-    day_in_treatment: <%= i %>
+<% (1..15).each do |lesson_id| %>
+  lesson_<%= lesson_id %>:
+    title: Lesson <%= lesson_id %>
+    slideshow: slideshow<%= lesson_id %>
+    day_in_treatment: <%= lesson_id %>
     locale: en
-    guid: slideshow<%= i %>
+    guid: slideshow<%= lesson_id %>
 <% end %>
 
 <% (1..1).each do |i| %>

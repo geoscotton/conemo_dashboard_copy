@@ -1,116 +1,116 @@
-<% (100..100).each do |i| %>
-  user_<%= i %>:
-    email: user_<%= i %>@example.com
+<% (100..100).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
     role: admin
-    phone: 11111111<%= i %>
+    phone: 11111111<%= user_id %>
     first_name: English
-    last_name: Administrator-<%= i %>
+    last_name: Administrator-<%= user_id %>
     locale: en
     timezone: Central Time (US & Canada)
     type: Admin
 <% end %>
 
-<% (200..200).each do |i| %>
-  user_<%= i %>:
-    email: user_<%= i %>@example.com
+<% (200..200).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
     role: admin
-    phone: 12222222<%= i %>
+    phone: 12222222<%= user_id %>
     first_name: Spanish
-    last_name: Administrator-<%= i %>
+    last_name: Administrator-<%= user_id %>
     locale: es-PE
     timezone: Lima
     type: Admin
 <% end %>
 
-<% (300..300).each do |i| %>
-  user_<%= i %>:
-    email: user_<%= i %>@example.com
+<% (300..300).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
     role: admin
-    phone: 13333333<%= i %>
+    phone: 13333333<%= user_id %>
     first_name: Portuguese
-    last_name: Administrator-<%= i %>
+    last_name: Administrator-<%= user_id %>
     locale: pt-BR
     timezone: Brasilia
     type: Admin
 <% end %>
 
-<% (400..400).each do |i| %>
-  user_<%= i %>:
-    email: user_<%= i %>@example.com
+<% (400..400).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
     role: nurse
-    phone: 14444444<%= i %>
+    phone: 14444444<%= user_id %>
     first_name: English
-    last_name: Nurse-<%= i %>
+    last_name: Nurse-<%= user_id %>
     locale: en
     timezone: Central Time (US & Canada)
     type: Nurse
     nurse_supervisor: user_700
 <% end %>
 
-<% (500..500).each do |i| %>
-  user_<%= i %>:
-    email: user_<%= i %>@example.com
+<% (500..500).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
     role: nurse
-    phone: 15555555<%= i %>
+    phone: 15555555<%= user_id %>
     first_name: Spanish
-    last_name: Nurse-<%= i %>
+    last_name: Nurse-<%= user_id %>
     locale: es-PE
     timezone: Central Time (US & Canada)
     type: Nurse
 <% end %>
 
-<% (600..600).each do |i| %>
-  user_<%= i %>:
-    email: user_<%= i %>@example.com
+<% (600..600).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
     role: nurse
-    phone: 16666666<%= i %>
+    phone: 16666666<%= user_id %>
     first_name: Portuguese
-    last_name: Nurse-<%= i %>
+    last_name: Nurse-<%= user_id %>
     locale: pt-BR
     timezone: Central Time (US & Canada)
     type: Nurse
 <% end %>
 
-<% (700..700).each do |i| %>
-  user_<%= i %>:
-    email: user_<%= i %>@example.com
+<% (700..700).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
     role: nurse supervisor
-    phone: 17777777<%= i %>
+    phone: 17777777<%= user_id %>
     first_name: English
-    last_name: Nurse Supervisor-<%= i %>
+    last_name: Nurse Supervisor-<%= user_id %>
     locale: en
     timezone: Central Time (US & Canada)
     type: NurseSupervisor
 <% end %>
 
-<% (800..800).each do |i| %>
-  user_<%= i %>:
-    email: user_<%= i %>@example.com
+<% (800..800).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
     role: nurse supervisor
-    phone: 18888888<%= i %>
+    phone: 18888888<%= user_id %>
     first_name: Spanish
-    last_name: Nurse Supervisor-<%= i %>
+    last_name: Nurse Supervisor-<%= user_id %>
     locale: es-PE
     timezone: Central Time (US & Canada)
     type: NurseSupervisor
 <% end %>
 
-<% (900..900).each do |i| %>
-  user_<%= i %>:
-    email: user_<%= i %>@example.com
+<% (900..900).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
     role: nurse supervisor
-    phone: 19999999<%= i %>
+    phone: 19999999<%= user_id %>
     first_name: Portuguese
-    last_name: Nurse Supervisor-<%= i %>
+    last_name: Nurse Supervisor-<%= user_id %>
     locale: pt-BR
     timezone: Central Time (US & Canada)
     type: NurseSupervisor
