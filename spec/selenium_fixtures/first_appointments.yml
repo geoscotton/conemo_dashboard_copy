@@ -1,6 +1,6 @@
-<% (320..328).each do |i| %>
-  first_appointment_<%= i %>:
-    participant: participant<%= i %>
+<% (320..328).each do |pt_id| %>
+  first_appointment_<%= pt_id %>:
+    participant: participant<%= pt_id %>
     appointment_at: <%= DateTime.now - 7 %>
     appointment_location: Test Location
     session_length: 120
@@ -8,9 +8,9 @@
     notes: So many notes
 <% end %>
 
-<% (329..336).each do |i| %>
-  first_appointment_<%= i %>:
-    participant: participant<%= i %>
+<% (329..336).each do |pt_id| %>
+  first_appointment_<%= pt_id %>:
+    participant: participant<%= pt_id %>
     appointment_at: <%= DateTime.now - 28 %>
     appointment_location: Test Location
     session_length: 120
@@ -18,9 +18,9 @@
     notes: So many notes
 <% end %>
 
-<% (337..343).each do |i| %>
-  first_appointment_<%= i %>:
-    participant: participant<%= i %>
+<% (337..343).each do |pt_id| %>
+  first_appointment_<%= pt_id %>:
+    participant: participant<%= pt_id %>
     appointment_at: <%= DateTime.now - 42 %>
     appointment_location: Test Location
     session_length: 120
@@ -28,9 +28,9 @@
     notes: So many notes
 <% end %>
 
-<% (700..705).each do |i| %>
-  first_appointment_<%= i %>:
-    participant: participant<%= i %>
+<% (700..705).each do |pt_id| %>
+  first_appointment_<%= pt_id %>:
+    participant: participant<%= pt_id %>
     appointment_at: <%= DateTime.now - 42 %>
     appointment_location: Test Location
     session_length: 120

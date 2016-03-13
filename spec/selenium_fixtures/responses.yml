@@ -1,7 +1,7 @@
 <% ['1', '2', '3', '411', '326', '428', '431', '441', '451', '461', '471',
     '480', '490', '402', '317', '412', '324', '422', '432', '442', '452',
-    '462', '472'].each do |i| %>
-  reponse_<%= i %>:
-    content_access_event: content_access_event_<%= i %>
+    '462', '472'].each do |event_id| %>
+  reponse_<%= event_id %>:
+    content_access_event: content_access_event_<%= event_id %>
     answer: '{"Does it matter?": "No"}'
 <% end %>
