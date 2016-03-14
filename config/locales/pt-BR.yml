@@ -529,10 +529,13 @@ pt-BR:
           - Outra razão
     models:
       additional_contact: Additional contact
+      admin: Admin
       call_to_schedule_final_appointments: Chamada para agendar encontro final
       help_request_call: Pedido de ajuda
       lack_of_connectivity_call: Chamada por não-conectividade
       non_adherence_call: Chamada por não aderência
+      nurse: Nurse
+      nurse_supervisor: Nurse supervisor
     attributes:
       additional_contact:
         scheduled_at: Data e hora do contato

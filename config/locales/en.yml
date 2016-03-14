@@ -321,9 +321,12 @@ en:
           - Other
     models:
       additional_contact: Additional contact
+      admin: Admin
       call_to_schedule_final_appointments: Call to schedule final in person appointment
       lack_of_connectivity_call: Call due to no connectivity
       non_adherence_call: Non-adherence call
+      nurse: Nurse
+      nurse_supervisor: Nurse supervisor
     attributes:
       additional_contact:
         scheduled_at: Date and time of contact
