@@ -1,0 +1,9 @@
+non_adherence_call_1:
+  participant: participant500
+  contact_at: <%= DateTime.now - 21.days %>
+  explanation: Difficulties using CONEMO
+
+non_adherence_call_2:
+  participant: participant600
+  contact_at: <%= DateTime.now - 21.days %>
+  explanation: Difficulties using CONEMO
