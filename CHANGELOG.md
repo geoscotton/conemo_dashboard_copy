@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.5 - 2016-03-14
+
+* translate email and reset password page
+* finish translations for alert forms
+* add missing non adherence choices
+* update lesson status colors and legend
+
 ## 0.6.4 - 2016-03-11
 
 * display contact history by descending date
