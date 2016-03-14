@@ -33,7 +33,6 @@ es-PE:
           enrollment_button: "Participantes reclutados"
           manage_button: "Participantes activos"
           lessons_button: "Sesiones"
-          sign_in: "Ingresar"
           sign_out: "Salir"
       lessons:
         index:
@@ -182,6 +181,30 @@ es-PE:
     models:
       participant:
         enrollment_date_is_sane_error: "Fecha de inclusión invalida"      
+  devise:
+    passwords:
+      edit:
+        change_my_password: Cambiar mi contraseña
+        change_your_password: Cambie su contraseña
+        confirm_new_password: Confirme la nueva contraseña
+        new_password: Nueva contraseña
+      new:
+        forgot_your_password: "¿Ha olvidado su contraseña?"
+        send_me_reset_password_instructions: Envíame las instrucciones para establecer mi nueva contraseña
+    sessions:
+      new:
+        sign_in: Iniciar sésion
+      signed_in: Sesión iniciada.
+      signed_out: Sesión finalizada.
+    shared:
+      links:
+        back: Regresar
+        didn_t_receive_confirmation_instructions: "¿No ha recibido las instrucciones de confirmación?"
+        didn_t_receive_unlock_instructions: "¿No ha recibido instrucciones para desbloquear?"
+        forgot_your_password: "¿Ha olvidado su contraseña?"
+        sign_in: Iniciar sésion
+        sign_in_with_provider: Iniciar sésion con %{provider}
+        sign_up: Registrarse
   helpers:
     label:
       participant:
@@ -515,10 +538,13 @@ es-PE:
           - Otra
     models:
       additional_contact: Additional contact
+      admin: Admin
       call_to_schedule_final_appointments: Llamada para programar cita final
       help_request_call: Solicitud de ayuda
       lack_of_connectivity_call: Llamada por no-conectividad
       non_adherence_call: Llamada por no-adherencia
+      nurse: Nurse
+      nurse_supervisor: Nurse supervisor
     attributes:
       additional_contact:
         scheduled_at: Fecha y hora de contacto
@@ -534,6 +560,11 @@ es-PE:
       non_adherence_call:
         contact_at: Fecha/hora de la llamada
         explanation: Razón para no-adherencia
+      user:
+        current_password: Contraseña actual
+        email: Correo electrónico
+        password: Contraseña
+        password_confirmation: Confirmación de la contraseña
   unauthorized:
     manage:
       all: No tiene permisos para acceder a esta página.

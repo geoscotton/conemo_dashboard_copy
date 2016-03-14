@@ -12,7 +12,7 @@ RSpec.describe "Nurse Supervisor management", type: :feature do
 
     visit "/admin"
     within ".sidebar-nav" do
-      click_on "Nurse supervisors"
+      click_on "Nurse supervisor"
     end
     click_on "Add new"
 
@@ -30,7 +30,7 @@ RSpec.describe "Nurse Supervisor management", type: :feature do
 
     visit "/admin"
     within ".sidebar-nav" do
-      click_on "Nurses"
+      click_on "Nurse"
     end
     click_on "Add new"
 
