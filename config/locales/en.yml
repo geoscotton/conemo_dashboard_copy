@@ -254,6 +254,13 @@ en:
         phone_returned: "Was the phone returned?"
         notes: "Notes"
   activerecord:
+    field_help:
+      help_request_call:
+        explanation: Please indicate the reason for help request or why you are canceling the task
+      lack_of_connectivity_call:
+        explanation: Please indicate the reason for lack of connectivity or why you are canceling the task
+      non_adherence_call:
+        explanation: Please indicate the reason for non-adherence or why you are canceling the task
     field_options:
       additional_contact:
         kinds:
@@ -265,22 +272,39 @@ en:
           - Health unit
           - Other location
       help_request_call:
-        explanations:
+        reasons_label: Reasons
+        reasons:
           - Difficulty using the CONEMO app
           - Question about the intervention
           - Pressed help button by mistake
           - Not related to CONEMO (e.g. health)
           - Other
+        cancel_label: Not done / CANCEL task
+        cancel:
+          - Could not reach patient
+          - Patient does not want to continue in the program
+          - Patient did not have time to talk (multiple times)
+          - Patient not willing to talk to nurse (assistant)
+          - Other
       lack_of_connectivity_call:
-        explanations:
+        reasons_label: Reasons
+        reasons:
           - Mobile data turned off
           - No internet coverage
           - Mobile plan used up
           - Cellphone turned off
           - Other
           - "I don't know"
+        cancel_label: Not done / CANCEL task
+        cancel:
+          - Could not reach patient
+          - Patient does not want to continue in the program
+          - Patient did not have time to talk (multiple times)
+          - Patient not willing to talk to nurse (assistant)
+          - Other
       non_adherence_call:
-        explanations:
+        reasons_label: Reasons
+        reasons:
           - Difficulties using CONEMO
           - No time for CONEMO
           - Not willing to use CONEMO
@@ -288,12 +312,30 @@ en:
           - Patient is traveling (without the smartphone)
           - No reason stated
           - Other
+        cancel_label: Not done / CANCEL task
+        cancel:
+          - Could not reach patient
+          - Patient does not want to continue in the program
+          - Patient did not have time to talk (multiple times)
+          - Patient not willing to talk to nurse (assistant)
+          - Other
     models:
       additional_contact: Additional contact
       call_to_schedule_final_appointments: Call to schedule final in person appointment
+      lack_of_connectivity_call: Call due to no connectivity
+      non_adherence_call: Non-adherence call
     attributes:
       additional_contact:
         scheduled_at: Date and time of contact
         kind: Type
       call_to_schedule_final_appointment:
-        contact_at: Contact at
+        contact_at: Date/time of phone call
+      help_request_call:
+        contact_at: Date/time of phone call
+        explanation: Reason for help request
+      lack_of_connectivity_call:
+        contact_at: Date/time of phone call
+        explanation: Reason for lack of connectivity
+      non_adherence_call:
+        contact_at: Date/time of phone call
+        explanation: Reason for non-adherence

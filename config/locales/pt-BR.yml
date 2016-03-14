@@ -462,6 +462,13 @@ pt-BR:
   activerecord:
     errors:
       <<: *errors
+    field_help:
+      help_request_call:
+        explanation: Por favor, indicar a razão da falta de ajuda OU porque esta tarefa está sendo cancelada
+      lack_of_connectivity_call:
+        explanation: Por favor, indicar a razão da falta de conectividade OU porque esta tarefa está sendo cancelada
+      non_adherence_call:
+        explanation: Por favor, indicar a razão da falta de aderência OU porque esta tarefa está sendo cancelada
     field_options:
       additional_contact:
         kinds:
@@ -473,22 +480,39 @@ pt-BR:
           - Unidade de saúde
           - Outro lugar
       help_request_call:
-        explanations:
+        reasons_label: Reasons
+        reasons:
           - Dificuldades com o CONEMO
           - Perguntas sobre a intervenção
           - Botão para pedir ajuda pressionado por engano
           - Não relacionada ao CONEMO (p. ex. saúde)
           - Outra
+        cancel_label: Not done / CANCEL task
+        cancel:
+          - Não consegi falar com o paciente
+          - Paciente não quer continuar no programa
+          - Paciente não houve tempo para falar (várias vezes)
+          - Paciente não estava disposto/a a falar com a AE
+          - Outra razão
       lack_of_connectivity_call:
-        explanations:
+        reasons_label: Reasons
+        reasons:
           - Dados móveis desligados
           - Falta de cobertura de internet
           - Sem crédito / Pacote de dados acabou
           - Smartphone desligado
           - Outra
           - Não sei
+        cancel_label: Not done / CANCEL task
+        cancel:
+          - Não consegi falar com o paciente
+          - Paciente não quer continuar no programa
+          - Paciente não houve tempo para falar (várias vezes)
+          - Paciente não estava disposto/a a falar com a AE
+          - Outra razão
       non_adherence_call:
-        explanations:
+        reasons_label: Reasons
+        reasons:
           - Dificuldades para usar CONEMO
           - Sem tempo para CONEMO
           - Sem vontade de usar CONEMO
@@ -496,15 +520,34 @@ pt-BR:
           - Paciente está viajando (sem smartphone)
           - Razão não foi comunicado
           - Outra
+        cancel_label: Not done / CANCEL task
+        cancel:
+          - Não consegi falar com o paciente
+          - Paciente não quer continuar no programa
+          - Paciente não houve tempo para falar (várias vezes)
+          - Paciente não estava disposto/a a falar com a AE
+          - Outra razão
     models:
       additional_contact: Additional contact
       call_to_schedule_final_appointments: Chamada para agendar encontro final
+      help_request_call: Pedido de ajuda
+      lack_of_connectivity_call: Chamada por não-conectividade
+      non_adherence_call: Chamada por não aderência
     attributes:
       additional_contact:
         scheduled_at: Data e hora do contato
         kind: Tipo de contato
       call_to_schedule_final_appointment:
         contact_at: Data da ligação
+      help_request_call:
+        contact_at: Data da ligação
+        explanation: Razão pelo pedido de ajuda
+      lack_of_connectivity_call:
+        contact_at: Data da ligação
+        explanation: Razão para não-conectividade
+      non_adherence_call:
+        contact_at: Data da ligação
+        explanation: Razão para não aderência
   unauthorized:
     manage:
       all: Você não está autorizado à acessar essa página.

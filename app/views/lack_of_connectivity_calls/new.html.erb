@@ -16,10 +16,16 @@
 
       <div class="form-group">
         <%= f.label :explanation, class: "col-md-3 control-label" %>
+
         <div class="col-md-7">
-          <%= f.select :explanation, options_for_select(t("activerecord.field_options.lack_of_connectivity_call.explanations")),
+          <%= f.select :explanation,
+            grouped_options_for_select([
+                                       [t("activerecord.field_options.lack_of_connectivity_call.reasons_label"), t("activerecord.field_options.non_adherence_call.reasons")],
+                                       [t("activerecord.field_options.lack_of_connectivity_call.cancel_label"), t("activerecord.field_options.non_adherence_call.cancel")]
+                                       ]),
                        {},
-                       { class: "dropdown", required: true } %>
+                       { class: "dropdown", required: true, :"aria-describedby" => "explanation-help" } %>
+          <span id="explanation-help" class="help-block"><%= t("activerecord.field_help.lack_of_connectivity_call.explanation") %></span>
         </div>
       </div>
 
