@@ -11,51 +11,40 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
 </head>
 
 <body>
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <%= link_to "ADMIN", main_app.rails_admin_path(locale: params[:locale]), class: "btn btn-primary pull-left navbar-brand admin" if current_user.admin? %>
-      <%= link_to "CONEMO", "/#{params[:locale]}", class: "navbar-brand" %>
-    </div>
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to "ADMIN", main_app.rails_admin_path(locale: params[:locale]), class: "btn btn-primary pull-left navbar-brand admin" if current_user.admin? %>
+        <%= link_to "CONEMO", "/#{params[:locale]}", class: "navbar-brand" %>
+      </div>
 
-    <div class="navbar-collapse">
-      <% if !current_page?("/#{params[:locale]}") %>
+      <div class="navbar-collapse">
+        <% if !current_page?("/#{params[:locale]}") %>
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
-                <li>
-                  <%= link_to t('conemo.views.dashboards.index.enrollment_button'), main_app.pending_participants_path, class: "info" unless !current_user.admin? %>
-                </li>
-                <li>
-                  <%= link_to t('conemo.views.dashboards.index.lessons_button'), main_app.lessons_path, class: "success" unless !current_user.admin? %>
-                </li>
+              <li>
+                <%= link_to t('conemo.views.dashboards.index.enrollment_button'), main_app.pending_participants_path, class: "info" unless !current_user.admin? %>
+              </li>
+              <li>
+                <%= link_to t('conemo.views.dashboards.index.lessons_button'), main_app.lessons_path, class: "success" unless !current_user.admin? %>
+              </li>
             <% end %>
           </ul>
-      <% end %>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="<%= I18n.locale == :en ? "active" : "" %> hidden-sm"><%= link_to "English", main_app.dashboard_path(locale: "en") %></li>
-        <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %> hidden-sm"><%= link_to "Español", main_app.dashboard_path(locale: "es-PE") %></li>
-        <li class="<%= I18n.locale == :"pt-BR" ? "active" : "" %> hidden-sm"><%= link_to "Português", main_app.dashboard_path(locale: "pt-BR") %></li>
-        <% if user_signed_in? %>
-            <li><%= link_to fa_icon('sign-out', text: "#{t("conemo.views.dashboards.index.sign_out")}", right: true), main_app.destroy_user_session_path, method: :delete %></li>
         <% end %>
 
-          <li class="dropdown visible-sm">
-            <a href="#" class="dropdown-toggle btn-lg" data-toggle="dropdown"><span class="fa fa-language fa-lg" style="color:darkorange"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li class="<%= I18n.locale == :en ? "active" : "" %>"><%= link_to "English", main_app.dashboard_path(locale: "en") %></li>
-              <li class="<%= I18n.locale == :"es-PE" ? "active" : "" %>"><%= link_to "Español", main_app.dashboard_path(locale: "es-PE") %></li>
-              <li class="<%= I18n.locale == :"pt-BR" ? "active" : "" %>"><%= link_to "Português", main_app.dashboard_path(locale: "pt-BR") %></li>
-            </ul>
-          </li>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to fa_icon('sign-out', text: "#{t("conemo.views.dashboards.index.sign_out")}", right: true), main_app.destroy_user_session_path, method: :delete %></li>
+          <% end %>
         </ul>
+      </div>
     </div>
   </div>
-</div>
-<!-- navbar -->
-<div class="container">
-  <%= render "partials/flash_alerts" %>
 
-  <%= yield %>
-</div>
+  <div class="container">
+    <%= render "partials/flash_alerts" %>
+
+    <%= yield %>
+  </div>
 </body>
 </html>
