@@ -28,12 +28,25 @@
     uuid: <%= SecureRandom.uuid %>
 <% end %>
 
-# These are late accesses, intentionally set up so the late 'occurred_at'
+# These are late completions, intentionally set up so the late 'occurred_at'
 # DateTime.now - 2 = DateTime.now - (start date offset - lesson_id)
 # which is the same as on-time 'occurred_at' + 1
 <% ['411', '324', '428', '431', '441',
     '451', '461', '471', '480', '490'].zip(1..10) do |pt_id, lesson_id| %>
-  session_event_<%= pt_id %>:
+  session_event_1234_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - 2 %>
+    lesson: lesson_<%= lesson_id %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+
+# These are late accessed, intentionally set up so the late 'occurred_at'
+# DateTime.now - 2 = DateTime.now - (start date offset - lesson_id)
+# which is the same as on-time 'occurred_at' + 1
+<% ['324', '428', '431', '441', '451',
+    '461', '471', '480', '490', '700'].zip(1..10) do |pt_id, lesson_id| %>
+  session_event_5678_<%= pt_id %>:
     participant: participant<%= pt_id %>
     event_type: accessed
     occurred_at: <%= DateTime.now - 2 %>
@@ -50,7 +63,16 @@
     uuid: <%= SecureRandom.uuid %>
 <% end %>
 
-<% (320..328).each do |pt_id| %>
+<% (320..323).each do |pt_id| %>
+  session_access_event_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (4 - (1 - 1)) %>
+    lesson: lesson_1
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+
+<% (325..328).each do |pt_id| %>
   session_access_event_1<%= pt_id %>:
     participant: participant<%= pt_id %>
     event_type: accessed
@@ -160,15 +182,15 @@
     lesson: lesson_<%= lesson_id %>
     uuid: <%= SecureRandom.uuid %>
 <% end %>
+<% end %>
 
 <% (428..428).each do |pt_id| %>
-  session_access_event_<%= lesson_id %>_<%= pt_id %>:
+  session_access_event_1_<%= pt_id %>:
     participant: participant<%= pt_id %>
     event_type: accessed
-    occurred_at: <%= DateTime.now - (3 - (lesson_id - 1)) %>
-    lesson: lesson_<%= lesson_id %>
+    occurred_at: <%= DateTime.now - (3 - (1 - 1)) %>
+    lesson: lesson_1
     uuid: <%= SecureRandom.uuid %>
-<% end %>
 <% end %>
 
 <% (2..3).each do |lesson_id| %>
@@ -192,11 +214,22 @@
     uuid: <%= SecureRandom.uuid %>
 <% end %>
 
-<% (430..432).each do |pt_id| %>
+<% [430, 432].each do |pt_id| %>
   session_access_event_<%= lesson_id %>_<%= pt_id %>:
     participant: participant<%= pt_id %>
     event_type: accessed
     occurred_at: <%= DateTime.now - (6 - (lesson_id - 1)) %>
+    lesson: lesson_<%= lesson_id %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+<% end %>
+
+<% (1..2).each do |lesson_id| %>
+<% (431..431).each do |pt_id| %>
+  session_access_event_<%= lesson_id %>_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (3 - (lesson_id - 1)) %>
     lesson: lesson_<%= lesson_id %>
     uuid: <%= SecureRandom.uuid %>
 <% end %>
@@ -247,7 +280,18 @@
 <% end %>
 
 <% (1..4).each do |lesson_id| %>
-<% (440..442).each do |pt_id| %>
+<% [440, 442].each do |pt_id| %>
+  session_access_event_<%= lesson_id %>_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (7 - (lesson_id - 1)) %>
+    lesson: lesson_<%= lesson_id %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+<% end %>
+
+<% (1..3).each do |lesson_id| %>
+<% (441..441).each do |pt_id| %>
   session_access_event_<%= lesson_id %>_<%= pt_id %>:
     participant: participant<%= pt_id %>
     event_type: accessed
@@ -291,7 +335,18 @@
 <% end %>
 
 <% (1..5).each do |lesson_id| %>
-<% (450..452).each do |pt_id| %>
+<% [450, 452].each do |pt_id| %>
+  session_access_event_<%= lesson_id %>_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (8 - (lesson_id - 1)) %>
+    lesson: lesson_<%= lesson_id %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+<% end %>
+
+<% (1..4).each do |lesson_id| %>
+<% (451..451).each do |pt_id| %>
   session_access_event_<%= lesson_id %>_<%= pt_id %>:
     participant: participant<%= pt_id %>
     event_type: accessed
@@ -335,7 +390,18 @@
 <% end %>
 
 <% (1..6).each do |lesson_id| %>
-<% (460..462).each do |pt_id| %>
+<% [460, 462].each do |pt_id| %>
+  session_access_event_<%= lesson_id %>_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (9 - (lesson_id - 1)) %>
+    lesson: lesson_<%= lesson_id %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+<% end %>
+
+<% (1..5).each do |lesson_id| %>
+<% (461..461).each do |pt_id| %>
   session_access_event_<%= lesson_id %>_<%= pt_id %>:
     participant: participant<%= pt_id %>
     event_type: accessed
@@ -379,7 +445,18 @@
 <% end %>
 
 <% (1..7).each do |lesson_id| %>
-<% (470..472).each do |pt_id| %>
+<% [470, 472].each do |pt_id| %>
+  session_access_event_<%= lesson_id %>_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (10 - (lesson_id - 1)) %>
+    lesson: lesson_<%= lesson_id %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+<% end %>
+
+<% (1..6).each do |lesson_id| %>
+<% (471..471).each do |pt_id| %>
   session_access_event_<%= lesson_id %>_<%= pt_id %>:
     participant: participant<%= pt_id %>
     event_type: accessed
@@ -422,7 +499,7 @@
 <% end %>
 <% end %>
 
-<% (1..8).each do |lesson_id| %>
+<% (1..7).each do |lesson_id| %>
 <% (480..480).each do |pt_id| %>
   session_access_event_<%= lesson_id %>_<%= pt_id %>:
     participant: participant<%= pt_id %>
@@ -444,7 +521,7 @@
 <% end %>
 <% end %>
 
-<% (1..9).each do |lesson_id| %>
+<% (1..8).each do |lesson_id| %>
 <% (490..490).each do |pt_id| %>
   session_access_event_<%= lesson_id %>_<%= pt_id %>:
     participant: participant<%= pt_id %>
@@ -455,12 +532,32 @@
 <% end %>
 <% end %>
 
-<% (1..15).each do |lesson_id| %>
+<% (1..9).each do |lesson_id| %>
 <% (700..709).each do |pt_id| %>
   session_access_event_<%= lesson_id %>_<%= pt_id %>:
     participant: participant<%= pt_id %>
     event_type: accessed
-    occurred_at: <%= DateTime.now - (12 - (lesson_id - 1)) %>
+    occurred_at: <%= DateTime.now - (45 - (lesson_id - 1)) %>
+    lesson: lesson_<%= lesson_id %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+<% end %>
+
+<% (701..709).each do |pt_id| %>
+  session_access_event_10_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (45 - (10 - 1)) %>
+    lesson: lesson_10
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+
+<% (11..15).each do |lesson_id| %>
+<% (700..709).each do |pt_id| %>
+  session_access_event_<%= lesson_id %>_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (45 - (lesson_id - 1)) %>
     lesson: lesson_<%= lesson_id %>
     uuid: <%= SecureRandom.uuid %>
 <% end %>
