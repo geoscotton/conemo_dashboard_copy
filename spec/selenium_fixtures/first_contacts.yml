@@ -37,3 +37,19 @@
     first_appointment_at: <%= DateTime.now  - 42 %>
     first_appointment_location: Test Location
 <% end %>
+
+<% (500..500).each do |pt_id| %>
+  first_contacts_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    contact_at: <%= DateTime.now - 45 %>
+    first_appointment_at: <%= DateTime.now  - 42 %>
+    first_appointment_location: Test Location
+<% end %>
+
+<% (600..600).each do |pt_id| %>
+  first_contacts_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    contact_at: <%= DateTime.now - 45 %>
+    first_appointment_at: <%= DateTime.now  - 42 %>
+    first_appointment_location: Test Location
+<% end %>

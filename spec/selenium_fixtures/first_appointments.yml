@@ -37,3 +37,23 @@
     next_contact: <%= DateTime.now - 35 %>
     notes: So many notes
 <% end %>
+
+<% (500..500).each do |pt_id| %>
+  first_appointment_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    appointment_at: <%= DateTime.now - 42 %>
+    appointment_location: Test Location
+    session_length: 120
+    next_contact: <%= DateTime.now - 35 %>
+    notes: So many notes
+<% end %>
+
+<% (600..600).each do |pt_id| %>
+  first_appointment_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    appointment_at: <%= DateTime.now - 42 %>
+    appointment_location: Test Location
+    session_length: 120
+    next_contact: <%= DateTime.now - 35 %>
+    notes: So many notes
+<% end %>

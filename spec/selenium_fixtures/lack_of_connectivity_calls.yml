@@ -1,0 +1,9 @@
+lack_of_connectivity_call_1:
+  participant: participant500
+  contact_at: <%= DateTime.now - 14.days %>
+  explanation: Difficulties using CONEMO
+
+lack_of_connectivity_call_2:
+  participant: participant600
+  contact_at: <%= DateTime.now - 14.days %>
+  explanation: Difficulties using CONEMO

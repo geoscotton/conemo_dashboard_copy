@@ -24,7 +24,8 @@ namespace :selenium_seed do
       :third_contacts, :final_appointments, :nurse_participant_evaluations,
       :content_access_events, :session_events, :responses, :help_messages, :logins,
       :nurse_tasks, :supervisor_notifications, :"token_auth/configuration_tokens",
-      :call_to_schedule_final_appointments
+      :call_to_schedule_final_appointments, :help_request_calls,
+      :lack_of_connectivity_calls, :non_adherence_calls
     ]
   end
 end

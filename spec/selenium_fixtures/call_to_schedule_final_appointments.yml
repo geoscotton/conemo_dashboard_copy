@@ -3,3 +3,15 @@ call_to_schedule_final_appointment_1:
   contact_at: <%= DateTime.now - 1.days %>
   final_appointment_at: <%= DateTime.now %>
   final_appointment_location: Whatever place, USA
+
+call_to_schedule_final_appointment_2:
+  participant: participant500
+  contact_at: <%= DateTime.now - 1.days %>
+  final_appointment_at: <%= DateTime.now %>
+  final_appointment_location: Someplace Cool, USA
+
+call_to_schedule_final_appointment_3:
+  participant: participant600
+  contact_at: <%= DateTime.now - 1.days %>
+  final_appointment_at: <%= DateTime.now %>
+  final_appointment_location: Someplace Cool, USA
