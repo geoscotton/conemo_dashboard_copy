@@ -1,4 +1,7 @@
 es-PE:
+  tasks:
+    index:
+      clinical_summary: Historia del Paciente
   conemo:
     family_health_units:
       - Centro de salud 1

@@ -1,4 +1,7 @@
 pt-BR:
+  tasks:
+    index:
+      clinical_summary: Histórico do participante
   conemo:
     family_health_units:
       - Unidade de Saúde 1
