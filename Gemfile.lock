@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/NU-CBITS/token_auth_server_rails
-  revision: f0906ab3cd5bdcc41e204f2f8bfa300c920d351a
-  tag: 0.1.3
+  revision: 36b657af9536f15663f6cc898e2bc35942ab023f
+  tag: 0.2.0
   specs:
-    token_auth (0.1.3)
+    token_auth (0.2.0)
       active_model_serializers (= 0.10.0.rc3)
-      rails (~> 4)
+      rails (~> 4.2.6)
 
 GEM
   remote: https://rubygems.org/
