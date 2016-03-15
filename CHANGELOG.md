@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.7.0 - 2016-03-15
+
+* translate token page
+* translate "Clinical Summary"
+* update change password email link and page styles
+* fix copy/paste error in select choices
+* update participant form, table, and validations
+
 ## 0.6.5 - 2016-03-14
 
 * translate email and reset password page
