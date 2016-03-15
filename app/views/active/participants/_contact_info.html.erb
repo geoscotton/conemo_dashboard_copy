@@ -6,8 +6,6 @@
       <%= participant.study_identifier %></p>
     <p><strong><%= t "helpers.label.participant.family_health_unit_name" %>:</strong>
       <%= participant.family_health_unit_name %></p>
-    <p><strong><%= t "helpers.label.participant.family_record_number" %>:</strong>
-      <%= participant.family_record_number %></p>
   </div>
   <div class="col-md-3">
     <p><strong><%= t "helpers.label.participant.phone" %>:</strong>
@@ -18,8 +16,6 @@
       <%= participant.emergency_contact_phone %></p>
   </div>
   <div class="col-md-3">
-    <p><strong><%= t "helpers.label.participant.email" %>:</strong>
-      <%= participant.email %></p>
     <p><strong><%= t "helpers.label.participant.date_of_birth" %>: </strong>
       <%= l participant.date_of_birth, format: :long %></p>
     <p><strong><%= t "helpers.label.participant.address" %>:</strong>
@@ -30,5 +26,4 @@
       <%= l participant.enrollment_date, format: :long %></p>
     <p><strong><%= t "helpers.label.participant.gender" %>: </strong>
       <%=t "conemo.views.participants.form.#{participant.gender}" %></p>
-    <p><strong><%= t "helpers.label.participant.key_chronic_disorder" %>: </strong> <%= participant.diabetes ? "#{t 'conemo.views.participants.form.diabetes'}" : "" %> <%= participant.hypertension ? "#{t 'conemo.views.participants.form.hypertension'}" : "" %></p>
   </div>

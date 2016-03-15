@@ -1,117 +1,196 @@
 <%= form_for @participant, html: {role: "form", class: "form-horizontal"} do |f| %>
-    <div class="form-group">
-      <%= f.label :first_name, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_field :first_name, class: "form-control", required: true %>
-      </div>
+  <div class="form-group">
+    <%= f.label :first_name, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_field :first_name, class: "form-control", required: true %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :last_name, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_field :last_name, class: "form-control", required: true %>
-      </div>
+  <div class="form-group">
+    <%= f.label :last_name, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_field :last_name, class: "form-control", required: true %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :study_identifier, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_field :study_identifier, class: "form-control", required: true %>
-      </div>
+  <div class="form-group">
+    <%= f.label :study_identifier, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_field :study_identifier, class: "form-control", required: true, pattern: "[0-9]+" %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :family_health_unit_name, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_field :family_health_unit_name, class: "form-control", required: true %>
-      </div>
+  <div class="form-group">
+    <%= f.label :enrollment_date, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.date_select :enrollment_date, {}, {class: "date-select", required: true} %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :family_record_number, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_field :family_record_number, class: "form-control" %>
-      </div>
+  <div class="form-group">
+    <%= f.label :family_health_unit_name, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.select :family_health_unit_name, options_for_select(t("conemo.family_health_units"), @participant.family_health_unit_name),
+                   {},
+                   { class: "dropdown", required: true } %>
     </div>
-    <div class="form-group">
-      <%= f.label :phone, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.telephone_field :phone, class: "form-control", required: true %>
-    <span id="helpBlock" class="help-block">ex. Lima: 95xxxxxxx; Sao Paulo: 11xxxxxxxxx </span>
-      </div>
-    </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :emergency_contact_name, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_field :emergency_contact_name, class: "form-control" %>
-      </div>
+  <div class="form-group">
+    <%= f.label :address, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :address, class: "form-control", required: true %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :emergency_contact_phone, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.telephone_field :emergency_contact_phone, class: "form-control" %>
-      </div>
+  <div class="form-group">
+    <%= f.label :phone, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.telephone_field :phone, class: "form-control", pattern: "[0-9]+" %>
+      <%= render "phone_help" %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :email, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_field :email, class: "form-control" %>
-      </div>
+  <div class="form-group">
+    <%= f.label :cell_phone, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.telephone_field :cell_phone, class: "form-control", pattern: "[0-9]+" %>
+      <%= render "phone_help" %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :date_of_birth, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.date_select :date_of_birth, {start_year: Date.today.year-100}, {class: "date-select", required: true} %>
-      </div>
+  <div class="form-group">
+    <%= f.label :alternate_phone_1, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.telephone_field :alternate_phone_1, class: "form-control", pattern: "[0-9]+" %>
+      <%= render "phone_help" %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :address, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :address, class: "form-control" %>
-      </div>
+  <div class="form-group">
+    <%= f.label :contact_person_1_name, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_field :contact_person_1_name, class: "form-control" %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :enrollment_date, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <%= f.date_select :enrollment_date, {}, {class: "date-select", required: true} %>
-      </div>
+  <div class="form-group">
+    <%= f.label :contact_person_1_relationship, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.select :contact_person_1_relationship, options_for_select(t("activerecord.field_options.participant.relationships"), @participant.contact_person_1_relationship),
+                   { include_blank: true },
+                   { class: "dropdown" }%>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :gender, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <label class="radio-inline">
-          <%= f.radio_button :gender, 'male', required: true %> <%= t("conemo.views.participants.form.male") %>
-        </label>
-
-        <label class="radio-inline">
-          <%= f.radio_button :gender, 'female', required: true %> <%= t("conemo.views.participants.form.female") %>
-        </label>
-      </div>
+  <div class="form-group">
+    <%= f.label :contact_person_1_other_relationship, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_field :contact_person_1_other_relationship, class: "form-control" %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <%= f.label :key_chronic_disorder, class: "col-md-3 control-label" %>
-      <div class="col-md-7">
-        <label class="checkbox-inline">
-          <%= f.check_box :diabetes %> <%= t "conemo.views.participants.form.diabetes" %>
-        </label>
-        <label class="checkbox-inline">
-          <%= f.check_box :hypertension %> <%= t "conemo.views.participants.form.hypertension" %>
-        </label>
-      </div>
+  <div class="form-group">
+    <%= f.label :alternate_phone_2, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.telephone_field :alternate_phone_2, class: "form-control", pattern: "[0-9]+" %>
+      <%= render "phone_help" %>
     </div>
+  </div>
 
-    <div class="form-group">
-      <div class="col-md-offset-3 col-md-7">
-        <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-        <%= link_to t("conemo.views.shared.cancel_button"), pending_participants_path, class: "btn btn-default" %>
-      </div>
+  <div class="form-group">
+    <%= f.label :contact_person_2_name, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_field :contact_person_2_name, class: "form-control" %>
     </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :contact_person_2_relationship, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.select :contact_person_2_relationship, options_for_select(t("activerecord.field_options.participant.relationships"), @participant.contact_person_2_relationship),
+                   { include_blank: true },
+                   { class: "dropdown" }%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :contact_person_2_other_relationship, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_field :contact_person_2_other_relationship, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date_of_birth, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.date_select :date_of_birth, { start_year: Date.today.year-100 }, { class: "date-select" } %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :gender, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <label class="radio-inline">
+        <%= f.radio_button :gender, 'male', required: true %> <%= t("conemo.views.participants.form.male") %>
+      </label>
+
+      <label class="radio-inline">
+        <%= f.radio_button :gender, 'female', required: true %> <%= t("conemo.views.participants.form.female") %>
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :emergency_contact_name, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_field :emergency_contact_name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :emergency_contact_relationship, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.select :emergency_contact_relationship, options_for_select(t("activerecord.field_options.participant.relationships"), @participant.emergency_contact_relationship),
+                   { include_blank: true },
+                   { class: "dropdown" }%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :emergency_contact_other_relationship, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_field :emergency_contact_other_relationship, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :emergency_contact_address, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :emergency_contact_address, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :emergency_contact_phone, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.telephone_field :emergency_contact_phone, class: "form-control", pattern: "[0-9]+" %>
+      <%= render "phone_help" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :emergency_contact_cell_phone, class: "col-md-3 control-label" %>
+    <div class="col-md-7">
+      <%= f.telephone_field :emergency_contact_cell_phone, class: "form-control", pattern: "[0-9]+" %>
+      <%= render "phone_help" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-3 col-md-7">
+      <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+      <%= link_to t("conemo.views.shared.cancel_button"), pending_participants_path, class: "btn btn-default" %>
+    </div>
+  </div>
 <% end %>

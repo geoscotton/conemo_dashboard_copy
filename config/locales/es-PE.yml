@@ -230,23 +230,6 @@ es-PE:
         sign_up: Registrarse
   helpers:
     label:
-      participant:
-        first_name: "Nombres"
-        last_name: "Apellidos"
-        study_identifier: "Código del participante"
-        family_health_unit_name: "Centro de salud"
-        family_record_number: "Número de historia clínica"
-        phone: "Número de teléfono"
-        emergency_contact_name: "Contacto de emergencia"
-        emergency_contact_phone: "Teléfono de contacto de emergencia"
-        email: "Correo electrónico"
-        date_of_birth: "Fecha de nacimiento"
-        address: "Dirección"
-        enrollment_date: "Fecha de inclusión en el estudio"
-        gender: "Sexo"
-        key_chronic_disorder: "Enfermedad crónica principal"
-        diabetes: "Diabetes"
-        hypertension: "Hipertensión"
       lesson:
         title: "Título"
         day_in_treatment: "Día de intervención"
@@ -559,6 +542,14 @@ es-PE:
           - Paciente no tuvo tiempo de hablar (repetitivamente)
           - Paciente no estaba dispuesta/o de hablar
           - Otra
+      participant:
+        relationships:
+          - Padre / Madre
+          - Esposo(a) / Pareja
+          - Hijo (a)
+          - Otro miembro de la familia
+          - Amigo
+          - Otro (especificar)
     models:
       additional_contact: Additional contact
       admin: Admin
@@ -568,6 +559,7 @@ es-PE:
       non_adherence_call: Llamada por no-adherencia
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
+      participant: Participante
     attributes:
       additional_contact:
         scheduled_at: Fecha y hora de contacto
@@ -583,6 +575,31 @@ es-PE:
       non_adherence_call:
         contact_at: Fecha/hora de la llamada
         explanation: Razón para no-adherencia
+      participant:
+        first_name: Nombres
+        last_name: Apellidos
+        study_identifier: Código del participante
+        enrollment_date: Fecha de inclusión
+        family_health_unit_name: Centro de salud
+        address: Dirección actual
+        phone: Telefóno fijo
+        cell_phone: Celular (propio)
+        alternate_phone_1: Teléfono alternativo 1
+        contact_person_1_name: Nombre de persona / Lugar del teléfono alternativo 1
+        contact_person_1_relationship: Relación con el participante
+        contact_person_1_other_relationship: Relación con el participante
+        alternate_phone_2: Telefóno alternativo 2
+        contact_person_2_name: Nombre de persona / Lugar del teléfono alternativo 2
+        contact_person_2_relationship: Relación con el participante
+        contact_person_2_other_relationship: Relación con el participante
+        date_of_birth: Fecha de nacimiento
+        gender: Sexo
+        emergency_contact_name: Contacto de Emergencia (nombre)
+        emergency_contact_relationship: Relación con el participante
+        emergency_contact_other_relationship: Relación con el participante
+        emergency_contact_address: Dirección actual
+        emergency_contact_phone: Teléfono fijo
+        emergency_contact_cell_phone: Celular
       user:
         current_password: Contraseña actual
         email: Correo electrónico

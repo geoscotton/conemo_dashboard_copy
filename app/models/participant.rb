@@ -17,7 +17,7 @@ class Participant < ActiveRecord::Base
   has_many :help_messages, dependent: :destroy
   has_many :lessons, through: :content_access_events
   has_many :logins, dependent: :destroy
-  has_many :participant_start_dates, dependent: :destroy
+  has_one :participant_start_date, dependent: :destroy
   has_many :patient_contacts, dependent: :destroy
   has_many :planned_activities, dependent: :destroy
   has_many :session_events, dependent: :destroy
@@ -31,16 +31,30 @@ class Participant < ActiveRecord::Base
 
   validates :first_name,
             :last_name,
+            :study_identifier,
             :family_health_unit_name,
-            :family_record_number,
-            :phone,
+            :address,
             :enrollment_date,
             :locale,
             presence: true
 
-  validates :study_identifier, uniqueness: true, presence: true
+  validates :study_identifier, uniqueness: true
   validates :status, inclusion: { in: STATUS }
   validates :gender, inclusion: { in: GENDER }
+  validates :contact_person_1_name,
+            presence: true,
+            if: proc { |participant|
+                  participant.alternate_phone_1.present?
+                }
+  validates :contact_person_2_name,
+            presence: true,
+            if: proc { |participant|
+                  participant.alternate_phone_2.present?
+                }
+  validates :study_identifier, :phone, :cell_phone, :alternate_phone_1,
+            :alternate_phone_2, :emergency_contact_phone,
+            :emergency_contact_cell_phone,
+            format: /\A[0-9]+\z/, allow_nil: true
 
   validate :enrollment_date_is_sane
 
@@ -51,6 +65,10 @@ class Participant < ActiveRecord::Base
   scope :ineligible, -> { where(status: INELIGIBLE) }
   scope :pending, -> { where(status: PENDING) }
   scope :active, -> { where(status: ACTIVE) }
+
+  def start_date
+    participant_start_date.try(:date)
+  end
 
   def last_and_first_name
     "#{last_name}, #{first_name}"
