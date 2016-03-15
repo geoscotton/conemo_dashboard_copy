@@ -19,15 +19,13 @@ RSpec.describe "participant enrollment", type: :feature do
   it "should enroll a new participant" do
     visit "/en/participants/new"
 
-    expect(page).to have_text "Enroll New Participant"
+    expect(page).to have_text "Participant"
 
     fill_in "First name", with: "Joe"
     fill_in "Last name", with: "Blow"
-    fill_in "Study Identifier", with: "s14"
-    fill_in "Family health unit name", with: "Healthy!"
-    fill_in "Family record number", with: "12345"
+    fill_in "Participant ID", with: "14"
+    select "unit 2", from: "Family health unit"
     fill_in "participant_phone", with: "224-444-5555"
-    fill_in "Email", with: "joe"
     select "2011", from: "participant_date_of_birth_1i"
     select "March", from: "participant_date_of_birth_2i"
     select "1", from: "participant_date_of_birth_3i"
@@ -36,10 +34,9 @@ RSpec.describe "participant enrollment", type: :feature do
     select "August", from: "participant_enrollment_date_2i"
     select "1", from: "participant_enrollment_date_3i"
     choose "participant_gender_male"
-    check "diabetes"
     click_on "Save"
 
-    expect(page).to have_text "s14"
+    expect(page).to have_text "14"
   end
 
   it "should update an ineligible participant and remove them from the pending index" do

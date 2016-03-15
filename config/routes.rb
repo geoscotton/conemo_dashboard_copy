@@ -38,9 +38,6 @@ Rails.application.routes.draw do
         end
       end
       resource :third_contact, only: [:new, :create, :edit, :update]
-
-      # catchall for urecognized requests
-      get "*unknown", to: redirect("/%{locale}")
     end
 
     namespace "pending" do

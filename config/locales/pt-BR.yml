@@ -176,23 +176,6 @@ pt-BR:
       update: Atualizar %{model}
   helpers:
     label:
-      participant:
-        first_name: "Nome"
-        last_name: "Sobrenome"
-        study_identifier: "Identificação do participante"
-        family_health_unit_name: "UBS"
-        family_record_number: "Prontuário da Família"
-        phone: "Telefone 1"
-        emergency_contact_name: "Contato de emergência"
-        emergency_contact_phone: "Telefone de emergência"
-        email: "E-mail"
-        date_of_birth: "Data de nascimento"
-        address: "Endereço"
-        enrollment_date: "Data de inclusão no estudo"
-        gender: "Sexo"
-        key_chronic_disorder: "Doença Crônica"
-        diabetes: Diabetes
-        hypertension: Hipertensão
       lesson:
         title: "Título"
         day_in_treatment: "Dia de tratamento"
@@ -527,6 +510,13 @@ pt-BR:
           - Paciente não houve tempo para falar (várias vezes)
           - Paciente não estava disposto/a a falar com a AE
           - Outra razão
+      participant:
+        relationships:
+          - Pai / Mãe
+          - Marido / Esposa / Parceiro/a
+          - Filho/a
+          - Outro membro da família
+          - Outro (especificar)
     models:
       additional_contact: Additional contact
       admin: Admin
@@ -536,6 +526,7 @@ pt-BR:
       non_adherence_call: Chamada por não aderência
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
+      participant: Participante
     attributes:
       additional_contact:
         scheduled_at: Data e hora do contato
@@ -551,6 +542,31 @@ pt-BR:
       non_adherence_call:
         contact_at: Data da ligação
         explanation: Razão para não aderência
+      participant:
+        first_name: Nome
+        last_name: Sobrenome
+        study_identifier: Identificação do participante (ID)
+        enrollment_date: Data de inclusão no estudo
+        family_health_unit_name: Unidade de Saúde da Família (múltipla escolha com os nomes das unidades – a ser definido)
+        address: Endereço
+        phone: Telefone fixo
+        cell_phone: Celular (pessoal)
+        alternate_phone_1: Telefone alternativo 1
+        contact_person_1_name: Nome de pessoa / lugar de telefone alternativo 1
+        contact_person_1_relationship: Grau de parentesco/relacionamento
+        contact_person_1_other_relationship: Grau de parentesco/relacionamento
+        alternate_phone_2: Telefone alternativo 2
+        contact_person_2_name: Nome de pessoa / lugar de telefone alternativo 2
+        contact_person_2_relationship: Grau de parentesco/relacionamento
+        contact_person_2_other_relationship: Grau de parentesco/relacionamento
+        date_of_birth: Data de nascimento
+        gender: Sexo
+        emergency_contact_name: Contato de Emergência (nome)
+        emergency_contact_relationship: Grau de parentesco/relacionamento
+        emergency_contact_other_relationship: Grau de parentesco/relacionamento
+        emergency_contact_address: Endereço
+        emergency_contact_phone: Telefone fixo
+        emergency_contact_cell_phone: Celular
   unauthorized:
     manage:
       all: Você não está autorizado à acessar essa página.

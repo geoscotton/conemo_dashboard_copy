@@ -11,7 +11,7 @@ RSpec.describe "Token management", type: :feature do
 
     visit "/admin"
     within ".sidebar-nav" do
-      click_on "Participants"
+      click_on "Participant"
     end
     within ".participant_row:first .tokens_field" do
       click_on "Show"

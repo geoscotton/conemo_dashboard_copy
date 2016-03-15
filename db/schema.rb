@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312184643) do
+ActiveRecord::Schema.define(version: 20160314205152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -280,26 +280,34 @@ ActiveRecord::Schema.define(version: 20160312184643) do
 
   create_table "participants", force: :cascade do |t|
     t.integer  "nurse_id"
-    t.string   "first_name",                                  null: false
-    t.string   "last_name",                                   null: false
-    t.string   "study_identifier",                            null: false
-    t.string   "family_health_unit_name",                     null: false
-    t.string   "family_record_number",                        null: false
-    t.string   "phone",                                       null: false
-    t.string   "email"
-    t.text     "address"
+    t.string   "first_name",                                               null: false
+    t.string   "last_name",                                                null: false
+    t.string   "study_identifier",                                         null: false
+    t.string   "family_health_unit_name",                                  null: false
+    t.string   "phone"
+    t.text     "address",                                                  null: false
     t.date     "date_of_birth"
-    t.string   "gender"
-    t.date     "enrollment_date",                             null: false
-    t.string   "status",                  default: "pending"
+    t.string   "gender",                                                   null: false
+    t.date     "enrollment_date",                                          null: false
+    t.string   "status",                               default: "pending", null: false
     t.string   "emergency_contact_name"
     t.string   "emergency_contact_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "start_date"
-    t.string   "locale"
-    t.boolean  "diabetes",                default: false
-    t.boolean  "hypertension",            default: false
+    t.string   "locale",                                                   null: false
+    t.string   "alternate_phone_1"
+    t.string   "alternate_phone_2"
+    t.string   "contact_person_1_name"
+    t.string   "contact_person_1_relationship"
+    t.string   "contact_person_1_other_relationship"
+    t.string   "contact_person_2_name"
+    t.string   "contact_person_2_relationship"
+    t.string   "contact_person_2_other_relationship"
+    t.string   "emergency_contact_relationship"
+    t.string   "emergency_contact_other_relationship"
+    t.string   "emergency_contact_address"
+    t.string   "emergency_contact_cell_phone"
+    t.string   "cell_phone"
   end
 
   add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree

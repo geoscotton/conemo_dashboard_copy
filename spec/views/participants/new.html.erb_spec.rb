@@ -11,6 +11,6 @@ RSpec.describe "participants/new", type: :view do
 
     render template: template
 
-    expect(rendered).to include "Enroll New Participant"
+    expect(rendered).to include "Participant"
   end
 end

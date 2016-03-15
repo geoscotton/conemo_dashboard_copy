@@ -10,13 +10,13 @@ RSpec.describe Participant do
       first_name: "f",
       last_name: "l",
       family_health_unit_name: "fhun",
-      family_record_number: "frn",
       phone: "123",
       enrollment_date: Time.zone.today,
       locale: LOCALES.values.sample,
-      study_identifier: SecureRandom.uuid,
+      study_identifier: rand(1000).to_s,
       status: Participant::STATUS.sample,
-      gender: Participant::GENDER.sample
+      gender: Participant::GENDER.sample,
+      address: "a"
     }
   end
 
@@ -40,7 +40,7 @@ RSpec.describe Participant do
       SessionEvent
     ).each do |resource|
       it "creates a #{resource} resource" do
-        expect { participant.save }.to change {
+        expect { participant.save! }.to change {
           TokenAuth::SynchronizableResource.where(class_name: resource).count
         }.by(1)
       end

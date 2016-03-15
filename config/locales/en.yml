@@ -181,20 +181,6 @@ en:
         enrollment_date_is_sane_error: "must be recent or upcoming"
   helpers:
     label:
-      participant:
-        first_name: "First name"
-        last_name: "Last name"
-        study_identifier: "Study Identifier"
-        family_health_unit_name: "Family health unit name"
-        family_record_number: "Family record number"
-        phone: "Phone"
-        secondary_phone: "Secondary Phone"
-        email: "Email"
-        date_of_birth: "Date of birth"
-        address: "Address"
-        enrollment_date: "Enrollment date"
-        gender: "Gender"
-        key_chronic_disorder: "Key chronic disorder"
       lesson:
         title: "Title"
         day_in_treatment: "Day in treatment"
@@ -319,6 +305,14 @@ en:
           - Patient did not have time to talk (multiple times)
           - Patient not willing to talk to nurse (assistant)
           - Other
+      participant:
+        relationships:
+          - Parent
+          - Husband / Wife / Partner
+          - Son / Daughter
+          - Another family member
+          - Friend
+          - Other
     models:
       additional_contact: Additional contact
       admin: Admin
@@ -328,6 +322,7 @@ en:
       non_adherence_call: Non-adherence call
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
+      participant: Participant
     attributes:
       additional_contact:
         scheduled_at: Date and time of contact
@@ -343,3 +338,28 @@ en:
       non_adherence_call:
         contact_at: Date/time of phone call
         explanation: Reason for non-adherence
+      participant:
+        first_name: First name
+        last_name: Last name
+        study_identifier: Participant ID
+        enrollment_date: Date of inclusion
+        family_health_unit_name: Family health unit
+        address: Home address
+        phone: Telephone
+        cell_phone: Cell phone
+        alternate_phone_1: Alternate phone 1
+        contact_person_1_name: Contact person
+        contact_person_1_relationship: Relationship
+        contact_person_1_other_relationship: Relationship
+        alternate_phone_2: Alternate phone 2
+        contact_person_2_name: Contact person
+        contact_person_2_relationship: Relationship
+        contact_person_2_other_relationship: Relationship
+        date_of_birth: Birth date
+        gender: Gender
+        emergency_contact_name: Emergency contact (name)
+        emergency_contact_relationship: Relationship
+        emergency_contact_other_relationship: Relationship
+        emergency_contact_address: Address
+        emergency_contact_phone: Telephone
+        emergency_contact_cell_phone: Cell phone
