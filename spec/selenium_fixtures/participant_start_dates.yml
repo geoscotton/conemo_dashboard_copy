@@ -1,0 +1,139 @@
+<% (1000..1000).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 2 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (300..310).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (311..319).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 2 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (320..328).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 4 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (329..336).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 25 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (337..345).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 39 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (400..405).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 1 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (410..415).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 3 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (420..428).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 5 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (430..432).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 6 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (440..442).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 7 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (450..452).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 8 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (460..462).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 9 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (470..472).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 10 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (480..480).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 11 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (490..490).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 12 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (500..505).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 12 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (600..605).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 12 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (700..709).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 45 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (800..804).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 50 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>

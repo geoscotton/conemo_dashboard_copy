@@ -25,7 +25,7 @@ namespace :selenium_seed do
       :content_access_events, :session_events, :responses, :help_messages, :logins,
       :nurse_tasks, :supervisor_notifications, :"token_auth/configuration_tokens",
       :call_to_schedule_final_appointments, :help_request_calls,
-      :lack_of_connectivity_calls, :non_adherence_calls
+      :lack_of_connectivity_calls, :non_adherence_calls, :participant_start_dates
     ]
   end
 end
