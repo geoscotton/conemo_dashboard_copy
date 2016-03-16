@@ -1,4 +1,7 @@
 en:
+  tasks:
+    index:
+      clinical_summary: Clinical Summary
   conemo:
     family_health_units:
       - unit 1
