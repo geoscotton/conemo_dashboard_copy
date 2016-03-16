@@ -32,11 +32,6 @@ class FirstAppointmentsController < ApplicationController
     @first_appointment = find_participant.first_appointment
   end
 
-  def missed_second_contact
-    @first_appointment = find_participant.first_appointment
-    @patient_contact = @first_appointment.patient_contacts.build
-  end
-
   def update
     @first_appointment = find_participant.first_appointment
     if @first_appointment.update(self.class.filter_params(params))

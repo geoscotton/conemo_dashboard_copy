@@ -38,11 +38,6 @@ class SecondContactsController < ApplicationController
     end
   end
 
-  def missed_third_contact
-    @second_contact = find_participant.second_contact
-    @patient_contact = @second_contact.patient_contacts.build
-  end
-
   private
 
   def second_contact_params

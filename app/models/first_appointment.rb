@@ -2,8 +2,10 @@
 # In-Person Participant Appointment record for Participant
 class FirstAppointment < ActiveRecord::Base
   model_name.instance_variable_set :@route_key, "first_appointment"
+
   belongs_to :participant
   has_many :patient_contacts
+
   accepts_nested_attributes_for :patient_contacts
 
   validates :participant,
@@ -11,4 +13,17 @@ class FirstAppointment < ActiveRecord::Base
             :session_length,
             :next_contact,
             presence: true
+
+  after_initialize :populate_timestamps
+
+  private
+
+  def populate_timestamps
+    default = Tasks::InitialInPersonAppointment
+              .find_by(participant: participant)
+              .try(:scheduled_at) || Time.zone.now
+
+    self.appointment_at ||= default
+    self.next_contact ||= default + 1.week
+  end
 end

@@ -41,31 +41,9 @@ en:
       lessons:
         index:
           add_lesson: "Add Lesson"
-      first_contacts:
-        new:
-          heading: Confirmation call
-      first_appointments:
-        new:
-          heading: Initial in person appointment
-        reschedule:
-          heading: Initial in person appointment
       second_contacts:
-        new:
-          heading: Follow up call week 1
-        reschedule:
-          heading: Follow up call week 1
         patient_question_header: Questions for patient
         nurse_question_header: Questions for nurse
-      third_contacts:
-        new:
-          heading: Follow up call week 3
-        reschedule:
-          heading: Follow up call week 3
-      final_appointments:
-        new:
-          heading: Final in person appointment
-        reschedule:
-          heading: Final in person appointment
       nurse_participant_evaluations:
         form:
           q1:
@@ -122,7 +100,6 @@ en:
             study_identifier: "Study Identifier"
             enrollment_date: "Enrollment Date"
             first_contact: Confirmation call
-            first_appointment: Initial in person appointment
             location: "Location"
             second_contact: Follow up call week 1
             third_contact: Follow up call week 3
@@ -196,7 +173,6 @@ en:
       first_appointment:
         appointment_at: "Appointment date/time"
         appointment_location: "Location of appointment"
-        next_contact: "Next contact date/time"
         session_length: "Session length (minutes)"
         smartphone_comfort: "Based on the training session you had with the patient, how comfortable was the patient using the smartphone?"
         participant_session_engagement: "How engaged was the patient in the session (consider aspects such as paying attention, making comments, asking questions, etc.)?"
@@ -319,19 +295,25 @@ en:
     models:
       additional_contact: Additional contact
       admin: Admin
-      call_to_schedule_final_appointments: Call to schedule final in person appointment
+      call_to_schedule_final_appointment: Call to schedule final in person appointment
+      final_appointment: Final in person appointment
+      first_appointment: Initial in person appointment
+      first_contact: Confirmation call
       help_request_call: Help request
       lack_of_connectivity_call: Call due to no connectivity
       non_adherence_call: Non-adherence call
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       participant: Participant
+      third_contact: Follow up call week 3
     attributes:
       additional_contact:
         scheduled_at: Date and time of contact
         kind: Type
       call_to_schedule_final_appointment:
         contact_at: Date/time of phone call
+      first_appointment:
+        next_contact: Follow-up Call Week 1
       help_request_call:
         contact_at: Date/time of phone call
         explanation: Reason for help request
