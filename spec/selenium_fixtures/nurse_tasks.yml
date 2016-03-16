@@ -489,3 +489,77 @@
     scheduled_at: <%= DateTime.now - 2.days %>
     overdue_at: <%= today_at_11_am + 13.hours %>
 <% end %>
+
+<% (501..501).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
+
+  nurse_task_2<%= pt_id %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+    participant: participant<%= pt_id %>
+    type: Tasks::InitialInPersonAppointment
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
+
+  nurse_task_3<%= pt_id %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+    participant: participant<%= pt_id %>
+    type: Tasks::FollowUpCallWeekOne
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
+
+  nurse_task_4<%= pt_id %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+    participant: participant<%= pt_id %>
+    type: Tasks::FollowUpCallWeekThree
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
+
+  nurse_task_5<%= pt_id %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+    participant: participant<%= pt_id %>
+    type: Tasks::CallToScheduleFinalAppointment
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
+
+  nurse_task_6<%= pt_id %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+    participant: participant<%= pt_id %>
+    type: Tasks::FinalInPersonAppointment
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
+
+  nurse_task_7<%= pt_id %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+    participant: participant<%= pt_id %>
+    type: Tasks::HelpRequest
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 2.days %>
+
+  nurse_task_8<%= pt_id %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+    participant: participant<%= pt_id %>
+    type: Tasks::LackOfConnectivityCall
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 2.days %>
+
+  nurse_task_9<%= pt_id %>:
+    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+    participant: participant<%= pt_id %>
+    type: Tasks::NonAdherenceCall
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 2.days %>
+<% end %>
