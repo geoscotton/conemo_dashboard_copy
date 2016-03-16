@@ -22,10 +22,7 @@
 </div>
 
 <ul class="timeline">
-  <%= render 'first_contact', first_contact: @participant.first_contact if @participant.first_contact %>
-  <%= render 'first_appointment', first_appointment: @participant.first_appointment if @participant.first_appointment %>
-  <%= render 'second_contact', second_contact: @participant.second_contact if @participant.second_contact %>
-  <%= render 'third_contact', third_contact: @participant.third_contact if @participant.third_contact %>
-  <%= render partial: 'call_to_schedule_final_appointment', object: @participant.call_to_schedule_final_appointment if @participant.call_to_schedule_final_appointment %>
-  <%= render 'final_appointment', final_appointment: @participant.final_appointment if @participant.final_appointment %>
+  <% @participant_contacts.map(&:contact).each do |contact| %>
+    <%= render partial: contact.class.to_s.underscore, object: contact %>
+  <% end %>
 </ul>

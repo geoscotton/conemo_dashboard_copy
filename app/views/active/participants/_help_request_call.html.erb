@@ -1,0 +1,15 @@
+<li>
+  <div class="timeline-badge success"><i class="fa fa-phone-square"></i></div>
+
+  <div class="timeline-panel">
+    <div class="timeline-heading">
+      <h4 class="timeline-title"><%= help_request_call.model_name.human %></h4>
+
+      <p><i class="fa fa-clock-o"></i> <%= t "activerecord.attributes.help_request_call.contact_at" %>: <%= help_request_call.contact_at.to_s(:long) %></p>
+    </div>
+
+    <div class="timeline-body">
+      <p><strong><%= t "activerecord.attributes.help_request_call.explanation" %>: </strong><%= help_request_call.explanation %>      
+    </div>
+  </div>
+</li>

@@ -15,25 +15,19 @@ RSpec.describe "active/participants/show", type: :view do
       enrollment_date: Time.zone.today,
       smartphone: Smartphone.new
     )
-    participant.first_contact = FirstContact.new(contact_at: now,
-                                                 participant: participant)
-    participant.first_appointment = FirstAppointment.new(
-      appointment_at: now,
-      participant: participant
-    )
-    participant.second_contact = SecondContact.new(contact_at: now,
-                                                   participant: participant)
-    participant.third_contact = ThirdContact.new(contact_at: now,
-                                                 participant: participant)
-    participant.final_appointment = FinalAppointment.new(
-      appointment_at: now,
-      participant: participant
-    )
-    final_call = CallToScheduleFinalAppointment.new(participant: participant,
-                                                    contact_at: now)
-    allow(participant).to receive(:call_to_schedule_final_appointment)
-      .and_return(final_call)
+    contacts = [
+      FirstContact.new(contact_at: now, participant: participant),
+      FirstAppointment.new(appointment_at: now, participant: participant),
+      SecondContact.new(contact_at: now, participant: participant),
+      ThirdContact.new(contact_at: now, participant: participant),
+      FinalAppointment.new(appointment_at: now, participant: participant),
+      CallToScheduleFinalAppointment.new(participant: participant,
+                                         contact_at: now)
+    ].map do |contact|
+      ParticipantContactPresenter.new(contact)
+    end
     assign(:participant, participant)
+    assign(:participant_contacts, contacts)
 
     render template: template
 
