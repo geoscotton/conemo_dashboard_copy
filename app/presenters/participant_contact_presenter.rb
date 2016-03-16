@@ -7,8 +7,6 @@ class ParticipantContactPresenter
 
   def self.for(participant)
     contacts = [
-      AdditionalContact,
-      CallToScheduleFinalAppointment,
       FinalAppointment,
       FirstAppointment,
       PatientContact,
