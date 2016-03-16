@@ -13,19 +13,17 @@ RSpec.describe LessonsController, type: :controller do
     { title: nil, day_in_treatment: nil, locale: nil }
   end
 
+  shared_examples "a bad request" do
+    it do
+      expect(response).to redirect_to lessons_url
+    end
+  end
+
   describe "GET index" do
     context "for unauthenticated requests" do
       before { get :index, locale: locale }
 
       it_behaves_like "a rejected user action"
-    end
-
-    context "for authenticated requests" do
-      it "renders the index template" do
-        admin_request :get, :index, locale, locale: locale
-
-        expect(response).to render_template :index
-      end
     end
   end
 
@@ -36,6 +34,16 @@ RSpec.describe LessonsController, type: :controller do
     end
 
     context "for authenticated requests by admins or nurses" do
+      context "when the Lesson isn't found" do
+        before do
+          admin_request :get, :show, locale, id: -1, locale: locale
+        end
+
+        it "redirects to the lessons page" do
+          expect(response).to redirect_to lessons_url
+        end
+      end
+
       context "when the lesson is found" do
         it "sets the lesson" do
           admin_request :get, :show, locale, id: lesson.id, locale: lesson.locale
