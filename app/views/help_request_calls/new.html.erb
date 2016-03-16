@@ -20,8 +20,8 @@
         <div class="col-md-7">
           <%= f.select :explanation,
             grouped_options_for_select([
-                                       [t("activerecord.field_options.help_request_call.reasons_label"), t("activerecord.field_options.non_adherence_call.reasons")],
-                                       [t("activerecord.field_options.help_request_call.cancel_label"), t("activerecord.field_options.non_adherence_call.cancel")]
+                                       [t("activerecord.field_options.help_request_call.reasons_label"), t("activerecord.field_options.help_request_call.reasons")],
+                                       [t("activerecord.field_options.help_request_call.cancel_label"), t("activerecord.field_options.help_request_call.cancel")]
                                        ]),
                        {},
                        { class: "dropdown", required: true, :"aria-describedby" => "explanation-help" } %>
