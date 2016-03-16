@@ -245,44 +245,4 @@ RSpec.describe ThirdContactsController, type: :controller do
       end
     end
   end
-
-  describe "GET missed_final_appointment" do
-    context "for an unauthenticated request" do
-      before { get :missed_final_appointment, participant_id: participant.id }
-
-      it_behaves_like "a rejected user action"
-    end
-
-    context "for an authenticated User" do
-      context "when the Participant isn't found" do
-        before do
-          sign_in_user nurse
-          get :missed_final_appointment, participant_id: -1, locale: locale
-        end
-
-        it_behaves_like "a bad request"
-      end
-
-      it "sets the third_contact" do
-        participant.create_third_contact(valid_third_contact_params)
-
-        admin_request :get, :missed_final_appointment, locale,
-                      participant_id: participant.id, locale: locale
-
-        expect(assigns(:third_contact)).to be_instance_of ThirdContact
-        expect(assigns(:third_contact).participant).to eq participant
-      end
-
-      it "sets the patient_contact" do
-        participant.create_third_contact(valid_third_contact_params)
-
-        admin_request :get, :missed_final_appointment, locale,
-                      participant_id: participant.id, locale: locale
-
-        expect(assigns(:patient_contact)).to be_instance_of PatientContact
-        expect(assigns(:patient_contact).third_contact)
-          .to eq participant.third_contact
-      end
-    end
-  end
 end

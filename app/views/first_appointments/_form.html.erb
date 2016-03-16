@@ -2,7 +2,7 @@
   <div class="form-group">
     <%= f.label :appointment_at, class: "col-md-4 control-label" %>
     <div class="col-md-7">
-      <%= f.datetime_select :appointment_at, {required: true, default: @participant.first_appointment ? first_appointment.appointment_at : @participant.first_contact.first_appointment_at}, {class: "date-select"} %>
+      <%= f.datetime_select :appointment_at, { required: true }, { class: "date-select" } %>
       <br>
       <small><%= Time.zone %></small>
     </div>

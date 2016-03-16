@@ -45,11 +45,6 @@ es-PE:
           heading: "Llamada confirmando cita"
         reschedule:
           heading: "la llamada confirmando cita"
-      first_appointments:
-        new:
-          heading: "Cita de inicio"
-        reschedule:
-          heading: "la llamada cita de inicio"
       nurse_participant_evaluations:
         form:
           q1:
@@ -123,7 +118,6 @@ es-PE:
             study_identifier: "Código del participante"
             enrollment_date: "Fecha de inclusión en el estudio"
             first_contact: "Llamada confirmando cita"
-            first_appointment: "Cita de inicio"
             second_contact: "Llamada de seguimiento sem. 1"
             third_contact: "Llamada de seguimiento sem. 3"
             call_to_schedule_final_appointment: Llamada para programar cita final
@@ -139,7 +133,6 @@ es-PE:
             contact_heading: "Información de contacto"
             smartphone_heading: "Smartphone"
             first_contact_heading: "Llamada confirmando cita"
-            first_appointment_heading: "Cita de inicio"
             second_contact_heading: "Llamada de seguimiento sem. 1"
             third_contact_heading: "Llamada de seguimiento sem. 3"
             final_appointment_heading: "Cita final"
@@ -245,7 +238,6 @@ es-PE:
       first_appointment:
         appointment_at: "Programada para"
         appointment_location: "Lugar de cita de inicio"
-        next_contact: "Fecha/hora para la llamada de seguimiento sem. 1"
         session_length: "Duración de la sesión (minutos)"
         notes: "Notas"
       nurse_participant_evaluation:
@@ -556,19 +548,25 @@ es-PE:
     models:
       additional_contact: Additional contact
       admin: Admin
-      call_to_schedule_final_appointments: Llamada para programar cita final
+      call_to_schedule_final_appointment: Llamada para programar cita final
+      final_appointment: Cita final
+      first_appointment: Cita de inicio
+      first_contact: Llamada confirmando cita
       help_request_call: Solicitud de ayuda
       lack_of_connectivity_call: Llamada por no-conectividad
       non_adherence_call: Llamada por no-adherencia
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       participant: Participante
+      third_contact: Llamada de seguimiento sem. 3
     attributes:
       additional_contact:
         scheduled_at: Fecha y hora de contacto
         kind: Tipo de contacto
       call_to_schedule_final_appointment:
         contact_at: Fecha y hora de contacto
+      first_appointment:
+        next_contact: Llamada de seguimiento sem. 1
       help_request_call:
         contact_at: Fecha/hora de la llamada
         explanation: Razón por la solicitud de ayuda

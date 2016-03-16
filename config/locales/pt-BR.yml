@@ -42,11 +42,6 @@ pt-BR:
           heading: Chamada de confirmação
         reschedule:
           heading: "a contato de confirmação"
-      first_appointments:
-        new:
-          heading: "Primeiro encontro"
-        reschedule:
-          heading: "a primeiro encontro"
       second_contacts:
         new:
           heading: "Chamada de seguimento sem. 1"
@@ -191,7 +186,6 @@ pt-BR:
       first_appointment:
         appointment_at: "Data/hora"
         appointment_location: "Local"
-        next_contact: "Data/hora próximo contato"
         session_length: "Duração da sessão (minutos)"
         notes: "Anotações/Impressões"
       nurse_participant_evaluation:
@@ -524,18 +518,24 @@ pt-BR:
       additional_contact: Additional contact
       admin: Admin
       call_to_schedule_final_appointments: Chamada para agendar encontro final
+      final_appointment: Encontro final
+      first_appointment: Encontro inicial
+      first_contact: Chamada de confirmação
       help_request_call: Pedido de ajuda
       lack_of_connectivity_call: Chamada por não-conectividade
       non_adherence_call: Chamada por não aderência
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       participant: Participante
+      third_contact: Chamada de seguimento sem. 3
     attributes:
       additional_contact:
         scheduled_at: Data e hora do contato
         kind: Tipo de contato
       call_to_schedule_final_appointment:
         contact_at: Data da ligação
+      first_appointment:
+        next_contact: Chamada de seguimento sem. 1
       help_request_call:
         contact_at: Data da ligação
         explanation: Razão pelo pedido de ajuda

@@ -64,7 +64,7 @@ RSpec.describe "active/participants/report", type: :view do
 
       table_exists_with_the_following_rows(
         [
-          ["First appointment #{I18n.l(now, format: :long)}"],
+          ["Initial in person appointment #{I18n.l(now, format: :long)}"],
           ["Second contact #{I18n.l(now, format: :long)}"]
         ]
       )

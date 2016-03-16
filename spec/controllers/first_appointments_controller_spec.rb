@@ -175,42 +175,6 @@ RSpec.describe FirstAppointmentsController, type: :controller do
     end
   end
 
-  describe "GET missed_second_contact" do
-    context "for an unauthenticated request" do
-      before { get :missed_second_contact, participant_id: participant.id }
-
-      it_behaves_like "a rejected user action"
-    end
-
-    context "for an authenticated user" do
-      context "when the Participant isn't found" do
-        before do
-          sign_in_user nurse
-
-          get :missed_second_contact, participant_id: -1, locale: locale
-        end
-
-        it_behaves_like "a bad request"
-      end
-
-      it "sets the first appointment" do
-        admin_request :get, :missed_second_contact, locale,
-                      participant_id: participant.id, locale: locale
-
-        expect(assigns(:first_appointment)).to eq participant.first_appointment
-      end
-
-      it "sets the patient contact" do
-        admin_request :get, :missed_second_contact, locale,
-                      participant_id: participant.id, locale: locale
-
-        expect(assigns(:patient_contact)).to be_instance_of PatientContact
-        expect(assigns(:patient_contact).first_appointment)
-          .to eq participant.first_appointment
-      end
-    end
-  end
-
   describe "PUT update" do
     context "for an unauthenticated request" do
       before { put :update, participant_id: participant.id }

@@ -46,11 +46,6 @@ class ThirdContactsController < ApplicationController
     end
   end
 
-  def missed_final_appointment
-    @third_contact = find_participant.third_contact
-    @patient_contact = @third_contact.patient_contacts.build
-  end
-
   private
 
   def third_contact_params

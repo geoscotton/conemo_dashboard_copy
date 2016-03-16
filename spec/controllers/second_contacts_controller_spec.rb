@@ -188,48 +188,4 @@ RSpec.describe SecondContactsController, type: :controller do
       end
     end
   end
-
-  describe "GET missed_third_contact" do
-    context "for an unauthenticated User" do
-      before do
-        get :missed_third_contact,
-            participant_id: participant.id, locale: locale
-      end
-
-      it_behaves_like "a rejected user action" do
-        let(:user_locale) { locale }
-      end
-    end
-
-    context "for an authenticated User" do
-      context "when the Participant isn't found" do
-        before do
-          sign_in_user nurse
-          get :missed_third_contact, participant_id: -1, locale: locale
-        end
-
-        it_behaves_like "a bad request"
-      end
-
-      it "sets the second_contact" do
-        participant.create_second_contact(valid_second_contact_params)
-
-        admin_request :get, :missed_third_contact, locale,
-                      participant_id: participant.id, locale: locale
-
-        expect(assigns(:second_contact)).to eq participant.second_contact
-      end
-
-      it "sets the patient_contact" do
-        participant.create_second_contact(valid_second_contact_params)
-
-        admin_request :get, :missed_third_contact, locale,
-                      participant_id: participant.id, locale: locale
-
-        expect(assigns(:patient_contact)).to be_instance_of PatientContact
-        expect(assigns(:patient_contact).second_contact)
-          .to eq participant.second_contact
-      end
-    end
-  end
 end
