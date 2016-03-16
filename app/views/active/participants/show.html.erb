@@ -18,23 +18,6 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="status-wrap col-md-12">
-    <ul class="status-bar">
-      <li class="<%= @participant.first_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t "conemo.views.active.participants.show.first_contact_heading" %>" data-placement="bottom"></li>
-
-      <li class="<%= @participant.first_appointment ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t "conemo.views.active.participants.show.first_appointment_heading" %>" data-placement="bottom"></li>
-
-      <li class="<%= @participant.second_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t "conemo.views.active.participants.show.second_contact_heading" %>" data-placement="bottom"></li>
-
-      <li class="<%= @participant.third_contact ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t "conemo.views.active.participants.show.third_contact_heading" %>" data-placement="bottom"></li>
-
-      <li class="<%= @participant.final_appointment ? 'visited' : '' %> popover" data-toggle="popover" data-content="<%= t 'conemo.views.active.participants.show.final_appointment_heading' %>" data-placement="bottom"></li>
-      
-    </ul>
-  </div>
-</div>
-
 <div class="page-header">
 </div>
 
@@ -46,7 +29,3 @@
   <%= render partial: 'call_to_schedule_final_appointment', object: @participant.call_to_schedule_final_appointment if @participant.call_to_schedule_final_appointment %>
   <%= render 'final_appointment', final_appointment: @participant.final_appointment if @participant.final_appointment %>
 </ul>
-
-<script>
-  $('.popover').popover({ trigger: 'manual' }).popover('show');
-</script>
