@@ -12,6 +12,7 @@ RSpec.describe "patient_contacts/new", type: :view do
     I18n.locale = "en"
     assign(:patient_contact, patient_contact)
     assign(:participant, participant)
+    assign(:participant_contacts, [])
 
     render template: template
 
