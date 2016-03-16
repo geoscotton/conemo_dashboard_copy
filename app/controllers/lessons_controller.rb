@@ -3,6 +3,8 @@
 class LessonsController < ApplicationController
   layout "lesson_editor"
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   def index
     @lessons = locale_lessons.order("day_in_treatment ASC")
     authorize! :read, @lessons
@@ -103,5 +105,9 @@ class LessonsController < ApplicationController
 
   def slide_order_params
     params.require(:slide)
+  end
+
+  def record_not_found
+    redirect_to lessons_url
   end
 end
