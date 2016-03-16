@@ -54,7 +54,7 @@ class Participant < ActiveRecord::Base
   validates :study_identifier, :phone, :cell_phone, :alternate_phone_1,
             :alternate_phone_2, :emergency_contact_phone,
             :emergency_contact_cell_phone,
-            format: /\A[0-9]+\z/, allow_nil: true
+            format: /\A[0-9]+\z/, allow_nil: true, allow_blank: true
 
   validate :enrollment_date_is_sane
 
