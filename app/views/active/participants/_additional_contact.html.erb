@@ -1,0 +1,15 @@
+<li class="timeline-inverted">
+  <div class="timeline-badge" style="background-color:orange"><i class="fa fa-user-md fa-lg"></i></div>
+
+  <div class="timeline-panel">
+    <div class="timeline-heading">
+      <h4 class="timeline-title"><%= additional_contact.model_name.human %></h4>
+
+      <p><i class="fa fa-clock-o"></i> <%= t "activerecord.attributes.additional_contact.scheduled_at" %>: <%= additional_contact.scheduled_at.to_s(:long) %></p>
+    </div>
+
+    <div class="timeline-body">
+      <p><strong><%= t "activerecord.attributes.additional_contact.kind" %>: </strong><%= additional_contact.kind %>      
+    </div>
+  </div>
+</li>
