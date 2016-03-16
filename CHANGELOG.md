@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.1 - 2016-03-16
+
+* add default timestamps to scheduled appointments
+* allow blank phone numbers
+* redirect when lesson not found
+* clean up and finalize first appointment form
+* bump token_auth version with en translations
+* remove smartphone phone_identifier default
+
 ## 0.7.0 - 2016-03-15
 
 * translate token page
