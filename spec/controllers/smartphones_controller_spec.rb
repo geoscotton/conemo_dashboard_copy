@@ -9,8 +9,8 @@ RSpec.describe SmartphonesController, type: :controller do
     Participant.active.where.not(nurse: nil).find_by(locale: locale)
   end
   let(:nurse) { participant.nurse }
-  let(:valid_smartphone_params) { { number: "1" } }
-  let(:invalid_smartphone_params) { { number: nil } }
+  let(:valid_smartphone_params) { { number: "1", phone_identifier: "321" } }
+  let(:invalid_smartphone_params) { { number: nil, phone_identifier: nil } }
 
   shared_examples "a bad request" do
     it do
