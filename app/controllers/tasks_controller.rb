@@ -91,7 +91,13 @@ class TasksController < ApplicationController
   end
 
   def record_not_found
-    redirect_to nurse_dashboard_url(current_user),
-                alert: "Participant not found"
+    if Participant.where(status: Participant::COMPLETED)
+                  .exists?(id: params[:participant_id])
+      redirect_to nurse_dashboard_url(current_user),
+                  alert: "Participant successfully completed"
+    else
+      redirect_to nurse_dashboard_url(current_user),
+                  alert: "Participant not found"
+    end
   end
 end
