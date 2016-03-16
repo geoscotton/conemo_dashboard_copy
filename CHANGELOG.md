@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.2 - 2016-03-16
+
+* when accessing completed Participant, show notice
+* update Spanish text for "Pending participants"
+* render notes on note form
+* add non scheduled contacts to timeline
+* remove old status bar; update bootstrap js
+* display scheduled contacts and Notes under Notes
+
 ## 0.7.1 - 2016-03-16
 
 * add default timestamps to scheduled appointments
