@@ -2,34 +2,39 @@
     <div class="form-group">
       <%= f.label :contact_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :contact_at, {required: true, default: @participant.third_contact ? @third_contact.contact_at : (@participant.second_contact.next_contact)}, {class: "date-select"} %>
+        <%= f.datetime_select :contact_at, { required: true }, { class: "date-select" } %>
         <br>
         <small><%= Time.zone %></small>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :session_length, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.number_field :session_length, min: 1, class: "form-control", required: true %>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :call_to_schedule_final_appointment_at, class: "col-md-4 control-label" %>
       <div class="col-md-7">
-        <%= f.datetime_select :call_to_schedule_final_appointment_at, {default: DateTime.current + 2.weeks, required: true}, {class: "date-select"} %>
+        <%= f.datetime_select :call_to_schedule_final_appointment_at, { required: true }, { class: "date-select" } %>
         <br>
         <small><%= Time.zone %></small>
       </div>
     </div>
+
     <div class="form-group">
       <h3><%= t "conemo.views.second_contacts.patient_question_header"%></h3>
     </div>
+
     <div class="form-group">
       <%= f.label :q1, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.text_area :q1, class: "form-control" %>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :q2, class: "col-md-4 control-label" %>
       <div class="col-md-7">
@@ -41,12 +46,14 @@
         </label>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :q2_notes, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.text_area :q2_notes, class: "form-control" %>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :q3, class: "col-md-4 control-label" %>
       <div class="col-md-7">
@@ -58,12 +65,14 @@
         </label>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :q3_notes, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.text_area :q3_notes, class: "form-control" %>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :q4, class: "col-md-4 control-label" %>
       <div class="col-md-7">
@@ -75,12 +84,14 @@
         </label>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :q4_notes, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.text_area :q4_notes, class: "form-control" %>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :q5, class: "col-md-4 control-label" %>
       <div class="col-md-7">
@@ -92,22 +103,27 @@
         </label>
       </div>
     </div>
+
     <div class="form-group">
       <%= f.label :q5_notes, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.text_area :q5_notes, class: "form-control" %>
       </div>
     </div>
+
     <div class="form-group">
       <h3><%= t "conemo.views.second_contacts.nurse_question_header"%></h3>
     </div>
+
     <%= render 'nurse_participant_evaluations/third_contact_form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} %>
+
     <div class="form-group">
       <%= f.label :notes, class: "col-md-4 control-label" %>
       <div class="col-md-7">
         <%= f.text_area :notes, class: "form-control" %>
       </div>
     </div>
+
     <div class="form-group">
       <div class="col-md-offset-4 col-md-7">
         <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>

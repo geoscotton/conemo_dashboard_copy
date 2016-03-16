@@ -5,7 +5,8 @@ RSpec.describe "final_appointments/new", type: :view do
   let(:template) { subject }
   let(:final_appointment) { FinalAppointment.new }
   let(:participant) do
-    instance_double(Participant, final_appointment: final_appointment)
+    instance_double(Participant,
+                    final_appointment: final_appointment).as_null_object
   end
 
   it "renders the heading" do

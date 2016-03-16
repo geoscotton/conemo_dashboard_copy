@@ -18,6 +18,7 @@ es-PE:
       shared:
         save_button: "Guardar"
         cancel_button: "Cancelar"
+        confirm: Confirmar
         nurse: "Enfermera"
         "true": "Si"
         "false": "No"
@@ -549,22 +550,34 @@ es-PE:
       additional_contact: Additional contact
       admin: Admin
       call_to_schedule_final_appointment: Llamada para programar cita final
+      "tasks/call_to_schedule_final_appointment": Llamada para programar cita final
       final_appointment: Cita final
+      "tasks/final_in_person_appointment": Cita final
       first_appointment: Cita de inicio
+      "tasks/initial_in_person_appointment": Cita de inicio
       first_contact: Llamada confirmando cita
+      "tasks/confirmation_call": Llamada confirmando cita
       help_request_call: Solicitud de ayuda
+      "tasks/help_request": Solicitud de ayuda
       lack_of_connectivity_call: Llamada por no-conectividad
+      "tasks/lack_of_connectivity_call": Llamada por no-conectividad
       non_adherence_call: Llamada por no-adherencia
+      "tasks/non_adherence_call": Llamada por no-adherencia
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       participant: Participante
+      second_contact: Llamada de seguimiento sem. 1
+      "tasks/follow_up_call_week_one": Llamada de seguimiento sem. 1
       third_contact: Llamada de seguimiento sem. 3
+      "tasks/follow_up_call_week_three": Llamada de seguimiento sem. 3
     attributes:
       additional_contact:
         scheduled_at: Fecha y hora de contacto
         kind: Tipo de contacto
       call_to_schedule_final_appointment:
         contact_at: Fecha y hora de contacto
+        final_appointment_at: Cita final para
+        final_appointment_location: Lugar de cita final
       first_appointment:
         next_contact: Llamada de seguimiento sem. 1
       help_request_call:

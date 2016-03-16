@@ -18,6 +18,7 @@ pt-BR:
       shared:
         save_button: "Salvar"
         cancel_button: "Cancelar"
+        confirm: Confirmar
         nurse: "Aux. de Enfermagem"
         "true": "Sim"
         "false": "Não"
@@ -517,23 +518,35 @@ pt-BR:
     models:
       additional_contact: Additional contact
       admin: Admin
-      call_to_schedule_final_appointments: Chamada para agendar encontro final
+      call_to_schedule_final_appointment: Chamada para agendar encontro final
+      "tasks/call_to_schedule_final_appointment": Chamada para agendar encontro final
       final_appointment: Encontro final
+      "tasks/final_in_person_appointment": Encontro final
       first_appointment: Encontro inicial
+      "tasks/initial_in_person_appointment": Encontro inicial
       first_contact: Chamada de confirmação
+      "tasks/confirmation_call": Chamada de confirmação
       help_request_call: Pedido de ajuda
+      "tasks/help_request": Pedido de ajuda
       lack_of_connectivity_call: Chamada por não-conectividade
+      "tasks/lack_of_connectivity_call": Chamada por não-conectividade
       non_adherence_call: Chamada por não aderência
+      "tasks/non_adherence_call": Chamada por não aderência
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       participant: Participante
+      second_contact: Chamada de seguimento sem. 1
+      "tasks/follow_up_call_week_one": Chamada de seguimento sem. 1
       third_contact: Chamada de seguimento sem. 3
+      "tasks/follow_up_call_week_three": Chamada de seguimento sem. 3
     attributes:
       additional_contact:
         scheduled_at: Data e hora do contato
         kind: Tipo de contato
       call_to_schedule_final_appointment:
         contact_at: Data da ligação
+        final_appointment_at: Encontro Final em
+        final_appointment_location: Local do Encontro Final
       first_appointment:
         next_contact: Chamada de seguimento sem. 1
       help_request_call:

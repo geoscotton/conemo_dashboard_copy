@@ -8,18 +8,22 @@ RSpec.describe "active/participants/report", type: :view do
   let(:first_appointment) do
     FirstAppointment.new(appointment_at: now)
   end
-  let(:second_contact) do
-    SecondContact.new(contact_at: now)
-  end
   let(:participant) do
-    instance_double(Participant,
-                    id: rand,
-                    start_date: today,
-                    help_messages: [],
-                    logins: [],
-                    patient_contacts: [],
-                    first_appointment: first_appointment,
-                    second_contact: second_contact).as_null_object
+    participant = Participant.new(id: rand,
+                                  help_messages: [],
+                                  logins: [],
+                                  patient_contacts: [],
+                                  first_appointment: first_appointment)
+    allow(participant).to receive(:start_date) { today }
+
+    participant
+  end
+  let(:second_contact) do
+    second_contact = SecondContact.new(contact_at: now,
+                                       participant: participant)
+    participant.second_contact = second_contact
+
+    second_contact
   end
 
   describe "the lessons table" do
@@ -65,7 +69,7 @@ RSpec.describe "active/participants/report", type: :view do
       table_exists_with_the_following_rows(
         [
           ["Initial in person appointment #{I18n.l(now, format: :long)}"],
-          ["Second contact #{I18n.l(now, format: :long)}"]
+          ["Follow up call week 1 #{I18n.l(now, format: :long)}"]
         ]
       )
     end

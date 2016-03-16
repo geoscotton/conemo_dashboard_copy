@@ -18,6 +18,7 @@ en:
       shared:
         save_button: "Save"
         cancel_button: "Cancel"
+        confirm: Confirm
         nurse: "Nurse"
         "true": "Yes"
         "false": "No"
@@ -296,22 +297,35 @@ en:
       additional_contact: Additional contact
       admin: Admin
       call_to_schedule_final_appointment: Call to schedule final in person appointment
+      "tasks/call_to_schedule_final_appointment": Call to schedule final in person appointment
       final_appointment: Final in person appointment
+      "tasks/final_in_person_appointment": Final in person appointment
       first_appointment: Initial in person appointment
+      "tasks/initial_in_person_appointment": Initial in person appointment
       first_contact: Confirmation call
+      "tasks/confirmation_call": Confirmation call
       help_request_call: Help request
+      "tasks/help_request": Help request
+      call_to_schedule_final_appointment: Call to schedule final in person appointment
       lack_of_connectivity_call: Call due to no connectivity
+      "tasks/lack_of_connectivity_call": Call due to no connectivity
       non_adherence_call: Non-adherence call
+      "tasks/non_adherence_call": Non-adherence call
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       participant: Participant
+      second_contact: Follow up call week 1
+      "tasks/follow_up_call_week_one": Follow up call week 1
       third_contact: Follow up call week 3
+      "tasks/follow_up_call_week_three": Follow up call week 3
     attributes:
       additional_contact:
         scheduled_at: Date and time of contact
         kind: Type
       call_to_schedule_final_appointment:
         contact_at: Date/time of phone call
+        final_appointment_at: Final in person appointment date and time
+        final_appointment_location: Final appointemnt location
       first_appointment:
         next_contact: Follow-up Call Week 1
       help_request_call:
