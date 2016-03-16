@@ -34,7 +34,7 @@ es-PE:
         index:
           heading: "¡Bienvenido!"
           instructions: "Por favor, elija una opción"
-          enrollment_button: "Participantes reclutados"
+          enrollment_button: Participantes pendientes
           manage_button: "Participantes activos"
           lessons_button: "Sesiones"
           sign_out: "Salir"
