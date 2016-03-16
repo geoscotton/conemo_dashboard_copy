@@ -15,6 +15,14 @@
     slideshow: es_slideshow_1
     title: "\u00a1Bienvenido a CONEMO! "
     has_activity_planning: true
+    pre_planning_content: ¡Intentemos! Por favor revisa la siguiente lista de actividades placenteras y selecciona una que NO hayas estado haciendo últimamente pero te gustaría hacer entre HOY y MAÑANA
+    activity_choices: "Escuchar música\r\nLlamar a un amigo o familiar\r\nHacer una caminata corta\r\nLeer un libro\r\nCocinar algo\r\nDibujar o pintar\r\nArreglarte\r\nVer una película\r\nCantar\r\nConversar con tu vecino\r\nTejer\r\nHacer jardinería"
+    post_planning_content: <p>¡Muy bien! Intenta hacer esta actividad que has seleccionado entre hoy y mañana.</p><p>Recuerda que puedes cambiar tu elección si deseas.</p><p>En un par de días te preguntaremos cómo te fue.</p>
+    non_planning_content: Aún no has hecho tu selección. Por favor, presiona el rectángulo blanco y selecciona una de las opciones de la lista antes de pasar a la siguiente página.
+    feedback_after_days: 2
+    planning_response_yes_content: ¡Excelente!
+    planning_response_no_content: Ser más activo te ayudará a sentirte mejor y a tener una vida más sana y feliz. Recuerda que todavía puedes seleccionar otra actividad si quieres e intentar de nuevo. Lo importante es seguir intentando. 
+    non_planning_response_content: Aún no has hecho tu selección. Por favor, presiona el rectángulo blanco y selecciona una de las opciones de la lista antes de pasar a la siguiente página.
 
   es_lesson_2:
     day_in_treatment: 3
@@ -30,6 +38,14 @@
     slideshow: es_slideshow_3
     title: "\u00bfQu\u00e9 quieres lograr con CONEMO?"
     has_activity_planning: true
+    pre_planning_content: ¡Intentemos! Por favor revisa la siguiente lista de actividades placenteras y selecciona una que NO hayas estado haciendo últimamente pero te gustaría hacer entre HOY y MAÑANA
+    activity_choices: "Escuchar música\r\nLlamar a un amigo o familiar\r\nHacer una caminata corta\r\nLeer un libro\r\nCocinar algo\r\nDibujar o pintar\r\nArreglarte\r\nVer una película\r\nCantar\r\nConversar con tu vecino\r\nTejer\r\nHacer jardinería"
+    post_planning_content: <p>¡Muy bien! Intenta hacer esta actividad que has seleccionado entre hoy y mañana.</p><p>Recuerda que puedes cambiar tu elección si deseas.</p><p>En un par de días te preguntaremos cómo te fue.</p>
+    non_planning_content: Aún no has hecho tu selección. Por favor, presiona el rectángulo blanco y selecciona una de las opciones de la lista antes de pasar a la siguiente página.
+    feedback_after_days: 2
+    planning_response_yes_content: ¡Excelente!
+    planning_response_no_content: Ser más activo te ayudará a sentirte mejor y a tener una vida más sana y feliz. Recuerda que todavía puedes seleccionar otra actividad si quieres e intentar de nuevo. Lo importante es seguir intentando. 
+    non_planning_response_content: Aún no has hecho tu selección. Por favor, presiona el rectángulo blanco y selecciona una de las opciones de la lista antes de pasar a la siguiente página.
 
   es_lesson_4:
     day_in_treatment: 8
@@ -138,7 +154,7 @@
 <% end %>
 
 <% (1..1).each do |i| %>
-  es_lesson_1:
+  pt_lesson_1:
     day_in_treatment: 1
     guid: "f584a39b-c9b2-4a2f-9aff-f177fd44b85b"
     locale: "pt-BR"
@@ -146,14 +162,14 @@
     title: "Bem-vindo ao CONEMO! "
     has_activity_planning: true
 
-  es_lesson_2:
+  pt_lesson_2:
     day_in_treatment: 3
     guid: "529a2f05-65f8-41f7-ab18-2a673e6eb0f3"
     locale: "pt-BR"
     slideshow: es_slideshow_2
     title: "Sentir-se para baixo pode levar a deixar de realizar as coisas que costumava fazer."
 
-  es_lesson_3:
+  pt_lesson_3:
     day_in_treatment: 6
     guid: "2f6ea7cb-a281-4bf7-98ff-02ac557de206"
     locale: "pt-BR"
@@ -161,14 +177,14 @@
     title: "Mudar o que você faz pode mudar a forma como você se sente."
     has_activity_planning: true
 
-  es_lesson_4:
+  pt_lesson_4:
     day_in_treatment: 8
     guid: "0f7a1cc3-3bb0-4a2c-b1fb-3088ef9bc412"
     locale: "pt-BR"
     slideshow: es_slideshow_4
     title: "Atividades prazerosas nos fazem sentir bem!"
 
-  es_lesson_5:
+  pt_lesson_5:
     day_in_treatment: 10
     guid: "481c9380-d8a7-42c7-b010-7aabfca37e4d"
     locale: "pt-BR"
