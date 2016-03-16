@@ -5,6 +5,8 @@ class PatientContactsController < ApplicationController
 
   def new
     @patient_contact = find_participant.patient_contacts.build
+    @participant_contacts = ParticipantContactPresenter
+                            .scheduled_contacts_for(find_participant)
   end
 
   def create

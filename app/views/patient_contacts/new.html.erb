@@ -9,38 +9,21 @@
       <tr class="table-head">
         <th class="text-center" style="background-color:#2b3e50;"><%= t 'conemo.views.active.participants.report.notes' %></th>
       </tr>
-      <% if @participant.patient_contacts.any? %>
-          <% @participant.patient_contacts.order(contact_at: :desc).each do |contact| %>
-              <tr>
-                <td>
-                  <dl>
-                    <dt><%= contact.contact_reason %> <%= link_to "#{fa_icon 'times-circle'}".html_safe, participant_patient_contact_path(id: contact.id, participant_id: @participant.id), method: :delete, :"data-confirm" => "#{ t 'conemo.views.active.participants.report.delete' }", class: 'pull-right delete-note' %></dt>
-                    <dd><%= contact.note %></dd>
-                  </dl>
-                </td>
-              </tr>
-          <% end %>
+      <% @participant_contacts.each do |contact| %>
+        <tr>
+          <td>
+            <dl>
+              <dt>
+                <%= contact.title %>
+                <% if contact.deletable? %>
+                  <%= link_to "#{fa_icon 'times-circle'}".html_safe, participant_patient_contact_path(id: contact.id, participant_id: @participant.id), method: :delete, :"data-confirm" => "#{ t 'conemo.views.active.participants.report.delete' }", class: 'pull-right delete-note' %></dt>
+                <% end %>
+              <dd><%= contact.note %></dd>
+              <dd><em><%= l contact.timestamp, format: :long %></em></dd>
+            </dl>
+          </td>
+        </tr>
       <% end %>
-      <% if @participant.first_appointment %>
-          <tr>
-            <td>
-              <dl>
-                <dt><%= t 'conemo.views.active.participants.index.first_appointment' %></dt>
-                <dd><%= @participant.first_appointment.notes %></dd>
-                <dd><em><%= l @participant.first_appointment.appointment_at, format: :long %></em></dd>
-              </dl>
-            </td>
-          </tr>
-      <% end %>
-      <% if @participant.second_contact %>
-          <tr>
-            <td>
-              <dl>
-                <dt><%= t 'conemo.views.active.participants.index.second_contact' %></dt>
-                <dd><%= @participant.second_contact.notes %></dd>
-                <dd><em><%= l @participant.second_contact.contact_at, format: :long %></em></dd>
-              </dl>
-            </td>
-          </tr>
-      <% end %>
+    </table>
   </div>
+</div>
