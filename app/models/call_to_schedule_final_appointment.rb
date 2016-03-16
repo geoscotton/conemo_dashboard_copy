@@ -6,7 +6,7 @@ class CallToScheduleFinalAppointment < ActiveRecord::Base
   validates :participant, :contact_at, :final_appointment_at,
             :final_appointment_location, presence: true
 
-  after_initialize :set_contact_at
+  after_initialize :populate_timestamps
 
   def self.build_for_participant(participant, params = {})
     new(params.merge(participant: participant))
@@ -14,9 +14,12 @@ class CallToScheduleFinalAppointment < ActiveRecord::Base
 
   private
 
-  def set_contact_at
-    self.contact_at ||= participant
-                        .third_contact
-                        .try(:call_to_schedule_final_appointment_at)
+  def default_contact_at
+    Tasks::CallToScheduleFinalAppointment.find_by(participant: participant)
+                                         .try(:scheduled_at) || Time.zone.now
+  end
+
+  def populate_timestamps
+    self.contact_at ||= default_contact_at
   end
 end

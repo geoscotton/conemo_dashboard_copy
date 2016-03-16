@@ -9,4 +9,17 @@ class FinalAppointment < ActiveRecord::Base
             :appointment_location,
             presence: true
   validates :phone_returned, inclusion: { in: [true, false] }
+
+  after_initialize :populate_timestamps
+
+  private
+
+  def default_appointment_at
+    Tasks::FinalInPersonAppointment.find_by(participant: participant)
+                                   .try(:scheduled_at) || Time.zone.now
+  end
+
+  def populate_timestamps
+    self.appointment_at ||= default_appointment_at
+  end
 end

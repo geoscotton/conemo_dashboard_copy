@@ -1,151 +1,171 @@
 <%= form_for @second_contact, url: participant_second_contact_path(@participant), method: @second_contact.valid? ? :patch : :post, html: {role: "form", class: "form-horizontal"} do |f| %>
-    <div class="form-group">
-      <%= f.label :contact_at, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.datetime_select :contact_at, {required: true, default: @participant.second_contact ? second_contact.contact_at : @participant.first_appointment.next_contact}, {class: "date-select"}  %>
-        <br>
-        <small><%= Time.zone %></small>
-      </div>
+  <div class="form-group">
+    <%= f.label :contact_at, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.datetime_select :contact_at, { required: true }, { class: "date-select" }  %>
+      <br>
+      <small><%= Time.zone %></small>
     </div>
-    <div class="form-group">
-      <%= f.label :next_contact, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.datetime_select :next_contact, {default: @participant.second_contact ? second_contact.next_contact : @participant.first_appointment.next_contact + 3.weeks, required: true}, {class: "date-select"} %>
-        <br>
-        <small><%= Time.zone %></small>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :next_contact, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.datetime_select :next_contact, { required: true }, { class: "date-select" } %>
+      <br>
+      <small><%= Time.zone %></small>
     </div>
-    <div class="form-group">
-      <h3><%= t "conemo.views.second_contacts.patient_question_header"%></h3>
+  </div>
+
+  <div class="form-group">
+    <h3><%= t "conemo.views.second_contacts.patient_question_header"%></h3>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q1, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :q1, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :q1, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :q1, class: "form-control" %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q2, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <label class="radio-inline">
+        <%= f.radio_button :q2, 'true' %> <%= t("conemo.views.shared.true") %>
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :q2, 'false' %> <%= t("conemo.views.shared.false") %>
+      </label>
     </div>
-    <div class="form-group">
-      <%= f.label :q2, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <label class="radio-inline">
-          <%= f.radio_button :q2, 'true' %> <%= t("conemo.views.shared.true") %>
-        </label>
-        <label class="radio-inline">
-          <%= f.radio_button :q2, 'false' %> <%= t("conemo.views.shared.false") %>
-        </label>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q2_notes, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :q2_notes, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :q2_notes, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :q2_notes, class: "form-control" %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q3, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <label class="radio-inline">
+        <%= f.radio_button :q3, 'true' %> <%= t("conemo.views.shared.true") %>
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :q3, 'false' %> <%= t("conemo.views.shared.false") %>
+      </label>
     </div>
-    <div class="form-group">
-      <%= f.label :q3, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <label class="radio-inline">
-          <%= f.radio_button :q3, 'true' %> <%= t("conemo.views.shared.true") %>
-        </label>
-        <label class="radio-inline">
-          <%= f.radio_button :q3, 'false' %> <%= t("conemo.views.shared.false") %>
-        </label>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q3_notes, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :q3_notes, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :q3_notes, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :q3_notes, class: "form-control" %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q4, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <label class="radio-inline">
+        <%= f.radio_button :q4, 'true' %> <%= t("conemo.views.shared.true") %>
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :q4, 'false' %> <%= t("conemo.views.shared.false") %>
+      </label>
     </div>
-    <div class="form-group">
-      <%= f.label :q4, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <label class="radio-inline">
-          <%= f.radio_button :q4, 'true' %> <%= t("conemo.views.shared.true") %>
-        </label>
-        <label class="radio-inline">
-          <%= f.radio_button :q4, 'false' %> <%= t("conemo.views.shared.false") %>
-        </label>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q4_notes, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :q4_notes, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :q4_notes, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :q4_notes, class: "form-control" %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q5, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <label class="radio-inline">
+        <%= f.radio_button :q5, 'true' %> <%= t("conemo.views.shared.true") %>
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :q5, 'false' %> <%= t("conemo.views.shared.false") %>
+      </label>
     </div>
-    <div class="form-group">
-      <%= f.label :q5, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <label class="radio-inline">
-          <%= f.radio_button :q5, 'true' %> <%= t("conemo.views.shared.true") %>
-        </label>
-        <label class="radio-inline">
-          <%= f.radio_button :q5, 'false' %> <%= t("conemo.views.shared.false") %>
-        </label>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q5_notes, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :q5_notes, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :q5_notes, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :q5_notes, class: "form-control" %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q6, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <label class="radio-inline">
+        <%= f.radio_button :q6, 'true' %> <%= t("conemo.views.shared.true") %>
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :q6, 'false' %> <%= t("conemo.views.shared.false") %>
+      </label>
     </div>
-    <div class="form-group">
-      <%= f.label :q6, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <label class="radio-inline">
-          <%= f.radio_button :q6, 'true' %> <%= t("conemo.views.shared.true") %>
-        </label>
-        <label class="radio-inline">
-          <%= f.radio_button :q6, 'false' %> <%= t("conemo.views.shared.false") %>
-        </label>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q6_notes, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :q6_notes, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :q6_notes, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :q6_notes, class: "form-control" %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q7, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <label class="radio-inline">
+        <%= f.radio_button :q7, 'true' %> <%= t("conemo.views.shared.true") %>
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :q7, 'false' %> <%= t("conemo.views.shared.false") %>
+      </label>
     </div>
-    <div class="form-group">
-      <%= f.label :q7, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <label class="radio-inline">
-          <%= f.radio_button :q7, 'true' %> <%= t("conemo.views.shared.true") %>
-        </label>
-        <label class="radio-inline">
-          <%= f.radio_button :q7, 'false' %> <%= t("conemo.views.shared.false") %>
-        </label>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :q7_notes, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :q7_notes, class: "form-control" %>
     </div>
-    <div class="form-group">
-      <%= f.label :q7_notes, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :q7_notes, class: "form-control" %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <h3><%= t "conemo.views.second_contacts.nurse_question_header"%></h3>
+  </div>
+
+  <%= render 'nurse_participant_evaluations/second_contact_form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} %>
+
+  <div class="form-group">
+    <%= f.label :session_length, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.number_field :session_length, min: 1, class: "form-control", required: true %>
     </div>
-    <div class="form-group">
-      <h3><%= t "conemo.views.second_contacts.nurse_question_header"%></h3>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :notes, class: "form-control" %>
     </div>
-    <%= render 'nurse_participant_evaluations/second_contact_form', {nurse_participant_evaluation: @nurse_participant_evaluation, f: f} %>
-    <div class="form-group">
-      <%= f.label :session_length, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.number_field :session_length, min: 1, class: "form-control", required: true %>
-      </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-7">
+      <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+      <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
     </div>
-    <div class="form-group">
-      <%= f.label :notes, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.text_area :notes, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-offset-4 col-md-7">
-        <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
-      </div>
-    </div>
+  </div>
 <% end %>

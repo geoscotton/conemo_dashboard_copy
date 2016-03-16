@@ -5,7 +5,9 @@ RSpec.describe Participant do
   fixtures :all
 
   let(:participant) { participants(:participant1) }
-  let(:valid_attributes) do
+
+  # want these to be regenerated each call
+  def valid_attributes
     {
       first_name: "f",
       last_name: "l",

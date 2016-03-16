@@ -3,9 +3,14 @@ require "rails_helper"
 
 RSpec.describe "third_contacts/new", type: :view do
   let(:template) { subject }
-  let(:third_contact) { ThirdContact.new }
   let(:participant) do
-    instance_double(Participant, third_contact: third_contact)
+    Participant.new(id: rand)
+  end
+  let(:third_contact) do
+    third_contact = ThirdContact.new(participant: participant)
+    participant.third_contact = third_contact
+
+    third_contact
   end
 
   it "renders the heading" do

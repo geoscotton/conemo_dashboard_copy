@@ -70,7 +70,7 @@ RSpec.describe "tasks/index", type: :view do
 
     render template: template
 
-    expect(rendered).to match(/Follow up call week one .*1 minute ago/)
+    expect(rendered).to match(/Follow up call week 1 .*1 minute ago/)
   end
 
   context "for alert tasks" do
