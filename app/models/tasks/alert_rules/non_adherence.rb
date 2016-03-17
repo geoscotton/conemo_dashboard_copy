@@ -7,7 +7,13 @@ module Tasks
 
       class << self
         def create_tasks
-          Participant.active.each { |p| report(p) if triggered?(p) }
+          Participant.active.each do |participant|
+            if triggered?(participant)
+              report(participant)
+            else
+              delete_active(participant)
+            end
+          end
         end
 
         def triggered?(participant)
@@ -20,6 +26,13 @@ module Tasks
             nurse: participant.nurse,
             participant: participant
           )
+        end
+
+        def delete_active(participant)
+          Tasks::NonAdherenceCall
+            .active
+            .where(participant: participant)
+            .map(&:soft_delete)
         end
 
         def threshold_lessons_missed?(participant)

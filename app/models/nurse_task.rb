@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 # Superclass for scheduled and triggered Nurse Tasks.
 class NurseTask < ActiveRecord::Base
-  STATUSES = Struct.new(:active, :resolved, :cancelled)
-                   .new("active", "resolved", "cancelled")
+  STATUSES = Struct.new(:active, :resolved, :cancelled, :deleted)
+                   .new("active", "resolved", "cancelled", "deleted")
 
   belongs_to :nurse, foreign_key: :user_id
   belongs_to :participant
@@ -20,6 +20,10 @@ class NurseTask < ActiveRecord::Base
 
   def self.active
     where status: STATUSES.active
+  end
+
+  def self.deleted
+    where status: STATUSES.deleted
   end
 
   def self.overdue
@@ -60,6 +64,10 @@ class NurseTask < ActiveRecord::Base
 
   def resolve
     update status: STATUSES.resolved
+  end
+
+  def soft_delete
+    update status: STATUSES.deleted
   end
 
   def target
