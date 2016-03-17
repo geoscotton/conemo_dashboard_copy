@@ -60,170 +60,171 @@ RailsAdmin.config do |config|
       TokenAuth::AuthenticationToken,
       User
     ]
+  end
 
-    config.model Admin do
-      object_label_method do
-        :last_and_first_name
+  config.model Admin do
+    object_label_method do
+      :last_and_first_name
+    end
+
+    edit do
+      field :email
+      field :phone
+      field :first_name
+      field :last_name
+      field :locale, :enum do
+        enum { %w( en pt-BR es-PE ) }
       end
-
-      edit do
-        field :email
-        field :phone
-        field :first_name
-        field :last_name
-        field :locale, :enum do
-          enum { %w( en pt-BR es-PE ) }
-        end
-        field :timezone, :hidden do
-          default_value do
-            bindings[:view].current_user.timezone
-          end
-        end
-        field :role, :hidden do
-          default_value do
-            "admin"
-          end
+      field :timezone, :hidden do
+        default_value do
+          bindings[:view].current_user.timezone
         end
       end
-    end
-
-    config.model ContentAccessEvent do
-      navigation_label "Transmitted"
-    end
-
-    config.model Device do
-      navigation_label "Transmitted"
-
-      list do
-        field :model
-        field :device_version
-        field :participant
-        field :last_seen_at
-      end
-    end
-
-    config.model FinalAppointment do
-      navigation_label "Data"
-    end
-
-    config.model HelpMessage do
-      navigation_label "Transmitted"
-    end
-
-    config.model Lesson do
-      navigation_label "Configuration"
-    end
-
-    config.model Login do
-      navigation_label "Transmitted"
-
-      list do
-        field :participant
-        field :logged_in_at
-        field :app_version
-      end
-    end
-
-    config.model NurseParticipantEvaluation do
-      navigation_label "Data"
-    end
-
-    config.model NurseTask do
-      navigation_label "Data"
-
-      list do
-        field :nurse
-        field :participant
-        field :type
-        field :status
-        field :scheduled_at
-        field :overdue_at
-      end
-    end
-
-    config.model ParticipantStartDate do
-      navigation_label "Transmitted"
-    end
-
-    config.model PatientContact do
-      navigation_label "Data"
-    end
-
-    config.model PlannedActivity do
-      navigation_label "Transmitted"
-    end
-
-    config.model Response do
-      navigation_label "Transmitted"
-    end
-
-    config.model SessionEvent do
-      navigation_label "Transmitted"
-    end
-
-    config.model Smartphone do
-      navigation_label "Data"
-    end
-
-    config.model User do
-      navigation_label "Management"
-
-      object_label_method :email
-
-      list do
-        field :role
-        field :first_name
-        field :last_name
-        field :phone
-        field :locale
-      end
-    end
-
-    def email
-      return "#{self.email}"
-    end
-
-    config.model Participant do
-      navigation_label "Management"
-
-      object_label_method :study_id
-
-      list do
-        field :nurse
-        field :last_and_first_name
-        field :phone
-        field :study_identifier
-        field :tokens do
-          pretty_value do
-            participant_id = bindings[:object].id
-
-            status = if TokenAuth::ConfigurationToken.exists?(entity_id: participant_id)
-                       "[pending]"
-                     elsif TokenAuth::AuthenticationToken.exists?(entity_id: participant_id)
-                       "[configured]"
-                     else
-                       ""
-                     end
-
-            ("<a href=\"/entities/#{ participant_id }/tokens?locale=#{ bindings[:view].current_user.locale }\">Show</a> " + status).html_safe
-          end
+      field :role, :hidden do
+        default_value do
+          "admin"
         end
-        field :locale
       end
+    end
+  end
 
-      edit do
-        field :first_name
-        field :last_name
-        field :phone
-        field :study_identifier
-        field :locale
-        field :start_date
+  config.model ContentAccessEvent do
+    navigation_label "Transmitted"
+  end
+
+  config.model Device do
+    navigation_label "Transmitted"
+
+    list do
+      field :model
+      field :device_version
+      field :participant
+      field :last_seen_at
+    end
+  end
+
+  config.model FinalAppointment do
+    navigation_label "Data"
+  end
+
+  config.model HelpMessage do
+    navigation_label "Transmitted"
+  end
+
+  config.model Lesson do
+    navigation_label "Configuration"
+  end
+
+  config.model Login do
+    navigation_label "Transmitted"
+
+    list do
+      field :participant
+      field :logged_in_at
+      field :app_version
+    end
+  end
+
+  config.model NurseParticipantEvaluation do
+    navigation_label "Data"
+  end
+
+  config.model NurseTask do
+    navigation_label "Data"
+
+    list do
+      field :nurse
+      field :participant
+      field :type
+      field :status
+      field :scheduled_at
+      field :overdue_at
+    end
+  end
+
+  config.model Participant do
+    navigation_label "Management"
+
+    object_label_method :study_id
+
+    list do
+      field :nurse
+      field :last_and_first_name
+      field :phone
+      field :study_identifier
+      field :phone_identifier
+      field :tokens do
+        pretty_value do
+          participant_id = bindings[:object].id
+
+          status = if TokenAuth::ConfigurationToken.exists?(entity_id: participant_id)
+                     "[pending]"
+                   elsif TokenAuth::AuthenticationToken.exists?(entity_id: participant_id)
+                     "[configured]"
+                   else
+                     ""
+                   end
+
+          ("<a href=\"/entities/#{ participant_id }/tokens?locale=#{ bindings[:view].current_user.locale }\">Show</a> " + status).html_safe
+        end
       end
+      field :locale
+    end
+
+    edit do
+      field :first_name
+      field :last_name
+      field :phone
+      field :study_identifier
+      field :locale
+      field :start_date
     end
   end
 
   def study_id
     return "#{self.study_identifier}"
+  end
+
+  config.model ParticipantStartDate do
+    navigation_label "Transmitted"
+  end
+
+  config.model PatientContact do
+    navigation_label "Data"
+  end
+
+  config.model PlannedActivity do
+    navigation_label "Transmitted"
+  end
+
+  config.model Response do
+    navigation_label "Transmitted"
+  end
+
+  config.model SessionEvent do
+    navigation_label "Transmitted"
+  end
+
+  config.model Smartphone do
+    navigation_label "Data"
+  end
+
+  config.model User do
+    navigation_label "Management"
+
+    object_label_method :email
+
+    list do
+      field :role
+      field :first_name
+      field :last_name
+      field :phone
+      field :locale
+    end
+  end
+
+  def email
+    return "#{self.email}"
   end
 
   config.model FirstContact do

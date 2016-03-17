@@ -66,6 +66,8 @@ class Participant < ActiveRecord::Base
   scope :pending, -> { where(status: PENDING) }
   scope :active, -> { where(status: ACTIVE) }
 
+  delegate :phone_identifier, to: :smartphone, allow_nil: true
+
   def start_date
     participant_start_date.try(:date)
   end
