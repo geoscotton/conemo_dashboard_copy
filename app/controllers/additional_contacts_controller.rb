@@ -4,8 +4,7 @@ class AdditionalContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def new
-    @additional_contact = AdditionalContact.new(participant: find_participant,
-                                                nurse: find_participant.nurse)
+    @additional_contact = AdditionalContact.new(participant: find_participant)
     authorize! :create, @additional_contact
   end
 
@@ -33,7 +32,7 @@ class AdditionalContactsController < ApplicationController
     params
       .require(:additional_contact)
       .permit(:scheduled_at, :kind)
-      .merge(participant: find_participant, nurse: find_participant.nurse)
+      .merge(participant: find_participant)
   end
 
   def record_not_found
