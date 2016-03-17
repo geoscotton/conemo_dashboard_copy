@@ -39,6 +39,12 @@ module Tasks
               nurse: participant.nurse
             )
           end
+          let(:adherence_alert) do
+            Tasks::NonAdherenceCall.create!(
+              participant: participant,
+              nurse: participant.nurse
+            )
+          end
 
           def access_lessons(count)
             (0...count).each do |i|
@@ -56,6 +62,17 @@ module Tasks
               expect do
                 NonAdherence.create_tasks
               end.not_to change { Tasks::NonAdherenceCall.count }
+            end
+
+            context "and there was an existing adherence alert" do
+              it "deletes it" do
+                adherence_alert
+                access_lessons 2
+
+                expect do
+                  NonAdherence.create_tasks
+                end.to change { Tasks::NonAdherenceCall.deleted.count }.by(1)
+              end
             end
           end
 
