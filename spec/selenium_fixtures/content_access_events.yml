@@ -613,7 +613,7 @@
 <% end %>
 <% end %>
 
-<% (1..13).each do |lesson_id| %>
+<% (1..12).each do |lesson_id| %>
 <% (804..804).each do |pt_id| %>
   content_access_event_<%= lesson_id %>_<%= pt_id %>:
     participant: participant<%= pt_id %>
