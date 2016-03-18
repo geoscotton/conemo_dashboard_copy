@@ -14,7 +14,6 @@ RSpec.describe SecondContactObserver do
 
   it "resolves the Follow up Call Week One Task" do
     Tasks::FollowUpCallWeekOne.create!(
-      nurse: participant.nurse,
       participant: participant
     )
 
@@ -22,7 +21,7 @@ RSpec.describe SecondContactObserver do
       observer.after_create(second_contact)
     end.to change {
       Tasks::FollowUpCallWeekOne
-        .for_nurse_and_participant(participant.nurse, participant)
+        .for_participant(participant)
         .last
         .status
     }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)

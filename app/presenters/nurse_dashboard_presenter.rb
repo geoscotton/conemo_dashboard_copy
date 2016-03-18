@@ -5,7 +5,8 @@ class NurseDashboardPresenter
 
   def initialize(nurse)
     @participants = nurse.active_participants
-    @tasks_by_id = nurse.nurse_tasks.group_by(&:participant_id)
+    @tasks_by_id = NurseTask.where(participant_id: @participants.map(&:id))
+                            .group_by(&:participant_id)
   end
 
   def participant_summaries

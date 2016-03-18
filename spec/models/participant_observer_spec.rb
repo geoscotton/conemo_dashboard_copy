@@ -14,8 +14,7 @@ RSpec.describe ParticipantObserver do
       observer.after_save(participant)
       observer.after_save(participant)
     end.to change {
-      Tasks::ConfirmationCall.for_nurse_and_participant(participant.nurse,
-                                                        participant).count
+      Tasks::ConfirmationCall.for_participant(participant).count
     }.by(1)
   end
 end

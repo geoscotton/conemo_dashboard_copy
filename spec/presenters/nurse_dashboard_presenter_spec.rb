@@ -29,7 +29,7 @@ RSpec.describe NurseDashboardPresenter do
 
   describe "#participant_summaries" do
     it "orders by oldest to newest task, then current participants" do
-      allow(nurse).to receive(:nurse_tasks) { tasks }
+      allow(NurseTask).to receive(:where) { tasks }
       allow(nurse).to receive(:active_participants) { participants }
 
       participant_study_ids = NurseDashboardPresenter

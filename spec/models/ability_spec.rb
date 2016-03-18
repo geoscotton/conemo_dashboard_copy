@@ -120,7 +120,7 @@ RSpec.describe Ability do
     end
 
     it "can update NurseTasks for assigned Participants" do
-      en_nurse_tasks = NurseTask.where(nurse: en_nurse)
+      en_nurse_tasks = NurseTask.where(participant: en_nurse.participants)
       expect(en_nurse_tasks.count > 0).to eq true
 
       expect(en_nurse_role.can?(:update, en_nurse_tasks)).to eq true

@@ -4,9 +4,9 @@ module Tasks
   class LackOfConnectivityCall < NurseTask
     OVERDUE_AFTER_DAYS = 2
 
-    validates :user_id,
+    validates :participant_id,
               uniqueness: {
-                scope: [:participant_id, :type],
+                scope: :type,
                 conditions: -> { where(status: NurseTask::STATUSES.active) }
               }
 

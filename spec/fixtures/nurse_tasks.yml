@@ -1,5 +1,4 @@
 en_confirmation_call:
-  nurse: nurse1
   participant: active_participant
   type: Tasks::ConfirmationCall
   scheduled_at: <%= Time.zone.now %>

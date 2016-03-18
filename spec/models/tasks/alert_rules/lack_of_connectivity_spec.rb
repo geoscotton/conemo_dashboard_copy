@@ -48,7 +48,6 @@ module Tasks
           context "and there is an active task" do
             it "does not create a task" do
               Tasks::LackOfConnectivityCall.create!(
-                nurse: participant.nurse,
                 participant: participant
               )
 
@@ -61,7 +60,6 @@ module Tasks
           context "and there is a resolved task" do
             it "creates a task" do
               Tasks::LackOfConnectivityCall.create!(
-                nurse: participant.nurse,
                 participant: participant,
                 status: NurseTask::STATUSES.resolved
               )

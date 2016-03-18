@@ -9,18 +9,15 @@ module Tasks
     let(:participant) do
       Participant.where.not(nurse: nil).find_by(locale: locale)
     end
-    let(:nurse) { participant.nurse }
 
     describe "validation" do
       it "permits multiple resolved tasks" do
         HelpRequest.create!(
-          nurse: nurse,
           participant: participant,
           status: NurseTask::STATUSES.resolved
         )
 
         dup_task = HelpRequest.new(
-          nurse: nurse,
           participant: participant,
           status: NurseTask::STATUSES.resolved
         )
@@ -30,13 +27,11 @@ module Tasks
 
       it "doesn't permit more than one active task" do
         HelpRequest.create!(
-          nurse: nurse,
           participant: participant,
           status: NurseTask::STATUSES.active
         )
 
         dup_task = HelpRequest.new(
-          nurse: nurse,
           participant: participant,
           status: NurseTask::STATUSES.active
         )

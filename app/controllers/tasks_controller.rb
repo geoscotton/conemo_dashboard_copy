@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    tasks = NurseTask.for_nurse_and_participant(current_user, find_participant)
+    tasks = NurseTask.for_participant(find_participant)
     @tasks = ParticipantSummaryPresenter.new(find_participant, tasks)
     authorize! :update, tasks
   end
@@ -50,7 +50,6 @@ class TasksController < ApplicationController
 
   def notify_supervisor
     notification = SupervisorNotification.new(
-      nurse: current_user,
       nurse_supervisor: current_user.nurse_supervisor,
       nurse_task: find_task
     )
@@ -81,7 +80,7 @@ class TasksController < ApplicationController
   private
 
   def find_task
-    @task ||= NurseTask.for_nurse_and_participant(current_user, find_participant)
+    @task ||= NurseTask.for_participant(find_participant)
                        .find(params[:id])
   end
 

@@ -40,8 +40,8 @@ class ParticipantSummaryPresenter
     tasks.reject(&:alert?)
   end
 
-  def latest_notification(task)
-    SupervisorNotification.latest_for task
+  def latest_notification(task_id)
+    SupervisorNotification.latest_for task_id
   end
 
   def configuration_token

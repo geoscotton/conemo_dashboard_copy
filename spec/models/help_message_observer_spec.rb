@@ -21,7 +21,7 @@ RSpec.describe HelpMessageObserver do
           observer.after_create(help_message)
         end.to change {
           Tasks::HelpRequest
-            .for_nurse_and_participant(participant.nurse, participant).count
+            .for_participant(participant).count
         }.by(1)
       end
     end
@@ -31,7 +31,6 @@ RSpec.describe HelpMessageObserver do
         NurseTask.destroy_all
         Tasks::HelpRequest.create!(
           participant: participant,
-          nurse: participant.nurse,
           scheduled_at: Time.zone.now
         )
 
@@ -39,7 +38,7 @@ RSpec.describe HelpMessageObserver do
           observer.after_create(help_message)
         end.not_to change {
           Tasks::HelpRequest
-            .for_nurse_and_participant(participant.nurse, participant).count
+            .for_participant(participant).count
         }
       end
     end
@@ -49,7 +48,6 @@ RSpec.describe HelpMessageObserver do
         NurseTask.destroy_all
         Tasks::HelpRequest.create!(
           participant: participant,
-          nurse: participant.nurse,
           scheduled_at: Time.zone.now,
           status: NurseTask::STATUSES.resolved
         )
@@ -58,7 +56,7 @@ RSpec.describe HelpMessageObserver do
           observer.after_create(help_message)
         end.to change {
           Tasks::HelpRequest
-            .for_nurse_and_participant(participant.nurse, participant).count
+            .for_participant(participant).count
         }.by(1)
       end
     end

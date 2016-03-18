@@ -34,16 +34,10 @@ module Tasks
             end
           end
           let(:connectivity_alert) do
-            Tasks::LackOfConnectivityCall.create!(
-              participant: participant,
-              nurse: participant.nurse
-            )
+            Tasks::LackOfConnectivityCall.create!(participant: participant)
           end
           let(:adherence_alert) do
-            Tasks::NonAdherenceCall.create!(
-              participant: participant,
-              nurse: participant.nurse
-            )
+            Tasks::NonAdherenceCall.create!(participant: participant)
           end
 
           def access_lessons(count)

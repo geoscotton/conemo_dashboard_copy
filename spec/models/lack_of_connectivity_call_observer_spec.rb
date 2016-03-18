@@ -13,16 +13,13 @@ RSpec.describe LackOfConnectivityCallObserver do
   before { NurseTask.destroy_all }
 
   it "resolves the Lack of Connectivity Call Task" do
-    Tasks::LackOfConnectivityCall.create!(
-      nurse: participant.nurse,
-      participant: participant
-    )
+    Tasks::LackOfConnectivityCall.create!(participant: participant)
 
     expect do
       observer.after_create(lack_of_connectivity)
     end.to change {
       Tasks::LackOfConnectivityCall
-        .for_nurse_and_participant(participant.nurse, participant)
+        .for_participant(participant)
         .last
         .status
     }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)
