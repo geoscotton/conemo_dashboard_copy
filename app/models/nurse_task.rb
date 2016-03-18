@@ -4,18 +4,17 @@ class NurseTask < ActiveRecord::Base
   STATUSES = Struct.new(:active, :resolved, :cancelled, :deleted)
                    .new("active", "resolved", "cancelled", "deleted")
 
-  belongs_to :nurse, foreign_key: :user_id
   belongs_to :participant
 
-  validates :nurse, :participant, :status, :scheduled_at, :overdue_at,
+  validates :participant, :status, :scheduled_at, :overdue_at,
             presence: true
   validates :status, inclusion: { in: STATUSES.to_h.values }
 
   before_validation :set_scheduled_at
   before_validation :set_overdue_at
 
-  def self.for_nurse_and_participant(nurse, participant)
-    where nurse: nurse, participant: participant
+  def self.for_participant(participant)
+    where participant: participant
   end
 
   def self.active
@@ -85,9 +84,9 @@ class NurseTask < ActiveRecord::Base
   end
 
   def set_overdue_at
-    return if scheduled_at.blank? || nurse.blank?
+    return if scheduled_at.blank? || participant.blank?
 
-    local_scheduled_at = scheduled_at.in_time_zone(nurse.timezone)
+    local_scheduled_at = scheduled_at.in_time_zone(participant.nurse.timezone)
     overdue_days_offset = if local_scheduled_at < local_scheduled_at.at_noon
                             self.class::OVERDUE_AFTER_DAYS + 1
                           else

@@ -21,7 +21,7 @@ RSpec.describe FirstAppointmentObserver do
       observer.after_save(first_appointment)
     end.to change {
       Tasks::FollowUpCallWeekOne
-        .for_nurse_and_participant(participant.nurse, participant).count
+        .for_participant(participant).count
     }.by(1)
   end
 
@@ -32,7 +32,7 @@ RSpec.describe FirstAppointmentObserver do
       observer.after_save(first_appointment)
     end.to change {
       Tasks::FollowUpCallWeekThree
-        .for_nurse_and_participant(participant.nurse, participant).count
+        .for_participant(participant).count
     }.by(1)
   end
 
@@ -43,21 +43,18 @@ RSpec.describe FirstAppointmentObserver do
       observer.after_save(first_appointment)
     end.to change {
       Tasks::CallToScheduleFinalAppointment
-        .for_nurse_and_participant(participant.nurse, participant).count
+        .for_participant(participant).count
     }.by(1)
   end
 
   it "resolves the First in Person Appointment Task" do
-    Tasks::InitialInPersonAppointment.create!(
-      nurse: participant.nurse,
-      participant: participant
-    )
+    Tasks::InitialInPersonAppointment.create!(participant: participant)
 
     expect do
       observer.after_create(first_appointment)
     end.to change {
       Tasks::InitialInPersonAppointment
-        .for_nurse_and_participant(participant.nurse, participant)
+        .for_participant(participant)
         .last
         .status
     }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)

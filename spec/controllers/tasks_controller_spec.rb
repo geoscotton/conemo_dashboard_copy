@@ -24,8 +24,8 @@ RSpec.describe TasksController, type: :controller do
   end
 
   def stub_tasks
-    allow(NurseTask).to receive(:for_nurse_and_participant)
-      .with(nurse, participant)
+    allow(NurseTask).to receive(:for_participant)
+      .with(participant)
       .and_return(tasks)
   end
 
@@ -275,8 +275,7 @@ RSpec.describe TasksController, type: :controller do
 
         expect(SupervisorNotification)
           .to have_received(:new)
-          .with(nurse: nurse,
-                nurse_supervisor: nurse.nurse_supervisor,
+          .with(nurse_supervisor: nurse.nurse_supervisor,
                 nurse_task: task)
       end
 

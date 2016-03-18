@@ -13,16 +13,13 @@ RSpec.describe HelpRequestCallObserver do
   before { NurseTask.destroy_all }
 
   it "resolves the Help Request Task" do
-    Tasks::HelpRequest.create!(
-      nurse: participant.nurse,
-      participant: participant
-    )
+    Tasks::HelpRequest.create!(participant: participant)
 
     expect do
       observer.after_create(help_request)
     end.to change {
       Tasks::HelpRequest
-        .for_nurse_and_participant(participant.nurse, participant)
+        .for_participant(participant)
         .last
         .status
     }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)

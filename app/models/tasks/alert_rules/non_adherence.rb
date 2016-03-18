@@ -23,7 +23,6 @@ module Tasks
 
         def report(participant)
           Tasks::NonAdherenceCall.create(
-            nurse: participant.nurse,
             participant: participant
           )
         end

@@ -12,7 +12,6 @@ RSpec.describe ThirdContactObserver do
 
   it "resolves the Follow up Call Week Three Task" do
     Tasks::FollowUpCallWeekThree.create!(
-      nurse: participant.nurse,
       participant: participant
     )
 
@@ -20,7 +19,7 @@ RSpec.describe ThirdContactObserver do
       observer.after_create(third_contact)
     end.to change {
       Tasks::FollowUpCallWeekThree
-        .for_nurse_and_participant(participant.nurse, participant)
+        .for_participant(participant)
         .last
         .status
     }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)

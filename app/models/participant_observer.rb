@@ -2,9 +2,8 @@
 # Hook into Participant lifecycle events.
 class ParticipantObserver < ActiveRecord::Observer
   def after_save(participant)
-    Tasks::ConfirmationCall.create(
-      nurse: participant.nurse,
-      participant: participant
-    )
+    return unless participant.nurse
+
+    Tasks::ConfirmationCall.create(participant: participant)
   end
 end

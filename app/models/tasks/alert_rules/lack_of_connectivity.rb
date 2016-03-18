@@ -17,7 +17,6 @@ module Tasks
 
         def report(participant)
           Tasks::LackOfConnectivityCall.create(
-            nurse: participant.nurse,
             participant: participant
           )
         end

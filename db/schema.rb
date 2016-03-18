@@ -11,21 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160314205153) do
+ActiveRecord::Schema.define(version: 20160318014633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "additional_contacts", force: :cascade do |t|
     t.integer  "participant_id", null: false
-    t.integer  "nurse_id",       null: false
     t.datetime "scheduled_at",   null: false
     t.string   "kind",           null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
-  add_index "additional_contacts", ["nurse_id"], name: "index_additional_contacts_on_nurse_id", using: :btree
   add_index "additional_contacts", ["participant_id"], name: "index_additional_contacts_on_participant_id", using: :btree
 
   create_table "bit_core_content_modules", force: :cascade do |t|
@@ -253,7 +251,6 @@ ActiveRecord::Schema.define(version: 20160314205153) do
   add_index "nurse_participant_evaluations", ["third_contact_id"], name: "index_nurse_participant_evaluations_on_third_contact_id", using: :btree
 
   create_table "nurse_tasks", force: :cascade do |t|
-    t.integer  "user_id",                           null: false
     t.integer  "participant_id",                    null: false
     t.string   "type",                              null: false
     t.string   "status",         default: "active", null: false
@@ -264,7 +261,6 @@ ActiveRecord::Schema.define(version: 20160314205153) do
   end
 
   add_index "nurse_tasks", ["participant_id"], name: "index_nurse_tasks_on_participant_id", using: :btree
-  add_index "nurse_tasks", ["user_id"], name: "index_nurse_tasks_on_user_id", using: :btree
 
   create_table "participant_start_dates", force: :cascade do |t|
     t.date     "date",              null: false
@@ -408,7 +404,6 @@ ActiveRecord::Schema.define(version: 20160314205153) do
   add_index "smartphones", ["participant_id"], name: "index_smartphones_on_participant_id", using: :btree
 
   create_table "supervisor_notifications", force: :cascade do |t|
-    t.integer  "nurse_id",                               null: false
     t.integer  "nurse_supervisor_id",                    null: false
     t.integer  "nurse_task_id",                          null: false
     t.string   "status",              default: "active", null: false
@@ -416,7 +411,6 @@ ActiveRecord::Schema.define(version: 20160314205153) do
     t.datetime "updated_at",                             null: false
   end
 
-  add_index "supervisor_notifications", ["nurse_id"], name: "index_supervisor_notifications_on_nurse_id", using: :btree
   add_index "supervisor_notifications", ["nurse_supervisor_id"], name: "index_supervisor_notifications_on_nurse_supervisor_id", using: :btree
   add_index "supervisor_notifications", ["nurse_task_id"], name: "index_supervisor_notifications_on_nurse_task_id", using: :btree
 
@@ -500,7 +494,6 @@ ActiveRecord::Schema.define(version: 20160314205153) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "additional_contacts", "participants"
-  add_foreign_key "additional_contacts", "users", column: "nurse_id"
   add_foreign_key "bit_core_content_modules", "bit_core_tools", name: "fk_content_modules_tools"
   add_foreign_key "bit_core_content_providers", "bit_core_content_modules", name: "fk_content_providers_modules"
   add_foreign_key "bit_core_slides", "bit_core_slideshows", name: "fk_slideshows_slides"
@@ -517,7 +510,6 @@ ActiveRecord::Schema.define(version: 20160314205153) do
   add_foreign_key "non_adherence_calls", "participants"
   add_foreign_key "nurse_participant_evaluations", "second_contacts", name: "fk_evaluations_second_contacts"
   add_foreign_key "nurse_tasks", "participants"
-  add_foreign_key "nurse_tasks", "users"
   add_foreign_key "participant_start_dates", "participants"
   add_foreign_key "participants", "users", column: "nurse_id", name: "fk_participants_nurses"
   add_foreign_key "second_contacts", "participants", name: "fk_second_contacts_participants"
@@ -525,6 +517,5 @@ ActiveRecord::Schema.define(version: 20160314205153) do
   add_foreign_key "session_events", "participants"
   add_foreign_key "smartphones", "participants", name: "fk_smartphones_participants"
   add_foreign_key "supervisor_notifications", "nurse_tasks"
-  add_foreign_key "supervisor_notifications", "users", column: "nurse_id"
   add_foreign_key "supervisor_notifications", "users", column: "nurse_supervisor_id"
 end

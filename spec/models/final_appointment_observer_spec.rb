@@ -14,7 +14,6 @@ RSpec.describe FinalAppointmentObserver do
 
   it "resolves the Final in Person Appointment Task" do
     Tasks::FinalInPersonAppointment.create!(
-      nurse: participant.nurse,
       participant: participant
     )
 
@@ -22,7 +21,7 @@ RSpec.describe FinalAppointmentObserver do
       observer.after_create(final_appointment)
     end.to change {
       Tasks::FinalInPersonAppointment
-        .for_nurse_and_participant(participant.nurse, participant)
+        .for_participant(participant)
         .last
         .status
     }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)

@@ -21,13 +21,12 @@ RSpec.describe FirstContactObserver do
       observer.after_save(first_contact)
     end.to change {
       Tasks::InitialInPersonAppointment
-        .for_nurse_and_participant(participant.nurse, participant).count
+        .for_participant(participant).count
     }.by(1)
   end
 
   it "resolves the Confirmation Call Task" do
     Tasks::ConfirmationCall.create!(
-      nurse: participant.nurse,
       participant: participant
     )
 
@@ -35,7 +34,7 @@ RSpec.describe FirstContactObserver do
       observer.after_create(first_contact)
     end.to change {
       Tasks::ConfirmationCall
-        .for_nurse_and_participant(participant.nurse, participant)
+        .for_participant(participant)
         .last
         .status
     }.from(NurseTask::STATUSES.active).to(NurseTask::STATUSES.resolved)

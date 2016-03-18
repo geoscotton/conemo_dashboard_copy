@@ -10,7 +10,7 @@ RSpec.describe NurseTask, type: :model do
 
   describe "initialization" do
     describe "setting the overdue timestamp" do
-      let(:nurse) { Nurse.all.sample }
+      let(:participant) { Participant.active.where.not(nurse: nil).all.sample }
 
       it "is set correctly based on the OVERDUE_AFTER_DAYS" do
         [
@@ -20,11 +20,12 @@ RSpec.describe NurseTask, type: :model do
           [[2015, 10, 9, 23], [2015, 10, 20, 0]]
         ].each do |dates|
           scheduled_at = overdue_at = nil
-          Time.use_zone(nurse.timezone) do
+          Time.use_zone(participant.nurse.timezone) do
             scheduled_at = Time.zone.local(*dates[0])
             overdue_at = Time.zone.local(*dates[1])
           end
-          task = MockTask.new(nurse: nurse, scheduled_at: scheduled_at)
+          task = MockTask.new(participant: participant,
+                              scheduled_at: scheduled_at)
                          .tap(&:valid?)
 
           expect(task.overdue_at).to eq overdue_at
