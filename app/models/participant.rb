@@ -59,8 +59,6 @@ class Participant < ActiveRecord::Base
   validate :enrollment_date_is_sane
 
   before_validation :sanitize_number
-  after_save :create_synchronizable_resources
-  after_create :create_configuration_token
 
   scope :ineligible, -> { where(status: INELIGIBLE) }
   scope :pending, -> { where(status: PENDING) }
@@ -101,38 +99,5 @@ class Participant < ActiveRecord::Base
         I18n.t("conemo.models.participant.enrollment_date_is_sane_error")
       )
     end
-  end
-
-  def create_synchronizable_resources
-    pushable_resources = %w(
-      ContentAccessEvent
-      Device
-      ExceptionReport
-      HelpMessage
-      Login
-      ParticipantStartDate
-      PlannedActivity
-      SessionEvent
-    )
-
-    pushable_resources.each do |resource_name|
-      next if TokenAuth::SynchronizableResource.exists?(
-        entity_id: id,
-        class_name: resource_name
-      )
-
-      TokenAuth::SynchronizableResource.create!(
-        entity_id: id,
-        entity_id_attribute_name: "participant_id",
-        name: resource_name.underscore.pluralize,
-        class_name: resource_name,
-        is_pullable: false,
-        is_pushable: true
-      )
-    end
-  end
-
-  def create_configuration_token
-    TokenAuth::ConfigurationToken.create entity_id: id
   end
 end

@@ -6,10 +6,11 @@ class ContentAccessEvent < ActiveRecord::Base
   has_one :response, dependent: :destroy
 
   delegate :answer, to: :response, allow_nil: true
+  delegate :guid, to: :lesson, prefix: true
 
   accepts_nested_attributes_for :response
 
-  attr_accessor :lesson_guid
+  attr_writer :lesson_guid
 
   validates :lesson, :participant, :day_in_treatment_accessed, :accessed_at,
             :uuid, presence: true
@@ -34,6 +35,6 @@ class ContentAccessEvent < ActiveRecord::Base
   end
 
   def set_lesson
-    self.lesson ||= Lesson.find_by(guid: lesson_guid)
+    self.lesson ||= Lesson.find_by(guid: @lesson_guid)
   end
 end

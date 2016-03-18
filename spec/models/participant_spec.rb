@@ -30,33 +30,6 @@ RSpec.describe Participant do
     end
   end
 
-  describe "synchronizable resource creation" do
-    %w(
-      ContentAccessEvent
-      Device
-      ExceptionReport
-      HelpMessage
-      Login
-      ParticipantStartDate
-      PlannedActivity
-      SessionEvent
-    ).each do |resource|
-      it "creates a #{resource} resource" do
-        expect { participant.save! }.to change {
-          TokenAuth::SynchronizableResource.where(class_name: resource).count
-        }.by(1)
-      end
-    end
-  end
-
-  describe "configuration token creation" do
-    it "occurs on participant creation" do
-      expect { Participant.create!(valid_attributes) }.to change {
-        TokenAuth::ConfigurationToken.count
-      }.by(1)
-    end
-  end
-
   describe "Overall Study Status" do
     let(:participant_day_5) { participants(:active_participant_day_5) }
     let(:two_lessons_ago) { lessons(:day2) }
