@@ -2,7 +2,6 @@
 
 <% (301..310).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
@@ -12,7 +11,6 @@
 
 <% (311..319).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
@@ -22,7 +20,6 @@
 
 <% (320..328).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
@@ -32,7 +29,6 @@
 
 <% (329..336).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
@@ -42,7 +38,6 @@
 
 <% (337..343).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
@@ -52,7 +47,6 @@
 
 <% (700..705).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
@@ -62,7 +56,6 @@
 
 <% (706..706).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
@@ -72,7 +65,6 @@
 
 <% (707..709).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
@@ -82,7 +74,6 @@
 
 <% (800..801).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
@@ -92,7 +83,6 @@
 
 <% (311..319).each do |pt_id| %>
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: active
@@ -102,7 +92,6 @@
 
 <% (320..328).each do |pt_id| %>
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
@@ -112,7 +101,6 @@
 
 <% (329..336).each do |pt_id| %>
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
@@ -122,7 +110,6 @@
 
 <% (337..343).each do |pt_id| %>
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
@@ -132,7 +119,6 @@
 
 <% (700..705).each do |pt_id| %>
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
@@ -142,7 +128,6 @@
 
 <% (708..709).each do |pt_id| %>
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
@@ -152,7 +137,6 @@
 
 <% (707..707).each do |pt_id| %>
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: active
@@ -162,7 +146,6 @@
 
 <% (800..801).each do |pt_id| %>
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
@@ -172,7 +155,6 @@
 
 <% (320..328).each do |pt_id| %>
   nurse_task_3<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: active
@@ -182,7 +164,6 @@
 
 <% (329..336).each do |pt_id| %>
   nurse_task_3<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
@@ -192,7 +173,6 @@
 
 <% (337..343).each do |pt_id| %>
   nurse_task_3<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
@@ -202,7 +182,6 @@
 
 <% (700..705).each do |pt_id| %>
   nurse_task_3<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
@@ -212,7 +191,6 @@
 
 <% (709..709).each do |pt_id| %>
   nurse_task_3<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
@@ -222,7 +200,6 @@
 
 <% (708..708).each do |pt_id| %>
   nurse_task_3<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: active
@@ -232,7 +209,6 @@
 
 <% (800..801).each do |pt_id| %>
   nurse_task_3<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
@@ -242,7 +218,6 @@
 
 <% (320..328).each do |pt_id| %>
   nurse_task_4<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: active
@@ -252,7 +227,6 @@
 
 <% (329..336).each do |pt_id| %>
   nurse_task_4<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: active
@@ -262,7 +236,6 @@
 
 <% (337..343).each do |pt_id| %>
   nurse_task_4<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: resolved
@@ -272,7 +245,6 @@
 
 <% (700..705).each do |pt_id| %>
   nurse_task_4<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: resolved
@@ -282,7 +254,6 @@
 
 <% (709..709).each do |pt_id| %>
   nurse_task_4<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: active
@@ -292,7 +263,6 @@
 
 <% (800..801).each do |pt_id| %>
   nurse_task_4<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: resolved
@@ -302,7 +272,6 @@
 
 <% (320..328).each do |pt_id| %>
   nurse_task_5<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
@@ -312,7 +281,6 @@
 
 <% (329..336).each do |pt_id| %>
   nurse_task_5<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
@@ -322,7 +290,6 @@
 
 <% (337..343).each do |pt_id| %>
   nurse_task_5<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: resolved
@@ -332,7 +299,6 @@
 
 <% (700..705).each do |pt_id| %>
   nurse_task_5<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
@@ -342,7 +308,6 @@
 
 <% (800..800).each do |pt_id| %>
   nurse_task_6<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
@@ -352,7 +317,6 @@
 
 <% (801..801).each do |pt_id| %>
   nurse_task_6<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: resolved
@@ -362,7 +326,6 @@
 
 <% (337..341).each do |pt_id| %>
   nurse_task_6<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FinalInPersonAppointment
     status: active
@@ -372,7 +335,6 @@
 
 <% (344..345).each do |pt_id| %>
   nurse_task_6<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FinalInPersonAppointment
     status: active
@@ -382,7 +344,6 @@
 
 <% (342..343).each do |pt_id| %>
   nurse_task_6<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FinalInPersonAppointment
     status: resolved
@@ -392,7 +353,6 @@
 
 <% (801..801).each do |pt_id| %>
   nurse_task_6<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::FinalInPersonAppointment
     status: active
@@ -402,7 +362,6 @@
 
 <% (400..405).each do |pt_id| %>
   nurse_task_7<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::HelpRequest
     status: active
@@ -412,7 +371,6 @@
 
 <% (410..415).each do |pt_id| %>
   nurse_task_8<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::LackOfConnectivityCall
     status: active
@@ -422,7 +380,6 @@
 
 <% (427..427).each do |pt_id| %>
   nurse_task_8<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::LackOfConnectivityCall
     status: active
@@ -432,7 +389,6 @@
 
 <% (802..802).each do |pt_id| %>
   nurse_task_7<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::HelpRequest
     status: active
@@ -442,7 +398,6 @@
 
 <% (803..803).each do |pt_id| %>
   nurse_task_8<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::LackOfConnectivityCall
     status: active
@@ -452,7 +407,6 @@
 
 <% (804..804).each do |pt_id| %>
   nurse_task_9<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::NonAdherenceCall
     status: active
@@ -462,7 +416,6 @@
 
 <% (1000..1000).each do |pt_id| %>
   nurse_task_8<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::LackOfConnectivityCall
     status: active
@@ -472,7 +425,6 @@
 
 <% (1000..1000).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
@@ -482,7 +434,6 @@
 
 <% (1000..1000).each do |pt_id| %>
   nurse_task_7<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_400) %>
     participant: participant<%= pt_id %>
     type: Tasks::HelpRequest
     status: active
@@ -492,7 +443,6 @@
 
 <% (501..501).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
@@ -500,7 +450,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: active
@@ -508,7 +457,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_3<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: active
@@ -516,7 +464,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_4<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: active
@@ -524,7 +471,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_5<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
@@ -532,7 +478,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_6<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
     participant: participant<%= pt_id %>
     type: Tasks::FinalInPersonAppointment
     status: active
@@ -540,7 +485,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_7<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
     participant: participant<%= pt_id %>
     type: Tasks::HelpRequest
     status: active
@@ -548,7 +492,6 @@
     overdue_at: <%= DateTime.now + 2.days %>
 
   nurse_task_8<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
     participant: participant<%= pt_id %>
     type: Tasks::LackOfConnectivityCall
     status: active
@@ -558,7 +501,6 @@
 
 <% (601..601).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
@@ -566,7 +508,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_2<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: active
@@ -574,7 +515,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_3<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: active
@@ -582,7 +522,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_4<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: active
@@ -590,7 +529,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_5<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
@@ -598,7 +536,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_6<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
     participant: participant<%= pt_id %>
     type: Tasks::FinalInPersonAppointment
     status: active
@@ -606,7 +543,6 @@
     overdue_at: <%= DateTime.now + 3.days %>
 
   nurse_task_7<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
     participant: participant<%= pt_id %>
     type: Tasks::HelpRequest
     status: active
@@ -614,7 +550,6 @@
     overdue_at: <%= DateTime.now + 2.days %>
 
   nurse_task_8<%= pt_id %>:
-    user_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
     participant: participant<%= pt_id %>
     type: Tasks::LackOfConnectivityCall
     status: active
