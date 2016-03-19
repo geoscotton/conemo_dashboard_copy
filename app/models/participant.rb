@@ -17,7 +17,7 @@ class Participant < ActiveRecord::Base
   has_many :help_messages, dependent: :destroy
   has_many :lessons, through: :content_access_events
   has_many :logins, dependent: :destroy
-  has_one :participant_start_date, dependent: :destroy
+  has_many :participant_start_dates, dependent: :destroy
   has_many :patient_contacts, dependent: :destroy
   has_many :planned_activities, dependent: :destroy
   has_many :session_events, dependent: :destroy
@@ -67,7 +67,7 @@ class Participant < ActiveRecord::Base
   delegate :phone_identifier, to: :smartphone, allow_nil: true
 
   def start_date
-    participant_start_date.try(:date)
+    participant_start_dates.order(:created_at).first.try(:date)
   end
 
   def last_and_first_name
