@@ -6,7 +6,10 @@ module Tasks
     RSpec.describe LackOfConnectivity do
       fixtures :all
 
-      let(:participant) { Participant.where.not(nurse: nil).first }
+      let(:participant) { Participant.active.where.not(nurse: nil).first }
+      let(:inactive_participant) do
+        Participant.where.not(status: Participant::ACTIVE).first
+      end
 
       describe ".create_tasks" do
         context "when there are no devices" do
@@ -19,7 +22,9 @@ module Tasks
 
         context "when a device has been recently connected" do
           it "does not create a task" do
-            device = double("Device", last_seen_at: Time.zone.now - 1.day)
+            device = instance_double(Device,
+                                     last_seen_at: Time.zone.now - 1.day,
+                                     participant: participant)
 
             expect do
               LackOfConnectivity.create_tasks([device])
@@ -32,9 +37,17 @@ module Tasks
             long_ago = Time.zone.now -
                        (LackOfConnectivity::ALERTABLE_AFTER_DAYS + 1).days
 
-            double("Device",
-                   last_seen_at: long_ago,
-                   participant: participant)
+            instance_double(Device,
+                            last_seen_at: long_ago,
+                            participant: participant)
+          end
+          let(:stale_inactive_device) do
+            long_ago = Time.zone.now -
+                       (LackOfConnectivity::ALERTABLE_AFTER_DAYS + 1).days
+
+            instance_double(Device,
+                            last_seen_at: long_ago,
+                            participant: inactive_participant)
           end
 
           context "and there are no tasks" do
@@ -42,6 +55,14 @@ module Tasks
               expect do
                 LackOfConnectivity.create_tasks([stale_device])
               end.to change { Tasks::LackOfConnectivityCall.count }.by(1)
+            end
+
+            context "and the participant is no longer active" do
+              it "does not create a task" do
+                expect do
+                  LackOfConnectivity.create_tasks([stale_inactive_device])
+                end.not_to change { Tasks::LackOfConnectivityCall.count }
+              end
             end
           end
 

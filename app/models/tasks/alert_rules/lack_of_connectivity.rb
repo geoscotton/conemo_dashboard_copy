@@ -12,13 +12,13 @@ module Tasks
         end
 
         def triggered?(device)
+          return false unless device.participant.status == Participant::ACTIVE
+
           Time.zone.now - device.last_seen_at > ALERTABLE_AFTER_DAYS.days
         end
 
         def report(participant)
-          Tasks::LackOfConnectivityCall.create(
-            participant: participant
-          )
+          Tasks::LackOfConnectivityCall.create(participant: participant)
         end
       end
     end
