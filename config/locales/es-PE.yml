@@ -452,6 +452,11 @@ es-PE:
         kinds:
           - En persona
           - Llamada telefónica
+      final_appointment:
+        locations:
+          - Casa del paciente
+          - Centro de salud
+          - Otro lugar
       first_contact:
         locations:
           - Casa del paciente

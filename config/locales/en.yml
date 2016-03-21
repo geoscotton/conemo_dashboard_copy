@@ -208,6 +208,11 @@ en:
         kinds:
           - in person
           - phone call
+      final_appointment:
+        locations:
+          - "Patient's home"
+          - Health unit
+          - Other location
       first_contact:
         locations:
           - "Patient's home"

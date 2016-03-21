@@ -420,6 +420,11 @@ pt-BR:
         kinds:
           - presencial
           - por telefone
+      final_appointment:
+        locations:
+          - Casa do paciente
+          - Unidade de saúde
+          - Outro lugar
       first_contact:
         locations:
           - Casa do paciente
