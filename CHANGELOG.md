@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.8.0 - 2016-03-21
+
+* finalize final appointment form
+* finalize week 3 follow-up form
+* finalize week one follow-up form
+* serialize all Planned Activity attributes
+* allow duplicate device with different Participants
+* allow multiple start dates
+* enable pullable resources filtered by date bound
+* dissociate nurses from all but participants table
+* remove nurse association from Additional Contact
+* delete active non adherence tasks when invalidated
+* add smartphone identifier to rails admin
+
 ## 0.7.2 - 2016-03-16
 
 * when accessing completed Participant, show notice
