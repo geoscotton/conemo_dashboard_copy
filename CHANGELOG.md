@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.1 - 2016-03-21
+
+* make default_next_contact_at more pessimistic
+* ensure Participant has Nurse for Connectivity Task
+* update English translations for week 3 FU
+
 ## 0.8.0 - 2016-03-21
 
 * finalize final appointment form
