@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321145358) do
+ActiveRecord::Schema.define(version: 20160321170246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -406,6 +406,7 @@ ActiveRecord::Schema.define(version: 20160321145358) do
     t.text     "q4_notes"
     t.boolean  "q5"
     t.text     "q5_notes"
+    t.string   "difficulties"
   end
 
   add_index "third_contacts", ["participant_id"], name: "index_third_contacts_on_participant_id", using: :btree

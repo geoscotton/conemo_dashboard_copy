@@ -14,15 +14,6 @@ RSpec.describe ThirdContactsController, type: :controller do
       contact_at: Time.zone.now,
       session_length: "b",
       call_to_schedule_final_appointment_at: Time.zone.now,
-      q1: "e",
-      q2: false,
-      q2_notes: "g",
-      q3: true,
-      q3_notes: "i",
-      q4: false,
-      q4_notes: "k",
-      q5: true,
-      q5_notes: "m",
       notes: "n"
     }
   end

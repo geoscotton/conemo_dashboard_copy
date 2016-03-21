@@ -186,12 +186,6 @@ en:
       smartphone:
         number: Phone number of study phone
         phone_identifier: Phone ID
-      third_contact:
-        final_appointment_at: Final in person appointment date and time
-        final_appointment_location: "Final appointemnt location"
-        contacted_at: "Date of phone call"
-        session_length: "Length of phone call (minutes)"
-        notes: "Notes"
       patient_contact:
         contact_at: time of note
         contact_reason: reason
@@ -283,6 +277,14 @@ en:
           - Difficulty watching video(s)
           - Difficulties with activity selection
           - Other difficulties
+      third_contact:
+        difficulties:
+          - Difficulty with cell phone (battery, PIN code, turning it on, volume, etc.)
+          - Difficulty accessing CONEMO app
+          - Difficulty reading sessions
+          - Difficulty watching video(s)
+          - Difficulties with activity selection
+          - Other difficulties
     models:
       additional_contact: Additional contact
       admin: Admin
@@ -353,8 +355,13 @@ en:
         emergency_contact_phone: Telephone
         emergency_contact_cell_phone: Cell phone
       second_contact:
-        contact_at: Date of phone call
+        contact_at: Date/time of phone call
         difficulties: Did the patient have any difficulties using CONEMO?
         session_length: Length of phone call (minutes)
         next_contact: Follow up call week 3
+        notes: Notes
+      third_contact:
+        final_appointment_at: Call to schedule final in person appointment
+        contacted_at: Date/time of phone call
+        session_length: Length of phone call (minutes)
         notes: Notes

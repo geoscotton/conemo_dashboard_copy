@@ -20,7 +20,7 @@ es-PE:
         cancel_button: "Cancelar"
         confirm: Confirmar
         nurse: "Enfermera"
-        "true": "Si"
+        "true": "Sí"
         "false": "No"
         pending: "Pendiente"
         ineligible: "Ineligible"
@@ -248,21 +248,6 @@ es-PE:
       smartphone:
         number: Número del celular inteligente (Smartphone)
         phone_identifier: Código del celular inteligente (Smartphone)
-      third_contact:
-        final_appointment_at: "Cita final para"
-        final_appointment_location: "Lugar de cita final"
-        contact_at: "Fecha de la llamada"
-        q1: "¿Cómo le va con CONEMO? (Siempre pide especificaciones, preguntando por ejemplo 'cómo', 'por qué', 'cómo así')"
-        q2: "¿Ha tenido algunas dificultades usando el teléfono / Smartphone?"
-        q2_notes: "En el afirmativo especifique"
-        q3: "¿Ha tenido algunas dificultades usando la aplicación?"
-        q3_notes: "En caso afirmativo, especifique"
-        q4: "¿Hasta ahora, siente que CONEMO le ha ayudado a mejorar su salud física?"
-        q4_notes: "En el caso de no: ¿Por qué cree que no le ha ayudado a mejorar su salud física? / En el caso afirmativo ¿Cuánto siente que CONEMO le ha ayudado a mejorar su salud física?"
-        q5: "¿Hasta ahora, siente que CONEMO le ha ayudado a mejorar su salud emocional?"
-        q5_notes: "¿Por qué cree que no le ha ayudado a mejorar su salud emocional? / ¿Cuánto siente que CONEMO le ha ayudado a mejorar su salud emocional?"
-        session_length: "Duración de la llamada (min)"
-        notes: "Observaciones (cuadrado de texto)"
       patient_contact:
         contact_at: "Fecha / hora de nota"
         contact_reason: "Razones"
@@ -536,6 +521,14 @@ es-PE:
           - Dificultades para ver los videos
           - Dificultades para seleccionar actividades
           - Otras dificultades
+      third_contact:
+        difficulties:
+          - Dificultades con el celular inteligente (batería, contraseña, encenderlo, volumen)
+          - Dificultades para entrar a CONEMO
+          - Dificultades para leer las sesiones
+          - Dificultades para ver los videos
+          - Dificultades para seleccionar actividades
+          - Otras dificultades
     models:
       additional_contact: Additional contact
       admin: Admin
@@ -608,7 +601,13 @@ es-PE:
         contact_at: Fecha/hora de la llamada
         difficulties: ¿El paciente ha tenido algunas dificultades usando CONEMO?
         session_length: Duración de la llamada (min)
-        next_contact: Fecha/hora para la llamada de seguimiento sem. 3
+        next_contact: Llamada de seguimiento sem. 3
+        notes: Observaciones (cuadrado de texto)
+      third_contact:
+        final_appointment_at: Llamada para programar cita final
+        difficulties: ¿El paciente ha tenido algunas dificultades usando CONEMO?
+        contact_at: Fecha/hora de la llamada
+        session_length: Duración de la llamada (min)
         notes: Observaciones (cuadrado de texto)
       user:
         current_password: Contraseña actual
