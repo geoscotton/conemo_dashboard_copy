@@ -17,13 +17,22 @@ RSpec.describe NurseDashboardPresenter do
     [
       instance_double(NurseTask,
                       participant_id: 1,
-                      scheduled_at: Time.zone.local(2018, 1, 1)),
+                      scheduled_at: Time.zone.local(2018, 1, 1),
+                      active?: true,
+                      due?: true,
+                      overdue?: false),
       instance_double(NurseTask,
                       participant_id: 2,
-                      scheduled_at: Time.zone.local(2016, 1, 1)),
+                      scheduled_at: Time.zone.local(2016, 1, 1),
+                      active?: true,
+                      due?: true,
+                      overdue?: false),
       instance_double(NurseTask,
                       participant_id: 4,
-                      scheduled_at: Time.zone.local(2017, 1, 1))
+                      scheduled_at: Time.zone.local(2017, 1, 1),
+                      active?: true,
+                      due?: true,
+                      overdue?: false)
     ]
   end
 

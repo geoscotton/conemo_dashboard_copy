@@ -14,16 +14,46 @@ class NurseDashboardPresenter
       ParticipantSummaryPresenter.new(p, @tasks_by_id[p.id])
     end
 
-    summaries.sort do |a, b|
-      latest_participant_task_date(a) <=> latest_participant_task_date(b)
-    end
+    [
+      overdue_summaries(summaries).sort do |a, b|
+        most_overdue_participant_task(a) <=> most_overdue_participant_task(b)
+      end,
+      current_summaries(summaries).sort do |a, b|
+        oldest_participant_task(a) <=> oldest_participant_task(b)
+      end,
+      complete_summaries(summaries)
+    ].flatten
   end
 
   private
 
-  def latest_participant_task_date(row)
+  def overdue_summaries(summaries)
+    summaries.select do |s|
+      s.css_class == ParticipantSummaryPresenter::CSS_CLASSES.overdue_tasks
+    end
+  end
+
+  def current_summaries(summaries)
+    summaries.select do |s|
+      s.css_class == ParticipantSummaryPresenter::CSS_CLASSES.current_tasks
+    end
+  end
+
+  def complete_summaries(summaries)
+    summaries.select do |s|
+      s.css_class == ParticipantSummaryPresenter::CSS_CLASSES.no_tasks
+    end
+  end
+
+  def oldest_participant_task(row)
     fake_late_date = 9999999999999
 
-    row.tasks.first.try(:scheduled_at).try(:to_i) || fake_late_date
+    row.active_tasks.last.try(:scheduled_at).try(:to_i) || fake_late_date
+  end
+
+  def most_overdue_participant_task(row)
+    fake_late_date = 9999999999999
+
+    row.active_tasks.last.try(:overdue_at).try(:to_i) || fake_late_date
   end
 end
