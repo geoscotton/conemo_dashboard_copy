@@ -196,23 +196,6 @@ pt-BR:
       smartphone:
         number: Número do Smartphone
         phone_identifier: Código do Smartphone
-      third_contact:
-        contact_at: "Data da ligação"
-        final_appointment_at: "Encontro Final em"
-        final_appointment_location: "Local do Encontro Final"
-        contacted_at: "Data da ligação"
-        session_length: "Duração da ligação (min)"
-        session_length: "Duração da chamada (minutos)"
-        q1: "Como você está indo com o CONEMO? (sempre tente especificar, perguntando “porque?”, “como é isso?”)"
-        q2: "Você está tendo dificuldades em usar o smarphone?"
-        q2_notes: "Se sim, especifique"
-        q3: "Você está tendo dificuldades em usar o aplicativo CONEMO?"
-        q3_notes: "Se sim, especifique:"
-        q4: "Voce acha que o CONEMO tem ajudado a melhorar sua saúde física?"
-        q4_notes: "Se não, você teria uma explicação ou motivo que justificasse isso? / Se sim, o quanto isso tem lhe ajudado?"
-        q5: "Voce acha que o CONEMO tem ajudado a melhorar sua saúde emocional?"
-        q5_notes: "Se não, você teria uma explicação ou motivo que justificasse isso? / Se sim, o quanto isso tem lhe ajudado?"
-        notes: "Anotações"
       patient_contact:
         contact_at: "Data do contato"
         contact_reason: "Motivo"
@@ -505,6 +488,14 @@ pt-BR:
           - Dificuldade para ver vídeo(s)
           - Dificuldade na seleção de atividades
           - Outras dificuldades
+      third_contact:
+        difficulties:
+          - Dificuldade com o smartphone (bateria, PIN, ligar, volume, etc.)
+          - Dificuldade para entrar no CONEMO app
+          - Dificuldade para ler sessões
+          - Dificuldade para ver vídeo(s)
+          - Dificuldade na seleção de atividades
+          - Outras dificuldades
     models:
       additional_contact: Additional contact
       admin: Admin
@@ -574,11 +565,18 @@ pt-BR:
         emergency_contact_phone: Telefone fixo
         emergency_contact_cell_phone: Celular
       second_contact:
-        contact_at: Data da ligação
+        contact_at: Data/hora
         difficulties: O paciente tem tido dificuldades com CONEMO?
         next_contact: Chamada de seguimento sem. 3
         session_length: Duração da chamada (minutos)
         notes: Observações
+      third_contact:
+        contact_at: Data da ligação
+        difficulties: O paciente tem tido dificuldades com CONEMO?
+        final_appointment_at: Chamada para agendar encontro final
+        contacted_at: Data da ligação
+        session_length: Duração da chamada (minutos)
+        notes: Anotações
   unauthorized:
     manage:
       all: Você não está autorizado à acessar essa página.
