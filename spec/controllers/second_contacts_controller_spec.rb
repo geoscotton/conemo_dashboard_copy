@@ -48,14 +48,6 @@ RSpec.describe SecondContactsController, type: :controller do
         expect(assigns(:second_contact)).to be_instance_of SecondContact
         expect(assigns(:second_contact).participant).to eq participant
       end
-
-      it "sets the nurse_participant_evaluation" do
-        admin_request :get, :new, locale, participant_id: participant.id,
-                                          locale: locale
-
-        expect(assigns(:nurse_participant_evaluation))
-          .to be_instance_of NurseParticipantEvaluation
-      end
     end
   end
 
@@ -132,16 +124,6 @@ RSpec.describe SecondContactsController, type: :controller do
                       participant_id: participant.id, locale: locale
 
         expect(assigns(:second_contact)).to eq participant.second_contact
-      end
-
-      it "sets the nurse_participant_evaluation" do
-        admin_request :get, :edit, locale,
-                      participant_id: participant.id, locale: locale
-
-        expect(assigns(:nurse_participant_evaluation))
-          .to be_instance_of NurseParticipantEvaluation
-        expect(assigns(:nurse_participant_evaluation).second_contact)
-          .to eq participant.second_contact
       end
     end
   end

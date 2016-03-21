@@ -45,7 +45,6 @@ RailsAdmin.config do |config|
       Lesson,
       Login,
       Nurse,
-      NurseParticipantEvaluation,
       NurseSupervisor,
       NurseTask,
       Participant,
@@ -123,10 +122,6 @@ RailsAdmin.config do |config|
       field :logged_in_at
       field :app_version
     end
-  end
-
-  config.model NurseParticipantEvaluation do
-    navigation_label "Data"
   end
 
   config.model NurseTask do
