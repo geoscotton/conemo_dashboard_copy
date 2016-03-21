@@ -12,7 +12,10 @@ module Tasks
         end
 
         def triggered?(device)
-          return false unless device.participant.status == Participant::ACTIVE
+          unless device.participant.status == Participant::ACTIVE &&
+                 device.participant.nurse.present?
+            return false
+          end
 
           Time.zone.now - device.last_seen_at > ALERTABLE_AFTER_DAYS.days
         end
