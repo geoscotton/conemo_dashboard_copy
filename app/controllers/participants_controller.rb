@@ -63,7 +63,7 @@ class ParticipantsController < ApplicationController
       :date_of_birth, :gender, :emergency_contact_name,
       :emergency_contact_relationship, :emergency_contact_other_relationship,
       :emergency_contact_address, :emergency_contact_phone,
-      :emergency_contact_cell_phone, :status
+      :emergency_contact_cell_phone, :status, :nurse_id
     )
   end
 
