@@ -414,6 +414,15 @@
     overdue_at: <%= DateTime.now - 1.days %>
 <% end %>
 
+<% (423..424).each do |pt_id| %>
+  nurse_task_9<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::NonAdherenceCall
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 2.days %>
+<% end %>
+
 <% (1000..1000).each do |pt_id| %>
   nurse_task_8<%= pt_id %>:
     participant: participant<%= pt_id %>
