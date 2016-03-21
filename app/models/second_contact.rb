@@ -7,10 +7,8 @@ class SecondContact < ActiveRecord::Base
   THIRD_CONTACT_RELATIVE_DELAY = 2.weeks
 
   belongs_to :participant
-  has_one :nurse_participant_evaluation, dependent: :destroy
   has_many :patient_contacts
 
-  accepts_nested_attributes_for :nurse_participant_evaluation
   accepts_nested_attributes_for :patient_contacts
 
   validates :participant,

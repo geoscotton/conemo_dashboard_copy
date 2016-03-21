@@ -248,24 +248,6 @@ es-PE:
       smartphone:
         number: Número del celular inteligente (Smartphone)
         phone_identifier: Código del celular inteligente (Smartphone)
-      second_contact:
-        contact_at: "Fecha/hora de la llamada"
-        session_length: "Duración de la llamada (min)"
-        next_contact: "Fecha/hora para la llamada de seguimiento sem. 3"
-        q1: "¿Cómo le va con CONEMO? (Siempre pide especificaciones, preguntando por ejemplo 'cómo', 'por qué', 'cómo así')"
-        q2: "¿Ha tenido algunas dificultades usando el teléfono / Smartphone?"
-        q2_notes: "En caso afirmativo, especifique"
-        q3: "¿Ha tenido algunas dificultades usando la aplicación?"
-        q3_notes: "En caso afirmativo, especifique"
-        q4: "La primera sesión de CONEMO contenía un video. ¿Ha podido verlo?"
-        q4_notes: "En el caso de no: ¿Cuál fue la dificultad?"
-        q5: "¿Se escuchó bien el audio del video?"
-        q5_notes: "En el caso de no: ¿Cuál fue la dificultad?"
-        q6: "Durante la primera sesión, la aplicación le pidió además que elija una razón de por qué quiere tener una vida más saludable. ¿Pudo elegir alguna?"
-        q6_notes: "En el caso de no: ¿Cuál fue la dificultad?"
-        q7: "Durante la segunda sesión se le pidió que piense sobre actividades que solía hacer, pero que ya no realiza con la misma frecuencia que antes y se le pidió elegir algunas de una lista. ¿Pudo elegir una o varias de estas actividades?"
-        q7_notes: "En el caso de no: ¿Cuál fue la dificultad?"
-        notes: "Observaciones (cuadrado de texto)"
       third_contact:
         final_appointment_at: "Cita final para"
         final_appointment_location: "Lugar de cita final"
@@ -546,6 +528,14 @@ es-PE:
           - Otro miembro de la familia
           - Amigo
           - Otro (especificar)
+      second_contact:
+        difficulties:
+          - Dificultades con el celular inteligente (batería, contraseña, encenderlo, volumen)
+          - Dificultades para entrar a CONEMO
+          - Dificultades para leer las sesiones
+          - Dificultades para ver los videos
+          - Dificultades para seleccionar actividades
+          - Otras dificultades
     models:
       additional_contact: Additional contact
       admin: Admin
@@ -614,6 +604,12 @@ es-PE:
         emergency_contact_address: Dirección actual
         emergency_contact_phone: Teléfono fijo
         emergency_contact_cell_phone: Celular
+      second_contact:
+        contact_at: Fecha/hora de la llamada
+        difficulties: ¿El paciente ha tenido algunas dificultades usando CONEMO?
+        session_length: Duración de la llamada (min)
+        next_contact: Fecha/hora para la llamada de seguimiento sem. 3
+        notes: Observaciones (cuadrado de texto)
       user:
         current_password: Contraseña actual
         email: Correo electrónico

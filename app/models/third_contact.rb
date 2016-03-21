@@ -8,10 +8,8 @@ class ThirdContact < ActiveRecord::Base
 
   belongs_to :participant
   has_many :patient_contacts
-  has_one :nurse_participant_evaluation, dependent: :destroy
 
   accepts_nested_attributes_for :patient_contacts
-  accepts_nested_attributes_for :nurse_participant_evaluation
 
   validates :participant,
             :contact_at,

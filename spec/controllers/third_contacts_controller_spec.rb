@@ -33,12 +33,6 @@ RSpec.describe ThirdContactsController, type: :controller do
           contact_reason: "o",
           note: "p"
         }
-      },
-      nurse_participant_evaluation_attributes: {
-        "0": {
-          q1: "r",
-          q2: "s"
-        }
       }
     )
   end
@@ -85,14 +79,6 @@ RSpec.describe ThirdContactsController, type: :controller do
 
         expect(assigns(:third_contact)).to be_instance_of ThirdContact
         expect(assigns(:third_contact).participant).to eq participant
-      end
-
-      it "sets the nurse_participant_evaluation" do
-        admin_request :get, :new, locale, participant_id: participant.id,
-                                          locale: locale
-
-        expect(assigns(:nurse_participant_evaluation))
-          .to be_instance_of NurseParticipantEvaluation
       end
     end
   end
@@ -177,18 +163,6 @@ RSpec.describe ThirdContactsController, type: :controller do
 
         expect(assigns(:third_contact)).to be_instance_of ThirdContact
         expect(assigns(:third_contact).participant).to eq participant
-      end
-
-      it "sets nurse_participant_evaluation" do
-        participant.create_third_contact(valid_third_contact_params)
-
-        admin_request :get, :edit, locale, participant_id: participant.id,
-                                           locale: locale
-
-        expect(assigns(:nurse_participant_evaluation))
-          .to be_instance_of NurseParticipantEvaluation
-        expect(assigns(:nurse_participant_evaluation).third_contact)
-          .to eq participant.third_contact
       end
     end
   end

@@ -8,15 +8,12 @@ class ThirdContactsController < ApplicationController
       :contact_at, :session_length, :call_to_schedule_final_appointment_at,
       :q1, :q2, :q2_notes, :q3, :q3_notes, :q4,
       :q4_notes, :q5, :q5_notes, :notes,
-      patient_contacts_attributes: [:contact_reason, :note],
-      nurse_participant_evaluation_attributes: [:q1, :q2]
+      patient_contacts_attributes: [:contact_reason, :note]
     )
   end
 
   def new
     @third_contact = find_participant.build_third_contact
-    @nurse_participant_evaluation =
-      @third_contact.build_nurse_participant_evaluation
   end
 
   def create
@@ -31,9 +28,6 @@ class ThirdContactsController < ApplicationController
 
   def edit
     @third_contact = find_participant.third_contact
-    @nurse_participant_evaluation = NurseParticipantEvaluation.where(
-      third_contact_id: @third_contact.id
-    ).first_or_initialize
   end
 
   def update

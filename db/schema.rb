@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319021013) do
+ActiveRecord::Schema.define(version: 20160321145358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -237,19 +237,6 @@ ActiveRecord::Schema.define(version: 20160319021013) do
 
   add_index "non_adherence_calls", ["participant_id"], name: "index_non_adherence_calls_on_participant_id", using: :btree
 
-  create_table "nurse_participant_evaluations", force: :cascade do |t|
-    t.integer  "second_contact_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "third_contact_id"
-    t.string   "q1"
-    t.string   "q2"
-    t.string   "q3"
-  end
-
-  add_index "nurse_participant_evaluations", ["second_contact_id"], name: "index_nurse_participant_evaluations_on_second_contact_id", using: :btree
-  add_index "nurse_participant_evaluations", ["third_contact_id"], name: "index_nurse_participant_evaluations_on_third_contact_id", using: :btree
-
   create_table "nurse_tasks", force: :cascade do |t|
     t.integer  "participant_id",                    null: false
     t.string   "type",                              null: false
@@ -360,20 +347,8 @@ ActiveRecord::Schema.define(version: 20160319021013) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "q1"
-    t.boolean  "q2"
-    t.text     "q2_notes"
-    t.boolean  "q3"
-    t.text     "q3_notes"
-    t.boolean  "q4"
-    t.text     "q4_notes"
-    t.boolean  "q5"
-    t.text     "q5_notes"
-    t.boolean  "q6"
-    t.text     "q6_notes"
-    t.boolean  "q7"
-    t.text     "q7_notes"
     t.datetime "next_contact"
+    t.string   "difficulties"
   end
 
   add_index "second_contacts", ["participant_id"], name: "index_second_contacts_on_participant_id", using: :btree
@@ -508,7 +483,6 @@ ActiveRecord::Schema.define(version: 20160319021013) do
   add_foreign_key "lessons", "bit_core_slideshows", name: "fk_lessons_slideshows"
   add_foreign_key "logins", "participants"
   add_foreign_key "non_adherence_calls", "participants"
-  add_foreign_key "nurse_participant_evaluations", "second_contacts", name: "fk_evaluations_second_contacts"
   add_foreign_key "nurse_tasks", "participants"
   add_foreign_key "participant_start_dates", "participants"
   add_foreign_key "participants", "users", column: "nurse_id", name: "fk_participants_nurses"
