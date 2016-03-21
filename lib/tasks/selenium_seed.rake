@@ -21,7 +21,7 @@ namespace :selenium_seed do
     ActiveRecord::FixtureSet.create_fixtures path, [
       :users, :participants, :"bit_core/slideshows", :"bit_core/slides", :lessons,
       :patient_contacts, :first_contacts, :first_appointments, :second_contacts,
-      :third_contacts, :final_appointments, :nurse_participant_evaluations,
+      :third_contacts, :final_appointments,
       :content_access_events, :session_events, :responses, :help_messages, :logins,
       :nurse_tasks, :supervisor_notifications, :"token_auth/configuration_tokens",
       :call_to_schedule_final_appointments, :help_request_calls,
