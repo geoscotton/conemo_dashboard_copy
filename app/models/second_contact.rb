@@ -27,7 +27,7 @@ class SecondContact < ActiveRecord::Base
   end
 
   def default_next_contact_at
-    first_appointment_at = participant.first_appointment.try(:appointment_at)
+    first_appointment_at = participant.try(:first_appointment).try(:appointment_at)
 
     if first_appointment_at
       first_appointment_at + THIRD_CONTACT_ABSOLUTE_DELAY
