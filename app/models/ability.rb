@@ -45,7 +45,9 @@ class Ability
   end
 
   def authorize_nurse(nurse)
-    can :read, Participant, nurse_id: nurse.id, status: Participant::ACTIVE
+    can [:read, :update],
+        Participant,
+        nurse_id: nurse.id, status: Participant::ACTIVE
     can :create,
         AdditionalContact,
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }

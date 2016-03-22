@@ -68,7 +68,12 @@ class ParticipantsController < ApplicationController
   end
 
   def after_update_path
-    redirect_to pending_participants_path,
-                notice: "Successfully updated participant"
+    if current_user.nurse?
+      redirect_to active_participant_url(@participant),
+                  notice: "Successfully updated participant"
+    else
+      redirect_to pending_participants_path,
+                  notice: "Successfully updated participant"
+    end
   end
 end
