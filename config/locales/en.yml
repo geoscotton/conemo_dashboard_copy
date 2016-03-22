@@ -291,30 +291,63 @@ en:
           - Difficulties with activity selection
           - Other difficulties
     models:
-      additional_contact: Additional contact
-      admin: Admin
-      call_to_schedule_final_appointment: Call to schedule final in person appointment
+      additional_contact:
+        one: Additional contact
+        other: Additional contacts
+      admin:
+        one: Admin
+        other: Admins
+      call_to_schedule_final_appointment:
+        one: Call to schedule final in person appointment
+        other: Calls to schedule final in person appointment
       "tasks/call_to_schedule_final_appointment": Call to schedule final in person appointment
-      final_appointment: Final in person appointment
+      final_appointment:
+        one: Final in person appointment
+        other: Final in person appointments
       "tasks/final_in_person_appointment": Final in person appointment
-      first_appointment: Initial in person appointment
+      first_appointment:
+        one: Initial in person appointment
+        other: Initial in person appointments
       "tasks/initial_in_person_appointment": Initial in person appointment
-      first_contact: Confirmation call
+      first_contact:
+        one: Confirmation call
+        other: Confirmation calls
       "tasks/confirmation_call": Confirmation call
-      help_request_call: Help request
+      help_request_call:
+        one: Help request
+        other: Help requests
       "tasks/help_request": Help request
-      call_to_schedule_final_appointment: Call to schedule final in person appointment
-      lack_of_connectivity_call: Call due to no connectivity
+      call_to_schedule_final_appointment:
+        one: Call to schedule final in person appointment
+        other: Calls to schedule final in person appointment
+      lack_of_connectivity_call:
+        one: Call due to no connectivity
+        other: Calls due to no connectivity
       "tasks/lack_of_connectivity_call": Call due to no connectivity
-      non_adherence_call: Non-adherence call
+      non_adherence_call:
+        one: Non-adherence call
+        other: Non-adherence calls
       "tasks/non_adherence_call": Non-adherence call
-      nurse: Nurse
-      nurse_supervisor: Nurse supervisor
-      participant: Participant
-      second_contact: Follow up call week 1
+      nurse:
+        one: Nurse
+        other: Nurses
+      nurse_supervisor:
+        one: Nurse supervisor
+        other: Nurse supervisors
+      participant:
+        one: Participant
+        other: Participants
+      second_contact:
+        one: Follow up call week 1
+        other: Follow up calls week 1
       "tasks/follow_up_call_week_one": Follow up call week 1
-      third_contact: Follow up call week 3
+      third_contact:
+        one: Follow up call week 3
+        other: Follow up calls week 3
       "tasks/follow_up_call_week_three": Follow up call week 3
+      user:
+        one: User
+        other: Users
     attributes:
       additional_contact:
         scheduled_at: Date and time of contact
