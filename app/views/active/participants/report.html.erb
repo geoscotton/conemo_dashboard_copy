@@ -39,7 +39,7 @@
         <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t "conemo.views.active.participants.report.logins" %></th>
       </thead>
       <tbody class="accordion-body collapse" id="logins-table">
-        <% @participant.logins.each do |login| %>
+        <% @participant.logins.order(logged_in_at: :desc).each do |login| %>
           <tr>
             <td><%= l login.logged_in_at, format: :long %></td>
           </tr>
