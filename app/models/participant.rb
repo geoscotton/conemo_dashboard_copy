@@ -28,6 +28,11 @@ class Participant < ActiveRecord::Base
   COMPLETED ||= "completed"
   STATUS ||= [PENDING, ACTIVE, INELIGIBLE, COMPLETED].freeze
   GENDER ||= %w( male female ).freeze
+  TIMEZONES ||= {
+    "en" => "Central Time (US & Canada)",
+    "es-PE" => "Lima",
+    "pt-BR" => "Brasilia"
+  }.freeze
 
   validates :first_name,
             :last_name,
@@ -75,9 +80,15 @@ class Participant < ActiveRecord::Base
   end
 
   def study_day
+    result = nil
+
     if start_date
-      (Time.zone.today - start_date).to_i + 1
+      Time.use_zone(TIMEZONES[locale]) do
+        result = (Time.zone.today - start_date).to_i + 1
+      end
     end
+
+    result
   end
 
   def complete

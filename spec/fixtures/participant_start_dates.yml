@@ -10,7 +10,7 @@ active_participant:
 
 active_participant_day_5:
   participant: active_participant_day_5
-  date: <%= Time.zone.today - 4.days %>
+  date: <%= Time.use_zone(Participant::TIMEZONES["en"]) { Time.zone.today - 4.days } %>
   uuid: <%= SecureRandom.uuid %>
 
 portuguese_active_participant:
