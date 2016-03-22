@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.3 - 2016-03-22
+
+* allow Nurses to edit Participant data
+* sort logins in reverse chronological order
+
 ## 0.8.2 - 2016-03-22
 
 * enable togglable Logins table
