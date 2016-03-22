@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.2 - 2016-03-22
+
+* enable togglable Logins table
+* calculate study day based on timezone
+* order participants by tasks/dates
+* assign pending participants correctly
+
 ## 0.8.1 - 2016-03-21
 
 * make default_next_contact_at more pessimistic
