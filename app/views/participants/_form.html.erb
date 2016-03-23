@@ -190,7 +190,11 @@
   <div class="form-group">
     <div class="col-md-offset-3 col-md-7">
       <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-      <%= link_to t("conemo.views.shared.cancel_button"), pending_participants_path, class: "btn btn-default" %>
+      <% if current_user.nurse? && !@participant.new_record? %>
+        <%= link_to t("conemo.views.shared.cancel_button"), active_participant_path(@participant), class: "btn btn-default" %>
+      <% else %>
+        <%= link_to t("conemo.views.shared.cancel_button"), pending_participants_path, class: "btn btn-default" %>
+      <% end %>
     </div>
   </div>
 <% end %>

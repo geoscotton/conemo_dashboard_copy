@@ -8,6 +8,8 @@ RSpec.describe "participants/new", type: :view do
   it "renders the heading" do
     I18n.locale = "en"
     assign(:participant, participant)
+    allow(view).to receive(:current_user)
+      .and_return(instance_double(User, nurse?: false))
 
     render template: template
 
