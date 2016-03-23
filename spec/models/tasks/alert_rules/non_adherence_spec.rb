@@ -77,6 +77,17 @@ module Tasks
                   NonAdherence.create_tasks
                 end.to change { Tasks::NonAdherenceCall.count }.by(1)
               end
+
+              context "and the Participant does not have an associated Nurse" do
+                it "does not create a task" do
+                  participant.nurse.destroy
+                  participant.reload
+
+                  expect do
+                    NonAdherence.create_tasks
+                  end.not_to change { Tasks::NonAdherenceCall.count }
+                end
+              end
             end
 
             context "and a connectivity alert is active" do

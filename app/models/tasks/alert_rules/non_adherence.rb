@@ -17,7 +17,8 @@ module Tasks
         end
 
         def triggered?(participant)
-          threshold_lessons_missed?(participant) &&
+          participant.nurse.present? &&
+            threshold_lessons_missed?(participant) &&
             !connectivity_alert_exists?(participant)
         end
 
