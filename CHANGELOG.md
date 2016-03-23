@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.8.4 - 2016-03-23
+
+* sort patients correctly by task status
+* prevent non adherence task creation without nurse
+* prevent help request task creation with no nurse
+* show locales only to unauthenticated users
+* add scheduled task cancellation form
+* add all token page translations
+* tidy up for rails admin
+
 ## 0.8.3 - 2016-03-22
 
 * allow Nurses to edit Participant data
