@@ -341,6 +341,9 @@ en:
       nurse_supervisor:
         one: Nurse supervisor
         other: Nurse supervisors
+      nurse_task:
+        one: Task
+        other: Tasks
       participant:
         one: Participant
         other: Participants

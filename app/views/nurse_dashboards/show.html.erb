@@ -2,7 +2,14 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
-    <table class="table table-bordered table-condensed table-hover">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= t("activerecord.attributes.participant.study_identifier") %></th>
+          <th><%= NurseTask.model_name.human(count: 2) %></th>
+          <th><%= TokenAuth::ConfigurationToken.model_name.human %></th>
+        </tr>
+      </thead>
       <tbody>
         <% @nurse_dashboard.participant_summaries.each do |participant_summary| %>
           <tr class="<%= participant_summary.css_class %>">

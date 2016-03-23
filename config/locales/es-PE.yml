@@ -560,6 +560,9 @@ es-PE:
       "tasks/non_adherence_call": Llamada por no-adherencia
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
+      nurse_task:
+        one: Task
+        other: Tasks
       participant: Participante
       scheduled_task_cancellation:
         one: Cancel contact point
