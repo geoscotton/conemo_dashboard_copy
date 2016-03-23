@@ -83,7 +83,7 @@ class TasksController < ApplicationController
     if Participant.where(status: Participant::COMPLETED)
                   .exists?(id: params[:participant_id])
       redirect_to nurse_dashboard_url(current_user),
-                  alert: "Participant successfully completed"
+                  notice: "Participant successfully completed"
     else
       redirect_to nurse_dashboard_url(current_user),
                   alert: "Participant not found"
