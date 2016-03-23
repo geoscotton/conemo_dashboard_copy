@@ -13,6 +13,21 @@ RSpec.describe HelpMessageObserver do
   end
 
   context "when a Help Message is created" do
+    context "and the Participant is not associated with a Nurse" do
+      it "does not create a Help Request Task" do
+        NurseTask.destroy_all
+        participant.nurse.destroy
+        participant.reload
+
+        expect do
+          observer.after_create(help_message)
+        end.not_to change {
+          Tasks::HelpRequest
+            .for_participant(participant).count
+        }
+      end
+    end
+
     context "and there are no Help Request Tasks" do
       it "creates a Help Request Task" do
         NurseTask.destroy_all
