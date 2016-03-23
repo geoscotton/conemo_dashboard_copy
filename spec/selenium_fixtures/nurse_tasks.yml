@@ -1,12 +1,10 @@
-<% today_at_11_am = DateTime.now.noon - 1.hours %>
-
 <% (301..301).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
-    scheduled_at: <%= today_at_11_am - 1.hours %>
-    overdue_at: <%= today_at_11_am + 3.days - 1.hours %>
+    scheduled_at: <%= DateTime.now - 1.hours %>
+    overdue_at: <%= DateTime.now + 3.days - 1.hours %>
 <% end %>
 
 <% (302..310).each do |pt_id| %>
@@ -14,8 +12,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (311..319).each do |pt_id| %>
@@ -23,8 +21,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
-    scheduled_at: <%= today_at_11_am - 3.days %>
-    overdue_at: <%= today_at_11_am %>
+    scheduled_at: <%= DateTime.now - 3.days %>
+    overdue_at: <%= DateTime.now %>
 <% end %>
 
 <% (320..328).each do |pt_id| %>
@@ -32,8 +30,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
-    scheduled_at: <%= today_at_11_am - 10.days %>
-    overdue_at: <%= today_at_11_am - 7.days %>
+    scheduled_at: <%= DateTime.now - 10.days %>
+    overdue_at: <%= DateTime.now - 7.days %>
 <% end %>
 
 <% (329..336).each do |pt_id| %>
@@ -41,8 +39,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
-    scheduled_at: <%= today_at_11_am - 24.days %>
-    overdue_at: <%= today_at_11_am + 21.days %>
+    scheduled_at: <%= DateTime.now - 24.days %>
+    overdue_at: <%= DateTime.now + 21.days %>
 <% end %>
 
 <% (337..343).each do |pt_id| %>
@@ -50,8 +48,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
-    scheduled_at: <%= today_at_11_am - 45.days %>
-    overdue_at: <%= today_at_11_am - 42.days %>
+    scheduled_at: <%= DateTime.now - 45.days %>
+    overdue_at: <%= DateTime.now - 42.days %>
 <% end %>
 
 <% (700..705).each do |pt_id| %>
@@ -59,8 +57,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
-    scheduled_at: <%= today_at_11_am - 45.days %>
-    overdue_at: <%= today_at_11_am - 42.days %>
+    scheduled_at: <%= DateTime.now - 45.days %>
+    overdue_at: <%= DateTime.now - 42.days %>
 <% end %>
 
 <% (706..706).each do |pt_id| %>
@@ -68,8 +66,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
-    scheduled_at: <%= today_at_11_am - 47.days %>
-    overdue_at: <%= today_at_11_am - 42.days %>
+    scheduled_at: <%= DateTime.now - 47.days %>
+    overdue_at: <%= DateTime.now - 42.days %>
 <% end %>
 
 <% (707..709).each do |pt_id| %>
@@ -77,8 +75,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
-    scheduled_at: <%= today_at_11_am - 45.days %>
-    overdue_at: <%= today_at_11_am - 42.days %>
+    scheduled_at: <%= DateTime.now - 45.days %>
+    overdue_at: <%= DateTime.now - 42.days %>
 <% end %>
 
 <% (800..801).each do |pt_id| %>
@@ -86,8 +84,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: resolved
-    scheduled_at: <%= today_at_11_am - 49.days %>
-    overdue_at: <%= today_at_11_am - 46.days %>
+    scheduled_at: <%= DateTime.now - 49.days %>
+    overdue_at: <%= DateTime.now - 46.days %>
 <% end %>
 
 <% (311..318).each do |pt_id| %>
@@ -95,8 +93,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: active
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (319..319).each do |pt_id| %>
@@ -113,8 +111,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
-    scheduled_at: <%= today_at_11_am - 7.days %>
-    overdue_at: <%= today_at_11_am - 4.days %>
+    scheduled_at: <%= DateTime.now - 7.days %>
+    overdue_at: <%= DateTime.now - 4.days %>
 <% end %>
 
 <% (329..336).each do |pt_id| %>
@@ -122,8 +120,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
-    scheduled_at: <%= today_at_11_am - 21.days %>
-    overdue_at: <%= today_at_11_am - 18.days %>
+    scheduled_at: <%= DateTime.now - 21.days %>
+    overdue_at: <%= DateTime.now - 18.days %>
 <% end %>
 
 <% (337..343).each do |pt_id| %>
@@ -131,8 +129,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
-    scheduled_at: <%= today_at_11_am - 42.days %>
-    overdue_at: <%= today_at_11_am - 39.days %>
+    scheduled_at: <%= DateTime.now - 42.days %>
+    overdue_at: <%= DateTime.now - 39.days %>
 <% end %>
 
 <% (700..705).each do |pt_id| %>
@@ -140,8 +138,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
-    scheduled_at: <%= today_at_11_am - 42.days %>
-    overdue_at: <%= today_at_11_am - 39.days %>
+    scheduled_at: <%= DateTime.now - 42.days %>
+    overdue_at: <%= DateTime.now - 39.days %>
 <% end %>
 
 <% (708..709).each do |pt_id| %>
@@ -149,8 +147,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
-    scheduled_at: <%= today_at_11_am - 42.days %>
-    overdue_at: <%= today_at_11_am - 39.days %>
+    scheduled_at: <%= DateTime.now - 42.days %>
+    overdue_at: <%= DateTime.now - 39.days %>
 <% end %>
 
 <% (707..707).each do |pt_id| %>
@@ -158,8 +156,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: active
-    scheduled_at: <%= today_at_11_am - 42.days %>
-    overdue_at: <%= today_at_11_am - 39.days %>
+    scheduled_at: <%= DateTime.now - 42.days %>
+    overdue_at: <%= DateTime.now - 39.days %>
 <% end %>
 
 <% (800..801).each do |pt_id| %>
@@ -167,8 +165,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::InitialInPersonAppointment
     status: resolved
-    scheduled_at: <%= today_at_11_am - 46.days %>
-    overdue_at: <%= today_at_11_am - 43.days %>
+    scheduled_at: <%= DateTime.now - 46.days %>
+    overdue_at: <%= DateTime.now - 43.days %>
 <% end %>
 
 <% (320..321).each do |pt_id| %>
@@ -176,8 +174,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: active
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (322..322).each do |pt_id| %>
@@ -185,8 +183,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: active
-    scheduled_at: <%= today_at_11_am - 2.hours %>
-    overdue_at: <%= today_at_11_am + 3.days - 2.hours %>
+    scheduled_at: <%= DateTime.now - 2.days - 2.hours %>
+    overdue_at: <%= DateTime.now + 1.days - 2.hours %>
 <% end %>
 
 <% (323..328).each do |pt_id| %>
@@ -194,8 +192,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: active
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (329..336).each do |pt_id| %>
@@ -203,8 +201,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
-    scheduled_at: <%= today_at_11_am - 14.days %>
-    overdue_at: <%= today_at_11_am - 11.days %>
+    scheduled_at: <%= DateTime.now - 14.days %>
+    overdue_at: <%= DateTime.now - 11.days %>
 <% end %>
 
 <% (337..343).each do |pt_id| %>
@@ -212,8 +210,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
-    scheduled_at: <%= today_at_11_am - 35.days %>
-    overdue_at: <%= today_at_11_am - 32.days %>
+    scheduled_at: <%= DateTime.now - 35.days %>
+    overdue_at: <%= DateTime.now - 32.days %>
 <% end %>
 
 <% (700..705).each do |pt_id| %>
@@ -221,8 +219,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
-    scheduled_at: <%= today_at_11_am - 35.days %>
-    overdue_at: <%= today_at_11_am - 32.days %>
+    scheduled_at: <%= DateTime.now - 35.days %>
+    overdue_at: <%= DateTime.now - 32.days %>
 <% end %>
 
 <% (709..709).each do |pt_id| %>
@@ -230,8 +228,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
-    scheduled_at: <%= today_at_11_am - 35.days %>
-    overdue_at: <%= today_at_11_am - 32.days %>
+    scheduled_at: <%= DateTime.now - 35.days %>
+    overdue_at: <%= DateTime.now - 32.days %>
 <% end %>
 
 <% (708..708).each do |pt_id| %>
@@ -239,8 +237,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: active
-    scheduled_at: <%= today_at_11_am - 35.days %>
-    overdue_at: <%= today_at_11_am - 32.days %>
+    scheduled_at: <%= DateTime.now - 35.days %>
+    overdue_at: <%= DateTime.now - 32.days %>
 <% end %>
 
 <% (800..801).each do |pt_id| %>
@@ -248,8 +246,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekOne
     status: resolved
-    scheduled_at: <%= today_at_11_am - 39.days %>
-    overdue_at: <%= today_at_11_am - 36.days %>
+    scheduled_at: <%= DateTime.now - 39.days %>
+    overdue_at: <%= DateTime.now - 36.days %>
 <% end %>
 
 <% (320..328).each do |pt_id| %>
@@ -257,8 +255,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: active
-    scheduled_at: <%= today_at_11_am + 14.days %>
-    overdue_at: <%= today_at_11_am + 17.days %>
+    scheduled_at: <%= DateTime.now + 14.days %>
+    overdue_at: <%= DateTime.now + 17.days %>
 <% end %>
 
 <% (329..336).each do |pt_id| %>
@@ -266,8 +264,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: active
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (337..343).each do |pt_id| %>
@@ -275,8 +273,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: resolved
-    scheduled_at: <%= today_at_11_am - 14.days %>
-    overdue_at: <%= today_at_11_am - 11.days %>
+    scheduled_at: <%= DateTime.now - 14.days %>
+    overdue_at: <%= DateTime.now - 11.days %>
 <% end %>
 
 <% (700..705).each do |pt_id| %>
@@ -284,8 +282,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: resolved
-    scheduled_at: <%= today_at_11_am - 14.days %>
-    overdue_at: <%= today_at_11_am - 11.days %>
+    scheduled_at: <%= DateTime.now - 14.days %>
+    overdue_at: <%= DateTime.now - 11.days %>
 <% end %>
 
 <% (709..709).each do |pt_id| %>
@@ -293,8 +291,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: active
-    scheduled_at: <%= today_at_11_am - 14.days %>
-    overdue_at: <%= today_at_11_am - 11.days %>
+    scheduled_at: <%= DateTime.now - 14.days %>
+    overdue_at: <%= DateTime.now - 11.days %>
 <% end %>
 
 <% (800..801).each do |pt_id| %>
@@ -302,8 +300,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FollowUpCallWeekThree
     status: resolved
-    scheduled_at: <%= today_at_11_am - 18.days %>
-    overdue_at: <%= today_at_11_am - 15.days %>
+    scheduled_at: <%= DateTime.now - 18.days %>
+    overdue_at: <%= DateTime.now - 15.days %>
 <% end %>
 
 <% (320..328).each do |pt_id| %>
@@ -311,8 +309,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
-    scheduled_at: <%= today_at_11_am + 35.days %>
-    overdue_at: <%= today_at_11_am + 38.days %>
+    scheduled_at: <%= DateTime.now + 35.days %>
+    overdue_at: <%= DateTime.now + 38.days %>
 <% end %>
 
 <% (329..336).each do |pt_id| %>
@@ -320,8 +318,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
-    scheduled_at: <%= today_at_11_am + 21.days %>
-    overdue_at: <%= today_at_11_am + 24.days %>
+    scheduled_at: <%= DateTime.now + 21.days %>
+    overdue_at: <%= DateTime.now + 24.days %>
 <% end %>
 
 <% (337..343).each do |pt_id| %>
@@ -329,8 +327,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: resolved
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (700..701).each do |pt_id| %>
@@ -338,8 +336,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (702..702).each do |pt_id| %>
@@ -356,8 +354,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (800..800).each do |pt_id| %>
@@ -365,8 +363,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: active
-    scheduled_at: <%= today_at_11_am - 4.days - 5.hours %>
-    overdue_at: <%= today_at_11_am - 1.days - 5.hours %>
+    scheduled_at: <%= DateTime.now - 4.days - 5.hours %>
+    overdue_at: <%= DateTime.now - 1.days - 5.hours %>
 <% end %>
 
 <% (801..801).each do |pt_id| %>
@@ -374,8 +372,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::CallToScheduleFinalAppointment
     status: resolved
-    scheduled_at: <%= today_at_11_am - 4.days %>
-    overdue_at: <%= today_at_11_am - 1.days %>
+    scheduled_at: <%= DateTime.now - 4.days %>
+    overdue_at: <%= DateTime.now - 1.days %>
 <% end %>
 
 <% (337..341).each do |pt_id| %>
@@ -383,8 +381,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FinalInPersonAppointment
     status: active
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (344..345).each do |pt_id| %>
@@ -392,8 +390,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FinalInPersonAppointment
     status: active
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (342..343).each do |pt_id| %>
@@ -401,17 +399,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::FinalInPersonAppointment
     status: resolved
-    scheduled_at: <%= today_at_11_am %>
-    overdue_at: <%= today_at_11_am + 3.days %>
-<% end %>
-
-<% (801..801).each do |pt_id| %>
-  nurse_task_6<%= pt_id %>:
-    participant: participant<%= pt_id %>
-    type: Tasks::FinalInPersonAppointment
-    status: active
-    scheduled_at: <%= today_at_11_am - 4.days - 4.hours %>
-    overdue_at: <%= today_at_11_am - 1.days - 4.hours %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (400..405).each do |pt_id| %>
@@ -441,13 +430,31 @@
     overdue_at: <%= DateTime.now + 2.days %>
 <% end %>
 
+<% (801..801).each do |pt_id| %>
+  nurse_task_6<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::FinalInPersonAppointment
+    status: active
+    scheduled_at: <%= DateTime.now - 4.days - 4.hours %>
+    overdue_at: <%= DateTime.now - 1.days - 4.hours %>
+<% end %>
+
+<% (801..801).each do |pt_id| %>
+  nurse_task_7<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::HelpRequest
+    status: active
+    scheduled_at: <%= DateTime.now - 1.days %>
+    overdue_at: <%= DateTime.now + 1.days %>
+<% end %>
+
 <% (802..802).each do |pt_id| %>
   nurse_task_7<%= pt_id %>:
     participant: participant<%= pt_id %>
     type: Tasks::HelpRequest
     status: active
-    scheduled_at: <%= DateTime.now - 3.days - 3.hours %>
-    overdue_at: <%= DateTime.now - 1.days - 3.hours %>
+    scheduled_at: <%= DateTime.now - 3.days - 2.hours %>
+    overdue_at: <%= DateTime.now - 1.days - 2.hours %>
 <% end %>
 
 <% (803..803).each do |pt_id| %>
@@ -455,8 +462,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::LackOfConnectivityCall
     status: active
-    scheduled_at: <%= DateTime.now - 3.days - 2.hours %>
-    overdue_at: <%= DateTime.now - 1.days - 2.hours %>
+    scheduled_at: <%= DateTime.now - 3.days - 1.hours %>
+    overdue_at: <%= DateTime.now - 1.days - 1.hours %>
 <% end %>
 
 <% (804..804).each do |pt_id| %>
@@ -464,8 +471,17 @@
     participant: participant<%= pt_id %>
     type: Tasks::NonAdherenceCall
     status: active
-    scheduled_at: <%= DateTime.now - 3.days - 1.hours %>
-    overdue_at: <%= DateTime.now - 1.days - 1.hours %>
+    scheduled_at: <%= DateTime.now - 3.days %>
+    overdue_at: <%= DateTime.now - 1.days %>
+<% end %>
+
+<% (706..706).each do |pt_id| %>
+  nurse_task_7<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::HelpRequest
+    status: active
+    scheduled_at: <%= DateTime.now - 4.days %>
+    overdue_at: <%= DateTime.now - 2.days %>
 <% end %>
 
 <% (423..424).each do |pt_id| %>
@@ -489,15 +505,15 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
-    scheduled_at: <%= today_at_11_am - 3.days %>
-    overdue_at: <%= today_at_11_am + 13.hours %>
+    scheduled_at: <%= DateTime.now - 3.days %>
+    overdue_at: <%= DateTime.now + 13.hours %>
 
   nurse_task_7<%= pt_id %>:
     participant: participant<%= pt_id %>
     type: Tasks::HelpRequest
     status: active
     scheduled_at: <%= DateTime.now - 2.days %>
-    overdue_at: <%= today_at_11_am + 13.hours %>
+    overdue_at: <%= DateTime.now + 13.hours %>
 <% end %>
 
 <% (501..501).each do |pt_id| %>
