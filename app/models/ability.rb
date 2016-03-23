@@ -60,5 +60,10 @@ class Ability
     can :update,
         NurseTask,
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
+    can :create,
+        ScheduledTaskCancellation,
+        nurse_task: {
+          participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
+        }
   end
 end

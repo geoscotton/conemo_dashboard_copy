@@ -28,16 +28,6 @@ class TasksController < ApplicationController
     end
   end
 
-  def cancel
-    if find_task.cancel
-      flash[:notice] = "Task successfully cancelled"
-    else
-      flash[:alert] = "Error cancelling task: #{find_task.errors.full_messages}"
-    end
-
-    redirect_to participant_tasks_url(find_participant)
-  end
-
   def resolve
     if find_task.resolve
       flash[:notice] = "Task successfully resolved"

@@ -485,6 +485,13 @@ pt-BR:
           - Filho/a
           - Outro membro da família
           - Outro (especificar)
+      scheduled_task_cancellation:
+        explanations:
+          - Não consegi falar com o paciente
+          - Paciente não quer continuar no programa
+          - Paciente não houve tempo para falar (várias vezes)
+          - Paciente não estava disposto/a a falar com a AE
+          - Outra razão
       second_contact:
         difficulties:
           - Dificuldade com o smartphone (bateria, PIN, ligar, volume, etc.)
@@ -521,6 +528,9 @@ pt-BR:
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       participant: Participante
+      scheduled_task_cancellation:
+        one: Cancel contact point
+        other: Cancel contact points
       second_contact: Chamada de seguimento sem. 1
       "tasks/follow_up_call_week_one": Chamada de seguimento sem. 1
       third_contact: Chamada de seguimento sem. 3
@@ -569,6 +579,8 @@ pt-BR:
         emergency_contact_address: Endereço
         emergency_contact_phone: Telefone fixo
         emergency_contact_cell_phone: Celular
+      scheduled_task_cancellation:
+        explanation: Motivo
       second_contact:
         contact_at: Data/hora
         difficulties: O paciente tem tido dificuldades com CONEMO?
