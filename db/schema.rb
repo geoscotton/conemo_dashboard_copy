@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321170246) do
+ActiveRecord::Schema.define(version: 20160323130301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -340,6 +340,15 @@ ActiveRecord::Schema.define(version: 20160321170246) do
 
   add_index "responses", ["content_access_event_id"], name: "index_responses_on_content_access_event_id", using: :btree
 
+  create_table "scheduled_task_cancellations", force: :cascade do |t|
+    t.integer  "nurse_task_id", null: false
+    t.string   "explanation",   null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "scheduled_task_cancellations", ["nurse_task_id"], name: "index_scheduled_task_cancellations_on_nurse_task_id", unique: true, using: :btree
+
   create_table "second_contacts", force: :cascade do |t|
     t.integer  "participant_id", null: false
     t.datetime "contact_at",     null: false
@@ -487,6 +496,7 @@ ActiveRecord::Schema.define(version: 20160321170246) do
   add_foreign_key "nurse_tasks", "participants"
   add_foreign_key "participant_start_dates", "participants"
   add_foreign_key "participants", "users", column: "nurse_id", name: "fk_participants_nurses"
+  add_foreign_key "scheduled_task_cancellations", "nurse_tasks"
   add_foreign_key "second_contacts", "participants", name: "fk_second_contacts_participants"
   add_foreign_key "session_events", "lessons"
   add_foreign_key "session_events", "participants"

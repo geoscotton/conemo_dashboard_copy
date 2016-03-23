@@ -31,9 +31,9 @@
         <%= link_to t("conemo.views.shared.confirm"),
                     new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
                     { class: "btn btn-link" } %>
-        <%= button_to t("conemo.views.shared.cancel_button"),
-                      cancel_participant_task_path(participant_id: @tasks.id, id: task.id),
-                      { method: :put, class: "btn btn-danger" } %>
+        <%= link_to t("conemo.views.shared.cancel_button"),
+                      new_participant_task_scheduled_task_cancellation_path(participant_id: @tasks.id, task_id: task.id),
+                      { class: "btn btn-link" } %>
         <%= link_to t("conemo.views.shared.reschedule").capitalize,
                     edit_participant_task_path(participant_id: @tasks.id, id: task.id),
                     { class: "btn btn-link" } %>

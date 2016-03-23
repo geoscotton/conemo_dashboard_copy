@@ -27,8 +27,8 @@ Rails.application.routes.draw do
       resource :second_contact, only: [:new, :create, :edit, :update]
       resource :smartphone, only: [:new, :create, :edit, :update]
       resources :tasks, only: [:index, :edit, :update] do
+        resources :scheduled_task_cancellations, only: [:new, :create]
         member do
-          put :cancel
           put :resolve
           post :notify_supervisor
           delete :clear_latest_supervisor_notification

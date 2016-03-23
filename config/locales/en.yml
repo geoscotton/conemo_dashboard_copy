@@ -274,6 +274,13 @@ en:
           - Another family member
           - Friend
           - Other
+      scheduled_task_cancellation:
+        explanations:
+          - Could not reach patient
+          - Patient does not want to continue in the program
+          - Patient did not have time to talk (multiple times)
+          - Patient not willing to talk to nurse (assistant)
+          - Other
       second_contact:
         difficulties:
           - Difficulty with cell phone (battery, PIN code, turning it on, volume, etc.)
@@ -337,6 +344,9 @@ en:
       participant:
         one: Participant
         other: Participants
+      scheduled_task_cancellation:
+        one: Cancel contact point
+        other: Cancel contact points
       second_contact:
         one: Follow up call week 1
         other: Follow up calls week 1
@@ -392,6 +402,8 @@ en:
         emergency_contact_address: Address
         emergency_contact_phone: Telephone
         emergency_contact_cell_phone: Cell phone
+      scheduled_task_cancellation:
+        explanation: Reason
       second_contact:
         contact_at: Date/time of phone call
         difficulties: Did the patient have any difficulties using CONEMO?

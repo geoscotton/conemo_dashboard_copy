@@ -518,6 +518,13 @@ es-PE:
           - Otro miembro de la familia
           - Amigo
           - Otro (especificar)
+      scheduled_task_cancellation:
+        explanations:
+          - No se pudo ubicar al paciente
+          - Paciente no desea continuar con la intervención
+          - Paciente no tuvo tiempo de hablar (repetitivamente)
+          - Paciente no estaba dispuesta/o de hablar
+          - Otra
       second_contact:
         difficulties:
           - Dificultades con el celular inteligente (batería, contraseña, encenderlo, volumen)
@@ -554,6 +561,9 @@ es-PE:
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       participant: Participante
+      scheduled_task_cancellation:
+        one: Cancel contact point
+        other: Cancel contact points
       second_contact: Llamada de seguimiento sem. 1
       "tasks/follow_up_call_week_one": Llamada de seguimiento sem. 1
       third_contact: Llamada de seguimiento sem. 3
@@ -602,6 +612,8 @@ es-PE:
         emergency_contact_address: Dirección actual
         emergency_contact_phone: Teléfono fijo
         emergency_contact_cell_phone: Celular
+      scheduled_task_cancellation:
+        explanation: Razones
       second_contact:
         contact_at: Fecha/hora de la llamada
         difficulties: ¿El paciente ha tenido algunas dificultades usando CONEMO?
