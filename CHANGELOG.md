@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.6 - 2016-03-23
+
+* add translation for "disabled"
+
 ## 0.8.5 - 2016-03-23
 
 * add column headings to Nurse main page
