@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.5 - 2016-03-23
+
+* add column headings to Nurse main page
+
 ## 0.8.4 - 2016-03-23
 
 * sort patients correctly by task status
