@@ -1,0 +1,6 @@
+planned_activity_1:
+  uuid: <%= SecureRandom.uuid %>
+  participant: participant_505
+  name: Escuchar música
+  planned_at: <%= DateTime.now - 12.days %>
+  lesson_guid: <%= ActiveRecord::FixtureSet.identify(:es_lesson_1) %>
