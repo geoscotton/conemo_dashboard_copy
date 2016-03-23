@@ -48,12 +48,12 @@ class NurseDashboardPresenter
   def oldest_participant_task(row)
     fake_late_date = 9999999999999
 
-    row.active_tasks.last.try(:scheduled_at).try(:to_i) || fake_late_date
+    row.active_tasks.first.try(:scheduled_at).try(:to_i) || fake_late_date
   end
 
   def most_overdue_participant_task(row)
     fake_late_date = 9999999999999
 
-    row.active_tasks.last.try(:overdue_at).try(:to_i) || fake_late_date
+    row.active_tasks.first.try(:overdue_at).try(:to_i) || fake_late_date
   end
 end
