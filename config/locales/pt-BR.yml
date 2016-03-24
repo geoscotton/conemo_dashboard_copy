@@ -499,6 +499,25 @@ pt-BR:
           - Dificuldade para ver vídeo(s)
           - Dificuldade na seleção de atividades
           - Outras dificuldades
+      supervision_session:
+        contact_kinds:
+          - Phone
+          - In person
+        meeting_kinds:
+          - Group
+          - Individual
+        topics:
+          - Encontro inicial
+          - Chamada por não-conectivade
+          - Pedido de ajuda não resolvido
+          - Não aderência
+          - Dificuldades do paciente com CONEMO
+          - Dúvidad com respeito ás tarefas
+          - Tarefas atrasadas
+          - Tarefas canceladas
+          - Dúvidas com respeito á intervenção
+          - Eventos adversos serios (mencionados pela AE)
+          - Dropouts
       third_contact:
         difficulties:
           - Dificuldade com o smartphone (bateria, PIN, ligar, volume, etc.)
@@ -527,13 +546,16 @@ pt-BR:
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       nurse_task:
-        one: Task
-        other: Tasks
+        one: a tarefa
+        other: as tarefas
       participant: Participante
       scheduled_task_cancellation:
         one: Cancel contact point
         other: Cancel contact points
       second_contact: Chamada de seguimento sem. 1
+      supervision_session:
+        one: Supervision session
+        other: Supervision sessions
       "tasks/follow_up_call_week_one": Chamada de seguimento sem. 1
       third_contact: Chamada de seguimento sem. 3
       "tasks/follow_up_call_week_three": Chamada de seguimento sem. 3
@@ -589,6 +611,12 @@ pt-BR:
         next_contact: Chamada de seguimento sem. 3
         session_length: Duração da chamada (minutos)
         notes: Observações
+      supervision_session:
+        session_at: Session at
+        session_length: Session length
+        meeting_kind: Meeting kind
+        contact_kind: Contact kind
+        topics: Assuntos discutidos
       third_contact:
         contact_at: Data da ligação
         difficulties: O paciente tem tido dificuldades com CONEMO?

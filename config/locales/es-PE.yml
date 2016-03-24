@@ -532,6 +532,25 @@ es-PE:
           - Dificultades para ver los videos
           - Dificultades para seleccionar actividades
           - Otras dificultades
+      supervision_session:
+        contact_kinds:
+          - Phone
+          - In person
+        meeting_kinds:
+          - Group
+          - Individual
+        topics:
+          - Cita de inicio
+          - Llamada por no-conectividad
+          - Solicitud de ayuda no resuelta
+          - No-adherencia
+          - Dificultades del paciente con CONEMO
+          - Dudas sobre las tareas
+          - Tareas atrasadas / Adherencia de la enfermera
+          - Tareas canceladas
+          - Dudas sobre la intervención
+          - Eventos adversos serios (mencionados por la enfermera)
+          - Dropouts
       third_contact:
         difficulties:
           - Dificultades con el celular inteligente (batería, contraseña, encenderlo, volumen)
@@ -560,13 +579,16 @@ es-PE:
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       nurse_task:
-        one: Task
-        other: Tasks
+        one: la tarea
+        other: las tareas
       participant: Participante
       scheduled_task_cancellation:
         one: Cancel contact point
         other: Cancel contact points
       second_contact: Llamada de seguimiento sem. 1
+      supervision_session:
+        one: Supervision session
+        other: Supervision sessions
       "tasks/follow_up_call_week_one": Llamada de seguimiento sem. 1
       third_contact: Llamada de seguimiento sem. 3
       "tasks/follow_up_call_week_three": Llamada de seguimiento sem. 3
@@ -622,6 +644,12 @@ es-PE:
         session_length: Duración de la llamada (min)
         next_contact: Llamada de seguimiento sem. 3
         notes: Observaciones (cuadrado de texto)
+      supervision_session:
+        session_at: Fecha/hora
+        session_length: Duración (min)
+        meeting_kind: Meeting kind
+        contact_kind: Contact kind
+        topics: Temas discutidos
       third_contact:
         final_appointment_at: Llamada para programar cita final
         difficulties: ¿El paciente ha tenido algunas dificultades usando CONEMO?
