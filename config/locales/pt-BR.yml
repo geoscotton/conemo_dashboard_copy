@@ -23,7 +23,6 @@ pt-BR:
         "true": "Sim"
         "false": "Não"
         pending: "Pendente"
-        ineligible: "Inelegível"
         create: "criar"
         update: "atualizar"
         edit: "editar"

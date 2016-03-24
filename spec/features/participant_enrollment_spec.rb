@@ -46,10 +46,7 @@ RSpec.describe "participant enrollment", type: :feature do
 
     click_on "disqualify_#{participant.id}"
 
-    pending_node = page.find("#pending")
-    expect(pending_node).to_not have_text participant.study_identifier
-    ineligible_node = page.find("#ineligible")
-    expect(ineligible_node).to have_text participant.study_identifier
+    expect(page).to_not have_text participant.study_identifier
   end
 
   it "should activate an eligible participant and assign them to a nurse" do
