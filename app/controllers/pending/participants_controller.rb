@@ -7,10 +7,6 @@ module Pending
     def index
       @pending_participants = Participant.pending.where(locale: params[:locale])
       authorize! :read, @pending_participants
-
-      @ineligible_participants = Participant.ineligible
-                                            .where(locale: params[:locale])
-      authorize! :read, @ineligible_participants
     end
 
     def activate

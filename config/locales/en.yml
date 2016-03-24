@@ -23,7 +23,6 @@ en:
         "true": "Yes"
         "false": "No"
         pending: "Pending"
-        ineligible: "Ineligible"
         create: "create"
         update: "update"
         edit: "edit"

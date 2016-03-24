@@ -129,7 +129,7 @@ RSpec.describe ParticipantsController, type: :controller do
         context "and the Participant is not active" do
           it "redirects to pending participants" do
             participant.update! status: [Participant::PENDING,
-                                         Participant::INELIGIBLE].sample
+                                         Participant::COMPLETED].sample
 
             admin_request :put, :update, locale,
                           id: participant.id,

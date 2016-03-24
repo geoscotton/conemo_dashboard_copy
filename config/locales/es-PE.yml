@@ -23,7 +23,6 @@ es-PE:
         "true": "Sí"
         "false": "No"
         pending: "Pendiente"
-        ineligible: "Ineligible"
         create: "realizado"
         update: "actualizar"
         edit: "editar"
