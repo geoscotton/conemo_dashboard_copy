@@ -143,7 +143,7 @@ en:
             study_identifier: "Study Identifier"
             enrollment_date: "Enrollment Date"
             activate: "Activate"
-            disqualify: "Disqualify"
+            disqualify: Treatment termination
             disqualify_alert: "Are you sure you want to mark this person as ineligible?"
             activate_alert: "Are you sure you want to activate this person?"
           activate:
