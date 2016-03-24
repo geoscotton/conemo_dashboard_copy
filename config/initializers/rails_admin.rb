@@ -257,6 +257,9 @@ RailsAdmin.config do |config|
           end
         end
       end
+      field :family_health_unit_name, :enum do
+        enum { I18n.t("conemo.family_health_units") }
+      end
       field :locale, :hidden do
         default_value do
           bindings[:view].current_user.locale

@@ -6,9 +6,7 @@ class Nurse < User
            foreign_key: :nurse_id,
            dependent: :nullify,
            inverse_of: :nurse
-  has_many :nurse_tasks,
-           foreign_key: :user_id,
-           inverse_of: :nurse
+  has_many :nurse_tasks, through: :participants
 
   def active_participants
     participants.active
@@ -17,6 +15,12 @@ class Nurse < User
   def active_tasks
     nurse_tasks
       .active
+      .where(participant: active_participants)
+  end
+
+  def overdue_tasks
+    nurse_tasks
+      .overdue
       .where(participant: active_participants)
   end
 end

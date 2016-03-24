@@ -46,3 +46,17 @@
     </table>
   </div>
 </div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Nurses</div>
+
+  <div class="panel-body">
+    <% @nurses.each do |nurse| %>
+      <p class="text-info"><%= nurse.last_and_first_name %></p>
+      <p><%= nurse.active_participants.count %> <%= Participant.model_name.human(count: nurse.active_participants.count) %></p>
+      <p><%= nurse.active_tasks.count %> <%= NurseTask.model_name.human(count: nurse.active_tasks.count) %></p>
+      <p><%= nurse.overdue_tasks.count %> Overdue</p>
+      <p><%= nurse.family_health_unit_name %></p>
+    <% end %>
+  </div>
+</div>
