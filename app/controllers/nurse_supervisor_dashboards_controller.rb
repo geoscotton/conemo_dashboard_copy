@@ -5,6 +5,7 @@ class NurseSupervisorDashboardsController < ApplicationController
     @pending_participants = Participant
                             .where(locale: current_user.locale)
                             .pending
+    @nurses = current_user.nurses
     authorize! :update, @pending_participants
   end
 end

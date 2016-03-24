@@ -26,7 +26,8 @@ class NurseTask < ActiveRecord::Base
   end
 
   def self.overdue
-    where(arel_table[:overdue_at].lteq(Time.zone.now))
+    active
+      .where(arel_table[:overdue_at].lteq(Time.zone.now))
   end
 
   def active?

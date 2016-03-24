@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323130301) do
+ActiveRecord::Schema.define(version: 20160324203410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -387,6 +387,19 @@ ActiveRecord::Schema.define(version: 20160323130301) do
 
   add_index "smartphones", ["participant_id"], name: "index_smartphones_on_participant_id", using: :btree
 
+  create_table "supervision_sessions", force: :cascade do |t|
+    t.datetime "session_at",     null: false
+    t.integer  "session_length", null: false
+    t.string   "meeting_kind",   null: false
+    t.string   "contact_kind",   null: false
+    t.integer  "nurse_id",       null: false
+    t.text     "topics"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "supervision_sessions", ["nurse_id"], name: "index_supervision_sessions_on_nurse_id", using: :btree
+
   create_table "supervisor_notifications", force: :cascade do |t|
     t.integer  "nurse_supervisor_id",                    null: false
     t.integer  "nurse_task_id",                          null: false
@@ -453,12 +466,12 @@ ActiveRecord::Schema.define(version: 20160323130301) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                   default: "", null: false
+    t.string   "encrypted_password",      default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",           default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -466,13 +479,14 @@ ActiveRecord::Schema.define(version: 20160323130301) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
-    t.string   "phone",                               null: false
-    t.string   "first_name",                          null: false
-    t.string   "last_name",                           null: false
+    t.string   "phone",                                null: false
+    t.string   "first_name",                           null: false
+    t.string   "last_name",                            null: false
     t.string   "locale"
-    t.string   "timezone",                            null: false
+    t.string   "timezone",                             null: false
     t.string   "type"
     t.integer  "nurse_supervisor_id"
+    t.string   "family_health_unit_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
