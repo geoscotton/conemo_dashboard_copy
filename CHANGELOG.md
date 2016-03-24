@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.0 - 2016-03-24
+
+* enable supervision session logging
+* display overview of each assigned Nurse
+* change "Disqualify" to "Treatment termination"
+* remove Ineligible tab on pending participants page
+* update Cancel link for Nurse from Participant form
+* show a notice instead of alert on completion
+
 ## 0.8.6 - 2016-03-23
 
 * add translation for "disabled"
