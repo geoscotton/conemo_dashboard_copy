@@ -37,7 +37,7 @@
     type: Admin
 <% end %>
 
-<% (400..400).each do |user_id| %>
+<% (400..403).each do |user_id| %>
   user_<%= user_id %>:
     email: user_<%= user_id %>@example.com
     encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
@@ -49,6 +49,7 @@
     timezone: Central Time (US & Canada)
     type: Nurse
     nurse_supervisor: user_700
+    family_health_unit_name: English Locale Health Unit
 <% end %>
 
 <% (500..500).each do |user_id| %>
@@ -63,6 +64,7 @@
     timezone: Central Time (US & Canada)
     type: Nurse
     nurse_supervisor: user_800
+    family_health_unit_name: Spanish Locale Health Unit
 <% end %>
 
 <% (600..600).each do |user_id| %>
@@ -77,6 +79,7 @@
     timezone: Central Time (US & Canada)
     type: Nurse
     nurse_supervisor: user_900
+    family_health_unit_name: Portuguese Locale Health Unit
 <% end %>
 
 <% (700..700).each do |user_id| %>
