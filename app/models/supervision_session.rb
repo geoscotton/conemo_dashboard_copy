@@ -7,4 +7,8 @@ class SupervisionSession < ActiveRecord::Base
             presence: true
 
   serialize :topics
+
+  def self.latest
+    order(session_at: :desc).first
+  end
 end

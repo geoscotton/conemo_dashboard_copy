@@ -73,26 +73,23 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
   end
 
   context "when there are assigned nurses" do
+    let(:sessions1) { double("sessions").as_null_object }
     let(:nurse1) do
-      nurse = instance_double(Nurse,
-                              last_and_first_name: "Last 1, Nurse 1",
-                              family_health_unit_name: "Unit 1")
-      allow(nurse).to receive_message_chain("active_participants.count") { 314 }
-      allow(nurse).to receive_message_chain("active_tasks.count") { 425 }
-      allow(nurse).to receive_message_chain("overdue_tasks.count") { 536 }
-
-      nurse
+      instance_double(Nurse,
+                      active_participants: [],
+                      current_tasks: [],
+                      overdue_tasks: [],
+                      supervision_sessions: sessions1).as_null_object
     end
+    let(:sessions2) { double("sessions").as_null_object }
     let(:nurse2) do
-      nurse = instance_double(Nurse,
-                              last_and_first_name: "Last 2, Nurse 2",
-                              family_health_unit_name: "Unit 2")
-      allow(nurse).to receive_message_chain("active_participants.count") { 987 }
-      allow(nurse).to receive_message_chain("active_tasks.count") { 876 }
-      allow(nurse).to receive_message_chain("overdue_tasks.count") { 765 }
-
-      nurse
+      instance_double(Nurse,
+                      active_participants: [],
+                      current_tasks: [],
+                      overdue_tasks: [],
+                      supervision_sessions: sessions2).as_null_object
     end
+
     def assign_nurses_and_render
       I18n.locale = "en"
       assign(:pending_participants, [])
@@ -102,6 +99,8 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     end
 
     it "renders the nurse names" do
+      allow(nurse1).to receive(:last_and_first_name) { "Last 1, Nurse 1" }
+      allow(nurse2).to receive(:last_and_first_name) { "Last 2, Nurse 2" }
       assign_nurses_and_render
 
       expect(rendered).to include "Last 1, Nurse 1"
@@ -109,13 +108,19 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     end
 
     it "renders the active patient count for each nurse" do
+      allow(nurse1).to receive_message_chain("active_participants.count")
+        .and_return(314)
+      allow(nurse2).to receive_message_chain("active_participants.count")
+        .and_return(987)
       assign_nurses_and_render
 
       expect(rendered).to include "314 Participants"
       expect(rendered).to include "987 Participants"
     end
 
-    it "renders the active task count for each nurse" do
+    it "renders the current task count for each nurse" do
+      allow(nurse1).to receive_message_chain("current_tasks.count") { 425 }
+      allow(nurse2).to receive_message_chain("current_tasks.count") { 876 }
       assign_nurses_and_render
 
       expect(rendered).to include "425 Tasks"
@@ -123,6 +128,8 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     end
 
     it "renders the overdue task count for each nurse" do
+      allow(nurse1).to receive_message_chain("overdue_tasks.count") { 536 }
+      allow(nurse2).to receive_message_chain("overdue_tasks.count") { 765 }
       assign_nurses_and_render
 
       expect(rendered).to include "536 Overdue"
@@ -130,6 +137,8 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     end
 
     it "renders the family health unit for each nurse" do
+      allow(nurse1).to receive(:family_health_unit_name) { "Unit 1" }
+      allow(nurse2).to receive(:family_health_unit_name) { "Unit 2" }
       assign_nurses_and_render
 
       expect(rendered).to include "Unit 1"

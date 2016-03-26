@@ -7,20 +7,27 @@ class Nurse < User
            dependent: :nullify,
            inverse_of: :nurse
   has_many :nurse_tasks, through: :participants
+  has_many :supervision_sessions
 
   def active_participants
     participants.active
   end
 
+  def current_tasks
+    active_participant_tasks.current
+  end
+
   def active_tasks
-    nurse_tasks
-      .active
-      .where(participant: active_participants)
+    active_participant_tasks.active
   end
 
   def overdue_tasks
-    nurse_tasks
-      .overdue
-      .where(participant: active_participants)
+    active_participant_tasks.overdue
+  end
+
+  private
+
+  def active_participant_tasks
+    nurse_tasks.where(participant: active_participants)
   end
 end

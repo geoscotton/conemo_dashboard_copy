@@ -17,6 +17,10 @@ class NurseTask < ActiveRecord::Base
     where participant: participant
   end
 
+  def self.current
+    active.where(arel_table[:scheduled_at].lteq(Time.zone.now))
+  end
+
   def self.active
     where status: STATUSES.active
   end
