@@ -47,21 +47,32 @@
   </div>
 </div>
 
-<div class="panel panel-default">
-  <div class="panel-heading">Nurses</div>
+<h3><%= Nurse.model_name.human(count: @nurses.count) %></h3>
 
-  <div class="panel-body">
-    <% @nurses.each do |nurse| %>
-      <p class="text-info"><%= nurse.last_and_first_name %></p>
-      <p><%= nurse.active_participants.count %> <%= Participant.model_name.human(count: nurse.active_participants.count) %></p>
-      <p><%= nurse.active_tasks.count %> <%= NurseTask.model_name.human(count: nurse.active_tasks.count) %></p>
-      <p><%= nurse.overdue_tasks.count %> Overdue</p>
-      <p><%= nurse.family_health_unit_name %></p>
+<% @nurses.each do |nurse| %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>
+        <%= nurse.last_and_first_name %>
+        <% if nurse.supervision_sessions.latest %>
+          <small class="pull-right <%= SupervisionSessionPresenter.new(nurse.supervision_sessions.latest).css_class %>">Last supervision session: <%= l nurse.supervision_sessions.latest.session_at, format: :long %></small>
+        <% end %>
+      </h4>
+
+      <ul class="list-inline">
+        <li><%= nurse.active_participants.count %> <%= Participant.model_name.human(count: nurse.active_participants.count) %></li>
+        <li><%= nurse.current_tasks.count %> <%= NurseTask.model_name.human(count: nurse.current_tasks.count) %></li>
+        <li><%= nurse.overdue_tasks.count %> Overdue</li>
+        <li><%= nurse.family_health_unit_name %></li>
+      </ul>
+    </div>
+
+    <div class="panel-body">
       <p>
         <%= link_to "Log supervision session",
                     new_nurse_supervision_session_path(nurse),
                     { class: "btn btn-link" } %>
       </p>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
