@@ -660,7 +660,7 @@ es-PE:
         session_at: Fecha/hora
         session_length: Duración (min)
         meeting_kind: Meeting kind
-        contact_kind: Contact kind
+        contact_kind: Tipo de contacto
         topics: Temas discutidos
       third_contact:
         final_appointment_at: Llamada para programar cita final

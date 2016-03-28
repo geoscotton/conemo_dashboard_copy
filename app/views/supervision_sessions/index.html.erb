@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td><%= t("activerecord.attributes.supervision_session.session_at") %></td>
+      <td><%= t("activerecord.attributes.supervision_session.session_length") %></td>
+      <td><%= t("activerecord.attributes.supervision_session.meeting_kind") %></td>
+      <td><%= t("activerecord.attributes.supervision_session.contact_kind") %></td>
+      <td><%= t("activerecord.attributes.supervision_session.topics") %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @supervision_sessions.order(session_at: :desc).each do |session| %>
+      <tr>
+        <td><%= l session.session_at, format: :long %></td>
+        <td><%= session.session_length %></td>
+        <td><%= session.meeting_kind %></td>
+        <td><%= session.contact_kind %></td>
+        <td><%= session.topics.join(", ") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

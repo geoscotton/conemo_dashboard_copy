@@ -43,7 +43,10 @@ class Ability
   def authorize_nurse_supervisor(supervisor)
     can [:read, :update], Participant, locale: supervisor.locale
     can :create,
-        [SupervisionContact, SupervisionSession],
+        SupervisionContact,
+        nurse: { nurse_supervisor_id: supervisor.id }
+    can [:read, :create],
+        SupervisionSession,
         nurse: { nurse_supervisor_id: supervisor.id }
   end
 

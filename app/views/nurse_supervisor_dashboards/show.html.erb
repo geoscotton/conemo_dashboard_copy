@@ -55,7 +55,10 @@
       <h4>
         <%= nurse.last_and_first_name %>
         <% if nurse.supervision_sessions.latest %>
-          <small class="pull-right <%= SupervisionSessionPresenter.new(nurse.supervision_sessions.latest).css_class %>">Last supervision session: <%= l nurse.supervision_sessions.latest.session_at, format: :long %></small>
+          <small class="pull-right <%= SupervisionSessionPresenter.new(nurse.supervision_sessions.latest).css_class %>">
+            Last supervision session: <%= l nurse.supervision_sessions.latest.session_at, format: :long %>
+            <%= link_to "Review", nurse_supervision_sessions_path(nurse) %>
+          </small>
         <% end %>
       </h4>
 

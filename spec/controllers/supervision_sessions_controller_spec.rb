@@ -16,6 +16,34 @@ RSpec.describe SupervisionSessionsController, type: :controller do
     end
   end
 
+  describe "GET index" do
+    context "for an unauthenticated request" do
+      before { get :index, nurse_id: nurse.id, locale: locale }
+
+      it_behaves_like "a rejected user action"
+    end
+
+    context "for an authenticated nurse" do
+      context "when the Nurse isn't found" do
+        before do
+          sign_in_user nurse_supervisor
+
+          get :index, nurse_id: -1, locale: locale
+        end
+
+        it_behaves_like "a bad request"
+      end
+
+      it "sets the supervision_sessions" do
+        sign_in_user nurse_supervisor
+
+        get :index, nurse_id: nurse.id, locale: locale
+
+        expect(assigns(:supervision_sessions)).not_to be_nil
+      end
+    end
+  end
+
   describe "GET new" do
     context "for an unauthenticated request" do
       before { get :new, nurse_id: nurse.id, locale: locale }
