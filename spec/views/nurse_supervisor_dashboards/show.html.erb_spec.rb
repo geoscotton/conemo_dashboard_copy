@@ -28,6 +28,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
   it "renders correctly when there are no participants or nurses" do
     assign(:pending_participants, [])
     assign(:completed_participants, [])
+    assign(:dropped_out_participants, [])
     assign(:nurses, [])
 
     render template: template
@@ -42,6 +43,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     def assign_pending_and_render
       assign(:pending_participants, [pending1, pending2])
       assign(:completed_participants, [])
+      assign(:dropped_out_participants, [])
       assign(:nurses, [])
 
       render template: template
@@ -84,6 +86,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     def assign_completed_and_render
       assign(:pending_participants, [])
       assign(:completed_participants, [completed1, completed2])
+      assign(:dropped_out_participants, [])
       assign(:nurses, [])
 
       render template: template
@@ -102,6 +105,39 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
         [
           ["Nurse 1", "Cory Caper", "ID 1", date_str, date_str],
           ["Nurse 2", "Diggory Dapper", "ID 2", date_str, date_str]
+        ]
+      )
+    end
+  end
+
+  context "when there are dropped out participants" do
+    let(:nurse1) { instance_double(Nurse, last_and_first_name: "Nurse 1") }
+    let(:nurse2) { instance_double(Nurse, last_and_first_name: "Nurse 2") }
+    let(:dropped_out1) { stub_participant 1, "Cory Caper", nurse: nurse1 }
+    let(:dropped_out2) { stub_participant 2, "Diggory Dapper", nurse: nurse2 }
+
+    def assign_dropped_out_and_render
+      assign(:pending_participants, [])
+      assign(:completed_participants, [])
+      assign(:dropped_out_participants, [dropped_out1, dropped_out2])
+      assign(:nurses, [])
+
+      render template: template
+    end
+
+    it "renders the participant count" do
+      assign_dropped_out_and_render
+
+      expect(rendered).to include "2 Dropped out"
+    end
+
+    it "renders the participant details" do
+      assign_dropped_out_and_render
+
+      table_exists_with_the_following_rows(
+        [
+          ["Cory Caper", "ID 1", date_str],
+          ["Diggory Dapper", "ID 2", date_str]
         ]
       )
     end
@@ -129,6 +165,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       I18n.locale = "en"
       assign(:pending_participants, [])
       assign(:completed_participants, [])
+      assign(:dropped_out_participants, [])
       assign(:nurses, [nurse1, nurse2])
 
       render template: template
