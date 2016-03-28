@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328155643) do
+ActiveRecord::Schema.define(version: 20160328201806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -412,14 +412,12 @@ ActiveRecord::Schema.define(version: 20160328155643) do
   add_index "supervision_sessions", ["nurse_id"], name: "index_supervision_sessions_on_nurse_id", using: :btree
 
   create_table "supervisor_notifications", force: :cascade do |t|
-    t.integer  "nurse_supervisor_id",                    null: false
-    t.integer  "nurse_task_id",                          null: false
-    t.string   "status",              default: "active", null: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.integer  "nurse_task_id",                    null: false
+    t.string   "status",        default: "active", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
-  add_index "supervisor_notifications", ["nurse_supervisor_id"], name: "index_supervisor_notifications_on_nurse_supervisor_id", using: :btree
   add_index "supervisor_notifications", ["nurse_task_id"], name: "index_supervisor_notifications_on_nurse_task_id", using: :btree
 
   create_table "third_contacts", force: :cascade do |t|
@@ -527,5 +525,4 @@ ActiveRecord::Schema.define(version: 20160328155643) do
   add_foreign_key "session_events", "participants"
   add_foreign_key "smartphones", "participants", name: "fk_smartphones_participants"
   add_foreign_key "supervisor_notifications", "nurse_tasks"
-  add_foreign_key "supervisor_notifications", "users", column: "nurse_supervisor_id"
 end

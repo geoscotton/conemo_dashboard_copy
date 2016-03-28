@@ -2,7 +2,7 @@
 require "rails_helper"
 
 RSpec.describe TasksController, type: :controller do
-  fixtures :users, :participants
+  fixtures :all
 
   let(:locale) { LOCALES.values.sample }
   let(:participant) do
