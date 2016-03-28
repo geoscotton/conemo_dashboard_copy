@@ -1,0 +1,17 @@
+supervision_session_1:
+  session_at: <%= DateTime.now - 8.days %>
+  session_length: 10
+  meeting_kind: Group
+  contact_kind: Phone
+  nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_401) %>
+  created_at: <%= DateTime.now - 8.days %>
+  updated_at: <%= DateTime.now - 8.days %>
+
+supervision_session_2:
+  session_at: <%= DateTime.now - 12.days %>
+  session_length: 20
+  meeting_kind: Individual
+  contact_kind: In person
+  nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_402) %>
+  created_at: <%= DateTime.now - 12.days %>
+  updated_at: <%= DateTime.now - 12.days %>
