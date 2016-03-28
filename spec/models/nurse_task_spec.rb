@@ -6,7 +6,7 @@ class MockTask < NurseTask
 end
 
 RSpec.describe NurseTask, type: :model do
-  fixtures :users
+  fixtures :all
 
   describe "initialization" do
     describe "setting the overdue timestamp" do
