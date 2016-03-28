@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :participants, except: [:index, :show] do
       resources :additional_contacts, only: [:new, :create]
       resource :call_to_schedule_final_appointment, only: [:new, :create, :edit, :update]
+      resource :clinical_summary, only: :show
       resource :final_appointment, only: [:new, :create, :edit, :update]
       resource :first_contact, only: [:new, :create, :edit, :update]
       resource :first_appointment, only: [:new, :create, :edit, :update]
