@@ -69,6 +69,7 @@ class Participant < ActiveRecord::Base
   scope :ineligible, -> { where(status: INELIGIBLE) }
   scope :pending, -> { where(status: PENDING) }
   scope :active, -> { where(status: ACTIVE) }
+  scope :completed, -> { where(status: COMPLETED) }
 
   delegate :phone_identifier, to: :smartphone, allow_nil: true
 

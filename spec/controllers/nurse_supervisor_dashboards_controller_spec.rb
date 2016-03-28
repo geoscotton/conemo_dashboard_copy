@@ -2,9 +2,9 @@
 require "rails_helper"
 
 RSpec.describe NurseSupervisorDashboardsController, type: :controller do
-  fixtures :users, :participants
+  fixtures :all
 
-  let(:locale) { LOCALES.values.sample }
+  let(:locale) { "en" }
 
   describe "GET show" do
     context "for an unauthenticated request" do
@@ -24,8 +24,10 @@ RSpec.describe NurseSupervisorDashboardsController, type: :controller do
     end
 
     context "for an authenticated nurse supervisor" do
+      let(:nurse_supervisor) { users(:en_nurse_supervisor_1) }
+
       def show_for_nurse_supervisor
-        sign_in_user NurseSupervisor.find_by(locale: locale)
+        sign_in_user nurse_supervisor
         get :show, locale: locale
       end
 
@@ -43,12 +45,13 @@ RSpec.describe NurseSupervisorDashboardsController, type: :controller do
 
       it "assigns the pending participants" do
         # ensure records are populated
-        expect(Participant.where(locale: locale).pending.count).to be > 0
+        expect(Participant.where(nurse: nurse_supervisor.nurses).pending.count)
+          .to be > 0
 
         show_for_nurse_supervisor
 
         expect(assigns(:pending_participants).length)
-          .to eq Participant.where(locale: locale).pending.count
+          .to eq Participant.where(nurse: nurse_supervisor.nurses).pending.count
       end
     end
   end

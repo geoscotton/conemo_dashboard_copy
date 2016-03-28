@@ -3,14 +3,15 @@
 require "rails_helper"
 
 RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
-  def stub_participant(id, name)
+  def stub_participant(id, name, nurse: nil)
     instance_double(
       Participant,
       id: id,
       study_identifier: "ID #{id}",
       last_and_first_name: name,
       enrollment_date: date,
-      created_at: time
+      created_at: time,
+      nurse: nurse
     )
   end
 
@@ -26,11 +27,12 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
   it "renders correctly when there are no participants or nurses" do
     assign(:pending_participants, [])
+    assign(:completed_participants, [])
     assign(:nurses, [])
 
     render template: template
 
-    expect(rendered).to include "0 Unassigned Participants"
+    expect(rendered).to include "0 Unassigned"
   end
 
   context "when there are unassigned (pending) participants" do
@@ -39,6 +41,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
     def assign_pending_and_render
       assign(:pending_participants, [pending1, pending2])
+      assign(:completed_participants, [])
       assign(:nurses, [])
 
       render template: template
@@ -47,7 +50,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     it "renders the participant count" do
       assign_pending_and_render
 
-      expect(rendered).to include "2 Unassigned Participants"
+      expect(rendered).to include "2 Unassigned"
     end
 
     it "renders the participant details" do
@@ -67,6 +70,38 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
             I18n.t("conemo.views.pending.participants.index.activate"),
             I18n.t("conemo.views.pending.participants.index.disqualify")
           ]
+        ]
+      )
+    end
+  end
+
+  context "when there are completed participants" do
+    let(:nurse1) { instance_double(Nurse, last_and_first_name: "Nurse 1") }
+    let(:nurse2) { instance_double(Nurse, last_and_first_name: "Nurse 2") }
+    let(:completed1) { stub_participant 1, "Cory Caper", nurse: nurse1 }
+    let(:completed2) { stub_participant 2, "Diggory Dapper", nurse: nurse2 }
+
+    def assign_completed_and_render
+      assign(:pending_participants, [])
+      assign(:completed_participants, [completed1, completed2])
+      assign(:nurses, [])
+
+      render template: template
+    end
+
+    it "renders the participant count" do
+      assign_completed_and_render
+
+      expect(rendered).to include "2 Completed"
+    end
+
+    it "renders the participant details" do
+      assign_completed_and_render
+
+      table_exists_with_the_following_rows(
+        [
+          ["Nurse 1", "Cory Caper", "ID 1", date_str, date_str],
+          ["Nurse 2", "Diggory Dapper", "ID 2", date_str, date_str]
         ]
       )
     end
@@ -93,6 +128,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     def assign_nurses_and_render
       I18n.locale = "en"
       assign(:pending_participants, [])
+      assign(:completed_participants, [])
       assign(:nurses, [nurse1, nurse2])
 
       render template: template
