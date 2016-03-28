@@ -4,6 +4,7 @@ class NurseSupervisorDashboardsController < ApplicationController
   def show
     participants = Participant.where(nurse: current_user.nurses)
     @pending_participants = participants.pending
+    @active_participants = participants.active
     @completed_participants = participants.completed
     @dropped_out_participants = participants.ineligible
     @nurses = current_user.nurses
