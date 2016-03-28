@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.1 - 2016-03-28
+
+* show detailed Participant data to Supervisor
+* show overdue and current tasks for nurses
+* display history of supervision meetings
+* add supervision contact creation
+* add supervision topic
+* list current tasks; color supervisor sessions
+
 ## 0.9.0 - 2016-03-24
 
 * enable supervision session logging
