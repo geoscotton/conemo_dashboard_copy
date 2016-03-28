@@ -624,10 +624,10 @@ pt-BR:
         contact_kind: Tipo de contato
         notes: Observações
       supervision_session:
-        session_at: Session at
-        session_length: Session length
+        session_at: Data/hora
+        session_length: Duração da chamada (minutos)
         meeting_kind: Meeting kind
-        contact_kind: Contact kind
+        contact_kind: Tipo de contato
         topics: Assuntos discutidos
       third_contact:
         contact_at: Data da ligação
