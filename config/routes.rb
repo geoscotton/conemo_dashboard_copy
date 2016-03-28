@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :nurses, only: [] do
       resources :supervision_contacts, only: [:new, :create]
       resources :supervision_sessions, only: [:index, :new, :create]
+      resource :tasks_summary, only: :show
     end
 
     resources :participants, except: [:index, :show] do

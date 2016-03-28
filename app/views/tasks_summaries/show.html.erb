@@ -1,0 +1,28 @@
+<h2><%= @nurse.last_and_first_name %>: <%= Participant.model_name.human(count: 2) %></h2>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= t("activerecord.attributes.participant.study_identifier") %></th>
+          <th><%= NurseTask.model_name.human(count: 2) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @nurse_dashboard.participant_summaries.each do |participant_summary| %>
+          <% unless participant_summary.css_class == "success" %>
+            <tr class="<%= participant_summary.css_class %>">
+              <td>
+                <%= participant_summary.study_identifier %>
+              </td>
+              <td>
+                <%= participant_summary.active_tasks_list %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

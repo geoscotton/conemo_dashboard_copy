@@ -391,6 +391,7 @@ ActiveRecord::Schema.define(version: 20160328155643) do
     t.datetime "contact_at",   null: false
     t.string   "contact_kind", null: false
     t.integer  "nurse_id",     null: false
+    t.text     "notes"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

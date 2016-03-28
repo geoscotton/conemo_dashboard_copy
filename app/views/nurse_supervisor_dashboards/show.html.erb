@@ -53,7 +53,7 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4>
-        <%= nurse.last_and_first_name %>
+        <%= link_to nurse.last_and_first_name, nurse_tasks_summary_path(nurse) %>
         <% if nurse.supervision_sessions.latest %>
           <small class="pull-right <%= SupervisionSessionPresenter.new(nurse.supervision_sessions.latest).css_class %>">
             Last supervision session: <%= l nurse.supervision_sessions.latest.session_at, format: :long %>
