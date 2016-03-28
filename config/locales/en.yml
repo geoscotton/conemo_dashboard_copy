@@ -294,6 +294,10 @@ en:
           - Difficulty watching video(s)
           - Difficulties with activity selection
           - Other difficulties
+      supervision_contact:
+        contact_kinds:
+          - Phone call
+          - In person
       supervision_session:
         contact_kinds:
           - Phone
@@ -378,6 +382,9 @@ en:
       second_contact:
         one: Follow up call week 1
         other: Follow up calls week 1
+      supervision_contact:
+        one: Supervision contact
+        other: Supervision contacts
       supervision_session:
         one: Supervision session
         other: Supervision sessions
@@ -440,6 +447,10 @@ en:
         difficulties: Did the patient have any difficulties using CONEMO?
         session_length: Length of phone call (minutes)
         next_contact: Follow up call week 3
+        notes: Notes
+      supervision_contact:
+        contact_at: Date and time of contact
+        contact_kind: Type
         notes: Notes
       supervision_session:
         session_at: Session at

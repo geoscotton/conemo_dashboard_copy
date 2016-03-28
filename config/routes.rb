@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     get "/participants/:participant_id/first_contacts/missed_appointment" => "first_contacts#missed_appointment", as: :missed_appointment
 
     resources :nurses, only: [] do
+      resources :supervision_contacts, only: [:new, :create]
       resources :supervision_sessions, only: [:new, :create]
     end
 

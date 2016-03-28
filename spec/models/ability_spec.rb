@@ -78,6 +78,12 @@ RSpec.describe Ability do
       expect(en_nurse_supervisor_role.can?(:read, pt_participant)).to eq false
     end
 
+    it "can create SupervisionContact for assigned Nurses" do
+      contact = SupervisionContact.new(nurse: en_nurse)
+
+      expect(en_nurse_supervisor_role.can?(:create, contact)).to eq true
+    end
+
     it "can create SupervisionSession for assigned Nurses" do
       session = SupervisionSession.new(nurse: en_nurse)
 
