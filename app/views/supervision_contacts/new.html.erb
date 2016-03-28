@@ -1,0 +1,43 @@
+<h1><%= SupervisionContact.model_name.human %></h1>
+
+<div class="row well">
+  <div class="col-md-10">
+    <%= form_for @supervision_contact,
+                 url: nurse_supervision_contacts_path(@nurse),
+                 html: { role: "form", class: "form-horizontal" } do |f| %>
+      <div class="form-group">
+        <%= f.label :contact_at, class: "col-md-3 control-label" %>
+        <div class="col-md-7">
+          <%= f.datetime_select :contact_at, {}, { class: "date-select" } %>
+          <br>
+          <small><%= Time.zone %></small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :contact_kind, class: "col-md-3 control-label" %>
+        <div class="col-md-7">
+          <% t("activerecord.field_options.supervision_contact.contact_kinds").each do |kind| %>
+            <label class="radio-inline">
+              <%= f.radio_button :contact_kind, kind, required: true %> <%= kind %>
+            </label>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :notes, class: "col-md-3 control-label" %>
+        <div class="col-md-7">
+          <%= f.text_area :notes, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-offset-3 col-md-7">
+          <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+          <%= link_to t("conemo.views.shared.cancel_button"), nurse_supervisor_dashboard_path, class: "btn btn-default" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

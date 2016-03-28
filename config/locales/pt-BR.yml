@@ -499,10 +499,14 @@ pt-BR:
           - Dificuldade para ver vídeo(s)
           - Dificuldade na seleção de atividades
           - Outras dificuldades
+      supervision_contact:
+        contact_kinds:
+          - por telefone
+          - presencial
       supervision_session:
         contact_kinds:
-          - Phone
-          - In person
+          - por telefone
+          - presencial
         meeting_kinds:
           - Group
           - Individual
@@ -554,6 +558,9 @@ pt-BR:
         one: Cancel contact point
         other: Cancel contact points
       second_contact: Chamada de seguimento sem. 1
+      supervision_contact:
+        one: Supervision contact
+        other: Supervision contact
       supervision_session:
         one: Supervision session
         other: Supervision sessions
@@ -611,6 +618,10 @@ pt-BR:
         difficulties: O paciente tem tido dificuldades com CONEMO?
         next_contact: Chamada de seguimento sem. 3
         session_length: Duração da chamada (minutos)
+        notes: Observações
+      supervision_contact:
+        contact_at: Data e hora do contato
+        contact_kind: Tipo de contato
         notes: Observações
       supervision_session:
         session_at: Session at

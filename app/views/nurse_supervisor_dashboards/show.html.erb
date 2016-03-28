@@ -68,11 +68,14 @@
     </div>
 
     <div class="panel-body">
-      <p>
+      <div class="btn-group" role="group" aria-label="Actions">
         <%= link_to "Log supervision session",
                     new_nurse_supervision_session_path(nurse),
                     { class: "btn btn-link" } %>
-      </p>
+        <%= link_to "Log supervision contact",
+                    new_nurse_supervision_contact_path(nurse),
+                    { class: "btn btn-link" } %>
+      </div>
     </div>
   </div>
 <% end %>
