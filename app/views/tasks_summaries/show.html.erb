@@ -11,16 +11,15 @@
       </thead>
       <tbody>
         <% @nurse_dashboard.participant_summaries.each do |participant_summary| %>
-          <% unless participant_summary.css_class == "success" %>
-            <tr class="<%= participant_summary.css_class %>">
-              <td>
-                <%= participant_summary.study_identifier %>
-              </td>
-              <td>
-                <%= participant_summary.active_tasks_list %>
-              </td>
-            </tr>
-          <% end %>
+          <tr class="clickable-row <%= participant_summary.css_class %>"
+              data-href="<%= participant_clinical_summary_path(participant_id: participant_summary.id) %>">
+            <td>
+              <%= participant_summary.study_identifier %>
+            </td>
+            <td>
+              <%= participant_summary.active_tasks_list %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>

@@ -1,12 +1,16 @@
 <div class="row">
   <div class="col-md-6 col-sm-6 col-xs-6">
     <h1>
-      <%= link_to "", participant_tasks_path(@participant), class: "fa fa-chevron-left" %>
+      <% if current_user.nurse? %>
+        <%= link_to "", participant_tasks_path(@participant), class: "fa fa-chevron-left" %>
+      <% else %>
+        <%= link_to "", nurse_tasks_summary_path(@participant.nurse), class: "fa fa-chevron-left" %>
+      <% end %>
       <%= "#{@participant.first_name} #{@participant.last_name}" %>
     </h1>
   </div>
   <div class="col-md-3 col-sm-3 col-xs-3 lesson-legend">
-    <%= render 'lesson_legend' %>
+    <%= render "active/participants/lesson_legend" %>
   </div>
 </div>
 
@@ -56,7 +60,7 @@
     </ul>
 
     <div class="tab-content">
-      <%= render partial: "lessons_table", :locals => {participant: @participant, lessons: @lessons} %>
+      <%= render partial: "active/participants/lessons_table", :locals => {participant: @participant, lessons: @lessons} %>
     </div>
   </div>
 

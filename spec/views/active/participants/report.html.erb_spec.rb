@@ -41,8 +41,15 @@ RSpec.describe "active/participants/report", type: :view do
       assign(:participant, participant)
     end
 
+    def stub_nurse
+      nurse = Nurse.new(id: rand)
+      allow(view).to receive(:current_user) { nurse }
+      allow(participant).to receive(:nurse) { nurse }
+    end
+
     it "renders lesson statuses" do
       stub_participant
+      stub_nurse
       assign(:lessons, [lesson])
       assign(:participant_contacts, [])
 
@@ -57,6 +64,7 @@ RSpec.describe "active/participants/report", type: :view do
 
     it "renders the contact points" do
       stub_participant
+      stub_nurse
       assign(:lessons, [])
       assign(:participant_contacts,
              [
