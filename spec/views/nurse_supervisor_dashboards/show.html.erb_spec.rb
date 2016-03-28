@@ -27,6 +27,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
   it "renders correctly when there are no participants or nurses" do
     assign(:pending_participants, [])
+    assign(:active_participants, [])
     assign(:completed_participants, [])
     assign(:dropped_out_participants, [])
     assign(:nurses, [])
@@ -42,6 +43,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
     def assign_pending_and_render
       assign(:pending_participants, [pending1, pending2])
+      assign(:active_participants, [])
       assign(:completed_participants, [])
       assign(:dropped_out_participants, [])
       assign(:nurses, [])
@@ -85,6 +87,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
     def assign_completed_and_render
       assign(:pending_participants, [])
+      assign(:active_participants, [])
       assign(:completed_participants, [completed1, completed2])
       assign(:dropped_out_participants, [])
       assign(:nurses, [])
@@ -118,6 +121,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
     def assign_dropped_out_and_render
       assign(:pending_participants, [])
+      assign(:active_participants, [])
       assign(:completed_participants, [])
       assign(:dropped_out_participants, [dropped_out1, dropped_out2])
       assign(:nurses, [])
@@ -164,6 +168,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     def assign_nurses_and_render
       I18n.locale = "en"
       assign(:pending_participants, [])
+      assign(:active_participants, [])
       assign(:completed_participants, [])
       assign(:dropped_out_participants, [])
       assign(:nurses, [nurse1, nurse2])
