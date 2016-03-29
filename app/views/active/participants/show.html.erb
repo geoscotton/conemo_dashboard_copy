@@ -1,6 +1,11 @@
-<h1>
-  <%= link_to "", active_report_path(@participant), class: "fa fa-chevron-left" %>
-</h1>
+<div class="btn-group">
+  <% if current_user.nurse? %>
+    <%= link_to NurseTask.model_name.human(count: 2), participant_tasks_path(@participant), class: "btn btn-link" %>
+  <% else %>
+    <%= link_to NurseTask.model_name.human(count: 2), nurse_tasks_summary_path(@participant.nurse), class: "btn btn-link" %>
+  <% end %>
+  <%= link_to "Clinical Summary", active_report_path(@participant), class: "btn btn-link" %>
+</div>
 
 <div class="profile">
   <div class="row">

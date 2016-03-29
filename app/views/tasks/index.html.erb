@@ -1,7 +1,7 @@
-<div><%= link_to t(".clinical_summary", default: "Clinical Summary"), active_report_path(@tasks.id) %></div>
-<div><%= link_to AdditionalContact.model_name.human, new_participant_additional_contact_path(@tasks.id) %></div>
-
-<%= @tasks.active_tasks.count %> <%= "task".pluralize(@tasks.active_tasks.count) %>, <%= @tasks.overdue_tasks.count %> overdue
+<div class="btn-group">
+  <%= link_to t(".clinical_summary", default: "Clinical Summary"), active_report_path(@tasks.id), class: "btn btn-link" %>
+  <%= link_to AdditionalContact.model_name.human, new_participant_additional_contact_path(@tasks.id), class: "btn btn-link" %>
+</div>
 
 <div class="progress">
   <% @tasks.scheduled_tasks.each_with_index do |task, i| %>
@@ -12,6 +12,8 @@
     <% end %>
   <% end %>
 </div>
+
+<%= @tasks.active_tasks.count %> <%= NurseTask.model_name.human(count: @tasks.active_tasks.count) %>, <%= @tasks.overdue_tasks.count %> overdue
 
 <% @tasks.active_tasks.each do |task| %>
   <div class="panel panel-default">

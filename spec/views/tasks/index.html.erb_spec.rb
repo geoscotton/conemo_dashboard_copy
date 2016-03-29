@@ -29,6 +29,7 @@ RSpec.describe "tasks/index", type: :view do
   end
 
   it "renders the assigned active task count" do
+    I18n.locale = "en"
     assign(:tasks, tasks)
     allow(tasks)
       .to receive(:active_tasks)
@@ -42,7 +43,7 @@ RSpec.describe "tasks/index", type: :view do
 
     render template: template
 
-    expect(rendered).to include "3 tasks"
+    expect(rendered).to include "3 Tasks"
   end
 
   it "renders the overdue task count" do

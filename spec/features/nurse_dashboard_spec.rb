@@ -9,7 +9,7 @@ RSpec.describe "Nurse dashboard", type: :feature do
   scenario "a Nurse creates an additional contact" do
     sign_in_user es_nurse
 
-    click_on es_nurse.active_participants.first.study_identifier
+    visit "/es-PE/participants/#{es_nurse.active_participants.first.id}/tasks"
     click_on "Additional contact"
 
     select Time.zone.today.year, from: "additional_contact_scheduled_at_1i"
