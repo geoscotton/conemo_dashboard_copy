@@ -17,3 +17,33 @@ supervision_session_2:
   nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_402) %>
   created_at: <%= 12.business_days.before today_at_11_am %>
   updated_at: <%= 12.business_days.before today_at_11_am %>
+
+supervision_session_3:
+  session_at: <%= 8.business_days.before today_at_11_am %>
+  session_length: 10
+  meeting_kind: Group
+  contact_kind: Phone
+  nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_404) %>
+  created_at: <%= 8.business_days.before today_at_11_am %>
+  updated_at: <%= 8.business_days.before today_at_11_am %>
+
+supervision_session_4:
+  session_at: <%= 12.business_days.before today_at_11_am %>
+  session_length: 20
+  meeting_kind: Individual
+  contact_kind: In person
+  nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_404) %>
+  created_at: <%= 12.business_days.before today_at_11_am %>
+  updated_at: <%= 12.business_days.before today_at_11_am %>
+
+supervision_session_5:
+  session_at: <%= 3.business_days.before today_at_11_am %>
+  session_length: 30
+  meeting_kind: Group
+  contact_kind: Phone
+  topics:
+    - Non-resolved help requests
+    - Cancelled tasks
+  nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_404) %>
+  created_at: <%= 3.business_days.before today_at_11_am %>
+  updated_at: <%= 3.business_days.before today_at_11_am %>
