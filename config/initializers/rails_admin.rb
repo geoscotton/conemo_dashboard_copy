@@ -24,10 +24,10 @@ RailsAdmin.config do |config|
     index                         # mandatory
     export
     new do
-      only [Admin, Nurse, NurseSupervisor]
+      only [Admin, Nurse, NurseSupervisor, NurseTask]
     end
     edit do
-      only [Admin, Nurse, NurseSupervisor]
+      only [Admin, Nurse, NurseSupervisor, NurseTask]
     end
     bulk_delete
     show
@@ -241,6 +241,8 @@ RailsAdmin.config do |config|
   end
 
   config.model Nurse do
+    object_label_method :last_and_first_name
+
     edit do
       field :email
       field :phone

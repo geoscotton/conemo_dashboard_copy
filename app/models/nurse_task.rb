@@ -13,6 +13,8 @@ class NurseTask < ActiveRecord::Base
   before_validation :set_scheduled_at
   before_validation :set_overdue_at
 
+  delegate :nurse, to: :participant
+
   def self.for_participant(participant)
     where participant: participant
   end
