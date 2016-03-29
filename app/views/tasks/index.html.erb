@@ -3,6 +3,30 @@
   <%= link_to AdditionalContact.model_name.human, new_participant_additional_contact_path(@tasks.id), class: "btn btn-link" %>
 </div>
 
+<div class="row">
+  <div class="col-sm-4 col-md-3">
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td>scheduled but not due</td>
+        </tr>
+        <tr class="success">
+          <td>confirmed</td>
+        </tr>
+        <tr class="info">
+          <td>active due</td>
+        </tr>
+        <tr class="warning">
+          <td>cancelled</td>
+        </tr>
+        <tr class="danger">
+          <td>overdue</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <div class="progress">
   <% @tasks.scheduled_tasks.each_with_index do |task, i| %>
     <%= content_tag("div",
