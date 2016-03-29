@@ -381,3 +381,19 @@
     locale: en
     address: 123 Main Street
 <% end %>
+
+<% (4000..4040).each do |pt_id| %>
+  participant<%= pt_id %>:
+    nurse: user_401
+    first_name: First
+    last_name: Last-<%= pt_id %>
+    study_identifier: <%= pt_id %>
+    family_health_unit_name: Family Health Center
+    phone: 1404040<%= pt_id %>
+    date_of_birth: <%= Date.today - ((54 * 365) - pt_id) %>
+    gender: female
+    enrollment_date: <%= Date.today - 10 %>
+    status: active
+    locale: en
+    address: 123 Main Street
+<% end %>
