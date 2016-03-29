@@ -15,7 +15,7 @@
         <td><%= session.session_length %></td>
         <td><%= session.meeting_kind %></td>
         <td><%= session.contact_kind %></td>
-        <td><%= session.topics.join(", ") %></td>
+        <td><%= session.topics.try(:join ,", ") %></td>
       </tr>
     <% end %>
   </tbody>
