@@ -192,9 +192,6 @@ pt-BR:
         q1: "Baseado nas informações obtidas durante a chamada telefônica com o paciente, como você avalia a habilidade dele(a) em usar o aplicativo?"
         q2: "Baseado na conversa que você teve com o paciente por telefone, como você considera o nível de motivação em realizar as tarefas solicitadas e em participar do CONEMO?"
         q3: "Na sua opinião, e baseado na sua experiência, quais seriam as chances deste paciente usar o aplicativo?"
-      smartphone:
-        number: Número do Smartphone
-        phone_identifier: Código do Smartphone
       patient_contact:
         contact_at: "Data do contato"
         contact_reason: "Motivo"
@@ -558,6 +555,9 @@ pt-BR:
         one: Cancel contact point
         other: Cancel contact points
       second_contact: Chamada de seguimento sem. 1
+      smartphone:
+        one: Smartphone
+        other: Smartphones
       supervision_contact:
         one: Supervision contact
         other: Supervision contact
@@ -619,6 +619,9 @@ pt-BR:
         next_contact: Chamada de seguimento sem. 3
         session_length: Duração da chamada (minutos)
         notes: Observações
+      smartphone:
+        number: Número do Smartphone
+        phone_identifier: Código do Smartphone
       supervision_contact:
         contact_at: Data e hora do contato
         contact_kind: Tipo de contato

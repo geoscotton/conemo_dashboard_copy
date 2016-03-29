@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   SESSION_TIMEOUT = 30.minutes.freeze
 
   devise :database_authenticatable, :recoverable, :trackable, :validatable,
-         :timeoutable, timeout_in: SESSION_TIMEOUT
+         :confirmable, :timeoutable, timeout_in: SESSION_TIMEOUT
 
   validates :email, :phone, :first_name, :last_name, :locale, presence: true
   validates :role, inclusion: { in: ROLES.values }
