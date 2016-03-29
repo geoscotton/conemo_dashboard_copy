@@ -29,6 +29,10 @@ class NurseTask < ActiveRecord::Base
     where status: STATUSES.deleted
   end
 
+  def self.cancelled
+    where status: STATUSES.cancelled
+  end
+
   def self.overdue
     active
       .where(arel_table[:overdue_at].lteq(Time.zone.now))
@@ -76,6 +80,10 @@ class NurseTask < ActiveRecord::Base
 
   def target
     raise "implement in subclass"
+  end
+
+  def cancellation_explanation
+    ScheduledTaskCancellation.find_by(nurse_task: self).try(:explanation)
   end
 
   private

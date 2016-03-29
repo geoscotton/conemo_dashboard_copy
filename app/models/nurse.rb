@@ -25,6 +25,10 @@ class Nurse < User
     active_participant_tasks.overdue
   end
 
+  def cancelled_tasks
+    active_participant_tasks.cancelled
+  end
+
   private
 
   def active_participant_tasks
