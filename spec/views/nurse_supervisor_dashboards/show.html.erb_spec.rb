@@ -24,6 +24,16 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
   let(:date) { Time.zone.today }
   let(:time) { Time.zone.now }
   let(:date_str) { I18n.l date, format: :long }
+  let(:nurse1) do
+    instance_double(Nurse,
+                    last_and_first_name: "Nurse 1",
+                    cancelled_tasks: [])
+  end
+  let(:nurse2) do
+    instance_double(Nurse,
+                    last_and_first_name: "Nurse 2",
+                    cancelled_tasks: [])
+  end
 
   it "renders correctly when there are no participants or nurses" do
     assign(:pending_participants, [])
@@ -80,8 +90,6 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
   end
 
   context "when there are completed participants" do
-    let(:nurse1) { instance_double(Nurse, last_and_first_name: "Nurse 1") }
-    let(:nurse2) { instance_double(Nurse, last_and_first_name: "Nurse 2") }
     let(:completed1) { stub_participant 1, "Cory Caper", nurse: nurse1 }
     let(:completed2) { stub_participant 2, "Diggory Dapper", nurse: nurse2 }
 
@@ -114,8 +122,6 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
   end
 
   context "when there are dropped out participants" do
-    let(:nurse1) { instance_double(Nurse, last_and_first_name: "Nurse 1") }
-    let(:nurse2) { instance_double(Nurse, last_and_first_name: "Nurse 2") }
     let(:dropped_out1) { stub_participant 1, "Cory Caper", nurse: nurse1 }
     let(:dropped_out2) { stub_participant 2, "Diggory Dapper", nurse: nurse2 }
 
@@ -155,6 +161,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
                       current_tasks: [],
                       overdue_tasks: [],
                       active_tasks: [],
+                      cancelled_tasks: [],
                       supervision_sessions: sessions1).as_null_object
     end
     let(:sessions2) { double("sessions").as_null_object }
@@ -164,6 +171,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
                       current_tasks: [],
                       overdue_tasks: [],
                       active_tasks: [],
+                      cancelled_tasks: [],
                       supervision_sessions: sessions2).as_null_object
     end
 

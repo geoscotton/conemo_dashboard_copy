@@ -148,6 +148,12 @@
           <% end %>
         <% end %>
       </div>
+
+      <ul class="list-unstyled">
+        <% nurse.cancelled_tasks.each do |task| %>
+          <li class="text-warning"><%= task %> cancelled: <%= task.cancellation_explanation %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 <% end %>
