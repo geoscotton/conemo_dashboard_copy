@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.9.4 - 2016-03-29
+
+* allow Task viewing/editing in Rails admin
+* redirect non-Nurses to root from dashboard
+* fix contact supervisor bug
+* update "Additional contact" text
+* add color key to progress bar
+* display cancelled tasks to Supervisor
+* make Users confirmable
+* update labels for smartphone
+
 ## 0.9.3 - 2016-03-29
 
 * add user id to Sentry context
