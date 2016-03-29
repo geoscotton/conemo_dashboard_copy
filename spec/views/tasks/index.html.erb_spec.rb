@@ -28,14 +28,6 @@ RSpec.describe "tasks/index", type: :view do
       .to have_selector(".progress-bar-foo", text: "completed task 1")
   end
 
-  it "renders the participant study id" do
-    assign(:tasks, tasks)
-
-    render template: template
-
-    expect(rendered).to include "Patient 1234"
-  end
-
   it "renders the assigned active task count" do
     assign(:tasks, tasks)
     allow(tasks)
