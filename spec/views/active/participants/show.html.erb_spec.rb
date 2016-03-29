@@ -5,14 +5,15 @@ require "rails_helper"
 RSpec.describe "active/participants/show", type: :view do
   let(:template) { "active/participants/show" }
   let(:now) { Time.zone.now }
+  let(:today) { Time.zone.today }
 
-  it "renders the participant's full name" do
+  it "renders the participant's date of birth" do
     participant = Participant.new(
       id: rand,
       first_name: "Nina",
       last_name: "Simone",
-      date_of_birth: Time.zone.today,
-      enrollment_date: Time.zone.today,
+      date_of_birth: today,
+      enrollment_date: today,
       smartphone: Smartphone.new
     )
     contacts = [
@@ -31,6 +32,6 @@ RSpec.describe "active/participants/show", type: :view do
 
     render template: template
 
-    expect(rendered).to include "Nina Simone"
+    expect(rendered).to include I18n.l(today, format: :long)
   end
 end
