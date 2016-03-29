@@ -188,9 +188,6 @@ en:
         q1: "Based on the call you had with the patient, how would you rate their ability to use the application?"
         q2: "Based on the call you had with the patient, how motivated is he/she to perform the proposed tasks and participate in CONEMO?"
         q3: "In your opinion, how likely is the patient to use the application?"
-      smartphone:
-        number: Phone number of study phone
-        phone_identifier: Phone ID
       patient_contact:
         contact_at: time of note
         contact_reason: reason
@@ -382,6 +379,9 @@ en:
       second_contact:
         one: Follow up call week 1
         other: Follow up calls week 1
+      smartphone:
+        one: Smartphone
+        other: Smartphones
       supervision_contact:
         one: Supervision contact
         other: Supervision contacts
@@ -448,6 +448,9 @@ en:
         session_length: Length of phone call (minutes)
         next_contact: Follow up call week 3
         notes: Notes
+      smartphone:
+        number: Phone number
+        phone_identifier: Serial number
       supervision_contact:
         contact_at: Date and time of contact
         contact_kind: Type
