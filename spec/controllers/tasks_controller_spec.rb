@@ -194,8 +194,7 @@ RSpec.describe TasksController, type: :controller do
 
         expect(SupervisorNotification)
           .to have_received(:new)
-          .with(nurse_supervisor: nurse.nurse_supervisor,
-                nurse_task: task)
+          .with(nurse_task: task)
       end
 
       context "when successful" do

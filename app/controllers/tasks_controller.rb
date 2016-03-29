@@ -39,10 +39,8 @@ class TasksController < ApplicationController
   end
 
   def notify_supervisor
-    notification = SupervisorNotification.new(
-      nurse_supervisor: current_user.nurse_supervisor,
-      nurse_task: find_task
-    )
+    notification = SupervisorNotification.new(nurse_task: find_task)
+
     if notification.save
       flash[:notice] = "a notification has been sent for your supervisor " \
                        "to review this issue"
