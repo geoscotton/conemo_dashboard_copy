@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 RSpec.describe Smartphone, type: :model do
   describe "sanitization" do
-    it "scrubs non-digits" do
+    it "scrubs non-alphanumerics" do
+      smartphone = Smartphone.new(number: "1k2l3JKl456jih78-9=0")
+
+      expect(smartphone.tap(&:valid?).number).to eq "1k2l3JKl456jih7890"
+
       %w(
-        1k2l3jkl456jih78-9=0
         \ \ \ 1234567890
         1#!@#$!@#$234567\(\)*\(*&890
       ).each do |input|

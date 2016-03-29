@@ -13,6 +13,6 @@ class Smartphone < ActiveRecord::Base
   def sanitize_number
     return if number.nil?
 
-    self.number = number.gsub(/[^0-9]/, "")
+    self.number = number.gsub(/[^0-9A-Z]/i, "")
   end
 end
