@@ -6,15 +6,18 @@ RSpec.describe "active/participants/show", type: :view do
   let(:template) { "active/participants/show" }
   let(:now) { Time.zone.now }
   let(:today) { Time.zone.today }
+  let(:nurse) { Nurse.new(id: rand) }
 
   it "renders the participant's date of birth" do
+    allow(view).to receive(:current_user) { nurse }
     participant = Participant.new(
       id: rand,
       first_name: "Nina",
       last_name: "Simone",
       date_of_birth: today,
       enrollment_date: today,
-      smartphone: Smartphone.new
+      smartphone: Smartphone.new,
+      nurse: nurse
     )
     contacts = [
       FirstContact.new(contact_at: now, participant: participant),

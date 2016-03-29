@@ -12,12 +12,13 @@
       </thead>
       <tbody>
         <% @nurse_dashboard.participant_summaries.each do |participant_summary| %>
-          <tr class="<%= participant_summary.css_class %>">
+          <tr class="clickable-row <%= participant_summary.css_class %>"
+              data-href="<%= participant_tasks_path(participant_summary.id) %>">
             <td>
-              <%= link_to participant_summary.study_identifier, participant_tasks_path(participant_summary.id) %>
+              <%= participant_summary.study_identifier %>
             </td>
             <td>
-              <%= link_to participant_summary.active_tasks_list, participant_tasks_path(participant_summary.id) %>
+              <%= participant_summary.active_tasks_list %>
             </td>
             <td>
               <%= participant_summary.configuration_token %>

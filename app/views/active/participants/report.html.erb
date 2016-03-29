@@ -1,19 +1,12 @@
-<div class="row">
-  <div class="col-md-6 col-sm-6 col-xs-6">
-    <h1>
-      <% if current_user.nurse? %>
-        <%= link_to "", participant_tasks_path(@participant), class: "fa fa-chevron-left" %>
-      <% else %>
-        <%= link_to "", nurse_tasks_summary_path(@participant.nurse), class: "fa fa-chevron-left" %>
-      <% end %>
-    </h1>
-  </div>
-  <div class="col-md-3 col-sm-3 col-xs-3 lesson-legend">
-    <%= render "active/participants/lesson_legend" %>
-  </div>
+<div class="btn-group">
+  <% if current_user.nurse? %>
+    <%= link_to NurseTask.model_name.human(count: 2), participant_tasks_path(@participant), class: "btn btn-link" %>
+  <% else %>
+    <%= link_to NurseTask.model_name.human(count: 2), nurse_tasks_summary_path(@participant.nurse), class: "btn btn-link" %>
+  <% end %>
+  <%= link_to "participant contact information page", active_participant_path(@participant), class: "btn btn-link" %>
 </div>
 
-<p><%= link_to "participant contact information page", active_participant_path(@participant) %></p>
 
 <div class="row report">
   <div class="col-md-2 col-sm-2 col-xs-2">
@@ -64,6 +57,8 @@
   </div>
 
   <div class="col-md-3 col-sm-3 col-xs-3">
+    <%= render "active/participants/lesson_legend" %>
+
     <table class="table">
       <thead>
         <th class="text-center">

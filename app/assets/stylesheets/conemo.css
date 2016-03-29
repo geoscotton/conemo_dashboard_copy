@@ -17,3 +17,8 @@ body {
 .btn-group > .button_to {
   display: inline;
 }
+
+/* tasks table */
+.table > tbody > tr > td {
+  border-color: inherit;
+}
