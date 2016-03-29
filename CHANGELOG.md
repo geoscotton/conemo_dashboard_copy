@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.9.3 - 2016-03-29
+
+* add user id to Sentry context
+* add color coding key on main page
+* make UI improvements for usability
+* update progress + task color codes
+* display additional contact l/r based on kind
+* accept letters and numbers for smartphone
+* add Participant id and name to header
+* ensure Participants can be deleted
+
 ## 0.9.2 - 2016-03-29
 
 * be more liberal when listing optional topics
