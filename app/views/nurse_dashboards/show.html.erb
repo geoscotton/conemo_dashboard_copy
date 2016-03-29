@@ -1,31 +1,49 @@
 <h2>Your Patients</h2>
 
-<div class="panel panel-default">
-  <div class="panel-body">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th><%= t("activerecord.attributes.participant.study_identifier") %></th>
-          <th><%= NurseTask.model_name.human(count: 2) %></th>
-          <th><%= TokenAuth::ConfigurationToken.model_name.human %></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @nurse_dashboard.participant_summaries.each do |participant_summary| %>
-          <tr class="clickable-row <%= participant_summary.css_class %>"
-              data-href="<%= participant_tasks_path(participant_summary.id) %>">
-            <td>
-              <%= participant_summary.study_identifier %>
-            </td>
-            <td>
-              <%= participant_summary.active_tasks_list %>
-            </td>
-            <td>
-              <%= participant_summary.configuration_token %>
-            </td>
+<div class="col-sm-10 col-md-10">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><%= t("activerecord.attributes.participant.study_identifier") %></th>
+            <th><%= NurseTask.model_name.human(count: 2) %></th>
+            <th><%= TokenAuth::ConfigurationToken.model_name.human %></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @nurse_dashboard.participant_summaries.each do |participant_summary| %>
+            <tr class="clickable-row <%= participant_summary.css_class %>"
+                data-href="<%= participant_tasks_path(participant_summary.id) %>">
+              <td>
+                <%= participant_summary.study_identifier %>
+              </td>
+              <td>
+                <%= participant_summary.active_tasks_list %>
+              </td>
+              <td>
+                <%= participant_summary.configuration_token %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
+</div>
+
+<div class="col-sm-2 col-md-2">
+  <table class="table table-condensed">
+    <tbody>
+      <tr class="success">
+        <td>no active/overdue task</td>
+      </tr>
+      <tr class="info">
+        <td>active task</td>
+      </tr>
+      <tr class="danger">
+        <td>overdue task</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
