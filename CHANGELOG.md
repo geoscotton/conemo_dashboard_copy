@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.2 - 2016-03-29
+
+* be more liberal when listing optional topics
+* allow Supervisors to clear Notifications
+* dissociate Notifications from Supervisors
+* add active participant count
+* display dropped out participants
+* display completed participants to Supervisor
+
 ## 0.9.1 - 2016-03-28
 
 * show detailed Participant data to Supervisor
