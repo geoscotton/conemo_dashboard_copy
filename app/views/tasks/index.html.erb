@@ -1,6 +1,6 @@
 <div class="btn-group">
   <%= link_to t(".clinical_summary", default: "Clinical Summary"), active_report_path(@tasks.id), class: "btn btn-link" %>
-  <%= link_to AdditionalContact.model_name.human, new_participant_additional_contact_path(@tasks.id), class: "btn btn-link" %>
+  <%= link_to t("conemo.views.shared.register").capitalize + " " + AdditionalContact.model_name.human.downcase, new_participant_additional_contact_path(@tasks.id), class: "btn btn-link" %>
 </div>
 
 <div class="row">

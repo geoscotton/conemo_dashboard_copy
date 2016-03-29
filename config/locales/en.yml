@@ -35,6 +35,7 @@ en:
         reschedule: "reschedule"
         reschedule_heading: "Reschedule"
         app_download: "App Download"
+        register: register
       dashboards:
         index:
           heading: "Welcome!"

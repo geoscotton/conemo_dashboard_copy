@@ -29,6 +29,7 @@ es-PE:
         reschedule: "reprogramar"
         reschedule_heading: "Reprogramar"
         app_download: "Descarga la Aplicación"
+        register: registrar
       dashboards:
         index:
           heading: "¡Bienvenido!"
@@ -562,7 +563,9 @@ es-PE:
           - Dificultades para seleccionar actividades
           - Otras dificultades
     models:
-      additional_contact: Additional contact
+      additional_contact:
+        one: contato adicional
+        other: contatos adicionales
       admin: Admin
       call_to_schedule_final_appointment: Llamada para programar cita final
       "tasks/call_to_schedule_final_appointment": Llamada para programar cita final

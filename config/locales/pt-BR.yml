@@ -29,6 +29,7 @@ pt-BR:
         reschedule: "remarcar"
         reschedule_heading: "Remarcar"
         app_download: "Baixar Aplicativo"
+        register: registrar
       dashboards:
         index:
           heading: "Bem-vindo!"
@@ -529,7 +530,9 @@ pt-BR:
           - Dificuldade na seleção de atividades
           - Outras dificuldades
     models:
-      additional_contact: Additional contact
+      additional_contact:
+        one: contacto adicional
+        other: contacto adicional
       admin: Admin
       call_to_schedule_final_appointment: Chamada para agendar encontro final
       "tasks/call_to_schedule_final_appointment": Chamada para agendar encontro final
