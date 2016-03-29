@@ -1,5 +1,12 @@
-<li class="timeline-inverted">
-  <div class="timeline-badge" style="background-color:orange"><i class="fa fa-user-md fa-lg"></i></div>
+<% in_person = ['in person', 'en persona', 'presencial'].include?(additional_contact.kind.downcase) %>
+<li class="<%= in_person ? 'timeline-inverted' : '' %>">
+  <div class="timeline-badge <%= in_person ? '' : 'success' %>" style="<%= in_person ? 'background-color:orange' : '' %>">
+    <% if in_person %>
+      <i class="fa fa-user-md fa-lg"></i>
+    <% else %>
+      <i class="fa fa-phone-square"></i>
+    <% end %>
+  </div>
 
   <div class="timeline-panel">
     <div class="timeline-heading">
