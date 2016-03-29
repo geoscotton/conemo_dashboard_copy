@@ -9,9 +9,10 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.root_url, alert: exception.message
   end
 
-  before_action :set_locale
-  before_action :authenticate_user!
-  before_action :authorize_locale
+  before_action :set_locale,
+                :authenticate_user!,
+                :authorize_locale,
+                :set_raven_user_context
   around_action :user_time_zone, if: :current_user
 
   layout :layout_by_resource
@@ -46,5 +47,9 @@ class ApplicationController < ActionController::Base
 
   def user_time_zone(&block)
     Time.use_zone(current_user.timezone, &block)
+  end
+
+  def set_raven_user_context
+    Raven.user_context(user_id: current_user.try(:id))
   end
 end
