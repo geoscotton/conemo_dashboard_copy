@@ -7,7 +7,7 @@ class ParticipantSummaryPresenter
   delegate :id, :study_identifier, to: :participant
 
   CSS_CLASSES = Struct.new(:no_tasks, :overdue_tasks, :current_tasks)
-                      .new("success", "danger", "warning")
+                      .new("success", "danger", "info")
 
   def initialize(participant, tasks)
     @participant = participant

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 # Presentational information for a Nurse Task.
 class TaskPresenter
-  CSS_CLASSES = Struct.new(:future, :resolved, :active, :cancelled)
-                      .new("future", "success", "warning", "danger")
+  CSS_CLASSES = Struct.new(:future, :resolved, :active, :cancelled, :overdue)
+                      .new("future", "success", "info", "error", "danger")
 
   attr_reader :task
 
@@ -17,6 +17,8 @@ class TaskPresenter
     if active?
       if scheduled_at.to_date > Time.zone.today
         CSS_CLASSES.future
+      elsif overdue?
+        CSS_CLASSES.overdue
       else
         CSS_CLASSES.active
       end
