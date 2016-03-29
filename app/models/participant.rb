@@ -13,11 +13,16 @@ class Participant < ActiveRecord::Base
   has_one :second_contact, dependent: :destroy
   has_one :smartphone, dependent: :destroy
   has_one :third_contact, dependent: :destroy
+  has_many :additional_contacts, dependent: :destroy
   has_many :content_access_events, dependent: :destroy
   has_many :devices, dependent: :destroy
   has_many :help_messages, dependent: :destroy
+  has_many :help_request_calls, dependent: :destroy
+  has_many :lack_of_connectivity_calls, dependent: :destroy
   has_many :lessons, through: :content_access_events
   has_many :logins, dependent: :destroy
+  has_many :non_adherence_calls, dependent: :destroy
+  has_many :nurse_tasks, dependent: :destroy
   has_many :participant_start_dates, dependent: :destroy
   has_many :patient_contacts, dependent: :destroy
   has_many :planned_activities, dependent: :destroy
