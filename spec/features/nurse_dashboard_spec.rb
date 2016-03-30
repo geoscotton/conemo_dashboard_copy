@@ -10,7 +10,7 @@ RSpec.describe "Nurse dashboard", type: :feature do
     sign_in_user es_nurse
 
     visit "/es-PE/participants/#{es_nurse.active_participants.first.id}/tasks"
-    click_on "Registrar contato adicional"
+    click_on "Registrar contacto adicional"
 
     select Time.zone.today.year, from: "additional_contact_scheduled_at_1i"
     select "febrero", from: "additional_contact_scheduled_at_2i"
