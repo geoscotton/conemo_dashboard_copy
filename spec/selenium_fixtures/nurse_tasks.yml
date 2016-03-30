@@ -3,8 +3,8 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
-    scheduled_at: <%= DateTime.now - 1.hours %>
-    overdue_at: <%= DateTime.now + 3.days - 1.hours %>
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
 <% end %>
 
 <% (303..303).each do |pt_id| %>
