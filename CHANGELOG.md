@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.5 - 2016-03-30
+
+* fix translation for Additional contact
+* show study id for cancelled tasks
+
 ## 0.9.4 - 2016-03-29
 
 * allow Task viewing/editing in Rails admin
