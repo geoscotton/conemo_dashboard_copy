@@ -564,8 +564,8 @@ es-PE:
           - Otras dificultades
     models:
       additional_contact:
-        one: contato adicional
-        other: contatos adicionales
+        one: contacto adicional
+        other: contactos adicionales
       admin: Admin
       call_to_schedule_final_appointment: Llamada para programar cita final
       "tasks/call_to_schedule_final_appointment": Llamada para programar cita final

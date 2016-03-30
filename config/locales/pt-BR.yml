@@ -531,8 +531,8 @@ pt-BR:
           - Outras dificuldades
     models:
       additional_contact:
-        one: contacto adicional
-        other: contacto adicional
+        one: contato adicional
+        other: contato adicional
       admin: Admin
       call_to_schedule_final_appointment: Chamada para agendar encontro final
       "tasks/call_to_schedule_final_appointment": Chamada para agendar encontro final
