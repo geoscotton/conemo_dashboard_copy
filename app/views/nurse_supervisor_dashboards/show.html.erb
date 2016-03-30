@@ -151,7 +151,7 @@
 
       <ul class="list-unstyled">
         <% nurse.cancelled_tasks.each do |task| %>
-          <li class="text-warning"><%= task %> cancelled: <%= task.cancellation_explanation %></li>
+          <li class="text-warning"><%= Participant.model_name.human %> <%= task.participant.study_identifier %> <%= task %> cancelled: <%= task.cancellation_explanation %></li>
         <% end %>
       </ul>
     </div>
