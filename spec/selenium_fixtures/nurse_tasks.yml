@@ -1,4 +1,4 @@
-<% (301..301).each do |pt_id| %>
+<% (301..302).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
@@ -7,7 +7,16 @@
     overdue_at: <%= DateTime.now + 3.days - 1.hours %>
 <% end %>
 
-<% (302..310).each do |pt_id| %>
+<% (303..303).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now - 1.hours %>
+    overdue_at: <%= DateTime.now + 3.days - 1.hours %>
+<% end %>
+
+<% (304..310).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
