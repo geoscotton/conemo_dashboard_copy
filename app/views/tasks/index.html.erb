@@ -4,6 +4,20 @@
 </div>
 
 <div class="row">
+  <div class="col-sm-12 col-md-12" id="contact-info">
+    <%= render "active/participants/contact_info", participant: @participant %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-8 col-md-9" id="smartphone-info">
+    <% if @participant.smartphone %>
+      <%= render "active/participants/smartphone", smartphone: @participant.smartphone %>
+    <% else %>
+      <h2><%= t "conemo.views.active.participants.show.smartphone_heading" %> <%= link_to '', new_participant_smartphone_path(@participant), class: "fa fa-edit" %></h2>
+    <% end %>
+  </div>
+
   <div class="col-sm-4 col-md-3">
     <table class="table table-condensed">
       <tbody>

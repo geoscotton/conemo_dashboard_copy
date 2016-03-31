@@ -5,7 +5,7 @@
     <div class="timeline-heading">
       <h4 class="timeline-title"><%= non_adherence_call.model_name.human %></h4>
 
-      <p><i class="fa fa-clock-o"></i> <%= t "activerecord.attributes.non_adherence_call.contact_at" %>: <%= non_adherence_call.contact_at.to_s(:long) %></p>
+      <p><i class="fa fa-clock-o"></i> <%= t "activerecord.attributes.non_adherence_call.contact_at" %>: <%= l non_adherence_call.contact_at, format: :long %></p>
     </div>
 
     <div class="timeline-body">
