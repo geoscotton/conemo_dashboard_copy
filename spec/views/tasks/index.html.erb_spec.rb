@@ -14,9 +14,24 @@ RSpec.describe "tasks/index", type: :view do
                     scheduled_tasks: [],
                     latest_notification: nil)
   end
+  let(:smartphone) { instance_double(Smartphone).as_null_object }
+  let(:participant) do
+    instance_double(Participant,
+                    id: rand,
+                    date_of_birth: Time.zone.now,
+                    enrollment_date: Time.zone.today,
+                    smartphone: smartphone).as_null_object.tap do |p|
+      allow(smartphone).to receive(:participant) { p }
+    end
+  end
+
+  def stub_data
+    assign(:tasks, tasks)
+    assign(:participant, participant)
+  end
 
   it "renders a progress bar with all tasks" do
-    assign(:tasks, tasks)
+    stub_data
     completed_task = instance_double(TaskPresenter,
                                      to_s: "completed task 1",
                                      css_class: "foo")
@@ -30,7 +45,7 @@ RSpec.describe "tasks/index", type: :view do
 
   it "renders the assigned active task count" do
     I18n.locale = "en"
-    assign(:tasks, tasks)
+    stub_data
     allow(tasks)
       .to receive(:active_tasks)
       .and_return(
@@ -47,7 +62,7 @@ RSpec.describe "tasks/index", type: :view do
   end
 
   it "renders the overdue task count" do
-    assign(:tasks, tasks)
+    stub_data
     allow(tasks).to receive(:overdue_tasks) { ["task 1", "task 2"] }
 
     render template: template
@@ -58,7 +73,7 @@ RSpec.describe "tasks/index", type: :view do
   it "renders the time since each task was scheduled" do
     I18n.locale = "en"
     task = Tasks::FollowUpCallWeekOne.new(scheduled_at: 1.minute.ago, id: rand)
-    assign(:tasks, tasks)
+    stub_data
     allow(tasks).to receive(:active_tasks) { [task] }
 
     render template: template
@@ -70,7 +85,7 @@ RSpec.describe "tasks/index", type: :view do
     def stub_alert_tasks
       task = Tasks::LackOfConnectivityCall.new(scheduled_at: Time.zone.now,
                                                id: rand)
-      assign(:tasks, tasks)
+      stub_data
       allow(tasks).to receive(:active_tasks) { [task] }
     end
 
@@ -108,7 +123,7 @@ RSpec.describe "tasks/index", type: :view do
                              scheduled_at: Time.zone.now,
                              target: :first_contact,
                              alert?: false).as_null_object
-      assign(:tasks, tasks)
+      stub_data
       allow(tasks).to receive(:active_tasks) { [task] }
     end
 

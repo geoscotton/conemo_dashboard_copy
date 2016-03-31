@@ -1,1 +1,11 @@
-  <h2><%= fa_icon "mobile lg"%> <%= t "conemo.views.active.participants.show.smartphone_heading" %>: <%= smartphone.number %> <%= link_to '', edit_participant_smartphone_path(smartphone.participant), class: "fa fa-edit fa-lg pull-right" %></h2>
+<h2>
+  <%= fa_icon "mobile lg"%> <%= t "conemo.views.active.participants.show.smartphone_heading" %>
+  <%= link_to '', edit_participant_smartphone_path(smartphone.participant), class: "fa fa-edit fa-lg" %>
+</h2>
+
+<div class="col-md-3">
+  <p><strong><%= t "activerecord.attributes.smartphone.number" %>:</strong>
+    <%= smartphone.number %></p>
+  <p><strong><%= t "activerecord.attributes.smartphone.phone_identifier" %>:</strong>
+    <%= smartphone.phone_identifier %></p>
+</div>

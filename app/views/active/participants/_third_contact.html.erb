@@ -5,7 +5,7 @@
     <div class="timeline-heading">
       <h4 class="timeline-title"><%= link_to '', edit_participant_third_contact_path(third_contact.participant), class: "fa fa-edit fa-lg" %> <%= t "conemo.views.active.participants.show.third_contact_heading" %></h4>
 
-      <p><i class="fa fa-clock-o"></i> <%= t "helpers.label.third_contact.contact_at" %>: <%= third_contact.contact_at.to_s(:long) %></p>
+      <p><i class="fa fa-clock-o"></i> <%= t "helpers.label.third_contact.contact_at" %>: <%= l third_contact.contact_at, format: :long %></p>
     </div>
 
     <div class="timeline-body">

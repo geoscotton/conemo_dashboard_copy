@@ -5,7 +5,7 @@
     <div class="timeline-heading">
       <h4 class="timeline-title"><%= lack_of_connectivity_call.model_name.human %></h4>
 
-      <p><i class="fa fa-clock-o"></i> <%= t "activerecord.attributes.lack_of_connectivity_call.contact_at" %>: <%= lack_of_connectivity_call.contact_at.to_s(:long) %></p>
+      <p><i class="fa fa-clock-o"></i> <%= t "activerecord.attributes.lack_of_connectivity_call.contact_at" %>: <%= l lack_of_connectivity_call.contact_at, format: :long %></p>
     </div>
 
     <div class="timeline-body">

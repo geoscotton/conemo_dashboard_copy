@@ -5,7 +5,7 @@
     <div class="timeline-heading">
       <h4 class="timeline-title"><%= link_to '', edit_participant_first_appointment_path(first_appointment.participant), class: "fa fa-edit fa-lg" %> <%= first_appointment.model_name.human %></h4>
 
-      <p><i class="fa fa-clock-o"></i> <%= t "helpers.label.first_appointment.appointment_at" %>: <%= first_appointment.appointment_at.to_s(:long) %></p>
+      <p><i class="fa fa-clock-o"></i> <%= t "helpers.label.first_appointment.appointment_at" %>: <%= l first_appointment.appointment_at, format: :long %></p>
     </div>
 
     <div class="timeline-body">
