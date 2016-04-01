@@ -42,11 +42,19 @@
 </div>
 
 <div class="progress">
-  <% @tasks.scheduled_tasks.each_with_index do |task, i| %>
+  <% scheduled_task_types = @tasks.scheduled_tasks.group_by { |t| t.task.class } %>
+  <% [ Tasks::ConfirmationCall,
+       Tasks::InitialInPersonAppointment,
+       Tasks::FollowUpCallWeekOne,
+       Tasks::FollowUpCallWeekThree,
+       Tasks::CallToScheduleFinalAppointment,
+       Tasks::FinalInPersonAppointment ].each_with_index do |task, i| %>
+    <% task_style = "width: #{ i <= 3 ? 17 : 16 }%; #{ i < 5 ? 'border-right: 1px solid;' : '' }" %>
+    <% task_class = scheduled_task_types[task].try(:first).try(:css_class) || "future" %>
     <%= content_tag("div",
-                    class: "progress-bar progress-bar-#{ task.css_class }",
-                    style: "width: #{ 100 / @tasks.scheduled_tasks.count }%; border-right: 1px solid;") do %>
-      <span><%= task %></span>
+                    class: "progress-bar progress-bar-#{ task_class }",
+                    style: task_style) do %>
+      <span><%= task.model_name.human %></span>
     <% end %>
   <% end %>
 </div>

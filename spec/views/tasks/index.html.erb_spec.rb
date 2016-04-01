@@ -33,14 +33,14 @@ RSpec.describe "tasks/index", type: :view do
   it "renders a progress bar with all tasks" do
     stub_data
     completed_task = instance_double(TaskPresenter,
-                                     to_s: "completed task 1",
-                                     css_class: "foo")
+                                     css_class: "foo",
+                                     task: Tasks::FollowUpCallWeekOne.new)
     allow(tasks).to receive(:scheduled_tasks) { [completed_task] }
 
     render template: template
 
     expect(rendered)
-      .to have_selector(".progress-bar-foo", text: "completed task 1")
+      .to have_selector(".progress-bar-foo", text: "Follow up call week 1")
   end
 
   it "renders the assigned active task count" do
