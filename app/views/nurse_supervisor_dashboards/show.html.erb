@@ -141,11 +141,9 @@
                     new_nurse_supervision_contact_path(nurse),
                     { class: "btn btn-link" } %>
 
-        <% if SupervisorNotification.active_for_nurse(nurse).count > 0 %>
-          <%= button_to(clear_nurse_supervisor_notifications_path(nurse_id: nurse.id), { action: :clear, method: :put, class: "btn btn-default", :"aria-label" => "Clear notification" }) do %>
-            <span class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></span>
-            <span class="sr-only">Clear notification</span>
-          <% end %>
+        <% if SupervisorNotification.active_for_nurse(nurse).exists? %>
+          <span class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></span>
+          <span class="sr-only">Notification</span>
         <% end %>
       </div>
 

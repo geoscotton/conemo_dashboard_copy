@@ -7,17 +7,24 @@
         <tr>
           <th><%= t("activerecord.attributes.participant.study_identifier") %></th>
           <th><%= NurseTask.model_name.human(count: 2) %></th>
+          <th><%= SupervisorNotification.model_name.human(count: 2) %></th>
         </tr>
       </thead>
       <tbody>
         <% @nurse_dashboard.participant_summaries.each do |participant_summary| %>
           <tr class="clickable-row <%= participant_summary.css_class %>"
-              data-href="<%= participant_clinical_summary_path(participant_id: participant_summary.id) %>">
+              data-href="<%= participant_tasks_path(participant_summary.id) %>">
             <td>
               <%= participant_summary.study_identifier %>
             </td>
             <td>
               <%= participant_summary.active_tasks_list %>
+            </td>
+            <td>
+              <% if SupervisorNotification.active_for_nurse_and_participant(@nurse, participant_summary.id).exists? %>
+                <span class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></span>
+                <span class="sr-only">Notification</span>
+              <% end %>
             </td>
           </tr>
         <% end %>

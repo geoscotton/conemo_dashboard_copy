@@ -19,6 +19,10 @@ class SupervisorNotification < ActiveRecord::Base
     active.where(nurse_task: nurse.active_tasks)
   end
 
+  def self.active_for_nurse_and_participant(nurse, participant_id)
+    active.where(nurse_task: nurse.active_tasks.where(participant_id: participant_id))
+  end
+
   def nurse_supervisor
     nurse_task.nurse.nurse_supervisor
   end

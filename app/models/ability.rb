@@ -42,9 +42,15 @@ class Ability
 
   def authorize_nurse_supervisor(supervisor)
     can [:read, :update], Participant, locale: supervisor.locale
+    can :read,
+        NurseTask,
+        participant: { locale: supervisor.locale }
     can :create,
         SupervisionContact,
         nurse: { nurse_supervisor_id: supervisor.id }
+    can :update,
+        SupervisorNotification,
+        nurse_task: { nurse: { nurse_supervisor_id: supervisor.id } }
     can [:read, :create],
         SupervisionSession,
         nurse: { nurse_supervisor_id: supervisor.id }
@@ -63,7 +69,7 @@ class Ability
     can :create,
         [HelpRequestCall, LackOfConnectivityCall, NonAdherenceCall],
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
-    can :update,
+    can [:read, :update],
         NurseTask,
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
     can :create,

@@ -6,7 +6,7 @@ class TasksController < ApplicationController
   def index
     tasks = NurseTask.for_participant(find_participant)
     @tasks = ParticipantSummaryPresenter.new(find_participant, tasks)
-    authorize! :update, tasks
+    authorize! :read, tasks
   end
 
   def edit

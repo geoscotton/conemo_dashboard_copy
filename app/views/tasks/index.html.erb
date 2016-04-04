@@ -1,6 +1,8 @@
 <div class="btn-group">
   <%= link_to t(".clinical_summary", default: "Clinical Summary"), active_report_path(@tasks.id), class: "btn btn-link" %>
-  <%= link_to t("conemo.views.shared.register").capitalize + " " + AdditionalContact.model_name.human.downcase, new_participant_additional_contact_path(@tasks.id), class: "btn btn-link" %>
+  <% if can? :create, AdditionalContact %>
+    <%= link_to t("conemo.views.shared.register").capitalize + " " + AdditionalContact.model_name.human.downcase, new_participant_additional_contact_path(@tasks.id), class: "btn btn-link" %>
+  <% end %>
 </div>
 
 <div class="row">
@@ -65,33 +67,38 @@
   <div class="panel panel-default">
     <div class="panel-heading"><%= task %> <small><%= time_ago_in_words task.scheduled_at %> ago</small></div>
 
-    <div class="btn-group" role="group" aria-label="Actions">
-      <% if task.alert? %>
-        <%= link_to "Mark as resolved",
-                    new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
-                    { class: "btn btn-default" } %>
-        <%= button_to "Contact Supervisor",
-                      notify_supervisor_participant_task_path(participant_id: @tasks.id, id: task.id),
-                      { class: "btn btn-default", data: { confirm: "are you sure you want to notify the supervisor that you need help?" } } %>
-      <% else %>
-        <%= link_to t("conemo.views.shared.confirm"),
-                    new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
-                    { class: "btn btn-link" } %>
-        <%= link_to t("conemo.views.shared.cancel_button"),
-                      new_participant_task_scheduled_task_cancellation_path(participant_id: @tasks.id, task_id: task.id),
+    <% if can? :update, task.task %>
+      <div class="btn-group" role="group" aria-label="Actions">
+        <% if task.alert? %>
+          <%= link_to "Mark as resolved",
+                      new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
+                      { class: "btn btn-default" } %>
+          <%= button_to "Contact Supervisor",
+                        notify_supervisor_participant_task_path(participant_id: @tasks.id, id: task.id),
+                        { class: "btn btn-default", data: { confirm: "are you sure you want to notify the supervisor that you need help?" } } %>
+        <% else %>
+          <%= link_to t("conemo.views.shared.confirm"),
+                      new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
                       { class: "btn btn-link" } %>
-        <%= link_to t("conemo.views.shared.reschedule").capitalize,
-                    edit_participant_task_path(participant_id: @tasks.id, id: task.id),
-                    { class: "btn btn-link" } %>
-      <% end %>
-    </div>
+          <%= link_to t("conemo.views.shared.cancel_button"),
+                        new_participant_task_scheduled_task_cancellation_path(participant_id: @tasks.id, task_id: task.id),
+                        { class: "btn btn-link" } %>
+          <%= link_to t("conemo.views.shared.reschedule").capitalize,
+                      edit_participant_task_path(participant_id: @tasks.id, id: task.id),
+                      { class: "btn btn-link" } %>
+        <% end %>
+      </div>
+    <% end %>
 
     <% if task.alert? && @tasks.latest_notification(task.id) %>
       <div class="panel-body">
         <p style="display: inline-block;">last supervisor contact sent <%= l @tasks.latest_notification(task.id).created_at, format: :long %></p>
-        <%= button_to "clear",
-                      clear_latest_supervisor_notification_participant_task_path(participant_id: @tasks.id, id: task.id),
-                      { form: { style: "display: inline-block;" }, method: :delete, class: "btn btn-default", data: { confirm: "are you sure you want to clear this?" } } %>
+
+        <% if can? :update, @tasks.latest_notification(task.id) %>
+          <%= button_to "clear",
+                        clear_latest_supervisor_notification_participant_task_path(participant_id: @tasks.id, id: task.id),
+                        { form: { style: "display: inline-block;" }, method: :delete, class: "btn btn-default", data: { confirm: "are you sure you want to clear this?" } } %>
+        <% end %>
       </div>
     <% end %>
   </div>
