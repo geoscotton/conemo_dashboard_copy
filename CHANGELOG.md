@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.6 - 2016-04-04
+
+* update nokogiri
+* patch uglifier gem
+* update bit_core to patch redcarpet
+* add placeholders for all scheduled tasks in bar
+* move contact info to tasks page
+
 ## 0.9.5 - 2016-03-30
 
 * fix translation for Additional contact
