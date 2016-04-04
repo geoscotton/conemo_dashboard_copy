@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require "bit_core_decorators/slideshow"
+
 # A day's worth of content to be viewed by a Participant.
 class Lesson < ActiveRecord::Base
   belongs_to :slideshow,
