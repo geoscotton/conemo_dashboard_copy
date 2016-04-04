@@ -52,7 +52,7 @@ group :test do
   gem "poltergeist"
 end
 
-gem "bit_core", "~> 1.0"
+gem "bit_core", "~> 1.4"
 gem "token_auth",
     git: "https://github.com/NU-CBITS/token_auth_server_rails",
     tag: "0.2.4"
