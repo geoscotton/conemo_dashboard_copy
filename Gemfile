@@ -17,7 +17,7 @@ gem "jbuilder"
 gem "ckeditor"
 gem "twilio-ruby"
 gem "normalize-rails"
-gem "nokogiri", "= 1.6.3.1"
+gem "nokogiri", ">= 1.6.7.2"
 
 gem "sentry-raven",
     git: "https://github.com/getsentry/raven-ruby.git",
