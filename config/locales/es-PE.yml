@@ -530,10 +530,6 @@ es-PE:
           - Dificultades para ver los videos
           - Dificultades para seleccionar actividades
           - Otras dificultades
-      supervision_contact:
-        contact_kinds:
-          - Llamada telefónica
-          - En persona
       supervision_session:
         contact_kinds:
           - Llamada telefónica
@@ -594,9 +590,6 @@ es-PE:
       smartphone:
         one: Smartphone
         other: Smartphones
-      supervision_contact:
-        one: Supervision contact
-        other: Supervision contacts
       supervision_session:
         one: Supervision session
         other: Supervision sessions
@@ -658,10 +651,6 @@ es-PE:
       smartphone:
         number: Número del Smartphone
         phone_identifier: Número de Serie
-      supervision_contact:
-        contact_at: Fecha y hora de contacto
-        contact_kind: Tipo de contacto
-        notes: Observaciones (cuadrado de texto)
       supervision_session:
         session_at: Fecha/hora
         session_length: Duración (min)

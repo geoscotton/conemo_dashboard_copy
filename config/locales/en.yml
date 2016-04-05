@@ -292,10 +292,6 @@ en:
           - Difficulty watching video(s)
           - Difficulties with activity selection
           - Other difficulties
-      supervision_contact:
-        contact_kinds:
-          - Phone call
-          - In person
       supervision_session:
         contact_kinds:
           - Phone
@@ -383,9 +379,6 @@ en:
       smartphone:
         one: Smartphone
         other: Smartphones
-      supervision_contact:
-        one: Supervision contact
-        other: Supervision contacts
       supervision_session:
         one: Supervision session
         other: Supervision sessions
@@ -452,10 +445,6 @@ en:
       smartphone:
         number: Phone number
         phone_identifier: Serial number
-      supervision_contact:
-        contact_at: Date and time of contact
-        contact_kind: Type
-        notes: Notes
       supervision_session:
         session_at: Session at
         session_length: Session length
