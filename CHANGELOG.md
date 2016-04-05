@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.8 - 2016-04-06
+
+* remove debug log functionality
+* patch nokogiri gem
+* patch uglifier gem
+* update bit_core to patch redcarpet
+
 ## 0.2.6 - 2016-02-29
 
 * patch Rails
