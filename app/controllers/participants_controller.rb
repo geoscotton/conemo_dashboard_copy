@@ -72,7 +72,7 @@ class ParticipantsController < ApplicationController
       redirect_to active_participant_url(@participant),
                   notice: "Successfully updated participant"
     else
-      redirect_to pending_participants_path,
+      redirect_to root_url(locale: current_user.locale),
                   notice: "Successfully updated participant"
     end
   end

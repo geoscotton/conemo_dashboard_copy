@@ -6,7 +6,7 @@ RSpec.describe "pending/participants/index", type: :view do
   TEMPLATE_PATH = "pending/participants/index.html.erb"
 
   def stub_instance_variables
-    assign(:pending_participants, [])
+    assign(:unassigned_participants, [])
     assign(:ineligible_participants, [])
   end
 

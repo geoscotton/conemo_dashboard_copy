@@ -13,7 +13,7 @@
           <div class="col-md-offset-3 col-md-6">
             <%= f.hidden_field :status, value: "active" %>
             <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-            <%= link_to t("conemo.views.shared.cancel_button"), pending_participants_path, class: "btn btn-default" %>
+            <%= link_to t("conemo.views.shared.cancel_button"), root_path, class: "btn btn-default" %>
           </div>
         </div>
     <% end %>

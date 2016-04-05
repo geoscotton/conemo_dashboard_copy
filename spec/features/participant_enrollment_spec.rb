@@ -8,12 +8,12 @@ RSpec.describe "participant enrollment", type: :feature do
     sign_in_user users(:admin1)
   end
 
-  let(:participant) { participants(:participant1) }
+  let(:unassigned_participant) { participants(:en_unassigned_participant) }
   let(:nurse) { users(:nurse1) }
 
   it "should show a list of pending participants" do
     visit "/en/pending/participants"
-    expect(page).to have_text(participant.study_identifier)
+    expect(page).to have_text(unassigned_participant.study_identifier)
   end
 
   it "should enroll a new participant" do
@@ -39,20 +39,15 @@ RSpec.describe "participant enrollment", type: :feature do
     expect(page).to have_text "14"
   end
 
-  it "should activate an eligible participant and assign them to a nurse" do
+  it "should activate an eligible participant" do
     visit "/en/pending/participants"
 
-    expect(page).to have_text participant.study_identifier
+    expect(page).to have_text unassigned_participant.study_identifier
 
-    within "#participant-#{participant.id}" do
+    within "#participant-#{unassigned_participant.id}" do
       click_on "Activate"
     end
 
-    expect(page).to have_text "Assign nurse to activate participant #{participant.first_name} #{participant.last_name}"
-
-    select nurse.last_name, from: "participant_nurse_id"
-    click_on "Save"
-
-    expect(page).to have_text "Successfully updated participant"
+    expect(page).to have_text "Successfully activated participant"
   end
 end

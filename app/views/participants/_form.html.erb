@@ -193,7 +193,7 @@
       <% if current_user.nurse? && !@participant.new_record? %>
         <%= link_to t("conemo.views.shared.cancel_button"), active_participant_path(@participant), class: "btn btn-default" %>
       <% else %>
-        <%= link_to t("conemo.views.shared.cancel_button"), pending_participants_path, class: "btn btn-default" %>
+        <%= link_to t("conemo.views.shared.cancel_button"), root_path, class: "btn btn-default" %>
       <% end %>
     </div>
   </div>

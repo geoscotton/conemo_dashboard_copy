@@ -122,7 +122,7 @@ RSpec.describe ParticipantsController, type: :controller do
                           id: participant.id,
                           participant: valid_participant_params, locale: locale
 
-            expect(response).to redirect_to pending_participants_url
+            expect(response).to redirect_to root_url(locale: locale)
           end
         end
 
@@ -135,7 +135,7 @@ RSpec.describe ParticipantsController, type: :controller do
                           id: participant.id,
                           participant: valid_participant_params, locale: locale
 
-            expect(response).to redirect_to pending_participants_path
+            expect(response).to redirect_to root_url(locale: locale)
           end
         end
       end

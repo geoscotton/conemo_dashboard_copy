@@ -9,7 +9,7 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><%= @pending_participants.count %> Unassigned</div>
+  <div class="panel-heading"><%= @unassigned_participants.count %> Unassigned</div>
 
   <div class="panel-body">
     <table class="table table-bordered table-condensed table-hover">
@@ -20,7 +20,7 @@
         <th><%= t "conemo.views.pending.participants.index.enrollment_date" %></th>
         <th><%= t "conemo.views.pending.participants.index.activate" %></th>
       </tr>
-      <% @pending_participants.each do |participant| %>
+      <% @unassigned_participants.each do |participant| %>
         <tr id="participant-<%= participant.id %>">
           <td>
             <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.edit_info")) do %>
@@ -32,7 +32,7 @@
           <td><%= participant.study_identifier %></td>
           <td><%= l participant.enrollment_date, format: :long %></td>
           <td>
-            <%= link_to(pending_activate_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.activate")) do %>
+            <%= link_to(pending_enroll_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.activate")) do %>
               <span class="fa fa-thumbs-up fa-2x" aria-hidden="true"></span>
               <span class="sr-only"><%= t "conemo.views.pending.participants.index.activate" %></span>
             <% end %>

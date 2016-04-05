@@ -45,13 +45,13 @@ RSpec.describe NurseSupervisorDashboardsController, type: :controller do
 
       it "assigns the pending participants" do
         # ensure records are populated
-        expect(Participant.where(nurse: nurse_supervisor.nurses).pending.count)
+        expect(Participant.where(locale: nurse_supervisor.locale).pending.count)
           .to be > 0
 
         show_for_nurse_supervisor
 
         expect(assigns(:pending_participants).length)
-          .to eq Participant.where(nurse: nurse_supervisor.nurses).pending.count
+          .to eq Participant.where(locale: nurse_supervisor.locale).pending.count
       end
     end
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329194614) do
+ActiveRecord::Schema.define(version: 20160405163650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -263,21 +263,21 @@ ActiveRecord::Schema.define(version: 20160329194614) do
 
   create_table "participants", force: :cascade do |t|
     t.integer  "nurse_id"
-    t.string   "first_name",                                               null: false
-    t.string   "last_name",                                                null: false
-    t.string   "study_identifier",                                         null: false
-    t.string   "family_health_unit_name",                                  null: false
+    t.string   "first_name",                                                  null: false
+    t.string   "last_name",                                                   null: false
+    t.string   "study_identifier",                                            null: false
+    t.string   "family_health_unit_name",                                     null: false
     t.string   "phone"
-    t.text     "address",                                                  null: false
+    t.text     "address",                                                     null: false
     t.date     "date_of_birth"
-    t.string   "gender",                                                   null: false
-    t.date     "enrollment_date",                                          null: false
-    t.string   "status",                               default: "pending", null: false
+    t.string   "gender",                                                      null: false
+    t.date     "enrollment_date",                                             null: false
+    t.string   "status",                               default: "unassigned", null: false
     t.string   "emergency_contact_name"
     t.string   "emergency_contact_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "locale",                                                   null: false
+    t.string   "locale",                                                      null: false
     t.string   "alternate_phone_1"
     t.string   "alternate_phone_2"
     t.string   "contact_person_1_name"
