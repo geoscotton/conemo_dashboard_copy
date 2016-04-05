@@ -50,7 +50,7 @@
       <thead>
         <tr>
           <th><%= t "conemo.views.pending.participants.index.edit_info" %></th>
-          <th><%= Nurse.model_name.human %></th>
+          <th colspan="2"><%= Nurse.model_name.human %></th>
           <th><%= t "conemo.views.pending.participants.index.name" %></th>
           <th><%= t "conemo.views.pending.participants.index.study_identifier" %></th>
           <th><%= t "conemo.views.pending.participants.index.enrollment_date" %></th>
@@ -69,6 +69,12 @@
               <% end %>
             </td>
             <td><%= participant.nurse.last_and_first_name %></td>
+            <td>
+              <%= link_to(pending_activate_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.edit_info")) do %>
+                <span class="fa fa-user-md fa-2x" aria-hidden="true"></span>
+                <span class="sr-only"><%= t "conemo.views.pending.participants.index.edit_info" %></span>
+              <% end %>
+            </td>
             <td><%= participant.last_and_first_name %></td>
             <td><%= participant.study_identifier %></td>
             <td><%= l participant.enrollment_date, format: :long %></td>
