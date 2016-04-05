@@ -10,7 +10,9 @@ RSpec.describe NurseDashboardPresenter do
       double("Participant", id: 1, to_i: 1, study_identifier: "newest"),
       double("Participant", id: 2, to_i: 2, study_identifier: "oldest"),
       double("Participant", id: 3, to_i: 3, study_identifier: "no tasks"),
-      double("Participant", id: 4, to_i: 4, study_identifier: "middle")
+      double("Participant", id: 4, to_i: 4, study_identifier: "middle"),
+      double("Participant", id: 5, to_i: 5, study_identifier: "overdue1"),
+      double("Participant", id: 6, to_i: 6, study_identifier: "overdue2")
     ]
   end
   let(:tasks) do
@@ -32,7 +34,21 @@ RSpec.describe NurseDashboardPresenter do
                       scheduled_at: Time.zone.local(2017, 1, 1),
                       active?: true,
                       due?: true,
-                      overdue?: false)
+                      overdue?: false),
+      instance_double(NurseTask,
+                      participant_id: 5,
+                      scheduled_at: Time.zone.local(2011, 1, 1),
+                      overdue_at: Time.zone.local(2011, 2, 1),
+                      active?: true,
+                      due?: true,
+                      overdue?: true),
+      instance_double(NurseTask,
+                      participant_id: 6,
+                      scheduled_at: Time.zone.local(2011, 2, 1),
+                      overdue_at: Time.zone.local(2011, 3, 1),
+                      active?: true,
+                      due?: true,
+                      overdue?: true)
     ]
   end
 
@@ -45,7 +61,8 @@ RSpec.describe NurseDashboardPresenter do
                               .new(nurse)
                               .participant_summaries
                               .map { |s| s.participant.study_identifier }
-      expect(participant_study_ids).to eq %w( oldest middle newest no\ tasks )
+      expect(participant_study_ids)
+        .to eq %w( overdue1 overdue2 oldest middle newest no\ tasks )
     end
   end
 end

@@ -423,6 +423,20 @@ RSpec.describe TasksController, type: :controller do
         it_behaves_like "a bad request"
       end
 
+      context "when the update fails" do
+        it "renders the new template" do
+          sign_in_user nurse
+          allow(NurseTask).to receive(:find) { task }
+          allow(task).to receive(:update) { true }
+          allow(controller).to receive(:authorize!)
+
+          put :update, id: rand, participant_id: participant.id, locale: locale,
+                       task: { scheduled_at: nil }
+
+          expect(response).to redirect_to participant_tasks_url(participant)
+        end
+      end
+
       it "redirects to the tasks page" do
         sign_in_user nurse
         allow(NurseTask).to receive(:find) { task }

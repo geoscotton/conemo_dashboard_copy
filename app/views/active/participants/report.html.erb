@@ -1,9 +1,5 @@
 <div class="btn-group">
-  <% if current_user.nurse? %>
-    <%= link_to NurseTask.model_name.human(count: 2), participant_tasks_path(@participant), class: "btn btn-link" %>
-  <% else %>
-    <%= link_to NurseTask.model_name.human(count: 2), nurse_tasks_summary_path(@participant.nurse), class: "btn btn-link" %>
-  <% end %>
+  <%= link_to NurseTask.model_name.human(count: 2), participant_tasks_path(@participant), class: "btn btn-link" %>
   <%= link_to "participant contact information page", active_participant_path(@participant), class: "btn btn-link" %>
 </div>
 
@@ -45,12 +41,6 @@
   </div>
 
   <div class="col-md-7 col-sm-7 col-xs-7" id="main-report">
-    <ul class="nav nav-tabs" id="report-table">
-      <li class="active">
-        <a href="#lessons" data-toggle="tab"><%= t "conemo.views.dashboards.index.lessons_button" %></a>
-      </li>
-    </ul>
-
     <div class="tab-content">
       <%= render partial: "active/participants/lessons_table", :locals => {participant: @participant, lessons: @lessons} %>
     </div>
