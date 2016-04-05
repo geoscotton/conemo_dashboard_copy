@@ -5,8 +5,21 @@ module Pending
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     def index
-      @pending_participants = Participant.pending.where(locale: params[:locale])
-      authorize! :read, @pending_participants
+      @unassigned_participants = Participant.unassigned.where(locale: params[:locale])
+      authorize! :read, @unassigned_participants
+    end
+
+    def enroll
+      @participant = Participant.find(params[:id])
+      authorize! :update, @participant
+
+      if @participant.update(status: Participant::PENDING)
+        redirect_to pending_participants_path,
+                    notice: "Successfully activated participant"
+      else
+        redirect_to pending_participants_path,
+                    alert: @participant.errors.full_messages.join(", ")
+      end
     end
 
     def activate

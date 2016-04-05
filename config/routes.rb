@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     namespace "pending" do
       resources  :participants, only: :index
       get "activate/:id" => "participants#activate", as: :activate
+      get "enroll/:id" => "participants#enroll", as: :enroll
     end
     
     namespace "active" do

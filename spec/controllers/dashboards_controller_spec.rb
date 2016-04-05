@@ -27,6 +27,17 @@ RSpec.describe DashboardsController, type: :controller do
       end
     end
 
+    context "when an Admin accesses it" do
+      it "redirects to the pending participants page" do
+        admin = Admin.all.sample
+        sign_in_user admin
+
+        get :index, locale: admin.locale
+
+        expect(response).to redirect_to pending_participants_url
+      end
+    end
+
     context "when a Superuser accesses it" do
       it "redirects to Rails admin" do
         user = Superuser.all.sample

@@ -3,10 +3,11 @@
 class NurseSupervisorDashboardsController < ApplicationController
   def show
     participants = Participant.where(nurse: current_user.nurses)
-    @pending_participants = participants.pending
+    @pending_participants = Participant.pending
+                                       .where(locale: current_user.locale)
     @active_participants = participants.active
     @completed_participants = participants.completed
-    @dropped_out_participants = participants.ineligible
+    @dropped_out_participants = participants.dropped_out
     @nurses = current_user.nurses
     authorize! :update, @pending_participants
   end

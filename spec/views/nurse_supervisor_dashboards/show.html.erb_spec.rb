@@ -44,7 +44,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
     render template: template
 
-    expect(rendered).to include "0 Unassigned"
+    expect(rendered).to include "0 Pending"
   end
 
   context "when there are unassigned (pending) participants" do
@@ -64,7 +64,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     it "renders the participant count" do
       assign_pending_and_render
 
-      expect(rendered).to include "2 Unassigned"
+      expect(rendered).to include "2 Pending"
     end
 
     it "renders the participant details" do
@@ -75,13 +75,51 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
           [
             I18n.t("conemo.views.pending.participants.index.edit_info"),
             "Andy Abacus", "ID 1", date_str, date_str,
-            I18n.t("conemo.views.pending.participants.index.activate"),
-            I18n.t("conemo.views.pending.participants.index.disqualify")
+            I18n.t("conemo.views.pending.participants.index.activate")
           ],
           [
             I18n.t("conemo.views.pending.participants.index.edit_info"),
             "Billy Ball", "ID 2", date_str, date_str,
-            I18n.t("conemo.views.pending.participants.index.activate"),
+            I18n.t("conemo.views.pending.participants.index.activate")
+          ]
+        ]
+      )
+    end
+  end
+
+  context "when there are active participants" do
+    let(:active1) { stub_participant 1, "Andy Abacus", nurse: nurse1 }
+    let(:active2) { stub_participant 2, "Billy Ball", nurse: nurse2 }
+
+    def assign_active_and_render
+      assign(:pending_participants, [])
+      assign(:active_participants, [active1, active2])
+      assign(:completed_participants, [])
+      assign(:dropped_out_participants, [])
+      assign(:nurses, [])
+
+      render template: template
+    end
+
+    it "renders the participant count" do
+      assign_active_and_render
+
+      expect(rendered).to include "2 Active"
+    end
+
+    it "renders the participant details" do
+      assign_active_and_render
+
+      table_exists_with_the_following_rows(
+        [
+          [
+            I18n.t("conemo.views.pending.participants.index.edit_info"),
+            "Nurse 1", "Andy Abacus", "ID 1", date_str, date_str,
+            I18n.t("conemo.views.pending.participants.index.disqualify")
+          ],
+          [
+            I18n.t("conemo.views.pending.participants.index.edit_info"),
+            "Nurse 2", "Billy Ball", "ID 2", date_str, date_str,
             I18n.t("conemo.views.pending.participants.index.disqualify")
           ]
         ]

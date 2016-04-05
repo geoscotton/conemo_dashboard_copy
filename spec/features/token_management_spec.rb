@@ -9,7 +9,7 @@ RSpec.describe "Token management", type: :feature do
   scenario "an Admin views a Participant's tokens" do
     sign_in_user en_admin
 
-    visit "/admin"
+    visit "/admin?locale=en"
     within ".sidebar-nav" do
       click_on "Participant"
     end

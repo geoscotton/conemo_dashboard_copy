@@ -28,11 +28,12 @@ class Participant < ActiveRecord::Base
   has_many :planned_activities, dependent: :destroy
   has_many :session_events, dependent: :destroy
 
+  UNASSIGNED ||= "unassigned"
   PENDING ||= "pending"
   ACTIVE ||= "active"
-  INELIGIBLE ||= "ineligible"
+  DROPPED_OUT ||= "dropped_out"
   COMPLETED ||= "completed"
-  STATUS ||= [PENDING, ACTIVE, INELIGIBLE, COMPLETED].freeze
+  STATUS ||= [UNASSIGNED, PENDING, ACTIVE, DROPPED_OUT, COMPLETED].freeze
   GENDER ||= %w( male female ).freeze
   TIMEZONES ||= {
     "en" => "Central Time (US & Canada)",
@@ -71,8 +72,9 @@ class Participant < ActiveRecord::Base
 
   before_validation :sanitize_number
 
-  scope :ineligible, -> { where(status: INELIGIBLE) }
+  scope :dropped_out, -> { where(status: DROPPED_OUT) }
   scope :pending, -> { where(status: PENDING) }
+  scope :unassigned, -> { where(status: UNASSIGNED) }
   scope :active, -> { where(status: ACTIVE) }
   scope :completed, -> { where(status: COMPLETED) }
 

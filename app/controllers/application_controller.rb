@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 
     return if current_user.locale == params[:locale]
 
-    redirect_to dashboard_path(locale: current_user.locale)
+    redirect_to main_app.root_url(locale: current_user.locale)
   end
 
   def user_time_zone(&block)

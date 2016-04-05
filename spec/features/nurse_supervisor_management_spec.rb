@@ -10,7 +10,7 @@ RSpec.describe "Nurse Supervisor management", type: :feature do
   scenario "an Admin creates a Nurse Supervisor" do
     sign_in_user en_admin
 
-    visit "/admin"
+    visit "/admin?locale=en"
     within ".sidebar-nav" do
       click_on "Nurse supervisors"
     end
@@ -28,7 +28,7 @@ RSpec.describe "Nurse Supervisor management", type: :feature do
   scenario "Admin creates and assigns Nurse to a Nurse Supervisor", js: true do
     sign_in_user en_admin
 
-    visit "/admin"
+    visit "/admin?locale=en"
     within ".sidebar-nav" do
       click_on "Nurses"
     end

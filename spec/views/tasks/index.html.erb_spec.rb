@@ -32,6 +32,7 @@ RSpec.describe "tasks/index", type: :view do
   end
 
   it "renders a progress bar with all tasks" do
+    I18n.locale = "en"
     stub_data
     completed_task = instance_double(TaskPresenter,
                                      css_class: "foo",
