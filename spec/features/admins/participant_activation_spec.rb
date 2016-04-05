@@ -11,7 +11,9 @@ RSpec.describe "Participant activation", type: :feature do
     expect(en_pending_participant.nurse).to be_nil
     sign_in_user en_admin
     visit "/en/pending/participants"
-    click_on "activate_#{en_pending_participant.id}"
+    within "#participant-#{en_pending_participant.id}" do
+      click_on "Activate"
+    end
 
     expect do
       click_on "Save"

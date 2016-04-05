@@ -22,3 +22,8 @@ body {
 .table > tbody > tr > td {
   border-color: inherit;
 }
+
+/* panel tables */
+.panel-default table > tbody > tr > td {
+  vertical-align: inherit;
+}

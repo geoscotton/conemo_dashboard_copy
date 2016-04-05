@@ -39,22 +39,14 @@ RSpec.describe "participant enrollment", type: :feature do
     expect(page).to have_text "14"
   end
 
-  it "should update an ineligible participant and remove them from the pending index" do
-    visit "/en/pending/participants"
-
-    expect(page).to have_text participant.study_identifier
-
-    click_on "disqualify_#{participant.id}"
-
-    expect(page).to_not have_text participant.study_identifier
-  end
-
   it "should activate an eligible participant and assign them to a nurse" do
     visit "/en/pending/participants"
 
     expect(page).to have_text participant.study_identifier
 
-    click_on "activate_#{participant.id}"
+    within "#participant-#{participant.id}" do
+      click_on "Activate"
+    end
 
     expect(page).to have_text "Assign nurse to activate participant #{participant.first_name} #{participant.last_name}"
 
