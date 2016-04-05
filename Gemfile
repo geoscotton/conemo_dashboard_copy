@@ -46,4 +46,4 @@ group :test do
   gem "simplecov", "~> 0.10.0", require: false
 end
 
-gem "bit_core", "~> 1.0"
+gem "bit_core", "~> 1.4"
