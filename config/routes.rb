@@ -22,8 +22,6 @@ Rails.application.routes.draw do
       resources :help_messages, only: [:update]
     end
 
-    resources :debug_logs, only: :create
-
     get "/participants/:participant_id/first_contacts/missed_appointment" => "first_contacts#missed_appointment", as: :missed_appointment
     get "/participants/:participant_id/first_appointments/missed_second_contact" => "first_appointments#missed_second_contact", as: :missed_second_contact
     get "/participants/:participant_id/second_contacts/missed_third_contact" => "second_contacts#missed_third_contact", as: :missed_third_contact
