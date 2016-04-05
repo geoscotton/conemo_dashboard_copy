@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.0 - 2016-04-05
+
+* allow supervisor to reassign nurse
+* update participant workflow
+* restyle admin dashboard (pending participants)
+* remove admin landing page
+
 ## 0.9.6 - 2016-04-04
 
 * update nokogiri
