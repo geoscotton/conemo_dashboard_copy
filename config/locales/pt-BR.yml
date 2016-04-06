@@ -497,10 +497,6 @@ pt-BR:
           - Dificuldade para ver vídeo(s)
           - Dificuldade na seleção de atividades
           - Outras dificuldades
-      supervision_contact:
-        contact_kinds:
-          - por telefone
-          - presencial
       supervision_session:
         contact_kinds:
           - por telefone
@@ -561,9 +557,6 @@ pt-BR:
       smartphone:
         one: Smartphone
         other: Smartphones
-      supervision_contact:
-        one: Supervision contact
-        other: Supervision contact
       supervision_session:
         one: Supervision session
         other: Supervision sessions
@@ -625,10 +618,6 @@ pt-BR:
       smartphone:
         number: Número do Smartphone
         phone_identifier: Código do Smartphone
-      supervision_contact:
-        contact_at: Data e hora do contato
-        contact_kind: Tipo de contato
-        notes: Observações
       supervision_session:
         session_at: Data/hora
         session_length: Duração da chamada (minutos)

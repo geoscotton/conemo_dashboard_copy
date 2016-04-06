@@ -180,9 +180,6 @@
         <%= link_to "Log supervision session",
                     new_nurse_supervision_session_path(nurse),
                     { class: "btn btn-link" } %>
-        <%= link_to "Log supervision contact",
-                    new_nurse_supervision_contact_path(nurse),
-                    { class: "btn btn-link" } %>
 
         <% if SupervisorNotification.active_for_nurse(nurse).exists? %>
           <span class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></span>
