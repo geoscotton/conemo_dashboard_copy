@@ -27,12 +27,14 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
   let(:nurse1) do
     instance_double(Nurse,
                     last_and_first_name: "Nurse 1",
-                    cancelled_tasks: [])
+                    cancelled_tasks: [],
+                    rescheduled_tasks: [])
   end
   let(:nurse2) do
     instance_double(Nurse,
                     last_and_first_name: "Nurse 2",
-                    cancelled_tasks: [])
+                    cancelled_tasks: [],
+                    rescheduled_tasks: [])
   end
 
   it "renders correctly when there are no participants or nurses" do
@@ -200,6 +202,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
                       overdue_tasks: [],
                       active_tasks: [],
                       cancelled_tasks: [],
+                      rescheduled_tasks: [],
                       supervision_sessions: sessions1).as_null_object
     end
     let(:sessions2) { double("sessions").as_null_object }
@@ -210,6 +213,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
                       overdue_tasks: [],
                       active_tasks: [],
                       cancelled_tasks: [],
+                      rescheduled_tasks: [],
                       supervision_sessions: sessions2).as_null_object
     end
 
