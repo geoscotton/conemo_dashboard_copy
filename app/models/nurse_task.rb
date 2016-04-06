@@ -5,6 +5,8 @@ class NurseTask < ActiveRecord::Base
                    .new("active", "resolved", "cancelled", "deleted")
 
   belongs_to :participant
+  has_many :scheduled_task_cancellations, dependent: :destroy
+  has_many :supervisor_notifications, dependent: :destroy
 
   validates :participant, :status, :scheduled_at, :overdue_at,
             presence: true
