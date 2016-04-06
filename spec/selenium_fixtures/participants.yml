@@ -25,7 +25,7 @@
     date_of_birth: <%= Date.today - ((25 * 365) + pt_id) %>
     gender: female
     enrollment_date: <%= Date.today %>
-    status: pending
+    status: unassigned
     locale: en
     address: 123 Main Street
 <% end %>
@@ -41,7 +41,7 @@
     date_of_birth: <%= Date.today - ((25 * 365) + pt_id) %>
     gender: female
     enrollment_date: <%= Date.today %>
-    status: pending
+    status: unassigned
     locale: es-PE
     address: 123 Main Street
 <% end %>
@@ -57,7 +57,7 @@
     date_of_birth: <%= Date.today - ((25 * 365) + pt_id) %>
     gender: female
     enrollment_date: <%= Date.today %>
-    status: pending
+    status: unassigned
     locale: pt-BR
     address: 123 Main Street
 <% end %>
@@ -73,7 +73,7 @@
     date_of_birth: <%= Date.today - ((69 * 365) + pt_id) %>
     gender: female
     enrollment_date: <%= Date.today %>
-    status: ineligible
+    status: dropped_out
     locale: en
     address: 123 Main Street
 <% end %>
@@ -89,7 +89,7 @@
     date_of_birth: <%= Date.today - ((69 * 365) + pt_id) %>
     gender: female
     enrollment_date: <%= Date.today + day %>
-    status: ineligible
+    status: dropped_out
     locale: en
     address: 123 Main Street
     created_at: <%= DateTime.now - (4 + day) %>
