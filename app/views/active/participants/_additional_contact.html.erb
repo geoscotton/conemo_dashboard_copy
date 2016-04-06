@@ -10,7 +10,7 @@
 
   <div class="timeline-panel">
     <div class="timeline-heading">
-      <h4 class="timeline-title"><%= additional_contact.model_name.human %></h4>
+      <h4 class="timeline-title"><%= additional_contact.model_name.human.capitalize %></h4>
 
       <p><i class="fa fa-clock-o"></i> <%= t "activerecord.attributes.additional_contact.scheduled_at" %>: <%= l additional_contact.scheduled_at, format: :long %></p>
     </div>
