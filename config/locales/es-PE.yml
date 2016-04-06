@@ -649,6 +649,10 @@ es-PE:
         emergency_contact_cell_phone: Celular
       scheduled_task_cancellation:
         explanation: Razones
+      scheduled_task_rescheduling:
+        explanation: Razones
+        scheduled_at: Nueva fecha y hora
+        notes: Observaciones (cuadrado de texto)
       second_contact:
         contact_at: Fecha/hora de la llamada
         difficulties: ¿El paciente ha tenido algunas dificultades usando CONEMO?

@@ -174,5 +174,13 @@ RSpec.describe Ability do
       cancellation = ScheduledTaskCancellation.new(nurse_task: contact)
       expect(en_nurse_role.can?(:create, cancellation)).to eq true
     end
+
+    it "can create ScheduledTaskReschedulings for assigned Participants" do
+      en_nurse_participant = Participant.active.find_by(nurse: en_nurse)
+
+      contact = NurseTask.new(participant: en_nurse_participant)
+      rescheduling = ScheduledTaskRescheduling.new(nurse_task: contact)
+      expect(en_nurse_role.can?(:create, rescheduling)).to eq true
+    end
   end
 end

@@ -616,6 +616,10 @@ pt-BR:
         emergency_contact_cell_phone: Celular
       scheduled_task_cancellation:
         explanation: Motivo
+      scheduled_task_rescheduling:
+        explanation: Motivo
+        scheduled_at: Nova data e hora
+        notes: Observações
       second_contact:
         contact_at: Data/hora
         difficulties: O paciente tem tido dificuldades com CONEMO?

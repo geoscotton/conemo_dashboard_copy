@@ -82,6 +82,10 @@ class NurseTask < ActiveRecord::Base
     update status: STATUSES.deleted
   end
 
+  def reschedule_at(time)
+    update scheduled_at: time
+  end
+
   def target
     raise "implement in subclass"
   end
