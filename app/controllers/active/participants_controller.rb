@@ -14,7 +14,7 @@ module Active
       @participant = Participant.find(params[:id])
       authorize! :read, @participant
       @participant_contacts = ParticipantContactPresenter
-                              .all_contacts_for(@participant, false)
+                              .all_contacts_for(@participant)
     end
 
     def report
