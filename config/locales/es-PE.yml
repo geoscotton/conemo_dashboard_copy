@@ -550,6 +550,13 @@ es-PE:
           - Dudas sobre la intervención
           - Eventos adversos serios (mencionados por la enfermera)
           - Dropouts
+          - Dudas sobre las tareas
+          - Dudas sobre la intervención
+          - Otros contactos programados
+          - Solicitudes de ayuda resueltos
+          - Situaciones difíciles para la enfermera relacionados al estudio
+          - Contactos adicionales
+          - Otro
       third_contact:
         difficulties:
           - Dificultades con el celular inteligente (batería, contraseña, encenderlo, volumen)

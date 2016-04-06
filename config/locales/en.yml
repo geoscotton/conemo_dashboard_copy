@@ -312,6 +312,13 @@ en:
           - Questions about intervention
           - Serious adverse events (if nurse brings it up)
           - Dropouts
+          - Uncertainties related to tasks
+          - Questions about intervention
+          - Other programmed contact points
+          - Resolved help requests
+          - Difficult situations for the nurse related to the intervention/study
+          - Additional contacts
+          - Others
       third_contact:
         difficulties:
           - Difficulty with cell phone (battery, PIN code, turning it on, volume, etc.)
