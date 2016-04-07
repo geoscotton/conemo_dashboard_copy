@@ -499,6 +499,13 @@ pt-BR:
           - Paciente não houve tempo para falar (várias vezes)
           - Paciente não estava disposto/a a falar com a AE
           - Outra razão
+      scheduled_task_rescheduling:
+        explanations:
+          - Paciente não compareceu.
+          - Paciente pediu para reagendar
+          - AE precisou remarcar
+          - A data programanda é um feriado
+          - Outro motivo
       second_contact:
         difficulties:
           - Dificuldade com o smartphone (bateria, PIN, ligar, volume, etc.)

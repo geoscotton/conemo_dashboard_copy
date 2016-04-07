@@ -532,6 +532,13 @@ es-PE:
           - Paciente no tuvo tiempo de hablar (repetitivamente)
           - Paciente no estaba dispuesta/o de hablar
           - Otra
+      scheduled_task_rescheduling:
+        explanations:
+          - Paciente faltó a su cita
+          - Paciente pidió reprogramar
+          - Enfermera necesitó reprogramar
+          - La fecha programada es un día feriado.
+          - Otro motivo
       second_contact:
         difficulties:
           - Dificultades con el celular inteligente (batería, contraseña, encenderlo, volumen)
