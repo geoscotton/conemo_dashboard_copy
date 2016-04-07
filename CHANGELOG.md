@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.3 - 2016-04-07
+
+* update termination language
+* add nurse and enrollment date to dropped out table
+* add participant name column
+* add Spanish, Portuguese options
+* add filtering and pagination for nurse supervisor
+
 ## 0.10.2 - 2016-04-07
 
 * enable toggling of cancelled/rescheduled tasks
