@@ -5,7 +5,8 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th><%= t("activerecord.attributes.participant.study_identifier") %></th>
+          <th><%= t "conemo.views.pending.participants.index.name" %></th>
+          <th><%= t "conemo.views.pending.participants.index.study_identifier" %></th>
           <th><%= NurseTask.model_name.human(count: 2) %></th>
           <th><%= SupervisorNotification.model_name.human(count: 2) %></th>
         </tr>
@@ -14,6 +15,9 @@
         <% @nurse_dashboard.participant_summaries.each do |participant_summary| %>
           <tr class="clickable-row <%= participant_summary.css_class %>"
               data-href="<%= participant_tasks_path(participant_summary.id) %>">
+            <td>
+              <%= participant_summary.last_and_first_name %>
+            </td>
             <td>
               <%= participant_summary.study_identifier %>
             </td>

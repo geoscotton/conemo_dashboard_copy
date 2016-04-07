@@ -12,7 +12,8 @@ RSpec.describe "nurse_dashboards/show", type: :view do
       id: id,
       study_identifier: "ID #{id}",
       active_tasks_list: tasks_list,
-      configuration_token: "token_#{id}"
+      configuration_token: "token_#{id}",
+      last_and_first_name: "last, first #{id}"
     )
   end
 
