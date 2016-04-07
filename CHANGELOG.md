@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.10.1 - 2016-04-07
+
+* add options to supervision meeting topics
+* reverse timeline of contacts
+* Add pending participants for selenium fixtures
+* capitalize "Additional contact" in all languages
+* add associations to enable deletion
+* remove Supervision Contact feature
+* Update participant statuses in selenium fixtures
+* remove Supervision Contact feature
+
 ## 0.10.0 - 2016-04-05
 
 * allow supervisor to reassign nurse
