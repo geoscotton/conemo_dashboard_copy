@@ -550,14 +550,12 @@ es-PE:
         topics:
           - Cita de inicio
           - Dificultad de contactarse con el paciente
-          - Llamada por no-conectividad
           - Solicitud de ayuda no resuelta
+          - Llamada por no-conectividad
           - No-adherencia
           - Dificultades del paciente con CONEMO
-          - Dudas sobre las tareas
           - Tareas atrasadas / Adherencia de la enfermera
           - Tareas canceladas
-          - Dudas sobre la intervención
           - Eventos adversos serios (mencionados por la enfermera)
           - Dropouts
           - Dudas sobre las tareas
@@ -565,6 +563,7 @@ es-PE:
           - Otros contactos programados
           - Solicitudes de ayuda resueltos
           - Situaciones difíciles para la enfermera relacionados al estudio
+          - Asuntos administrativos
           - Contactos adicionales
           - Otro
       third_contact:

@@ -321,12 +321,11 @@ en:
           - Difficulty to contact patient
           - Non connectivity calls
           - Non-resolved help requests
+          - Non connectivity calls
           - Non-adherence
           - "Patient's difficulties with CONEMO"
-          - Uncertainties related to tasks
           - Overdue tasks / Nurse adherence
           - Cancelled tasks
-          - Questions about intervention
           - Serious adverse events (if nurse brings it up)
           - Dropouts
           - Uncertainties related to tasks
@@ -334,6 +333,7 @@ en:
           - Other programmed contact points
           - Resolved help requests
           - Difficult situations for the nurse related to the intervention/study
+          - Administrative issues
           - Additional contacts
           - Others
       third_contact:
