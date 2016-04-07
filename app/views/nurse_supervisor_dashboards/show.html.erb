@@ -187,7 +187,17 @@
         <% end %>
       </div>
 
-      <ul class="list-unstyled">
+      <% if nurse.rescheduled_tasks.count + nurse.cancelled_tasks.count + nurse.cancelled_unscheduled_contacts.count > 0 %>
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#nurse-<%= nurse.id %>-tasks" aria-expanded="false" aria-controls="nurse-<%= nurse.id %>-tasks">
+              Toggle cancelled / rescheduled tasks
+            </button>
+          </div>
+        </div>
+      <% end %>
+
+      <ul class="collapse list-unstyled" id="nurse-<%= nurse.id %>-tasks">
         <% nurse.rescheduled_tasks.each do |rescheduling| %>
           <li class="text-info"><%= Participant.model_name.human %> <%= rescheduling.participant_study_identifier %> <%= rescheduling.nurse_task %> rescheduled: <%= rescheduling.explanation %></li>
         <% end %>
