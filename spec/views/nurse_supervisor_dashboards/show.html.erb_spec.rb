@@ -203,6 +203,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
                       active_tasks: [],
                       cancelled_tasks: [],
                       rescheduled_tasks: [],
+                      cancelled_unscheduled_contacts: [],
                       supervision_sessions: sessions1).as_null_object
     end
     let(:sessions2) { double("sessions").as_null_object }
@@ -214,6 +215,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
                       active_tasks: [],
                       cancelled_tasks: [],
                       rescheduled_tasks: [],
+                      cancelled_unscheduled_contacts: [],
                       supervision_sessions: sessions2).as_null_object
     end
 
@@ -273,6 +275,23 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
       expect(rendered).to include "Unit 1"
       expect(rendered).to include "Unit 2"
+    end
+
+    it "renders the reasons for cancelled unscheduled contacts" do
+      participant1 = Participant.new(study_identifier: "1")
+      participant2 = Participant.new(study_identifier: "2")
+      contact1 = HelpRequestCall.new(participant: participant1,
+                                     explanation: "ex1")
+      contact2 = NonAdherenceCall.new(participant: participant2,
+                                      explanation: "ex2")
+      allow(nurse1).to receive(:cancelled_unscheduled_contacts) { [contact1] }
+      allow(nurse2).to receive(:cancelled_unscheduled_contacts) { [contact2] }
+      assign_nurses_and_render
+
+      expect(rendered)
+        .to include "Participant 1 Help request cancelled: ex1"
+      expect(rendered)
+        .to include "Participant 2 Non-adherence call cancelled: ex2"
     end
   end
 end

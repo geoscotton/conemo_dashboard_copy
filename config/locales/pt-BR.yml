@@ -437,11 +437,21 @@ pt-BR:
           - Outra
         cancel_label: Not done / CANCEL task
         cancel:
-          - Não consegi falar com o paciente
-          - Paciente não quer continuar no programa
-          - Paciente não houve tempo para falar (várias vezes)
-          - Paciente não estava disposto/a a falar com a AE
-          - Outra razão
+          -
+            - Não consegi falar com o paciente
+            - CANCEL Não consegi falar com o paciente
+          -
+            - Paciente não quer continuar no programa
+            - CANCEL Paciente não quer continuar no programa
+          -
+            - Paciente não houve tempo para falar (várias vezes)
+            - CANCEL Paciente não houve tempo para falar (várias vezes)
+          -
+            - Paciente não estava disposto/a a falar com a AE
+            - CANCEL Paciente não estava disposto/a a falar com a AE
+          -
+            - Outra razão
+            - CANCEL Outra razão
       lack_of_connectivity_call:
         reasons_label: Reasons
         reasons:

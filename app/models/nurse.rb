@@ -33,6 +33,16 @@ class Nurse < User
     ScheduledTaskRescheduling.where(nurse_task: active_participant_tasks)
   end
 
+  def cancelled_unscheduled_contacts
+    [
+      HelpRequestCall,
+      LackOfConnectivityCall,
+      NonAdherenceCall
+    ].map do |contact_type|
+      contact_type.where(participant: active_participants).cancelled
+    end.flatten
+  end
+
   private
 
   def active_participant_tasks

@@ -469,11 +469,21 @@ es-PE:
           - Otra
         cancel_label: Not done / CANCEL task
         cancel:
-          - No se pudo ubicar al paciente
-          - Paciente no desea continuar con la intervención
-          - Paciente no tuvo tiempo de hablar (repetitivamente)
-          - Paciente no estaba dispuesta/o de hablar
-          - Otra
+          -
+            - No se pudo ubicar al paciente
+            - CANCEL No se pudo ubicar al paciente
+          -
+            - Paciente no desea continuar con la intervención
+            - CANCEL Paciente no desea continuar con la intervención
+          -
+            - Paciente no tuvo tiempo de hablar (repetitivamente)
+            - CANCEL Paciente no tuvo tiempo de hablar (repetitivamente)
+          -
+            - Paciente no estaba dispuesta/o de hablar
+            - CANCEL Paciente no estaba dispuesta/o de hablar
+          -
+            - Otra
+            - CANCEL Otra
       lack_of_connectivity_call:
         reasons_label: Reasons
         reasons:

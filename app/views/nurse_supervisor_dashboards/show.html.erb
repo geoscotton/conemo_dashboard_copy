@@ -188,11 +188,14 @@
       </div>
 
       <ul class="list-unstyled">
+        <% nurse.rescheduled_tasks.each do |rescheduling| %>
+          <li class="text-info"><%= Participant.model_name.human %> <%= rescheduling.participant_study_identifier %> <%= rescheduling.nurse_task %> rescheduled: <%= rescheduling.explanation %></li>
+        <% end %>
         <% nurse.cancelled_tasks.each do |task| %>
           <li class="text-warning"><%= Participant.model_name.human %> <%= task.participant.study_identifier %> <%= task %> cancelled: <%= task.cancellation_explanation %></li>
         <% end %>
-        <% nurse.rescheduled_tasks.each do |rescheduling| %>
-          <li class="text-info"><%= Participant.model_name.human %> <%= rescheduling.participant_study_identifier %> <%= rescheduling.nurse_task %> rescheduled: <%= rescheduling.explanation %></li>
+        <% nurse.cancelled_unscheduled_contacts.each do |contact| %>
+          <li class="text-warning"><%= Participant.model_name.human %> <%= contact.participant.study_identifier %> <%= contact.model_name.human %> cancelled: <%= contact.human_explanation %></li>
         <% end %>
       </ul>
     </div>
