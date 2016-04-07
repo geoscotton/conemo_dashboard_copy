@@ -248,6 +248,8 @@ RailsAdmin.config do |config|
       field :phone
       field :first_name
       field :last_name
+      field :password
+      field :password_confirmation
       field :nurse_supervisor do
         associated_collection_cache_all false
         associated_collection_scope do
