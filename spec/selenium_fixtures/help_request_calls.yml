@@ -7,3 +7,8 @@ help_request_call_2:
   participant: participant600
   contact_at: <%= DateTime.now - 7.days %>
   explanation: Difficulties using CONEMO
+
+help_request_call_3:
+  participant: participant342
+  contact_at: <%= DateTime.now - 7.days %>
+  explanation: Difficulties using CONEMO
