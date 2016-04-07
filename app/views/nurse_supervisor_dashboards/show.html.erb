@@ -50,7 +50,8 @@
       <thead>
         <tr>
           <th><%= t "conemo.views.pending.participants.index.edit_info" %></th>
-          <th colspan="2"><%= Nurse.model_name.human %></th>
+          <th><%= Nurse.model_name.human %></th>
+          <th></th>
           <th><%= t "conemo.views.pending.participants.index.name" %></th>
           <th><%= t "conemo.views.pending.participants.index.study_identifier" %></th>
           <th><%= t "conemo.views.pending.participants.index.enrollment_date" %></th>
@@ -211,3 +212,12 @@
     </div>
   </div>
 <% end %>
+
+<script>
+  $(document).on("page:change", function() {
+    $("table").DataTable({
+      "ordering": false,
+      "language": { "url": "<%= root_url %>/datatable.json" }
+    });
+  });
+</script>

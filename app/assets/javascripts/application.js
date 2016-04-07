@@ -22,4 +22,5 @@
 //= require ckeditor/init
 //= require bootstrap.min
 //= require transition
+//= require datatables.min
 //= require_tree .
