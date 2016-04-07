@@ -150,7 +150,7 @@ en:
             enrollment_date: "Enrollment Date"
             activate: "Activate"
             disqualify: Treatment termination
-            disqualify_alert: "Are you sure you want to mark this person as ineligible?"
+            disqualify_alert: Are you sure you want to terminate this person?
             activate_alert: "Are you sure you want to activate this person?"
           activate:
             heading_1: "Assign nurse to activate participant"
