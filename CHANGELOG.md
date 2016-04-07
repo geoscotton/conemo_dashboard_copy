@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.2 - 2016-04-07
+
+* enable toggling of cancelled/rescheduled tasks
+* update form seletions for supervisor session
+* capture and display cancelled unscheduled contacts
+* turn off confirm; add password in Rails admin
+
 ## 0.10.1 - 2016-04-07
 
 * add options to supervision meeting topics
