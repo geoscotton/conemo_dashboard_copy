@@ -70,7 +70,7 @@ class Ability
         NurseTask,
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
     can :create,
-        ScheduledTaskCancellation,
+        [ScheduledTaskCancellation, ScheduledTaskRescheduling],
         nurse_task: {
           participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
         }

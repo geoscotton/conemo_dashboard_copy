@@ -191,6 +191,9 @@
         <% nurse.cancelled_tasks.each do |task| %>
           <li class="text-warning"><%= Participant.model_name.human %> <%= task.participant.study_identifier %> <%= task %> cancelled: <%= task.cancellation_explanation %></li>
         <% end %>
+        <% nurse.rescheduled_tasks.each do |rescheduling| %>
+          <li class="text-info"><%= Participant.model_name.human %> <%= rescheduling.participant_study_identifier %> <%= rescheduling.nurse_task %> rescheduled: <%= rescheduling.explanation %></li>
+        <% end %>
       </ul>
     </div>
   </div>

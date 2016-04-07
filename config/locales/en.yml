@@ -284,6 +284,13 @@ en:
           - Patient did not have time to talk (multiple times)
           - Patient not willing to talk to nurse (assistant)
           - Other
+      scheduled_task_rescheduling:
+        explanations:
+          - Patient did not show up
+          - Patient asked to reschedule
+          - Nurse (assistant) needed to reschedule
+          - The programmed data is a national holiday
+          - Other
       second_contact:
         difficulties:
           - Difficulty with cell phone (battery, PIN code, turning it on, volume, etc.)
@@ -443,6 +450,10 @@ en:
         emergency_contact_cell_phone: Cell phone
       scheduled_task_cancellation:
         explanation: Reason
+      scheduled_task_rescheduling:
+        explanation: Reason
+        scheduled_at: New date and time
+        notes: Notes
       second_contact:
         contact_at: Date/time of phone call
         difficulties: Did the patient have any difficulties using CONEMO?

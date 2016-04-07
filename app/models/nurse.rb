@@ -29,6 +29,10 @@ class Nurse < User
     active_participant_tasks.cancelled
   end
 
+  def rescheduled_tasks
+    ScheduledTaskRescheduling.where(nurse_task: active_participant_tasks)
+  end
+
   private
 
   def active_participant_tasks
