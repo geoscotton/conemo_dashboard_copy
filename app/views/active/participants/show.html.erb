@@ -7,8 +7,12 @@
   <%= link_to "Clinical Summary", active_report_path(@participant), class: "btn btn-link" %>
 </div>
 
-<ul class="timeline">
-  <% @participant_contacts.map(&:contact).each do |contact| %>
-    <%= render partial: contact.class.to_s.underscore, object: contact %>
-  <% end %>
-</ul>
+<h2><%= t "active.participants.show.header" %></h2>
+
+<% if @participant_contacts.present? %>
+  <ul class="timeline">
+    <% @participant_contacts.map(&:contact).each do |contact| %>
+      <%= render partial: contact.class.to_s.underscore, object: contact %>
+    <% end %>
+  </ul>
+<% end %>

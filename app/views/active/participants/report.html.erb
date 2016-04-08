@@ -1,6 +1,6 @@
 <div class="btn-group">
   <%= link_to NurseTask.model_name.human(count: 2), participant_tasks_path(@participant), class: "btn btn-link" %>
-  <%= link_to "participant contact information page", active_participant_path(@participant), class: "btn btn-link" %>
+  <%= link_to t("active.participants.show.header"), active_participant_path(@participant), class: "btn btn-link" %>
 </div>
 
 

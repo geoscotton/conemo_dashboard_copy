@@ -1,4 +1,8 @@
 es-PE:
+  active:
+    participants:
+      show:
+        header: Historial de eventos
   tasks:
     index:
       clinical_summary: Historia del Paciente

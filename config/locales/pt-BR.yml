@@ -1,4 +1,8 @@
 pt-BR:
+  active:
+    participants:
+      show:
+        header: Histórico de eventos
   tasks:
     index:
       clinical_summary: Histórico do participante

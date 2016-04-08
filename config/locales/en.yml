@@ -1,4 +1,8 @@
 en:
+  active:
+    participants:
+      show:
+        header: Event history
   supervision_sessions:
     create:
       not_found: not found
