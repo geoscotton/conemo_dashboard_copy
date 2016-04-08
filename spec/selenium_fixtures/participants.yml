@@ -88,7 +88,7 @@
     phone: 12222222<%= pt_id %>
     date_of_birth: <%= Date.today - ((69 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today + day %>
+    enrollment_date: <%= Date.today - (4 + day) %>
     status: dropped_out
     locale: en
     address: 123 Main Street
