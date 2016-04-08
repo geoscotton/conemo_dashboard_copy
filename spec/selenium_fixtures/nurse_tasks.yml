@@ -675,7 +675,7 @@
     overdue_at: <%= DateTime.now + 1.days %>
 <% end %>
 
-<% (4047..4052).each do |pt_id| %>
+<% (4063..4067).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
