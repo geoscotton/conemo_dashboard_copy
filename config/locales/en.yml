@@ -257,11 +257,21 @@ en:
           - "I don't know"
         cancel_label: Not done / CANCEL task
         cancel:
-          - Could not reach patient
-          - Patient does not want to continue in the program
-          - Patient did not have time to talk (multiple times)
-          - Patient not willing to talk to nurse (assistant)
-          - Other
+          -
+            - Could not reach patient
+            - CANCEL Could not reach patient
+          -
+            - Patient does not want to continue in the program
+            - CANCEL Patient does not want to continue in the program
+          -
+            - Patient did not have time to talk (multiple times)
+            - CANCEL Patient did not have time to talk (multiple times)
+          -
+            - Patient not willing to talk to nurse (assistant)
+            - CANCEL Patient not willing to talk to nurse (assistant)
+          -
+            - Other
+            - CANCEL Other
       non_adherence_call:
         reasons_label: Reasons
         reasons:
@@ -274,11 +284,21 @@ en:
           - Other
         cancel_label: Not done / CANCEL task
         cancel:
-          - Could not reach patient
-          - Patient does not want to continue in the program
-          - Patient did not have time to talk (multiple times)
-          - Patient not willing to talk to nurse (assistant)
-          - Other
+          -
+            - Could not reach patient
+            - CANCEL Could not reach patient
+          -
+            - Patient does not want to continue in the program
+            - CANCEL Patient does not want to continue in the program
+          -
+            - Patient did not have time to talk (multiple times)
+            - CANCEL Patient did not have time to talk (multiple times)
+          -
+            - Patient not willing to talk to nurse (assistant)
+            - CANCEL Patient not willing to talk to nurse (assistant)
+          -
+            - Other
+            - CANCEL Other
       participant:
         relationships:
           - Parent
