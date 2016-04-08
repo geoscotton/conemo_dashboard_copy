@@ -4,7 +4,7 @@
   <div class="panel-heading"><%= @pending_participants.count %> Pending</div>
 
   <div class="panel-body">
-    <table class="table table-bordered table-condensed table-hover">
+    <table class="table table-bordered table-condensed table-hover filterable">
       <thead>
         <tr>
           <th><%= t "conemo.views.pending.participants.index.edit_info" %></th>
@@ -46,7 +46,7 @@
   <div class="panel-heading"><%= @active_participants.count %> Active</div>
 
   <div class="panel-body">
-    <table class="table table-bordered table-condensed table-hover">
+    <table class="table table-bordered table-condensed table-hover filterable">
       <thead>
         <tr>
           <th><%= t "conemo.views.pending.participants.index.edit_info" %></th>
@@ -101,7 +101,7 @@
   <div class="panel-heading"><%= @completed_participants.count %> Completed</div>
 
   <div class="panel-body">
-    <table class="table table-bordered table-condensed table-hover">
+    <table class="table table-bordered table-condensed table-hover filterable">
       <thead>
         <tr>
           <th><%= Nurse.model_name.human %></th>
@@ -131,7 +131,7 @@
   <div class="panel-heading"><%= @dropped_out_participants.count %> Dropped out</div>
 
   <div class="panel-body">
-    <table class="table table-bordered table-condensed table-hover">
+    <table class="table table-bordered table-condensed table-hover filterable">
       <thead>
         <tr>
           <th><%= Nurse.model_name.human %></th>
@@ -216,12 +216,3 @@
     </div>
   </div>
 <% end %>
-
-<script>
-  $(document).on("page:change", function() {
-    $("table").DataTable({
-      "ordering": false,
-      "language": { "url": "<%= root_url %>/datatable.json" }
-    });
-  });
-</script>
