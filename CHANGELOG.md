@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.4 - 2016-04-08
+
+* change timeline link and page header text
+* remove duplicate form option
+* fix datatables translations
+* fix datatables application
+* add cancelled non-scheduled task response values
+
 ## 0.10.3 - 2016-04-07
 
 * update termination language
