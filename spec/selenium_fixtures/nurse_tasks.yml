@@ -674,3 +674,30 @@
     scheduled_at: <%= DateTime.now - 2.days %>
     overdue_at: <%= DateTime.now + 1.days %>
 <% end %>
+
+<% (4047..4052).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now - 2.days %>
+    overdue_at: <%= DateTime.now + 1.days %>
+<% end %>
+
+<% (4053..4057).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now - 1.days %>
+    overdue_at: <%= DateTime.now + 2.days %>
+<% end %>
+
+<% (4058..4062).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: resolved
+    scheduled_at: <%= DateTime.now - 4.days %>
+    overdue_at: <%= DateTime.now - 1.days %>
+<% end %>

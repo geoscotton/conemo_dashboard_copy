@@ -129,3 +129,17 @@
     type: NurseSupervisor
     confirmed_at: <%= DateTime.now - 30 %>
 <% end %>
+
+<% (1000..1000).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    role: Superuser
+    phone: 1010101<%= user_id %>
+    first_name: English
+    last_name: Superuser-<%= user_id %>
+    locale: en
+    timezone: Central Time (US & Canada)
+    type: Superuser
+    confirmed_at: <%= DateTime.now - 30 %>
+<% end %>
