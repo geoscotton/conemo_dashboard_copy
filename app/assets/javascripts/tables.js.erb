@@ -6,9 +6,11 @@
       return;
     }
 
+    var locale = $("body").data("locale");
+
     $("table.filterable").DataTable({
       "ordering": false,
-      "language": { "url": "<%= root_url %>/datatable.json" }
+      "language": { "url": "<%= Rails.application.routes.url_helpers.root_path %>" + locale + "/datatable.json" }
     });
   }
 
