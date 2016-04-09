@@ -4,6 +4,10 @@ class TasksController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
+    unless current_user.nurse? || current_user.nurse_supervisor?
+      return redirect_to(root_url)
+    end
+
     tasks = NurseTask.for_participant(find_participant)
     @tasks = ParticipantSummaryPresenter.new(find_participant, tasks)
     authorize! :read, tasks
