@@ -1,0 +1,55 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>
+      <%= link_to nurse.last_and_first_name, nurse_tasks_summary_path(nurse) %>
+      <% if nurse.supervision_sessions.latest %>
+        <small class="pull-right <%= SupervisionSessionPresenter.new(nurse.supervision_sessions.latest).css_class %>">
+          Last supervision session: <%= l nurse.supervision_sessions.latest.session_at, format: :long %>
+          <%= link_to "Review", nurse_supervision_sessions_path(nurse) %>
+        </small>
+      <% end %>
+    </h4>
+
+    <ul class="list-inline">
+      <li><%= nurse.active_participants.count %> <%= Participant.model_name.human(count: nurse.active_participants.count) %></li>
+      <li><%= nurse.current_tasks.count %> <%= NurseTask.model_name.human(count: nurse.current_tasks.count) %></li>
+      <li><%= nurse.overdue_tasks.count %> Overdue</li>
+      <li><%= nurse.family_health_unit_name %></li>
+    </ul>
+  </div>
+
+  <div class="panel-body">
+    <div class="btn-group" role="group" aria-label="Actions">
+      <%= link_to "Log supervision session",
+                  new_nurse_supervision_session_path(nurse),
+                  { class: "btn btn-link" } %>
+
+      <% if SupervisorNotification.active_for_nurse(nurse).exists? %>
+        <span class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></span>
+        <span class="sr-only">Notification</span>
+      <% end %>
+    </div>
+
+    <% if nurse.rescheduled_tasks.count + nurse.cancelled_tasks.count + nurse.cancelled_unscheduled_contacts.count > 0 %>
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#nurse-<%= nurse.id %>-tasks" aria-expanded="false" aria-controls="nurse-<%= nurse.id %>-tasks">
+            Toggle cancelled / rescheduled tasks
+          </button>
+        </div>
+      </div>
+    <% end %>
+
+    <ul class="collapse list-unstyled" id="nurse-<%= nurse.id %>-tasks">
+      <% nurse.rescheduled_tasks.each do |rescheduling| %>
+        <li class="text-info"><%= Participant.model_name.human %> <%= rescheduling.participant_study_identifier %> <%= rescheduling.nurse_task %> rescheduled: <%= rescheduling.explanation %></li>
+      <% end %>
+      <% nurse.cancelled_tasks.each do |task| %>
+        <li class="text-warning"><%= Participant.model_name.human %> <%= task.participant.study_identifier %> <%= task %> cancelled: <%= task.cancellation_explanation %></li>
+      <% end %>
+      <% nurse.cancelled_unscheduled_contacts.each do |contact| %>
+        <li class="text-warning"><%= Participant.model_name.human %> <%= contact.participant.study_identifier %> <%= contact.model_name.human %> cancelled: <%= contact.human_explanation %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

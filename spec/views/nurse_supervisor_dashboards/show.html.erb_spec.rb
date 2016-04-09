@@ -36,13 +36,16 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
                     cancelled_tasks: [],
                     rescheduled_tasks: [])
   end
+  let(:dashboard) do
+    instance_double(NurseSupervisorDashboardPresenter, nurses: [])
+  end
 
   it "renders correctly when there are no participants or nurses" do
     assign(:pending_participants, [])
     assign(:active_participants, [])
     assign(:completed_participants, [])
     assign(:dropped_out_participants, [])
-    assign(:nurses, [])
+    assign(:dashboard, dashboard)
 
     render template: template
 
@@ -58,7 +61,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       assign(:active_participants, [])
       assign(:completed_participants, [])
       assign(:dropped_out_participants, [])
-      assign(:nurses, [])
+      assign(:dashboard, dashboard)
 
       render template: template
     end
@@ -98,7 +101,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       assign(:active_participants, [active1, active2])
       assign(:completed_participants, [])
       assign(:dropped_out_participants, [])
-      assign(:nurses, [])
+      assign(:dashboard, dashboard)
 
       render template: template
     end
@@ -138,7 +141,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       assign(:active_participants, [])
       assign(:completed_participants, [completed1, completed2])
       assign(:dropped_out_participants, [])
-      assign(:nurses, [])
+      assign(:dashboard, dashboard)
 
       render template: template
     end
@@ -170,7 +173,7 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       assign(:active_participants, [])
       assign(:completed_participants, [])
       assign(:dropped_out_participants, [dropped_out1, dropped_out2])
-      assign(:nurses, [])
+      assign(:dashboard, dashboard)
 
       render template: template
     end
@@ -225,7 +228,11 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       assign(:active_participants, [])
       assign(:completed_participants, [])
       assign(:dropped_out_participants, [])
-      assign(:nurses, [nurse1, nurse2])
+      allow(dashboard).to receive(:nurses) { [nurse1, nurse2] }
+      allow(dashboard).to receive(:overdue_nurses) { [nurse1, nurse2] }
+      allow(dashboard).to receive(:current_nurses) { [nurse1, nurse2] }
+      allow(dashboard).to receive(:complete_nurses) { [nurse1, nurse2] }
+      assign(:dashboard, dashboard)
 
       render template: template
     end

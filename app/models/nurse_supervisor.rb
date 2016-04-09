@@ -7,4 +7,8 @@ class NurseSupervisor < User
   def active_participants
     participants.active
   end
+
+  def active_participant_tasks
+    NurseTask.where(participant: active_participants)
+  end
 end
