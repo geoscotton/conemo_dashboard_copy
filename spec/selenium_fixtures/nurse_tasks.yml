@@ -675,6 +675,33 @@
     overdue_at: <%= DateTime.now + 1.days %>
 <% end %>
 
+<% (4024..4024).each do |pt_id| %>
+  nurse_task_2<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::HelpRequest
+    status: active
+    scheduled_at: <%= DateTime.now - 1.days %>
+    overdue_at: <%= DateTime.now + 1.days %>
+<% end %>
+
+<% (4025..4025).each do |pt_id| %>
+  nurse_task_2<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::LackOfConnectivityCall
+    status: active
+    scheduled_at: <%= DateTime.now - 1.days %>
+    overdue_at: <%= DateTime.now + 1.days %>
+<% end %>
+
+<% (4026..4026).each do |pt_id| %>
+  nurse_task_9<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::NonAdherenceCall
+    status: active
+    scheduled_at: <%= DateTime.now - 1.days %>
+    overdue_at: <%= DateTime.now + 1.days %>
+<% end %>
+
 <% (4063..4067).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
     participant: participant<%= pt_id %>
