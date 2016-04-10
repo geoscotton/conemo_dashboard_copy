@@ -650,3 +650,14 @@
     day_in_treatment_accessed: 6
     uuid: <%= SecureRandom.uuid %>
 <% end %>
+
+<% (1..5).each do |lesson_id| %>
+<% (4026..4026).each do |pt_id| %>
+  content_access_event_<%= lesson_id %>_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    accessed_at: <%= DateTime.now - (10 - (lesson_id - 1)) %>
+    lesson: lesson_<%= lesson_id %>
+    day_in_treatment_accessed: <%= lesson_id %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+<% end %>

@@ -651,3 +651,14 @@
     lesson: es_lesson_3
     uuid: <%= SecureRandom.uuid %>
 <% end %>
+
+<% (1..5).each do |lesson_id| %>
+<% (4026..4026).each do |pt_id| %>
+  session_access_event_<%= lesson_id %>_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (10 - (lesson_id - 1)) %>
+    lesson: lesson_<%= lesson_id %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+<% end %>
