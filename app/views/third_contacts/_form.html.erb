@@ -18,9 +18,11 @@
   <div class="form-group">
     <%= f.label :difficulties, class: "col-md-4 control-label" %>
     <div class="col-md-7">
-      <%= f.select :difficulties, "<option>#{ t("conemo.views.shared.false") }</option>".html_safe + grouped_options_for_select([[t("conemo.views.shared.true"), t("activerecord.field_options.third_contact.difficulties")]]),
-                   {},
-                   { class: "dropdown", required: true } %>
+      <% t("activerecord.field_options.third_contact.difficulties").each do |value| %>
+        <label class="checkbox">
+          <%= check_box_tag "third_contact[difficulties][]", value, @third_contact.difficulties.try(:include?, value) %> <%= value %>
+        </label>
+      <% end %>
     </div>
   </div>
 

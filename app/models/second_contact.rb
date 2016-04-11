@@ -11,6 +11,8 @@ class SecondContact < ActiveRecord::Base
 
   accepts_nested_attributes_for :patient_contacts
 
+  serialize :difficulties
+
   validates :participant,
             :contact_at,
             :session_length,

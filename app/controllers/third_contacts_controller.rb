@@ -6,7 +6,8 @@ class ThirdContactsController < ApplicationController
   def self.filter_params(params)
     params.require(:third_contact).permit(
       :contact_at, :session_length, :call_to_schedule_final_appointment_at,
-      :notes, :difficulties,
+      :notes,
+      difficulties: [],
       patient_contacts_attributes: [:contact_reason, :note]
     )
   end
