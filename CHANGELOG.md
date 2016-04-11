@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.5 - 2016-04-11
+
+* enable Nurse Supervisor notes
+* update participant timeline header text
+* allow only nurses and supervisors to view tasks pg
+* sort nurses by task status of active participants
+
 ## 0.10.4 - 2016-04-08
 
 * change timeline link and page header text
