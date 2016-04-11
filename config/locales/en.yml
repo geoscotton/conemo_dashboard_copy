@@ -2,7 +2,7 @@ en:
   active:
     participants:
       show:
-        header: Event history
+        header: All concluded contacts
   supervision_sessions:
     create:
       not_found: not found

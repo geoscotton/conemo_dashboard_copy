@@ -2,7 +2,7 @@ es-PE:
   active:
     participants:
       show:
-        header: Historial de eventos
+        header: Todos los contactos realizados
   tasks:
     index:
       clinical_summary: Historia del Paciente

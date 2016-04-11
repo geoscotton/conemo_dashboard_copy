@@ -2,7 +2,7 @@ pt-BR:
   active:
     participants:
       show:
-        header: Histórico de eventos
+        header: Todos os contatos realizados
   tasks:
     index:
       clinical_summary: Histórico do participante
