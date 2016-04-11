@@ -36,7 +36,8 @@ class SecondContactsController < ApplicationController
 
   def second_contact_params
     params.require(:second_contact).permit(
-      :contact_at, :notes, :session_length, :next_contact, :difficulties,
+      :contact_at, :notes, :session_length, :next_contact,
+      difficulties: [],
       patient_contacts_attributes: [
         :second_contact_id, :contact_reason, :note, :contact_at
       ]
