@@ -1,0 +1,15 @@
+<%= form_for [@participant, @supervisor_note], html: { role: "form", class: "form-horizontal" } do |f| %>
+  <div class="form-group">
+    <%= f.label :note, class: "col-md-4 control-label" %>
+    <div class="col-md-7">
+      <%= f.text_area :note, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-7">
+      <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+      <%= link_to t("conemo.views.shared.cancel_button"), active_report_path(@participant), class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>

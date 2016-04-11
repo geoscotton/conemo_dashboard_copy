@@ -26,6 +26,10 @@ RSpec.describe "active/participants/report", type: :view do
     second_contact
   end
 
+  before do
+    allow(view).to receive(:can?)
+  end
+
   describe "the lessons table" do
     let(:release_day) { 3 }
     let(:lesson) do

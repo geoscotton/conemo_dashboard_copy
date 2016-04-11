@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406180946) do
+ActiveRecord::Schema.define(version: 20160409182747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -412,6 +412,15 @@ ActiveRecord::Schema.define(version: 20160406180946) do
 
   add_index "supervision_sessions", ["nurse_id"], name: "index_supervision_sessions_on_nurse_id", using: :btree
 
+  create_table "supervisor_notes", force: :cascade do |t|
+    t.text     "note",           null: false
+    t.integer  "participant_id", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "supervisor_notes", ["participant_id"], name: "index_supervisor_notes_on_participant_id", using: :btree
+
   create_table "supervisor_notifications", force: :cascade do |t|
     t.integer  "nurse_task_id",                    null: false
     t.string   "status",        default: "active", null: false
@@ -530,5 +539,6 @@ ActiveRecord::Schema.define(version: 20160406180946) do
   add_foreign_key "session_events", "lessons"
   add_foreign_key "session_events", "participants"
   add_foreign_key "smartphones", "participants", name: "fk_smartphones_participants"
+  add_foreign_key "supervisor_notes", "participants"
   add_foreign_key "supervisor_notifications", "nurse_tasks"
 end

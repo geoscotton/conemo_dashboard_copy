@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       resources :patient_contacts, only: [:new, :create, :destroy]
       resource :second_contact, only: [:new, :create, :edit, :update]
       resource :smartphone, only: [:new, :create, :edit, :update]
+      resources :supervisor_notes, only: [:new, :create, :edit, :update]
       resources :tasks, only: :index do
         resources :scheduled_task_cancellations, only: [:new, :create]
         resources :scheduled_task_reschedulings, only: [:new, :create]
