@@ -1,27 +1,27 @@
 <div class="title">
-  <h2><%= fa_icon "user lg" %> <%= t "conemo.views.active.participants.show.contact_heading" %> <%= link_to '', edit_participant_path(participant), class: "fa fa-edit fa-lg pull-right" %></h2>
+  <h2><%= fa_icon "user lg" %> <%= t ".heading" %> <%= link_to '', edit_participant_path(participant), class: "fa fa-edit fa-lg pull-right" %></h2>
 </div>
   <div class="col-md-3">
-    <p><strong><%= t "helpers.label.participant.family_health_unit_name" %>:</strong>
+    <p><strong><%= t "activerecord.attributes.participant.family_health_unit_name" %>:</strong>
       <%= participant.family_health_unit_name %></p>
   </div>
   <div class="col-md-3">
-    <p><strong><%= t "helpers.label.participant.phone" %>:</strong>
+    <p><strong><%= t "activerecord.attributes.participant.phone" %>:</strong>
       <%= participant.phone %></p>
-    <p><strong><%= t "helpers.label.participant.emergency_contact_name" %>:</strong>
+    <p><strong><%= t "activerecord.attributes.participant.emergency_contact_name" %>:</strong>
       <%= participant.emergency_contact_name %></p>
-    <p><strong><%= t "helpers.label.participant.emergency_contact_phone" %>:</strong>
+    <p><strong><%= t "activerecord.attributes.participant.emergency_contact_phone" %>:</strong>
       <%= participant.emergency_contact_phone %></p>
   </div>
   <div class="col-md-3">
-    <p><strong><%= t "helpers.label.participant.date_of_birth" %>: </strong>
+    <p><strong><%= t "activerecord.attributes.participant.date_of_birth" %>: </strong>
       <%= l participant.date_of_birth, format: :long %></p>
-    <p><strong><%= t "helpers.label.participant.address" %>:</strong>
+    <p><strong><%= t "activerecord.attributes.participant.address" %>:</strong>
       <%= participant.address %></p>
   </div>
   <div class="col-md-3">
-    <p><strong><%= t "helpers.label.participant.enrollment_date" %>:</strong>
+    <p><strong><%= t "activerecord.attributes.participant.enrollment_date" %>:</strong>
       <%= l participant.enrollment_date, format: :long %></p>
-    <p><strong><%= t "helpers.label.participant.gender" %>: </strong>
+    <p><strong><%= t "activerecord.attributes.participant.gender" %>: </strong>
       <%=t "conemo.views.participants.form.#{participant.gender}" %></p>
   </div>

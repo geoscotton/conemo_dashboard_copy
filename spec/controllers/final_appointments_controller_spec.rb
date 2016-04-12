@@ -159,7 +159,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
       end
 
       context "when successful" do
-        it "redirects to the participant tasks page" do
+        it "redirects to the active participant page" do
           participant.create_final_appointment valid_final_appointment_params
 
           admin_request :put, :update, locale,
@@ -167,7 +167,7 @@ RSpec.describe FinalAppointmentsController, type: :controller do
                         final_appointment: valid_final_appointment_params,
                         locale: locale
 
-          expect(response).to redirect_to participant_tasks_url(participant)
+          expect(response).to redirect_to active_participant_url(participant)
         end
       end
 

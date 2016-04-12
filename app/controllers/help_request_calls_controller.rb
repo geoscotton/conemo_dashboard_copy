@@ -14,8 +14,9 @@ class HelpRequestCallsController < ApplicationController
 
     if @help_request_call.save
       redirect_to participant_tasks_url(@participant),
-                  notice: @help_request_call.model_name.human +
-                          " saved successfully"
+                  notice: [HelpRequestCall.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @help_request_call.errors.full_messages.join(", ")
       render :new

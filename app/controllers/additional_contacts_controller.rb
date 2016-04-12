@@ -14,7 +14,9 @@ class AdditionalContactsController < ApplicationController
 
     if @additional_contact.save
       redirect_to participant_tasks_url(@participant),
-                  notice: "Additional contact saved successfully"
+                  notice: [AdditionalContact.model_name.human,
+                           t("actioncontroller.saved_m"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @additional_contact.errors.full_messages.join(", ")
       render :new

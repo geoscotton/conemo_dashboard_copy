@@ -10,8 +10,12 @@ class SecondContactsController < ApplicationController
   def create
     @second_contact = find_participant
                       .build_second_contact(second_contact_params)
+
     if @second_contact.save
-      redirect_to participant_tasks_url(find_participant)
+      redirect_to participant_tasks_url(find_participant),
+                  notice: [SecondContact.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
       render :new
@@ -24,8 +28,12 @@ class SecondContactsController < ApplicationController
 
   def update
     @second_contact = find_participant.second_contact
+
     if @second_contact.update(second_contact_params)
-      redirect_to participant_tasks_url(find_participant)
+      redirect_to active_participant_url(find_participant),
+                  notice: [SecondContact.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @second_contact.errors.full_messages.join(", ")
       render :edit

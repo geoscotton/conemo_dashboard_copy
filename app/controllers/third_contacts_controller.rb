@@ -18,8 +18,12 @@ class ThirdContactsController < ApplicationController
 
   def create
     @third_contact = find_participant.build_third_contact(third_contact_params)
+
     if @third_contact.save
-      redirect_to participant_tasks_url(find_participant)
+      redirect_to participant_tasks_url(find_participant),
+                  notice: [ThirdContact.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @third_contact.errors.full_messages.join(", ")
       render :new
@@ -32,8 +36,12 @@ class ThirdContactsController < ApplicationController
 
   def update
     @third_contact = find_participant.third_contact
+
     if @third_contact.update(third_contact_params)
-      redirect_to participant_tasks_url(find_participant)
+      redirect_to active_participant_url(find_participant),
+                  notice: [ThirdContact.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @third_contact.errors.full_messages.join(", ")
       render :edit

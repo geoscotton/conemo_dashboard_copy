@@ -204,13 +204,13 @@ RSpec.describe FirstAppointmentsController, type: :controller do
           }
         end
 
-        it "redirects to participant tasks" do
+        it "redirects to the active participant" do
           admin_request :put, :update, locale,
                         participant_id: participant.id,
                         first_appointment: valid_first_appointment_params,
                         locale: locale
 
-          expect(response).to redirect_to participant_tasks_url(participant)
+          expect(response).to redirect_to active_participant_url(participant)
         end
       end
 

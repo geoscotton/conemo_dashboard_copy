@@ -69,7 +69,7 @@ RSpec.describe "tasks/index", type: :view do
 
     render template: template
 
-    expect(rendered).to include "2 overdue"
+    expect(rendered).to include "2 Overdue"
   end
 
   it "renders the time since each task was scheduled" do
@@ -103,13 +103,13 @@ RSpec.describe "tasks/index", type: :view do
     end
 
     context "for a Nurse" do
-      it "renders a 'Contact Supervisor' button" do
+      it "renders a 'Contact supervisor' button" do
         stub_alert_tasks
         allow(view).to receive(:can?) { true }
 
         render template: template
 
-        expect(rendered).to include "Contact Supervisor"
+        expect(rendered).to include "Contact supervisor"
       end
     end
 
@@ -121,7 +121,7 @@ RSpec.describe "tasks/index", type: :view do
 
       render template: template
 
-      expect(rendered).to include "last supervisor contact sent "
+      expect(rendered).to include "Last supervisor contact sent "
     end
   end
 

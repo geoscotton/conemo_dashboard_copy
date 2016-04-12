@@ -1,11 +1,54 @@
 es-PE:
+  actioncontroller:
+    cancelled: cancelada
+    saved: guardada
+    saved_m: guardado
+    successfully: exitosamente
+    participants:
+      saved_participant: Información actualizada
+    tasks:
+      notify_supervisor:
+        flash_notice: Una solicitud de ayuda fue enviada a tu supervisor/a para que revise este asunto
   active:
     participants:
+      contact_info:
+        heading: Información de contacto
+      lesson_legend:
+        accessed_but_not_completed: Sesión accedida, pero no finalizada
+        completed_late: Sesión finalizada tarde
+        completed_on_time: Sesión finalizada a tiempo
+        current: Sesión actual
+        not_accessed: Sesión no accedida
+        unreleased: Unreleased
       show:
         header: Todos los contactos realizados
+  nurse_dashboards:
+    show:
+      active_tasks: Tarea actual
+      header: Tus participantes
+      no_active_or_overdue_tasks: Sin tareas pendientes
+      overdue_tasks: Tarea atrasada
+  pending:
+    participants:
+      index:
+        unassigned_participant:
+          one: Participante no-asignado/a
+          other: Participantes no-asignados
   tasks:
     index:
+      clear: Borrar tarea
       clinical_summary: Historia del Paciente
+      confirm_supervisor_notification: ¿Estás seguro/a de que quieres enviar una solicitud de ayuda al supervisor?
+      contact_supervisor: Contactar supervisor/a
+      current_task:
+        one: Tarea pendiente
+        other: Tareas pendientes
+      last_supervisor_contact_sent: último contacto supervisor de enviado en
+      mark_as_resolved: Tarea resuelta
+      overdue_task:
+        one: Tarea atrasada
+        other: Tareas astrasadas
+      progress_bar: Línea de tiempo
   conemo:
     family_health_units:
       - Centro de salud 1
@@ -135,7 +178,6 @@ es-PE:
               gray: Paciente todavía no realizó la primera sesión
           show:
             heading: "Perfil de"
-            contact_heading: "Información de contacto"
             smartphone_heading: "Smartphone"
             first_contact_heading: "Llamada confirmando cita"
             second_contact_heading: "Llamada de seguimiento sem. 1"
@@ -144,7 +186,7 @@ es-PE:
           report:
             delete: "¿Está seguro que quiere eliminar esa nota?"
             content_accessed: "Acceso a sesión"
-            messages: "Mensajes"
+            messages: Solicitudes de ayuda
             release_day: "Fecha de lanzamiento"
             lesson: "Sesión"
             logins: "Ingresos"
@@ -166,7 +208,7 @@ es-PE:
             enrollment_date: "Fecha de inclusión en el estudio"
             activate: "Activar Participante"
             disqualify: "Desactivar Participante"
-            disqualify_alert: "¿Está seguro que quiere desactivar este participante?"
+            disqualify_alert: ¿Estás seguro/a de que quieres suspender el tratamiento de este participante?
             activate_alert: "¿Está seguro que quiere activar este participante?"
           activate:
             heading_1: "Asignar enfermero para activar participante"
@@ -314,36 +356,36 @@ es-PE:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: cerca de 1 hora
-        other: cerca de %{count} horas
+        one: hace cerca de 1 hora
+        other: hace cerca de %{count} horas
       about_x_months:
-        one: cerca de 1 mes
-        other: cerca de %{count} meses
+        one: hace cerca de 1 mes
+        other: hace cerca de %{count} meses
       about_x_years:
-        one: cerca de 1 año
-        other: cerca de %{count} años
+        one: hace cerca de 1 año
+        other: hace cerca de %{count} años
       half_a_minute: medio minuto
       less_than_x_minutes:
-        one: menos de 1 minuto
-        other: menos de %{count} minutos
+        one: hace menos de 1 minuto
+        other: hace menos de %{count} minutos
       less_than_x_seconds:
-        one: menos de 1 segundo
-        other: menos de %{count} segundos
+        one: hace menos de 1 segundo
+        other: hace menos de %{count} segundos
       over_x_years:
         one: más de 1 año
         other: más de %{count} años
       x_days:
-        one: 1 día
-        other: ! '%{count} días'
+        one: hace 1 día
+        other: ! 'hace %{count} días'
       x_minutes:
-        one: 1 minuto
-        other: ! '%{count} minutos'
+        one: hace 1 minuto
+        other: ! 'hace %{count} minutos'
       x_months:
-        one: 1 mes
-        other: ! '%{count} meses'
+        one: hace 1 mes
+        other: ! 'hace %{count} meses'
       x_seconds:
-        one: 1 segundo
-        other: ! '%{count} segundos'
+        one: hace 1 segundo
+        other: ! 'hace %{count} segundos'
     prompts:
       day: Día
       hour: Hora
@@ -464,14 +506,14 @@ es-PE:
           - Centro de salud
           - Otro lugar
       help_request_call:
-        reasons_label: Reasons
+        reasons_label: Razón de la solicitud de ayuda
         reasons:
           - Dificultades con CONEMO
           - Pregunta sobre la intervención
           - Botón de solicitar ayuda presionado por error
           - No relacionado a CONEMO (p. ej. salud)
           - Otra
-        cancel_label: Not done / CANCEL task
+        cancel_label: CANCELAR llamada (no realizada)
         cancel:
           -
             - No se pudo ubicar al paciente
@@ -489,7 +531,7 @@ es-PE:
             - Otra
             - CANCEL Otra
       lack_of_connectivity_call:
-        reasons_label: Reasons
+        reasons_label: Razón
         reasons:
           - Datos móviles apagados
           - Sin cobertura de internet
@@ -497,7 +539,7 @@ es-PE:
           - Celular inteligente apagado
           - Otra
           - No lo sé
-        cancel_label: Not done / CANCEL task
+        cancel_label: CANCELAR llamada (no realizada)
         cancel:
           -
             - No se pudo ubicar al paciente
@@ -515,7 +557,7 @@ es-PE:
             - Otra
             - CANCEL Otra
       non_adherence_call:
-        reasons_label: Reasons
+        reasons_label: Razón
         reasons:
           - Dificultades para usar CONEMO
           - Sin tiempo para usar CONEMO
@@ -524,7 +566,7 @@ es-PE:
           - Paciente está viajando (sin el smartphone)
           - Razón no fue comunicada
           - Otra
-        cancel_label: Not done / CANCEL task
+        cancel_label: CANCELAR llamada (no realizada)
         cancel:
           -
             - No se pudo ubicar al paciente
@@ -607,8 +649,8 @@ es-PE:
           - Otras dificultades
     models:
       additional_contact:
-        one: contacto adicional
-        other: contactos adicionales
+        one: Contacto adicional
+        other: Contactos adicionales
       admin: Admin
       call_to_schedule_final_appointment: Llamada para programar cita final
       "tasks/call_to_schedule_final_appointment": Llamada para programar cita final
@@ -627,12 +669,12 @@ es-PE:
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       nurse_task:
-        one: la tarea
-        other: las tareas
+        one: Tarea
+        other: Tareas
       participant: Participante
       scheduled_task_cancellation:
-        one: Cancel contact point
-        other: Cancel contact points
+        one: Cancelar punto de contacto
+        other: Cancelar puntos de contacto
       second_contact: Llamada de seguimiento sem. 1
       smartphone:
         one: Smartphone
@@ -691,7 +733,7 @@ es-PE:
         explanation: Razones
       scheduled_task_rescheduling:
         explanation: Razones
-        scheduled_at: Nueva fecha y hora
+        scheduled_at: Programado para
         notes: Observaciones (cuadrado de texto)
       second_contact:
         contact_at: Fecha/hora de la llamada
@@ -700,8 +742,8 @@ es-PE:
         next_contact: Llamada de seguimiento sem. 3
         notes: Observaciones (cuadrado de texto)
       smartphone:
-        number: Número del Smartphone
-        phone_identifier: Número de Serie
+        number: Número del smartphone / número de serie
+        phone_identifier: Código del smartphone
       supervision_session:
         session_at: Fecha/hora
         session_length: Duración (min)

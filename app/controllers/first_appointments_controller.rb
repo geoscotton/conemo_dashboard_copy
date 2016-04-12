@@ -19,9 +19,12 @@ class FirstAppointmentsController < ApplicationController
   def create
     @first_appointment =
       find_participant.build_first_appointment(self.class.filter_params(params))
+
     if @first_appointment.save
       redirect_to new_participant_smartphone_path,
-                  notice: "Successfully created first appointment"
+                  notice: [FirstAppointment.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @first_appointment.errors.full_messages.join(", ")
       render :new
@@ -34,9 +37,12 @@ class FirstAppointmentsController < ApplicationController
 
   def update
     @first_appointment = find_participant.first_appointment
+
     if @first_appointment.update(self.class.filter_params(params))
-      redirect_to participant_tasks_url(find_participant),
-                  notice: "Successfully updated first_appointment"
+      redirect_to active_participant_url(find_participant),
+                  notice: [FirstAppointment.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @first_appointment.errors.full_messages.join(", ")
       render :edit

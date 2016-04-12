@@ -9,9 +9,9 @@ class SmartphonesController < ApplicationController
 
   def create
     @smartphone = find_participant.build_smartphone(smartphone_params)
+
     if @smartphone.save
-      redirect_to participant_tasks_url(find_participant),
-                  notice: "Successfully created smartphone"
+      successfully_saved
     else
       flash[:alert] = @smartphone.errors.full_messages.join(", ")
       render :new
@@ -24,9 +24,9 @@ class SmartphonesController < ApplicationController
 
   def update
     @smartphone = find_participant.smartphone
+
     if @smartphone.update(smartphone_params)
-      redirect_to active_participant_path(find_participant),
-                  notice: "Successfully updated smartphone"
+      successfully_saved
     else
       flash[:alert] = @smartphone.errors.full_messages.join(", ")
       render :edit
@@ -46,5 +46,12 @@ class SmartphonesController < ApplicationController
   def record_not_found
     redirect_to nurse_dashboard_url(current_user),
                 alert: "Participant not found"
+  end
+
+  def successfully_saved
+    redirect_to participant_tasks_url(find_participant),
+                notice: [Smartphone.model_name.human,
+                         t("actioncontroller.saved_m"),
+                         t("actioncontroller.successfully")].join(" ")
   end
 end

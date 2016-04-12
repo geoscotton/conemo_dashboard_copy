@@ -1,8 +1,75 @@
 en:
+  actioncontroller:
+    cancelled: canceled
+    saved: saved
+    saved_m: saved
+    successfully: successfully
+    participants:
+      saved_participant: Saved information
+    tasks:
+      notify_supervisor:
+        flash_notice: a notification has been sent for your supervisor to review this issue
   active:
     participants:
+      contact_info:
+        heading: Contact information
+      lesson_legend:
+        accessed_but_not_completed: Accessed but not completed
+        completed_late: Completed late
+        completed_on_time: Completed on time
+        current: Current
+        not_accessed: Not accessed
+        unreleased: Unreleased
       show:
         header: All concluded contacts
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour ago
+        other: about %{count} hours ago
+      about_x_months:
+        one: about 1 month ago
+        other: about %{count} months ago
+      about_x_years:
+        one: about 1 year ago
+        other: about %{count} years ago
+      almost_x_years:
+        one: almost 1 year ago
+        other: almost %{count} years ago
+      half_a_minute: half a minute ago
+      less_than_x_minutes:
+        one: less than a minute ago
+        other: less than %{count} minutes ago
+      less_than_x_seconds:
+        one: less than 1 second ago
+        other: less than %{count} seconds ago
+      over_x_years:
+        one: over 1 year ago
+        other: over %{count} years ago
+      x_days:
+        one: 1 day ago
+        other: "%{count} days ago"
+      x_minutes:
+        one: 1 minute ago
+        other: "%{count} minutes ago"
+      x_months:
+        one: 1 month ago
+        other: "%{count} months ago"
+      x_seconds:
+        one: 1 second ago
+        other: "%{count} seconds ago"
+  nurse_dashboards:
+    show:
+      active_tasks: Active task
+      header: Your patients
+      no_active_or_overdue_tasks: No active/overdue task
+      overdue_tasks: Overdue task
+  pending:
+    participants:
+      index:
+        unassigned_participant:
+          one: Unassigned participant
+          other: Unassigned participants
   supervision_sessions:
     create:
       not_found: not found
@@ -11,7 +78,19 @@ en:
       not_found: not found
   tasks:
     index:
+      clear: Clear
       clinical_summary: Clinical Summary
+      confirm_supervisor_notification: are you sure you want to notify the supervisor that you need help?
+      contact_supervisor: Contact supervisor
+      current_task:
+        one: Task
+        other: Tasks
+      last_supervisor_contact_sent: Last supervisor contact sent
+      mark_as_resolved: Mark as resolved
+      overdue_task:
+        one: Overdue task
+        other: Overdue tasks
+      progress_bar: Timeline
   conemo:
     family_health_units:
       - unit 1
@@ -124,7 +203,6 @@ en:
               gray: active but first lesson has not passed
           show:
             heading: "Profile for"
-            contact_heading: "Contact Information"
             smartphone_heading: "Smartphone Information"
             first_contact_heading: Confirmation call information
             first_appointment_heading: Initial in person appointment information
@@ -494,8 +572,8 @@ en:
         next_contact: Follow up call week 3
         notes: Notes
       smartphone:
-        number: Phone number
-        phone_identifier: Serial number
+        number: Phone number / serial number
+        phone_identifier: Phone ID
       supervision_session:
         session_at: Session at
         session_length: Session length

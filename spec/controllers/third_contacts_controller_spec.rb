@@ -176,14 +176,14 @@ RSpec.describe ThirdContactsController, type: :controller do
       end
 
       context "when successful" do
-        it "redirects to participant tasks" do
+        it "redirects to the active participant" do
           participant.create_third_contact(valid_third_contact_params)
 
           admin_request :put, :update, locale,
                         participant_id: participant.id, locale: locale,
                         third_contact: valid_third_contact_params
 
-          expect(response).to redirect_to participant_tasks_url(participant)
+          expect(response).to redirect_to active_participant_url(participant)
         end
       end
 

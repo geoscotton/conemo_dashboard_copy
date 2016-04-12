@@ -36,12 +36,14 @@
           <td>cancelled</td>
         </tr>
         <tr class="danger">
-          <td>overdue</td>
+          <td><%= t ".overdue" %></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+<h2><%= t ".progress_bar" %></h2>
 
 <div class="progress">
   <% scheduled_task_types = @tasks.scheduled_tasks.group_by { |t| t.task.class } %>
@@ -61,21 +63,23 @@
   <% end %>
 </div>
 
-<%= @tasks.active_tasks.count %> <%= NurseTask.model_name.human(count: @tasks.active_tasks.count) %>, <%= @tasks.overdue_tasks.count %> overdue
+<h2><%= NurseTask.model_name.human(count: 2) %></h2>
+
+<%= @tasks.active_tasks.count %> <%= NurseTask.model_name.human(count: @tasks.active_tasks.count) %>, <%= @tasks.overdue_tasks.count %> <%= t(".overdue_task", count: @tasks.overdue_tasks.count) %>
 
 <% @tasks.active_tasks.each do |task| %>
   <div class="panel panel-default">
-    <div class="panel-heading"><%= task %> <small><%= time_ago_in_words task.scheduled_at %> ago</small></div>
+    <div class="panel-heading"><%= task %> <small><%= time_ago_in_words task.scheduled_at %></small></div>
 
     <% if can? :update, task.task %>
       <div class="btn-group" role="group" aria-label="Actions">
         <% if task.alert? %>
-          <%= link_to "Mark as resolved",
+          <%= link_to t(".mark_as_resolved"),
                       new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
                       { class: "btn btn-default" } %>
-          <%= button_to "Contact Supervisor",
+          <%= button_to t(".contact_supervisor"),
                         notify_supervisor_participant_task_path(participant_id: @tasks.id, id: task.id),
-                        { class: "btn btn-default", data: { confirm: "are you sure you want to notify the supervisor that you need help?" } } %>
+                        { class: "btn btn-default", data: { confirm: t(".confirm_supervisor_notification") } } %>
         <% else %>
           <%= link_to t("conemo.views.shared.confirm"),
                       new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
@@ -92,10 +96,10 @@
 
     <% if task.alert? && @tasks.latest_notification(task.id) %>
       <div class="panel-body">
-        <p style="display: inline-block;">last supervisor contact sent <%= l @tasks.latest_notification(task.id).created_at, format: :long %></p>
+        <p style="display: inline-block;"><%= t ".last_supervisor_contact_sent" %> <%= l @tasks.latest_notification(task.id).created_at, format: :long %></p>
 
         <% if can? :update, @tasks.latest_notification(task.id) %>
-          <%= button_to "clear",
+          <%= button_to t(".clear"),
                         clear_latest_supervisor_notification_participant_task_path(participant_id: @tasks.id, id: task.id),
                         { form: { style: "display: inline-block;" }, method: :delete, class: "btn btn-default", data: { confirm: "are you sure you want to clear this?" } } %>
         <% end %>

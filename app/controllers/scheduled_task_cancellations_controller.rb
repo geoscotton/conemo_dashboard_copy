@@ -15,7 +15,9 @@ class ScheduledTaskCancellationsController < ApplicationController
     authorize! :create, @scheduled_task_cancellation
 
     if find_task.cancel && @scheduled_task_cancellation.save
-      flash[:notice] = "#{find_task.model_name.human} successfully cancelled"
+      flash[:notice] = [find_task.model_name.human,
+                        t("actioncontroller.cancelled"),
+                        t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = "Error cancelling #{find_task.model_name.human}: " +
                       find_task.errors.full_messages.join(", ")

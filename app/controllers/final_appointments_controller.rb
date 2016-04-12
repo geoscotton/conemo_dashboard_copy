@@ -10,9 +10,12 @@ class FinalAppointmentsController < ApplicationController
   def create
     @final_appointment = find_participant
                          .build_final_appointment(final_appointment_params)
+
     if @final_appointment.save
       redirect_to participant_tasks_url(find_participant),
-                  notice: "Successfully created first appointment"
+                  notice: [FinalAppointment.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @final_appointment.errors.full_messages.join(", ")
       render :new
@@ -25,9 +28,12 @@ class FinalAppointmentsController < ApplicationController
 
   def update
     @final_appointment = find_participant.final_appointment
+
     if @final_appointment.update(final_appointment_params)
-      redirect_to participant_tasks_url(find_participant),
-                  notice: "Successfully updated final_appointment"
+      redirect_to active_participant_url(find_participant),
+                  notice: [FinalAppointment.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @final_appointment.errors.full_messages.join(", ")
       render :edit

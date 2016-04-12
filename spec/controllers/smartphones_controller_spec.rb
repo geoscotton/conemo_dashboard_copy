@@ -157,13 +157,13 @@ RSpec.describe SmartphonesController, type: :controller do
       end
 
       context "when successful" do
-        it "redirects to active_participant_path" do
+        it "redirects to participant tasks" do
           participant.create_smartphone valid_smartphone_params
 
           admin_request :put, :update, locale, participant_id: participant.id,
                                                smartphone: valid_smartphone_params, locale: locale
 
-          expect(response).to redirect_to active_participant_path(participant)
+          expect(response).to redirect_to participant_tasks_url(participant)
         end
       end
 

@@ -27,8 +27,8 @@ class TasksController < ApplicationController
     notification = SupervisorNotification.new(nurse_task: find_task)
 
     if notification.save
-      flash[:notice] = "a notification has been sent for your supervisor " \
-                       "to review this issue"
+      flash[:notice] =
+        t("actioncontroller.tasks.notify_supervisor.flash_notice")
     else
       errors = notification.errors.full_messages.join(", ")
       flash[:alert] = "Error notifying supervisor: #{errors}"

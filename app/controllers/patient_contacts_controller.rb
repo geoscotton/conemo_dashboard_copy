@@ -16,7 +16,9 @@ class PatientContactsController < ApplicationController
 
     if @patient_contact.save
       redirect_to active_report_path(find_participant),
-                  notice: "Successfully created patient contact"
+                  notice: t("actioncontroller.patient_contacts.create" \
+                            ".saved_contact") + " " +
+                          t("actioncontroller.successfully")
     else
       flash[:alert] = @patient_contact.errors.full_messages.join(", ")
       render :new

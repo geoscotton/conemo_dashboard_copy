@@ -14,7 +14,8 @@ class ParticipantsController < ApplicationController
 
     if @participant.save
       redirect_to pending_participants_path,
-                  notice: "Successfully created participant"
+                  notice: t("actioncontroller.participants.saved_participant") +
+                          " " + t("actioncontroller.successfully")
     else
       flash[:alert] = @participant.errors.full_messages.join(", ")
       render :new
@@ -68,12 +69,13 @@ class ParticipantsController < ApplicationController
   end
 
   def after_update_path
+    flash[:notice] = t("actioncontroller.participants.saved_participant") +
+                     " " + t("actioncontroller.successfully")
+
     if current_user.nurse?
-      redirect_to active_participant_url(@participant),
-                  notice: "Successfully updated participant"
+      redirect_to active_participant_url(@participant)
     else
-      redirect_to root_url(locale: current_user.locale),
-                  notice: "Successfully updated participant"
+      redirect_to root_url(locale: current_user.locale)
     end
   end
 end

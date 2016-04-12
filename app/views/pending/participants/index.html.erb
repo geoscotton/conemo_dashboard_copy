@@ -9,7 +9,7 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><%= @unassigned_participants.count %> Unassigned</div>
+  <div class="panel-heading"><%= @unassigned_participants.count %> <%= t(".unassigned_participant", count: @unassigned_participants.count) %></div>
 
   <div class="panel-body">
     <table class="table table-bordered table-condensed table-hover">

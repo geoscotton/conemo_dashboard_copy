@@ -1,11 +1,54 @@
 pt-BR:
+  actioncontroller:
+    cancelled: cancelado
+    saved: salvo
+    saved_m: registrado
+    successfully: com sucesso
+    participants:
+      saved_participant: Información actualizada
+    tasks:
+      notify_supervisor:
+        flash_notice: Uma notificação foi enviada para o seu supervisor sobre este assunto
   active:
     participants:
+      contact_info:
+        heading: Informações de contato
+      lesson_legend:
+        accessed_but_not_completed: Acessada mas não concluída
+        completed_late: Concluída com atraso
+        completed_on_time: Concluída em tempo
+        current: Atual
+        not_accessed: Não acessada
+        unreleased: Ainda não enviada
       show:
         header: Todos os contatos realizados
+  nurse_dashboards:
+    show:
+      active_tasks: Tarefa atual
+      header: Seus participantes
+      no_active_or_overdue_tasks: Sem tarefas pendentes
+      overdue_tasks: Tarefa atrasada
+  pending:
+    participants:
+      index:
+        unassigned_participant:
+          one: Participante pendente
+          other: Participantes pendentes
   tasks:
     index:
+      clear: Limpar tarefa
       clinical_summary: Histórico do participante
+      confirm_supervisor_notification: Tem certeza que quer pedir ajuda ao seu supervisor?
+      contact_supervisor: Contactar supervisor
+      current_task:
+        one: Tarefa pendente
+        other: Tarefas pendentes
+      last_supervisor_contact_sent: último aviso para supervisor enviado em
+      mark_as_resolved: Marcar tarefa como resolvida
+      overdue_task:
+        one: Tarefa atrasada
+        other: Tarefas atrasadas
+      progress_bar: Linha do tempo
   conemo:
     family_health_units:
       - Unidade de Saúde 1
@@ -134,7 +177,6 @@ pt-BR:
               gray: "paciente ativo, mas não finalizou primeira sessão"
           show:
             heading: "Perfil de"
-            contact_heading: "Informações de Contato"
             smartphone_heading: "Informações de Smartphone"
             first_contact_heading: Chamada de confirmação
             first_appointment_heading: "Primeiro encontro"
@@ -164,7 +206,7 @@ pt-BR:
             enrollment_date: "Data de inclusão"
             activate: "Ativar"
             disqualify: "Desativar participante"
-            disqualify_alert: "Você tem certeza que quer desativar essa pessoa?"
+            disqualify_alert: Tem certeza que quer terminar o acompanhamento deste participante?
             activate_alert: "Você tem certeza que deseja ativar esta pessoa?"
           activate:
             heading_1: "Designar enfermeira para ativar participante"
@@ -183,7 +225,7 @@ pt-BR:
         title: "Título"
         day_in_treatment: "Dia de tratamento"
       first_contact:
-        contact_at: "Contactado por"
+        contact_at: Contactado em
         first_appointment_at: "Primeiro encontro em"
         first_appointment_location: "Local do primeiro encontro"
         alternative_contact_name: "Contato alternativo"
@@ -262,39 +304,39 @@ pt-BR:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: aproximadamente 1 hora
-        other: aproximadamente %{count} horas
+        one: aproximadamente 1 hora atrás
+        other: aproximadamente %{count} horas atrás
       about_x_months:
-        one: aproximadamente 1 mês
-        other: aproximadamente %{count} meses
+        one: aproximadamente 1 mês atrás
+        other: aproximadamente %{count} meses atrás
       about_x_years:
-        one: aproximadamente 1 ano
-        other: aproximadamente %{count} anos
+        one: aproximadamente 1 ano atrás
+        other: aproximadamente %{count} anos atrás
       almost_x_years:
-        one: quase 1 ano
-        other: quase %{count} anos
-      half_a_minute: meio minuto
+        one: quase 1 ano atrás
+        other: quase %{count} anos atrás
+      half_a_minute: meio minuto atrás
       less_than_x_minutes:
-        one: menos de um minuto
-        other: menos de %{count} minutos
+        one: menos de um minuto atrás
+        other: menos de %{count} minutos atrás
       less_than_x_seconds:
-        one: menos de 1 segundo
-        other: menos de %{count} segundos
+        one: menos de 1 segundo atrás
+        other: menos de %{count} segundos atrás
       over_x_years:
-        one: mais de 1 ano
-        other: mais de %{count} anos
+        one: mais de 1 ano atrás
+        other: mais de %{count} anos atrás
       x_days:
-        one: 1 dia
-        other: ! '%{count} dias'
+        one: 1 dia atrás
+        other: ! '%{count} dias atrás'
       x_minutes:
-        one: 1 minuto
-        other: ! '%{count} minutos'
+        one: 1 minuto atrás
+        other: ! '%{count} minutos atrás'
       x_months:
-        one: 1 mês
-        other: ! '%{count} meses'
+        one: 1 mês atrás
+        other: ! '%{count} meses atrás'
       x_seconds:
-        one: 1 segundo
-        other: ! '%{count} segundos'
+        one: 1 segundo atrás
+        other: ! '%{count} segundos atrás'
     prompts:
       day: Dia
       hour: Hora
@@ -573,8 +615,8 @@ pt-BR:
           - Outras dificuldades
     models:
       additional_contact:
-        one: contato adicional
-        other: contato adicional
+        one: Contato adicional
+        other: Contato adicional
       admin: Admin
       call_to_schedule_final_appointment: Chamada para agendar encontro final
       "tasks/call_to_schedule_final_appointment": Chamada para agendar encontro final
@@ -593,12 +635,12 @@ pt-BR:
       nurse: Nurse
       nurse_supervisor: Nurse supervisor
       nurse_task:
-        one: a tarefa
-        other: as tarefas
+        one: Tarefa
+        other: Tarefas
       participant: Participante
       scheduled_task_cancellation:
-        one: Cancel contact point
-        other: Cancel contact points
+        one: Cancelar ponto de contato
+        other: Cancelar pontos de contato
       second_contact: Chamada de seguimento sem. 1
       smartphone:
         one: Smartphone
@@ -657,7 +699,7 @@ pt-BR:
         explanation: Motivo
       scheduled_task_rescheduling:
         explanation: Motivo
-        scheduled_at: Nova data e hora
+        scheduled_at: Agendado para
         notes: Observações
       second_contact:
         contact_at: Data/hora

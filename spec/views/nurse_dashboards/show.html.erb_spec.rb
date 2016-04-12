@@ -23,11 +23,12 @@ RSpec.describe "nurse_dashboards/show", type: :view do
   let(:participant3) { stub_participant_summary 3, "Hopscotch" }
 
   it "renders correctly when there are no participants" do
+    I18n.locale = "en"
     assign(:nurse_dashboard, double("dashboard", participant_summaries: []))
 
     render template: template
 
-    expect(rendered).to include "Your Patients"
+    expect(rendered).to include "Your patients"
   end
 
   context "when there are participants" do

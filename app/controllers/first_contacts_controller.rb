@@ -9,9 +9,12 @@ class FirstContactsController < ApplicationController
 
   def create
     @first_contact = find_participant.build_first_contact(first_contact_params)
+
     if @first_contact.save
       redirect_to participant_tasks_url(find_participant),
-                  notice: "Successfully created first contact"
+                  notice: [FirstContact.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @first_contact.errors.full_messages.join(", ")
       render :new
@@ -29,9 +32,12 @@ class FirstContactsController < ApplicationController
 
   def update
     @first_contact = find_participant.first_contact
+
     if @first_contact.update(first_contact_params)
-      redirect_to participant_tasks_url(find_participant),
-                  notice: "Successfully updated first_contact"
+      redirect_to active_participant_url(find_participant),
+                  notice: [FirstContact.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @first_contact.errors.full_messages.join(", ")
       render :edit
