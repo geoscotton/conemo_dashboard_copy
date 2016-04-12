@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.10.7 - 2016-04-12
+
+* apply more translations
+
 ## 0.10.6 - 2016-04-12
 
 * apply numerous translations
