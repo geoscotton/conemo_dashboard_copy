@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.6 - 2016-04-12
+
+* apply numerous translations
+* allow difficulties to be multiple select
+
 ## 0.10.5 - 2016-04-11
 
 * enable Nurse Supervisor notes
