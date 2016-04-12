@@ -17,6 +17,7 @@ class SecondContact < ActiveRecord::Base
             :contact_at,
             :session_length,
             :next_contact,
+            :difficulties,
             presence: true
 
   after_initialize :populate_timestamps

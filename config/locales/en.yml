@@ -20,6 +20,8 @@ en:
         current: Current
         not_accessed: Not accessed
         unreleased: Unreleased
+      report:
+        help_message: Help request
       show:
         header: All concluded contacts
   datetime:
@@ -90,6 +92,9 @@ en:
       overdue_task:
         one: Overdue task
         other: Overdue tasks
+      pending:
+        one: pending
+        other: pending
       progress_bar: Timeline
   conemo:
     family_health_units:
@@ -495,6 +500,9 @@ en:
       participant:
         one: Participant
         other: Participants
+      patient_contact:
+        one: Additional note
+        other: Additional notes
       scheduled_task_cancellation:
         one: Cancel contact point
         other: Cancel contact points

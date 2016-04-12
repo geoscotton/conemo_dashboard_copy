@@ -14,7 +14,8 @@ RSpec.describe ThirdContactsController, type: :controller do
       contact_at: Time.zone.now,
       session_length: "b",
       call_to_schedule_final_appointment_at: Time.zone.now,
-      notes: "n"
+      notes: "n",
+      difficulties: %w( d1 d2 )
     }
   end
   let(:raw_params) do

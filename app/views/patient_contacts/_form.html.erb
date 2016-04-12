@@ -7,18 +7,7 @@
         <small><%= Time.zone %></small>
       </div>
     </div>
-    <div class="form-group">
-      <%= f.label :contact_reason, class: "col-md-4 control-label" %>
-      <div class="col-md-7">
-        <%= f.select :contact_reason, options_for_select([
-                                                                 "#{t 'conemo.views.patient_contacts.options.programmed_follow_up_call'}",
-                                                                 "#{t 'conemo.views.patient_contacts.options.non_adherence'}",
-                                                                 "#{t 'conemo.views.patient_contacts.options.patient_requested_call'}",
-                                                                 "#{t 'conemo.views.patient_contacts.options.other'}"
-                                                         ], "#{t 'conemo.views.patient_contacts.options.other'}"),
-                           {}, {class: "dropdown", required: true} %>
-      </div>
-    </div>
+
     <div class="form-group">
       <%= f.label :note, class: "col-md-4 control-label" %>
       <div class="col-md-7">

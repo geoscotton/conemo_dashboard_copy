@@ -16,9 +16,9 @@ class PatientContactsController < ApplicationController
 
     if @patient_contact.save
       redirect_to active_report_path(find_participant),
-                  notice: t("actioncontroller.patient_contacts.create" \
-                            ".saved_contact") + " " +
-                          t("actioncontroller.successfully")
+                  notice: [PatientContact.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @patient_contact.errors.full_messages.join(", ")
       render :new
@@ -41,8 +41,7 @@ class PatientContactsController < ApplicationController
 
   def patient_contact_params
     params.require(:patient_contact).permit(
-      :participant_id, :contact_at, :contact_reason,
-      :note
+      :participant_id, :contact_at, :note
     )
   end
 

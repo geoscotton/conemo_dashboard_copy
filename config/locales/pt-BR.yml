@@ -5,7 +5,7 @@ pt-BR:
     saved_m: registrado
     successfully: com sucesso
     participants:
-      saved_participant: Información actualizada
+      saved_participant: Informações do participante atualizadas
     tasks:
       notify_supervisor:
         flash_notice: Uma notificação foi enviada para o seu supervisor sobre este assunto
@@ -20,6 +20,8 @@ pt-BR:
         current: Atual
         not_accessed: Não acessada
         unreleased: Ainda não enviada
+      report:
+        help_message: Solicitação de ajuda
       show:
         header: Todos os contatos realizados
   nurse_dashboards:
@@ -48,6 +50,9 @@ pt-BR:
       overdue_task:
         one: Tarefa atrasada
         other: Tarefas atrasadas
+      pending:
+        one: pendente
+        other: pendentes
       progress_bar: Linha do tempo
   conemo:
     family_health_units:
@@ -189,6 +194,7 @@ pt-BR:
             messages: "Solicitação de ajuda"
             release_day: "Sessão enviada em"
             lesson: "Sessão"
+            logins: Acessos
             notes: "Anotações"
             legend:
               green: acessado no tempo certo
@@ -638,6 +644,9 @@ pt-BR:
         one: Tarefa
         other: Tarefas
       participant: Participante
+      patient_contact:
+        one: Additional note
+        other: Additional notes
       scheduled_task_cancellation:
         one: Cancelar ponto de contato
         other: Cancelar pontos de contato
@@ -693,7 +702,7 @@ pt-BR:
         emergency_contact_relationship: Grau de parentesco/relacionamento
         emergency_contact_other_relationship: Grau de parentesco/relacionamento
         emergency_contact_address: Endereço
-        emergency_contact_phone: Telefone fixo
+        emergency_contact_phone: Telefone fixo (Contato de Emergência)
         emergency_contact_cell_phone: Celular
       scheduled_task_cancellation:
         explanation: Motivo

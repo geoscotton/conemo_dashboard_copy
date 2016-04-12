@@ -17,6 +17,7 @@ class ThirdContact < ActiveRecord::Base
             :contact_at,
             :session_length,
             :call_to_schedule_final_appointment_at,
+            :difficulties,
             presence: true
 
   after_initialize :populate_timestamps

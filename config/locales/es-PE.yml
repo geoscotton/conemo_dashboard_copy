@@ -20,6 +20,8 @@ es-PE:
         current: Sesión actual
         not_accessed: Sesión no accedida
         unreleased: Unreleased
+      report:
+        help_message: Solicitud de ayuda
       show:
         header: Todos los contactos realizados
   nurse_dashboards:
@@ -48,6 +50,9 @@ es-PE:
       overdue_task:
         one: Tarea atrasada
         other: Tareas astrasadas
+      pending:
+        one: pendiente
+        other: pendientes
       progress_bar: Línea de tiempo
   conemo:
     family_health_units:
@@ -672,6 +677,9 @@ es-PE:
         one: Tarea
         other: Tareas
       participant: Participante
+      patient_contact:
+        one: Additional note
+        other: Additional notes
       scheduled_task_cancellation:
         one: Cancelar punto de contacto
         other: Cancelar puntos de contacto
@@ -727,7 +735,7 @@ es-PE:
         emergency_contact_relationship: Relación con el participante
         emergency_contact_other_relationship: Relación con el participante
         emergency_contact_address: Dirección actual
-        emergency_contact_phone: Teléfono fijo
+        emergency_contact_phone: Teléfono fijo (Contacto de Emergencia)
         emergency_contact_cell_phone: Celular
       scheduled_task_cancellation:
         explanation: Razones

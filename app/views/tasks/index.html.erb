@@ -65,7 +65,8 @@
 
 <h2><%= NurseTask.model_name.human(count: 2) %></h2>
 
-<%= @tasks.active_tasks.count %> <%= NurseTask.model_name.human(count: @tasks.active_tasks.count) %>, <%= @tasks.overdue_tasks.count %> <%= t(".overdue_task", count: @tasks.overdue_tasks.count) %>
+<% active_task_count = @tasks.active_tasks.count %>
+<%= active_task_count %> <%= NurseTask.model_name.human(count: active_task_count) %> <%= t(".pending", count: active_task_count) %>, <%= @tasks.overdue_tasks.count %> <%= t(".overdue_task", count: @tasks.overdue_tasks.count) %>
 
 <% @tasks.active_tasks.each do |task| %>
   <div class="panel panel-default">

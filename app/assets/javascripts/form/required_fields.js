@@ -1,9 +1,9 @@
 (function () {
     function styleFields() {
         // Add an asterisk to the labels of required fields.
-        $('input[required="required"], select[required="required"], textarea[required="required"]')
+        $('label[required="required"], input[required="required"], select[required="required"], textarea[required="required"]')
             .closest(".form-group")
-            .find("label")
+            .find("label:not(.checkbox)")
             .append(" <i class='fa fa-asterisk text-danger'></i>");
         $('select.dropdown').select2({
           width: "100%",
