@@ -480,14 +480,14 @@ pt-BR:
           - Unidade de saúde
           - Outro lugar
       help_request_call:
-        reasons_label: Reasons
+        reasons_label: Razões
         reasons:
           - Dificuldades com o CONEMO
           - Perguntas sobre a intervenção
           - Botão para pedir ajuda pressionado por engano
           - Não relacionada ao CONEMO (p. ex. saúde)
           - Outra
-        cancel_label: Not done / CANCEL task
+        cancel_label: Não realizado / Cancelar tarefa
         cancel:
           -
             - Não consegi falar com o paciente
@@ -505,7 +505,7 @@ pt-BR:
             - Outra razão
             - CANCEL Outra razão
       lack_of_connectivity_call:
-        reasons_label: Reasons
+        reasons_label: Razões
         reasons:
           - Dados móveis desligados
           - Falta de cobertura de internet
@@ -513,7 +513,7 @@ pt-BR:
           - Smartphone desligado
           - Outra
           - Não sei
-        cancel_label: Not done / CANCEL task
+        cancel_label: Não realizado / Cancelar tarefa
         cancel:
           -
             - Não consegi falar com o paciente
@@ -531,7 +531,7 @@ pt-BR:
             - Outra razão
             - CANCEL Outra razão
       non_adherence_call:
-        reasons_label: Reasons
+        reasons_label: Razões
         reasons:
           - Dificuldades para usar CONEMO
           - Sem tempo para CONEMO
@@ -540,7 +540,7 @@ pt-BR:
           - Paciente está viajando (sem smartphone)
           - Razão não foi comunicado
           - Outra
-        cancel_label: Not done / CANCEL task
+        cancel_label: Não realizado / Cancelar tarefa
         cancel:
           -
             - Não consegi falar com o paciente
