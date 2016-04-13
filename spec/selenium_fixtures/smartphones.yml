@@ -1,0 +1,9 @@
+smartphone_1:
+  number: 11118675309
+  participant: participant500
+  phone_identifier: 500
+
+smartphone_2:
+  number: 22228675309
+  participant: participant600
+  phone_identifier: 600

@@ -26,7 +26,7 @@ namespace :selenium_seed do
       :supervisor_notifications, :"token_auth/configuration_tokens",
       :call_to_schedule_final_appointments, :help_request_calls,
       :lack_of_connectivity_calls, :non_adherence_calls, :participant_start_dates,
-      :planned_activities, :supervision_sessions
+      :planned_activities, :supervision_sessions, :smartphones
     ]
   end
 end
