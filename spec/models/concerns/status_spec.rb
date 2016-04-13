@@ -117,6 +117,28 @@ module Concerns
                 expect(participant.lesson_status(lesson))
                   .to eq statuses.completed_late
               end
+
+              context "and the lesson was released on day 0" do
+                it "returns 'success'" do
+                  current_lesson = instance_double(Lesson,
+                                                   guid: guid + "_abcd",
+                                                   day_in_treatment: 1)
+                  access = instance_double(SessionEvent)
+                  late_completion = instance_double(ContentAccessEvent,
+                                                    late?: true)
+                  allow(access_events).to receive_message_chain("where.order")
+                    .and_return([access])
+                  allow(completion_events)
+                    .to receive(:find_by).with(lesson_id: lesson.id)
+                    .and_return(late_completion)
+                  allow(Lesson).to receive_message_chain("where.where.order")
+                    .and_return([current_lesson])
+                  allow(lesson).to receive(:day_in_treatment) { 0 }
+
+                  expect(participant.lesson_status(lesson))
+                    .to eq statuses.completed_on_time
+                end
+              end
             end
 
             context "and the lesson was not completed" do

@@ -31,8 +31,9 @@ RSpec.describe "tasks/index", type: :view do
     allow(view).to receive(:can?)
   end
 
+  before { I18n.locale = "en" }
+
   it "renders a progress bar with all tasks" do
-    I18n.locale = "en"
     stub_data
     completed_task = instance_double(TaskPresenter,
                                      css_class: "foo",
@@ -46,7 +47,6 @@ RSpec.describe "tasks/index", type: :view do
   end
 
   it "renders the assigned active task count" do
-    I18n.locale = "en"
     stub_data
     allow(tasks)
       .to receive(:active_tasks)
@@ -73,7 +73,6 @@ RSpec.describe "tasks/index", type: :view do
   end
 
   it "renders the time since each task was scheduled" do
-    I18n.locale = "en"
     task = Tasks::FollowUpCallWeekOne.new(scheduled_at: 1.minute.ago, id: rand)
     stub_data
     allow(tasks).to receive(:active_tasks) { [TaskPresenter.new(task)] }

@@ -31,16 +31,20 @@ module Status
     end
   end
 
+  def first_session_access(lesson)
+    session_events.where(lesson_id: lesson.id).order(:occurred_at).first
+  end
+
   def access_status(lesson)
-    access = session_events.where(lesson_id: lesson.id).order(:occurred_at)
-                           .first
+    access = first_session_access(lesson)
     completion = access_response(lesson)
 
     if lesson.guid == current_lesson.guid
       LESSON_STATUSES.info
     elsif access && !completion
       LESSON_STATUSES.accessed_incomplete
-    elsif access && completion.late?
+    # special case: training session == day 0
+    elsif access && lesson.day_in_treatment != 0 && completion.late?
       LESSON_STATUSES.completed_late
     elsif !completion && lesson_released?(next_lesson(lesson))
       LESSON_STATUSES.danger

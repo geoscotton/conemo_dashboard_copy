@@ -18,7 +18,7 @@ class ContentAccessEvent < ActiveRecord::Base
   before_validation :set_uuid, :set_lesson
 
   def late?
-    day_in_treatment_accessed > lesson.day_in_treatment
+    day_accessed > lesson.day_in_treatment
   end
 
   def response_attributes=(value)
@@ -26,6 +26,10 @@ class ContentAccessEvent < ActiveRecord::Base
     super({ answer: response["answer"].to_json })
   rescue TypeError
     super value
+  end
+
+  def day_accessed
+    accessed_at.to_date - participant.start_date + 1
   end
 
   private
