@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.9 - 2016-04-14
+
+* add Portuguese translation for smartphone number
+* add association to NurseTask to enable destruction
+* translate "additional note"
+* add Spanish translation for "unreleased"
+
 ## 0.10.8 - 2016-04-13
 
 * remove next contact from 1, 3 wk follow ups
