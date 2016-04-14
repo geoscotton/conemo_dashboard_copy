@@ -679,8 +679,8 @@ es-PE:
         other: Tareas
       participant: Participante
       patient_contact:
-        one: Additional note
-        other: Additional notes
+        one: Nota adicional
+        other: Nota adicional
       scheduled_task_cancellation:
         one: Cancelar punto de contacto
         other: Cancelar puntos de contacto

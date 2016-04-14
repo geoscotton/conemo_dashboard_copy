@@ -646,8 +646,8 @@ pt-BR:
         other: Tarefas
       participant: Participante
       patient_contact:
-        one: Additional note
-        other: Additional notes
+        one: Nota adicional
+        other: Nota adicional
       scheduled_task_cancellation:
         one: Cancelar ponto de contato
         other: Cancelar pontos de contato
