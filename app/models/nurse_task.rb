@@ -6,6 +6,7 @@ class NurseTask < ActiveRecord::Base
 
   belongs_to :participant
   has_many :scheduled_task_cancellations, dependent: :destroy
+  has_many :scheduled_task_reschedulings, dependent: :destroy
   has_many :supervisor_notifications, dependent: :destroy
 
   validates :participant, :status, :scheduled_at, :overdue_at,
