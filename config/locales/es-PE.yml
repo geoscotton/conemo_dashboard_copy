@@ -19,7 +19,7 @@ es-PE:
         completed_on_time: Sesión finalizada a tiempo
         current: Sesión actual
         not_accessed: Sesión no accedida
-        unreleased: Unreleased
+        unreleased: Sesión todavía no entregada
       report:
         help_message: Solicitud de ayuda
       show:
