@@ -34,8 +34,8 @@ es-PE:
     participants:
       index:
         unassigned_participant:
-          one: Participante no-asignado/a
-          other: Participantes no-asignados
+          one: Participante no asignado/a
+          other: Participantes no asignados
   tasks:
     index:
       clear: Borrar tarea
