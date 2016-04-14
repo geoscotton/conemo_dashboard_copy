@@ -718,7 +718,7 @@ pt-BR:
         session_length: Duração da chamada (minutos)
         notes: Observações
       smartphone:
-        number: Número do Smartphone
+        number: Número do Smartphone / número de serie
         phone_identifier: Código do Smartphone
       supervision_session:
         session_at: Data/hora
