@@ -22,8 +22,10 @@ RSpec.describe "active/participants/show", type: :view do
     contacts = [
       FirstContact.new(contact_at: now, participant: participant),
       FirstAppointment.new(appointment_at: now, participant: participant),
-      SecondContact.new(contact_at: now, participant: participant),
-      ThirdContact.new(contact_at: now, participant: participant),
+      SecondContact.new(contact_at: now, participant: participant,
+                        difficulties: []),
+      ThirdContact.new(contact_at: now, participant: participant,
+                       difficulties: []),
       FinalAppointment.new(appointment_at: now, participant: participant),
       CallToScheduleFinalAppointment.new(participant: participant,
                                          contact_at: now)
