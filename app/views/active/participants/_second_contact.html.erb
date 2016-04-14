@@ -12,6 +12,10 @@
     </div>
 
     <div class="timeline-body">
+      <p><strong><%= t "activerecord.attributes.second_contact.difficulties" %>: </strong><%= second_contact.difficulties.join(", ") %>
+    </div>
+
+    <div class="timeline-body">
       <p><strong><%= t "helpers.label.second_contact.session_length" %>: </strong><%= second_contact.session_length %>
     </div>
   </div>
