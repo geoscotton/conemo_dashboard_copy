@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   private
 
   def set_password
-    return unless password.nil?
+    return if password.present? || encrypted_password.present?
 
     self.password = self.password_confirmation = SecureRandom.uuid
   end
