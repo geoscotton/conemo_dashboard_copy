@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.10.10 - 2016-04-14
+
+* update translation for "unassigned participant"
+* redirect supervisor conditionally off contact form
+* conditionally set User password
+* add follow up call difficulties to timeline
+
 ## 0.10.9 - 2016-04-14
 
 * add Portuguese translation for smartphone number
