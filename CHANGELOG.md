@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.10.8 - 2016-04-13
+
+* remove next contact from 1, 3 wk follow ups
+* update help message notification text
+* add conditional cancel paths to contact point form
+* translate Portuguese option groups
+* update token_auth with translation change
+* modify lesson completion calculation
+
 ## 0.10.7 - 2016-04-12
 
 * apply more translations
