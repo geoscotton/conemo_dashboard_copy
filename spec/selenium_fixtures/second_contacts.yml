@@ -4,7 +4,6 @@
     contact_at: <%= DateTime.now - 21 %>
     session_length: 60
     notes: More notes. No fun
-    next_contact: <%= DateTime.now %>
 <% end %>
 
 <% (337..343).each do |pt_id| %>
@@ -13,7 +12,6 @@
     contact_at: <%= DateTime.now - 35 %>
     session_length: 60
     notes: More notes. No fun
-    next_contact: <%= DateTime.now - 14 %>
 <% end %>
 
 <% (700..705).each do |pt_id| %>
@@ -22,7 +20,6 @@
     contact_at: <%= DateTime.now - 35 %>
     session_length: 60
     notes: More notes. No fun
-    next_contact: <%= DateTime.now - 14 %>
 <% end %>
 
 <% (500..500).each do |pt_id| %>
@@ -31,7 +28,6 @@
     contact_at: <%= DateTime.now - 35 %>
     session_length: 60
     notes: More notes. No fun
-    next_contact: <%= DateTime.now - 14 %>
 <% end %>
 
 <% (600..600).each do |pt_id| %>
@@ -40,5 +36,4 @@
     contact_at: <%= DateTime.now - 35 %>
     session_length: 60
     notes: More notes. No fun
-    next_contact: <%= DateTime.now - 14 %>
 <% end %>

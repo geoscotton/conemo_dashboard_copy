@@ -1,6 +1,5 @@
 <% (337..343).each do |pt_id| %>
   third_contact_<%= pt_id %>:
-    call_to_schedule_final_appointment_at: <%= DateTime.now %>
     session_length: 60
     participant: participant<%= pt_id %>
     notes: Blah Blah Blah
@@ -18,7 +17,6 @@
 
 <% (700..705).each do |pt_id| %>
   third_contact_<%= pt_id %>:
-    call_to_schedule_final_appointment_at: <%= DateTime.now %>
     session_length: 60
     participant: participant<%= pt_id %>
     notes: Blah Blah Blah
@@ -36,7 +34,6 @@
 
 <% (500..500).each do |pt_id| %>
   third_contact_<%= pt_id %>:
-    call_to_schedule_final_appointment_at: <%= DateTime.now %>
     session_length: 60
     participant: participant<%= pt_id %>
     notes: Blah Blah Blah
@@ -54,7 +51,6 @@
 
 <% (600..600).each do |pt_id| %>
   third_contact_<%= pt_id %>:
-    call_to_schedule_final_appointment_at: <%= DateTime.now %>
     session_length: 60
     participant: participant<%= pt_id %>
     notes: Blah Blah Blah
