@@ -632,6 +632,7 @@ pt-BR:
       "tasks/initial_in_person_appointment": Encontro inicial
       first_contact: Chamada de confirmação
       "tasks/confirmation_call": Chamada de confirmação
+      help_message: Pedido de ajuda
       help_request_call: Pedido de ajuda
       "tasks/help_request": Pedido de ajuda
       lack_of_connectivity_call: Chamada por não-conectividade

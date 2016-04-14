@@ -665,6 +665,7 @@ es-PE:
       "tasks/initial_in_person_appointment": Cita de inicio
       first_contact: Llamada confirmando cita
       "tasks/confirmation_call": Llamada confirmando cita
+      help_message: Solicitud de ayuda
       help_request_call: Solicitud de ayuda
       "tasks/help_request": Solicitud de ayuda
       lack_of_connectivity_call: Llamada por no-conectividad
