@@ -8,12 +8,11 @@ RSpec.describe SecondContactsController, type: :controller do
     {
       contact_at: Time.zone.now,
       session_length: 1,
-      next_contact: Time.zone.now,
       difficulties: %w( d1 d2 )
     }
   end
   let(:invalid_second_contact_params) do
-    { contact_at: nil, session_length: nil, next_contact: nil }
+    { contact_at: nil, session_length: nil }
   end
   let(:participant) do
     Participant.where.not(nurse: nil).find_by(locale: locale)

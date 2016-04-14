@@ -16,7 +16,6 @@ class ThirdContact < ActiveRecord::Base
   validates :participant,
             :contact_at,
             :session_length,
-            :call_to_schedule_final_appointment_at,
             :difficulties,
             presence: true
 
@@ -29,18 +28,7 @@ class ThirdContact < ActiveRecord::Base
                                 .try(:scheduled_at) || Time.zone.now
   end
 
-  def default_next_contact_at
-    first_appointment_at = participant.try(:first_appointment).try(:appointment_at)
-
-    if first_appointment_at
-      first_appointment_at + FINAL_CALL_ABSOLUTE_DELAY
-    else
-      Time.zone.now + FINAL_CALL_RELATIVE_DELAY
-    end
-  end
-
   def populate_timestamps
     self.contact_at ||= default_contact_at
-    self.call_to_schedule_final_appointment_at ||= default_next_contact_at
   end
 end

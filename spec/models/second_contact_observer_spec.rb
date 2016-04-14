@@ -7,9 +7,7 @@ RSpec.describe SecondContactObserver do
   let(:participant) { Participant.where.not(nurse: nil).first }
   let(:observer) { SecondContactObserver.instance }
   let(:second_contact) do
-    instance_double(SecondContact,
-                    participant: participant,
-                    next_contact: Time.zone.now)
+    instance_double(SecondContact, participant: participant)
   end
 
   it "resolves the Follow up Call Week One Task" do

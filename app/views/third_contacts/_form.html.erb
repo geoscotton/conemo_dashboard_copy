@@ -34,15 +34,6 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :call_to_schedule_final_appointment_at, class: "col-md-4 control-label" %>
-    <div class="col-md-7">
-      <%= f.datetime_select :call_to_schedule_final_appointment_at, { required: true }, { class: "date-select" } %>
-      <br>
-      <small><%= Time.zone %></small>
-    </div>
-  </div>
-
-  <div class="form-group">
     <%= f.label :notes, class: "col-md-4 control-label" %>
     <div class="col-md-7">
       <%= f.text_area :notes, class: "form-control" %>

@@ -13,7 +13,6 @@ RSpec.describe ThirdContactsController, type: :controller do
     {
       contact_at: Time.zone.now,
       session_length: "b",
-      call_to_schedule_final_appointment_at: Time.zone.now,
       notes: "n",
       difficulties: %w( d1 d2 )
     }
@@ -31,8 +30,7 @@ RSpec.describe ThirdContactsController, type: :controller do
   let(:invalid_third_contact_params) do
     {
       contact_at: nil,
-      session_length: nil,
-      call_to_schedule_final_appointment_at: nil
+      session_length: nil
     }
   end
 

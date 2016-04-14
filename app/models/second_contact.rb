@@ -16,7 +16,6 @@ class SecondContact < ActiveRecord::Base
   validates :participant,
             :contact_at,
             :session_length,
-            :next_contact,
             :difficulties,
             presence: true
 
@@ -29,18 +28,7 @@ class SecondContact < ActiveRecord::Base
                               .try(:scheduled_at) || Time.zone.now
   end
 
-  def default_next_contact_at
-    first_appointment_at = participant.try(:first_appointment).try(:appointment_at)
-
-    if first_appointment_at
-      first_appointment_at + THIRD_CONTACT_ABSOLUTE_DELAY
-    else
-      Time.zone.now + THIRD_CONTACT_RELATIVE_DELAY
-    end
-  end
-
   def populate_timestamps
     self.contact_at ||= default_contact_at
-    self.next_contact ||= default_next_contact_at
   end
 end

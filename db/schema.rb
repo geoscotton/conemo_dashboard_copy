@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160409182747) do
+ActiveRecord::Schema.define(version: 20160414025438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -368,7 +368,6 @@ ActiveRecord::Schema.define(version: 20160409182747) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "next_contact"
     t.string   "difficulties"
   end
 
@@ -431,7 +430,6 @@ ActiveRecord::Schema.define(version: 20160409182747) do
   add_index "supervisor_notifications", ["nurse_task_id"], name: "index_supervisor_notifications_on_nurse_task_id", using: :btree
 
   create_table "third_contacts", force: :cascade do |t|
-    t.datetime "call_to_schedule_final_appointment_at"
     t.integer  "session_length"
     t.integer  "participant_id"
     t.datetime "created_at"
