@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 # Creating, Editing, Updating, and Deleting all participants.
 class ParticipantsController < ApplicationController
+  TASKS_PAGE = "tasks"
+
   def new
     @participant = Participant.new(locale: current_user.locale)
     authorize! :create, @participant
@@ -25,11 +27,13 @@ class ParticipantsController < ApplicationController
   def edit
     @participant = Participant.where(id: params[:id]).first
     authorize! :update, @participant
+    referrer
   end
 
   def update
     @participant = Participant.where(id: params[:id]).first
     authorize! :update, @participant
+    referrer
 
     if @participant.update(participant_params)
       after_update_path
@@ -53,6 +57,10 @@ class ParticipantsController < ApplicationController
 
   private
 
+  def referrer
+    @referrer ||= params[:referrer]
+  end
+
   def participant_params
     params.require(:participant).permit(
       :first_name, :last_name, :study_identifier, :enrollment_date,
@@ -72,8 +80,8 @@ class ParticipantsController < ApplicationController
     flash[:notice] = t("actioncontroller.participants.saved_participant") +
                      " " + t("actioncontroller.successfully")
 
-    if current_user.nurse?
-      redirect_to active_participant_url(@participant)
+    if current_user.nurse? || referrer == TASKS_PAGE
+      redirect_to participant_tasks_url(@participant)
     else
       redirect_to root_url(locale: current_user.locale)
     end

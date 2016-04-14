@@ -1,4 +1,6 @@
 <%= form_for @participant, html: {role: "form", class: "form-horizontal"} do |f| %>
+  <%= hidden_field_tag :referrer, @referrer %>
+
   <div class="form-group">
     <%= f.label :first_name, class: "col-md-3 control-label" %>
     <div class="col-md-7">
@@ -191,7 +193,9 @@
     <div class="col-md-offset-3 col-md-7">
       <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
       <% if current_user.nurse? && !@participant.new_record? %>
-        <%= link_to t("conemo.views.shared.cancel_button"), active_participant_path(@participant), class: "btn btn-default" %>
+        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
+      <% elsif @referrer %>
+        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
       <% else %>
         <%= link_to t("conemo.views.shared.cancel_button"), root_path, class: "btn btn-default" %>
       <% end %>
