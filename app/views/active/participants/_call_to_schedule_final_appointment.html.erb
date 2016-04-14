@@ -3,7 +3,11 @@
 
   <div class="timeline-panel">
     <div class="timeline-heading">
-      <h4 class="timeline-title"><%= link_to '', edit_participant_call_to_schedule_final_appointment_path(@participant), class: "fa fa-edit fa-lg" %> <%= call_to_schedule_final_appointment.model_name.human %></h4>
+      <h4 class="timeline-title">
+        <%= link_to '',
+          edit_participant_call_to_schedule_final_appointment_path(@participant, referrer: "active_participant_path"),
+          class: "fa fa-edit fa-lg" %> <%= call_to_schedule_final_appointment.model_name.human %>
+      </h4>
 
       <p><i class="fa fa-clock-o"></i> <%= call_to_schedule_final_appointment.class.human_attribute_name(:contact_at) %>: <%= l call_to_schedule_final_appointment.contact_at, format: :long %></p>
     </div>

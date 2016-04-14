@@ -35,7 +35,8 @@
       <div class="form-group">
         <div class="col-md-offset-3 col-md-7">
           <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
-          <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
+          <% referrer = params[:referrer] == "active_participant_path" ? active_participant_path(@participant) : participant_tasks_path(@participant) %>
+          <%= link_to t("conemo.views.shared.cancel_button"), referrer, class: "btn btn-default" %>
         </div>
       </div>
     <% end %>
