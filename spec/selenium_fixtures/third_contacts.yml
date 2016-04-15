@@ -13,6 +13,8 @@
     q4_notes: q4 notes
     q5: false
     q5_notes: q5 notes
+    difficulties:
+      - Difficulty accessing CONEMO app
 <% end %>
 
 <% (700..705).each do |pt_id| %>
@@ -30,6 +32,8 @@
     q4_notes: q4 notes
     q5: false
     q5_notes: q5 notes
+    difficulties:
+      - Difficulty accessing CONEMO app
 <% end %>
 
 <% (500..500).each do |pt_id| %>
@@ -47,6 +51,8 @@
     q4_notes: q4 notes
     q5: false
     q5_notes: q5 notes
+    difficulties:
+      - Difficulty accessing CONEMO app
 <% end %>
 
 <% (600..600).each do |pt_id| %>
@@ -64,4 +70,6 @@
     q4_notes: q4 notes
     q5: false
     q5_notes: q5 notes
+    difficulties:
+      - Difficulty accessing CONEMO app
 <% end %>
