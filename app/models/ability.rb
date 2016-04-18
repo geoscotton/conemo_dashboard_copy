@@ -31,7 +31,7 @@ class Ability
 
   def authorize_admin(admin)
     can :manage, BitCore::Slide
-    can :manage, Device
+    can :manage, Device, participant: { locale: admin.locale }
     can :manage, Lesson, locale: admin.locale
     can :manage, Participant, locale: admin.locale
     can :manage, User, locale: admin.locale
