@@ -1,0 +1,32 @@
+en_xt1032:
+  uuid: 95e3b8b9-ca20-402a-859d-114aa8d2b6dd
+  device_uuid: 261a20daee28b163
+  manufacturer: motorola
+  model: XT1032
+  platform: Android
+  device_version: 5.1
+  inserted_at: <%= Time.zone.now %>
+  participant: participant1000
+  last_seen_at: <%= Time.zone.now %>
+
+es-PE_xt1032:
+  uuid: 95e3b8b9-ca20-402a-859d-114aa8d2b6de
+  device_uuid: 261a20daee28b162
+  manufacturer: motorola
+  model: XT1032
+  platform: Android
+  device_version: 5.1
+  inserted_at: <%= Time.zone.now %>
+  participant: participant2001
+  last_seen_at: <%= Time.zone.now %>
+
+pt-BR_xt1032:
+  uuid: 95e3b8b9-ca20-402a-859d-114aa8d2b6df
+  device_uuid: 261a20daee28b161
+  manufacturer: motorola
+  model: XT1032
+  platform: Android
+  device_version: 5.1
+  inserted_at: <%= Time.zone.now %>
+  participant: participant3000
+  last_seen_at: <%= Time.zone.now %>

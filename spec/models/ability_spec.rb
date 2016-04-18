@@ -54,8 +54,11 @@ RSpec.describe Ability do
       expect(en_admin_role.can?(:manage, pt_lesson)).to eq false
     end
 
-    it "can manage Devices" do
-      expect(en_admin_role.can?(:manage, Device.all)).to eq true
+    it "can manage Devices of the same locale" do
+      en_participants = Participant.where(locale: LOCALES[:en])
+      en_devices = Device.where(participant: en_participants)
+
+      expect(en_admin_role.can?(:manage, en_devices)).to eq true
     end
   end
 
