@@ -176,6 +176,19 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
         it_behaves_like "a bad request"
       end
 
+      context "when successful" do
+        it "redirects to the active participant page" do
+          participant.create_call_to_schedule_final_appointment(valid_params)
+          sign_in_user nurse
+
+          put :update, participant_id: participant.id, locale: locale,
+                       call_to_schedule_final_appointment: valid_params
+
+          expect(response)
+            .to redirect_to active_participant_url(participant)
+        end
+      end
+
       context "when unsuccessful" do
         it "sets the alert" do
           participant.create_call_to_schedule_final_appointment(valid_params)

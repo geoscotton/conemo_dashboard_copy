@@ -17,7 +17,9 @@ class CallToScheduleFinalAppointmentsController < ApplicationController
 
     if @call_to_schedule_final_appointment.save
       redirect_to participant_tasks_url(find_participant),
-                  notice: "Successfully created call"
+                  notice: [CallToScheduleFinalAppointment.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] =
         @call_to_schedule_final_appointment.errors.full_messages.join(", ")
@@ -37,9 +39,10 @@ class CallToScheduleFinalAppointmentsController < ApplicationController
     authorize! :update, @call_to_schedule_final_appointment
 
     if @call_to_schedule_final_appointment.update(call_params)
-      redirect_to participant_tasks_url(find_participant),
-                  notice: "Successfully updated " +
-                          @call_to_schedule_final_appointment.model_name.human
+      redirect_to active_participant_url(find_participant),
+                  notice: [CallToScheduleFinalAppointment.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @call_to_schedule_final_appointment
                       .errors.full_messages.join(", ")

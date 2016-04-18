@@ -12,7 +12,7 @@
   <div class="form-group">
     <%= f.label :appointment_location, class: "col-md-4 control-label" %>
     <div class="col-md-7">
-      <%= f.select :appointment_location, options_for_select(t("activerecord.field_options.first_contact.locations")),
+      <%= f.select :appointment_location, options_for_select(t("activerecord.field_options.first_contact.locations"), @first_appointment.appointment_location),
                    {},
                    { class: "dropdown", required: true } %>
     </div>
