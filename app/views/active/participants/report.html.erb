@@ -6,26 +6,6 @@
 
 <div class="row report">
   <div class="col-md-2 col-sm-2 col-xs-2">
-    <div class="accordion">
-      <table class="table table-bordered accordion-toggle" data-toggle="collapse" data-target="#messages-table">
-        <thead>
-          <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t 'conemo.views.active.participants.report.messages' %></th>
-        </thead>
-        <tbody class="accordion-body collapse in" id="messages-table">
-          <% @participant.help_messages.each do |help_message| %>
-            <tr>
-              <td class="<%= help_message.read ? '' : 'warning' %>">
-                <%= link_to "#{fa_icon 'eye 2x'}".html_safe, participant_help_message_path(id: help_message.id, participant_id: @participant.id, help_message: {read: true}), class: "pull-right danger", method: :put unless help_message.read %>
-                <%= t ".help_message" %>
-                <br>
-                <small><%= l help_message.sent_at, format: :long %></small>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
     <table class="table table-bordered accordion-toggle" data-toggle="collapse" data-target="#logins-table">
       <thead>
         <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t "conemo.views.active.participants.report.logins" %></th>
