@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.11 - 2016-04-19
+
+* fix redirect from editing call to schedule final
+* remove Messages (help requests) display
+* scope Admin Device access by locale
+
 ## 0.10.10 - 2016-04-14
 
 * update translation for "unassigned participant"
