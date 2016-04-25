@@ -27,7 +27,7 @@ es-PE:
   nurse_dashboards:
     show:
       active_tasks: Tarea actual
-      header: Tus participantes
+      header: Tus pacientes
       no_active_or_overdue_tasks: Sin tareas pendientes
       overdue_tasks: Tarea atrasada
   pending:

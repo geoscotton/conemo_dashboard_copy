@@ -26,10 +26,10 @@ pt-BR:
         header: Todos os contatos realizados
   nurse_dashboards:
     show:
-      active_tasks: Tarefa atual
-      header: Seus participantes
-      no_active_or_overdue_tasks: Sem tarefas pendentes
-      overdue_tasks: Tarefa atrasada
+      active_tasks: Tarefa Ativa
+      header: Seus Pacientes
+      no_active_or_overdue_tasks: Tarefas Não Ativas
+      overdue_tasks: Tarefa Atrasada
   pending:
     participants:
       index:
