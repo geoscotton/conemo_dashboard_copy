@@ -38,15 +38,19 @@ pt-BR:
           other: Participantes pendentes
   tasks:
     index:
+      active_due: Ativo
+      cancelled: Cancelado
       clear: Limpar tarefa
       clinical_summary: Histórico do participante
       confirm_supervisor_notification: Tem certeza que quer pedir ajuda ao seu supervisor?
+      confirmed: Confirmado
       contact_supervisor: Contactar supervisor
       current_task:
         one: Tarefa pendente
         other: Tarefas pendentes
       last_supervisor_contact_sent: último aviso para supervisor enviado em
       mark_as_resolved: Marcar tarefa como resolvida
+      overdue: Atrasado
       overdue_task:
         one: Tarefa atrasada
         other: Tarefas atrasadas
@@ -54,6 +58,7 @@ pt-BR:
         one: pendente
         other: pendentes
       progress_bar: Linha do tempo
+      scheduled_but_not_due: Tarefas futuras
   conemo:
     family_health_units:
       - Unidade de Saúde 1

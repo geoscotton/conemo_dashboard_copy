@@ -80,15 +80,19 @@ en:
       not_found: not found
   tasks:
     index:
+      active_due: Active due
+      cancelled: Cancelled
       clear: Clear
       clinical_summary: Clinical Summary
       confirm_supervisor_notification: are you sure you want to notify the supervisor that you need help?
+      confirmed: Confirmed
       contact_supervisor: Contact supervisor
       current_task:
         one: Task
         other: Tasks
       last_supervisor_contact_sent: Last supervisor contact sent
       mark_as_resolved: Mark as resolved
+      overdue: Overdue
       overdue_task:
         one: Overdue task
         other: Overdue tasks
@@ -96,6 +100,7 @@ en:
         one: pending
         other: pending
       progress_bar: Timeline
+      scheduled_but_not_due: Scheduled but not due
   conemo:
     family_health_units:
       - unit 1

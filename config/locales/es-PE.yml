@@ -38,15 +38,19 @@ es-PE:
           other: Participantes no asignados
   tasks:
     index:
+      active_due: Sesión actual
+      cancelled: Cancelado
       clear: Borrar tarea
       clinical_summary: Historia del Paciente
       confirm_supervisor_notification: ¿Estás seguro/a de que quieres enviar una solicitud de ayuda al supervisor?
+      confirmed: Confirmado
       contact_supervisor: Contactar supervisor/a
       current_task:
         one: Tarea pendiente
         other: Tareas pendientes
       last_supervisor_contact_sent: último contacto supervisor de enviado en
       mark_as_resolved: Tarea resuelta
+      overdue: Atrasado
       overdue_task:
         one: Tarea atrasada
         other: Tareas astrasadas
@@ -54,6 +58,7 @@ es-PE:
         one: pendiente
         other: pendientes
       progress_bar: Línea de tiempo
+      scheduled_but_not_due: Próximas sesiones
   conemo:
     family_health_units:
       - Centro de salud 1
