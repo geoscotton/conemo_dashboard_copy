@@ -18,16 +18,24 @@
   <div class="form-group">
     <%= f.label :study_identifier, class: "col-md-3 control-label" %>
     <div class="col-md-7">
-      <%= f.text_field :study_identifier, class: "form-control", required: true, pattern: "[0-9]+" %>
+      <% unless current_user.nurse? %>
+        <%= f.text_field :study_identifier, class: "form-control", required: true, pattern: "[0-9]+" %>
+      <% else %>
+        <%= f.text_field :study_identifier, class: "form-control", disabled: true %>
+      <% end %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :family_health_unit_name, class: "col-md-3 control-label" %>
     <div class="col-md-7">
-      <%= f.select :family_health_unit_name, options_for_select(t("conemo.family_health_units"), @participant.family_health_unit_name),
-                   {},
-                   { class: "dropdown", required: true } %>
+      <% unless current_user.nurse? %>
+        <%= f.select :family_health_unit_name, options_for_select(t("conemo.family_health_units"), @participant.family_health_unit_name),
+                     {},
+                     { class: "dropdown", required: true } %>
+      <% else %>
+        <%= f.text_field :family_health_unit_name, class: "form-control", disabled: true %>
+      <% end %>
     </div>
   </div>
 
