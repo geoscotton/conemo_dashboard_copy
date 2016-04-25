@@ -18,6 +18,7 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
         <%= link_to "ADMIN", rails_admin_path(locale: params[:locale]), class: "btn btn-primary pull-left navbar-brand admin" if current_user.admin? %>
       <% end %>
       <%= link_to "CONEMO", "/", class: "navbar-brand" %>
+      <%= render "shared/navbar_app_version" %>
     </div>
 
     <div class="navbar-collapse collapse">

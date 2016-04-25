@@ -16,6 +16,7 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
       <div class="navbar-header">
         <%= link_to "ADMIN", main_app.rails_admin_path(locale: params[:locale]), class: "btn btn-primary pull-left navbar-brand admin" if current_user.admin? %>
         <%= link_to "CONEMO", "/#{params[:locale]}", class: "navbar-brand" %>
+        <%= render "shared/navbar_app_version" %>
         <% if @participant %>
           <span class="navbar-brand"><%= Participant.model_name.human %> <%= @participant.study_identifier %>: <%= @participant.last_and_first_name %></span>
         <% end %>
