@@ -42,6 +42,7 @@ pt-BR:
       cancelled: Cancelado
       clear: Limpar tarefa
       clinical_summary: Histórico do participante
+      confirm_clear: Está certo de que deseja apagar?
       confirm_supervisor_notification: Tem certeza que quer pedir ajuda ao seu supervisor?
       confirmed: Confirmado
       contact_supervisor: Contactar supervisor

@@ -42,6 +42,7 @@ es-PE:
       cancelled: Cancelado
       clear: Borrar tarea
       clinical_summary: Historia del Paciente
+      confirm_clear: ¿Estás seguro/a de que quieres borrar esto?
       confirm_supervisor_notification: ¿Estás seguro/a de que quieres enviar una solicitud de ayuda al supervisor?
       confirmed: Confirmado
       contact_supervisor: Contactar supervisor/a

@@ -84,6 +84,7 @@ en:
       cancelled: Cancelled
       clear: Clear
       clinical_summary: Clinical Summary
+      confirm_clear: Are you sure you want to clear this?
       confirm_supervisor_notification: are you sure you want to notify the supervisor that you need help?
       confirmed: Confirmed
       contact_supervisor: Contact supervisor
