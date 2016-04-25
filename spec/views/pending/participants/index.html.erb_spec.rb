@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe "pending/participants/index", type: :view do
-  TEMPLATE_PATH = "pending/participants/index.html.erb"
+  TEMPLATE_PATH = "pending/participants/index"
 
   def stub_instance_variables
     assign(:unassigned_participants, [])
@@ -17,7 +17,7 @@ RSpec.describe "pending/participants/index", type: :view do
       allow(view).to receive(:can?).with(:create, Participant) { true }
       render template: TEMPLATE_PATH
 
-      text = t("conemo.views.pending.participants.index.add_new_participant")
+      text = t("pending.participants.index.add_new_participant")
       expect(rendered).to include text
     end
   end
@@ -29,7 +29,7 @@ RSpec.describe "pending/participants/index", type: :view do
       allow(view).to receive(:can?).with(:create, Participant) { false }
       render template: TEMPLATE_PATH
 
-      text = t("conemo.views.pending.participants.index.add_new_participant")
+      text = t("pending.participants.index.add_new_participant")
       expect(rendered).not_to include text
     end
   end

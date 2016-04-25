@@ -15,7 +15,6 @@ RSpec.describe "active/participants/show", type: :view do
       first_name: "Nina",
       last_name: "Simone",
       date_of_birth: today,
-      enrollment_date: today,
       smartphone: Smartphone.new,
       nurse: nurse
     )

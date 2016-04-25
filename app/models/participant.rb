@@ -47,7 +47,6 @@ class Participant < ActiveRecord::Base
             :study_identifier,
             :family_health_unit_name,
             :address,
-            :enrollment_date,
             :locale,
             presence: true
 
@@ -68,8 +67,6 @@ class Participant < ActiveRecord::Base
             :alternate_phone_2, :emergency_contact_phone,
             :emergency_contact_cell_phone,
             format: /\A[0-9]+\z/, allow_nil: true, allow_blank: true
-
-  validate :enrollment_date_is_sane
 
   before_validation :sanitize_number
 
@@ -111,14 +108,5 @@ class Participant < ActiveRecord::Base
     return unless phone.respond_to?(:gsub)
 
     self.phone = phone.gsub(/[^0-9]/, "")
-  end
-
-  def enrollment_date_is_sane
-    unless enrollment_date.nil? || enrollment_date > Time.zone.today - 5.years
-      errors.add(
-        :enrollment_date,
-        I18n.t("conemo.models.participant.enrollment_date_is_sane_error")
-      )
-    end
   end
 end

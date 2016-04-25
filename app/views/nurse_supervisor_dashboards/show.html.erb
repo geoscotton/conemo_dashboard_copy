@@ -7,12 +7,11 @@
     <table class="table table-bordered table-condensed table-hover filterable">
       <thead>
         <tr>
-          <th><%= t "conemo.views.pending.participants.index.edit_info" %></th>
-          <th><%= t "conemo.views.pending.participants.index.name" %></th>
-          <th><%= t "conemo.views.pending.participants.index.study_identifier" %></th>
-          <th><%= t "conemo.views.pending.participants.index.enrollment_date" %></th>
+          <th><%= t "pending.participants.index.edit_info" %></th>
+          <th><%= t "pending.participants.index.name" %></th>
+          <th><%= t "pending.participants.index.study_identifier" %></th>
           <th>Date added to dashboard</th>
-          <th><%= t "conemo.views.pending.participants.index.activate" %></th>
+          <th><%= t "pending.participants.index.activate" %></th>
         </tr>
       </thead>
 
@@ -20,19 +19,18 @@
         <% @pending_participants.each do |participant| %>
           <tr>
             <td>
-              <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.edit_info")) do %>
+              <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t("pending.participants.index.edit_info")) do %>
                 <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
-                <span class="sr-only"><%= t "conemo.views.pending.participants.index.edit_info" %></span>
+                <span class="sr-only"><%= t "pending.participants.index.edit_info" %></span>
               <% end %>
             </td>
             <td><%= participant.last_and_first_name %></td>
             <td><%= participant.study_identifier %></td>
-            <td><%= l participant.enrollment_date, format: :long %></td>
             <td><%= l participant.created_at.to_date, format: :long %></td>
             <td>
-              <%= link_to(pending_activate_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.activate")) do %>
+              <%= link_to(pending_activate_path(participant), class: "btn btn-default", :"aria-label" => t("pending.participants.index.activate")) do %>
                 <span class="fa fa-thumbs-up fa-2x" aria-hidden="true"></span>
-                <span class="sr-only"><%= t "conemo.views.pending.participants.index.activate" %></span>
+                <span class="sr-only"><%= t "pending.participants.index.activate" %></span>
               <% end %>
             </td>
           </tr>
@@ -49,14 +47,13 @@
     <table class="table table-bordered table-condensed table-hover filterable">
       <thead>
         <tr>
-          <th><%= t "conemo.views.pending.participants.index.edit_info" %></th>
+          <th><%= t "pending.participants.index.edit_info" %></th>
           <th><%= Nurse.model_name.human %></th>
           <th></th>
-          <th><%= t "conemo.views.pending.participants.index.name" %></th>
-          <th><%= t "conemo.views.pending.participants.index.study_identifier" %></th>
-          <th><%= t "conemo.views.pending.participants.index.enrollment_date" %></th>
+          <th><%= t "pending.participants.index.name" %></th>
+          <th><%= t "pending.participants.index.study_identifier" %></th>
           <th>Date added to dashboard</th>
-          <th><%= t "conemo.views.pending.participants.index.disqualify" %></th>
+          <th><%= t "pending.participants.index.disqualify" %></th>
         </tr>
       </thead>
 
@@ -64,30 +61,29 @@
         <% @active_participants.each do |participant| %>
           <tr>
             <td>
-              <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.edit_info")) do %>
+              <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t("pending.participants.index.edit_info")) do %>
                 <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
-                <span class="sr-only"><%= t "conemo.views.pending.participants.index.edit_info" %></span>
+                <span class="sr-only"><%= t "pending.participants.index.edit_info" %></span>
               <% end %>
             </td>
             <td><%= participant.nurse.last_and_first_name %></td>
             <td>
-              <%= link_to(pending_activate_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.edit_info")) do %>
+              <%= link_to(pending_activate_path(participant), class: "btn btn-default", :"aria-label" => t("pending.participants.index.edit_info")) do %>
                 <span class="fa fa-user-md fa-2x" aria-hidden="true"></span>
-                <span class="sr-only"><%= t "conemo.views.pending.participants.index.edit_info" %></span>
+                <span class="sr-only"><%= t "pending.participants.index.edit_info" %></span>
               <% end %>
             </td>
             <td><%= participant.last_and_first_name %></td>
             <td><%= participant.study_identifier %></td>
-            <td><%= l participant.enrollment_date, format: :long %></td>
             <td><%= l participant.created_at.to_date, format: :long %></td>
             <td>
               <%= link_to(participant_path(id: participant.id, participant: { status: Participant::DROPPED_OUT }),
                           method: :put,
                           class: "btn btn-default",
-                          :"aria-label" => t("conemo.views.pending.participants.index.disqualify"),
-                          :"data-confirm" => "#{ t 'conemo.views.pending.participants.index.disqualify_alert' }") do %>
+                          :"aria-label" => t("pending.participants.index.disqualify"),
+                          :"data-confirm" => "#{ t 'pending.participants.index.disqualify_alert' }") do %>
                 <span class="fa fa-thumbs-down fa-2x" aria-hidden="true"></span>
-                <span class="sr-only"><%= t "conemo.views.pending.participants.index.disqualify" %></span>
+                <span class="sr-only"><%= t "pending.participants.index.disqualify" %></span>
               <% end %>
             </td>
           </tr>
@@ -105,9 +101,8 @@
       <thead>
         <tr>
           <th><%= Nurse.model_name.human %></th>
-          <th><%= t "conemo.views.pending.participants.index.name" %></th>
-          <th><%= t "conemo.views.pending.participants.index.study_identifier" %></th>
-          <th><%= t "conemo.views.pending.participants.index.enrollment_date" %></th>
+          <th><%= t "pending.participants.index.name" %></th>
+          <th><%= t "pending.participants.index.study_identifier" %></th>
           <th>Date added to dashboard</th>
         </tr>
       </thead>
@@ -118,7 +113,6 @@
             <td><%= participant.nurse.last_and_first_name %></td>
             <td><%= participant.last_and_first_name %></td>
             <td><%= participant.study_identifier %></td>
-            <td><%= l participant.enrollment_date, format: :long %></td>
             <td><%= l participant.created_at.to_date, format: :long %></td>
           </tr>
         <% end %>
@@ -135,9 +129,8 @@
       <thead>
         <tr>
           <th><%= Nurse.model_name.human %></th>
-          <th><%= t "conemo.views.pending.participants.index.name" %></th>
-          <th><%= t "conemo.views.pending.participants.index.study_identifier" %></th>
-          <th><%= t "conemo.views.pending.participants.index.enrollment_date" %></th>
+          <th><%= t "pending.participants.index.name" %></th>
+          <th><%= t "pending.participants.index.study_identifier" %></th>
           <th>Date added to dashboard</th>
         </tr>
       </thead>
@@ -148,7 +141,6 @@
             <td><%= participant.nurse.last_and_first_name %></td>
             <td><%= participant.last_and_first_name %></td>
             <td><%= participant.study_identifier %></td>
-            <td><%= l participant.enrollment_date, format: :long %></td>
             <td><%= l participant.created_at.to_date, format: :long %></td>
           </tr>
         <% end %>

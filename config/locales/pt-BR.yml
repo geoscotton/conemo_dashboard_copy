@@ -33,6 +33,15 @@ pt-BR:
   pending:
     participants:
       index:
+        activate: "Ativar"
+        activate_alert: "Você tem certeza que deseja ativar esta pessoa?"
+        add_new_participant: "Adicionar Novo Participante"
+        disqualify: "Desativar participante"
+        disqualify_alert: Tem certeza que quer terminar o acompanhamento deste participante?
+        edit_info: "Editar Informações"
+        heading: "Participantes Pendentes"
+        name: "Nome"
+        study_identifier: "Identificação do participante"
         unassigned_participant:
           one: Participante pendente
           other: Participantes pendentes
@@ -172,7 +181,6 @@ pt-BR:
             edit_info: "Editar"
             name: "Nome"
             study_identifier: "Identificação do participante"
-            enrollment_date: "Data de inclusão"
             first_contact: Chamada de confirmação
             first_appointment: "Primeiro encontro"
             location: "Local"
@@ -209,22 +217,8 @@ pt-BR:
               blue: sessão atual
       pending:
         participants:
-          index:
-            heading: "Participantes Pendentes"
-            add_new_participant: "Adicionar Novo Participante"
-            edit_info: "Editar Informações"
-            name: "Nome"
-            study_identifier: "Identificação do participante"
-            enrollment_date: "Data de inclusão"
-            activate: "Ativar"
-            disqualify: "Desativar participante"
-            disqualify_alert: Tem certeza que quer terminar o acompanhamento deste participante?
-            activate_alert: "Você tem certeza que deseja ativar esta pessoa?"
           activate:
             heading_1: "Designar enfermeira para ativar participante"
-    models:
-      participant:
-        enrollment_date_is_sane_error: "deve ser recente ou próxima"
     select:
       prompt: Por favor selecione
     submit:
@@ -687,10 +681,10 @@ pt-BR:
         contact_at: Data da ligação
         explanation: Razão para não aderência
       participant:
+        created_at: Data de introdução no dashboard
         first_name: Nome
         last_name: Sobrenome
         study_identifier: Identificação do participante (ID)
-        enrollment_date: Data de inclusão no estudo
         family_health_unit_name: Unidade de Saúde da Família (múltipla escolha com os nomes das unidades – a ser definido)
         address: Endereço
         phone: Telefone fixo

@@ -9,7 +9,6 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       id: id,
       study_identifier: "ID #{id}",
       last_and_first_name: name,
-      enrollment_date: date,
       created_at: time,
       nurse: nurse
     )
@@ -78,14 +77,14 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       table_exists_with_the_following_rows(
         [
           [
-            I18n.t("conemo.views.pending.participants.index.edit_info"),
-            "Andy Abacus", "ID 1", date_str, date_str,
-            I18n.t("conemo.views.pending.participants.index.activate")
+            I18n.t("pending.participants.index.edit_info"),
+            "Andy Abacus", "ID 1", date_str,
+            I18n.t("pending.participants.index.activate")
           ],
           [
-            I18n.t("conemo.views.pending.participants.index.edit_info"),
-            "Billy Ball", "ID 2", date_str, date_str,
-            I18n.t("conemo.views.pending.participants.index.activate")
+            I18n.t("pending.participants.index.edit_info"),
+            "Billy Ball", "ID 2", date_str,
+            I18n.t("pending.participants.index.activate")
           ]
         ]
       )
@@ -118,14 +117,14 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
       table_exists_with_the_following_rows(
         [
           [
-            I18n.t("conemo.views.pending.participants.index.edit_info"),
-            "Nurse 1", "Andy Abacus", "ID 1", date_str, date_str,
-            I18n.t("conemo.views.pending.participants.index.disqualify")
+            I18n.t("pending.participants.index.edit_info"),
+            "Nurse 1", "Andy Abacus", "ID 1", date_str,
+            I18n.t("pending.participants.index.disqualify")
           ],
           [
-            I18n.t("conemo.views.pending.participants.index.edit_info"),
-            "Nurse 2", "Billy Ball", "ID 2", date_str, date_str,
-            I18n.t("conemo.views.pending.participants.index.disqualify")
+            I18n.t("pending.participants.index.edit_info"),
+            "Nurse 2", "Billy Ball", "ID 2", date_str,
+            I18n.t("pending.participants.index.disqualify")
           ]
         ]
       )
@@ -157,8 +156,8 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
       table_exists_with_the_following_rows(
         [
-          ["Nurse 1", "Cory Caper", "ID 1", date_str, date_str],
-          ["Nurse 2", "Diggory Dapper", "ID 2", date_str, date_str]
+          ["Nurse 1", "Cory Caper", "ID 1", date_str],
+          ["Nurse 2", "Diggory Dapper", "ID 2", date_str]
         ]
       )
     end

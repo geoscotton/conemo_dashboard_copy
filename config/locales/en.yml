@@ -69,6 +69,15 @@ en:
   pending:
     participants:
       index:
+        activate: "Activate"
+        activate_alert: "Are you sure you want to activate this person?"
+        add_new_participant: "ADD NEW PARTICIPANT"
+        disqualify: Treatment termination
+        disqualify_alert: Are you sure you want to terminate this person?
+        edit_info: "Edit Information"
+        heading: "Pending Participants"
+        name: "Name"
+        study_identifier: "Study Identifier"
         unassigned_participant:
           one: Unassigned participant
           other: Unassigned participants
@@ -199,7 +208,6 @@ en:
             nurse: "Nurse"
             name: "Name"
             study_identifier: "Study Identifier"
-            enrollment_date: "Enrollment Date"
             first_contact: Confirmation call
             location: "Location"
             second_contact: Follow up call week 1
@@ -234,17 +242,6 @@ en:
               blue: current lesson
       pending:
         participants:
-          index:
-            heading: "Pending Participants"
-            add_new_participant: "ADD NEW PARTICIPANT"
-            edit_info: "Edit Information"
-            name: "Name"
-            study_identifier: "Study Identifier"
-            enrollment_date: "Enrollment Date"
-            activate: "Activate"
-            disqualify: Treatment termination
-            disqualify_alert: Are you sure you want to terminate this person?
-            activate_alert: "Are you sure you want to activate this person?"
           activate:
             heading_1: "Assign nurse to activate participant"
     controllers:
@@ -256,9 +253,6 @@ en:
         not_saved: "Slide not saved"
         destroyed: "Slide deleted"
         not_destroyed: "Slide not deleted"
-    models:
-      participant:
-        enrollment_date_is_sane_error: "must be recent or upcoming"
   helpers:
     label:
       lesson:
@@ -549,10 +543,10 @@ en:
         contact_at: Date/time of phone call
         explanation: Reason for non-adherence
       participant:
+        created_at: Date added to dashboard
         first_name: First name
         last_name: Last name
         study_identifier: Participant ID
-        enrollment_date: Date of inclusion
         family_health_unit_name: Family health unit
         address: Home address
         phone: Telephone

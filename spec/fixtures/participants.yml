@@ -5,7 +5,6 @@ participant1:
   family_health_unit_name: HealthUnit1
   phone: "555-555-5555"
   date_of_birth: <%= Date.yesterday %>
-  enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: pending
   gender: male
@@ -19,7 +18,6 @@ active_participant:
   family_health_unit_name: HealthUnit1
   phone: "555-455-5555"
   date_of_birth: <%= Date.yesterday %>
-  enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
   gender: female
@@ -33,7 +31,6 @@ active_participant_day_5:
   family_health_unit_name: HealthUnit1
   phone: "555-455-5555"
   date_of_birth: <%= Date.yesterday %>
-  enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
   gender: male
@@ -47,7 +44,6 @@ portuguese_active_participant:
   date_of_birth: <%= Date.yesterday %>
   family_health_unit_name: HealthUnit1
   phone: "555-455-5555"
-  enrollment_date: <%= Date.yesterday %>
   nurse: portuguese_nurse
   status: active
   gender: female
@@ -60,7 +56,6 @@ portuguese_active_participant2:
   study_identifier: 5
   family_health_unit_name: HealthUnit1
   phone: "555-455-5555"
-  enrollment_date: <%= Date.yesterday %>
   nurse: portuguese_nurse2
   date_of_birth: <%= Date.yesterday %>
   status: active
@@ -75,7 +70,6 @@ es_active_participant:
   family_health_unit_name: HealthUnit1
   phone: "555-455-5555"
   date_of_birth: <%= Date.yesterday %>
-  enrollment_date: <%= Date.yesterday %>
   nurse: peruvian_nurse
   status: active
   gender: female
@@ -89,7 +83,6 @@ english_active_participant:
   family_health_unit_name: HealthUnit1
   phone: "555-455-5555"
   date_of_birth: <%= Date.yesterday %>
-  enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: active
   gender: male
@@ -103,7 +96,6 @@ english_inactive_participant:
   family_health_unit_name: HealthUnit1
   phone: "555-455-5555"
   date_of_birth: <%= Date.yesterday %>
-  enrollment_date: <%= Date.yesterday %>
   nurse: nurse1
   status: inactive
   gender: female
@@ -117,7 +109,6 @@ en_unassigned_participant:
   study_identifier: 1278917421
   family_health_unit_name: HealthUnit1
   phone: 555-555-5555
-  enrollment_date: <%= Date.yesterday %>
   gender: male
   locale: en
   address: 123 Main Street
@@ -129,7 +120,6 @@ en_pending_participant:
   study_identifier: 12
   family_health_unit_name: HealthUnit1
   phone: 555-555-5555
-  enrollment_date: <%= Date.yesterday %>
   gender: male
   locale: en
   address: 123 Main Street
@@ -141,7 +131,6 @@ es_pending_participant:
   study_identifier: 13
   family_health_unit_name: HealthUnit1
   phone: 555-555-5555
-  enrollment_date: <%= Date.yesterday %>
   gender: male
   locale: es-PE
   address: 123 Main Street
@@ -153,7 +142,6 @@ pt_pending_participant:
   study_identifier: 14
   family_health_unit_name: HealthUnit1
   phone: 555-555-5555
-  enrollment_date: <%= Date.yesterday %>
   gender: male
   locale: pt-BR
   address: 123 Main Street

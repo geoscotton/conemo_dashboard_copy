@@ -19,7 +19,6 @@ RSpec.describe "tasks/index", type: :view do
     instance_double(Participant,
                     id: rand,
                     date_of_birth: Time.zone.now,
-                    enrollment_date: Time.zone.today,
                     smartphone: smartphone).as_null_object.tap do |p|
       allow(smartphone).to receive(:participant) { p }
     end

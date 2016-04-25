@@ -33,6 +33,15 @@ es-PE:
   pending:
     participants:
       index:
+        activate: "Activar Participante"
+        activate_alert: "¿Está seguro que quiere activar este participante?"
+        add_new_participant: "Añadir nuevo participante"
+        disqualify: "Desactivar Participante"
+        disqualify_alert: ¿Estás seguro/a de que quieres suspender el tratamiento de este participante?
+        edit_info: "Editar información"
+        heading: "Participantes pendientes"
+        name: "Nombre"
+        study_identifier: "Código del participante"
         unassigned_participant:
           one: Participante no asignado/a
           other: Participantes no asignados
@@ -175,7 +184,6 @@ es-PE:
             nurse: "Enferma"
             name: "Nombre"
             study_identifier: "Código del participante"
-            enrollment_date: "Fecha de inclusión en el estudio"
             first_contact: "Llamada confirmando cita"
             second_contact: "Llamada de seguimiento sem. 1"
             third_contact: "Llamada de seguimiento sem. 3"
@@ -210,17 +218,6 @@ es-PE:
               blue: Sesión actual
       pending:
         participants:
-          index:
-            heading: "Participantes pendientes"
-            add_new_participant: "Añadir nuevo participante"
-            edit_info: "Editar información"
-            name: "Nombre"
-            study_identifier: "Código del participante"
-            enrollment_date: "Fecha de inclusión en el estudio"
-            activate: "Activar Participante"
-            disqualify: "Desactivar Participante"
-            disqualify_alert: ¿Estás seguro/a de que quieres suspender el tratamiento de este participante?
-            activate_alert: "¿Está seguro que quiere activar este participante?"
           activate:
             heading_1: "Asignar enfermero para activar participante"
     controllers:
@@ -232,9 +229,6 @@ es-PE:
         not_saved: "Página no guardada"
         destroyed: "Página eliminada"
         not_destroyed: "Página no eliminada"
-    models:
-      participant:
-        enrollment_date_is_sane_error: "Fecha de inclusión invalida"      
   devise:
     mailer:
       confirmation_instructions:
@@ -720,10 +714,10 @@ es-PE:
         contact_at: Fecha/hora de la llamada
         explanation: Razón para no-adherencia
       participant:
+        created_at: Fecha de incorporación en el dashboard
         first_name: Nombres
         last_name: Apellidos
         study_identifier: Código del participante
-        enrollment_date: Fecha de inclusión
         family_health_unit_name: Centro de salud
         address: Dirección actual
         phone: Telefóno fijo

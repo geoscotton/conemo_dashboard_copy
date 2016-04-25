@@ -8,7 +8,6 @@
     phone: 1111111<%= pt_id %>
     date_of_birth: <%= Date.today - ((30 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 2 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -24,7 +23,6 @@
     phone: 11111111<%= pt_id %>
     date_of_birth: <%= Date.today - ((25 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today %>
     status: unassigned
     locale: en
     address: 123 Main Street
@@ -40,7 +38,6 @@
     phone: 11111111<%= pt_id %>
     date_of_birth: <%= Date.today - ((25 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today %>
     status: unassigned
     locale: es-PE
     address: 123 Main Street
@@ -56,7 +53,6 @@
     phone: 11111111<%= pt_id %>
     date_of_birth: <%= Date.today - ((25 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today %>
     status: unassigned
     locale: pt-BR
     address: 123 Main Street
@@ -72,7 +68,6 @@
     phone: 12222222<%= pt_id %>
     date_of_birth: <%= Date.today - ((69 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today %>
     status: dropped_out
     locale: en
     address: 123 Main Street
@@ -88,7 +83,6 @@
     phone: 12222222<%= pt_id %>
     date_of_birth: <%= Date.today - ((69 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - (4 + day) %>
     status: dropped_out
     locale: en
     address: 123 Main Street
@@ -105,7 +99,6 @@
     phone: 13333333<%= pt_id %>
     date_of_birth: <%= Date.today - ((30 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today %>
     status: active
     locale: en
     address: 123 Main Street
@@ -121,7 +114,6 @@
     phone: 13333333<%= pt_id %>
     date_of_birth: <%= Date.today - ((42 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 2 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -137,7 +129,6 @@
     phone: 13333333<%= pt_id %>
     date_of_birth: <%= Date.today - ((19 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 4 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -153,7 +144,6 @@
     phone: 13333333<%= pt_id %>
     date_of_birth: <%= Date.today - ((26 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 25 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -169,7 +159,6 @@
     phone: 13333333<%= pt_id %>
     date_of_birth: <%= Date.today - ((26 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 39 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -186,7 +175,6 @@
     phone: 14444444<%= pt_id %>40
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 1 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -202,7 +190,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 3 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -218,7 +205,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 5 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -234,7 +220,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 6 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -250,7 +235,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 7 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -266,7 +250,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 8 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -282,7 +265,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 9 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -298,7 +280,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 10 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -314,7 +295,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 11 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -330,7 +310,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 12 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -346,7 +325,6 @@
     phone: 14444444<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 12 %>
     status: pending
     locale: en
     address: 123 Main Street
@@ -362,7 +340,6 @@
     phone: 15555555<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 12 %>
     status: active
     locale: es-PE
     address: 123 Main Street
@@ -378,7 +355,6 @@
     phone: 16666666<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 12 %>
     status: active
     locale: pt-BR
     address: 123 Main Street
@@ -394,7 +370,6 @@
     phone: 17777777<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 45 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -410,7 +385,6 @@
     phone: 18888888<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) + pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 50 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -426,7 +400,6 @@
     phone: 1404040<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) - pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 10 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -442,7 +415,6 @@
     phone: 1404040<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) - pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - (10 + day) %>
     status: completed
     locale: en
     address: 123 Main Street
@@ -459,7 +431,6 @@
     phone: 1404040<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) - pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - (10 + day) %>
     status: completed
     locale: en
     address: 123 Main Street
@@ -476,7 +447,6 @@
     phone: 1404040<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) - pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 4 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -493,7 +463,6 @@
     phone: 1404040<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) - pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 4 %>
     status: active
     locale: en
     address: 123 Main Street
@@ -510,7 +479,6 @@
     phone: 1404040<%= pt_id %>
     date_of_birth: <%= Date.today - ((54 * 365) - pt_id) %>
     gender: female
-    enrollment_date: <%= Date.today - 4 %>
     status: active
     locale: en
     address: 123 Main Street

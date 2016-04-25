@@ -13,7 +13,6 @@ RSpec.describe Participant do
       last_name: "l",
       family_health_unit_name: "fhun",
       phone: "123",
-      enrollment_date: Time.zone.today,
       locale: LOCALES.values.sample,
       study_identifier: rand(1000).to_s,
       status: Participant::STATUS.sample,

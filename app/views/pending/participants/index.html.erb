@@ -2,7 +2,7 @@
   <div class="col-md-12 col-sm-12">
     <h3><%= Participant.model_name.human(count: 2) %>
       <% if can? :create, Participant %>
-        <%= link_to " #{t 'conemo.views.pending.participants.index.add_new_participant'}", new_participant_path, class: "pull-right btn btn-primary fa fa-plus btn-lg" %>
+        <%= link_to " #{t '.add_new_participant'}", new_participant_path, class: "pull-right btn btn-primary fa fa-plus btn-lg" %>
       <% end %>
     </h3>
   </div>
@@ -14,27 +14,27 @@
   <div class="panel-body">
     <table class="table table-bordered table-condensed table-hover">
       <tr>
-        <th><%= t "conemo.views.pending.participants.index.edit_info" %></th>
-        <th><%= t "conemo.views.pending.participants.index.name" %></th>
-        <th><%= t "conemo.views.pending.participants.index.study_identifier" %></th>
-        <th><%= t "conemo.views.pending.participants.index.enrollment_date" %></th>
-        <th><%= t "conemo.views.pending.participants.index.activate" %></th>
+        <th><%= t ".edit_info" %></th>
+        <th><%= t ".name" %></th>
+        <th><%= t ".study_identifier" %></th>
+        <th><%= t "activerecord.attributes.participant.created_at" %></th>
+        <th><%= t ".activate" %></th>
       </tr>
       <% @unassigned_participants.each do |participant| %>
         <tr id="participant-<%= participant.id %>">
           <td>
-            <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.edit_info")) do %>
+            <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t(".edit_info")) do %>
               <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
-              <span class="sr-only"><%= t "conemo.views.pending.participants.index.edit_info" %></span>
+              <span class="sr-only"><%= t ".edit_info" %></span>
             <% end %>
           </td>
           <td><%= participant.last_name %>, <%= participant.first_name %></td>
           <td><%= participant.study_identifier %></td>
-          <td><%= l participant.enrollment_date, format: :long %></td>
+          <td><%= l participant.created_at.to_date, format: :long %></td>
           <td>
-            <%= link_to(pending_enroll_path(participant), class: "btn btn-default", :"aria-label" => t("conemo.views.pending.participants.index.activate")) do %>
+            <%= link_to(pending_enroll_path(participant), class: "btn btn-default", :"aria-label" => t(".activate")) do %>
               <span class="fa fa-thumbs-up fa-2x" aria-hidden="true"></span>
-              <span class="sr-only"><%= t "conemo.views.pending.participants.index.activate" %></span>
+              <span class="sr-only"><%= t ".activate" %></span>
             <% end %>
           </td>
         </tr>

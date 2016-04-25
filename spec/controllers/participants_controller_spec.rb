@@ -10,13 +10,13 @@ RSpec.describe ParticipantsController, type: :controller do
   let(:valid_participant_params) do
     { first_name: "f", last_name: "l", study_identifier: "1",
       family_health_unit_name: "u", address: "a",
-      phone: "5555555555", enrollment_date: Time.zone.today, gender: "male" }
+      phone: "5555555555", gender: "male" }
   end
 
   let(:invalid_participant_params) do
     { first_name: nil, last_name: nil, study_identifier: nil,
       family_health_unit_name: nil,
-      phone: nil, enrollment_date: nil }
+      phone: nil }
   end
 
   describe "GET new" do

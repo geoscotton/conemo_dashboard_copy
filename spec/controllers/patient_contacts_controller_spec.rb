@@ -74,8 +74,6 @@ RSpec.describe PatientContactsController, type: :controller do
         end
 
         it "redirects to the active report path" do
-          participant.update enrollment_date: Time.zone.today
-
           admin_request :post, :create, locale,
                         participant_id: participant.id, locale: locale,
                         patient_contact: valid_patient_contact_params
@@ -124,7 +122,6 @@ RSpec.describe PatientContactsController, type: :controller do
           patient_contact = participant.patient_contacts.create(
             valid_patient_contact_params
           )
-          participant.update enrollment_date: Time.zone.today
 
           admin_request :delete, :destroy, locale,
                         participant_id: participant.id,

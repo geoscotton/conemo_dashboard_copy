@@ -30,9 +30,6 @@ RSpec.describe "participant enrollment", type: :feature do
     select "March", from: "participant_date_of_birth_2i"
     select "1", from: "participant_date_of_birth_3i"
     fill_in "Address", with: "Address of participant"
-    select "2014", from: "participant_enrollment_date_1i"
-    select "August", from: "participant_enrollment_date_2i"
-    select "1", from: "participant_enrollment_date_3i"
     choose "participant_gender_male"
     click_on "Save"
 
