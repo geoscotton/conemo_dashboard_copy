@@ -18,7 +18,7 @@ class SupervisionSessionsController < ApplicationController
     authorize! :create, @supervision_session
 
     if @supervision_session.save
-      redirect_to nurse_supervisor_dashboard_url,
+      redirect_to nurse_supervision_sessions_url(@nurse),
                   notice: @supervision_session.model_name.human + " " +
                           t(".success")
     else

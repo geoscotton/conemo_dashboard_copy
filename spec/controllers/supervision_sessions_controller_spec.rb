@@ -114,7 +114,7 @@ RSpec.describe SupervisionSessionsController, type: :controller do
           post :create, nurse_id: nurse.id, locale: locale,
                         supervision_session: valid_params
 
-          expect(response).to redirect_to nurse_supervisor_dashboard_url
+          expect(response).to redirect_to nurse_supervision_sessions_url(nurse)
         end
       end
 
