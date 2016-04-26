@@ -8,7 +8,7 @@
           edit_participant_second_contact_path(second_contact.participant, referrer: "active_participant_path"),
           class: "fa fa-edit fa-lg" %> <%= t "conemo.views.active.participants.show.second_contact_heading" %></h4>
 
-      <p><i class="fa fa-clock-o"></i> <%= t "helpers.label.second_contact.contact_at" %>: <%= l second_contact.contact_at, format: :long %></p>
+      <p><i class="fa fa-clock-o"></i> <%= t "activerecord.attributes.second_contact.contact_at" %>: <%= l second_contact.contact_at, format: :long %></p>
     </div>
 
     <div class="timeline-body">
@@ -16,7 +16,7 @@
     </div>
 
     <div class="timeline-body">
-      <p><strong><%= t "helpers.label.second_contact.session_length" %>: </strong><%= second_contact.session_length %>
+      <p><strong><%= t "activerecord.attributes.second_contact.session_length" %>: </strong><%= second_contact.session_length %>
     </div>
   </div>
 </li>
