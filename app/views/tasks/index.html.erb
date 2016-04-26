@@ -45,7 +45,7 @@
 
 <h2><%= t ".progress_bar" %></h2>
 
-<div class="progress">
+<div class="progress tall">
   <% scheduled_task_types = @tasks.scheduled_tasks.group_by { |t| t.task.class } %>
   <% [ Tasks::ConfirmationCall,
        Tasks::InitialInPersonAppointment,
@@ -53,12 +53,16 @@
        Tasks::FollowUpCallWeekThree,
        Tasks::CallToScheduleFinalAppointment,
        Tasks::FinalInPersonAppointment ].each_with_index do |task, i| %>
+    <% task_instance = scheduled_task_types[task].try(:first) %>
     <% task_style = "width: #{ i <= 3 ? 17 : 16 }%; #{ i < 5 ? 'border-right: 1px solid;' : '' }" %>
-    <% task_class = scheduled_task_types[task].try(:first).try(:css_class) || "future" %>
+    <% task_class = task_instance.try(:css_class) || "future" %>
     <%= content_tag("div",
                     class: "progress-bar progress-bar-#{ task_class }",
                     style: task_style) do %>
-      <span><%= task.model_name.human %></span>
+      <span>
+        <%= task.model_name.human %><br />
+        <%= l(task_instance.scheduled_at.to_date, format: :long) if task_instance %>
+      </span>
     <% end %>
   <% end %>
 </div>

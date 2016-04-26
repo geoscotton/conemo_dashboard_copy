@@ -4,6 +4,10 @@ body {
 }
 
 /* progress bar on participant tasks page */
+.progress.tall {
+  height: 63px;
+}
+
 .progress-bar-future {
   background-color: transparent;
 }
