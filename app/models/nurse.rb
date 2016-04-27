@@ -8,6 +8,7 @@ class Nurse < User
            inverse_of: :nurse
   has_many :nurse_tasks, through: :participants
   has_many :supervision_sessions
+  has_many :supervisor_notes
 
   def active_participants
     participants.active
@@ -41,6 +42,10 @@ class Nurse < User
     ].map do |contact_type|
       contact_type.where(participant: active_participants).cancelled
     end.flatten
+  end
+
+  def recent_supervision_sessions
+    supervision_sessions.order(session_at: :desc)
   end
 
   private

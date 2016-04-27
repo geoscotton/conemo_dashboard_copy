@@ -27,7 +27,6 @@ class Participant < ActiveRecord::Base
   has_many :patient_contacts, dependent: :destroy
   has_many :planned_activities, dependent: :destroy
   has_many :session_events, dependent: :destroy
-  has_many :supervisor_notes, dependent: :destroy
 
   UNASSIGNED ||= "unassigned"
   PENDING ||= "pending"

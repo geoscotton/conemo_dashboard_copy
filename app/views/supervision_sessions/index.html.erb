@@ -1,3 +1,31 @@
+<h3>
+  <%= NurseSupervisor.model_name.human + " " + t("conemo.views.active.participants.report.notes").downcase %>
+  <%= link_to(new_nurse_supervisor_note_path(@nurse), class: "pull-right", style: "color:white;") do %>
+    <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
+    <span class="sr-only">Write note</span>
+  <% end %>
+</h3>
+
+<table class="table">
+  <tbody>
+    <% @nurse.supervisor_notes.each do |note| %>
+      <tr>
+        <td>
+          <dl>
+            <dt>
+            <dd><%= note.note %></dd>
+            <dd><em><%= l note.created_at, format: :long %></em></dd>
+          </dl>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>
+  <%= SupervisionSession.model_name.human(count: 2) %>
+</h3>
+
 <table class="table">
   <thead>
     <tr>
@@ -9,7 +37,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @supervision_sessions.order(session_at: :desc).each do |session| %>
+    <% @nurse.recent_supervision_sessions.each do |session| %>
       <tr>
         <td><%= l session.session_at, format: :long %></td>
         <td><%= session.session_length %></td>

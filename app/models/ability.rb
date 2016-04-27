@@ -47,7 +47,7 @@ class Ability
         participant: { locale: supervisor.locale }
     can [:create, :update],
         SupervisorNote,
-        participant: { locale: supervisor.locale }
+        nurse: { nurse_supervisor_id: supervisor.id }
     can :update,
         SupervisorNotification,
         nurse_task: { nurse: { nurse_supervisor_id: supervisor.id } }

@@ -34,12 +34,12 @@ RSpec.describe SupervisionSessionsController, type: :controller do
         it_behaves_like "a bad request"
       end
 
-      it "sets the supervision_sessions" do
+      it "sets the nurse" do
         sign_in_user nurse_supervisor
 
         get :index, nurse_id: nurse.id, locale: locale
 
-        expect(assigns(:supervision_sessions)).not_to be_nil
+        expect(assigns(:nurse)).to eq nurse
       end
     end
   end

@@ -81,9 +81,8 @@ RSpec.describe Ability do
       expect(en_nurse_supervisor_role.can?(:read, pt_participant)).to eq false
     end
 
-    it "can create or update SupervisorNotes for Participants of the same locale" do
-      en_participant = Participant.find_by(locale: LOCALES[:en])
-      note = SupervisorNote.new(participant: en_participant)
+    it "can create or update SupervisorNotes for assigned Nurses" do
+      note = SupervisorNote.new(nurse: en_nurse)
 
       expect(en_nurse_supervisor_role.can?(:create, note)).to eq true
       expect(en_nurse_supervisor_role.can?(:update, note)).to eq true

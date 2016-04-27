@@ -4,8 +4,8 @@ class SupervisionSessionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @supervision_sessions = SupervisionSession.where(nurse: find_nurse)
-    authorize! :read, @supervision_sessions
+    find_nurse
+    authorize! :read, @nurse.supervision_sessions
   end
 
   def new

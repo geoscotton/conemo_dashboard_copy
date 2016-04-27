@@ -57,32 +57,5 @@
         <% end %>
       </tbody>
     </table>
-
-    <% if can?(:create, SupervisorNote.new(participant: @participant)) %>
-      <table class="table">
-        <thead>
-          <th class="text-center">
-            <%= NurseSupervisor.model_name.human + " " + t("conemo.views.active.participants.report.notes") %>
-            <%= link_to(new_participant_supervisor_note_path(@participant), class: "pull-right", style: "color:white;") do %>
-              <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
-              <span class="sr-only">Write note</span>
-            <% end %>
-          </th>
-        </thead>
-        <tbody>
-          <% @participant.supervisor_notes.each do |note| %>
-            <tr>
-              <td>
-                <dl>
-                  <dt>
-                  <dd><%= note.note %></dd>
-                  <dd><em><%= l note.created_at, format: :long %></em></dd>
-                </dl>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
   </div>
 </div>

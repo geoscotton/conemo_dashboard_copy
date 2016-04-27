@@ -5,11 +5,11 @@ RSpec.describe "supervisor_notes/new", type: :view do
   fixtures :all
 
   before(:each) do
-    @participant = assign(:participant, Participant.first)
+    @nurse = assign(:nurse, Nurse.first)
     @supervisor_note = assign(:supervisor_note,
                               SupervisorNote.new(
                                 note: "MyText",
-                                participant: Participant.first
+                                nurse: @nurse
                               ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "supervisor_notes/new", type: :view do
 
     assert_select(
       "form[action=?][method=?]",
-      participant_supervisor_notes_path(@participant),
+      nurse_supervisor_notes_path(@nurse),
       "post"
     ) do
       assert_select "textarea#supervisor_note_note[name=?]",
