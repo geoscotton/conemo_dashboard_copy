@@ -1,29 +1,19 @@
-<div class="title">
-  <h2><%= fa_icon "user lg" %> <%= t ".heading" %> <%= link_to '', edit_participant_path(participant, referrer: "tasks"), class: "fa fa-edit fa-lg pull-right" %></h2>
-</div>
+<h3><%= t ".heading" %> <%= link_to '', edit_participant_path(participant, referrer: "tasks"), class: "fa fa-edit pull-right" %></h3>
 
-<div class="col-md-3">
-  <p><strong><%= t "activerecord.attributes.participant.family_health_unit_name" %>:</strong>
-    <%= participant.family_health_unit_name %></p>
-</div>
+<p><strong><%= t "activerecord.attributes.participant.family_health_unit_name" %>:</strong>
+  <%= participant.family_health_unit_name %></p>
 
-<div class="col-md-3">
-  <p><strong><%= t "activerecord.attributes.participant.phone" %>:</strong>
-    <%= participant.phone %></p>
-  <p><strong><%= t "activerecord.attributes.participant.emergency_contact_name" %>:</strong>
-    <%= participant.emergency_contact_name %></p>
-  <p><strong><%= t "activerecord.attributes.participant.emergency_contact_phone" %>:</strong>
-    <%= participant.emergency_contact_phone %></p>
-</div>
+<p><strong><%= t "activerecord.attributes.participant.phone" %>:</strong>
+  <%= participant.phone %></p>
+<p><strong><%= t "activerecord.attributes.participant.emergency_contact_name" %>:</strong>
+  <%= participant.emergency_contact_name %></p>
+<p><strong><%= t "activerecord.attributes.participant.emergency_contact_phone" %>:</strong>
+  <%= participant.emergency_contact_phone %></p>
 
-<div class="col-md-3">
-  <p><strong><%= t "activerecord.attributes.participant.date_of_birth" %>: </strong>
-    <%= l participant.date_of_birth, format: :long %></p>
-  <p><strong><%= t "activerecord.attributes.participant.address" %>:</strong>
-    <%= participant.address %></p>
-</div>
+<p><strong><%= t "activerecord.attributes.participant.date_of_birth" %>: </strong>
+  <%= l participant.date_of_birth, format: :long %></p>
+<p><strong><%= t "activerecord.attributes.participant.address" %>:</strong>
+  <%= participant.address %></p>
 
-<div class="col-md-3">
-  <p><strong><%= t "activerecord.attributes.participant.gender" %>: </strong>
-    <%=t "conemo.views.participants.form.#{participant.gender}" %></p>
-</div>
+<p><strong><%= t "activerecord.attributes.participant.gender" %>: </strong>
+  <%=t "conemo.views.participants.form.#{participant.gender}" %></p>

@@ -1,14 +1,10 @@
-<div class="btn-group">
-  <%= link_to NurseTask.model_name.human(count: 2), participant_tasks_path(@participant), class: "btn btn-link" %>
-  <%= link_to t("active.participants.show.header"), active_participant_path(@participant), class: "btn btn-link" %>
-</div>
-
+<h2><%= t(".clinical_summary") %></h2>
 
 <div class="row report">
   <div class="col-md-2 col-sm-2 col-xs-2">
     <table class="table table-bordered accordion-toggle" data-toggle="collapse" data-target="#logins-table">
       <thead>
-        <th class="text-center"><%= fa_icon 'sort', class: "pull-left" %><%= t "conemo.views.active.participants.report.logins" %></th>
+        <th class="text-center text-primary" style="cursor: pointer;"><%= fa_icon 'sort', class: "pull-left" %><%= t "conemo.views.active.participants.report.logins" %></th>
       </thead>
       <tbody class="accordion-body collapse" id="logins-table">
         <% @participant.logins.order(logged_in_at: :desc).each do |login| %>
@@ -32,11 +28,13 @@
     <table class="table">
       <thead>
         <th class="text-center">
-          <%= t 'conemo.views.active.participants.report.notes' %>
-          <%= link_to(new_participant_patient_contact_path(@participant), class: "pull-right", style: "color:white;") do %>
-            <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
-            <span class="sr-only">Write note</span>
-          <% end %>
+          <h3>
+            <%= t 'conemo.views.active.participants.report.notes' %>
+            <%= link_to(new_participant_patient_contact_path(@participant), class: "btn btn-link") do %>
+              <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
+              <span class="sr-only">Write note</span>
+            <% end %>
+          </h3>
         </th>
       </thead>
       <tbody>

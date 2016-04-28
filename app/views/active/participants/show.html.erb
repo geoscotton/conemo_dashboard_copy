@@ -1,12 +1,3 @@
-<div class="btn-group">
-  <% if current_user.nurse? %>
-    <%= link_to NurseTask.model_name.human(count: 2), participant_tasks_path(@participant), class: "btn btn-link" %>
-  <% else %>
-    <%= link_to NurseTask.model_name.human(count: 2), nurse_tasks_summary_path(@participant.nurse), class: "btn btn-link" %>
-  <% end %>
-  <%= link_to "Clinical Summary", active_report_path(@participant), class: "btn btn-link" %>
-</div>
-
 <h2><%= t "active.participants.show.header" %></h2>
 
 <% if @participant_contacts.present? %>

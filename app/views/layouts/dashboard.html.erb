@@ -17,7 +17,9 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
       <% if user_signed_in? %>
         <%= link_to "ADMIN", rails_admin_path(locale: params[:locale]), class: "btn btn-primary pull-left navbar-brand admin" if current_user.admin? %>
       <% end %>
-      <%= link_to "CONEMO", "/", class: "navbar-brand" %>
+      <%= link_to "/#{params[:locale]}", class: "navbar-brand" do %>
+        <i class="fa fa-home"></i> CONEMO
+      <% end %>
       <%= render "shared/navbar_app_version" %>
     </div>
 
