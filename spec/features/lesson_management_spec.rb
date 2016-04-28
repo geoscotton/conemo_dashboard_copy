@@ -14,7 +14,7 @@ RSpec.describe "lesson management", type: :feature do
     fill_in "Title", with: "Lesson 1"
     fill_in "Day in treatment", with: 1
     choose "Yes"
-    click_on "Create Lesson"
+    click_on "Save"
 
     expect(page).to have_text("Lesson saved")
     expect(page).to have_text("Lesson 1")
@@ -28,7 +28,7 @@ RSpec.describe "lesson management", type: :feature do
     click_on "edit-lesson-#{lessons(:day1).id}"
     fill_in "Title", with: "Edited lesson"
     fill_in "Day in treatment", with: 8
-    click_on "Update Lesson"
+    click_on "Save"
 
     expect(page).to have_text("Lesson saved")
     expect(page).to have_text("Edited lesson")
@@ -50,7 +50,7 @@ RSpec.describe "lesson management", type: :feature do
     click_on "Add Slide"
     fill_in "Title", with: "Slide xyz"
     fill_in "Body", with: "<p>I'm a slide dawg</p>"
-    click_on "Create Slide"
+    click_on "Save"
 
     expect(page).to have_text("Slide saved")
 
@@ -64,7 +64,7 @@ RSpec.describe "lesson management", type: :feature do
     click_on "edit-slide-#{bit_core_slides(:day1_slide1).id}"
     fill_in "Title", with: "Edited slide"
     fill_in "Body", with: "<span>edited slide</span>"
-    click_on "Update Slide"
+    click_on "Save"
 
     expect(page).to have_text("Slide saved")
 

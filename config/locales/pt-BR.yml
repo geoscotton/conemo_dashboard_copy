@@ -24,6 +24,9 @@ pt-BR:
         help_message: Solicitação de ajuda
       show:
         header: Todos os contatos realizados
+  lessons:
+    index:
+      add_lesson: Adicionar sessão
   nurse_dashboards:
     show:
       active_tasks: Tarefa Ativa

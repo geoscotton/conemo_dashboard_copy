@@ -90,8 +90,8 @@
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= f.submit class: "btn btn-primary" %>
-      <%= link_to "Cancel", lessons_path, class: "btn btn-default" %>
+      <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
+      <%= link_to t("conemo.views.shared.cancel_button"), lessons_path, class: "btn btn-default" %>
     </div>
   </div>
 <% end %>

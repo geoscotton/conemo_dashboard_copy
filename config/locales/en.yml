@@ -60,6 +60,9 @@ en:
       x_seconds:
         one: 1 second ago
         other: "%{count} seconds ago"
+  lessons:
+    index:
+      add_lesson: Add Lesson
   nurse_dashboards:
     show:
       active_tasks: Active task
@@ -148,9 +151,6 @@ en:
           lessons_button: "Lessons"
           sign_in: Sign in
           sign_out: "Sign out"
-      lessons:
-        index:
-          add_lesson: "Add Lesson"
       second_contacts:
         patient_question_header: Questions for patient
         nurse_question_header: Questions for nurse

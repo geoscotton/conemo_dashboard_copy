@@ -24,6 +24,9 @@ es-PE:
         help_message: Solicitud de ayuda
       show:
         header: Todos los contactos realizados
+  lessons:
+    index:
+      add_lesson: Añadir sesión
   nurse_dashboards:
     show:
       active_tasks: Tarea actual
@@ -105,9 +108,6 @@ es-PE:
           manage_button: "Participantes activos"
           lessons_button: "Sesiones"
           sign_out: "Salir"
-      lessons:
-        index:
-          add_lesson: "Add Lesson"
       first_contacts:
         new:
           heading: "Llamada confirmando cita"
