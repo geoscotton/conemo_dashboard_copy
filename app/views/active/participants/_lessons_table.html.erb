@@ -4,13 +4,34 @@
       <th></th>
       <th><%= t "conemo.views.active.participants.report.release_day" %></th>
       <th><%= t "conemo.views.active.participants.report.lesson" %></th>
+      <th></th>
     </thead>
     <tbody>
+      <% lack_of_connectivity_on = participant
+                                   .nurse_tasks
+                                   .current
+                                   .where(type: Tasks::LackOfConnectivityCall.to_s)
+                                   .last
+                                   .try(:scheduled_at)
+                                   .try(:to_date) %>
       <% lessons.each_with_index do |lesson, index| %>
+        <% release_date = participant.start_date ? (participant.start_date + lesson.day_in_treatment.days - 1.days) : nil %>
         <tr class="<%= participant.lesson_status(lesson) %>">
           <td class="release-day"><%= index + 1 %></td>
-          <td class="release-date"><%= participant.start_date ? l(participant.start_date + lesson.day_in_treatment.days - 1.days, format: :long) : "" %></td>
-          <td><%= lesson.title %></td>
+          <td class="release-date"><%= release_date ? l(release_date, format: :long) : "" %></td>
+          <td>
+            <%= lesson.title %>
+          </td>
+          <td style="text-align: center;">
+            <% if lack_of_connectivity_on && lack_of_connectivity_on <= release_date &&
+                  Time.zone.today >= release_date %>
+              <span class="fa-stack fa-lg" aria-hidden="true" title="No connectivity">
+                <i class="fa fa-wifi fa-stack-1x"></i>
+                <i class="fa fa-ban fa-stack-2x"></i>
+              </span>
+              <span class="sr-only">No connectivity</span>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>

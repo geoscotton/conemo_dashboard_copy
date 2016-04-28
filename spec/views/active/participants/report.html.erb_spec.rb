@@ -35,6 +35,7 @@ RSpec.describe "active/participants/report", type: :view do
     let(:lesson) do
       instance_double(
         Lesson,
+        id: 23,
         day_in_treatment: release_day,
         title: "Lesson 1"
       ).as_null_object
@@ -62,6 +63,30 @@ RSpec.describe "active/participants/report", type: :view do
       table_exists_with_the_following_rows(
         [
           ["1", I18n.l(today + release_day - 1, format: :long), "Lesson 1"]
+        ]
+      )
+    end
+
+    it "renders indicators when there is an active Lack of Connectivity Task" do
+      stub_participant
+      allow(participant).to receive(:lesson_status) { "info" }
+      connectivity_task = double("task", to_date: today - 2).as_null_object
+      allow(participant).to receive(:nurse_tasks) { connectivity_task }
+      stub_nurse
+      assign(:lessons, [lesson])
+      allow(lesson).to receive(:day_in_treatment) { -1 }
+      assign(:participant_contacts, [])
+
+      render template: template
+
+      table_exists_with_the_following_rows(
+        [
+          [
+            "1",
+            I18n.l(today - 2, format: :long),
+            "Lesson 1",
+            "No connectivity"
+          ]
         ]
       )
     end

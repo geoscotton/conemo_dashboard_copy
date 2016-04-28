@@ -5,7 +5,6 @@ class Participant < ActiveRecord::Base
   include Status
 
   belongs_to :nurse, class_name: "User", foreign_key: :nurse_id
-  has_many :nurse_tasks
   has_one :call_to_schedule_final_appointment, dependent: :destroy
   has_one :final_appointment, dependent: :destroy
   has_one :first_appointment, dependent: :destroy
