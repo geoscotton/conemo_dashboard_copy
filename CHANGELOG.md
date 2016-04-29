@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.11.0 - 2016-04-29
+
+* add health centers for Brazil
+* translate rest of Supervisor dashboard
+* redirect non Supervisors from the Nurse Tasks page
+* make links and buttons consistent in contrast
+* reorganize tasks page layout
+* update task date display; add home icon to brand
+* consolidate Participant navigation menu
+* add admin translations
+* indicate a current lack of connectivity task
+* move supervisor notes to sessions page
+* redirect supervisor to sessions log
+* display scheduled date of tasks in progress bar
+* restrict editable Participant fields for Nurses
+* update Nurse main page translations
+* update display of Participant dates
+* add version to dashboard
+
 ## 0.10.11 - 2016-04-19
 
 * fix redirect from editing call to schedule final
