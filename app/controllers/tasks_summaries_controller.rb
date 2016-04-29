@@ -4,6 +4,8 @@ class TasksSummariesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def show
+    return redirect_to(root_url) unless current_user.respond_to?(:nurses)
+
     @nurse_dashboard = NurseDashboardPresenter.new(find_nurse)
     authorize! :read, @nurse_dashboard.participants
   end
