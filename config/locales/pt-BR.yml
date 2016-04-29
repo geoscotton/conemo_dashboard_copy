@@ -33,6 +33,27 @@ pt-BR:
       header: Seus Pacientes
       no_active_or_overdue_tasks: Tarefas Não Ativas
       overdue_tasks: Tarefa Atrasada
+  nurse_supervisor_dashboards:
+    nurse:
+      last_supervision_session: Última Sessão de Supervisão
+      log_supervision_session: Resgistrar Sessão de Supervisão
+      overdue:
+        one: Tarefa Atrasada
+        other: Tarefas Atrasadas
+      review: Detalhes
+    show:
+      active:
+        one: Ativo
+        other: Ativos
+      completed:
+        one: Completo
+        other: Completos
+      dropped_out:
+        one: Tratamento Interrompido
+        other: Tratamentos Interrompidos
+      pending:
+        one: Pendente
+        other: Pendentes
   pending:
     participants:
       index:
@@ -48,6 +69,9 @@ pt-BR:
         unassigned_participant:
           one: Participante pendente
           other: Participantes pendentes
+  supervision_sessions:
+    index:
+      supervisor_notes: Notas do Supervisor
   tasks:
     index:
       active_due: Ativo
@@ -594,7 +618,7 @@ pt-BR:
           - por telefone
           - presencial
         meeting_kinds:
-          - Group
+          - Em grupo
           - Individual
         topics:
           - Encontro inicial
@@ -647,7 +671,9 @@ pt-BR:
       nurse_task:
         one: Tarefa
         other: Tarefas
-      participant: Participante
+      participant:
+        one: Participante
+        other: Participantes
       patient_contact:
         one: Nota adicional
         other: Nota adicional
@@ -659,8 +685,11 @@ pt-BR:
         one: Smartphone
         other: Smartphones
       supervision_session:
-        one: Supervision session
-        other: Supervision sessions
+        one: Sessão de Supervisão
+        other: Sessão de Supervisão
+      supervisor_note:
+        one: Nota do Supervisor
+        other: Notas do Supervisor
       "tasks/follow_up_call_week_one": Chamada de seguimento sem. 1
       third_contact: Chamada de seguimento sem. 3
       "tasks/follow_up_call_week_three": Chamada de seguimento sem. 3
@@ -726,9 +755,11 @@ pt-BR:
       supervision_session:
         session_at: Data/hora
         session_length: Duração da chamada (minutos)
-        meeting_kind: Meeting kind
+        meeting_kind: Tipo de reunião
         contact_kind: Tipo de contato
         topics: Assuntos discutidos
+      supervisor_note:
+        note: Nota
       third_contact:
         contact_at: Data da ligação
         difficulties: O paciente tem tido dificuldades com CONEMO?

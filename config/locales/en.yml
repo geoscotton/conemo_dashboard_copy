@@ -69,6 +69,27 @@ en:
       header: Your patients
       no_active_or_overdue_tasks: No active/overdue task
       overdue_tasks: Overdue task
+  nurse_supervisor_dashboards:
+    nurse:
+      last_supervision_session: Last supervision session
+      log_supervision_session: Log supervision session
+      overdue:
+        one: Overdue
+        other: Overdue
+      review: Review
+    show:
+      active:
+        one: Active
+        other: Active
+      completed:
+        one: Completed
+        other: Completed
+      dropped_out:
+        one: Dropped out
+        other: Dropped out
+      pending:
+        one: Pending
+        other: Pending
   pending:
     participants:
       index:
@@ -88,6 +109,8 @@ en:
     create:
       not_found: not found
       success: created
+    index:
+      supervisor_notes: Nurse supervisor notes
     new:
       not_found: not found
   tasks:

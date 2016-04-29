@@ -1,5 +1,5 @@
 <h3>
-  <%= NurseSupervisor.model_name.human + " " + t("conemo.views.active.participants.report.notes").downcase %>
+  <%= t ".supervisor_notes" %>
   <%= link_to(new_nurse_supervisor_note_path(@nurse), class: "pull-right", style: "color:white;") do %>
     <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
     <span class="sr-only">Write note</span>

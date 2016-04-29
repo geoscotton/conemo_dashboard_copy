@@ -1,7 +1,7 @@
 <h3><%= Participant.model_name.human(count: 2) %></h3>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><%= @pending_participants.count %> Pending</div>
+  <div class="panel-heading"><%= @pending_participants.count %> <%= t ".pending", count: @pending_participants.count %></div>
 
   <div class="panel-body">
     <table class="table table-bordered table-condensed table-hover filterable">
@@ -41,7 +41,7 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><%= @active_participants.count %> Active</div>
+  <div class="panel-heading"><%= @active_participants.count %> <%= t ".active", count: @active_participants.count %></div>
 
   <div class="panel-body">
     <table class="table table-bordered table-condensed table-hover filterable">
@@ -94,7 +94,7 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><%= @completed_participants.count %> Completed</div>
+  <div class="panel-heading"><%= @completed_participants.count %> <%= t ".completed", count: @completed_participants.count %></div>
 
   <div class="panel-body">
     <table class="table table-bordered table-condensed table-hover filterable">
@@ -122,7 +122,7 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><%= @dropped_out_participants.count %> Dropped out</div>
+  <div class="panel-heading"><%= @dropped_out_participants.count %> <%= t ".dropped_out", count: @dropped_out_participants.count %></div>
 
   <div class="panel-body">
     <table class="table table-bordered table-condensed table-hover filterable">

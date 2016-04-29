@@ -48,7 +48,8 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
 
     render template: template
 
-    expect(rendered).to include "0 Pending"
+    expect(rendered)
+      .to include "0 #{t('nurse_supervisor_dashboards.show.pending', count: 0)}"
   end
 
   context "when there are unassigned (pending) participants" do
@@ -68,7 +69,8 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     it "renders the participant count" do
       assign_pending_and_render
 
-      expect(rendered).to include "2 Pending"
+      expect(rendered)
+        .to include "2 #{t('nurse_supervisor_dashboards.show.pending', count: 2)}"
     end
 
     it "renders the participant details" do
@@ -108,7 +110,8 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     it "renders the participant count" do
       assign_active_and_render
 
-      expect(rendered).to include "2 Active"
+      expect(rendered)
+        .to include "2 #{t('nurse_supervisor_dashboards.show.active', count: 2)}"
     end
 
     it "renders the participant details" do
@@ -148,7 +151,9 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     it "renders the participant count" do
       assign_completed_and_render
 
-      expect(rendered).to include "2 Completed"
+      expect(rendered).to include(
+        "2 #{t('nurse_supervisor_dashboards.show.completed', count: 2)}"
+      )
     end
 
     it "renders the participant details" do
@@ -180,7 +185,9 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     it "renders the participant count" do
       assign_dropped_out_and_render
 
-      expect(rendered).to include "2 Dropped out"
+      expect(rendered).to include(
+        "2 #{t('nurse_supervisor_dashboards.show.dropped_out', count: 2)}"
+      )
     end
 
     it "renders the participant details" do

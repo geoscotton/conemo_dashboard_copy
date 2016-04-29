@@ -4,8 +4,8 @@
       <%= link_to nurse.last_and_first_name, nurse_tasks_summary_path(nurse) %>
       <% if nurse.supervision_sessions.latest %>
         <small class="pull-right <%= SupervisionSessionPresenter.new(nurse.supervision_sessions.latest).css_class %>">
-          Last supervision session: <%= l nurse.supervision_sessions.latest.session_at, format: :long %>
-          <%= link_to "Review", nurse_supervision_sessions_path(nurse) %>
+          <%= t ".last_supervision_session" %>: <%= l nurse.supervision_sessions.latest.session_at, format: :long %>
+          <%= link_to t(".review"), nurse_supervision_sessions_path(nurse) %>
         </small>
       <% end %>
     </h4>
@@ -13,14 +13,14 @@
     <ul class="list-inline">
       <li><%= nurse.active_participants.count %> <%= Participant.model_name.human(count: nurse.active_participants.count) %></li>
       <li><%= nurse.current_tasks.count %> <%= NurseTask.model_name.human(count: nurse.current_tasks.count) %></li>
-      <li><%= nurse.overdue_tasks.count %> Overdue</li>
+      <li><%= nurse.overdue_tasks.count %> <%= t ".overdue", count: nurse.overdue_tasks.count %></li>
       <li><%= nurse.family_health_unit_name %></li>
     </ul>
   </div>
 
   <div class="panel-body">
     <div class="btn-group" role="group" aria-label="Actions">
-      <%= link_to "Log supervision session",
+      <%= link_to t(".log_supervision_session"),
                   new_nurse_supervision_session_path(nurse),
                   { class: "btn btn-link" } %>
 
