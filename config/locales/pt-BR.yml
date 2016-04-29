@@ -98,16 +98,16 @@ pt-BR:
       scheduled_but_not_due: Tarefas futuras
   conemo:
     family_health_units:
-      - Unidade de Saúde 1
-      - Unidade de Saúde 2
-      - Unidade de Saúde 3
-      - Unidade de Saúde 4
-      - Unidade de Saúde 5
-      - Unidade de Saúde 6
-      - Unidade de Saúde 7
-      - Unidade de Saúde 8
-      - Unidade de Saúde 9
-      - Unidade de Saúde 10
+      - Adão Manoel
+      - Celso Daniel
+      - Dom João Nery
+      - Jardim Campos
+      - Jardim Copa
+      - Jardim Rubro II
+      - Profeta Jeremias
+      - Santo Estevão
+      - Silva Teles
+      - Vila Ramos
     views:
       shared:
         save_button: "Salvar"
