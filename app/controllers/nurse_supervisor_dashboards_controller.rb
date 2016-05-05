@@ -2,6 +2,8 @@
 # Manage Nurse Supervisor display.
 class NurseSupervisorDashboardsController < ApplicationController
   def show
+    return redirect_to(root_url) unless current_user.respond_to?(:nurses)
+
     participants = Participant.where(nurse: current_user.nurses).includes(:nurse)
     @pending_participants = Participant.pending
                                        .where(locale: current_user.locale)

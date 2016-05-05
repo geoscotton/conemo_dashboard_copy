@@ -24,4 +24,12 @@ RSpec.describe "Nurse dashboard", type: :feature do
 
     expect(page).to have_content "Contacto adicional guardado exitosamente"
   end
+
+  scenario "a Nurse gets confused and visits the Supervisor dashboard" do
+    sign_in_user es_nurse
+
+    visit "/es-PE/nurse_supervisor_dashboard"
+
+    expect(page).to have_content "Tus pacientes"
+  end
 end
