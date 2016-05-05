@@ -12,6 +12,16 @@ body {
   background-color: transparent;
 }
 
+.progress-legend {
+  position: relative;
+  bottom: -20px;
+}
+
+.progress-legend td {
+  width: 20%;
+  text-align: center;
+}
+
 /* lessons table on detailed participant page */
 .table > tbody > tr.slippage > td {
   background-color: #A4A441;

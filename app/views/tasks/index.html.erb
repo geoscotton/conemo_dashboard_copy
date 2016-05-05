@@ -5,23 +5,15 @@
     <h3><%= t ".progress_bar" %></h3>
   </div>
 
-  <div class="col-sm-4 col-md-3 col-md-offset-1">
-    <table class="table table-condensed">
+  <div class="col-sm-7 col-md-7">
+    <table class="table table-condensed progress-legend">
       <tbody>
         <tr>
           <td><%= t ".scheduled_but_not_due" %></td>
-        </tr>
-        <tr class="success">
-          <td><%= t ".confirmed" %></td>
-        </tr>
-        <tr class="info">
-          <td><%= t ".active_due" %></td>
-        </tr>
-        <tr class="warning">
-          <td><%= t ".cancelled" %></td>
-        </tr>
-        <tr class="danger">
-          <td><%= t ".overdue" %></td>
+          <td class="success"><%= t ".confirmed" %></td>
+          <td class="info"><%= t ".active_due" %></td>
+          <td class="warning"><%= t ".cancelled" %></td>
+          <td class="danger"><%= t ".overdue" %></td>
         </tr>
       </tbody>
     </table>
