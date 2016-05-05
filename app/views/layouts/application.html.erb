@@ -31,7 +31,7 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
                   <li>
                     <%= link_to NurseTask.model_name.human(count: 2), participant_tasks_path(@participant) %>
                   </li>
-                <% elsif !current_user.nurse? && !current_page?(nurse_tasks_summary_path(@participant.nurse)) %>
+                <% elsif !current_user.nurse? && @participant.nurse && !current_page?(nurse_tasks_summary_path(@participant.nurse)) %>
                   <li>
                     <%= link_to NurseTask.model_name.human(count: 2), nurse_tasks_summary_path(@participant.nurse) %>
                   </li>
