@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.1 - 2016-05-05
+
+* restyle task progress legend
+* redirect lost nurse
+* link to tasks page only for activated participants
+
 ## 0.11.0 - 2016-04-29
 
 * add health centers for Brazil
