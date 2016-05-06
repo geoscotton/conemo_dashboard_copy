@@ -20,6 +20,7 @@ class ThirdContact < ActiveRecord::Base
             presence: true
 
   after_initialize :populate_timestamps
+  before_validation :sanitize_difficulties
 
   private
 
@@ -30,5 +31,11 @@ class ThirdContact < ActiveRecord::Base
 
   def populate_timestamps
     self.contact_at ||= default_contact_at
+  end
+
+  def sanitize_difficulties
+    return unless difficulties.try(:count) == 1 && difficulties.first.blank?
+
+    self.difficulties = nil
   end
 end

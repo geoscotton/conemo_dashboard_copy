@@ -17,6 +17,7 @@
 
   <div class="form-group">
     <%= f.label :difficulties, class: "col-md-4 control-label", required: true %>
+    <%= hidden_field_tag "second_contact[difficulties][]", "" %>
     <div class="col-md-7">
       <label class="checkbox">
         <%= check_box_tag "second_contact[difficulties][]", t("conemo.views.shared.false").downcase, @second_contact.difficulties.try(:include?, t("conemo.views.shared.false").downcase) %> <%= t("conemo.views.shared.false").upcase %>
