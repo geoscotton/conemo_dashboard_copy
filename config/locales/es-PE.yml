@@ -92,8 +92,8 @@ es-PE:
         one: Tarea atrasada
         other: Tareas astrasadas
       pending:
-        one: pendiente
-        other: pendientes
+        one: total
+        other: totales
       progress_bar: Línea de tiempo
       scheduled_but_not_due: Próximas sesiones
   conemo:

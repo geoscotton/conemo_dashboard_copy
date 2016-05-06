@@ -93,8 +93,8 @@ pt-BR:
         one: Tarefa atrasada
         other: Tarefas atrasadas
       pending:
-        one: pendente
-        other: pendentes
+        one: Total
+        other: Totalis
       progress_bar: Linha do tempo
       scheduled_but_not_due: Tarefas futuras
   conemo:
