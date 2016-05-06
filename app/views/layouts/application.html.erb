@@ -37,7 +37,7 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
                   </li>
                 <% end %>
                 <% if !current_page?(active_report_path(@participant.id)) %>
-                  <li><%= link_to t(".clinical_summary", default: "Clinical Summary"), active_report_path(@participant.id) %></li>
+                  <li><%= link_to t("tasks.index.clinical_summary"), active_report_path(@participant.id) %></li>
                 <% end %>
                 <% if !current_page?(active_participant_path(@participant)) %>
                   <li><%= link_to t("active.participants.show.header"), active_participant_path(@participant) %></li>
