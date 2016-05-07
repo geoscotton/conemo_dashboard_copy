@@ -5,6 +5,7 @@ AllCops:
     - bin/**/*
     - config/**/*
     - db/**/*
+    - gemfiles/**/*
     - vendor/**/*
   TargetRubyVersion: 2.3
 
