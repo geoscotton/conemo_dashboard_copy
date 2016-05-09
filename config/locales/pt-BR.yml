@@ -503,7 +503,7 @@ pt-BR:
       <<: *errors
     field_help:
       help_request_call:
-        explanation: Por favor, indicar a razão da falta de ajuda OU porque esta tarefa está sendo cancelada
+        explanation: Por favor, indicar o motivo da solicitação de ajuda OU porque esta tarefa está sendo cancelada
       lack_of_connectivity_call:
         explanation: Por favor, indicar a razão da falta de conectividade OU porque esta tarefa está sendo cancelada
       non_adherence_call:
