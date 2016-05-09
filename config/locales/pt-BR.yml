@@ -727,7 +727,7 @@ pt-BR:
         first_name: Nome
         last_name: Sobrenome
         study_identifier: Identificação do participante (ID)
-        family_health_unit_name: Unidade de Saúde da Família (múltipla escolha com os nomes das unidades – a ser definido)
+        family_health_unit_name: Unidade de Saúde da Família
         address: Endereço
         phone: Telefone fixo
         cell_phone: Celular (pessoal)
