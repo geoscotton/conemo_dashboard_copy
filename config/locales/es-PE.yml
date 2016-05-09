@@ -760,6 +760,7 @@ es-PE:
         explanation: Razón para no-adherencia
       participant:
         created_at: Fecha de incorporación en el dashboard
+        name: Nombre
         first_name: Nombres
         last_name: Apellidos
         study_identifier: Código del participante

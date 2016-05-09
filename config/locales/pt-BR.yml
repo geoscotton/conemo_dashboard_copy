@@ -731,6 +731,7 @@ pt-BR:
         explanation: Razão para não aderência
       participant:
         created_at: Data de inclusão no dashboard
+        name: Nome
         first_name: Nome
         last_name: Sobrenome
         study_identifier: Identificação do participante (ID)

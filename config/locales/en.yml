@@ -583,6 +583,7 @@ en:
         explanation: Reason for non-adherence
       participant:
         created_at: Date added to dashboard
+        name: Name
         first_name: First name
         last_name: Last name
         study_identifier: Participant ID
