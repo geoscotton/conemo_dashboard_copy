@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.11.2 - 2016-05-09
+
+* update translations
+* make minor changes to UI
+
 ## 0.11.1 - 2016-05-05
 
 * restyle task progress legend
