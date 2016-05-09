@@ -50,8 +50,8 @@ pt-BR:
         other: Completos
       date_added: Data de inclusão no dashboard
       dropped_out:
-        one: Tratamento Interrompido
-        other: Tratamentos Interrompidos
+        one: Término de Tratamento
+        other: Término de Tratamento
       pending:
         one: Pendente
         other: Pendentes

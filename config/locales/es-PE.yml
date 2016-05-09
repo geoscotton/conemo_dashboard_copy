@@ -49,8 +49,8 @@ es-PE:
         one: completado
         other: completados
       dropped_out:
-        one: suspendido del tratamiento
-        other: suspendidos del tratamiento
+        one: Suspensión del Tratamiento
+        other: Suspensión del Tratamiento
       pending:
         one: pendiente
         other: pendientes
