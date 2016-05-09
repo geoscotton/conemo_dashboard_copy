@@ -18,10 +18,19 @@
   <div class="form-group">
     <%= f.label :difficulties, class: "col-md-4 control-label", required: true %>
     <div class="col-md-7">
+      <p class="help-block"><%= t(".difficulties_help_block") %></p>
+    </div>
+
+    <div class="col-md-3 col-md-offset-4">
       <label class="checkbox">
-        <%= check_box_tag "third_contact[difficulties][]", t("conemo.views.shared.false").downcase, @third_contact.difficulties.try(:include?, t("conemo.views.shared.false").downcase) %> <%= t("conemo.views.shared.false").upcase %>
+        <%= t("conemo.views.shared.false").upcase %>
       </label>
-      <p>&nbsp;</p>
+      <label class="checkbox">
+        <%= check_box_tag "third_contact[difficulties][]", t("conemo.views.shared.false").downcase, @third_contact.difficulties.try(:include?, t("conemo.views.shared.false").downcase) %> <%= t(".no_difficulties") %>
+      </label>
+    </div>
+
+    <div class="col-md-3">
       <label class="checkbox">
         <%= t("conemo.views.shared.true").upcase %>
       </label>

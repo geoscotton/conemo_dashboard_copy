@@ -69,6 +69,14 @@ es-PE:
         unassigned_participant:
           one: Participante no asignado/a
           other: Participantes no asignados
+  second_contacts:
+    form:
+      no_difficulties: El paciente no tuvo dificultades
+      difficulties_help_block: Si el participante no ha tenido dificultades, por
+                               favor selecciona "NO". Si el participante tuvo
+                               dificultades, selecciona todas las dificultades
+                               que tuvo el participante. Por favor NO marques
+                               "No" Y algunas dificultades al mismo tiempo.
   supervision_sessions:
     index:
       supervisor_notes: Notas del Supervisor
@@ -96,6 +104,14 @@ es-PE:
         other: totales
       progress_bar: Línea de tiempo
       scheduled_but_not_due: Próximas sesiones
+  third_contacts:
+    form:
+      no_difficulties: El paciente no tuvo dificultades
+      difficulties_help_block: Si el participante no ha tenido dificultades, por
+                               favor selecciona "NO". Si el participante tuvo
+                               dificultades, selecciona todas las dificultades
+                               que tuvo el participante. Por favor NO marques
+                               "No" Y algunas dificultades al mismo tiempo.
   conemo:
     family_health_units:
       - Centro de salud 1

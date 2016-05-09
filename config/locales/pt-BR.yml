@@ -70,6 +70,14 @@ pt-BR:
         unassigned_participant:
           one: Participante pendente
           other: Participantes pendentes
+  second_contacts:
+    form:
+      no_difficulties: O participante não teve dificuldades
+      difficulties_help_block: Se o participante não teve dificuldades, por
+                               favor, selecione "NÃO". Se o participante teve
+                               dificuldades, selecione todas as dificuldades que
+                               o participante teve. Por favor, NÃO SELECIONE
+                               "NÃO" e outras opções em sua resposta. 
   supervision_sessions:
     index:
       supervisor_notes: Notas do Supervisor
@@ -97,6 +105,14 @@ pt-BR:
         other: Totalis
       progress_bar: Linha do tempo
       scheduled_but_not_due: Tarefas futuras
+  third_contacts:
+    form:
+      no_difficulties: O participante não teve dificuldades
+      difficulties_help_block: Se o participante não teve dificuldades, por
+                               favor, selecione "NÃO". Se o participante teve
+                               dificuldades, selecione todas as dificuldades que
+                               o participante teve. Por favor, NÃO SELECIONE
+                               "NÃO" e outras opções em sua resposta. 
   conemo:
     family_health_units:
       - Adão Manoel
