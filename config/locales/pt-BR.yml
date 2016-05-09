@@ -533,18 +533,16 @@ pt-BR:
           - Outra
         cancel_label: Não realizado / Cancelar tarefa
         cancel:
+        cancel:
           -
-            - Não consegi falar com o paciente
-            - CANCEL Não consegi falar com o paciente
+            - Não consegui falar com o paciente
+            - CANCEL Não consegui falar com o paciente
           -
-            - Paciente não quer continuar no programa
-            - CANCEL Paciente não quer continuar no programa
+            - Paciente não teve tempo para falar (várias vezes)
+            - CANCEL Paciente não teve tempo para falar (várias vezes)
           -
-            - Paciente não houve tempo para falar (várias vezes)
-            - CANCEL Paciente não houve tempo para falar (várias vezes)
-          -
-            - Paciente não estava disposto/a a falar com a AE
-            - CANCEL Paciente não estava disposto/a a falar com a AE
+            - Paciente não estava disposto/a a falar
+            - CANCEL Paciente não estava disposto/a a falar
           -
             - Outra razão
             - CANCEL Outra razão
@@ -560,17 +558,14 @@ pt-BR:
         cancel_label: Não realizado / Cancelar tarefa
         cancel:
           -
-            - Não consegi falar com o paciente
-            - CANCEL Não consegi falar com o paciente
+            - Não consegui falar com o paciente
+            - CANCEL Não consegui falar com o paciente
           -
-            - Paciente não quer continuar no programa
-            - CANCEL Paciente não quer continuar no programa
+            - Paciente não teve tempo para falar (várias vezes)
+            - CANCEL Paciente não teve tempo para falar (várias vezes)
           -
-            - Paciente não houve tempo para falar (várias vezes)
-            - CANCEL Paciente não houve tempo para falar (várias vezes)
-          -
-            - Paciente não estava disposto/a a falar com a AE
-            - CANCEL Paciente não estava disposto/a a falar com a AE
+            - Paciente não estava disposto/a a falar
+            - CANCEL Paciente não estava disposto/a a falar
           -
             - Outra razão
             - CANCEL Outra razão
@@ -587,17 +582,14 @@ pt-BR:
         cancel_label: Não realizado / Cancelar tarefa
         cancel:
           -
-            - Não consegi falar com o paciente
-            - CANCEL Não consegi falar com o paciente
+            - Não consegui falar com o paciente
+            - CANCEL Não consegui falar com o paciente
           -
-            - Paciente não quer continuar no programa
-            - CANCEL Paciente não quer continuar no programa
+            - Paciente não teve tempo para falar (várias vezes)
+            - CANCEL Paciente não teve tempo para falar (várias vezes)
           -
-            - Paciente não houve tempo para falar (várias vezes)
-            - CANCEL Paciente não houve tempo para falar (várias vezes)
-          -
-            - Paciente não estava disposto/a a falar com a AE
-            - CANCEL Paciente não estava disposto/a a falar com a AE
+            - Paciente não estava disposto/a a falar
+            - CANCEL Paciente não estava disposto/a a falar
           -
             - Outra razão
             - CANCEL Outra razão
