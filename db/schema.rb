@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "additional_contacts", ["participant_id"], name: "index_additional_contacts_on_participant_id", using: :btree
 
   create_table "bit_core_content_modules", force: :cascade do |t|
-    t.string   "title",            limit: 255,             null: false
-    t.integer  "position",                     default: 1, null: false
-    t.integer  "bit_core_tool_id",                         null: false
+    t.string   "title",                        null: false
+    t.integer  "position",         default: 1, null: false
+    t.integer  "bit_core_tool_id",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,11 +37,11 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "bit_core_content_modules", ["bit_core_tool_id", "position"], name: "bit_core_content_module_position", unique: true, using: :btree
 
   create_table "bit_core_content_providers", force: :cascade do |t|
-    t.string   "type",                       limit: 255,             null: false
-    t.string   "source_content_type",        limit: 255
+    t.string   "type",                                   null: false
+    t.string   "source_content_type"
     t.integer  "source_content_id"
-    t.integer  "bit_core_content_module_id",                         null: false
-    t.integer  "position",                               default: 1, null: false
+    t.integer  "bit_core_content_module_id",             null: false
+    t.integer  "position",                   default: 1, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "bit_core_content_providers", ["bit_core_content_module_id", "position"], name: "bit_core_content_provider_position", unique: true, using: :btree
 
   create_table "bit_core_slides", force: :cascade do |t|
-    t.string   "title",                 limit: 255,                null: false
-    t.text     "body",                                             null: false
-    t.integer  "position",                          default: 1,    null: false
-    t.integer  "bit_core_slideshow_id",                            null: false
-    t.string   "type",                  limit: 255
-    t.boolean  "is_title_visible",                  default: true, null: false
+    t.string   "title",                                null: false
+    t.text     "body",                                 null: false
+    t.integer  "position",              default: 1,    null: false
+    t.integer  "bit_core_slideshow_id",                null: false
+    t.string   "type"
+    t.boolean  "is_title_visible",      default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,14 +62,14 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "bit_core_slides", ["bit_core_slideshow_id", "position"], name: "bit_core_slide_position", unique: true, using: :btree
 
   create_table "bit_core_slideshows", force: :cascade do |t|
-    t.string   "title",      limit: 255, null: false
+    t.string   "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "bit_core_tools", force: :cascade do |t|
-    t.string   "title",      limit: 255,             null: false
-    t.integer  "position",               default: 0, null: false
+    t.string   "title",                  null: false
+    t.integer  "position",   default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,15 +88,15 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "call_to_schedule_final_appointments", ["participant_id"], name: "index_call_to_schedule_final_appointments_on_participant_id", unique: true, using: :btree
 
   create_table "content_access_events", force: :cascade do |t|
-    t.integer  "participant_id",                        null: false
-    t.datetime "accessed_at",                           null: false
+    t.integer  "participant_id",            null: false
+    t.datetime "accessed_at",               null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lesson_id",                             null: false
-    t.integer  "day_in_treatment_accessed",             null: false
-    t.string   "lesson_datum_guid",         limit: 255
-    t.string   "dialogue_datum_guid",       limit: 255
-    t.string   "uuid",                                  null: false
+    t.integer  "lesson_id",                 null: false
+    t.integer  "day_in_treatment_accessed", null: false
+    t.string   "lesson_datum_guid"
+    t.string   "dialogue_datum_guid"
+    t.string   "uuid",                      null: false
     t.datetime "client_created_at"
     t.datetime "client_updated_at"
   end
@@ -125,8 +125,8 @@ ActiveRecord::Schema.define(version: 20160426203216) do
 
   create_table "final_appointments", force: :cascade do |t|
     t.datetime "appointment_at"
-    t.string   "appointment_location", limit: 255
-    t.boolean  "phone_returned",                   null: false
+    t.string   "appointment_location"
+    t.boolean  "phone_returned",       null: false
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -134,11 +134,11 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   end
 
   create_table "first_appointments", force: :cascade do |t|
-    t.integer  "participant_id",                   null: false
-    t.datetime "appointment_at",                   null: false
-    t.string   "appointment_location", limit: 255
-    t.integer  "session_length",                   null: false
-    t.datetime "next_contact",                     null: false
+    t.integer  "participant_id",       null: false
+    t.datetime "appointment_at",       null: false
+    t.string   "appointment_location"
+    t.integer  "session_length",       null: false
+    t.datetime "next_contact",         null: false
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -147,10 +147,10 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "first_appointments", ["participant_id"], name: "index_first_appointments_on_participant_id", using: :btree
 
   create_table "first_contacts", force: :cascade do |t|
-    t.integer  "participant_id",                         null: false
-    t.datetime "contact_at",                             null: false
-    t.datetime "first_appointment_at",                   null: false
-    t.string   "first_appointment_location", limit: 255
+    t.integer  "participant_id",             null: false
+    t.datetime "contact_at",                 null: false
+    t.datetime "first_appointment_at",       null: false
+    t.string   "first_appointment_location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -158,14 +158,14 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "first_contacts", ["participant_id"], name: "index_first_contacts_on_participant_id", using: :btree
 
   create_table "help_messages", force: :cascade do |t|
-    t.integer  "participant_id",                                 null: false
-    t.text     "message",                                        null: false
-    t.boolean  "read",                           default: false, null: false
-    t.string   "staff_message_guid", limit: 255
+    t.integer  "participant_id",                     null: false
+    t.text     "message",                            null: false
+    t.boolean  "read",               default: false, null: false
+    t.string   "staff_message_guid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "sent_at",                                        null: false
-    t.string   "uuid",                                           null: false
+    t.datetime "sent_at",                            null: false
+    t.string   "uuid",                               null: false
     t.datetime "client_created_at"
     t.datetime "client_updated_at"
   end
@@ -193,14 +193,14 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "lack_of_connectivity_calls", ["participant_id"], name: "index_lack_of_connectivity_calls_on_participant_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
-    t.string   "title",                         limit: 255,                 null: false
+    t.string   "title",                                         null: false
     t.integer  "bit_core_slideshow_id"
-    t.integer  "day_in_treatment",                          default: 1,     null: false
-    t.string   "locale",                        limit: 255, default: "en",  null: false
+    t.integer  "day_in_treatment",              default: 1,     null: false
+    t.string   "locale",                        default: "en",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "guid",                          limit: 255,                 null: false
-    t.boolean  "has_activity_planning",                     default: false, null: false
+    t.string   "guid",                                          null: false
+    t.boolean  "has_activity_planning",         default: false, null: false
     t.string   "pre_planning_content"
     t.string   "post_planning_content"
     t.string   "non_planning_content"
@@ -214,12 +214,12 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "lessons", ["bit_core_slideshow_id"], name: "index_lessons_on_bit_core_slideshow_id", using: :btree
 
   create_table "logins", force: :cascade do |t|
-    t.integer  "participant_id",                null: false
-    t.datetime "logged_in_at",                  null: false
+    t.integer  "participant_id",    null: false
+    t.datetime "logged_in_at",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "app_login_guid",    limit: 255
-    t.string   "uuid",                          null: false
+    t.string   "app_login_guid"
+    t.string   "uuid",              null: false
     t.string   "app_version"
     t.datetime "client_created_at"
     t.datetime "client_updated_at"
@@ -263,20 +263,20 @@ ActiveRecord::Schema.define(version: 20160426203216) do
 
   create_table "participants", force: :cascade do |t|
     t.integer  "nurse_id"
-    t.string   "first_name",                           limit: 255,                        null: false
-    t.string   "last_name",                            limit: 255,                        null: false
-    t.string   "study_identifier",                     limit: 255,                        null: false
-    t.string   "family_health_unit_name",              limit: 255,                        null: false
-    t.string   "phone",                                limit: 255
-    t.text     "address",                                                                 null: false
+    t.string   "first_name",                                                  null: false
+    t.string   "last_name",                                                   null: false
+    t.string   "study_identifier",                                            null: false
+    t.string   "family_health_unit_name",                                     null: false
+    t.string   "phone"
+    t.text     "address",                                                     null: false
     t.date     "date_of_birth"
-    t.string   "gender",                               limit: 255,                        null: false
-    t.string   "status",                               limit: 255, default: "unassigned", null: false
-    t.string   "emergency_contact_name",               limit: 255
-    t.string   "emergency_contact_phone",              limit: 255
+    t.string   "gender",                                                      null: false
+    t.string   "status",                               default: "unassigned", null: false
+    t.string   "emergency_contact_name"
+    t.string   "emergency_contact_phone"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "locale",                               limit: 255,                        null: false
+    t.string   "locale",                                                      null: false
     t.string   "alternate_phone_1"
     t.string   "alternate_phone_2"
     t.string   "contact_person_1_name"
@@ -295,7 +295,7 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree
 
   create_table "patient_contacts", force: :cascade do |t|
-    t.string   "contact_reason",       limit: 255
+    t.string   "contact_reason"
     t.text     "note"
     t.datetime "contact_at"
     t.datetime "created_at"
@@ -373,13 +373,13 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "second_contacts", ["participant_id"], name: "index_second_contacts_on_participant_id", using: :btree
 
   create_table "session_events", force: :cascade do |t|
-    t.integer  "participant_id",                null: false
-    t.string   "event_type",        limit: 255, null: false
-    t.datetime "occurred_at",                   null: false
-    t.integer  "lesson_id",                     null: false
+    t.integer  "participant_id",    null: false
+    t.string   "event_type",        null: false
+    t.datetime "occurred_at",       null: false
+    t.integer  "lesson_id",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "uuid",                          null: false
+    t.string   "uuid",              null: false
     t.datetime "client_created_at"
     t.datetime "client_updated_at"
   end
@@ -388,11 +388,11 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   add_index "session_events", ["participant_id"], name: "index_session_events_on_participant_id", using: :btree
 
   create_table "smartphones", force: :cascade do |t|
-    t.string   "number",           limit: 255, null: false
-    t.integer  "participant_id",               null: false
+    t.string   "number",           null: false
+    t.integer  "participant_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "phone_identifier",             null: false
+    t.string   "phone_identifier", null: false
   end
 
   add_index "smartphones", ["participant_id"], name: "index_smartphones_on_participant_id", using: :btree
@@ -480,24 +480,24 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                   limit: 255, default: "", null: false
-    t.string   "encrypted_password",      limit: 255, default: "", null: false
-    t.string   "reset_password_token",    limit: 255
+    t.string   "email",                   default: "", null: false
+    t.string   "encrypted_password",      default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       default: 0,  null: false
+    t.integer  "sign_in_count",           default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",      limit: 255
-    t.string   "last_sign_in_ip",         limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role",                    limit: 255
-    t.string   "phone",                   limit: 255,              null: false
-    t.string   "first_name",              limit: 255,              null: false
-    t.string   "last_name",               limit: 255,              null: false
-    t.string   "locale",                  limit: 255
-    t.string   "timezone",                limit: 255,              null: false
+    t.string   "role"
+    t.string   "phone",                                null: false
+    t.string   "first_name",                           null: false
+    t.string   "last_name",                            null: false
+    t.string   "locale"
+    t.string   "timezone",                             null: false
     t.string   "type"
     t.integer  "nurse_supervisor_id"
     t.string   "family_health_unit_name"
