@@ -5,15 +5,63 @@
 
 <p><strong><%= t "activerecord.attributes.participant.phone" %>:</strong>
   <%= participant.phone %></p>
-<p><strong><%= t "activerecord.attributes.participant.emergency_contact_name" %>:</strong>
-  <%= participant.emergency_contact_name %></p>
+
+<p><strong><%= t "activerecord.attributes.participant.cell_phone" %>:</strong>
+  <%= participant.cell_phone %></p>
+
 <p><strong><%= t "activerecord.attributes.participant.emergency_contact_phone" %>:</strong>
   <%= participant.emergency_contact_phone %></p>
 
-<p><strong><%= t "activerecord.attributes.participant.date_of_birth" %>: </strong>
-  <%= l participant.date_of_birth, format: :long %></p>
+<p><strong><%= t "activerecord.attributes.participant.alternate_phone_1" %>:</strong>
+  <%= participant.alternate_phone_1 %></p>
+
+<p><strong><%= t "activerecord.attributes.participant.contact_person_1_name" %>:</strong>
+  <%= participant.contact_person_1_name %></p>
+
 <p><strong><%= t "activerecord.attributes.participant.address" %>:</strong>
   <%= participant.address %></p>
 
 <p><strong><%= t "activerecord.attributes.participant.gender" %>: </strong>
   <%=t "conemo.views.participants.form.#{participant.gender}" %></p>
+
+<button class="btn btn-info" type="button" data-toggle="collapse" data-target="#contact-info" aria-expanded="false" aria-controls="contact-info">
+  SEE ALL
+</button>
+
+<div class="collapse" id="contact-info">
+  <p><strong><%= t "activerecord.attributes.participant.emergency_contact_name" %>:</strong>
+    <%= participant.emergency_contact_name %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.date_of_birth" %>: </strong>
+    <%= l participant.date_of_birth, format: :long %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.alternate_phone_2" %>:</strong>
+    <%= participant.alternate_phone_2 %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.contact_person_1_relationship" %>:</strong>
+    <%= participant.contact_person_1_relationship %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.contact_person_1_other_relationship" %>:</strong>
+    <%= participant.contact_person_1_other_relationship %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.contact_person_2_name" %>:</strong>
+    <%= participant.contact_person_2_name %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.contact_person_2_relationship" %>:</strong>
+    <%= participant.contact_person_2_relationship %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.contact_person_2_other_relationship" %>:</strong>
+    <%= participant.contact_person_2_other_relationship %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.emergency_contact_relationship" %>:</strong>
+    <%= participant.emergency_contact_relationship %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.emergency_contact_other_relationship" %>:</strong>
+    <%= participant.emergency_contact_other_relationship %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.emergency_contact_address" %>:</strong>
+    <%= participant.emergency_contact_address %></p>
+
+  <p><strong><%= t "activerecord.attributes.participant.emergency_contact_cell_phone" %>:</strong>
+    <%= participant.emergency_contact_cell_phone %></p>
+</div>
