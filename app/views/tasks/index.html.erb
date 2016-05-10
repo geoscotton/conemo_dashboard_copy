@@ -35,7 +35,7 @@
                     class: "progress-bar progress-bar-#{ task_class }",
                     style: task_style) do %>
       <span>
-        <%= task.model_name.human %><br />
+        <b><%= task.model_name.human %></b><br />
         <%= l(task_instance.scheduled_at.to_date, format: :long) if task_instance %>
       </span>
     <% end %>
