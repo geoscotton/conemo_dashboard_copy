@@ -4,7 +4,7 @@ require "rails_helper"
 RSpec.describe ThirdContact, type: :model do
   describe "difficulties sanitization" do
     context "when a single empty selection is provided" do
-      it "occurs" do
+      it "stores a nil value" do
         contact = ThirdContact.new(difficulties: [""]).tap(&:valid?)
 
         expect(contact.difficulties).to be_nil
@@ -12,8 +12,8 @@ RSpec.describe ThirdContact, type: :model do
     end
 
     context "when a populated selection is provided" do
-      it "does not occur" do
-        contact = ThirdContact.new(difficulties: %w( x y )).tap(&:valid?)
+      it "removes blanks" do
+        contact = ThirdContact.new(difficulties: ["", "x", "y"]).tap(&:valid?)
 
         expect(contact.difficulties).to eq %w( x y )
       end
