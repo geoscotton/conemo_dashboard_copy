@@ -23,7 +23,7 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
           <ul class="nav navbar-nav">
             <li class="dropdown">
               <%= link_to "#", class: "dropdown-toggle navbar-brand", data: { toggle: "dropdown" }, id: "participant-menu", aria: { expanded: false } do %>
-                <%= Participant.model_name.human %> <%= @participant.study_identifier %>: <%= @participant.last_and_first_name %>
+                <%= Participant.model_name.human.capitalize %> <%= @participant.study_identifier %>: <%= @participant.last_and_first_name %>
                 <span class="caret text-primary"></span>
               <% end %>
               <ul class="dropdown-menu" aria-labelledby="participant-menu">
