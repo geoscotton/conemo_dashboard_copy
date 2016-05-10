@@ -538,6 +538,9 @@ pt-BR:
             - Não consegui falar com o paciente
             - CANCEL Não consegui falar com o paciente
           -
+            - Paciente não quer continuar no programa
+            - CANCEL Paciente não quer continuar no programa
+          -
             - Paciente não teve tempo para falar (várias vezes)
             - CANCEL Paciente não teve tempo para falar (várias vezes)
           -
@@ -560,6 +563,9 @@ pt-BR:
           -
             - Não consegui falar com o paciente
             - CANCEL Não consegui falar com o paciente
+          -
+            - Paciente não quer continuar no programa
+            - CANCEL Paciente não quer continuar no programa
           -
             - Paciente não teve tempo para falar (várias vezes)
             - CANCEL Paciente não teve tempo para falar (várias vezes)
@@ -584,6 +590,9 @@ pt-BR:
           -
             - Não consegui falar com o paciente
             - CANCEL Não consegui falar com o paciente
+          -
+            - Paciente não quer continuar no programa
+            - CANCEL Paciente não quer continuar no programa
           -
             - Paciente não teve tempo para falar (várias vezes)
             - CANCEL Paciente não teve tempo para falar (várias vezes)
