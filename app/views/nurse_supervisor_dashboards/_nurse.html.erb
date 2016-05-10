@@ -41,14 +41,16 @@
     <% end %>
 
     <ul class="collapse list-unstyled" id="nurse-<%= nurse.id %>-tasks">
-      <% nurse.rescheduled_tasks.each do |rescheduling| %>
-        <li class="text-info"><%= Participant.model_name.human %> <%= rescheduling.participant_study_identifier %> <%= rescheduling.nurse_task %> rescheduled: <%= rescheduling.explanation %></li>
-      <% end %>
-      <% nurse.cancelled_tasks.each do |task| %>
-        <li class="text-warning"><%= Participant.model_name.human %> <%= task.participant.study_identifier %> <%= task %> cancelled: <%= task.cancellation_explanation %></li>
-      <% end %>
-      <% nurse.cancelled_unscheduled_contacts.each do |contact| %>
-        <li class="text-warning"><%= Participant.model_name.human %> <%= contact.participant.study_identifier %> <%= contact.model_name.human %> cancelled: <%= contact.human_explanation %></li>
+      <% (nurse.rescheduled_tasks + nurse.cancelled_tasks + nurse.cancelled_unscheduled_contacts).sort_by(&:updated_at).reverse.each do |task_change| %>
+        <% if task_change.is_a? ScheduledTaskRescheduling %>
+          <li class="text-info"><%= l task_change.updated_at, format: :long %> <%= Participant.model_name.human %> <%= task_change.participant_study_identifier %> <%= task_change.nurse_task %> rescheduled: <%= task_change.explanation %></li>
+        <% elsif task_change.cancelled? %>
+          <% if [HelpRequestCall, LackOfConnectivityCall, NonAdherenceCall].include? task_change.class %>
+            <li class="text-warning"><%= l task_change.updated_at, format: :long %> <%= Participant.model_name.human %> <%= task_change.participant.study_identifier %> <%= task_change.model_name.human %> cancelled: <%= task_change.human_explanation %></li>
+          <% else %>
+            <li class="text-warning"><%= l task_change.updated_at, format: :long %> <%= Participant.model_name.human %> <%= task_change.participant.study_identifier %> <%= task_change %> cancelled: <%= task_change.cancellation_explanation %></li>
+          <% end %>
+        <% end %>
       <% end %>
     </ul>
   </div>

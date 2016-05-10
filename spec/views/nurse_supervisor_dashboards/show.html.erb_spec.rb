@@ -293,10 +293,14 @@ RSpec.describe "nurse_supervisor_dashboards/show", type: :view do
     it "renders the reasons for cancelled unscheduled contacts" do
       participant1 = Participant.new(study_identifier: "1")
       participant2 = Participant.new(study_identifier: "2")
-      contact1 = HelpRequestCall.new(participant: participant1,
-                                     explanation: "ex1")
-      contact2 = NonAdherenceCall.new(participant: participant2,
-                                      explanation: "ex2")
+      contact1 = HelpRequestCall.new(
+        participant: participant1,
+        explanation: "#{HelpRequestCall::CANCELLED} ex1",
+        updated_at: Time.zone.now)
+      contact2 = NonAdherenceCall.new(
+        participant: participant2,
+        explanation: "#{HelpRequestCall::CANCELLED} ex2",
+        updated_at: Time.zone.now)
       allow(nurse1).to receive(:cancelled_unscheduled_contacts) { [contact1] }
       allow(nurse2).to receive(:cancelled_unscheduled_contacts) { [contact2] }
       assign_nurses_and_render

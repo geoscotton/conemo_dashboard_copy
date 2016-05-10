@@ -11,6 +11,10 @@ class NonAdherenceCall < ActiveRecord::Base
     where(arel_table[:explanation].matches("#{CANCELLED}%"))
   end
 
+  def cancelled?
+    explanation =~ /^#{CANCELLED}/
+  end
+
   def human_explanation
     explanation.gsub(/#{CANCELLED} /, "")
   end
