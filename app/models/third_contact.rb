@@ -34,8 +34,9 @@ class ThirdContact < ActiveRecord::Base
   end
 
   def sanitize_difficulties
-    return unless difficulties.try(:count) == 1 && difficulties.first.blank?
+    return unless difficulties.try(:count).to_i >= 1
 
-    self.difficulties = nil
+    self.difficulties = difficulties.delete_if(&:blank?)
+    self.difficulties = nil if difficulties.empty?
   end
 end

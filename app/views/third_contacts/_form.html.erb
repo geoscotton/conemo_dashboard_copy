@@ -17,6 +17,7 @@
 
   <div class="form-group">
     <%= f.label :difficulties, class: "col-md-4 control-label", required: true %>
+    <%= hidden_field_tag "third_contact[difficulties][]", "" %>
     <div class="col-md-7">
       <p class="help-block"><%= t(".difficulties_help_block") %></p>
     </div>
