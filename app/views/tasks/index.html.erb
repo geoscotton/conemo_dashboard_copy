@@ -36,7 +36,11 @@
                     style: task_style) do %>
       <span>
         <b><%= task.model_name.human %></b><br />
-        <%= l(task_instance.scheduled_at.to_date, format: :long) if task_instance %>
+        <% if [Tasks::InitialInPersonAppointment, Tasks::FinalInPersonAppointment].include? task %>
+          <%= l(task_instance.scheduled_at, format: :long) if task_instance %>
+        <% else %>
+          <%= l(task_instance.scheduled_at.to_date, format: :long) if task_instance %>
+        <% end %>
       </span>
     <% end %>
   <% end %>
