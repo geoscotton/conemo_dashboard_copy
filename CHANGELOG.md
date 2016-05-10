@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.3 - 2016-05-10
+
+* update translation
+* add togglable extended contact info (#256)
+* reorder and timestamp changed nurse tasks
+* fix handling of 'difficulties' field serialization
+* add cancel reason in Portuguese
+
 ## 0.11.2 - 2016-05-09
 
 * update translations
