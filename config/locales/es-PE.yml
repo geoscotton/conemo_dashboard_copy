@@ -82,7 +82,7 @@ es-PE:
       supervisor_notes: Notas del Supervisor
   tasks:
     index:
-      active_due: Sesión actual
+      active_due: Tareas actuales
       cancelled: Cancelado
       clear: Borrar tarea
       clinical_summary: Historia del Paciente
@@ -103,7 +103,7 @@ es-PE:
         one: total
         other: totales
       progress_bar: Línea de tiempo
-      scheduled_but_not_due: Próximas sesiones
+      scheduled_but_not_due: Próximos tareas
   third_contacts:
     form:
       no_difficulties: El paciente no tuvo dificultades
