@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.11.4 - 2016-05-11
+
+* capitalize "Participant" in nav menu
+* display time with in person contact points
+* update translations
+* bold contact point titles
+
 ## 0.11.3 - 2016-05-10
 
 * update translation
