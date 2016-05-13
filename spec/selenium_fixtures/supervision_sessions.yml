@@ -47,3 +47,45 @@ supervision_session_5:
   nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_404) %>
   created_at: <%= 3.business_days.before today_at_11_am %>
   updated_at: <%= 3.business_days.before today_at_11_am %>
+
+supervision_session_6:
+  session_at: <%= 8.business_days.before today_at_11_am %>
+  session_length: 10
+  meeting_kind: Grupal
+  contact_kind: Llamada telefónica
+  topics:
+    - Solicitud de ayuda no resuelta
+    - Tareas canceladas
+  nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+  created_at: <%= 8.business_days.before today_at_11_am %>
+  updated_at: <%= 8.business_days.before today_at_11_am %>
+
+supervision_session_7:
+  session_at: <%= 12.business_days.before today_at_11_am %>
+  session_length: 20
+  meeting_kind: Individual
+  contact_kind: En persona
+  nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_500) %>
+  created_at: <%= 12.business_days.before today_at_11_am %>
+  updated_at: <%= 12.business_days.before today_at_11_am %>
+
+supervision_session_8:
+  session_at: <%= 8.business_days.before today_at_11_am %>
+  session_length: 10
+  meeting_kind: Em grupo
+  contact_kind: por telefone
+  topics:
+    - Pedido de ajuda não resolvido
+    - Tarefas canceladas
+  nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
+  created_at: <%= 8.business_days.before today_at_11_am %>
+  updated_at: <%= 8.business_days.before today_at_11_am %>
+
+supervision_session_9:
+  session_at: <%= 12.business_days.before today_at_11_am %>
+  session_length: 20
+  meeting_kind: Individual
+  contact_kind: presencial
+  nurse_id: <%= ActiveRecord::FixtureSet.identify(:user_600) %>
+  created_at: <%= 12.business_days.before today_at_11_am %>
+  updated_at: <%= 12.business_days.before today_at_11_am %>
