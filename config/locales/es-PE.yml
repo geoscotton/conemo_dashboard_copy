@@ -731,8 +731,8 @@ es-PE:
         one: Smartphone
         other: Smartphones
       supervision_session:
-        one: Añadir nueva supervisión
-        other: Añadir nueva supervisión
+        one: Sesion de supervisión
+        other: Sesiones de supervisión
       supervisor_note:
         one: Nota del Supervisor
         other: Notas del Supervisor
