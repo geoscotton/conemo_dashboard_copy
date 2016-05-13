@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.5 - 2016-05-13
+
+* move "Tasks" header
+* update translations
+* update definition of late lesson completion
+
 ## 0.11.4 - 2016-05-11
 
 * capitalize "Participant" in nav menu
