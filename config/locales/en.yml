@@ -145,6 +145,7 @@ en:
         other: pending
       progress_bar: Timeline
       scheduled_but_not_due: Scheduled but not due
+      see_all: See all
   third_contacts:
     form:
       no_difficulties: Patient had no difficulty
