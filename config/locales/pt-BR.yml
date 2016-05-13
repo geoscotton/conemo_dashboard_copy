@@ -782,10 +782,10 @@ pt-BR:
       supervisor_note:
         note: Nota
       third_contact:
-        contact_at: Data da ligação
+        contact_at: Data/hora
         difficulties: O paciente tem tido dificuldades com CONEMO?
         final_appointment_at: Chamada para agendar encontro final
-        contacted_at: Data da ligação
+        contacted_at: Data/hora
         session_length: Duração da chamada (minutos)
         notes: Anotações
   unauthorized:
