@@ -60,7 +60,7 @@ RSpec.describe Participant do
       let(:missed_lesson) { lessons(:day2) }
       let(:current_lesson) { lessons(:day5) }
       let(:late_lesson) { lessons(:day4) }
-      let(:on_time_lesson) { lessons(:day4) }
+      let(:on_time_lesson) { lessons(:day3) }
 
       context "lesson day in treatment is greater than current day" do
         it "should return 'un-released'" do
@@ -106,7 +106,8 @@ RSpec.describe Participant do
             participant: participant_day_5,
             day_in_treatment_accessed: on_time_lesson.day_in_treatment,
             lesson: on_time_lesson,
-            accessed_at: Time.zone.now
+            accessed_at: participant_day_5.start_date +
+                         on_time_lesson.day_in_treatment - 1
           )
 
           result = participant_day_5.lesson_status(on_time_lesson)

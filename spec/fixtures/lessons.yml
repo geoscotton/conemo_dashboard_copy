@@ -12,6 +12,13 @@ day2:
   guid: day2
   slideshow: day2
 
+day3:
+  locale: en
+  day_in_treatment: 3
+  title: Day 3
+  guid: day3
+  slideshow: day3
+
 day4:
   locale: en
   day_in_treatment: 4

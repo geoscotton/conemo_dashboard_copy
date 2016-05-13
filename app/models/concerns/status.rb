@@ -44,7 +44,9 @@ module Status
     elsif access && !completion
       LESSON_STATUSES.accessed_incomplete
     # special case: training session == day 0
-    elsif access && lesson.day_in_treatment != 0 && completion.late?
+    elsif completion && lesson.day_in_treatment != 0 &&
+          completion.accessed_at.to_date >=
+          (start_date + next_lesson(lesson).day_in_treatment - 1)
       LESSON_STATUSES.completed_late
     elsif !completion && lesson_released?(next_lesson(lesson))
       LESSON_STATUSES.danger
