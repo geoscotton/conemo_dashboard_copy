@@ -772,7 +772,7 @@ pt-BR:
         difficulties: O paciente tem tido dificuldades com CONEMO?
         next_contact: Chamada de seguimento sem. 3
         session_length: Duração da chamada (minutos)
-        notes: Observações
+        notes: Anotações
       smartphone:
         number: Número do Smartphone / número de serie
         phone_identifier: Código do Smartphone
