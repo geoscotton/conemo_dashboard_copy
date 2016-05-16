@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.11.6 - 2016-05-16
+
+* prevent supervision session exceptions for Nurses
+* update translations
+* reverse Participant name order in nav bar
+
 ## 0.11.5 - 2016-05-13
 
 * move "Tasks" header
