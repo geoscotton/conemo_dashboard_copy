@@ -35,12 +35,15 @@ es-PE:
       overdue_tasks: Tarea atrasada
   nurse_supervisor_dashboards:
     nurse:
+      cancelled: cancelada
       last_supervision_session: Última supervisión
       log_supervision_session: Añadir nueva supervisión
       overdue:
         one: tarea atrasada
         other: tareas atrasadas
+      rescheduled: reprogramada
       review: Detalles
+      toggle_tasks: Mostrar / Ocultar tareas canceladas y reprogramadas
     show:
       active:
         one: activo

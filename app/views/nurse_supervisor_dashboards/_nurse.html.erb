@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col-md-12 col-sm-12">
           <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#nurse-<%= nurse.id %>-tasks" aria-expanded="false" aria-controls="nurse-<%= nurse.id %>-tasks">
-            Toggle cancelled / rescheduled tasks
+            <%= t ".toggle_tasks" %>
           </button>
         </div>
       </div>
@@ -43,12 +43,12 @@
     <ul class="collapse list-unstyled" id="nurse-<%= nurse.id %>-tasks">
       <% (nurse.rescheduled_tasks + nurse.cancelled_tasks + nurse.cancelled_unscheduled_contacts).sort_by(&:updated_at).reverse.each do |task_change| %>
         <% if task_change.is_a? ScheduledTaskRescheduling %>
-          <li class="text-info"><%= l task_change.updated_at, format: :long %> <%= Participant.model_name.human %> <%= task_change.participant_study_identifier %> <%= task_change.nurse_task %> rescheduled: <%= task_change.explanation %></li>
+          <li class="text-info"><%= l task_change.updated_at, format: :long %> <%= Participant.model_name.human %> <%= task_change.participant_study_identifier %> <%= task_change.nurse_task %> <%= t ".rescheduled" %>: <%= task_change.explanation %></li>
         <% elsif task_change.cancelled? %>
           <% if [HelpRequestCall, LackOfConnectivityCall, NonAdherenceCall].include? task_change.class %>
-            <li class="text-warning"><%= l task_change.updated_at, format: :long %> <%= Participant.model_name.human %> <%= task_change.participant.study_identifier %> <%= task_change.model_name.human %> cancelled: <%= task_change.human_explanation %></li>
+            <li class="text-warning"><%= l task_change.updated_at, format: :long %> <%= Participant.model_name.human %> <%= task_change.participant.study_identifier %> <%= task_change.model_name.human %> <%= t ".cancelled" %>: <%= task_change.human_explanation %></li>
           <% else %>
-            <li class="text-warning"><%= l task_change.updated_at, format: :long %> <%= Participant.model_name.human %> <%= task_change.participant.study_identifier %> <%= task_change %> cancelled: <%= task_change.cancellation_explanation %></li>
+            <li class="text-warning"><%= l task_change.updated_at, format: :long %> <%= Participant.model_name.human %> <%= task_change.participant.study_identifier %> <%= task_change %> <%= t ".cancelled" %>: <%= task_change.cancellation_explanation %></li>
           <% end %>
         <% end %>
       <% end %>

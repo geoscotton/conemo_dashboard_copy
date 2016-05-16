@@ -71,12 +71,15 @@ en:
       overdue_tasks: Overdue task
   nurse_supervisor_dashboards:
     nurse:
+      cancelled: cancelled
       last_supervision_session: Last supervision session
       log_supervision_session: Log supervision session
       overdue:
         one: Overdue
         other: Overdue
+      rescheduled: rescheduled
       review: Review
+      toggle_tasks: Toggle cancelled / rescheduled tasks
     show:
       active:
         one: Active
