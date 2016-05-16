@@ -4,16 +4,22 @@ class SupervisionSessionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
+    return redirect_to(root_url) unless current_user.respond_to?(:nurses)
+
     find_nurse
     authorize! :read, @nurse.supervision_sessions
   end
 
   def new
+    return redirect_to(root_url) unless current_user.respond_to?(:nurses)
+
     @supervision_session = SupervisionSession.new(nurse: find_nurse)
     authorize! :create, @supervision_session
   end
 
   def create
+    return redirect_to(root_url) unless current_user.respond_to?(:nurses)
+
     @supervision_session = SupervisionSession.new(supervision_session_params)
     authorize! :create, @supervision_session
 
