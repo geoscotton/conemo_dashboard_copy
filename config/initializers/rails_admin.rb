@@ -48,6 +48,7 @@ RailsAdmin.config do |config|
       NurseSupervisor,
       NurseTask,
       Participant,
+      PastDeviceAssignment,
       PatientContact,
       ParticipantStartDate,
       PlannedActivity,

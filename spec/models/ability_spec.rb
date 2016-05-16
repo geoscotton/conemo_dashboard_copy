@@ -60,6 +60,13 @@ RSpec.describe Ability do
 
       expect(en_admin_role.can?(:manage, en_devices)).to eq true
     end
+
+    it "can read Past Device Assignments of the same locale" do
+      en_participant = Participant.find_by(locale: LOCALES[:en])
+      en_device = PastDeviceAssignment.new(participant: en_participant)
+
+      expect(en_admin_role.can?(:read, en_device)).to eq true
+    end
   end
 
   describe "Nurse Supervisor permissions" do

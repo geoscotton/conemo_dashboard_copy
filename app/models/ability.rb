@@ -34,6 +34,7 @@ class Ability
     can :manage, Device, participant: { locale: admin.locale }
     can :manage, Lesson, locale: admin.locale
     can :manage, Participant, locale: admin.locale
+    can :read, PastDeviceAssignment, participant: { locale: admin.locale }
     can :manage, User, locale: admin.locale
     # Rails Admin specific abilities
     can :access, :rails_admin

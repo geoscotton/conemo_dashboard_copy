@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426203216) do
+ActiveRecord::Schema.define(version: 20160516204520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -293,6 +293,22 @@ ActiveRecord::Schema.define(version: 20160426203216) do
   end
 
   add_index "participants", ["nurse_id"], name: "index_participants_on_nurse_id", using: :btree
+
+  create_table "past_device_assignments", force: :cascade do |t|
+    t.string   "uuid"
+    t.string   "device_uuid"
+    t.string   "manufacturer"
+    t.string   "model"
+    t.string   "platform"
+    t.string   "device_version"
+    t.datetime "inserted_at"
+    t.integer  "participant_id"
+    t.datetime "last_seen_at"
+    t.datetime "client_created_at"
+    t.datetime "client_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "patient_contacts", force: :cascade do |t|
     t.string   "contact_reason"
