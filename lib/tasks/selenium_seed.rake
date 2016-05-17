@@ -27,7 +27,8 @@ namespace :selenium_seed do
       :call_to_schedule_final_appointments, :help_request_calls,
       :lack_of_connectivity_calls, :non_adherence_calls, :participant_start_dates,
       :planned_activities, :supervision_sessions, :smartphones, :devices,
-      :"token_auth/authentication_tokens"
+      :"token_auth/authentication_tokens", :scheduled_task_cancellations,
+      :scheduled_task_reschedulings
     ]
   end
 end

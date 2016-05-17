@@ -1,0 +1,47 @@
+rescheduling_1:
+  nurse_task: nurse_task_1514
+  explanation: Paciente pidió reprogramar
+  old_scheduled_at: <%= DateTime.now - 20.days %>
+  scheduled_at: <%= DateTime.now - 11.days %>
+  created_at: <%= DateTime.now - 11.days %>
+  updated_at: <%= DateTime.now - 11.days %>
+
+rescheduling_2:
+  nurse_task: nurse_task_1515
+  explanation: Enfermera necesitó reprogramar
+  old_scheduled_at: <%= DateTime.now - 20.days %>
+  scheduled_at: <%= DateTime.now - 4.days %>
+  created_at: <%= DateTime.now - 4.days %>
+  updated_at: <%= DateTime.now - 4.days %>
+
+rescheduling_3:
+  nurse_task: nurse_task_1516
+  explanation: La fecha programada es un día feriado.
+  old_scheduled_at: <%= DateTime.now - 20.days %>
+  scheduled_at: <%= DateTime.now - 16.days %>
+  created_at: <%= DateTime.now - 16.days %>
+  updated_at: <%= DateTime.now - 16.days %>
+
+rescheduling_4:
+  nurse_task: nurse_task_1614
+  explanation: Paciente pediu para reagendar
+  old_scheduled_at: <%= DateTime.now - 20.days %>
+  scheduled_at: <%= DateTime.now - 11.days %>
+  created_at: <%= DateTime.now - 11.days %>
+  updated_at: <%= DateTime.now - 11.days %>
+
+rescheduling_5:
+  nurse_task: nurse_task_1615
+  explanation: AE precisou remarcar
+  old_scheduled_at: <%= DateTime.now - 20.days %>
+  scheduled_at: <%= DateTime.now - 4.days %>
+  created_at: <%= DateTime.now - 4.days %>
+  updated_at: <%= DateTime.now - 4.days %>
+
+rescheduling_6:
+  nurse_task: nurse_task_1616
+  explanation: A data programanda é um feriado
+  old_scheduled_at: <%= DateTime.now - 20.days %>
+  scheduled_at: <%= DateTime.now - 16.days %>
+  created_at: <%= DateTime.now - 16.days %>
+  updated_at: <%= DateTime.now - 16.days %>

@@ -1,0 +1,35 @@
+cancellation_1:
+  nurse_task: nurse_task_1511
+  explanation: Paciente no desea continuar con la intervención
+  created_at: <%= DateTime.now - 10.days %>
+  updated_at: <%= DateTime.now - 10.days %>
+
+cancellation_2:
+  nurse_task: nurse_task_1512
+  explanation: Paciente no tuvo tiempo de hablar (repetitivamente)
+  created_at: <%= DateTime.now - 8.days %>
+  updated_at: <%= DateTime.now - 8.days %>
+
+cancellation_3:
+  nurse_task: nurse_task_1513
+  explanation: Paciente no estaba dispuesta/o de hablar
+  created_at: <%= DateTime.now - 20.days %>
+  updated_at: <%= DateTime.now - 20.days %>
+
+cancellation_4:
+  nurse_task: nurse_task_1611
+  explanation: Paciente não quer continuar no programa
+  created_at: <%= DateTime.now - 10.days %>
+  updated_at: <%= DateTime.now - 10.days %>
+
+cancellation_5:
+  nurse_task: nurse_task_1612
+  explanation: Paciente não teve tempo para falar (várias vezes)
+  created_at: <%= DateTime.now - 8.days %>
+  updated_at: <%= DateTime.now - 8.days %>
+
+cancellation_6:
+  nurse_task: nurse_task_1613
+  explanation: Paciente não estava disposto/a a falar
+  created_at: <%= DateTime.now - 20.days %>
+  updated_at: <%= DateTime.now - 20.days %>

@@ -588,8 +588,74 @@
     participant: participant<%= pt_id %>
     type: Tasks::ConfirmationCall
     status: active
-    scheduled_at: <%= DateTime.now  - 2.hours%>
+    scheduled_at: <%= DateTime.now  - 2.hours %>
     overdue_at: <%= DateTime.now + 3.days - 2.hours %>
+<% end %>
+
+<% (511..511).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: cancelled
+    scheduled_at: <%= DateTime.now  - 28.days %>
+    overdue_at: <%= DateTime.now  - 25.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 10.days %>
+<% end %>
+
+<% (512..512).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: cancelled
+    scheduled_at: <%= DateTime.now  - 28.days %>
+    overdue_at: <%= DateTime.now  - 25.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 8.days %>
+<% end %>
+
+<% (513..513).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: cancelled
+    scheduled_at: <%= DateTime.now  - 28.days %>
+    overdue_at: <%= DateTime.now  - 25.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 20.days %>
+<% end %>
+
+<% (514..514).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now  - 11.days %>
+    overdue_at: <%= DateTime.now  - 14.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 11.days %>
+<% end %>
+
+<% (515..515).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now  - 4.days %>
+    overdue_at: <%= DateTime.now  - 7.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 4.days %>
+<% end %>
+
+<% (516..516).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now  - 16.days %>
+    overdue_at: <%= DateTime.now  - 19.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 16.days %>
 <% end %>
 
 <% (601..601).each do |pt_id| %>
@@ -657,6 +723,72 @@
     status: active
     scheduled_at: <%= DateTime.now - 2.hours %>
     overdue_at: <%= DateTime.now + 3.days - 2.hours %>
+<% end %>
+
+<% (611..611).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: cancelled
+    scheduled_at: <%= DateTime.now  - 28.days %>
+    overdue_at: <%= DateTime.now  - 25.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 10.days %>
+<% end %>
+
+<% (612..612).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: cancelled
+    scheduled_at: <%= DateTime.now  - 28.days %>
+    overdue_at: <%= DateTime.now  - 25.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 8.days %>
+<% end %>
+
+<% (613..613).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: cancelled
+    scheduled_at: <%= DateTime.now  - 28.days %>
+    overdue_at: <%= DateTime.now  - 25.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 20.days %>
+<% end %>
+
+<% (614..614).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now  - 11.days %>
+    overdue_at: <%= DateTime.now  - 14.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 11.days %>
+<% end %>
+
+<% (615..615).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now  - 4.days %>
+    overdue_at: <%= DateTime.now  - 7.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 4.days %>
+<% end %>
+
+<% (616..616).each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: active
+    scheduled_at: <%= DateTime.now  - 16.days %>
+    overdue_at: <%= DateTime.now  - 19.days %>
+    created_at: <%= DateTime.now - 28.days %>
+    updated_at: <%= DateTime.now - 16.days %>
 <% end %>
 
 <% (4000..4010).each do |pt_id| %>
