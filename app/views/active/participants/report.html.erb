@@ -1,21 +1,6 @@
 <h2><%= t(".clinical_summary") %></h2>
 
 <div class="row report">
-  <div class="col-md-2 col-sm-2 col-xs-2">
-    <table class="table table-bordered accordion-toggle" data-toggle="collapse" data-target="#logins-table">
-      <thead>
-        <th class="text-center text-primary" style="cursor: pointer;"><%= fa_icon 'sort', class: "pull-left" %><%= t "conemo.views.active.participants.report.logins" %></th>
-      </thead>
-      <tbody class="accordion-body collapse" id="logins-table">
-        <% @participant.logins.order(logged_in_at: :desc).each do |login| %>
-          <tr>
-            <td><%= l login.logged_in_at, format: :long %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-
   <div class="col-md-7 col-sm-7 col-xs-7" id="main-report">
     <div class="tab-content">
       <%= render partial: "active/participants/lessons_table", :locals => {participant: @participant, lessons: @lessons} %>
