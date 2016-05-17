@@ -39,6 +39,7 @@ module ConemoDashboard
                                      :non_adherence_call_observer,
                                      :participant_observer,
                                      :second_contact_observer,
-                                     :third_contact_observer
+                                     :third_contact_observer,
+                                     :"token_auth/authentication_token_observer"
   end
 end
