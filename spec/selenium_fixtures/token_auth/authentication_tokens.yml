@@ -4,3 +4,17 @@ authentication_token_1:
   is_enabled: true
   uuid: <%= SecureRandom.uuid %>
   client_uuid: <%= SecureRandom.uuid %>
+
+authentication_token_2:
+  entity_id: <%= ActiveRecord::FixtureSet.identify(:"participant501") %>
+  value: b697tpotpoGby295SHkGby295SHkb697
+  is_enabled: true
+  uuid: <%= SecureRandom.uuid %>
+  client_uuid: <%= SecureRandom.uuid %>
+
+authentication_token_3:
+  entity_id: <%= ActiveRecord::FixtureSet.identify(:"participant601") %>
+  value: 5SHkb697b697tpoGby29tpoGby295SHk
+  is_enabled: true
+  uuid: <%= SecureRandom.uuid %>
+  client_uuid: <%= SecureRandom.uuid %>
