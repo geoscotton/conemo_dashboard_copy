@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.0 - 2016-05-18
+
+* remove Logins report on Clinical Summary
+* archive Device records when tokens are destroyed
+
 ## 0.11.6 - 2016-05-16
 
 * prevent supervision session exceptions for Nurses
