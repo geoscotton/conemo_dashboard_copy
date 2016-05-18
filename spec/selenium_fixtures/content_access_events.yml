@@ -661,3 +661,21 @@
     uuid: <%= SecureRandom.uuid %>
 <% end %>
 <% end %>
+
+<% (516..516).each do |pt_id| %>
+  content_access_event_1_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    accessed_at: <%= DateTime.now - (12 - (2 - 1)) %>
+    lesson: es_lesson_1
+    day_in_treatment_accessed: 2
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+
+<% (516..516).each do |pt_id| %>
+  content_access_event_2_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    accessed_at: <%= DateTime.now - (12 - (7 - 1)) %>
+    lesson: es_lesson_2
+    day_in_treatment_accessed: 7
+    uuid: <%= SecureRandom.uuid %>
+<% end %>

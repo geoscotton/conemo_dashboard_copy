@@ -7,3 +7,8 @@ smartphone_2:
   number: 22228675309
   participant: participant600
   phone_identifier: 600
+
+smartphone_3:
+  number: 22228675309
+  participant: participant100
+  phone_identifier: 1234

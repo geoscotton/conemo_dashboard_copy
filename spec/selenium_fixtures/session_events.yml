@@ -662,3 +662,30 @@
     uuid: <%= SecureRandom.uuid %>
 <% end %>
 <% end %>
+
+<% (516..516).each do |pt_id| %>
+  session_access_event_1_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (12 - 1) %>
+    lesson: es_lesson_1
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+
+<% (516..516).each do |pt_id| %>
+  session_access_event_2_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (12 - 7) %>
+    lesson: es_lesson_2
+    uuid: <%= SecureRandom.uuid %>
+<% end %>
+
+<% (516..516).each do |pt_id| %>
+  session_access_event_3_<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    event_type: accessed
+    occurred_at: <%= DateTime.now - (12 - 9) %>
+    lesson: es_lesson_3
+    uuid: <%= SecureRandom.uuid %>
+<% end %>

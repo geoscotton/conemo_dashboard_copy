@@ -13,7 +13,7 @@
     guid: "f584a39b-c9b2-4a2f-9aff-f177fd44b85b"
     locale: "es-PE"
     slideshow: es_slideshow_1
-    title: "\u00a1Bienvenido a CONEMO! "
+    title: "\u00a1Bienvenido a CONEMO!"
     has_activity_planning: true
     pre_planning_content: ¡Intentemos! Por favor revisa la siguiente lista de actividades placenteras y selecciona una que NO hayas estado haciendo últimamente pero te gustaría hacer entre HOY y MAÑANA
     activity_choices: "Escuchar música\r\nLlamar a un amigo o familiar\r\nHacer una caminata corta\r\nLeer un libro\r\nCocinar algo\r\nDibujar o pintar\r\nArreglarte\r\nVer una película\r\nCantar\r\nConversar con tu vecino\r\nTejer\r\nHacer jardinería"
@@ -101,7 +101,7 @@
     guid: "f6f33efc-d66b-4c9f-a22b-cbc77fa1de87"
     locale: "es-PE"
     slideshow: es_slideshow_11
-    title: "Haz las cosas a tu propio ritmo "
+    title: "Haz las cosas a tu propio ritmo"
 
   es_lesson_12:
     day_in_treatment: 27
@@ -129,7 +129,7 @@
     guid: "40b9d58f-47b8-43a0-a73f-1d76a1033f04"
     locale: "es-PE"
     slideshow: es_slideshow_15
-    title: "\u00a1No te olvides de tu objetivo! "
+    title: "\u00a1No te olvides de tu objetivo!"
 
   es_lesson_16:
     day_in_treatment: 36
@@ -159,7 +159,7 @@
     guid: "f584a39b-c9b2-4a2f-9aff-f177fd44b85b"
     locale: "pt-BR"
     slideshow: es_slideshow_1
-    title: "Bem-vindo ao CONEMO! "
+    title: "Bem-vindo ao CONEMO!"
     has_activity_planning: true
 
   pt_lesson_2:
