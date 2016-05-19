@@ -101,7 +101,7 @@ es-PE:
       overdue: Atrasado
       overdue_task:
         one: Tarea atrasada
-        other: Tareas astrasadas
+        other: Tareas atrasadas
       pending:
         one: total
         other: totales
