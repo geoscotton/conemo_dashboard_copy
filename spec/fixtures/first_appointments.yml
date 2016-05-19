@@ -3,4 +3,3 @@ portuguese_first_appointment:
   appointment_at: <%= Date.today %>
   appointment_location: "Home"
   session_length: 5       
-  next_contact: <%= DateTime.current + 2.days %>

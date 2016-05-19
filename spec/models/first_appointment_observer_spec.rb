@@ -9,7 +9,7 @@ RSpec.describe FirstAppointmentObserver do
   let(:first_appointment) do
     instance_double(FirstAppointment,
                     participant: participant,
-                    next_contact: Time.zone.now)
+                    appointment_at: Time.zone.now)
   end
 
   before { NurseTask.destroy_all }

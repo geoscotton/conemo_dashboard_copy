@@ -7,7 +7,8 @@ class TaskPresenter
   attr_reader :task
 
   delegate :active?, :alert?, :cancelled?, :due?, :id, :overdue?, :resolved?,
-           :scheduled_at, :overdue_at, :target, :to_s, to: :task
+           :scheduled_at, :appointment_at, :overdue_at, :target, :to_s,
+           to: :task
 
   def initialize(task)
     @task = task
