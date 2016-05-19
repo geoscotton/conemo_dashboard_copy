@@ -26,7 +26,7 @@
       <div class="form-group">
         <%= f.label :final_appointment_location, class: "col-md-3 control-label" %>
         <div class="col-md-7">
-          <%= f.select :final_appointment_location, options_for_select(t("conemo.family_health_units"), @call_to_schedule_final_appointment.final_appointment_location),
+          <%= f.select :final_appointment_location, options_for_select(t("activerecord.field_options.final_appointment.locations"), @call_to_schedule_final_appointment.final_appointment_location),
                        {},
                        { class: "dropdown", required: true } %>
         </div>
