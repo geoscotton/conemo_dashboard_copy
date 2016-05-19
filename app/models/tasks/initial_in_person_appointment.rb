@@ -9,5 +9,10 @@ module Tasks
     def target
       symbolize FirstAppointment
     end
+
+    def appointment_at
+      FirstAppointment.find_by(participant_id: participant_id)
+                      .try(:appointment_at)
+    end
   end
 end
