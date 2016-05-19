@@ -12,16 +12,16 @@ RSpec.describe FirstAppointmentsController, type: :controller do
 
   let!(:first_appointment) do
     participant.create_first_appointment!(
-      appointment_at: Time.zone.now, session_length: 5, next_contact: Time.zone.now
+      appointment_at: Time.zone.now, session_length: 5
     )
   end
 
   let(:valid_first_appointment_params) do
-    { appointment_at: Time.zone.now, session_length: 1, next_contact: Time.zone.now }
+    { appointment_at: Time.zone.now, session_length: 1 }
   end
 
   let(:invalid_first_appointment_params) do
-    { appointment_at: nil, session_length: nil, next_contact: nil }
+    { appointment_at: nil, session_length: nil }
   end
 
   shared_examples "a bad request" do
@@ -35,7 +35,6 @@ RSpec.describe FirstAppointmentsController, type: :controller do
         first_appointment: {
           appointment_at: "a",
           appointment_location: "b",
-          next_contact: "c",
           session_length: "d",
           notes: "e",
           smartphone_comfort: "f",

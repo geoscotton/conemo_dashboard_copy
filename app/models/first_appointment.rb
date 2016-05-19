@@ -11,7 +11,6 @@ class FirstAppointment < ActiveRecord::Base
   validates :participant,
             :appointment_at,
             :session_length,
-            :next_contact,
             presence: true
 
   after_initialize :populate_timestamps
@@ -24,6 +23,5 @@ class FirstAppointment < ActiveRecord::Base
               .try(:scheduled_at) || Time.zone.now
 
     self.appointment_at ||= default
-    self.next_contact ||= default + 1.week
   end
 end

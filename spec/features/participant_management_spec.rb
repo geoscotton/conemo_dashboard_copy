@@ -44,11 +44,6 @@ RSpec.describe "Participant Management", type: :feature do
         select "20", from: "first_appointment_appointment_at_5i"
         select "Other location", from: "Location of appointment"
         fill_in "first_appointment_session_length", with: "5"
-        select "2014", from: "first_appointment_next_contact_1i"
-        select "August", from: "first_appointment_next_contact_2i"
-        select "1", from: "first_appointment_next_contact_3i"
-        select "22", from: "first_appointment_next_contact_4i"
-        select "20", from: "first_appointment_next_contact_5i"
         click_on "Save"
 
         expect(page).to have_text "Input Smartphone"
