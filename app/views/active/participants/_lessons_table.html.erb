@@ -1,3 +1,6 @@
+<% last_seen_at = Device.find_by(participant: participant).try(:last_seen_at) %>
+<%= last_seen_at %>
+<%= t ".last_seen" %> <%= last_seen_at ? l(last_seen_at, format: :long) : "?" %>
 <div class="tab-pane active" id="lessons">
   <table class="table table-bordered">
     <thead>
@@ -7,13 +10,7 @@
       <th></th>
     </thead>
     <tbody>
-      <% lack_of_connectivity_on = participant
-                                   .nurse_tasks
-                                   .current
-                                   .where(type: Tasks::LackOfConnectivityCall.to_s)
-                                   .last
-                                   .try(:scheduled_at)
-                                   .try(:to_date) %>
+      <% lack_of_connectivity_on = (last_seen_at && Time.zone.now - 12.hours >= last_seen_at) ? (last_seen_at + 12.hours).to_date : Date.tomorrow %>
       <% lessons.each_with_index do |lesson, index| %>
         <% release_date = participant.start_date ? (participant.start_date + lesson.day_in_treatment.days - 1.days) : nil %>
         <tr class="<%= participant.lesson_status(lesson) %>">
