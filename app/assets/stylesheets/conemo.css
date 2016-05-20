@@ -3,9 +3,22 @@ body {
   padding-top: 70px;
 }
 
+@media (max-width: 767px) {
+  .navbar-header > .navbar-brand {
+    margin-top: 8px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-header > .navbar-brand {
+    margin-top: 0;
+  }
+}
+
 /* progress bar on participant tasks page */
 .progress.tall {
-  height: 84px;
+  height: 105px;
+  margin-top: 10px;
 }
 
 .progress-bar-future {
@@ -61,4 +74,8 @@ tr.clickable-row {
 
 .form-horizontal .form-group .radio-inline {
   height: 32px;
+}
+
+.form-horizontal .form-group .checkbox {
+  height: 36px;
 }

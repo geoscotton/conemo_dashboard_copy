@@ -15,16 +15,19 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
     <div class="container">
       <div class="navbar-header">
         <%= link_to "ADMIN", main_app.rails_admin_path(locale: params[:locale]), class: "btn btn-primary pull-left navbar-brand admin" if current_user.admin? %>
-        <%= link_to "/#{params[:locale]}", class: "navbar-brand" do %>
-          <i class="fa fa-home"></i> CONEMO
+        <%= link_to "/#{params[:locale]}", class: "navbar-brand", style: "padding-right: 8px;" do %>
+          <i class="fa fa-home"></i> <%= image_tag "C.png", style: "display: inline; vertical-align: top;" %>
         <% end %>
         <%= render "shared/navbar_app_version" %>
         <% if @participant && !@participant.new_record? %>
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" style="margin-left: 10px;">
+            <% if user_signed_in? %>
+              <li class="pull-right" style="margin-right: 15px;"><%= link_to fa_icon('sign-out', text: "#{t("conemo.views.dashboards.index.sign_out")}", right: true), main_app.destroy_user_session_path, method: :delete %></li>
+            <% end %>
             <li class="dropdown">
-              <%= link_to "#", class: "dropdown-toggle navbar-brand", data: { toggle: "dropdown" }, id: "participant-menu", aria: { expanded: false } do %>
-                <%= Participant.model_name.human.capitalize %> <%= @participant.study_identifier %>: <%= @participant.first_name %> <%= @participant.last_name %>
-                <span class="caret text-primary"></span>
+              <%= link_to "#", class: "dropdown-toggle navbar-brand", data: { toggle: "dropdown" }, id: "participant-menu", aria: { expanded: false }, style: "padding-left: 0;" do %>
+                <span class="text-primary"><%= t ".menu" %></span>
+                <%= @participant.study_identifier %>: <%= @participant.first_name %> <%= @participant.last_name %>
               <% end %>
               <ul class="dropdown-menu" aria-labelledby="participant-menu">
                 <% if current_user.nurse? && !current_page?(participant_tasks_path(@participant)) %>
@@ -67,12 +70,6 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
             <% end %>
           </ul>
         <% end %>
-
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-            <li><%= link_to fa_icon('sign-out', text: "#{t("conemo.views.dashboards.index.sign_out")}", right: true), main_app.destroy_user_session_path, method: :delete %></li>
-          <% end %>
-        </ul>
       </div>
     </div>
   </div>
