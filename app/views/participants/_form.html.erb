@@ -194,11 +194,11 @@
     <div class="col-md-offset-3 col-md-7">
       <%= f.submit t("conemo.views.shared.save_button"), class: "btn btn-primary" %>
       <% if current_user.nurse? && !@participant.new_record? %>
-        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
+        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-link" %>
       <% elsif @referrer %>
-        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-default" %>
+        <%= link_to t("conemo.views.shared.cancel_button"), participant_tasks_path(@participant), class: "btn btn-link" %>
       <% else %>
-        <%= link_to t("conemo.views.shared.cancel_button"), root_path, class: "btn btn-default" %>
+        <%= link_to t("conemo.views.shared.cancel_button"), root_path, class: "btn btn-link" %>
       <% end %>
     </div>
   </div>

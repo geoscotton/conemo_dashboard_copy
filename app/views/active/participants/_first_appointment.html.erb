@@ -5,9 +5,9 @@
     <div class="timeline-heading">
       <h4 class="timeline-title">
         <% if can? :update, first_appointment %>
-          <%= link_to '',
-            edit_participant_first_appointment_path(first_appointment.participant, referrer: "active_participant_path"),
-            class: "fa fa-edit fa-lg" %>
+          <%= link_to(edit_participant_first_appointment_path(first_appointment.participant, referrer: "active_participant_path"), class: "btn btn-primary") do %>
+            <i class="fa fa-edit fa-lg"></i>
+          <% end %>
         <% end %>
         <%= first_appointment.model_name.human %></h4>
 

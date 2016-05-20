@@ -5,9 +5,10 @@
     <div class="timeline-heading">
       <h4 class="timeline-title">
         <% if can? :update, first_contact %>
-          <%= link_to '',
-            edit_participant_first_contact_path(first_contact.participant, referrer: "active_participant_path"),
-            class: "fa fa-edit fa-lg" %>
+          <%= link_to(edit_participant_first_contact_path(first_contact.participant, referrer: "active_participant_path"),
+            class: "btn btn-primary") do %>
+            <i class="fa fa-edit fa-lg"></i>
+          <% end %>
         <% end %>
         <%= first_contact.model_name.human %></h4>
 

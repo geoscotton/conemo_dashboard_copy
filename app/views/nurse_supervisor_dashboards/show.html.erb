@@ -19,7 +19,7 @@
         <% @pending_participants.each do |participant| %>
           <tr>
             <td>
-              <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t("pending.participants.index.edit_info")) do %>
+              <%= link_to(edit_participant_path(participant), class: "btn btn-link", :"aria-label" => t("pending.participants.index.edit_info")) do %>
                 <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
                 <span class="sr-only"><%= t "pending.participants.index.edit_info" %></span>
               <% end %>
@@ -28,7 +28,7 @@
             <td><%= participant.study_identifier %></td>
             <td><%= l participant.created_at.to_date, format: :long %></td>
             <td>
-              <%= link_to(pending_activate_path(participant), class: "btn btn-default", :"aria-label" => t("pending.participants.index.activate")) do %>
+              <%= link_to(pending_activate_path(participant), class: "btn btn-link", :"aria-label" => t("pending.participants.index.activate")) do %>
                 <span class="fa fa-thumbs-up fa-2x" aria-hidden="true"></span>
                 <span class="sr-only"><%= t "pending.participants.index.activate" %></span>
               <% end %>
@@ -61,14 +61,14 @@
         <% @active_participants.each do |participant| %>
           <tr>
             <td>
-              <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t("pending.participants.index.edit_info")) do %>
+              <%= link_to(edit_participant_path(participant), class: "btn btn-link", :"aria-label" => t("pending.participants.index.edit_info")) do %>
                 <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
                 <span class="sr-only"><%= t "pending.participants.index.edit_info" %></span>
               <% end %>
             </td>
             <td><%= participant.nurse.last_and_first_name %></td>
             <td>
-              <%= link_to(pending_activate_path(participant), class: "btn btn-default", :"aria-label" => t("pending.participants.index.edit_info")) do %>
+              <%= link_to(pending_activate_path(participant), class: "btn btn-link", :"aria-label" => t("pending.participants.index.edit_info")) do %>
                 <span class="fa fa-user-md fa-2x" aria-hidden="true"></span>
                 <span class="sr-only"><%= t "pending.participants.index.edit_info" %></span>
               <% end %>
@@ -79,7 +79,7 @@
             <td>
               <%= link_to(participant_path(id: participant.id, participant: { status: Participant::DROPPED_OUT }),
                           method: :put,
-                          class: "btn btn-default",
+                          class: "btn btn-link",
                           :"aria-label" => t("pending.participants.index.disqualify"),
                           :"data-confirm" => "#{ t 'pending.participants.index.disqualify_alert' }") do %>
                 <span class="fa fa-thumbs-down fa-2x" aria-hidden="true"></span>

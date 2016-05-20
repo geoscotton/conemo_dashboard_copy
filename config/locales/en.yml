@@ -60,6 +60,9 @@ en:
       x_seconds:
         one: 1 second ago
         other: "%{count} seconds ago"
+  layouts:
+    application:
+      menu: MENU
   lessons:
     index:
       add_lesson: Add Lesson

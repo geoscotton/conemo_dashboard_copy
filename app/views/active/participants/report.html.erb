@@ -16,7 +16,7 @@
           <h3>
             <%= t 'conemo.views.active.participants.report.notes' %>
             <% if can? :create, PatientContact.new(participant: @participant) %>
-              <%= link_to(new_participant_patient_contact_path(@participant), class: "btn btn-link") do %>
+              <%= link_to(new_participant_patient_contact_path(@participant), class: "btn btn-primary") do %>
                 <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
                 <span class="sr-only">Write note</span>
               <% end %>

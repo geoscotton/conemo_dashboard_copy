@@ -58,24 +58,25 @@
         <div class="panel-heading"><%= task %> <span class="label label-info"><%= time_ago_in_words task.scheduled_at %></span></div>
 
         <% if can? :update, task.task %>
-          <div class="btn-group" role="group" aria-label="Actions">
+          <div role="group" aria-label="Actions">
+            <br/>
             <% if task.alert? %>
               <%= link_to t(".mark_as_resolved"),
                           new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
-                          { class: "btn btn-link" } %>
+                          { class: "btn btn-primary" } %>
               <%= button_to t(".contact_supervisor"),
                             notify_supervisor_participant_task_path(participant_id: @tasks.id, id: task.id),
-                            { class: "btn btn-link", data: { confirm: t(".confirm_supervisor_notification") } } %>
+                            { class: "btn btn-primary", data: { confirm: t(".confirm_supervisor_notification") } } %>
             <% else %>
               <%= link_to t("conemo.views.shared.confirm"),
                           new_polymorphic_path([:participant, task.target], { participant_id: @tasks.id }),
-                          { class: "btn btn-link" } %>
+                          { class: "btn btn-primary" } %>
               <%= link_to t("conemo.views.shared.cancel_button"),
                           new_participant_task_scheduled_task_cancellation_path(participant_id: @tasks.id, task_id: task.id),
-                          { class: "btn btn-link" } %>
+                          { class: "btn btn-primary" } %>
               <%= link_to t("conemo.views.shared.reschedule").capitalize,
                           new_participant_task_scheduled_task_rescheduling_path(participant_id: @tasks.id, task_id: task.id),
-                          { class: "btn btn-link" } %>
+                          { class: "btn btn-primary" } %>
             <% end %>
           </div>
         <% end %>
@@ -87,7 +88,7 @@
             <% if can? :update, @tasks.latest_notification(task.id) %>
               <%= button_to t(".clear"),
                             clear_latest_supervisor_notification_participant_task_path(participant_id: @tasks.id, id: task.id),
-                            { form: { style: "display: inline-block;" }, method: :delete, class: "btn btn-default", data: { confirm: t(".confirm_clear") } } %>
+                            { form: { style: "display: inline-block;" }, method: :delete, class: "btn btn-primary", data: { confirm: t(".confirm_clear") } } %>
             <% end %>
           </div>
         <% end %>
@@ -101,7 +102,7 @@
     <% if @participant.smartphone %>
       <%= render "active/participants/smartphone", smartphone: @participant.smartphone %>
     <% else %>
-      <h3><%= t "conemo.views.active.participants.show.smartphone_heading" %> <%= link_to '', new_participant_smartphone_path(@participant), class: "fa fa-edit pull-right" %></h3>
+      <h3><%= t "conemo.views.active.participants.show.smartphone_heading" %> <%= link_to(new_participant_smartphone_path(@participant), class: "btn btn-primary pull-right") do %><i class="fa fa-edit"></i><% end %></h3>
     <% end %>
   </div>
 </div>
