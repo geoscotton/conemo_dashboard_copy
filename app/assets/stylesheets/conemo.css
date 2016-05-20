@@ -49,3 +49,16 @@ tr.clickable-row {
 .dropdown-menu > li > a {
   color: #df691a;
 }
+
+/* select2 select input styles (make them taller) */
+.form-group .select2-container .select2-choice {
+  height: 32px;
+}
+
+.select2-drop .select2-results .select2-result-label {
+  line-height: 28px;
+}
+
+.form-horizontal .form-group .radio-inline {
+  height: 32px;
+}
