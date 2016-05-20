@@ -15,10 +15,11 @@ RSpec.describe "tasks/index", type: :view do
                     latest_notification: nil)
   end
   let(:smartphone) { instance_double(Smartphone).as_null_object }
+  let(:now) { Time.zone.now }
   let(:participant) do
     instance_double(Participant,
                     id: rand,
-                    date_of_birth: Time.zone.now,
+                    date_of_birth: now,
                     smartphone: smartphone).as_null_object.tap do |p|
       allow(smartphone).to receive(:participant) { p }
     end
@@ -56,9 +57,15 @@ RSpec.describe "tasks/index", type: :view do
       .to receive(:active_tasks)
       .and_return(
         [
-          Tasks::ConfirmationCall.new(scheduled_at: Time.zone.now, id: rand),
-          Tasks::HelpRequest.new(scheduled_at: Time.zone.now, id: rand),
-          Tasks::NonAdherenceCall.new(scheduled_at: Time.zone.now, id: rand)
+          Tasks::ConfirmationCall.new(
+            scheduled_at: now, overdue_at: now, id: rand
+          ),
+          Tasks::HelpRequest.new(
+            scheduled_at: now, overdue_at: now, id: rand
+          ),
+          Tasks::NonAdherenceCall.new(
+            scheduled_at: now, overdue_at: now, id: rand
+          )
         ].map { |t| TaskPresenter.new(t) }
       )
 
@@ -77,7 +84,9 @@ RSpec.describe "tasks/index", type: :view do
   end
 
   it "renders the time since each task was scheduled" do
-    task = Tasks::FollowUpCallWeekOne.new(scheduled_at: 1.minute.ago, id: rand)
+    task = Tasks::FollowUpCallWeekOne.new(
+      scheduled_at: 1.minute.ago, overdue_at: now, id: rand
+    )
     stub_data
     allow(tasks).to receive(:active_tasks) { [TaskPresenter.new(task)] }
 
@@ -88,7 +97,8 @@ RSpec.describe "tasks/index", type: :view do
 
   context "for alert tasks" do
     def stub_alert_tasks
-      task = Tasks::LackOfConnectivityCall.new(scheduled_at: Time.zone.now,
+      task = Tasks::LackOfConnectivityCall.new(scheduled_at: now,
+                                               overdue_at: now,
                                                id: rand)
       stub_data
       allow(tasks).to receive(:active_tasks) { [TaskPresenter.new(task)] }
@@ -119,7 +129,7 @@ RSpec.describe "tasks/index", type: :view do
     it "renders the timestamp of the last supervisor notification" do
       stub_alert_tasks
       notification = instance_double(SupervisorNotification,
-                                     created_at: Time.zone.now)
+                                     created_at: now)
       allow(tasks).to receive(:latest_notification) { notification }
 
       render template: template
@@ -131,7 +141,7 @@ RSpec.describe "tasks/index", type: :view do
   context "for scheduled tasks" do
     def stub_scheduled_tasks
       task = instance_double(NurseTask,
-                             scheduled_at: Time.zone.now,
+                             scheduled_at: now,
                              target: :first_contact,
                              alert?: false).as_null_object
       stub_data
