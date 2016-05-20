@@ -4,9 +4,12 @@
   <div class="timeline-panel">
     <div class="timeline-heading">
       <h4 class="timeline-title">
-        <%= link_to '',
-          edit_participant_third_contact_path(third_contact.participant, referrer: "active_participant_path"),
-          class: "fa fa-edit fa-lg" %> <%= t "conemo.views.active.participants.show.third_contact_heading" %></h4>
+        <% if can? :update, third_contact %>
+          <%= link_to '',
+            edit_participant_third_contact_path(third_contact.participant, referrer: "active_participant_path"),
+            class: "fa fa-edit fa-lg" %>
+        <% end %>
+        <%= t "conemo.views.active.participants.show.third_contact_heading" %></h4>
 
       <p><i class="fa fa-clock-o"></i> <%= t "activerecord.attributes.third_contact.contact_at" %>: <%= l third_contact.contact_at, format: :long %></p>
     </div>

@@ -65,7 +65,10 @@ class Ability
         AdditionalContact,
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
     can [:create, :update],
-        CallToScheduleFinalAppointment,
+        [
+          CallToScheduleFinalAppointment, FinalAppointment, FirstAppointment,
+          FirstContact, PatientContact, SecondContact, ThirdContact
+        ],
         participant: { nurse_id: nurse.id, status: Participant::ACTIVE }
     can :create,
         [HelpRequestCall, LackOfConnectivityCall, NonAdherenceCall],

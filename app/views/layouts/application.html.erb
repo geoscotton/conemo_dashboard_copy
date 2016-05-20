@@ -31,7 +31,7 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
                   <li>
                     <%= link_to NurseTask.model_name.human(count: 2), participant_tasks_path(@participant) %>
                   </li>
-                <% elsif !current_user.nurse? && @participant.nurse && !current_page?(nurse_tasks_summary_path(@participant.nurse)) %>
+                <% elsif !current_user.nurse? && @participant.nurse && !current_page?(nurse_tasks_summary_path(@participant.nurse)) && @participant.active? %>
                   <li>
                     <%= link_to NurseTask.model_name.human(count: 2), nurse_tasks_summary_path(@participant.nurse) %>
                   </li>
@@ -42,12 +42,12 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
                 <% if !current_page?(active_participant_path(@participant)) %>
                   <li><%= link_to t("active.participants.show.header"), active_participant_path(@participant) %></li>
                 <% end %>
-                <li class="divider"></li>
-                <li>
-                  <% if can? :create, AdditionalContact %>
-                    <%= link_to t("conemo.views.shared.register").capitalize + " " + AdditionalContact.model_name.human.downcase, new_participant_additional_contact_path(@participant.id) %>
-                  <% end %>
-                </li>
+                <% if can? :create, AdditionalContact %>
+                  <li class="divider"></li>
+                  <li>
+                      <%= link_to t("conemo.views.shared.register").capitalize + " " + AdditionalContact.model_name.human.downcase, new_participant_additional_contact_path(@participant.id) %>
+                  </li>
+                <% end %>
               </ul>
             </li>
           </ul>

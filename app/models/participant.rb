@@ -76,6 +76,10 @@ class Participant < ActiveRecord::Base
 
   delegate :phone_identifier, to: :smartphone, allow_nil: true
 
+  def active?
+    status == ACTIVE
+  end
+
   def start_date
     participant_start_dates.order(:created_at).first.try(:date)
   end

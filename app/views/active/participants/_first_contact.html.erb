@@ -4,9 +4,12 @@
   <div class="timeline-panel">
     <div class="timeline-heading">
       <h4 class="timeline-title">
-        <%= link_to '',
-          edit_participant_first_contact_path(first_contact.participant, referrer: "active_participant_path"),
-          class: "fa fa-edit fa-lg" %> <%= first_contact.model_name.human %></h4>
+        <% if can? :update, first_contact %>
+          <%= link_to '',
+            edit_participant_first_contact_path(first_contact.participant, referrer: "active_participant_path"),
+            class: "fa fa-edit fa-lg" %>
+        <% end %>
+        <%= first_contact.model_name.human %></h4>
 
       <p><i class="fa fa-clock-o"></i> <%= t "helpers.label.first_contact.contact_at" %>: <%= l first_contact.contact_at, format: :long %></p>
     </div>

@@ -97,7 +97,7 @@
   <div class="panel-heading"><%= @completed_participants.count %> <%= t ".completed", count: @completed_participants.count %></div>
 
   <div class="panel-body">
-    <table class="table table-bordered table-condensed table-hover filterable">
+    <table class="table table-bordered table-hover filterable">
       <thead>
         <tr>
           <th><%= Nurse.model_name.human %></th>
@@ -109,7 +109,7 @@
 
       <tbody>
         <% @completed_participants.each do |participant| %>
-          <tr>
+          <tr class="clickable-row" data-href="<%= active_participant_path(participant.id) %>">
             <td><%= participant.nurse.last_and_first_name %></td>
             <td><%= participant.last_and_first_name %></td>
             <td><%= participant.study_identifier %></td>

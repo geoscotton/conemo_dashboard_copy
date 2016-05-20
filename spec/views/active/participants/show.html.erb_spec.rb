@@ -10,6 +10,7 @@ RSpec.describe "active/participants/show", type: :view do
 
   it "renders the participant's date of birth" do
     allow(view).to receive(:current_user) { nurse }
+    allow(view).to receive(:can?) { true }
     participant = Participant.new(
       id: rand,
       first_name: "Nina",
