@@ -54,7 +54,7 @@
     <%= active_task_count %> <%= NurseTask.model_name.human(count: active_task_count) %> <%= t(".pending", count: active_task_count) %>, <%= @tasks.overdue_tasks.count %> <%= t(".overdue_task", count: @tasks.overdue_tasks.count) %>
 
     <% @tasks.active_tasks.each do |task| %>
-      <div class="panel panel-default">
+      <div class="panel panel-<%= task.overdue? ? 'danger' : 'default' %>">
         <div class="panel-heading"><%= task %> <span class="label label-info"><%= time_ago_in_words task.scheduled_at %></span></div>
 
         <% if can? :update, task.task %>
