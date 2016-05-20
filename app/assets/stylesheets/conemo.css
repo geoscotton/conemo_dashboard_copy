@@ -40,9 +40,9 @@ body {
   background-color: #A4A441;
 }
 
-/* Rails button_to inside of a Bootstrap btn-group */
-.btn-group > .button_to {
-  display: inline;
+/* Rails button_to inside of a Bootstrap panel */
+.panel .button_to {
+  display: inline-block;
 }
 
 /* tasks table */
