@@ -10,6 +10,14 @@ body {
 }
 
 @media (min-width: 768px) {
+  .navbar-header {
+    float: none;
+  }
+
+  .navbar-header .navbar-nav {
+    float: none;
+  }
+
   .navbar-header > .navbar-brand {
     margin-top: -10px;
   }

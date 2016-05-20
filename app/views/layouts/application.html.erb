@@ -19,11 +19,11 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
           <span class="btn btn-primary"><i class="fa fa-home"></i></span> <%= image_tag "C.png", style: "display: inline;" %>
         <% end %>
         <%= render "shared/navbar_app_version" %>
-        <% if @participant && !@participant.new_record? %>
-          <ul class="nav navbar-nav" style="margin-left: 10px;">
-            <% if user_signed_in? %>
-              <li class="pull-right" style="margin-right: 15px;"><%= link_to(main_app.destroy_user_session_path, method: :delete, class: "btn btn-primary") do %><%= fa_icon('sign-out', text: "#{t("conemo.views.dashboards.index.sign_out")}", right: true) %><% end %> </li>
-            <% end %>
+        <ul class="nav navbar-nav" style="margin-left: 10px;">
+          <% if user_signed_in? %>
+            <li class="pull-right" style="margin-right: 15px;"><%= link_to(main_app.destroy_user_session_path, method: :delete, class: "btn btn-primary") do %><%= fa_icon('sign-out', text: "#{t("conemo.views.dashboards.index.sign_out")}", right: true) %><% end %> </li>
+          <% end %>
+          <% if @participant && !@participant.new_record? %>
             <li class="dropdown">
               <%= link_to "#", class: "dropdown-toggle navbar-brand btn btn-primary", data: { toggle: "dropdown" }, id: "participant-menu", aria: { expanded: false }, style: "padding-left: 0;" do %>
                 <%= t ".menu" %>
@@ -53,8 +53,8 @@ content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-widt
                 <% end %>
               </ul>
             </li>
-          </ul>
-        <% end %>
+          <% end %>
+        </ul>
       </div>
 
       <% if user_signed_in? && current_user.admin? && !current_page?("/#{params[:locale]}") %>
