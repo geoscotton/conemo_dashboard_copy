@@ -67,12 +67,15 @@ RSpec.describe "active/participants/report", type: :view do
       )
     end
 
-    it "renders indicators when there is an active Lack of Connectivity Task" do
+    it "renders indicators when there is a lack of device connectivity" do
       stub_participant
       allow(participant).to receive(:lesson_status) { "info" }
-      connectivity_task = double("task", to_date: today - 2).as_null_object
-      allow(participant).to receive(:nurse_tasks) { connectivity_task }
-      stub_nurse
+      device = Device.find_or_create_by(participant: participant)
+      device.update!(
+        uuid: SecureRandom.uuid, device_uuid: SecureRandom.uuid,
+        manufacturer: "m", model: "m", platform: "p", device_version: "d",
+        last_seen_at: Time.zone.now - 20.days
+      )
       assign(:lessons, [lesson])
       allow(lesson).to receive(:day_in_treatment) { -1 }
       assign(:participant_contacts, [])
