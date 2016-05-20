@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.1 - 2016-05-19
+
+* provide completed Participant data to Supervisors
+* display initial appointment confirmed date
+* schedule follow-ups from confirmed initial date
+* update form options
+* update translation
+
 ## 0.12.0 - 2016-05-18
 
 * remove Logins report on Clinical Summary
