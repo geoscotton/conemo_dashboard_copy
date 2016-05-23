@@ -5,9 +5,10 @@
     <div class="timeline-heading">
       <h4 class="timeline-title">
         <% if can? :update, second_contact %>
-          <%= link_to '',
-            edit_participant_second_contact_path(second_contact.participant, referrer: "active_participant_path"),
-            class: "fa fa-edit fa-lg" %>
+          <%= link_to(edit_participant_second_contact_path(second_contact.participant, referrer: "active_participant_path"),
+            class: "btn btn-primary") do %>
+            <i class="fa fa-edit fa-lg"></i>
+          <% end %>
         <% end %>
         <%= t "conemo.views.active.participants.show.second_contact_heading" %></h4>
 

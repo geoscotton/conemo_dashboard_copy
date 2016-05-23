@@ -24,6 +24,9 @@ es-PE:
         help_message: Solicitud de ayuda
       show:
         header: Todos los contactos realizados
+  layouts:
+    application:
+      menu: Información
   lessons:
     index:
       add_lesson: Añadir sesión

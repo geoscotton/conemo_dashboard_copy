@@ -24,6 +24,9 @@ pt-BR:
         help_message: Solicitação de ajuda
       show:
         header: Todos os contatos realizados
+  layouts:
+    application:
+      menu: Opções
   lessons:
     index:
       add_lesson: Adicionar sessão

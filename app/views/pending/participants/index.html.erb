@@ -23,7 +23,7 @@
       <% @unassigned_participants.each do |participant| %>
         <tr id="participant-<%= participant.id %>">
           <td>
-            <%= link_to(edit_participant_path(participant), class: "btn btn-default", :"aria-label" => t(".edit_info")) do %>
+            <%= link_to(edit_participant_path(participant), class: "btn btn-link", :"aria-label" => t(".edit_info")) do %>
               <span class="fa fa-edit fa-2x" aria-hidden="true"></span>
               <span class="sr-only"><%= t ".edit_info" %></span>
             <% end %>
@@ -32,7 +32,7 @@
           <td><%= participant.study_identifier %></td>
           <td><%= l participant.created_at.to_date, format: :long %></td>
           <td>
-            <%= link_to(pending_enroll_path(participant), class: "btn btn-default", :"aria-label" => t(".activate")) do %>
+            <%= link_to(pending_enroll_path(participant), class: "btn btn-link", :"aria-label" => t(".activate")) do %>
               <span class="fa fa-thumbs-up fa-2x" aria-hidden="true"></span>
               <span class="sr-only"><%= t ".activate" %></span>
             <% end %>
