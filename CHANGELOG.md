@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.2 - 2016-05-23
+
+* add missing 'Sign out' nav link
+* fix alignment of 'Contact supervisor' buttons
+* make it orange
+* display connectivity indications based on Device
+* mark overdue tasks red
+
 ## 0.12.1 - 2016-05-19
 
 * provide completed Participant data to Supervisors
