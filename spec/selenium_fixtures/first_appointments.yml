@@ -4,7 +4,6 @@
     appointment_at: <%= DateTime.now - 7 %>
     appointment_location: Test Location
     session_length: 120
-    next_contact: <%= DateTime.now %>
     notes: So many notes
 <% end %>
 
@@ -14,7 +13,6 @@
     appointment_at: <%= DateTime.now - 28 %>
     appointment_location: Test Location
     session_length: 120
-    next_contact: <%= DateTime.now - 21 %>
     notes: So many notes
 <% end %>
 
@@ -24,7 +22,6 @@
     appointment_at: <%= DateTime.now - 42 %>
     appointment_location: Test Location
     session_length: 120
-    next_contact: <%= DateTime.now - 35 %>
     notes: So many notes
 <% end %>
 
@@ -34,7 +31,6 @@
     appointment_at: <%= DateTime.now - 42 %>
     appointment_location: Test Location
     session_length: 120
-    next_contact: <%= DateTime.now - 35 %>
     notes: So many notes
 <% end %>
 
@@ -44,7 +40,6 @@
     appointment_at: <%= DateTime.now - 42 %>
     appointment_location: Test Location
     session_length: 120
-    next_contact: <%= DateTime.now - 35 %>
     notes: So many notes
 <% end %>
 
@@ -54,6 +49,5 @@
     appointment_at: <%= DateTime.now - 42 %>
     appointment_location: Test Location
     session_length: 120
-    next_contact: <%= DateTime.now - 35 %>
     notes: So many notes
 <% end %>
