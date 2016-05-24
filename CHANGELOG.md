@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.4 - 2016-05-24
+
+* update translation
+
 ## 0.12.3 - 2016-05-24
 
 * add help text to Participant form
