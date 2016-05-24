@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.3 - 2016-05-24
+
+* add help text to Participant form
+* update translation
+* update form help
+
 ## 0.12.2 - 2016-05-23
 
 * add missing 'Sign out' nav link
