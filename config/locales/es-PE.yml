@@ -121,11 +121,13 @@ es-PE:
   third_contacts:
     form:
       no_difficulties: El paciente no tuvo dificultades
-      difficulties_help_block: Si el participante no ha tenido dificultades, por
-                               favor selecciona "NO". Si el participante tuvo
-                               dificultades, selecciona todas las dificultades
-                               que tuvo el participante. Por favor NO marques
-                               "No" Y algunas dificultades al mismo tiempo.
+      difficulties_help_block: Si el participante no ha tenido dificultades,
+                               por favor selecciona "El paciente no tuvo
+                               dificultades" bajo el título "NO". Si el
+                               participante tuvo dificultades, selecciona
+                               todas las dificultades que tuvo el participante.
+                               Por favor NO marques respuestas bajo el título
+                               "NO" y el título "SÍ" al mismo tiempo.
   conemo:
     family_health_units:
       - Centro de salud 1
