@@ -62,6 +62,9 @@ es-PE:
       pending:
         one: pendiente
         other: pendientes
+  participants:
+    form:
+      other_relationship_help: Si  marcaste “otro”, por favor especifícalo aquí
   pending:
     participants:
       index:

@@ -63,6 +63,9 @@ pt-BR:
       pending:
         one: Pendente
         other: Pendentes
+  participants:
+    form:
+      other_relationship_help: Se marcou "outro", por favor especifique
   pending:
     participants:
       index:

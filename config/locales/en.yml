@@ -98,6 +98,9 @@ en:
       pending:
         one: Pending
         other: Pending
+  participants:
+    form:
+      other_relationship_help: If other, specify here
   pending:
     participants:
       index:
