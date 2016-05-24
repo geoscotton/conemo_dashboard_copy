@@ -9,6 +9,8 @@ pt-BR:
     tasks:
       notify_supervisor:
         flash_notice: Uma notificação foi enviada para o seu supervisor sobre este assunto
+      successfully_completed:
+        flash_notice: Participante completado com sucesso
   active:
     participants:
       contact_info:

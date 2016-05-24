@@ -9,6 +9,8 @@ es-PE:
     tasks:
       notify_supervisor:
         flash_notice: Una solicitud de ayuda fue enviada a tu supervisor/a para que revise este asunto
+      successfully_completed:
+        flash_notice: Paciente completó la intervención satisfactoriamente
   active:
     participants:
       contact_info:

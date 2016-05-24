@@ -9,6 +9,8 @@ en:
     tasks:
       notify_supervisor:
         flash_notice: a notification has been sent for your supervisor to review this issue
+      successfully_completed:
+        flash_notice: Participant successfully completed
   active:
     participants:
       contact_info:
