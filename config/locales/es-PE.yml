@@ -22,6 +22,8 @@ es-PE:
         current: Sesión actual
         not_accessed: Sesión no accedida
         unreleased: Sesión todavía no entregada
+      lessons_table:
+        last_seen: Conectado/a por última vez
       report:
         help_message: Solicitud de ayuda
       show:

@@ -22,6 +22,8 @@ pt-BR:
         current: Atual
         not_accessed: Não acessada
         unreleased: Ainda não enviada
+      lessons_table:
+        last_seen: Última conexão à(s)
       report:
         clinical_summary: Histórico do Participante
         help_message: Solicitação de ajuda

@@ -22,6 +22,8 @@ en:
         current: Current
         not_accessed: Not accessed
         unreleased: Unreleased
+      lessons_table:
+        last_seen: Last connection at
       report:
         help_message: Help request
       show:
