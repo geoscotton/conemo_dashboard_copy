@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.5 - 2016-05-25
+
+* update translations
+
 ## 0.12.4 - 2016-05-24
 
 * update translation
