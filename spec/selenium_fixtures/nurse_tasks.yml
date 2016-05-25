@@ -658,6 +658,50 @@
     updated_at: <%= DateTime.now - 16.days %>
 <% end %>
 
+<% [500, 517, 600, 617].each do |pt_id| %>
+  nurse_task_1<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::ConfirmationCall
+    status: resolved
+    scheduled_at: <%= DateTime.now - 45 %>
+    overdue_at: <%= DateTime.now  - 42 %>
+
+  nurse_task_2<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::InitialInPersonAppointment
+    status: resolved
+    scheduled_at: <%= DateTime.now  - 42 %>
+    overdue_at: <%= DateTime.now  - 39 %>
+
+  nurse_task_3<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::FollowUpCallWeekOne
+    status: resolved
+    scheduled_at: <%= DateTime.now  - 35 %>
+    overdue_at: <%= DateTime.now  - 32 %>
+
+  nurse_task_4<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::FollowUpCallWeekThree
+    status: resolved
+    scheduled_at: <%= DateTime.now - 14 %>
+    overdue_at: <%= DateTime.now  - 11 %>
+
+  nurse_task_5<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::CallToScheduleFinalAppointment
+    status: resolved
+    scheduled_at: <%= DateTime.now - 7 %>
+    overdue_at: <%= DateTime.now - 4 %>
+
+  nurse_task_6<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::FinalInPersonAppointment
+    status: active
+    scheduled_at: <%= DateTime.now %>
+    overdue_at: <%= DateTime.now + 3.days %>
+<% end %>
+
 <% (601..601).each do |pt_id| %>
   nurse_task_1<%= pt_id %>:
     participant: participant<%= pt_id %>

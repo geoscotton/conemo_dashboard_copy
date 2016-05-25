@@ -360,7 +360,7 @@
     address: 123 Main Street
 <% end %>
 
-<% (511..516).each do |pt_id| %>
+<% (511..517).each do |pt_id| %>
   participant<%= pt_id %>:
     nurse: user_500
     first_name: First
@@ -405,7 +405,7 @@
     address: 123 Main Street
 <% end %>
 
-<% (611..616).each do |pt_id| %>
+<% (611..617).each do |pt_id| %>
   participant<%= pt_id %>:
     nurse: user_600
     first_name: First

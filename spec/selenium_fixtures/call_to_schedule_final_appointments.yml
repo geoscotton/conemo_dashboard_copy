@@ -21,3 +21,15 @@ call_to_schedule_final_appointment_4:
   contact_at: <%= DateTime.now - 1.days %>
   final_appointment_at: <%= DateTime.now %>
   final_appointment_location: Whatever place, USA
+
+call_to_schedule_final_appointment_5:
+  participant: participant517
+  contact_at: <%= DateTime.now - 1.days %>
+  final_appointment_at: <%= DateTime.now %>
+  final_appointment_location: Someplace Cool, USA
+
+call_to_schedule_final_appointment_6:
+  participant: participant617
+  contact_at: <%= DateTime.now - 1.days %>
+  final_appointment_at: <%= DateTime.now %>
+  final_appointment_location: Someplace Cool, USA

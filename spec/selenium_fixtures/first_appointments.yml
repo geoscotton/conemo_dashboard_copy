@@ -34,7 +34,7 @@
     notes: So many notes
 <% end %>
 
-<% (500..500).each do |pt_id| %>
+<% [500, 517].each do |pt_id| %>
   first_appointment_<%= pt_id %>:
     participant: participant<%= pt_id %>
     appointment_at: <%= DateTime.now - 42 %>
@@ -43,7 +43,7 @@
     notes: So many notes
 <% end %>
 
-<% (600..600).each do |pt_id| %>
+<% [600, 617].each do |pt_id| %>
   first_appointment_<%= pt_id %>:
     participant: participant<%= pt_id %>
     appointment_at: <%= DateTime.now - 42 %>

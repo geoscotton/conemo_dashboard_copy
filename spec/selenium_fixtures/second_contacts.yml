@@ -28,7 +28,7 @@
       - Difficulty accessing CONEMO app
 <% end %>
 
-<% (500..500).each do |pt_id| %>
+<% [500, 517].each do |pt_id| %>
   second_contact_<%= pt_id %>:
     participant: participant<%= pt_id %>
     contact_at: <%= DateTime.now - 35 %>
@@ -38,7 +38,7 @@
       - Difficulty accessing CONEMO app
 <% end %>
 
-<% (600..600).each do |pt_id| %>
+<% [600, 617].each do |pt_id| %>
   second_contact_<%= pt_id %>:
     participant: participant<%= pt_id %>
     contact_at: <%= DateTime.now - 35 %>
