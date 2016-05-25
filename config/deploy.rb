@@ -2,7 +2,7 @@
 lock "3.4.0"
 
 set :application, "conemo_dashboard"
-set :repo_url, "git@github.com:cbitstech/#{ fetch(:application) }.git"
+set :repo_url, "git@github.com:NU-CBITS/#{ fetch(:application) }.git"
 set :rvm_type, :system
 set :rvm_ruby_version, "2.3.0"
 
