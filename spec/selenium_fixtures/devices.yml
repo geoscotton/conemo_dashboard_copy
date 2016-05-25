@@ -7,7 +7,7 @@ en_xt1032:
   device_version: 5.1
   inserted_at: <%= Time.zone.now %>
   participant: participant1000
-  last_seen_at: <%= Time.zone.now %>
+  last_seen_at: <%= Time.zone.now - 3.days %>
 
 es-PE_xt1032:
   uuid: 95e3b8b9-ca20-402a-859d-114aa8d2b6de
@@ -30,3 +30,47 @@ pt-BR_xt1032:
   inserted_at: <%= Time.zone.now %>
   participant: participant3000
   last_seen_at: <%= Time.zone.now %>
+
+es-PE_xt1033:
+  uuid: 114aa8d2b6de-95e3b8b9-ca20-402a-859d
+  device_uuid: 261a20daee28b162
+  manufacturer: motorola
+  model: XT1033
+  platform: Android
+  device_version: 5.1
+  inserted_at: <%= Time.zone.now %>
+  participant: participant500
+  last_seen_at: <%= Time.zone.now - 1.hours %>
+
+pt-BR_xt1033:
+  uuid: 114aa8d2b6df-95e3b8b9-ca20-402a-859d
+  device_uuid: 261a20daee28b161
+  manufacturer: motorola
+  model: XT1033
+  platform: Android
+  device_version: 5.1
+  inserted_at: <%= Time.zone.now %>
+  participant: participant600
+  last_seen_at: <%= Time.zone.now - 1.hours %>
+
+device_1:
+  uuid: 859d-95e3b8b9-ca20-402a-114aa8d2b6dd
+  device_uuid: 261a20daee28b163
+  manufacturer: motorola
+  model: XT1032
+  platform: Android
+  device_version: 5.1
+  inserted_at: <%= Time.zone.now %>
+  participant: participant318
+  last_seen_at: <%= Time.zone.now - 13.hours %>
+
+device_2:
+  uuid: 402a-859d-95e3b8b9-ca20-114aa8d2b6dd
+  device_uuid: 261a20daee28b163
+  manufacturer: motorola
+  model: XT1032
+  platform: Android
+  device_version: 5.1
+  inserted_at: <%= Time.zone.now %>
+  participant: participant319
+  last_seen_at: <%= Time.zone.now - 11.hours %>
