@@ -116,7 +116,7 @@ pt-BR:
         other: Tarefas atrasadas
       pending:
         one: Total
-        other: Totalis
+        other: Totais
       progress_bar: Linha do tempo
       scheduled_but_not_due: Tarefas futuras
       see_all: Ver tudo
