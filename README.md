@@ -15,6 +15,6 @@
 
     bin/rake db:create db:migrate
 
-## Run tests
+## Run tests, security scan, and linting
 
-    bin/rspec
+    bin/rake
