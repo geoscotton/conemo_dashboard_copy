@@ -23,6 +23,7 @@ pt-BR:
         not_accessed: Não acessada
         unreleased: Ainda não enviada
       report:
+        clinical_summary: Histórico do Participante
         help_message: Solicitação de ajuda
       show:
         header: Todos os contatos realizados
