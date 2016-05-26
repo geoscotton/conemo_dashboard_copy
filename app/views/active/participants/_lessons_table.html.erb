@@ -1,6 +1,5 @@
-<% last_seen_at = Device.find_by(participant: participant).try(:last_seen_at) %>
-<%= last_seen_at %>
-<%= t ".last_seen" %> <%= last_seen_at ? l(last_seen_at, format: :long) : "?" %>
+<% connectivity = DeviceConnectivityPresenter.new(participant) %>
+<%= t ".last_seen" %> <%= connectivity.last_seen_at_str %>
 <div class="tab-pane active" id="lessons">
   <table class="table table-bordered">
     <thead>
@@ -10,7 +9,6 @@
       <th></th>
     </thead>
     <tbody>
-      <% lack_of_connectivity_on = (last_seen_at && Time.zone.now - 12.hours >= last_seen_at) ? (last_seen_at + 12.hours).to_date : Date.tomorrow %>
       <% lessons.each_with_index do |lesson, index| %>
         <% release_date = participant.start_date ? (participant.start_date + lesson.day_in_treatment.days - 1.days) : nil %>
         <tr class="<%= participant.lesson_status(lesson) %>">
@@ -20,8 +18,7 @@
             <%= lesson.title %>
           </td>
           <td style="text-align: center;">
-            <% if lack_of_connectivity_on && lack_of_connectivity_on <= release_date &&
-                  Time.zone.today >= release_date %>
+            <% if connectivity.lost_by?(release_date) && Time.zone.today >= release_date %>
               <span class="fa-stack fa-lg" aria-hidden="true" title="No connectivity">
                 <i class="fa fa-wifi fa-stack-1x"></i>
                 <i class="fa fa-ban fa-stack-2x"></i>
