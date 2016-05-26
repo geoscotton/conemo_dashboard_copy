@@ -36,7 +36,7 @@
       - Difficulty accessing CONEMO app
 <% end %>
 
-<% (500..500).each do |pt_id| %>
+<% [500, 517].each do |pt_id| %>
   third_contact_<%= pt_id %>:
     session_length: 60
     participant: participant<%= pt_id %>
@@ -55,7 +55,7 @@
       - Difficulty accessing CONEMO app
 <% end %>
 
-<% (600..600).each do |pt_id| %>
+<% [500, 517].each do |pt_id| %>
   third_contact_<%= pt_id %>:
     session_length: 60
     participant: participant<%= pt_id %>
