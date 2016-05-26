@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.6 - 2016-05-26
+
+* fix last connection exception for missing device
+
 ## 0.12.5 - 2016-05-25
 
 * update translations
