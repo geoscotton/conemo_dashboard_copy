@@ -1,5 +1,5 @@
 # config valid only for this version of Capistrano
-lock "3.4.0"
+lock "3.5.0"
 
 set :application, "conemo_dashboard"
 set :repo_url, "git@github.com:NU-CBITS/#{ fetch(:application) }.git"
@@ -16,8 +16,6 @@ elsif fetch(:stage) == :production
 end
 
 set :scm, :git
-set :format, :pretty
-set :log_level, :debug
 set :pty, true
 set :linked_files, [
   "config/database.yml",
