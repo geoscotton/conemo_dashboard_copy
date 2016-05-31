@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.7 - 2016-05-31
+
+* keep adherence task if connectivity is restored
+
 ## 0.12.6 - 2016-05-26
 
 * fix last connection exception for missing device
