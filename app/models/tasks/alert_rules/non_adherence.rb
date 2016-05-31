@@ -10,7 +10,7 @@ module Tasks
           Participant.active.each do |participant|
             if triggered?(participant)
               report(participant)
-            else
+            elsif !threshold_lessons_missed?(participant)
               delete_active(participant)
             end
           end

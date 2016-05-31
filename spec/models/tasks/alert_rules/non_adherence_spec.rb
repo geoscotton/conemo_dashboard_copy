@@ -91,12 +91,21 @@ module Tasks
             end
 
             context "and a connectivity alert is active" do
-              it "does not create a task" do
+              it "does not create a new adherence task" do
                 connectivity_alert
 
                 expect do
                   NonAdherence.create_tasks
                 end.not_to change { Tasks::NonAdherenceCall.count }
+              end
+
+              it "does not delete an existing adherence task" do
+                adherence_alert
+                connectivity_alert
+
+                expect do
+                  NonAdherence.create_tasks
+                end.not_to change { Tasks::NonAdherenceCall.deleted.count }
               end
             end
           end
