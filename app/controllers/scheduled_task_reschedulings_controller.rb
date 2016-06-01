@@ -16,7 +16,9 @@ class ScheduledTaskReschedulingsController < ApplicationController
 
     if find_task.reschedule_at(scheduled_at) &&
        @scheduled_task_rescheduling.save
-      flash[:notice] = "#{find_task.model_name.human} successfully rescheduled"
+      flash[:notice] = [find_task.model_name.human,
+                        I18n.t("actioncontroller.tasks.rescheduled"),
+                        I18n.t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = "Error rescheduling #{find_task.model_name.human}: " +
                       find_task.errors.full_messages.join(", ")
