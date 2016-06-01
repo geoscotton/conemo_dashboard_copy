@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.8 - 2016-06-01
+
+* update translation
+
 ## 0.12.7 - 2016-05-31
 
 * keep adherence task if connectivity is restored
