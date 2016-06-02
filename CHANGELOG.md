@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.9 - 2016-06-02
+
+* enable superuser to view all models in rails admin
+
 ## 0.12.8 - 2016-06-01
 
 * update translation
