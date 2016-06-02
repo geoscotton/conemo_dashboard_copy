@@ -33,33 +33,6 @@ RailsAdmin.config do |config|
     show
     delete
     show_in_app
-
-    config.included_models = [
-      Admin,
-      ContentAccessEvent,
-      Device,
-      FinalAppointment,
-      FirstAppointment,
-      FirstContact,
-      HelpMessage,
-      Lesson,
-      Login,
-      Nurse,
-      NurseSupervisor,
-      NurseTask,
-      Participant,
-      PastDeviceAssignment,
-      PatientContact,
-      ParticipantStartDate,
-      PlannedActivity,
-      Response,
-      SecondContact,
-      SessionEvent,
-      Smartphone,
-      ThirdContact,
-      TokenAuth::AuthenticationToken,
-      User
-    ]
   end
 
   config.model Admin do
