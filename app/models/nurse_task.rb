@@ -30,6 +30,10 @@ class NurseTask < ActiveRecord::Base
     where status: STATUSES.active
   end
 
+  def self.resolved
+    where status: STATUSES.resolved
+  end
+
   def self.deleted
     where status: STATUSES.deleted
   end

@@ -4,6 +4,7 @@ module Tasks
     # Determines when network connectivity has been absent and is alertable.
     module LackOfConnectivity
       ALERTABLE_AFTER_DAYS = 2
+      TASK_FREE_PERIOD = 12.hours
 
       class << self
         def create_tasks(devices = nil)
@@ -13,7 +14,8 @@ module Tasks
 
         def triggered?(device)
           unless device.participant.status == Participant::ACTIVE &&
-                 device.participant.nurse.present?
+                 device.participant.nurse.present? &&
+                 !recently_resolved_task_exists?(device.participant)
             return false
           end
 
@@ -22,6 +24,16 @@ module Tasks
 
         def report(participant)
           Tasks::LackOfConnectivityCall.create(participant: participant)
+        end
+
+        def recently_resolved_task_exists?(participant)
+          task = Tasks::LackOfConnectivityCall
+                 .resolved
+                 .where(participant: participant)
+                 .order(:updated_at)
+                 .last
+
+          task.present? && Time.zone.now - task.updated_at < TASK_FREE_PERIOD
         end
       end
     end

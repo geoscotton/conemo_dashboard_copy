@@ -79,15 +79,31 @@ module Tasks
           end
 
           context "and there is a resolved task" do
-            it "creates a task" do
+            let(:resolved_task) do
               Tasks::LackOfConnectivityCall.create!(
                 participant: participant,
                 status: NurseTask::STATUSES.resolved
               )
+            end
 
-              expect do
-                LackOfConnectivity.create_tasks([stale_device])
-              end.to change { Tasks::LackOfConnectivityCall.count }.by(1)
+            context "and the task was resolved recently" do
+              it "doesn't create a task" do
+                resolved_task.update updated_at: 5.minutes.ago
+
+                expect do
+                  LackOfConnectivity.create_tasks([stale_device])
+                end.not_to change { Tasks::LackOfConnectivityCall.count }
+              end
+            end
+
+            context "and the task was resolved long ago" do
+              it "creates a task" do
+                resolved_task.update updated_at: 3.days.ago
+
+                expect do
+                  LackOfConnectivity.create_tasks([stale_device])
+                end.to change { Tasks::LackOfConnectivityCall.count }.by(1)
+              end
             end
           end
         end
