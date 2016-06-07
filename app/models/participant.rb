@@ -88,12 +88,12 @@ class Participant < ActiveRecord::Base
     "#{last_name}, #{first_name}"
   end
 
-  def study_day
+  def study_day(on: nil)
     result = nil
 
     if start_date
       Time.use_zone(TIMEZONES[locale]) do
-        result = (Time.zone.today - start_date).to_i + 1
+        result = ((on || Time.zone.today) - start_date).to_i + 1
       end
     end
 

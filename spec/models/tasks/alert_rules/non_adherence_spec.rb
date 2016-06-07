@@ -72,10 +72,27 @@ module Tasks
 
           context "and too many were missed" do
             context "and no connectivity alert is active" do
-              it "creates a task" do
-                expect do
-                  NonAdherence.create_tasks
-                end.to change { Tasks::NonAdherenceCall.count }.by(1)
+              context "and no sessions were released since the last alert " \
+                      "was resolved" do
+                it "doesn't create a task" do
+                  adherence_alert.update(status: NurseTask::STATUSES.resolved)
+
+                  expect do
+                    NonAdherence.create_tasks
+                  end.not_to change { Tasks::NonAdherenceCall.count }
+                end
+              end
+
+              context "and a session was released since the last alert " \
+                      "was resolved" do
+                it "creates a task" do
+                  adherence_alert.update(status: NurseTask::STATUSES.resolved,
+                                         updated_at: 2.days.ago)
+
+                  expect do
+                    NonAdherence.create_tasks
+                  end.to change { Tasks::NonAdherenceCall.count }.by(1)
+                end
               end
 
               context "and the Participant does not have an associated Nurse" do
