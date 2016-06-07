@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       resource :tasks_summary, only: :show
     end
 
-    resources :participants, except: [:index, :show] do
+    resources :participants, only: [:new, :create, :edit, :update] do
       resources :additional_contacts, only: [:new, :create]
       resource :call_to_schedule_final_appointment, only: [:new, :create, :edit, :update]
       resource :clinical_summary, only: :show
