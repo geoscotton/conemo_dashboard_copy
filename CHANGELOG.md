@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.10 - 2016-06-07
+
+* prevent admins destroying Participants, Devices
+* fix checkbox display on follow up confirmation
+
 ## 0.12.9 - 2016-06-02
 
 * enable superuser to view all models in rails admin
