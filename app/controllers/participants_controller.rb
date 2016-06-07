@@ -43,18 +43,6 @@ class ParticipantsController < ApplicationController
     end
   end
 
-  def destroy
-    @participant = Participant.where(id: params[:id]).first
-    authorize! :destroy, @participant
-
-    if @participant.destroy
-      flash[:success] = "Participant deleted."
-    else
-      flash[:error] = "There were errors."
-    end
-    redirect_to pending_participants_path
-  end
-
   private
 
   def referrer

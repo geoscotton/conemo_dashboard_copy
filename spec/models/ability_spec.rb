@@ -31,9 +31,11 @@ RSpec.describe Ability do
       expect(en_admin_role.can?(:manage, es_nurse)).to eq false
     end
 
-    it "can manage Participants of the same locale" do
+    it "can create, read, and update Participants of the same locale" do
       en_participants = Participant.where(locale: LOCALES[:en])
-      expect(en_admin_role.can?(:manage, en_participants)).to eq true
+      expect(en_admin_role.can?(:create, en_participants)).to eq true
+      expect(en_admin_role.can?(:read, en_participants)).to eq true
+      expect(en_admin_role.can?(:update, en_participants)).to eq true
     end
 
     it "cannot manage a Participant of a different locale" do
