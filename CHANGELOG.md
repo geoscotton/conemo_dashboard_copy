@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.11 - 2016-06-07
+
+* add new adherence task only after new session
+* allow new connectivity tasks only after delay
+
 ## 0.12.10 - 2016-06-07
 
 * prevent admins destroying Participants, Devices
