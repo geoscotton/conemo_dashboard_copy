@@ -16,6 +16,10 @@ module Tasks
         Participant.where.not(id: participant.id).destroy_all
       end
 
+      around do |ex|
+        Time.use_zone(Participant::TIMEZONES[participant.locale]) { ex.run }
+      end
+
       describe ".create_tasks" do
         context "when there have not been enough lessons released" do
           it "does not create a task" do

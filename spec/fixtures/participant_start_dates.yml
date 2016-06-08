@@ -1,11 +1,11 @@
 participant1:
   participant: participant1
-  date: <%= Time.zone.today %>
+  date: <%= Time.use_zone(Participant::TIMEZONES["en"]) { Time.zone.today } %>
   uuid: <%= SecureRandom.uuid %>
 
 active_participant:
   participant: active_participant
-  date: <%= Time.zone.today %>
+  date: <%= Time.use_zone(Participant::TIMEZONES["en"]) { Time.zone.today } %>
   uuid: <%= SecureRandom.uuid %>
 
 active_participant_day_5:
@@ -30,10 +30,10 @@ es_active_participant:
 
 english_active_participant:
   participant: english_active_participant
-  date: <%= Time.zone.today %>
+  date: <%= Time.use_zone(Participant::TIMEZONES["en"]) { Time.zone.today } %>
   uuid: <%= SecureRandom.uuid %>
 
 english_inactive_participant:
   participant: english_inactive_participant
-  date: <%= Time.zone.today %>
+  date: <%= Time.use_zone(Participant::TIMEZONES["en"]) { Time.zone.today } %>
   uuid: <%= SecureRandom.uuid %>

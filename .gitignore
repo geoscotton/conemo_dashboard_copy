@@ -18,3 +18,4 @@
 
 coverage
 spec/examples.txt
+.byebug_history
