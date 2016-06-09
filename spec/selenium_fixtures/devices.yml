@@ -74,3 +74,25 @@ device_2:
   inserted_at: <%= Time.zone.now %>
   participant: participant319
   last_seen_at: <%= Time.zone.now - 11.hours %>
+
+device_3:
+  uuid: 859d-95e3b8b9-ca20-4d2b6dd02a-114aa8
+  device_uuid: 261a20daee28b163
+  manufacturer: motorola
+  model: XT1032
+  platform: Android
+  device_version: 5.1
+  inserted_at: <%= Time.zone.now - 2.days %>
+  participant: participant414
+  last_seen_at: <%= Time.zone.now - 2.days %>
+
+device_4:
+  uuid: 402a-859d-95e8d2b6dd3b8b9-ca20-114aa
+  device_uuid: 261a20daee28b163
+  manufacturer: motorola
+  model: XT1032
+  platform: Android
+  device_version: 5.1
+  inserted_at: <%= Time.zone.now - 2.days %>
+  participant: participant415
+  last_seen_at: <%= Time.zone.now - 2.days %>

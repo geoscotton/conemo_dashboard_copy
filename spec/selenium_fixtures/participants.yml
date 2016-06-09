@@ -1,4 +1,4 @@
-<% (1000..1000).each do |pt_id| %>
+<% (1000..1001).each do |pt_id| %>
   participant<%= pt_id %>:
     nurse: user_400
     first_name: First
@@ -541,6 +541,22 @@
     gender: female
     status: active
     locale: en
+    address: 123 Main Street
+    created_at: <%= DateTime.now - 5 %>
+<% end %>
+
+<% (5000..5000).each do |pt_id| %>
+  participant<%= pt_id %>:
+    nurse: user_500
+    first_name: First
+    last_name: Last-<%= pt_id %>
+    study_identifier: <%= pt_id %>
+    family_health_unit_name: unit 1
+    phone: 1505050<%= pt_id %>
+    date_of_birth: <%= Date.today - ((54 * 365) - pt_id) %>
+    gender: female
+    status: active
+    locale: es-PE
     address: 123 Main Street
     created_at: <%= DateTime.now - 5 %>
 <% end %>

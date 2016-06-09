@@ -12,3 +12,17 @@ non_adherence_call_3:
   participant: participant342
   contact_at: <%= DateTime.now - 21.days %>
   explanation: Difficulties using CONEMO
+
+non_adherence_call_4:
+  participant: participant425
+  contact_at: <%= DateTime.now - 2.days %>
+  explanation: Difficulties using CONEMO
+  created_at: <%= DateTime.now - 2.days %>
+  updated_at: <%= DateTime.now - 2.days %>
+
+non_adherence_call_5:
+  participant: participant1001
+  contact_at: <%= DateTime.now - 1.hours %>
+  explanation: Difficulties using CONEMO
+  created_at: <%= DateTime.now - 1.hours %>
+  updated_at: <%= DateTime.now - 1.hours %>

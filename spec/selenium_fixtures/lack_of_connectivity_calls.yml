@@ -12,3 +12,17 @@ lack_of_connectivity_call_3:
   participant: participant342
   contact_at: <%= DateTime.now - 14.days + 2.hours%>
   explanation: Difficulties using CONEMO
+
+lack_of_connectivity_call_4:
+  participant: participant414
+  contact_at: <%= DateTime.now - 13.hours %>
+  explanation: Difficulties using CONEMO
+  created_at: <%= DateTime.now - 13.hours %>
+  updated_at: <%= DateTime.now - 13.hours %>
+
+lack_of_connectivity_call_5:
+  participant: participant415
+  contact_at: <%= DateTime.now - 11.hours %>
+  explanation: Difficulties using CONEMO
+  created_at: <%= DateTime.now - 11.hours %>
+  updated_at: <%= DateTime.now - 11.hours %>

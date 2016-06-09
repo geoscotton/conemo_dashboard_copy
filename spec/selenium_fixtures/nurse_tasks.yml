@@ -421,7 +421,7 @@
     overdue_at: <%= DateTime.now + 2.days %>
 <% end %>
 
-<% (410..415).each do |pt_id| %>
+<% (410..413).each do |pt_id| %>
   nurse_task_8<%= pt_id %>:
     participant: participant<%= pt_id %>
     type: Tasks::LackOfConnectivityCall
@@ -475,6 +475,28 @@
     overdue_at: <%= DateTime.now - 1.days - 1.hours %>
 <% end %>
 
+<% (414..414).each do |pt_id| %>
+  nurse_task_8<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::LackOfConnectivityCall
+    status: resolved
+    scheduled_at: <%= DateTime.now - 13.hours %>
+    overdue_at: <%= DateTime.now + 1.days - 1.hours %>
+    created_at: <%= DateTime.now - 13.hours %>
+    updated_at: <%= DateTime.now - 13.hours %>
+<% end %>
+
+<% (415..415).each do |pt_id| %>
+  nurse_task_8<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::LackOfConnectivityCall
+    status: resolved
+    scheduled_at: <%= DateTime.now - 11.hours %>
+    overdue_at: <%= DateTime.now + 1.days - 1.hours %>
+    created_at: <%= DateTime.now - 11.hours %>
+    updated_at: <%= DateTime.now - 11.hours %>
+<% end %>
+
 <% (804..804).each do |pt_id| %>
   nurse_task_9<%= pt_id %>:
     participant: participant<%= pt_id %>
@@ -500,6 +522,28 @@
     status: active
     scheduled_at: <%= DateTime.now %>
     overdue_at: <%= DateTime.now + 2.days %>
+<% end %>
+
+<% (425..425).each do |pt_id| %>
+  nurse_task_9<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::NonAdherenceCall
+    status: resolved
+    scheduled_at: <%= DateTime.now - 2.days %>
+    overdue_at: <%= DateTime.now %>
+    created_at: <%= DateTime.now - 2.days %>
+    updated_at: <%= DateTime.now - 2.days %>
+<% end %>
+
+<% (1001..1001).each do |pt_id| %>
+  nurse_task_9<%= pt_id %>:
+    participant: participant<%= pt_id %>
+    type: Tasks::NonAdherenceCall
+    status: resolved
+    scheduled_at: <%= DateTime.now - 1.hours %>
+    overdue_at: <%= DateTime.now + 2.days %>
+    created_at: <%= DateTime.now - 1.hours %>
+    updated_at: <%= DateTime.now - 1.hours %>
 <% end %>
 
 <% (1000..1000).each do |pt_id| %>

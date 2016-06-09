@@ -1,4 +1,4 @@
-<% (1000..1000).each do |pt_id| %>
+<% (1000..1001).each do |pt_id| %>
   participant_start_date<%= pt_id %>:
     date: <%= Date.today - 2 %>
     uuid: <%= SecureRandom.uuid %>
@@ -141,6 +141,13 @@
 <% (4026..4026).each do |pt_id| %>
   participant_start_date<%= pt_id %>:
     date: <%= Date.today - 10 %>
+    uuid: <%= SecureRandom.uuid %>
+    participant: participant<%= pt_id %>
+<% end %>
+
+<% (5000..5000).each do |pt_id| %>
+  participant_start_date<%= pt_id %>:
+    date: <%= Date.today - 45 %>
     uuid: <%= SecureRandom.uuid %>
     participant: participant<%= pt_id %>
 <% end %>
