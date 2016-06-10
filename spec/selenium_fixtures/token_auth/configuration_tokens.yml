@@ -1,4 +1,4 @@
-<% [338, 300, 326, 318, 305, 337, 308, 322, 325, 339, 5000].each do |pt_id| %>
+<% [338, 300, 326, 318, 305, 337, 308, 322, 325, 339, 9000].each do |pt_id| %>
   configuration_token_<%= pt_id %>:
     expires_at: <%= DateTime.now + 21.days %>
     value: aBc<%= pt_id %>XyZ
