@@ -609,16 +609,16 @@ en:
         alternate_phone_1: Alternate phone 1
         contact_person_1_name: Contact person
         contact_person_1_relationship: Relationship
-        contact_person_1_other_relationship: Relationship
+        contact_person_1_other_relationship: If other, specify here
         alternate_phone_2: Alternate phone 2
         contact_person_2_name: Contact person
         contact_person_2_relationship: Relationship
-        contact_person_2_other_relationship: Relationship
+        contact_person_2_other_relationship: If other, specify here
         date_of_birth: Birth date
         gender: Gender
         emergency_contact_name: Emergency contact (name)
         emergency_contact_relationship: Relationship
-        emergency_contact_other_relationship: Relationship
+        emergency_contact_other_relationship: If other, specify here
         emergency_contact_address: Address
         emergency_contact_phone: Telephone
         emergency_contact_cell_phone: Cell phone

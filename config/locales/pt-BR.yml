@@ -760,16 +760,16 @@ pt-BR:
         alternate_phone_1: Telefone alternativo 1
         contact_person_1_name: Nome de pessoa / lugar de telefone alternativo 1
         contact_person_1_relationship: Grau de parentesco/relacionamento
-        contact_person_1_other_relationship: Grau de parentesco/relacionamento
+        contact_person_1_other_relationship: Se marcou "outro", por favor especifique
         alternate_phone_2: Telefone alternativo 2
         contact_person_2_name: Nome de pessoa / lugar de telefone alternativo 2
         contact_person_2_relationship: Grau de parentesco/relacionamento
-        contact_person_2_other_relationship: Grau de parentesco/relacionamento
+        contact_person_2_other_relationship: Se marcou "outro", por favor especifique
         date_of_birth: Data de nascimento
         gender: Sexo
         emergency_contact_name: Contato de Emergência (nome)
         emergency_contact_relationship: Grau de parentesco/relacionamento
-        emergency_contact_other_relationship: Grau de parentesco/relacionamento
+        emergency_contact_other_relationship: Se marcou "outro", por favor especifique
         emergency_contact_address: Endereço
         emergency_contact_phone: Telefone fixo (Contato de Emergência)
         emergency_contact_cell_phone: Celular

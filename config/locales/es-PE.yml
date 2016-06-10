@@ -790,16 +790,16 @@ es-PE:
         alternate_phone_1: Teléfono alternativo 1
         contact_person_1_name: Nombre de persona / Lugar del teléfono alternativo 1
         contact_person_1_relationship: Relación con el participante
-        contact_person_1_other_relationship: Relación con el participante
+        contact_person_1_other_relationship: Si marcaste “otro”, por favor especifícalo aquí
         alternate_phone_2: Telefóno alternativo 2
         contact_person_2_name: Nombre de persona / Lugar del teléfono alternativo 2
         contact_person_2_relationship: Relación con el participante
-        contact_person_2_other_relationship: Relación con el participante
+        contact_person_2_other_relationship: Si marcaste “otro”, por favor especifícalo aquí
         date_of_birth: Fecha de nacimiento
         gender: Sexo
         emergency_contact_name: Contacto de Emergencia (nombre)
         emergency_contact_relationship: Relación con el participante
-        emergency_contact_other_relationship: Relación con el participante
+        emergency_contact_other_relationship: Si marcaste “otro”, por favor especifícalo aquí
         emergency_contact_address: Dirección actual
         emergency_contact_phone: Teléfono fijo (Contacto de Emergencia)
         emergency_contact_cell_phone: Celular
