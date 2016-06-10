@@ -80,6 +80,8 @@ NameVirtualHost *:443
   PassengerFriendlyErrorPages off
   PassengerAppEnv production
   PassengerRuby /usr/local/rvm/wrappers/ruby-#{ fetch(:rvm_ruby_version) }/ruby
+  # Always have at least 1 process in existence for the application
+  PassengerMinInstances 1
 
   ServerName conemo.northwestern.edu
 
@@ -96,7 +98,18 @@ NameVirtualHost *:443
     Allow from all
     Options -MultiViews
   </Directory>
+
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript
+
+  <Location /assets/>
+    # RFC says only cache for 1 year
+    ExpiresActive On
+    ExpiresDefault "access plus 1 year"
+  </Location>
 </VirtualHost>
+
+# Start the application before the first access
+PassengerPreStart https://conemo.northwestern.edu:443/
       EOF
 
       vhost_config = { staging: staging_vhost_config, production: production_vhost_config }
