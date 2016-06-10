@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.12 - 2016-06-10
+
+* update translation
+
 ## 0.12.11 - 2016-06-07
 
 * add new adherence task only after new session
