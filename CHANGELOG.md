@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.13 - 2016-06-15
+
+* add Statistician role that can export all records
+
 ## 0.12.12 - 2016-06-10
 
 * update translation
