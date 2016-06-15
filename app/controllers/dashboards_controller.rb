@@ -12,6 +12,8 @@ class DashboardsController < ApplicationController
       redirect_to pending_participants_url
     elsif current_user.is_a? Superuser
       redirect_to rails_admin_url
+    elsif current_user.is_a? Statistician
+      redirect_to rails_admin_url
     end
   end
 end

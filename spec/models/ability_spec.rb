@@ -16,6 +16,14 @@ RSpec.describe Ability do
     end
   end
 
+  describe "Statistician permissions" do
+    let(:statistician_role) { Ability.new(Statistician.first) }
+
+    it "can read all models" do
+      expect(statistician_role.can?(:read, :all)).to eq true
+    end
+  end
+
   describe "Admin permissions" do
     let(:en_admin_role) { Ability.new(users(:admin1)) }
     let(:es_nurse) { users(:peruvian_nurse) }

@@ -9,6 +9,17 @@ superuser1:
   timezone: Central Time (US & Canada)
   confirmed_at: <%= Time.zone.now %>
 
+statistician1:
+  type: Statistician
+  first_name: Stat
+  last_name: User
+  email: statistician1@example.com
+  encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+  phone: 555-555-5555
+  locale: en
+  timezone: Central Time (US & Canada)
+  confirmed_at: <%= Time.zone.now %>
+
 nurse1:
   type: Nurse
   first_name: Linda

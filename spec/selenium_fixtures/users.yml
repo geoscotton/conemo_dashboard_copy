@@ -12,6 +12,19 @@
     confirmed_at: <%= DateTime.now - 30 %>
 <% end %>
 
+<% (150..150).each do |user_id| %>
+  user_<%= user_id %>:
+    email: user_<%= user_id %>@example.com
+    encrypted_password: <%= User.new.send(:password_digest, 'secrets!') %>
+    phone: 11111111<%= user_id %>
+    first_name: English
+    last_name: Administrator-<%= user_id %>
+    locale: en
+    timezone: Central Time (US & Canada)
+    type: Statistician
+    confirmed_at: <%= DateTime.now - 30 %>
+<% end %>
+
 <% (200..200).each do |user_id| %>
   user_<%= user_id %>:
     email: user_<%= user_id %>@example.com

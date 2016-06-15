@@ -6,19 +6,15 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    if user.is_a? Superuser
-      can :manage, :all
+    authorize_superuser if user.is_a?(Superuser)
 
-      return
-    end
+    authorize_statistician if user.is_a?(Statistician)
 
-    if user.admin?
-      authorize_admin user
-    elsif user.is_a? NurseSupervisor
-      authorize_nurse_supervisor user
-    elsif user.nurse?
-      authorize_nurse user
-    end
+    authorize_admin(user) if user.admin?
+
+    authorize_nurse_supervisor(user) if user.is_a?(NurseSupervisor)
+
+    authorize_nurse(user) if user.nurse?
 
     [:read, :create, :update, :destroy, :manage].each do |permission|
       can permission, ActiveRecord::Relation do |relation|
@@ -28,6 +24,16 @@ class Ability
   end
 
   private
+
+  def authorize_superuser
+    can :manage, :all
+  end
+
+  def authorize_statistician
+    can [:read, :export], :all
+    can :manage, :rails_admin
+    can :dashboard
+  end
 
   def authorize_admin(admin)
     can :manage, BitCore::Slide

@@ -48,5 +48,16 @@ RSpec.describe DashboardsController, type: :controller do
         expect(response).to redirect_to rails_admin_url
       end
     end
+
+    context "when a Statistician accesses it" do
+      it "redirects to Rails admin" do
+        user = Statistician.all.sample
+        sign_in_user user
+
+        get :index, locale: user.locale
+
+        expect(response).to redirect_to rails_admin_url
+      end
+    end
   end
 end
