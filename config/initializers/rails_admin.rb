@@ -210,7 +210,7 @@ RailsAdmin.config do |config|
 
     list do
       field :participant
-      field :next_contact
+      field :appointment_at
     end
   end
 
@@ -289,7 +289,7 @@ RailsAdmin.config do |config|
 
     list do
       field :participant
-      field :next_contact
+      field :contact_at
     end
   end
 
@@ -298,7 +298,7 @@ RailsAdmin.config do |config|
 
     list do
       field :participant
-      field :final_appointment_at
+      field :contact_at
     end
   end
 
@@ -309,7 +309,7 @@ RailsAdmin.config do |config|
       field :entity_id do
         label "Participant"
         pretty_value do
-          Participant.find(value).study_identifier
+          Participant.find_by_id(value).try(:study_identifier)
         end
       end
       field :is_enabled
