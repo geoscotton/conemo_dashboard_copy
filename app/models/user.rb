@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
   ROLES = {
     admin: "admin",
     nurse: "nurse",
-    nurse_supervisor: "nurse_supervisor"
+    nurse_supervisor: "nurse_supervisor",
+    statistician: "statistician"
   }.freeze
   SESSION_TIMEOUT = 30.minutes.freeze
 
