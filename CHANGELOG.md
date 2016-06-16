@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.15 - 2016-06-16
+
+* access existing fields in rails admin
+
 ## 0.12.14 - 2016-06-16
 
 * add 'statistician' role to User
