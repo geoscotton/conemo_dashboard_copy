@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.14 - 2016-06-16
+
+* add 'statistician' role to User
+
 ## 0.12.13 - 2016-06-15
 
 * add Statistician role that can export all records
