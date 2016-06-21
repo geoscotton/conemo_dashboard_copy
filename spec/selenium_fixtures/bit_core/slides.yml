@@ -461,6 +461,12 @@
     position: 1
     title: "Slide 1"
 
+  es_slide_57b:
+    slideshow: es_slideshow_15
+    body: '<p>whatever</p>'
+    position: 2
+    title: "Slide 2"
+
   es_slide_58:
     slideshow: es_slideshow_16
     body: '<p>Por lo general, los cambios importantes no ocurren de un d&iacute;a para el otro, sino que toman tiempo.&nbsp;</p><p>&nbsp;</p><p>Por eso, a veces es dif&iacute;cil darse cuenta de que estos cambios est&aacute;n sucediendo.&nbsp;</p><p>&nbsp;</p><p>Es importante que recuerdes todo lo que has aprendido y crecido hasta el momento.</p>'
