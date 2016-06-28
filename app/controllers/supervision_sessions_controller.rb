@@ -25,8 +25,9 @@ class SupervisionSessionsController < ApplicationController
 
     if @supervision_session.save
       redirect_to nurse_supervision_sessions_url(@nurse),
-                  notice: @supervision_session.model_name.human + " " +
-                          t(".success")
+                  notice: [SupervisionSession.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @supervision_session.errors.full_messages.join(", ")
       render :new

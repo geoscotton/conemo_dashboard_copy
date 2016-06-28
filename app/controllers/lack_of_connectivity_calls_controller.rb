@@ -14,8 +14,9 @@ class LackOfConnectivityCallsController < ApplicationController
 
     if @lack_of_connectivity_call.save
       redirect_to participant_tasks_url(@participant),
-                  notice: @lack_of_connectivity_call.model_name.human +
-                          " saved successfully"
+                  notice: [LackOfConnectivityCall.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @lack_of_connectivity_call.errors.full_messages.join(", ")
       render :new

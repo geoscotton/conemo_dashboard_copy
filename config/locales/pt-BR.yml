@@ -46,7 +46,7 @@ pt-BR:
     nurse:
       cancelled: cancelada
       last_supervision_session: Última Sessão de Supervisão
-      log_supervision_session: Resgistrar Sessão de Supervisão
+      log_supervision_session: Registrar Sessão de Supervisão
       overdue:
         one: Tarefa Atrasada
         other: Tarefas Atrasadas
@@ -146,13 +146,14 @@ pt-BR:
         save_button: "Salvar"
         cancel_button: "Cancelar"
         confirm: Confirmar
-        nurse: "Aux. de Enfermagem"
+        nurse: Auxiliar de Enfermagem
         "true": "Sim"
         "false": "Não"
         pending: "Pendente"
         create: "criar"
         update: "atualizar"
         edit: "editar"
+        participant_page: Página Principal do Participante
         reschedule: "remarcar"
         reschedule_heading: "Remarcar"
         app_download: "Baixar Aplicativo"
@@ -666,7 +667,7 @@ pt-BR:
           - Eventos adversos sérios (mencionados pela/o AE)
           - Términos de Tratamento
           - Dúvidad com respeito às tarefas
-          - Dúvidas com respeito à intervenção
+          - Dúvidas com respeito às tarefas
           - Outros pontos de contato programados
           - Pedidos de ajuda resolvidos
           - Situações difíceis relacionadas ao estudo
@@ -719,9 +720,12 @@ pt-BR:
       smartphone:
         one: Smartphone
         other: Smartphones
+      supervisor_notification:
+        one: Notificação ao Supervisor
+        other: Notificação ao Supervisor
       supervision_session:
-        one: Sessão de Supervisão
-        other: Sessão de Supervisão
+        one: Questões Admnistrativas
+        other: Questões Admnistrativas
       supervisor_note:
         one: Nota do Supervisor
         other: Notas do Supervisor

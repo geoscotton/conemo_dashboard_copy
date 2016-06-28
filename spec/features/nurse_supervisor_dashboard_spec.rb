@@ -15,6 +15,6 @@ RSpec.describe "Nurse supervisor dashboard", type: :feature do
 
     click_on "Guardar"
 
-    expect(page).to have_content "Información actualizada exitosamente"
+    expect(page).to have_content "Información actualizada satisfactoriamente"
   end
 end

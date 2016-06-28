@@ -22,7 +22,8 @@ RSpec.describe "Nurse dashboard", type: :feature do
 
     click_on "Guardar"
 
-    expect(page).to have_content "Contacto adicional guardado exitosamente"
+    expect(page)
+      .to have_content "Contacto adicional guardado satisfactoriamente"
   end
 
   scenario "a Nurse gets confused and visits the Supervisor dashboard" do

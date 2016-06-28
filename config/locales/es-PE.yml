@@ -3,7 +3,7 @@ es-PE:
     cancelled: cancelada
     saved: guardada
     saved_m: guardado
-    successfully: exitosamente
+    successfully: satisfactoriamente
     participants:
       saved_participant: Información actualizada
     tasks:
@@ -26,9 +26,10 @@ es-PE:
       lessons_table:
         last_seen: Conectado/a por última vez
       report:
+        clinical_summary: Historial de Participación
         help_message: Solicitud de ayuda
       show:
-        header: Todos los contactos realizados
+        header: Tareas Realizadas
   layouts:
     application:
       menu: Información
@@ -60,8 +61,8 @@ es-PE:
         one: completado
         other: completados
       dropped_out:
-        one: Suspensión del Tratamiento
-        other: Suspensión del Tratamiento
+        one: suspendido del tratamiento
+        other: suspendidos del tratamiento
       pending:
         one: pendiente
         other: pendientes
@@ -101,7 +102,7 @@ es-PE:
       active_due: Tareas actuales
       cancelled: Cancelado
       clear: Borrar tarea
-      clinical_summary: Historia del Paciente
+      clinical_summary: Historial de Participación
       confirm_clear: ¿Estás seguro/a de que quieres borrar esto?
       confirm_supervisor_notification: ¿Estás seguro/a de que quieres enviar una solicitud de ayuda al supervisor?
       confirmed: Confirmado
@@ -109,7 +110,7 @@ es-PE:
       current_task:
         one: Tarea pendiente
         other: Tareas pendientes
-      last_supervisor_contact_sent: último contacto supervisor de enviado en
+      last_supervisor_contact_sent: Supervisor contactado por última vez el
       mark_as_resolved: Tarea resuelta
       overdue: Atrasado
       overdue_task:
@@ -155,6 +156,7 @@ es-PE:
         create: "realizado"
         update: "actualizar"
         edit: "editar"
+        participant_page: Página Principal del Participante
         reschedule: "reprogramar"
         reschedule_heading: "Reprogramar"
         app_download: "Descarga la Aplicación"
@@ -727,8 +729,8 @@ es-PE:
       help_message: Solicitud de ayuda
       help_request_call: Solicitud de ayuda
       "tasks/help_request": Solicitud de ayuda
-      lack_of_connectivity_call: Llamada por no-conectividad
-      "tasks/lack_of_connectivity_call": Llamada por no-conectividad
+      lack_of_connectivity_call: Llamada por no conectividad
+      "tasks/lack_of_connectivity_call": Llamada por no conectividad
       non_adherence_call: Llamada por no-adherencia
       "tasks/non_adherence_call": Llamada por no-adherencia
       nurse: Enfermera
@@ -812,12 +814,15 @@ es-PE:
       second_contact:
         contact_at: Fecha/hora de la llamada
         difficulties: ¿El paciente ha tenido algunas dificultades usando CONEMO?
-        session_length: Duración de la llamada (min)
+        session_length: Duración de la sesión (min)
         next_contact: Llamada de seguimiento sem. 3
         notes: Observaciones (cuadrado de texto)
       smartphone:
         number: Número del smartphone / número de serie
         phone_identifier: Código del smartphone
+      supervisor_notification:
+        one: Notificación al supervisor
+        other: Notificación al supervisor
       supervision_session:
         session_at: Fecha/hora
         session_length: Duración (min)
@@ -830,7 +835,7 @@ es-PE:
         final_appointment_at: Llamada para programar cita final
         difficulties: ¿El paciente ha tenido algunas dificultades usando CONEMO?
         contact_at: Fecha/hora de la llamada
-        session_length: Duración de la llamada (min)
+        session_length: Duración de la sesión (min)
         notes: Observaciones (cuadrado de texto)
       user:
         current_password: Contraseña actual

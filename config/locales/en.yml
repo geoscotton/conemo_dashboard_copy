@@ -26,6 +26,7 @@ en:
       lessons_table:
         last_seen: Last connection at
       report:
+        clinical_summary: Clinical summary
         help_message: Help request
       show:
         header: All concluded contacts
@@ -192,6 +193,7 @@ en:
         create: "create"
         update: "update"
         edit: "edit"
+        participant_page: Participant page
         reschedule: "reschedule"
         reschedule_heading: "Reschedule"
         app_download: "App Download"

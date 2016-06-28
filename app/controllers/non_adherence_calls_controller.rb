@@ -14,8 +14,9 @@ class NonAdherenceCallsController < ApplicationController
 
     if @non_adherence_call.save
       redirect_to participant_tasks_url(@participant),
-                  notice: @non_adherence_call.model_name.human +
-                          " saved successfully"
+                  notice: [NonAdherenceCall.model_name.human,
+                           t("actioncontroller.saved"),
+                           t("actioncontroller.successfully")].join(" ")
     else
       flash[:alert] = @non_adherence_call.errors.full_messages.join(", ")
       render :new
