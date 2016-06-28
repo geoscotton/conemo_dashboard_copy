@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace "api", constraints: { format: 'json' }  do
     get "lessons" => "lessons#index"
+    get "study_identifier" => "study_identifiers#show"
   end
 
   scope "/(:locale)" do
