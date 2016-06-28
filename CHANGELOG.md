@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.16 - 2016-06-28
+
+* update translations
+
 ## 0.12.15 - 2016-06-16
 
 * access existing fields in rails admin
