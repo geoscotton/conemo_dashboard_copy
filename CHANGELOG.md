@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.17 - 2016-06-28
+
+* add API to make study identifier accessible (#278)
+
 ## 0.12.16 - 2016-06-28
 
 * update translations
