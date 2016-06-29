@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.18 - 2016-06-29
+
+* allow 'label' tags in ckeditor
+
 ## 0.12.17 - 2016-06-28
 
 * add API to make study identifier accessible (#278)
