@@ -60,7 +60,7 @@ class NurseTask < ActiveRecord::Base
   end
 
   def due?
-    scheduled_at.to_date <= Time.zone.today
+    scheduled_at <= Time.zone.now
   end
 
   def to_s
