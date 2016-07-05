@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.19 - 2016-07-05
+
+* update translations, contact info order
+* tweak definition of a "due" task
+* change scheduled task overdue period to 3 days
+
 ## 0.12.18 - 2016-06-29
 
 * allow 'label' tags in ckeditor
