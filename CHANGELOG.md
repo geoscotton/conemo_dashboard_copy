@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.20 - 2016-07-07
+
+* display task colors only for due tasks
+
 ## 0.12.19 - 2016-07-05
 
 * update translations, contact info order
