@@ -39,7 +39,8 @@ RSpec.describe "tasks/index", type: :view do
       TaskPresenter,
       css_class: "foo",
       task: Tasks::FollowUpCallWeekOne.new,
-      scheduled_at: Time.zone.parse("2014-03-04T12:00:00Z")
+      scheduled_at: Time.zone.parse("2014-03-04T12:00:00Z"),
+      due?: true
     )
     allow(tasks).to receive(:scheduled_tasks) { [completed_task] }
 

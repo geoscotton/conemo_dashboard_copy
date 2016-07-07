@@ -28,7 +28,7 @@
        Tasks::FinalInPersonAppointment ].each_with_index do |task, i| %>
     <% task_instance = scheduled_task_types[task].try(:first) %>
     <% task_style = "width: #{ i <= 3 ? 17 : 16 }%; #{ i < 5 ? 'border-right: 1px solid;' : '' }" %>
-    <% task_class = task_instance.try(:css_class) || "future" %>
+    <% task_class = task_instance.try(:due?) ? task_instance.css_class : "future" %>
     <%= content_tag("div",
                     class: "progress-bar progress-bar-#{ task_class }",
                     style: task_style) do %>
