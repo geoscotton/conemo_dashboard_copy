@@ -2,7 +2,7 @@
 module Tasks
   # A triggered task to respond to a Help Message.
   class HelpRequest < NurseTask
-    OVERDUE_AFTER_DAYS = 2
+    OVERDUE_AFTER_DAYS = 1
 
     validates :participant_id,
               uniqueness: {

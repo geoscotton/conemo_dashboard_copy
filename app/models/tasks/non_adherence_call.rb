@@ -2,7 +2,7 @@
 module Tasks
   # A triggered task to call about lack of adherence.
   class NonAdherenceCall < NurseTask
-    OVERDUE_AFTER_DAYS = 2
+    OVERDUE_AFTER_DAYS = 1
 
     validates :participant_id,
               uniqueness: {
