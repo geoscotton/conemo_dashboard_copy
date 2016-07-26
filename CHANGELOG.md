@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.21 - 2016-07-25
+
+* link terminated participants for supervisors (#281)
+* decrement overdue threshold for tasks (#280)
+
 ## 0.12.20 - 2016-07-07
 
 * display task colors only for due tasks
