@@ -25,6 +25,7 @@ RSpec.describe ParticipantObserver do
       HelpMessage
       Login
       SessionEvent
+      PlannedActivity
     ).each do |resource|
       it "creates a #{resource} resource" do
         expect { observer.after_save(participant) }.to change {
@@ -40,7 +41,6 @@ RSpec.describe ParticipantObserver do
     %w(
       ContentAccessEvent
       ParticipantStartDate
-      PlannedActivity
     ).each do |resource|
       it "creates a #{resource} resource" do
         expect { observer.after_save(participant) }.to change {

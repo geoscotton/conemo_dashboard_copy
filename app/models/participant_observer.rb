@@ -9,11 +9,11 @@ class ParticipantObserver < ActiveRecord::Observer
     HelpMessage
     Login
     SessionEvent
+    PlannedActivity
   ).freeze
   SYNCABLE_RESOURCES = %w(
     ContentAccessEvent
     ParticipantStartDate
-    PlannedActivity
   ).freeze
 
   def after_save(participant)
