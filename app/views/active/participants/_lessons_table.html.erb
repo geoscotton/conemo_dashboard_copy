@@ -18,7 +18,9 @@
             <%= lesson.title %>
           </td>
           <td style="text-align: center;">
-            <% if connectivity.lost_by?(release_date) && Time.zone.today >= release_date %>
+            <% if Time.zone.today >= release_date &&
+              connectivity.lack_of_on_release_day?(lesson.day_in_treatment - 1,
+                                                   lessons.to_a[index + 1] ? lessons.to_a[index + 1].day_in_treatment - 1 : nil) %>
               <span class="fa-stack fa-lg" aria-hidden="true" title="No connectivity">
                 <i class="fa fa-wifi fa-stack-1x"></i>
                 <i class="fa fa-ban fa-stack-2x"></i>

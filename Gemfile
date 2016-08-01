@@ -50,6 +50,7 @@ group :test do
   gem "capybara"
   gem "simplecov", "~> 0.10.0", require: false
   gem "poltergeist"
+  gem "timecop", "~> 0.8.X"
 end
 
 gem "bit_core", "~> 1.4"
