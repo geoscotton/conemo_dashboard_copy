@@ -145,3 +145,17 @@ pt_pending_participant:
   gender: male
   locale: pt-BR
   address: 123 Main Street
+
+es_terminated_participant:
+  nurse: peruvian_nurse
+  status: dropped_out
+  first_name: First
+  last_name: Last
+  study_identifier: 2343253223
+  family_health_unit_name: unit 1
+  phone: 1505050233
+  date_of_birth: <%= Date.today %>
+  gender: female
+  locale: es-PE
+  address: 123 Main Street
+  created_at: <%= DateTime.now - 5 %>

@@ -22,8 +22,8 @@ namespace :seed do
       :users, :participants, :"bit_core/slideshows", :"bit_core/slides", :lessons,
       :first_contacts, :content_access_events,
       :responses, :first_appointments, :patient_contacts,
-      :reminder_messages, :responses, :smartphones, :help_messages,
-      :second_contacts, :third_contacts
+      :responses, :smartphones, :help_messages,
+      :second_contacts, :third_contacts, :participant_start_dates
     ]
   end
 end

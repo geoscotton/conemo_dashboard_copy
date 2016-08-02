@@ -37,3 +37,8 @@ english_inactive_participant:
   participant: english_inactive_participant
   date: <%= Time.use_zone(Participant::TIMEZONES["en"]) { Time.zone.today } %>
   uuid: <%= SecureRandom.uuid %>
+
+es_terminated_participant:
+  participant: es_terminated_participant
+  date: <%= Time.zone.today %>
+  uuid: <%= SecureRandom.uuid %>

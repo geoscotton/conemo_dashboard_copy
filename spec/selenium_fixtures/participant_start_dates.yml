@@ -151,3 +151,10 @@
     uuid: <%= SecureRandom.uuid %>
     participant: participant<%= pt_id %>
 <% end %>
+
+<% [1].each do %>
+  es_terminated_participant:
+    participant: es_terminated_participant
+    date: <%= Time.zone.today %>
+    uuid: <%= SecureRandom.uuid %>
+<% end %>

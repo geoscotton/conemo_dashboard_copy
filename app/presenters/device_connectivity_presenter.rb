@@ -13,6 +13,8 @@ class DeviceConnectivityPresenter
 
   # Returns true if lack of connectivity is detected for the given release day.
   def lack_of_on_release_day?(release_day, next_release_day)
+    return false if device_last_seen_at.nil?
+
     released_at = release_timestamp(release_day)
     next_released_at = next_release_day.nil? ? nil : release_timestamp(next_release_day)
 

@@ -13,6 +13,14 @@ RSpec.describe DeviceConnectivityPresenter do
       allow(Device).to receive(:find_by) { device }
     end
 
+    context "when the device record is missing" do
+      it "returns false" do
+        allow(Device).to receive(:find_by) { nil }
+
+        expect(connectivity.lack_of_on_release_day?(1, 3)).to be false
+      end
+    end
+
     context "when there has been no lack of connectivity" do
       it "returns false" do
         device_seen(2.minutes.ago)

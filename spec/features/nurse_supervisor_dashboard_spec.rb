@@ -17,4 +17,15 @@ RSpec.describe "Nurse supervisor dashboard", type: :feature do
 
     expect(page).to have_content "Información actualizada satisfactoriamente"
   end
+
+  scenario "a Nurse Supervisor views the clinical summary for a terminated " \
+           "participant", js: true do
+    sign_in_user es_nurse_supervisor
+
+    find("td", text: participants(:es_terminated_participant).study_identifier).click
+    click_on "Información"
+    click_on "Historial de Participación"
+
+    expect(page).to have_content "Historial de Participación"
+  end
 end
