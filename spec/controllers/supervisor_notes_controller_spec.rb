@@ -11,7 +11,7 @@ RSpec.describe SupervisorNotesController, type: :controller do
     { note: nil }
   end
   let(:valid_session) { { nurse_id: nurse.id } }
-  let(:locale) { LOCALES.values.sample }
+  let(:locale) { "pt-BR" }
   let(:nurse) do
     Nurse.find_by(locale: locale)
   end
