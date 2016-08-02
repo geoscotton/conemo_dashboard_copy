@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.23 - 2016-08-02
+
+* remove unused Help Message code
+* change overdue criterion for connectivity task
+* handle connectivity icon when device is nil
+
 ## 0.12.22 - 2016-08-01
 
 * update logic for non-connectivity icon (#283)
