@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728185345) do
+ActiveRecord::Schema.define(version: 20160802194003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,14 +157,13 @@ ActiveRecord::Schema.define(version: 20160728185345) do
   add_index "first_contacts", ["participant_id"], name: "index_first_contacts_on_participant_id", using: :btree
 
   create_table "help_messages", force: :cascade do |t|
-    t.integer  "participant_id",                     null: false
-    t.text     "message",                            null: false
-    t.boolean  "read",               default: false, null: false
+    t.integer  "participant_id",     null: false
+    t.text     "message",            null: false
     t.string   "staff_message_guid"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "sent_at",                            null: false
-    t.string   "uuid",                               null: false
+    t.datetime "sent_at",            null: false
+    t.string   "uuid",               null: false
     t.datetime "client_created_at"
     t.datetime "client_updated_at"
   end
