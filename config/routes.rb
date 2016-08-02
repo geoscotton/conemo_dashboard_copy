@@ -33,7 +33,6 @@ Rails.application.routes.draw do
       resource :final_appointment, only: [:new, :create, :edit, :update]
       resource :first_contact, only: [:new, :create, :edit, :update]
       resource :first_appointment, only: [:new, :create, :edit, :update]
-      resources :help_messages, only: [:update]
       resources :help_request_calls, only: [:new, :create]
       resources :lack_of_connectivity_calls, only: [:new, :create]
       resources :non_adherence_calls, only: [:new, :create]
