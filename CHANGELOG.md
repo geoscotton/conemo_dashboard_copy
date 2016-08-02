@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.22 - 2016-08-01
+
+* update logic for non-connectivity icon (#283)
+* prevent Planned Activities from being pulled
+
 ## 0.12.21 - 2016-07-25
 
 * link terminated participants for supervisors (#281)
