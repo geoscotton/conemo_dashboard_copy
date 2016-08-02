@@ -62,7 +62,7 @@ device_1:
   device_version: 5.1
   inserted_at: <%= Time.zone.now %>
   participant: participant318
-  last_seen_at: <%= Time.zone.now - 13.hours %>
+  last_seen_at: <%= Time.zone.now.beginning_of_day - 13.hours %>
 
 device_2:
   uuid: 402a-859d-95e3b8b9-ca20-114aa8d2b6dd
