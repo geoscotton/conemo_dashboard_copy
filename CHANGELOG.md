@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.24 - 2016-08-03
+
+* remove unused validation
+
 ## 0.12.23 - 2016-08-02
 
 * remove unused Help Message code
