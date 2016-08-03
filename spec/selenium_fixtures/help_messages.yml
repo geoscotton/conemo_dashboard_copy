@@ -1,34 +1,29 @@
 help_message_1:
   participant: participant333
   message: Help me!
-  read: false
   sent_at: <%= DateTime.now %>
   uuid: <%= SecureRandom.uuid %>
 
 help_message_2:
   participant: participant343
   message: I need some help, please
-  read: true
   sent_at: <%= DateTime.now - 2 %>
   uuid: <%= SecureRandom.uuid %>
 
 help_message_3:
   participant: participant343
   message: Help!
-  read: true
   sent_at: <%= DateTime.now - 1 %>
   uuid: <%= SecureRandom.uuid %>
 
 help_message_4:
   participant: participant500
   message: Help!
-  read: false
   sent_at: <%= DateTime.now %>
   uuid: <%= SecureRandom.uuid %>
 
 help_message_5:
   participant: participant600
   message: Help!
-  read: false
   sent_at: <%= DateTime.now %>
   uuid: <%= SecureRandom.uuid %>
