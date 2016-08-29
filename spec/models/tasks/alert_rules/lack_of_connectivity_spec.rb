@@ -10,6 +10,9 @@ module Tasks
       let(:inactive_participant) do
         Participant.where.not(status: Participant::ACTIVE).first
       end
+      let(:connectivity_alert) do
+        Tasks::LackOfConnectivityCall.create!(participant: participant)
+      end
 
       describe ".create_tasks" do
         context "when there are no devices" do
@@ -29,6 +32,19 @@ module Tasks
             expect do
               LackOfConnectivity.create_tasks([device])
             end.not_to change { Tasks::LackOfConnectivityCall.count }
+          end
+
+          context "and there was an existing connectivity alert" do
+            it "deletes it" do
+              connectivity_alert
+              device = instance_double(Device,
+                                       last_seen_at: Time.zone.now - 14.minutes,
+                                       participant: participant)
+
+              expect do
+                LackOfConnectivity.create_tasks([device])
+              end.to change { Tasks::LackOfConnectivityCall.deleted.count }.by(1)
+            end
           end
         end
 

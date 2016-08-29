@@ -9,7 +9,13 @@ module Tasks
       class << self
         def create_tasks(devices = nil)
           devices ||= Device.all
-          devices.each { |d| report(d.participant) if triggered?(d) }
+          devices.each do |d|
+            if triggered?(d)
+              report(d.participant)
+            elsif recently_seen?(d)
+              delete_active(d.participant)
+            end
+          end
         end
 
         def triggered?(device)
@@ -34,6 +40,17 @@ module Tasks
                  .last
 
           task.present? && Time.zone.now - task.updated_at < TASK_FREE_PERIOD
+        end
+
+        def recently_seen?(device)
+          Time.zone.now - device.last_seen_at < 15.minutes
+        end
+
+        def delete_active(participant)
+          Tasks::LackOfConnectivityCall
+            .active
+            .where(participant: participant)
+            .map(&:soft_delete)
         end
       end
     end

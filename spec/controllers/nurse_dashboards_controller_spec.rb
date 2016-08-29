@@ -4,7 +4,7 @@ require "rails_helper"
 RSpec.describe NurseDashboardsController, type: :controller do
   fixtures :users, :participants
 
-  let(:locale) { LOCALES.values.sample }
+  let(:locale) { "pt-BR" }
 
   describe "GET show" do
     context "for an unauthenticated request" do
