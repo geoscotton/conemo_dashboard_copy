@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.26 - 2016-08-29
+
+* update rails to patched version (#291)
+* Add soft delete to LackOfConnectivity alert
+
 ## 0.12.24 - 2016-08-03
 
 * remove unused validation
