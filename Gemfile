@@ -36,6 +36,7 @@ group :development, :test do
   gem "spring-commands-rspec"
   gem "rb-fsevent"
   gem "terminal-notifier-guard"
+  gem "bundler-audit", require: false
 end
 
 group :development do
