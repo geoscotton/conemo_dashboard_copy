@@ -134,16 +134,13 @@ es-PE:
                                "NO" y el título "SÍ" al mismo tiempo.
   conemo:
     family_health_units:
-      - Centro de salud 1
-      - Centro de salud 2
-      - Centro de salud 3
-      - Centro de salud 4
-      - Centro de salud 5
-      - Centro de salud 6
-      - Centro de salud 7
-      - Centro de salud 8
-      - Centro de salud 9
-      - Centro de salud 10
+      - Hospital Nacional Arzobispo Loayza
+      - Hospital Nacional Cayetano Heredia
+      - Hospital Nacional 2 de Mayo
+      - Policlínico JJ Rodríguez Lazo
+      - Policlínico Hermana María Donrose Sutmöller
+      - Policlínico Bellavista
+      - CAP III Carabayllo
     views:
       shared:
         save_button: "Guardar"
