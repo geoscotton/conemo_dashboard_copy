@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.27 - 2017-01-31
+
+* update health center names (#292)
+
 ## 0.12.26 - 2016-08-29
 
 * update rails to patched version (#291)
