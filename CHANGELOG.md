@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.28 - 2017-02-16
+
+* prevent record destruction by visiting new page
+
 ## 0.12.27 - 2017-01-31
 
 * update health center names (#292)
