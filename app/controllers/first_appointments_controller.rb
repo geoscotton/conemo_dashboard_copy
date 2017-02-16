@@ -13,7 +13,8 @@ class FirstAppointmentsController < ApplicationController
   end
 
   def new
-    @first_appointment = find_participant.build_first_appointment
+    @first_appointment = find_participant.first_appointment ||
+                         find_participant.build_first_appointment
   end
 
   def create

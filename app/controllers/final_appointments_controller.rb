@@ -4,7 +4,8 @@ class FinalAppointmentsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def new
-    @final_appointment = find_participant.build_final_appointment
+    @final_appointment = find_participant.final_appointment ||
+                         find_participant.build_final_appointment
   end
 
   def create

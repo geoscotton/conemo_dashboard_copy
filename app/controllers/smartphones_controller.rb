@@ -4,7 +4,8 @@ class SmartphonesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def new
-    @smartphone = find_participant.build_smartphone
+    @smartphone = find_participant.smartphone ||
+                  find_participant.build_smartphone
   end
 
   def create

@@ -47,6 +47,14 @@ RSpec.describe FirstContactsController, type: :controller do
         expect(assigns(:first_contact)).to be_instance_of FirstContact
         expect(assigns(:first_contact).participant).to eq participant
       end
+
+      it "doesn't destroy an existing contact" do
+        participant.create_first_contact(valid_first_contact_params)
+        expect do
+          nurse_request :get, :new, locale, participant_id: participant.id,
+                                            locale: locale
+        end.not_to change { FirstContact.count }
+      end
     end
   end
 

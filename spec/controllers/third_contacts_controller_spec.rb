@@ -70,6 +70,14 @@ RSpec.describe ThirdContactsController, type: :controller do
         expect(assigns(:third_contact)).to be_instance_of ThirdContact
         expect(assigns(:third_contact).participant).to eq participant
       end
+
+      it "does not destroy an existing appointment" do
+        participant.create_third_contact(valid_third_contact_params)
+        expect do
+          nurse_request :get, :new, locale, participant_id: participant.id,
+                                            locale: locale
+        end.not_to change { ThirdContact.count }
+      end
     end
   end
 

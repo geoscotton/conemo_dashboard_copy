@@ -4,7 +4,8 @@ class SecondContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def new
-    @second_contact = find_participant.build_second_contact
+    @second_contact = find_participant.second_contact ||
+                      find_participant.build_second_contact
   end
 
   def create

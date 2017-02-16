@@ -45,12 +45,20 @@ RSpec.describe SecondContactsController, type: :controller do
         it_behaves_like "a bad request"
       end
 
-      it "sets the second_contact" do
+      it "sets the second contact" do
         admin_request :get, :new, locale, participant_id: participant.id,
                                           locale: locale
 
         expect(assigns(:second_contact)).to be_instance_of SecondContact
         expect(assigns(:second_contact).participant).to eq participant
+      end
+
+      it "does not destroy an existing contact" do
+        participant.create_second_contact(valid_second_contact_params)
+        expect do
+          nurse_request :get, :new, locale, participant_id: participant.id,
+                                            locale: locale
+        end.not_to change { SecondContact.count }
       end
     end
   end

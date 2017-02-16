@@ -13,7 +13,8 @@ class ThirdContactsController < ApplicationController
   end
 
   def new
-    @third_contact = find_participant.build_third_contact
+    @third_contact = find_participant.third_contact ||
+                     find_participant.build_third_contact
   end
 
   def create

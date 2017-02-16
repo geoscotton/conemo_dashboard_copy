@@ -82,6 +82,14 @@ RSpec.describe FirstAppointmentsController, type: :controller do
         expect(assigns(:first_appointment)).to be_instance_of FirstAppointment
         expect(assigns(:first_appointment).participant).to eq participant
       end
+
+      it "does not destroy an existing appointment" do
+        participant.create_first_appointment(valid_first_appointment_params)
+        expect do
+          nurse_request :get, :new, locale, participant_id: participant.id,
+                                            locale: locale
+        end.not_to change { FirstAppointment.count }
+      end
     end
   end
 

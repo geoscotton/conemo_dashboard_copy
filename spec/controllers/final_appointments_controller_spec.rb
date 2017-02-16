@@ -48,6 +48,14 @@ RSpec.describe FinalAppointmentsController, type: :controller do
         expect(assigns(:final_appointment)).to be_instance_of FinalAppointment
         expect(assigns(:final_appointment).participant).to eq participant
       end
+
+      it "does not destroy an existing appointment" do
+        participant.create_final_appointment(valid_final_appointment_params)
+        expect do
+          nurse_request :get, :new, locale, participant_id: participant.id,
+                                            locale: locale
+        end.not_to change { FinalAppointment.count }
+      end
     end
   end
 

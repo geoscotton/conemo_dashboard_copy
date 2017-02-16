@@ -44,6 +44,14 @@ RSpec.describe SmartphonesController, type: :controller do
         expect(assigns(:smartphone)).to be_instance_of Smartphone
         expect(assigns(:smartphone).participant).to eq participant
       end
+
+      it "does not destroy an existing smartphone" do
+        participant.create_smartphone(valid_smartphone_params)
+        expect do
+          nurse_request :get, :new, locale, participant_id: participant.id,
+                                            locale: locale
+        end.not_to change { Smartphone.count }
+      end
     end
   end
 
