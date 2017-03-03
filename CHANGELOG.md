@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.29 - 2017-03-03
+
+* load existing/build new call to schedule final apt (#296)
+
 ## 0.12.28 - 2017-02-16
 
 * prevent record destruction by visiting new page
