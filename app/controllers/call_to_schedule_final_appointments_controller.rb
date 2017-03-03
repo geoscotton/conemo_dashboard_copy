@@ -5,6 +5,7 @@ class CallToScheduleFinalAppointmentsController < ApplicationController
 
   def new
     @call_to_schedule_final_appointment =
+      find_participant.call_to_schedule_final_appointment ||
       CallToScheduleFinalAppointment.build_for_participant(find_participant)
     authorize! :create, @call_to_schedule_final_appointment
   end

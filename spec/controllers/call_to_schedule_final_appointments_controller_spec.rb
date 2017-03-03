@@ -39,10 +39,12 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
     end
 
     context "for an authenticated nurse" do
+      before do
+        sign_in_user nurse
+      end
+
       context "when the Participant isn't found" do
         before do
-          sign_in_user nurse
-
           get :new, participant_id: -1, locale: locale
         end
 
@@ -50,14 +52,21 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
       end
 
       it "sets the call_to_schedule_final_appointment" do
-        sign_in_user nurse
-
         get :new, participant_id: participant.id, locale: locale
 
         expect(assigns(:call_to_schedule_final_appointment))
           .to be_instance_of CallToScheduleFinalAppointment
         expect(assigns(:call_to_schedule_final_appointment).participant)
           .to eq participant
+      end
+
+      it "sets an existing appointment" do
+        appointment =
+          participant.create_call_to_schedule_final_appointment(valid_params)
+
+        get :new, participant_id: participant.id, locale: locale
+
+        expect(assigns(:call_to_schedule_final_appointment)).to eq appointment
       end
     end
   end
