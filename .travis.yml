@@ -4,6 +4,7 @@ rvm:
   - 2.3.0
 before_script:
   - bundle exec rake db:create db:migrate
+  - bundle exec bundle-audit update
 sudo: false
 notifications:
   slack:

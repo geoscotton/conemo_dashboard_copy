@@ -8,12 +8,15 @@ Rails.application.load_tasks
 
 if Rails.env.test? || Rails.env.development?
   require "rubocop/rake_task"
+  require "bundler/audit/task"
 
   RuboCop::RakeTask.new
+  Bundler::Audit::Task.new
 
   task :default do
     Rake::Task["rubocop"].invoke
     dir = File.dirname(__FILE__)
     puts `#{ File.join(dir, "bin", "brakeman") } #{ File.join(dir, ".") }`
+    Rake::Task["bundle:audit"].invoke
   end
 end
