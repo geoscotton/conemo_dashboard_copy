@@ -70,8 +70,8 @@ module Concerns
             allow(access_events).to receive_message_chain("where.order")
               .and_return([])
             allow(completion_events)
-              .to receive(:find_by).with(lesson_id: lesson.id)
-              .and_return(nil)
+              .to receive_message_chain("where.order")
+              .and_return([])
             allow(Lesson).to receive_message_chain("where.where.order")
               .and_return([lesson])
 
@@ -89,8 +89,8 @@ module Concerns
                 allow(access_events).to receive_message_chain("where.order")
                   .and_return([])
                 allow(completion_events)
-                  .to receive(:find_by).with(lesson_id: lesson.id)
-                  .and_return(nil)
+                  .to receive_message_chain("where.order")
+                  .and_return([])
                 allow(Lesson).to receive_message_chain("where.where.order")
                   .and_return([current_lesson])
 
@@ -116,8 +116,8 @@ module Concerns
                 allow(access_events).to receive_message_chain("where.order")
                   .and_return([access])
                 allow(completion_events)
-                  .to receive(:find_by).with(lesson_id: current_lesson.id)
-                  .and_return(late_completion)
+                  .to receive_message_chain("where.order")
+                  .and_return([late_completion])
 
                 expect(participant.lesson_status(current_lesson))
                   .to eq statuses.completed_late
@@ -133,8 +133,8 @@ module Concerns
                   allow(access_events).to receive_message_chain("where.order")
                     .and_return([access])
                   allow(completion_events)
-                    .to receive(:find_by).with(lesson_id: lesson.id)
-                    .and_return(late_completion)
+                    .to receive_message_chain("where.order")
+                    .and_return([late_completion])
                   allow(Lesson).to receive_message_chain("where.where.order")
                     .and_return([current_lesson])
                   allow(lesson).to receive(:day_in_treatment) { 0 }
@@ -152,8 +152,8 @@ module Concerns
                                                  day_in_treatment: 1)
                 access = instance_double(SessionEvent)
                 allow(completion_events)
-                  .to receive(:find_by).with(lesson_id: lesson.id)
-                  .and_return(nil)
+                  .to receive_message_chain("where.order")
+                  .and_return([])
                 allow(access_events).to receive_message_chain("where.order")
                   .and_return([access])
                 allow(Lesson).to receive_message_chain("where.where.order")
@@ -180,8 +180,8 @@ module Concerns
                   allow(access_events).to receive_message_chain("where.order")
                     .and_return([access])
                   allow(completion_events)
-                    .to receive(:find_by).with(lesson_id: current_lesson.id)
-                    .and_return(on_time_completion)
+                    .to receive_message_chain("where.order")
+                    .and_return([on_time_completion])
 
                   expect(participant.lesson_status(current_lesson))
                     .to eq statuses.completed_on_time

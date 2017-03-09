@@ -18,7 +18,7 @@ module Status
   end
 
   def access_response(lesson)
-    content_access_events.find_by lesson_id: lesson.id
+    content_access_events.where(lesson_id: lesson.id).order(:created_at).first
   end
 
   private
