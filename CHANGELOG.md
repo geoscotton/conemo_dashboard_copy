@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.30 - 2017-03-09
+
+* incorporate bundler-audit (#299)
+* display early/late lesson status correctly (#298)
+
 ## 0.12.29 - 2017-03-03
 
 * load existing/build new call to schedule final apt (#296)
