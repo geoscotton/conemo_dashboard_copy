@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.12.31 - 2017-04-04
+
+* MC-817 prevent non-connectivity tasks for longer (#302)
+* MC-815 update dependencies for nokogiri patch
+
 ## 0.12.30 - 2017-03-09
 
 * incorporate bundler-audit (#299)
