@@ -104,7 +104,7 @@ module Tasks
 
             context "and the task was resolved recently" do
               it "doesn't create a task" do
-                resolved_task.update updated_at: 5.minutes.ago
+                resolved_task.update updated_at: 13.hours.ago
 
                 expect do
                   LackOfConnectivity.create_tasks([stale_device])

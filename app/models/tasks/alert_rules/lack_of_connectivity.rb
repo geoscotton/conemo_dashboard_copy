@@ -4,7 +4,7 @@ module Tasks
     # Determines when network connectivity has been absent and is alertable.
     module LackOfConnectivity
       ALERTABLE_AFTER_DAYS = 2
-      TASK_FREE_PERIOD = 12.hours
+      TASK_FREE_PERIOD = 48.hours
 
       class << self
         def create_tasks(devices = nil)
