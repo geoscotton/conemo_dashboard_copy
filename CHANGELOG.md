@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.32 - 2017-06-20
+
+* MC-824 allow admins to read/update tasks (#304)
+
 ## 0.12.31 - 2017-04-04
 
 * MC-817 prevent non-connectivity tasks for longer (#302)
