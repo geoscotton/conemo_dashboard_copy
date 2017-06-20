@@ -50,6 +50,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_raven_user_context
-    Raven.user_context(user_id: current_user.try(:id))
+    Raven.user_context(id: current_user.try(:id))
   end
 end

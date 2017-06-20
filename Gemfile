@@ -18,7 +18,7 @@ gem "jbuilder"
 gem "ckeditor"
 gem "normalize-rails"
 gem "nokogiri", ">= 1.6.7.2"
-gem "sentry-raven", "~> 0.15.2"
+gem "sentry-raven", "~> 2.5"
 # for model lifecycle hooks
 gem "rails-observers", "~> 0.1.2"
 # for business date calculations

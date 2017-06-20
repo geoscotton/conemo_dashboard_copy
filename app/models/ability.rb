@@ -39,6 +39,7 @@ class Ability
     can :manage, BitCore::Slide
     can [:create, :read, :update], Device, participant: { locale: admin.locale }
     can :manage, Lesson, locale: admin.locale
+    can [:read, :update], NurseTask, participant: { locale: admin.locale }
     can [:create, :read, :update], Participant, locale: admin.locale
     can :read, PastDeviceAssignment, participant: { locale: admin.locale }
     can :manage, User, locale: admin.locale

@@ -29,6 +29,7 @@ RSpec.describe Ability do
     let(:es_nurse) { users(:peruvian_nurse) }
     let(:en_lesson) { lessons(:day1) }
     let(:pt_lesson) { lessons(:day1_pt) }
+    let(:en_task) { nurse_tasks(:en_confirmation_call) }
 
     it "can manage Nurses of the same locale" do
       en_nurses = User.where(role: User::ROLES[:nurse], locale: LOCALES[:en])
@@ -62,6 +63,11 @@ RSpec.describe Ability do
 
     it "cannot manage a Lesson of a different locale" do
       expect(en_admin_role.can?(:manage, pt_lesson)).to eq false
+    end
+
+    it "can read and update Nurse Tasks of the same locale" do
+      expect(en_admin_role.can?(:read, en_task)).to eq true
+      expect(en_admin_role.can?(:update, en_task)).to eq true
     end
 
     it "can manage Devices of the same locale" do
