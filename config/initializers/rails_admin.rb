@@ -27,7 +27,7 @@ RailsAdmin.config do |config|
       only [Admin, Nurse, NurseSupervisor, NurseTask]
     end
     edit do
-      only [Admin, Nurse, NurseSupervisor, NurseTask]
+      only [Admin, Nurse, NurseSupervisor, NurseTask, Participant]
     end
     bulk_delete
     show
@@ -147,6 +147,7 @@ RailsAdmin.config do |config|
       field :study_identifier
       field :locale
       field :start_date
+      field :status
     end
   end
 
