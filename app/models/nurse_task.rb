@@ -99,6 +99,16 @@ class NurseTask < ActiveRecord::Base
     ScheduledTaskCancellation.find_by(nurse_task: self).try(:explanation)
   end
 
+  # helper for Rails Admin
+  def status_enum
+    [
+      [STATUSES.active],
+      [STATUSES.resolved],
+      [STATUSES.cancelled],
+      [STATUSES.deleted]
+    ]
+  end
+
   private
 
   def symbolize(klass)

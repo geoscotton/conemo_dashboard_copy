@@ -102,7 +102,11 @@ RailsAdmin.config do |config|
     navigation_label "Data"
 
     list do
-      field :nurse
+      field :nurse do
+        pretty_value do
+          value.try(:email)
+        end
+      end
       field :participant
       field :type
       field :status
