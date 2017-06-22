@@ -76,6 +76,7 @@ Rails.application.routes.draw do
   end
 
   # catch all for unrecognized routes
-  get "*unknown", to: redirect("/404")
-  post "*unknown", to: redirect("/404")
+  get "(*unknown)", to: redirect("/")
+  post "(*unknown)", to: redirect("/")
+  match "(*unknown)", to: -> (hash) { [200, {}, [""]] }, via: :options
 end
