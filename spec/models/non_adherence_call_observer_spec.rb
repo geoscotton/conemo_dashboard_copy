@@ -16,7 +16,7 @@ RSpec.describe NonAdherenceCallObserver do
     Tasks::NonAdherenceCall.create!(participant: participant)
 
     expect do
-      observer.after_create(non_adherence)
+      observer.after_save(non_adherence)
     end.to change {
       Tasks::NonAdherenceCall
         .for_participant(participant)

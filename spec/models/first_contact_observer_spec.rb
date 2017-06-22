@@ -31,7 +31,7 @@ RSpec.describe FirstContactObserver do
     )
 
     expect do
-      observer.after_create(first_contact)
+      observer.after_save(first_contact)
     end.to change {
       Tasks::ConfirmationCall
         .for_participant(participant)

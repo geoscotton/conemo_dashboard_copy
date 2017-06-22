@@ -16,7 +16,7 @@ RSpec.describe ThirdContactObserver do
     )
 
     expect do
-      observer.after_create(third_contact)
+      observer.after_save(third_contact)
     end.to change {
       Tasks::FollowUpCallWeekThree
         .for_participant(participant)

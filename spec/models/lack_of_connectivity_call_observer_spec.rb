@@ -16,7 +16,7 @@ RSpec.describe LackOfConnectivityCallObserver do
     Tasks::LackOfConnectivityCall.create!(participant: participant)
 
     expect do
-      observer.after_create(lack_of_connectivity)
+      observer.after_save(lack_of_connectivity)
     end.to change {
       Tasks::LackOfConnectivityCall
         .for_participant(participant)

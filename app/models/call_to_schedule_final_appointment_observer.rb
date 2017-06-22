@@ -6,9 +6,7 @@ class CallToScheduleFinalAppointmentObserver < ActiveRecord::Observer
       participant: scheduling_call.participant,
       scheduled_at: scheduling_call.final_appointment_at
     )
-  end
 
-  def after_create(scheduling_call)
     Tasks::CallToScheduleFinalAppointment.active.find_by(
       participant: scheduling_call.participant
     ).try(:resolve)

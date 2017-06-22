@@ -31,7 +31,7 @@ RSpec.describe CallToScheduleFinalAppointmentObserver do
     )
 
     expect do
-      observer.after_create(call_to_schedule_final_appointment)
+      observer.after_save(call_to_schedule_final_appointment)
     end.to change {
       Tasks::CallToScheduleFinalAppointment
         .for_participant(participant)

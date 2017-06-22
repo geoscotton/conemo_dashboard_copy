@@ -18,7 +18,7 @@ RSpec.describe FinalAppointmentObserver do
     )
 
     expect do
-      observer.after_create(final_appointment)
+      observer.after_save(final_appointment)
     end.to change {
       Tasks::FinalInPersonAppointment
         .for_participant(participant)
@@ -29,7 +29,7 @@ RSpec.describe FinalAppointmentObserver do
 
   it "completes the Participant" do
     expect do
-      observer.after_create(final_appointment)
+      observer.after_save(final_appointment)
     end.to change {
       participant.status
     }.from(Participant::ACTIVE).to(Participant::COMPLETED)

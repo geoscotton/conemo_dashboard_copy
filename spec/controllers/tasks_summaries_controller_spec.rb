@@ -44,7 +44,7 @@ RSpec.describe TasksSummariesController, type: :controller do
 
       it "assigns the active participants" do
         # ensure records are populated
-        expect(Participant.where(nurse: nurse).active.count).to be > 0
+        Participant.where(nurse: nurse).first.update status: Participant::ACTIVE
 
         show_for_nurse
 

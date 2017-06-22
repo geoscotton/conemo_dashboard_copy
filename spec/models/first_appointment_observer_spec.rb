@@ -51,7 +51,7 @@ RSpec.describe FirstAppointmentObserver do
     Tasks::InitialInPersonAppointment.create!(participant: participant)
 
     expect do
-      observer.after_create(first_appointment)
+      observer.after_save(first_appointment)
     end.to change {
       Tasks::InitialInPersonAppointment
         .for_participant(participant)

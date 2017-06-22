@@ -16,7 +16,7 @@ RSpec.describe HelpRequestCallObserver do
     Tasks::HelpRequest.create!(participant: participant)
 
     expect do
-      observer.after_create(help_request)
+      observer.after_save(help_request)
     end.to change {
       Tasks::HelpRequest
         .for_participant(participant)
