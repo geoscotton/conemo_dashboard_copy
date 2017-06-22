@@ -104,6 +104,11 @@ class Participant < ActiveRecord::Base
     update status: COMPLETED
   end
 
+  # helper for Rails Admin
+  def status_enum
+    [[ACTIVE], [DROPPED_OUT], [COMPLETED]]
+  end
+
   private
 
   def sanitize_number

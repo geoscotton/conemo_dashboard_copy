@@ -145,8 +145,6 @@ RailsAdmin.config do |config|
       field :last_name
       field :phone
       field :study_identifier
-      field :locale
-      field :start_date
       field :status
     end
   end
