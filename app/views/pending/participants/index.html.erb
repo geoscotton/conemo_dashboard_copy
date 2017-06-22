@@ -2,7 +2,7 @@
   <div class="col-md-12 col-sm-12">
     <h3><%= Participant.model_name.human(count: 2) %>
       <% if can? :create, Participant %>
-        <%= link_to " #{t '.add_new_participant'}", new_participant_path, class: "pull-right btn btn-primary fa fa-plus btn-lg" %>
+        <%= link_to t('.add_new_participant'), new_participant_path, class: "pull-right btn btn-primary fa fa-plus btn-lg" %>
       <% end %>
     </h3>
   </div>
