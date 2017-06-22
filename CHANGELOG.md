@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.13.0 - 2017-06-22
+
+* MC-827 ensure tasks can be re-resolved (#310)
+* handle POST/GET/OPTIONS routing errors gracefully (#309)
+* MC-826 prettify value of Nurse for NurseTask (#308)
+* MC-825 simplify Rails Admin Participant edit (#307)
+
 ## 0.12.32 - 2017-06-20
 
 * MC-824 allow admins to read/update tasks (#304)
