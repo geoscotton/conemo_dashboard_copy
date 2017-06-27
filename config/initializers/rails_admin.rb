@@ -107,7 +107,9 @@ RailsAdmin.config do |config|
           value.try(:email)
         end
       end
-      field :participant
+      field :participant do
+        searchable :study_identifier
+      end
       field :type
       field :status
       field :scheduled_at
