@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.13.1 - 2017-06-27
+
+* MC-829 make Tasks filterable by Participant id (#312)
+
 ## 0.13.0 - 2017-06-22
 
 * MC-827 ensure tasks can be re-resolved (#310)
