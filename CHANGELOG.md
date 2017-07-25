@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.13.2 - 2017-07-25
+
+* MC-837 fix updating task dates in dashboard
+
 ## 0.13.1 - 2017-06-27
 
 * MC-829 make Tasks filterable by Participant id (#312)
