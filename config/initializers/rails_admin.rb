@@ -115,6 +115,19 @@ RailsAdmin.config do |config|
       field :scheduled_at
       field :overdue_at
     end
+
+    edit do
+      field :participant do
+        read_only true
+      end
+      field :status
+      field :scheduled_at do
+        strftime_format "%Y-%m-%d %H:%M"
+      end
+      field :overdue_at do
+        read_only true
+      end
+    end
   end
 
   config.model Participant do
