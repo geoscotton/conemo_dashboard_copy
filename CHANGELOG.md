@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.3 - 2017-09-27
+
+* Update nokogiri gem (#315)
+* V0.13.1 (#314)
+
 ## 0.13.2 - 2017-07-25
 
 * MC-837 fix updating task dates in dashboard
