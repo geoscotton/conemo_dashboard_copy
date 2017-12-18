@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.4 - 2017-12-18
+
+* MC-842 redirect all unrecognized request verbs (#318)
+* MC-839 replace CallToScheduleFinalAppointment for double create (#317)
+
 ## 0.13.3 - 2017-09-27
 
 * Update nokogiri gem (#315)
