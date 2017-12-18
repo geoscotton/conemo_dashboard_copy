@@ -12,8 +12,7 @@ class CallToScheduleFinalAppointmentsController < ApplicationController
 
   def create
     @call_to_schedule_final_appointment =
-      CallToScheduleFinalAppointment.build_for_participant(find_participant,
-                                                           call_params)
+      find_participant.build_call_to_schedule_final_appointment(call_params)
     authorize! :create, @call_to_schedule_final_appointment
 
     if @call_to_schedule_final_appointment.save

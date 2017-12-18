@@ -95,7 +95,7 @@ RSpec.describe CallToScheduleFinalAppointmentsController, type: :controller do
 
     context "for an authenticated nurse" do
       context "when successful" do
-        it "creates a new FinalAppointment" do
+        it "creates a new CallToScheduleFinalAppointment" do
           expect do
             sign_in_user nurse
 
