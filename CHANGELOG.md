@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.13.5 - 2018-02-23
+
+* MC-845 apply security patches (#319)
+
 ## 0.13.3 - 2017-09-27
 
 * Update nokogiri gem (#315)
