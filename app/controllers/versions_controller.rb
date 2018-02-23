@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 # Render release version data.
 class VersionsController < ActionController::Base
+  protect_from_forgery with: :exception
+
   def show
     version = Rails.application.class.parent::VERSION
 

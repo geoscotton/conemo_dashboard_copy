@@ -31,7 +31,7 @@ end
 
 group :development, :test do
   gem "rspec-rails", "~> 3.4"
-  gem "rubocop", "~> 0.36"
+  gem "rubocop", "~> 0.49.0"
   gem "guard-rspec", require: false
   gem "spring-commands-rspec"
   gem "rb-fsevent"
