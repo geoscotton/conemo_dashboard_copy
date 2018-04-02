@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.7 - 2018-03-30
+
+* Merge pull request #323 from NU-CBITS/JN-MC-847
+* MC-847 patch loofah gem
+
 ## 0.13.6 - 2018-03-13
 
 * MC-846 patch rails admin to 1.3.0 (#321)
