@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.13.8 - 2018-04-02
+
+
 ## 0.13.7 - 2018-03-30
 
 * Merge pull request #323 from NU-CBITS/JN-MC-847
